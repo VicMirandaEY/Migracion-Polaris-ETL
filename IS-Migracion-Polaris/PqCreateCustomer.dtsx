@@ -11,8 +11,8 @@
   DTS:LocaleID="3082"
   DTS:ObjectName="PqCreateCustomer"
   DTS:PackageType="5"
-  DTS:VersionBuild="96"
-  DTS:VersionGUID="{A12A1C6D-717D-4524-8B7A-36AF05CF30C1}">
+  DTS:VersionBuild="97"
+  DTS:VersionGUID="{A5C34FD9-B9BD-4518-B2C2-610A3F84394C}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -100,7 +100,7 @@
                       refId="Package\Tarea Flujo de datos\Columna derivada.Inputs[Entrada de columna derivada].Columns[co_persona]"
                       cachedDataType="i4"
                       cachedName="co_persona"
-                      lineageId="Package\Tarea Flujo de datos\Premium ADO NET Source 1.Outputs[Default Output].Columns[co_persona]" />
+                      lineageId="Package\Tarea Flujo de datos\Premium ADO NET Source Persona.Outputs[Default Output].Columns[co_persona]" />
                   </inputColumns>
                   <externalMetadataColumns />
                 </input>
@@ -127,7 +127,7 @@
                           containsID="true"
                           dataType="System.String"
                           description="Expresión de columna derivada"
-                          name="Expression">"1" + [RIGHT]("000000" + (DT_STR,6,1252)#{Package\Tarea Flujo de datos\Premium ADO NET Source 1.Outputs[Default Output].Columns[co_persona]},6)</property>
+                          name="Expression">"1" + [RIGHT]("000000" + (DT_STR,6,1252)#{Package\Tarea Flujo de datos\Premium ADO NET Source Persona.Outputs[Default Output].Columns[co_persona]},6)</property>
                         <property
                           containsID="true"
                           dataType="System.String"
@@ -150,7 +150,7 @@
                           containsID="true"
                           dataType="System.String"
                           description="Expresión de columna derivada"
-                          name="Expression">"C-" + "1" + [RIGHT]("000000" + (DT_STR,6,1252)#{Package\Tarea Flujo de datos\Premium ADO NET Source 1.Outputs[Default Output].Columns[co_persona]},6)</property>
+                          name="Expression">"C-" + "1" + [RIGHT]("000000" + (DT_STR,6,1252)#{Package\Tarea Flujo de datos\Premium ADO NET Source Persona.Outputs[Default Output].Columns[co_persona]},6)</property>
                         <property
                           containsID="true"
                           dataType="System.String"
@@ -204,25 +204,25 @@
                       refId="Package\Tarea Flujo de datos\Columna derivada 1.Inputs[Entrada de columna derivada].Columns[co_ti_cliente]"
                       cachedDataType="i2"
                       cachedName="co_ti_cliente"
-                      lineageId="Package\Tarea Flujo de datos\Premium ADO NET Source 1.Outputs[Default Output].Columns[co_ti_cliente]" />
+                      lineageId="Package\Tarea Flujo de datos\Premium ADO NET Source Persona.Outputs[Default Output].Columns[co_ti_cliente]" />
                     <inputColumn
                       refId="Package\Tarea Flujo de datos\Columna derivada 1.Inputs[Entrada de columna derivada].Columns[nb_largo_persona]"
                       cachedCodepage="1252"
                       cachedDataType="str"
                       cachedLength="80"
                       cachedName="nb_largo_persona"
-                      lineageId="Package\Tarea Flujo de datos\Premium ADO NET Source 1.Outputs[Default Output].Columns[nb_largo_persona]" />
+                      lineageId="Package\Tarea Flujo de datos\Premium ADO NET Source Persona.Outputs[Default Output].Columns[nb_largo_persona]" />
                     <inputColumn
                       refId="Package\Tarea Flujo de datos\Columna derivada 1.Inputs[Entrada de columna derivada].Columns[ti_persona]"
                       cachedDataType="wstr"
                       cachedLength="1"
                       cachedName="ti_persona"
-                      lineageId="Package\Tarea Flujo de datos\Premium ADO NET Source 1.Outputs[Default Output].Columns[ti_persona]" />
+                      lineageId="Package\Tarea Flujo de datos\Premium ADO NET Source Persona.Outputs[Default Output].Columns[ti_persona]" />
                     <inputColumn
                       refId="Package\Tarea Flujo de datos\Columna derivada 1.Inputs[Entrada de columna derivada].Columns[co_persona]"
                       cachedDataType="i4"
                       cachedName="co_persona"
-                      lineageId="Package\Tarea Flujo de datos\Premium ADO NET Source 1.Outputs[Default Output].Columns[co_persona]" />
+                      lineageId="Package\Tarea Flujo de datos\Premium ADO NET Source Persona.Outputs[Default Output].Columns[co_persona]" />
                     <inputColumn
                       refId="Package\Tarea Flujo de datos\Columna derivada 1.Inputs[Entrada de columna derivada].Columns[CUSTOMER_STATUS]"
                       cachedDataType="i4"
@@ -233,7 +233,7 @@
                       cachedCodepage="1252"
                       cachedDataType="text"
                       cachedName="fe_registro_persona"
-                      lineageId="Package\Tarea Flujo de datos\Premium ADO NET Source 1.Outputs[Default Output].Columns[fe_registro_persona]" />
+                      lineageId="Package\Tarea Flujo de datos\Premium ADO NET Source Persona.Outputs[Default Output].Columns[fe_registro_persona]" />
                   </inputColumns>
                   <externalMetadataColumns />
                 </input>
@@ -260,7 +260,7 @@
                           containsID="true"
                           dataType="System.String"
                           description="Expresión de columna derivada"
-                          name="Expression">([ISNULL](#{Package\Tarea Flujo de datos\PSL SECTOR_INST.Outputs[Default Ouptut].Columns[CUSTOMER_STATUS]}) || #{Package\Tarea Flujo de datos\Premium ADO NET Source 1.Outputs[Default Output].Columns[co_ti_cliente]} == 9) ? "2001" : (#{Package\Tarea Flujo de datos\Premium ADO NET Source 1.Outputs[Default Output].Columns[co_persona]} == 30547 || #{Package\Tarea Flujo de datos\Premium ADO NET Source 1.Outputs[Default Output].Columns[co_persona]} == 10140) ? "3900" : (![ISNULL](#{Package\Tarea Flujo de datos\Premium ADO NET Source 1.Outputs[Default Output].Columns[nb_largo_persona]}) &amp;&amp; [FINDSTRING]([UPPER](#{Package\Tarea Flujo de datos\Premium ADO NET Source 1.Outputs[Default Output].Columns[nb_largo_persona]}),"BAN",1) &gt; 0 &amp;&amp; #{Package\Tarea Flujo de datos\Premium ADO NET Source 1.Outputs[Default Output].Columns[ti_persona]} == "J" &amp;&amp; (#{Package\Tarea Flujo de datos\Premium ADO NET Source 1.Outputs[Default Output].Columns[co_ti_cliente]} == 18 || #{Package\Tarea Flujo de datos\Premium ADO NET Source 1.Outputs[Default Output].Columns[co_ti_cliente]} == 20)) ? "3002" : (#{Package\Tarea Flujo de datos\Premium ADO NET Source 1.Outputs[Default Output].Columns[ti_persona]} == "N") ? "1001" : (DT_WSTR,10)#{Package\Tarea Flujo de datos\PSL SECTOR_INST.Outputs[Default Ouptut].Columns[CUSTOMER_STATUS]}</property>
+                          name="Expression">([ISNULL](#{Package\Tarea Flujo de datos\PSL SECTOR_INST.Outputs[Default Ouptut].Columns[CUSTOMER_STATUS]}) || #{Package\Tarea Flujo de datos\Premium ADO NET Source Persona.Outputs[Default Output].Columns[co_ti_cliente]} == 9) ? "2001" : (#{Package\Tarea Flujo de datos\Premium ADO NET Source Persona.Outputs[Default Output].Columns[co_persona]} == 30547 || #{Package\Tarea Flujo de datos\Premium ADO NET Source Persona.Outputs[Default Output].Columns[co_persona]} == 10140) ? "3900" : (![ISNULL](#{Package\Tarea Flujo de datos\Premium ADO NET Source Persona.Outputs[Default Output].Columns[nb_largo_persona]}) &amp;&amp; [FINDSTRING]([UPPER](#{Package\Tarea Flujo de datos\Premium ADO NET Source Persona.Outputs[Default Output].Columns[nb_largo_persona]}),"BAN",1) &gt; 0 &amp;&amp; #{Package\Tarea Flujo de datos\Premium ADO NET Source Persona.Outputs[Default Output].Columns[ti_persona]} == "J" &amp;&amp; (#{Package\Tarea Flujo de datos\Premium ADO NET Source Persona.Outputs[Default Output].Columns[co_ti_cliente]} == 18 || #{Package\Tarea Flujo de datos\Premium ADO NET Source Persona.Outputs[Default Output].Columns[co_ti_cliente]} == 20)) ? "3002" : (#{Package\Tarea Flujo de datos\Premium ADO NET Source Persona.Outputs[Default Output].Columns[ti_persona]} == "N") ? "1001" : (DT_WSTR,10)#{Package\Tarea Flujo de datos\PSL SECTOR_INST.Outputs[Default Ouptut].Columns[CUSTOMER_STATUS]}</property>
                         <property
                           containsID="true"
                           dataType="System.String"
@@ -283,7 +283,7 @@
                           containsID="true"
                           dataType="System.String"
                           description="Expresión de columna derivada"
-                          name="Expression">#{Package\Tarea Flujo de datos\Premium ADO NET Source 1.Outputs[Default Output].Columns[fe_registro_persona]}</property>
+                          name="Expression">#{Package\Tarea Flujo de datos\Premium ADO NET Source Persona.Outputs[Default Output].Columns[fe_registro_persona]}</property>
                         <property
                           containsID="true"
                           dataType="System.String"
@@ -337,54 +337,54 @@
                       refId="Package\Tarea Flujo de datos\División condicional.Inputs[Entrada de división condicional].Columns[co_pais_base]"
                       cachedDataType="i2"
                       cachedName="co_pais_base"
-                      lineageId="Package\Tarea Flujo de datos\Premium ADO NET Source 1.Outputs[Default Output].Columns[co_pais_base]" />
+                      lineageId="Package\Tarea Flujo de datos\Premium ADO NET Source Persona.Outputs[Default Output].Columns[co_pais_base]" />
                     <inputColumn
                       refId="Package\Tarea Flujo de datos\División condicional.Inputs[Entrada de división condicional].Columns[co_pais_nacionalidad]"
                       cachedDataType="i2"
                       cachedName="co_pais_nacionalidad"
-                      lineageId="Package\Tarea Flujo de datos\Premium ADO NET Source 1.Outputs[Default Output].Columns[co_pais_nacionalidad]" />
+                      lineageId="Package\Tarea Flujo de datos\Premium ADO NET Source Persona.Outputs[Default Output].Columns[co_pais_nacionalidad]" />
                     <inputColumn
                       refId="Package\Tarea Flujo de datos\División condicional.Inputs[Entrada de división condicional].Columns[co_persona]"
                       cachedDataType="i4"
                       cachedName="co_persona"
-                      lineageId="Package\Tarea Flujo de datos\Premium ADO NET Source 1.Outputs[Default Output].Columns[co_persona]" />
+                      lineageId="Package\Tarea Flujo de datos\Premium ADO NET Source Persona.Outputs[Default Output].Columns[co_persona]" />
                     <inputColumn
                       refId="Package\Tarea Flujo de datos\División condicional.Inputs[Entrada de división condicional].Columns[co_unidad_responsable]"
                       cachedDataType="i2"
                       cachedName="co_unidad_responsable"
-                      lineageId="Package\Tarea Flujo de datos\Premium ADO NET Source 1.Outputs[Default Output].Columns[co_unidad_responsable]" />
+                      lineageId="Package\Tarea Flujo de datos\Premium ADO NET Source Persona.Outputs[Default Output].Columns[co_unidad_responsable]" />
                     <inputColumn
                       refId="Package\Tarea Flujo de datos\División condicional.Inputs[Entrada de división condicional].Columns[Co_CIIU]"
                       cachedDataType="wstr"
                       cachedLength="18"
                       cachedName="Co_CIIU"
-                      lineageId="Package\Tarea Flujo de datos\Premium ADO NET Source 1.Outputs[Default Output].Columns[Co_CIIU]" />
+                      lineageId="Package\Tarea Flujo de datos\Premium ADO NET Source Persona.Outputs[Default Output].Columns[Co_CIIU]" />
                     <inputColumn
                       refId="Package\Tarea Flujo de datos\División condicional.Inputs[Entrada de división condicional].Columns[MNemonic]"
                       cachedCodepage="1252"
                       cachedDataType="str"
                       cachedLength="1"
                       cachedName="MNemonic"
-                      lineageId="Package\Tarea Flujo de datos\Premium ADO NET Source 1.Outputs[Default Output].Columns[MNemonic]" />
+                      lineageId="Package\Tarea Flujo de datos\Premium ADO NET Source Persona.Outputs[Default Output].Columns[MNemonic]" />
                     <inputColumn
                       refId="Package\Tarea Flujo de datos\División condicional.Inputs[Entrada de división condicional].Columns[TARGET]"
                       cachedDataType="i4"
                       cachedName="TARGET"
-                      lineageId="Package\Tarea Flujo de datos\Premium ADO NET Source 1.Outputs[Default Output].Columns[TARGET]" />
+                      lineageId="Package\Tarea Flujo de datos\Premium ADO NET Source Persona.Outputs[Default Output].Columns[TARGET]" />
                     <inputColumn
                       refId="Package\Tarea Flujo de datos\División condicional.Inputs[Entrada de división condicional].Columns[NAME.1]"
                       cachedCodepage="1252"
                       cachedDataType="str"
                       cachedLength="70"
                       cachedName="NAME.1"
-                      lineageId="Package\Tarea Flujo de datos\Premium ADO NET Source 1.Outputs[Default Output].Columns[NAME.1]" />
+                      lineageId="Package\Tarea Flujo de datos\Premium ADO NET Source Persona.Outputs[Default Output].Columns[NAME.1]" />
                     <inputColumn
                       refId="Package\Tarea Flujo de datos\División condicional.Inputs[Entrada de división condicional].Columns[SHORT.NAME]"
                       cachedCodepage="1252"
                       cachedDataType="str"
                       cachedLength="70"
                       cachedName="SHORT.NAME"
-                      lineageId="Package\Tarea Flujo de datos\Premium ADO NET Source 1.Outputs[Default Output].Columns[SHORT.NAME]" />
+                      lineageId="Package\Tarea Flujo de datos\Premium ADO NET Source Persona.Outputs[Default Output].Columns[SHORT.NAME]" />
                     <inputColumn
                       refId="Package\Tarea Flujo de datos\División condicional.Inputs[Entrada de división condicional].Columns[COMPANYId]"
                       cachedDataType="wstr"
@@ -427,7 +427,7 @@
                       containsID="true"
                       dataType="System.String"
                       description="Especifica la expresión. Esta versión de expresión usa identificadores de linaje en lugar de nombres de columna."
-                      name="Expression">[ISNULL](#{Package\Tarea Flujo de datos\PSL COMPANY.Outputs[Default Ouptut].Columns[COMPANYId]}) || [ISNULL](#{Package\Tarea Flujo de datos\Premium ADO NET Source 1.Outputs[Default Output].Columns[co_persona]}) || [ISNULL](#{Package\Tarea Flujo de datos\Premium ADO NET Source 1.Outputs[Default Output].Columns[MNemonic]}) || [ISNULL](#{Package\Tarea Flujo de datos\Premium ADO NET Source 1.Outputs[Default Output].Columns[SHORT.NAME]}) || [ISNULL](#{Package\Tarea Flujo de datos\Premium ADO NET Source 1.Outputs[Default Output].Columns[NAME.1]}) || [ISNULL]("") || [ISNULL](#{Package\Tarea Flujo de datos\Premium ADO NET Source 1.Outputs[Default Output].Columns[co_pais_base]}) || [ISNULL](#{Package\Tarea Flujo de datos\PSL SECTOR.Outputs[Default Ouptut].Columns[SECTORId]}) || [ISNULL](#{Package\Tarea Flujo de datos\Premium ADO NET Source 1.Outputs[Default Output].Columns[co_unidad_responsable]}) || [ISNULL](#{Package\Tarea Flujo de datos\Premium ADO NET Source 1.Outputs[Default Output].Columns[Co_CIIU]}) || [ISNULL](#{Package\Tarea Flujo de datos\Premium ADO NET Source 1.Outputs[Default Output].Columns[co_pais_base]}) || [ISNULL](#{Package\Tarea Flujo de datos\PSL  PER_JURIDICA.Outputs[Default Ouptut].Columns[PER_JUR.co_sector_institucional]}) || [ISNULL](#{Package\Tarea Flujo de datos\Premium ADO NET Source 1.Outputs[Default Output].Columns[co_pais_nacionalidad]}) || [ISNULL](#{Package\Tarea Flujo de datos\PSL  LANGUAGE.Outputs[Default Ouptut].Columns[LANGUAGEId]}) || [ISNULL](#{Package\Tarea Flujo de datos\Premium ADO NET Source 1.Outputs[Default Output].Columns[TARGET]})</property>
+                      name="Expression">[ISNULL](#{Package\Tarea Flujo de datos\PSL COMPANY.Outputs[Default Ouptut].Columns[COMPANYId]}) || [ISNULL](#{Package\Tarea Flujo de datos\Premium ADO NET Source Persona.Outputs[Default Output].Columns[co_persona]}) || [ISNULL](#{Package\Tarea Flujo de datos\Premium ADO NET Source Persona.Outputs[Default Output].Columns[MNemonic]}) || [ISNULL](#{Package\Tarea Flujo de datos\Premium ADO NET Source Persona.Outputs[Default Output].Columns[SHORT.NAME]}) || [ISNULL](#{Package\Tarea Flujo de datos\Premium ADO NET Source Persona.Outputs[Default Output].Columns[NAME.1]}) || [ISNULL]("") || [ISNULL](#{Package\Tarea Flujo de datos\Premium ADO NET Source Persona.Outputs[Default Output].Columns[co_pais_base]}) || [ISNULL](#{Package\Tarea Flujo de datos\PSL SECTOR.Outputs[Default Ouptut].Columns[SECTORId]}) || [ISNULL](#{Package\Tarea Flujo de datos\Premium ADO NET Source Persona.Outputs[Default Output].Columns[co_unidad_responsable]}) || [ISNULL](#{Package\Tarea Flujo de datos\Premium ADO NET Source Persona.Outputs[Default Output].Columns[Co_CIIU]}) || [ISNULL](#{Package\Tarea Flujo de datos\Premium ADO NET Source Persona.Outputs[Default Output].Columns[co_pais_base]}) || [ISNULL](#{Package\Tarea Flujo de datos\PSL  PER_JURIDICA.Outputs[Default Ouptut].Columns[PER_JUR.co_sector_institucional]}) || [ISNULL](#{Package\Tarea Flujo de datos\Premium ADO NET Source Persona.Outputs[Default Output].Columns[co_pais_nacionalidad]}) || [ISNULL](#{Package\Tarea Flujo de datos\PSL  LANGUAGE.Outputs[Default Ouptut].Columns[LANGUAGEId]}) || [ISNULL](#{Package\Tarea Flujo de datos\Premium ADO NET Source Persona.Outputs[Default Output].Columns[TARGET]})</property>
                     <property
                       containsID="true"
                       dataType="System.String"
@@ -480,11 +480,11 @@
               </outputs>
             </component>
             <component
-              refId="Package\Tarea Flujo de datos\Premium ADO NET Source 1"
+              refId="Package\Tarea Flujo de datos\Premium ADO NET Source Persona"
               componentClassID="Microsoft.ManagedComponentHost"
               contactInfo="KingswaySoft Inc.; http://www.kingswaysoft.com; support@kingswaysoft.com; Copyright (c) 2011-2024 KingswaySoft Inc."
               description="Read data from an ADO.NET connection."
-              name="Premium ADO NET Source 1"
+              name="Premium ADO NET Source Persona"
               usesDispositions="true"
               version="2">
               <properties>
@@ -701,7 +701,7 @@ WHERE C.co_persona IN (53880, 53881, 37550, 53536, 66,224,248,253,292,339,844,10
               </properties>
               <connections>
                 <connection
-                  refId="Package\Tarea Flujo de datos\Premium ADO NET Source 1.Connections[ADO NET]"
+                  refId="Package\Tarea Flujo de datos\Premium ADO NET Source Persona.Connections[ADO NET]"
                   connectionManagerID="Package.ConnectionManagers[VENJJCR20.Personas]"
                   connectionManagerRefId="Package.ConnectionManagers[VENJJCR20.Personas]"
                   description="ADO.NET"
@@ -709,611 +709,611 @@ WHERE C.co_persona IN (53880, 53881, 37550, 53536, 66,224,248,253,292,339,844,10
               </connections>
               <outputs>
                 <output
-                  refId="Package\Tarea Flujo de datos\Premium ADO NET Source 1.Outputs[Default Output]"
+                  refId="Package\Tarea Flujo de datos\Premium ADO NET Source Persona.Outputs[Default Output]"
                   name="Default Output">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\Tarea Flujo de datos\Premium ADO NET Source 1.Outputs[Default Output].Columns[co_idioma_comunicacion]"
+                      refId="Package\Tarea Flujo de datos\Premium ADO NET Source Persona.Outputs[Default Output].Columns[co_idioma_comunicacion]"
                       dataType="i2"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Tarea Flujo de datos\Premium ADO NET Source 1.Outputs[Default Output].ExternalColumns[co_idioma_comunicacion]"
-                      lineageId="Package\Tarea Flujo de datos\Premium ADO NET Source 1.Outputs[Default Output].Columns[co_idioma_comunicacion]"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Premium ADO NET Source Persona.Outputs[Default Output].ExternalColumns[co_idioma_comunicacion]"
+                      lineageId="Package\Tarea Flujo de datos\Premium ADO NET Source Persona.Outputs[Default Output].Columns[co_idioma_comunicacion]"
                       name="co_idioma_comunicacion"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\Tarea Flujo de datos\Premium ADO NET Source 1.Outputs[Default Output].Columns[co_pais_base]"
+                      refId="Package\Tarea Flujo de datos\Premium ADO NET Source Persona.Outputs[Default Output].Columns[co_pais_base]"
                       dataType="i2"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Tarea Flujo de datos\Premium ADO NET Source 1.Outputs[Default Output].ExternalColumns[co_pais_base]"
-                      lineageId="Package\Tarea Flujo de datos\Premium ADO NET Source 1.Outputs[Default Output].Columns[co_pais_base]"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Premium ADO NET Source Persona.Outputs[Default Output].ExternalColumns[co_pais_base]"
+                      lineageId="Package\Tarea Flujo de datos\Premium ADO NET Source Persona.Outputs[Default Output].Columns[co_pais_base]"
                       name="co_pais_base"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\Tarea Flujo de datos\Premium ADO NET Source 1.Outputs[Default Output].Columns[co_pais_nacionalidad]"
+                      refId="Package\Tarea Flujo de datos\Premium ADO NET Source Persona.Outputs[Default Output].Columns[co_pais_nacionalidad]"
                       dataType="i2"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Tarea Flujo de datos\Premium ADO NET Source 1.Outputs[Default Output].ExternalColumns[co_pais_nacionalidad]"
-                      lineageId="Package\Tarea Flujo de datos\Premium ADO NET Source 1.Outputs[Default Output].Columns[co_pais_nacionalidad]"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Premium ADO NET Source Persona.Outputs[Default Output].ExternalColumns[co_pais_nacionalidad]"
+                      lineageId="Package\Tarea Flujo de datos\Premium ADO NET Source Persona.Outputs[Default Output].Columns[co_pais_nacionalidad]"
                       name="co_pais_nacionalidad"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\Tarea Flujo de datos\Premium ADO NET Source 1.Outputs[Default Output].Columns[co_persona]"
+                      refId="Package\Tarea Flujo de datos\Premium ADO NET Source Persona.Outputs[Default Output].Columns[co_persona]"
                       dataType="i4"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Tarea Flujo de datos\Premium ADO NET Source 1.Outputs[Default Output].ExternalColumns[co_persona]"
-                      lineageId="Package\Tarea Flujo de datos\Premium ADO NET Source 1.Outputs[Default Output].Columns[co_persona]"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Premium ADO NET Source Persona.Outputs[Default Output].ExternalColumns[co_persona]"
+                      lineageId="Package\Tarea Flujo de datos\Premium ADO NET Source Persona.Outputs[Default Output].Columns[co_persona]"
                       name="co_persona"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\Tarea Flujo de datos\Premium ADO NET Source 1.Outputs[Default Output].Columns[co_responsable]"
+                      refId="Package\Tarea Flujo de datos\Premium ADO NET Source Persona.Outputs[Default Output].Columns[co_responsable]"
                       dataType="wstr"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Tarea Flujo de datos\Premium ADO NET Source 1.Outputs[Default Output].ExternalColumns[co_responsable]"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Premium ADO NET Source Persona.Outputs[Default Output].ExternalColumns[co_responsable]"
                       length="4000"
-                      lineageId="Package\Tarea Flujo de datos\Premium ADO NET Source 1.Outputs[Default Output].Columns[co_responsable]"
+                      lineageId="Package\Tarea Flujo de datos\Premium ADO NET Source Persona.Outputs[Default Output].Columns[co_responsable]"
                       name="co_responsable"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\Tarea Flujo de datos\Premium ADO NET Source 1.Outputs[Default Output].Columns[co_ti_cliente]"
+                      refId="Package\Tarea Flujo de datos\Premium ADO NET Source Persona.Outputs[Default Output].Columns[co_ti_cliente]"
                       dataType="i2"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Tarea Flujo de datos\Premium ADO NET Source 1.Outputs[Default Output].ExternalColumns[co_ti_cliente]"
-                      lineageId="Package\Tarea Flujo de datos\Premium ADO NET Source 1.Outputs[Default Output].Columns[co_ti_cliente]"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Premium ADO NET Source Persona.Outputs[Default Output].ExternalColumns[co_ti_cliente]"
+                      lineageId="Package\Tarea Flujo de datos\Premium ADO NET Source Persona.Outputs[Default Output].Columns[co_ti_cliente]"
                       name="co_ti_cliente"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\Tarea Flujo de datos\Premium ADO NET Source 1.Outputs[Default Output].Columns[co_unidad_responsable]"
+                      refId="Package\Tarea Flujo de datos\Premium ADO NET Source Persona.Outputs[Default Output].Columns[co_unidad_responsable]"
                       dataType="i2"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Tarea Flujo de datos\Premium ADO NET Source 1.Outputs[Default Output].ExternalColumns[co_unidad_responsable]"
-                      lineageId="Package\Tarea Flujo de datos\Premium ADO NET Source 1.Outputs[Default Output].Columns[co_unidad_responsable]"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Premium ADO NET Source Persona.Outputs[Default Output].ExternalColumns[co_unidad_responsable]"
+                      lineageId="Package\Tarea Flujo de datos\Premium ADO NET Source Persona.Outputs[Default Output].Columns[co_unidad_responsable]"
                       name="co_unidad_responsable"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\Tarea Flujo de datos\Premium ADO NET Source 1.Outputs[Default Output].Columns[fe_registro_persona]"
+                      refId="Package\Tarea Flujo de datos\Premium ADO NET Source Persona.Outputs[Default Output].Columns[fe_registro_persona]"
                       codePage="1252"
                       dataType="text"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Tarea Flujo de datos\Premium ADO NET Source 1.Outputs[Default Output].ExternalColumns[fe_registro_persona]"
-                      lineageId="Package\Tarea Flujo de datos\Premium ADO NET Source 1.Outputs[Default Output].Columns[fe_registro_persona]"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Premium ADO NET Source Persona.Outputs[Default Output].ExternalColumns[fe_registro_persona]"
+                      lineageId="Package\Tarea Flujo de datos\Premium ADO NET Source Persona.Outputs[Default Output].Columns[fe_registro_persona]"
                       name="fe_registro_persona"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\Tarea Flujo de datos\Premium ADO NET Source 1.Outputs[Default Output].Columns[nb_corto_persona]"
+                      refId="Package\Tarea Flujo de datos\Premium ADO NET Source Persona.Outputs[Default Output].Columns[nb_corto_persona]"
                       codePage="1252"
                       dataType="str"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Tarea Flujo de datos\Premium ADO NET Source 1.Outputs[Default Output].ExternalColumns[nb_corto_persona]"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Premium ADO NET Source Persona.Outputs[Default Output].ExternalColumns[nb_corto_persona]"
                       length="40"
-                      lineageId="Package\Tarea Flujo de datos\Premium ADO NET Source 1.Outputs[Default Output].Columns[nb_corto_persona]"
+                      lineageId="Package\Tarea Flujo de datos\Premium ADO NET Source Persona.Outputs[Default Output].Columns[nb_corto_persona]"
                       name="nb_corto_persona"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\Tarea Flujo de datos\Premium ADO NET Source 1.Outputs[Default Output].Columns[nb_largo_persona]"
+                      refId="Package\Tarea Flujo de datos\Premium ADO NET Source Persona.Outputs[Default Output].Columns[nb_largo_persona]"
                       codePage="1252"
                       dataType="str"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Tarea Flujo de datos\Premium ADO NET Source 1.Outputs[Default Output].ExternalColumns[nb_largo_persona]"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Premium ADO NET Source Persona.Outputs[Default Output].ExternalColumns[nb_largo_persona]"
                       length="80"
-                      lineageId="Package\Tarea Flujo de datos\Premium ADO NET Source 1.Outputs[Default Output].Columns[nb_largo_persona]"
+                      lineageId="Package\Tarea Flujo de datos\Premium ADO NET Source Persona.Outputs[Default Output].Columns[nb_largo_persona]"
                       name="nb_largo_persona"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\Tarea Flujo de datos\Premium ADO NET Source 1.Outputs[Default Output].Columns[ti_persona]"
+                      refId="Package\Tarea Flujo de datos\Premium ADO NET Source Persona.Outputs[Default Output].Columns[ti_persona]"
                       dataType="wstr"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Tarea Flujo de datos\Premium ADO NET Source 1.Outputs[Default Output].ExternalColumns[ti_persona]"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Premium ADO NET Source Persona.Outputs[Default Output].ExternalColumns[ti_persona]"
                       length="1"
-                      lineageId="Package\Tarea Flujo de datos\Premium ADO NET Source 1.Outputs[Default Output].Columns[ti_persona]"
+                      lineageId="Package\Tarea Flujo de datos\Premium ADO NET Source Persona.Outputs[Default Output].Columns[ti_persona]"
                       name="ti_persona"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\Tarea Flujo de datos\Premium ADO NET Source 1.Outputs[Default Output].Columns[Centro_costos_persona]"
+                      refId="Package\Tarea Flujo de datos\Premium ADO NET Source Persona.Outputs[Default Output].Columns[Centro_costos_persona]"
                       dataType="wstr"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Tarea Flujo de datos\Premium ADO NET Source 1.Outputs[Default Output].ExternalColumns[Centro_costos_persona]"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Premium ADO NET Source Persona.Outputs[Default Output].ExternalColumns[Centro_costos_persona]"
                       length="3"
-                      lineageId="Package\Tarea Flujo de datos\Premium ADO NET Source 1.Outputs[Default Output].Columns[Centro_costos_persona]"
+                      lineageId="Package\Tarea Flujo de datos\Premium ADO NET Source Persona.Outputs[Default Output].Columns[Centro_costos_persona]"
                       name="Centro_costos_persona"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\Tarea Flujo de datos\Premium ADO NET Source 1.Outputs[Default Output].Columns[Co_CIIU]"
+                      refId="Package\Tarea Flujo de datos\Premium ADO NET Source Persona.Outputs[Default Output].Columns[Co_CIIU]"
                       dataType="wstr"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Tarea Flujo de datos\Premium ADO NET Source 1.Outputs[Default Output].ExternalColumns[Co_CIIU]"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Premium ADO NET Source Persona.Outputs[Default Output].ExternalColumns[Co_CIIU]"
                       length="18"
-                      lineageId="Package\Tarea Flujo de datos\Premium ADO NET Source 1.Outputs[Default Output].Columns[Co_CIIU]"
+                      lineageId="Package\Tarea Flujo de datos\Premium ADO NET Source Persona.Outputs[Default Output].Columns[Co_CIIU]"
                       name="Co_CIIU"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\Tarea Flujo de datos\Premium ADO NET Source 1.Outputs[Default Output].Columns[co_sector_economico]"
+                      refId="Package\Tarea Flujo de datos\Premium ADO NET Source Persona.Outputs[Default Output].Columns[co_sector_economico]"
                       dataType="i2"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Tarea Flujo de datos\Premium ADO NET Source 1.Outputs[Default Output].ExternalColumns[co_sector_economico]"
-                      lineageId="Package\Tarea Flujo de datos\Premium ADO NET Source 1.Outputs[Default Output].Columns[co_sector_economico]"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Premium ADO NET Source Persona.Outputs[Default Output].ExternalColumns[co_sector_economico]"
+                      lineageId="Package\Tarea Flujo de datos\Premium ADO NET Source Persona.Outputs[Default Output].Columns[co_sector_economico]"
                       name="co_sector_economico"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\Tarea Flujo de datos\Premium ADO NET Source 1.Outputs[Default Output].Columns[co_sector_institucional]"
+                      refId="Package\Tarea Flujo de datos\Premium ADO NET Source Persona.Outputs[Default Output].Columns[co_sector_institucional]"
                       dataType="i2"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Tarea Flujo de datos\Premium ADO NET Source 1.Outputs[Default Output].ExternalColumns[co_sector_institucional]"
-                      lineageId="Package\Tarea Flujo de datos\Premium ADO NET Source 1.Outputs[Default Output].Columns[co_sector_institucional]"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Premium ADO NET Source Persona.Outputs[Default Output].ExternalColumns[co_sector_institucional]"
+                      lineageId="Package\Tarea Flujo de datos\Premium ADO NET Source Persona.Outputs[Default Output].Columns[co_sector_institucional]"
                       name="co_sector_institucional"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\Tarea Flujo de datos\Premium ADO NET Source 1.Outputs[Default Output].Columns[Cod_Broker_persona]"
+                      refId="Package\Tarea Flujo de datos\Premium ADO NET Source Persona.Outputs[Default Output].Columns[Cod_Broker_persona]"
                       dataType="i4"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Tarea Flujo de datos\Premium ADO NET Source 1.Outputs[Default Output].ExternalColumns[Cod_Broker_persona]"
-                      lineageId="Package\Tarea Flujo de datos\Premium ADO NET Source 1.Outputs[Default Output].Columns[Cod_Broker_persona]"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Premium ADO NET Source Persona.Outputs[Default Output].ExternalColumns[Cod_Broker_persona]"
+                      lineageId="Package\Tarea Flujo de datos\Premium ADO NET Source Persona.Outputs[Default Output].Columns[Cod_Broker_persona]"
                       name="Cod_Broker_persona"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\Tarea Flujo de datos\Premium ADO NET Source 1.Outputs[Default Output].Columns[Company]"
+                      refId="Package\Tarea Flujo de datos\Premium ADO NET Source Persona.Outputs[Default Output].Columns[Company]"
                       codePage="1252"
                       dataType="str"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Tarea Flujo de datos\Premium ADO NET Source 1.Outputs[Default Output].ExternalColumns[Company]"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Premium ADO NET Source Persona.Outputs[Default Output].ExternalColumns[Company]"
                       length="3"
-                      lineageId="Package\Tarea Flujo de datos\Premium ADO NET Source 1.Outputs[Default Output].Columns[Company]"
+                      lineageId="Package\Tarea Flujo de datos\Premium ADO NET Source Persona.Outputs[Default Output].Columns[Company]"
                       name="Company"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\Tarea Flujo de datos\Premium ADO NET Source 1.Outputs[Default Output].Columns[de_contacto]"
+                      refId="Package\Tarea Flujo de datos\Premium ADO NET Source Persona.Outputs[Default Output].Columns[de_contacto]"
                       codePage="1252"
                       dataType="str"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Tarea Flujo de datos\Premium ADO NET Source 1.Outputs[Default Output].ExternalColumns[de_contacto]"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Premium ADO NET Source Persona.Outputs[Default Output].ExternalColumns[de_contacto]"
                       length="100"
-                      lineageId="Package\Tarea Flujo de datos\Premium ADO NET Source 1.Outputs[Default Output].Columns[de_contacto]"
+                      lineageId="Package\Tarea Flujo de datos\Premium ADO NET Source Persona.Outputs[Default Output].Columns[de_contacto]"
                       name="de_contacto"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\Tarea Flujo de datos\Premium ADO NET Source 1.Outputs[Default Output].Columns[de_sector_economico]"
+                      refId="Package\Tarea Flujo de datos\Premium ADO NET Source Persona.Outputs[Default Output].Columns[de_sector_economico]"
                       codePage="1252"
                       dataType="str"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Tarea Flujo de datos\Premium ADO NET Source 1.Outputs[Default Output].ExternalColumns[de_sector_economico]"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Premium ADO NET Source Persona.Outputs[Default Output].ExternalColumns[de_sector_economico]"
                       length="255"
-                      lineageId="Package\Tarea Flujo de datos\Premium ADO NET Source 1.Outputs[Default Output].Columns[de_sector_economico]"
+                      lineageId="Package\Tarea Flujo de datos\Premium ADO NET Source Persona.Outputs[Default Output].Columns[de_sector_economico]"
                       name="de_sector_economico"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\Tarea Flujo de datos\Premium ADO NET Source 1.Outputs[Default Output].Columns[de_sector_institucional]"
+                      refId="Package\Tarea Flujo de datos\Premium ADO NET Source Persona.Outputs[Default Output].Columns[de_sector_institucional]"
                       dataType="wstr"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Tarea Flujo de datos\Premium ADO NET Source 1.Outputs[Default Output].ExternalColumns[de_sector_institucional]"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Premium ADO NET Source Persona.Outputs[Default Output].ExternalColumns[de_sector_institucional]"
                       length="40"
-                      lineageId="Package\Tarea Flujo de datos\Premium ADO NET Source 1.Outputs[Default Output].Columns[de_sector_institucional]"
+                      lineageId="Package\Tarea Flujo de datos\Premium ADO NET Source Persona.Outputs[Default Output].Columns[de_sector_institucional]"
                       name="de_sector_institucional"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\Tarea Flujo de datos\Premium ADO NET Source 1.Outputs[Default Output].Columns[Email_persona]"
+                      refId="Package\Tarea Flujo de datos\Premium ADO NET Source Persona.Outputs[Default Output].Columns[Email_persona]"
                       codePage="1252"
                       dataType="str"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Tarea Flujo de datos\Premium ADO NET Source 1.Outputs[Default Output].ExternalColumns[Email_persona]"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Premium ADO NET Source Persona.Outputs[Default Output].ExternalColumns[Email_persona]"
                       length="100"
-                      lineageId="Package\Tarea Flujo de datos\Premium ADO NET Source 1.Outputs[Default Output].Columns[Email_persona]"
+                      lineageId="Package\Tarea Flujo de datos\Premium ADO NET Source Persona.Outputs[Default Output].Columns[Email_persona]"
                       name="Email_persona"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\Tarea Flujo de datos\Premium ADO NET Source 1.Outputs[Default Output].Columns[EXTERN_CUS_ID]"
+                      refId="Package\Tarea Flujo de datos\Premium ADO NET Source Persona.Outputs[Default Output].Columns[EXTERN_CUS_ID]"
                       dataType="i4"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Tarea Flujo de datos\Premium ADO NET Source 1.Outputs[Default Output].ExternalColumns[EXTERN_CUS_ID]"
-                      lineageId="Package\Tarea Flujo de datos\Premium ADO NET Source 1.Outputs[Default Output].Columns[EXTERN_CUS_ID]"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Premium ADO NET Source Persona.Outputs[Default Output].ExternalColumns[EXTERN_CUS_ID]"
+                      lineageId="Package\Tarea Flujo de datos\Premium ADO NET Source Persona.Outputs[Default Output].Columns[EXTERN_CUS_ID]"
                       name="EXTERN_CUS_ID"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\Tarea Flujo de datos\Premium ADO NET Source 1.Outputs[Default Output].Columns[Fe_Legal_Id]"
+                      refId="Package\Tarea Flujo de datos\Premium ADO NET Source Persona.Outputs[Default Output].Columns[Fe_Legal_Id]"
                       dataType="dbTimeStamp"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Tarea Flujo de datos\Premium ADO NET Source 1.Outputs[Default Output].ExternalColumns[Fe_Legal_Id]"
-                      lineageId="Package\Tarea Flujo de datos\Premium ADO NET Source 1.Outputs[Default Output].Columns[Fe_Legal_Id]"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Premium ADO NET Source Persona.Outputs[Default Output].ExternalColumns[Fe_Legal_Id]"
+                      lineageId="Package\Tarea Flujo de datos\Premium ADO NET Source Persona.Outputs[Default Output].Columns[Fe_Legal_Id]"
                       name="Fe_Legal_Id"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\Tarea Flujo de datos\Premium ADO NET Source 1.Outputs[Default Output].Columns[MNemonic]"
+                      refId="Package\Tarea Flujo de datos\Premium ADO NET Source Persona.Outputs[Default Output].Columns[MNemonic]"
                       codePage="1252"
                       dataType="str"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Tarea Flujo de datos\Premium ADO NET Source 1.Outputs[Default Output].ExternalColumns[MNemonic]"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Premium ADO NET Source Persona.Outputs[Default Output].ExternalColumns[MNemonic]"
                       length="1"
-                      lineageId="Package\Tarea Flujo de datos\Premium ADO NET Source 1.Outputs[Default Output].Columns[MNemonic]"
+                      lineageId="Package\Tarea Flujo de datos\Premium ADO NET Source Persona.Outputs[Default Output].Columns[MNemonic]"
                       name="MNemonic"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\Tarea Flujo de datos\Premium ADO NET Source 1.Outputs[Default Output].Columns[nb_idioma]"
+                      refId="Package\Tarea Flujo de datos\Premium ADO NET Source Persona.Outputs[Default Output].Columns[nb_idioma]"
                       dataType="wstr"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Tarea Flujo de datos\Premium ADO NET Source 1.Outputs[Default Output].ExternalColumns[nb_idioma]"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Premium ADO NET Source Persona.Outputs[Default Output].ExternalColumns[nb_idioma]"
                       length="20"
-                      lineageId="Package\Tarea Flujo de datos\Premium ADO NET Source 1.Outputs[Default Output].Columns[nb_idioma]"
+                      lineageId="Package\Tarea Flujo de datos\Premium ADO NET Source Persona.Outputs[Default Output].Columns[nb_idioma]"
                       name="nb_idioma"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\Tarea Flujo de datos\Premium ADO NET Source 1.Outputs[Default Output].Columns[Nb_Pais_base]"
+                      refId="Package\Tarea Flujo de datos\Premium ADO NET Source Persona.Outputs[Default Output].Columns[Nb_Pais_base]"
                       dataType="wstr"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Tarea Flujo de datos\Premium ADO NET Source 1.Outputs[Default Output].ExternalColumns[Nb_Pais_base]"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Premium ADO NET Source Persona.Outputs[Default Output].ExternalColumns[Nb_Pais_base]"
                       length="40"
-                      lineageId="Package\Tarea Flujo de datos\Premium ADO NET Source 1.Outputs[Default Output].Columns[Nb_Pais_base]"
+                      lineageId="Package\Tarea Flujo de datos\Premium ADO NET Source Persona.Outputs[Default Output].Columns[Nb_Pais_base]"
                       name="Nb_Pais_base"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\Tarea Flujo de datos\Premium ADO NET Source 1.Outputs[Default Output].Columns[Nb_pais_nacionalidad]"
+                      refId="Package\Tarea Flujo de datos\Premium ADO NET Source Persona.Outputs[Default Output].Columns[Nb_pais_nacionalidad]"
                       dataType="wstr"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Tarea Flujo de datos\Premium ADO NET Source 1.Outputs[Default Output].ExternalColumns[Nb_pais_nacionalidad]"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Premium ADO NET Source Persona.Outputs[Default Output].ExternalColumns[Nb_pais_nacionalidad]"
                       length="40"
-                      lineageId="Package\Tarea Flujo de datos\Premium ADO NET Source 1.Outputs[Default Output].Columns[Nb_pais_nacionalidad]"
+                      lineageId="Package\Tarea Flujo de datos\Premium ADO NET Source Persona.Outputs[Default Output].Columns[Nb_pais_nacionalidad]"
                       name="Nb_pais_nacionalidad"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\Tarea Flujo de datos\Premium ADO NET Source 1.Outputs[Default Output].Columns[Nb_Pais_Residence]"
+                      refId="Package\Tarea Flujo de datos\Premium ADO NET Source Persona.Outputs[Default Output].Columns[Nb_Pais_Residence]"
                       dataType="wstr"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Tarea Flujo de datos\Premium ADO NET Source 1.Outputs[Default Output].ExternalColumns[Nb_Pais_Residence]"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Premium ADO NET Source Persona.Outputs[Default Output].ExternalColumns[Nb_Pais_Residence]"
                       length="40"
-                      lineageId="Package\Tarea Flujo de datos\Premium ADO NET Source 1.Outputs[Default Output].Columns[Nb_Pais_Residence]"
+                      lineageId="Package\Tarea Flujo de datos\Premium ADO NET Source Persona.Outputs[Default Output].Columns[Nb_Pais_Residence]"
                       name="Nb_Pais_Residence"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\Tarea Flujo de datos\Premium ADO NET Source 1.Outputs[Default Output].Columns[Nb_responsable]"
+                      refId="Package\Tarea Flujo de datos\Premium ADO NET Source Persona.Outputs[Default Output].Columns[Nb_responsable]"
                       codePage="1252"
                       dataType="str"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Tarea Flujo de datos\Premium ADO NET Source 1.Outputs[Default Output].ExternalColumns[Nb_responsable]"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Premium ADO NET Source Persona.Outputs[Default Output].ExternalColumns[Nb_responsable]"
                       length="121"
-                      lineageId="Package\Tarea Flujo de datos\Premium ADO NET Source 1.Outputs[Default Output].Columns[Nb_responsable]"
+                      lineageId="Package\Tarea Flujo de datos\Premium ADO NET Source Persona.Outputs[Default Output].Columns[Nb_responsable]"
                       name="Nb_responsable"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\Tarea Flujo de datos\Premium ADO NET Source 1.Outputs[Default Output].Columns[nb_ti_cliente]"
+                      refId="Package\Tarea Flujo de datos\Premium ADO NET Source Persona.Outputs[Default Output].Columns[nb_ti_cliente]"
                       codePage="1252"
                       dataType="str"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Tarea Flujo de datos\Premium ADO NET Source 1.Outputs[Default Output].ExternalColumns[nb_ti_cliente]"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Premium ADO NET Source Persona.Outputs[Default Output].ExternalColumns[nb_ti_cliente]"
                       length="40"
-                      lineageId="Package\Tarea Flujo de datos\Premium ADO NET Source 1.Outputs[Default Output].Columns[nb_ti_cliente]"
+                      lineageId="Package\Tarea Flujo de datos\Premium ADO NET Source Persona.Outputs[Default Output].Columns[nb_ti_cliente]"
                       name="nb_ti_cliente"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\Tarea Flujo de datos\Premium ADO NET Source 1.Outputs[Default Output].Columns[RESIDENCE]"
+                      refId="Package\Tarea Flujo de datos\Premium ADO NET Source Persona.Outputs[Default Output].Columns[RESIDENCE]"
                       dataType="i2"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Tarea Flujo de datos\Premium ADO NET Source 1.Outputs[Default Output].ExternalColumns[RESIDENCE]"
-                      lineageId="Package\Tarea Flujo de datos\Premium ADO NET Source 1.Outputs[Default Output].Columns[RESIDENCE]"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Premium ADO NET Source Persona.Outputs[Default Output].ExternalColumns[RESIDENCE]"
+                      lineageId="Package\Tarea Flujo de datos\Premium ADO NET Source Persona.Outputs[Default Output].Columns[RESIDENCE]"
                       name="RESIDENCE"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\Tarea Flujo de datos\Premium ADO NET Source 1.Outputs[Default Output].Columns[TARGET]"
+                      refId="Package\Tarea Flujo de datos\Premium ADO NET Source Persona.Outputs[Default Output].Columns[TARGET]"
                       dataType="i4"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Tarea Flujo de datos\Premium ADO NET Source 1.Outputs[Default Output].ExternalColumns[TARGET]"
-                      lineageId="Package\Tarea Flujo de datos\Premium ADO NET Source 1.Outputs[Default Output].Columns[TARGET]"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Premium ADO NET Source Persona.Outputs[Default Output].ExternalColumns[TARGET]"
+                      lineageId="Package\Tarea Flujo de datos\Premium ADO NET Source Persona.Outputs[Default Output].Columns[TARGET]"
                       name="TARGET"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\Tarea Flujo de datos\Premium ADO NET Source 1.Outputs[Default Output].Columns[Text]"
+                      refId="Package\Tarea Flujo de datos\Premium ADO NET Source Persona.Outputs[Default Output].Columns[Text]"
                       codePage="1252"
                       dataType="str"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Tarea Flujo de datos\Premium ADO NET Source 1.Outputs[Default Output].ExternalColumns[Text]"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Premium ADO NET Source Persona.Outputs[Default Output].ExternalColumns[Text]"
                       length="14"
-                      lineageId="Package\Tarea Flujo de datos\Premium ADO NET Source 1.Outputs[Default Output].Columns[Text]"
+                      lineageId="Package\Tarea Flujo de datos\Premium ADO NET Source Persona.Outputs[Default Output].Columns[Text]"
                       name="Text"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\Tarea Flujo de datos\Premium ADO NET Source 1.Outputs[Default Output].Columns[Ti_Accionista]"
+                      refId="Package\Tarea Flujo de datos\Premium ADO NET Source Persona.Outputs[Default Output].Columns[Ti_Accionista]"
                       codePage="1252"
                       dataType="str"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Tarea Flujo de datos\Premium ADO NET Source 1.Outputs[Default Output].ExternalColumns[Ti_Accionista]"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Premium ADO NET Source Persona.Outputs[Default Output].ExternalColumns[Ti_Accionista]"
                       length="1"
-                      lineageId="Package\Tarea Flujo de datos\Premium ADO NET Source 1.Outputs[Default Output].Columns[Ti_Accionista]"
+                      lineageId="Package\Tarea Flujo de datos\Premium ADO NET Source Persona.Outputs[Default Output].Columns[Ti_Accionista]"
                       name="Ti_Accionista"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\Tarea Flujo de datos\Premium ADO NET Source 1.Outputs[Default Output].Columns[Unidad_Organizacional]"
+                      refId="Package\Tarea Flujo de datos\Premium ADO NET Source Persona.Outputs[Default Output].Columns[Unidad_Organizacional]"
                       dataType="wstr"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Tarea Flujo de datos\Premium ADO NET Source 1.Outputs[Default Output].ExternalColumns[Unidad_Organizacional]"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Premium ADO NET Source Persona.Outputs[Default Output].ExternalColumns[Unidad_Organizacional]"
                       length="60"
-                      lineageId="Package\Tarea Flujo de datos\Premium ADO NET Source 1.Outputs[Default Output].Columns[Unidad_Organizacional]"
+                      lineageId="Package\Tarea Flujo de datos\Premium ADO NET Source Persona.Outputs[Default Output].Columns[Unidad_Organizacional]"
                       name="Unidad_Organizacional"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\Tarea Flujo de datos\Premium ADO NET Source 1.Outputs[Default Output].Columns[NAME.1]"
+                      refId="Package\Tarea Flujo de datos\Premium ADO NET Source Persona.Outputs[Default Output].Columns[NAME.1]"
                       codePage="1252"
                       dataType="str"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Tarea Flujo de datos\Premium ADO NET Source 1.Outputs[Default Output].ExternalColumns[NAME.1]"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Premium ADO NET Source Persona.Outputs[Default Output].ExternalColumns[NAME.1]"
                       length="70"
-                      lineageId="Package\Tarea Flujo de datos\Premium ADO NET Source 1.Outputs[Default Output].Columns[NAME.1]"
+                      lineageId="Package\Tarea Flujo de datos\Premium ADO NET Source Persona.Outputs[Default Output].Columns[NAME.1]"
                       name="NAME.1"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\Tarea Flujo de datos\Premium ADO NET Source 1.Outputs[Default Output].Columns[NAME.2]"
+                      refId="Package\Tarea Flujo de datos\Premium ADO NET Source Persona.Outputs[Default Output].Columns[NAME.2]"
                       codePage="1252"
                       dataType="str"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Tarea Flujo de datos\Premium ADO NET Source 1.Outputs[Default Output].ExternalColumns[NAME.2]"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Premium ADO NET Source Persona.Outputs[Default Output].ExternalColumns[NAME.2]"
                       length="122"
-                      lineageId="Package\Tarea Flujo de datos\Premium ADO NET Source 1.Outputs[Default Output].Columns[NAME.2]"
+                      lineageId="Package\Tarea Flujo de datos\Premium ADO NET Source Persona.Outputs[Default Output].Columns[NAME.2]"
                       name="NAME.2"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\Tarea Flujo de datos\Premium ADO NET Source 1.Outputs[Default Output].Columns[SHORT.NAME]"
+                      refId="Package\Tarea Flujo de datos\Premium ADO NET Source Persona.Outputs[Default Output].Columns[SHORT.NAME]"
                       codePage="1252"
                       dataType="str"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Tarea Flujo de datos\Premium ADO NET Source 1.Outputs[Default Output].ExternalColumns[SHORT.NAME]"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Premium ADO NET Source Persona.Outputs[Default Output].ExternalColumns[SHORT.NAME]"
                       length="70"
-                      lineageId="Package\Tarea Flujo de datos\Premium ADO NET Source 1.Outputs[Default Output].Columns[SHORT.NAME]"
+                      lineageId="Package\Tarea Flujo de datos\Premium ADO NET Source Persona.Outputs[Default Output].Columns[SHORT.NAME]"
                       name="SHORT.NAME"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\Tarea Flujo de datos\Premium ADO NET Source 1.Outputs[Default Output].Columns[identificacion_persona]"
+                      refId="Package\Tarea Flujo de datos\Premium ADO NET Source Persona.Outputs[Default Output].Columns[identificacion_persona]"
                       dataType="wstr"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Tarea Flujo de datos\Premium ADO NET Source 1.Outputs[Default Output].ExternalColumns[identificacion_persona]"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Premium ADO NET Source Persona.Outputs[Default Output].ExternalColumns[identificacion_persona]"
                       length="4000"
-                      lineageId="Package\Tarea Flujo de datos\Premium ADO NET Source 1.Outputs[Default Output].Columns[identificacion_persona]"
+                      lineageId="Package\Tarea Flujo de datos\Premium ADO NET Source Persona.Outputs[Default Output].Columns[identificacion_persona]"
                       name="identificacion_persona"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\Tarea Flujo de datos\Premium ADO NET Source 1.Outputs[Default Output].Columns[ti_identificacion]"
+                      refId="Package\Tarea Flujo de datos\Premium ADO NET Source Persona.Outputs[Default Output].Columns[ti_identificacion]"
                       dataType="wstr"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Tarea Flujo de datos\Premium ADO NET Source 1.Outputs[Default Output].ExternalColumns[ti_identificacion]"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Premium ADO NET Source Persona.Outputs[Default Output].ExternalColumns[ti_identificacion]"
                       length="4000"
-                      lineageId="Package\Tarea Flujo de datos\Premium ADO NET Source 1.Outputs[Default Output].Columns[ti_identificacion]"
+                      lineageId="Package\Tarea Flujo de datos\Premium ADO NET Source Persona.Outputs[Default Output].Columns[ti_identificacion]"
                       name="ti_identificacion"
                       truncationRowDisposition="FailComponent" />
                   </outputColumns>
                   <externalMetadataColumns
                     isUsed="True">
                     <externalMetadataColumn
-                      refId="Package\Tarea Flujo de datos\Premium ADO NET Source 1.Outputs[Default Output].ExternalColumns[co_idioma_comunicacion]"
+                      refId="Package\Tarea Flujo de datos\Premium ADO NET Source Persona.Outputs[Default Output].ExternalColumns[co_idioma_comunicacion]"
                       dataType="i2"
                       name="co_idioma_comunicacion" />
                     <externalMetadataColumn
-                      refId="Package\Tarea Flujo de datos\Premium ADO NET Source 1.Outputs[Default Output].ExternalColumns[co_pais_base]"
+                      refId="Package\Tarea Flujo de datos\Premium ADO NET Source Persona.Outputs[Default Output].ExternalColumns[co_pais_base]"
                       dataType="i2"
                       name="co_pais_base" />
                     <externalMetadataColumn
-                      refId="Package\Tarea Flujo de datos\Premium ADO NET Source 1.Outputs[Default Output].ExternalColumns[co_pais_nacionalidad]"
+                      refId="Package\Tarea Flujo de datos\Premium ADO NET Source Persona.Outputs[Default Output].ExternalColumns[co_pais_nacionalidad]"
                       dataType="i2"
                       name="co_pais_nacionalidad" />
                     <externalMetadataColumn
-                      refId="Package\Tarea Flujo de datos\Premium ADO NET Source 1.Outputs[Default Output].ExternalColumns[co_persona]"
+                      refId="Package\Tarea Flujo de datos\Premium ADO NET Source Persona.Outputs[Default Output].ExternalColumns[co_persona]"
                       dataType="i4"
                       name="co_persona" />
                     <externalMetadataColumn
-                      refId="Package\Tarea Flujo de datos\Premium ADO NET Source 1.Outputs[Default Output].ExternalColumns[co_responsable]"
+                      refId="Package\Tarea Flujo de datos\Premium ADO NET Source Persona.Outputs[Default Output].ExternalColumns[co_responsable]"
                       dataType="wstr"
                       length="4000"
                       name="co_responsable" />
                     <externalMetadataColumn
-                      refId="Package\Tarea Flujo de datos\Premium ADO NET Source 1.Outputs[Default Output].ExternalColumns[co_ti_cliente]"
+                      refId="Package\Tarea Flujo de datos\Premium ADO NET Source Persona.Outputs[Default Output].ExternalColumns[co_ti_cliente]"
                       dataType="i2"
                       name="co_ti_cliente" />
                     <externalMetadataColumn
-                      refId="Package\Tarea Flujo de datos\Premium ADO NET Source 1.Outputs[Default Output].ExternalColumns[co_unidad_responsable]"
+                      refId="Package\Tarea Flujo de datos\Premium ADO NET Source Persona.Outputs[Default Output].ExternalColumns[co_unidad_responsable]"
                       dataType="i2"
                       name="co_unidad_responsable" />
                     <externalMetadataColumn
-                      refId="Package\Tarea Flujo de datos\Premium ADO NET Source 1.Outputs[Default Output].ExternalColumns[fe_registro_persona]"
+                      refId="Package\Tarea Flujo de datos\Premium ADO NET Source Persona.Outputs[Default Output].ExternalColumns[fe_registro_persona]"
                       codePage="1252"
                       dataType="text"
                       name="fe_registro_persona" />
                     <externalMetadataColumn
-                      refId="Package\Tarea Flujo de datos\Premium ADO NET Source 1.Outputs[Default Output].ExternalColumns[nb_corto_persona]"
+                      refId="Package\Tarea Flujo de datos\Premium ADO NET Source Persona.Outputs[Default Output].ExternalColumns[nb_corto_persona]"
                       codePage="1252"
                       dataType="str"
                       length="40"
                       name="nb_corto_persona" />
                     <externalMetadataColumn
-                      refId="Package\Tarea Flujo de datos\Premium ADO NET Source 1.Outputs[Default Output].ExternalColumns[nb_largo_persona]"
+                      refId="Package\Tarea Flujo de datos\Premium ADO NET Source Persona.Outputs[Default Output].ExternalColumns[nb_largo_persona]"
                       codePage="1252"
                       dataType="str"
                       length="80"
                       name="nb_largo_persona" />
                     <externalMetadataColumn
-                      refId="Package\Tarea Flujo de datos\Premium ADO NET Source 1.Outputs[Default Output].ExternalColumns[ti_persona]"
+                      refId="Package\Tarea Flujo de datos\Premium ADO NET Source Persona.Outputs[Default Output].ExternalColumns[ti_persona]"
                       dataType="wstr"
                       length="1"
                       name="ti_persona" />
                     <externalMetadataColumn
-                      refId="Package\Tarea Flujo de datos\Premium ADO NET Source 1.Outputs[Default Output].ExternalColumns[Centro_costos_persona]"
+                      refId="Package\Tarea Flujo de datos\Premium ADO NET Source Persona.Outputs[Default Output].ExternalColumns[Centro_costos_persona]"
                       dataType="wstr"
                       length="3"
                       name="Centro_costos_persona" />
                     <externalMetadataColumn
-                      refId="Package\Tarea Flujo de datos\Premium ADO NET Source 1.Outputs[Default Output].ExternalColumns[Co_CIIU]"
+                      refId="Package\Tarea Flujo de datos\Premium ADO NET Source Persona.Outputs[Default Output].ExternalColumns[Co_CIIU]"
                       dataType="wstr"
                       length="18"
                       name="Co_CIIU" />
                     <externalMetadataColumn
-                      refId="Package\Tarea Flujo de datos\Premium ADO NET Source 1.Outputs[Default Output].ExternalColumns[co_sector_economico]"
+                      refId="Package\Tarea Flujo de datos\Premium ADO NET Source Persona.Outputs[Default Output].ExternalColumns[co_sector_economico]"
                       dataType="i2"
                       name="co_sector_economico" />
                     <externalMetadataColumn
-                      refId="Package\Tarea Flujo de datos\Premium ADO NET Source 1.Outputs[Default Output].ExternalColumns[co_sector_institucional]"
+                      refId="Package\Tarea Flujo de datos\Premium ADO NET Source Persona.Outputs[Default Output].ExternalColumns[co_sector_institucional]"
                       dataType="i2"
                       name="co_sector_institucional" />
                     <externalMetadataColumn
-                      refId="Package\Tarea Flujo de datos\Premium ADO NET Source 1.Outputs[Default Output].ExternalColumns[Cod_Broker_persona]"
+                      refId="Package\Tarea Flujo de datos\Premium ADO NET Source Persona.Outputs[Default Output].ExternalColumns[Cod_Broker_persona]"
                       dataType="i4"
                       name="Cod_Broker_persona" />
                     <externalMetadataColumn
-                      refId="Package\Tarea Flujo de datos\Premium ADO NET Source 1.Outputs[Default Output].ExternalColumns[Company]"
+                      refId="Package\Tarea Flujo de datos\Premium ADO NET Source Persona.Outputs[Default Output].ExternalColumns[Company]"
                       codePage="1252"
                       dataType="str"
                       length="3"
                       name="Company" />
                     <externalMetadataColumn
-                      refId="Package\Tarea Flujo de datos\Premium ADO NET Source 1.Outputs[Default Output].ExternalColumns[de_contacto]"
+                      refId="Package\Tarea Flujo de datos\Premium ADO NET Source Persona.Outputs[Default Output].ExternalColumns[de_contacto]"
                       codePage="1252"
                       dataType="str"
                       length="100"
                       name="de_contacto" />
                     <externalMetadataColumn
-                      refId="Package\Tarea Flujo de datos\Premium ADO NET Source 1.Outputs[Default Output].ExternalColumns[de_sector_economico]"
+                      refId="Package\Tarea Flujo de datos\Premium ADO NET Source Persona.Outputs[Default Output].ExternalColumns[de_sector_economico]"
                       codePage="1252"
                       dataType="str"
                       length="255"
                       name="de_sector_economico" />
                     <externalMetadataColumn
-                      refId="Package\Tarea Flujo de datos\Premium ADO NET Source 1.Outputs[Default Output].ExternalColumns[de_sector_institucional]"
+                      refId="Package\Tarea Flujo de datos\Premium ADO NET Source Persona.Outputs[Default Output].ExternalColumns[de_sector_institucional]"
                       dataType="wstr"
                       length="40"
                       name="de_sector_institucional" />
                     <externalMetadataColumn
-                      refId="Package\Tarea Flujo de datos\Premium ADO NET Source 1.Outputs[Default Output].ExternalColumns[Email_persona]"
+                      refId="Package\Tarea Flujo de datos\Premium ADO NET Source Persona.Outputs[Default Output].ExternalColumns[Email_persona]"
                       codePage="1252"
                       dataType="str"
                       length="100"
                       name="Email_persona" />
                     <externalMetadataColumn
-                      refId="Package\Tarea Flujo de datos\Premium ADO NET Source 1.Outputs[Default Output].ExternalColumns[EXTERN_CUS_ID]"
+                      refId="Package\Tarea Flujo de datos\Premium ADO NET Source Persona.Outputs[Default Output].ExternalColumns[EXTERN_CUS_ID]"
                       dataType="i4"
                       name="EXTERN_CUS_ID" />
                     <externalMetadataColumn
-                      refId="Package\Tarea Flujo de datos\Premium ADO NET Source 1.Outputs[Default Output].ExternalColumns[Fe_Legal_Id]"
+                      refId="Package\Tarea Flujo de datos\Premium ADO NET Source Persona.Outputs[Default Output].ExternalColumns[Fe_Legal_Id]"
                       dataType="dbTimeStamp"
                       name="Fe_Legal_Id" />
                     <externalMetadataColumn
-                      refId="Package\Tarea Flujo de datos\Premium ADO NET Source 1.Outputs[Default Output].ExternalColumns[MNemonic]"
+                      refId="Package\Tarea Flujo de datos\Premium ADO NET Source Persona.Outputs[Default Output].ExternalColumns[MNemonic]"
                       codePage="1252"
                       dataType="str"
                       length="1"
                       name="MNemonic" />
                     <externalMetadataColumn
-                      refId="Package\Tarea Flujo de datos\Premium ADO NET Source 1.Outputs[Default Output].ExternalColumns[nb_idioma]"
+                      refId="Package\Tarea Flujo de datos\Premium ADO NET Source Persona.Outputs[Default Output].ExternalColumns[nb_idioma]"
                       dataType="wstr"
                       length="20"
                       name="nb_idioma" />
                     <externalMetadataColumn
-                      refId="Package\Tarea Flujo de datos\Premium ADO NET Source 1.Outputs[Default Output].ExternalColumns[Nb_Pais_base]"
+                      refId="Package\Tarea Flujo de datos\Premium ADO NET Source Persona.Outputs[Default Output].ExternalColumns[Nb_Pais_base]"
                       dataType="wstr"
                       length="40"
                       name="Nb_Pais_base" />
                     <externalMetadataColumn
-                      refId="Package\Tarea Flujo de datos\Premium ADO NET Source 1.Outputs[Default Output].ExternalColumns[Nb_pais_nacionalidad]"
+                      refId="Package\Tarea Flujo de datos\Premium ADO NET Source Persona.Outputs[Default Output].ExternalColumns[Nb_pais_nacionalidad]"
                       dataType="wstr"
                       length="40"
                       name="Nb_pais_nacionalidad" />
                     <externalMetadataColumn
-                      refId="Package\Tarea Flujo de datos\Premium ADO NET Source 1.Outputs[Default Output].ExternalColumns[Nb_Pais_Residence]"
+                      refId="Package\Tarea Flujo de datos\Premium ADO NET Source Persona.Outputs[Default Output].ExternalColumns[Nb_Pais_Residence]"
                       dataType="wstr"
                       length="40"
                       name="Nb_Pais_Residence" />
                     <externalMetadataColumn
-                      refId="Package\Tarea Flujo de datos\Premium ADO NET Source 1.Outputs[Default Output].ExternalColumns[Nb_responsable]"
+                      refId="Package\Tarea Flujo de datos\Premium ADO NET Source Persona.Outputs[Default Output].ExternalColumns[Nb_responsable]"
                       codePage="1252"
                       dataType="str"
                       length="121"
                       name="Nb_responsable" />
                     <externalMetadataColumn
-                      refId="Package\Tarea Flujo de datos\Premium ADO NET Source 1.Outputs[Default Output].ExternalColumns[nb_ti_cliente]"
+                      refId="Package\Tarea Flujo de datos\Premium ADO NET Source Persona.Outputs[Default Output].ExternalColumns[nb_ti_cliente]"
                       codePage="1252"
                       dataType="str"
                       length="40"
                       name="nb_ti_cliente" />
                     <externalMetadataColumn
-                      refId="Package\Tarea Flujo de datos\Premium ADO NET Source 1.Outputs[Default Output].ExternalColumns[RESIDENCE]"
+                      refId="Package\Tarea Flujo de datos\Premium ADO NET Source Persona.Outputs[Default Output].ExternalColumns[RESIDENCE]"
                       dataType="i2"
                       name="RESIDENCE" />
                     <externalMetadataColumn
-                      refId="Package\Tarea Flujo de datos\Premium ADO NET Source 1.Outputs[Default Output].ExternalColumns[TARGET]"
+                      refId="Package\Tarea Flujo de datos\Premium ADO NET Source Persona.Outputs[Default Output].ExternalColumns[TARGET]"
                       dataType="i4"
                       name="TARGET" />
                     <externalMetadataColumn
-                      refId="Package\Tarea Flujo de datos\Premium ADO NET Source 1.Outputs[Default Output].ExternalColumns[Text]"
+                      refId="Package\Tarea Flujo de datos\Premium ADO NET Source Persona.Outputs[Default Output].ExternalColumns[Text]"
                       codePage="1252"
                       dataType="str"
                       length="14"
                       name="Text" />
                     <externalMetadataColumn
-                      refId="Package\Tarea Flujo de datos\Premium ADO NET Source 1.Outputs[Default Output].ExternalColumns[Ti_Accionista]"
+                      refId="Package\Tarea Flujo de datos\Premium ADO NET Source Persona.Outputs[Default Output].ExternalColumns[Ti_Accionista]"
                       codePage="1252"
                       dataType="str"
                       length="1"
                       name="Ti_Accionista" />
                     <externalMetadataColumn
-                      refId="Package\Tarea Flujo de datos\Premium ADO NET Source 1.Outputs[Default Output].ExternalColumns[Unidad_Organizacional]"
+                      refId="Package\Tarea Flujo de datos\Premium ADO NET Source Persona.Outputs[Default Output].ExternalColumns[Unidad_Organizacional]"
                       dataType="wstr"
                       length="60"
                       name="Unidad_Organizacional" />
                     <externalMetadataColumn
-                      refId="Package\Tarea Flujo de datos\Premium ADO NET Source 1.Outputs[Default Output].ExternalColumns[NAME.1]"
+                      refId="Package\Tarea Flujo de datos\Premium ADO NET Source Persona.Outputs[Default Output].ExternalColumns[NAME.1]"
                       codePage="1252"
                       dataType="str"
                       length="70"
                       name="NAME.1" />
                     <externalMetadataColumn
-                      refId="Package\Tarea Flujo de datos\Premium ADO NET Source 1.Outputs[Default Output].ExternalColumns[NAME.2]"
+                      refId="Package\Tarea Flujo de datos\Premium ADO NET Source Persona.Outputs[Default Output].ExternalColumns[NAME.2]"
                       codePage="1252"
                       dataType="str"
                       length="122"
                       name="NAME.2" />
                     <externalMetadataColumn
-                      refId="Package\Tarea Flujo de datos\Premium ADO NET Source 1.Outputs[Default Output].ExternalColumns[SHORT.NAME]"
+                      refId="Package\Tarea Flujo de datos\Premium ADO NET Source Persona.Outputs[Default Output].ExternalColumns[SHORT.NAME]"
                       codePage="1252"
                       dataType="str"
                       length="70"
                       name="SHORT.NAME" />
                     <externalMetadataColumn
-                      refId="Package\Tarea Flujo de datos\Premium ADO NET Source 1.Outputs[Default Output].ExternalColumns[identificacion_persona]"
+                      refId="Package\Tarea Flujo de datos\Premium ADO NET Source Persona.Outputs[Default Output].ExternalColumns[identificacion_persona]"
                       dataType="wstr"
                       length="4000"
                       name="identificacion_persona" />
                     <externalMetadataColumn
-                      refId="Package\Tarea Flujo de datos\Premium ADO NET Source 1.Outputs[Default Output].ExternalColumns[ti_identificacion]"
+                      refId="Package\Tarea Flujo de datos\Premium ADO NET Source Persona.Outputs[Default Output].ExternalColumns[ti_identificacion]"
                       dataType="wstr"
                       length="4000"
                       name="ti_identificacion" />
@@ -1395,7 +1395,7 @@ WHERE C.co_persona IN (53880, 53881, 37550, 53536, 66,224,248,253,292,339,844,10
                       cachedDataType="i4"
                       cachedName="co_persona"
                       externalMetadataColumnId="Package\Tarea Flujo de datos\Premium Excel Destination.Inputs[Primary Input].ExternalColumns[New Field2]"
-                      lineageId="Package\Tarea Flujo de datos\Premium ADO NET Source 1.Outputs[Default Output].Columns[co_persona]" />
+                      lineageId="Package\Tarea Flujo de datos\Premium ADO NET Source Persona.Outputs[Default Output].Columns[co_persona]" />
                     <inputColumn
                       refId="Package\Tarea Flujo de datos\Premium Excel Destination.Inputs[Primary Input].Columns[MNemonic]"
                       cachedCodepage="1252"
@@ -1403,7 +1403,7 @@ WHERE C.co_persona IN (53880, 53881, 37550, 53536, 66,224,248,253,292,339,844,10
                       cachedLength="1"
                       cachedName="MNemonic"
                       externalMetadataColumnId="Package\Tarea Flujo de datos\Premium Excel Destination.Inputs[Primary Input].ExternalColumns[New Field3]"
-                      lineageId="Package\Tarea Flujo de datos\Premium ADO NET Source 1.Outputs[Default Output].Columns[MNemonic]" />
+                      lineageId="Package\Tarea Flujo de datos\Premium ADO NET Source Persona.Outputs[Default Output].Columns[MNemonic]" />
                     <inputColumn
                       refId="Package\Tarea Flujo de datos\Premium Excel Destination.Inputs[Primary Input].Columns[SHORT.NAME]"
                       cachedCodepage="1252"
@@ -1411,7 +1411,7 @@ WHERE C.co_persona IN (53880, 53881, 37550, 53536, 66,224,248,253,292,339,844,10
                       cachedLength="70"
                       cachedName="SHORT.NAME"
                       externalMetadataColumnId="Package\Tarea Flujo de datos\Premium Excel Destination.Inputs[Primary Input].ExternalColumns[New Field4]"
-                      lineageId="Package\Tarea Flujo de datos\Premium ADO NET Source 1.Outputs[Default Output].Columns[SHORT.NAME]" />
+                      lineageId="Package\Tarea Flujo de datos\Premium ADO NET Source Persona.Outputs[Default Output].Columns[SHORT.NAME]" />
                     <inputColumn
                       refId="Package\Tarea Flujo de datos\Premium Excel Destination.Inputs[Primary Input].Columns[NAME.1]"
                       cachedCodepage="1252"
@@ -1419,7 +1419,7 @@ WHERE C.co_persona IN (53880, 53881, 37550, 53536, 66,224,248,253,292,339,844,10
                       cachedLength="70"
                       cachedName="NAME.1"
                       externalMetadataColumnId="Package\Tarea Flujo de datos\Premium Excel Destination.Inputs[Primary Input].ExternalColumns[New Field5]"
-                      lineageId="Package\Tarea Flujo de datos\Premium ADO NET Source 1.Outputs[Default Output].Columns[NAME.1]" />
+                      lineageId="Package\Tarea Flujo de datos\Premium ADO NET Source Persona.Outputs[Default Output].Columns[NAME.1]" />
                     <inputColumn
                       refId="Package\Tarea Flujo de datos\Premium Excel Destination.Inputs[Primary Input].Columns[COUNTRYId]"
                       cachedDataType="wstr"
@@ -1433,7 +1433,7 @@ WHERE C.co_persona IN (53880, 53881, 37550, 53536, 66,224,248,253,292,339,844,10
                       cachedLength="60"
                       cachedName="Unidad_Organizacional"
                       externalMetadataColumnId="Package\Tarea Flujo de datos\Premium Excel Destination.Inputs[Primary Input].ExternalColumns[New Field9]"
-                      lineageId="Package\Tarea Flujo de datos\Premium ADO NET Source 1.Outputs[Default Output].Columns[Unidad_Organizacional]" />
+                      lineageId="Package\Tarea Flujo de datos\Premium ADO NET Source Persona.Outputs[Default Output].Columns[Unidad_Organizacional]" />
                     <inputColumn
                       refId="Package\Tarea Flujo de datos\Premium Excel Destination.Inputs[Primary Input].Columns[INDUSTRYId]"
                       cachedDataType="wstr"
@@ -1459,7 +1459,7 @@ WHERE C.co_persona IN (53880, 53881, 37550, 53536, 66,224,248,253,292,339,844,10
                       cachedDataType="i2"
                       cachedName="RESIDENCE"
                       externalMetadataColumnId="Package\Tarea Flujo de datos\Premium Excel Destination.Inputs[Primary Input].ExternalColumns[New Field13]"
-                      lineageId="Package\Tarea Flujo de datos\Premium ADO NET Source 1.Outputs[Default Output].Columns[RESIDENCE]" />
+                      lineageId="Package\Tarea Flujo de datos\Premium ADO NET Source Persona.Outputs[Default Output].Columns[RESIDENCE]" />
                     <inputColumn
                       refId="Package\Tarea Flujo de datos\Premium Excel Destination.Inputs[Primary Input].Columns[LANGUAGEId]"
                       cachedDataType="wstr"
@@ -1472,7 +1472,7 @@ WHERE C.co_persona IN (53880, 53881, 37550, 53536, 66,224,248,253,292,339,844,10
                       cachedDataType="i4"
                       cachedName="TARGET"
                       externalMetadataColumnId="Package\Tarea Flujo de datos\Premium Excel Destination.Inputs[Primary Input].ExternalColumns[New Field15]"
-                      lineageId="Package\Tarea Flujo de datos\Premium ADO NET Source 1.Outputs[Default Output].Columns[TARGET]" />
+                      lineageId="Package\Tarea Flujo de datos\Premium ADO NET Source Persona.Outputs[Default Output].Columns[TARGET]" />
                     <inputColumn
                       refId="Package\Tarea Flujo de datos\Premium Excel Destination.Inputs[Primary Input].Columns[SECTORId]"
                       cachedDataType="wstr"
@@ -1725,7 +1725,7 @@ WHERE C.co_persona IN (53880, 53881, 37550, 53536, 66,224,248,253,292,339,844,10
                       cachedLength="70"
                       cachedName="SHORT.NAME"
                       externalMetadataColumnId="Package\Tarea Flujo de datos\Premium Flat File Destination.Inputs[Primary Input].ExternalColumns[Column4]"
-                      lineageId="Package\Tarea Flujo de datos\Premium ADO NET Source 1.Outputs[Default Output].Columns[SHORT.NAME]" />
+                      lineageId="Package\Tarea Flujo de datos\Premium ADO NET Source Persona.Outputs[Default Output].Columns[SHORT.NAME]" />
                     <inputColumn
                       refId="Package\Tarea Flujo de datos\Premium Flat File Destination.Inputs[Primary Input].Columns[NAME.1]"
                       cachedCodepage="1252"
@@ -1733,7 +1733,7 @@ WHERE C.co_persona IN (53880, 53881, 37550, 53536, 66,224,248,253,292,339,844,10
                       cachedLength="70"
                       cachedName="NAME.1"
                       externalMetadataColumnId="Package\Tarea Flujo de datos\Premium Flat File Destination.Inputs[Primary Input].ExternalColumns[Column5]"
-                      lineageId="Package\Tarea Flujo de datos\Premium ADO NET Source 1.Outputs[Default Output].Columns[NAME.1]" />
+                      lineageId="Package\Tarea Flujo de datos\Premium ADO NET Source Persona.Outputs[Default Output].Columns[NAME.1]" />
                     <inputColumn
                       refId="Package\Tarea Flujo de datos\Premium Flat File Destination.Inputs[Primary Input].Columns[NAME.2]"
                       cachedCodepage="1252"
@@ -1741,7 +1741,7 @@ WHERE C.co_persona IN (53880, 53881, 37550, 53536, 66,224,248,253,292,339,844,10
                       cachedLength="122"
                       cachedName="NAME.2"
                       externalMetadataColumnId="Package\Tarea Flujo de datos\Premium Flat File Destination.Inputs[Primary Input].ExternalColumns[Column6]"
-                      lineageId="Package\Tarea Flujo de datos\Premium ADO NET Source 1.Outputs[Default Output].Columns[NAME.2]" />
+                      lineageId="Package\Tarea Flujo de datos\Premium ADO NET Source Persona.Outputs[Default Output].Columns[NAME.2]" />
                     <inputColumn
                       refId="Package\Tarea Flujo de datos\Premium Flat File Destination.Inputs[Primary Input].Columns[COUNTRYId]"
                       cachedDataType="wstr"
@@ -1763,28 +1763,28 @@ WHERE C.co_persona IN (53880, 53881, 37550, 53536, 66,224,248,253,292,339,844,10
                       cachedLength="100"
                       cachedName="de_contacto"
                       externalMetadataColumnId="Package\Tarea Flujo de datos\Premium Flat File Destination.Inputs[Primary Input].ExternalColumns[Column7]"
-                      lineageId="Package\Tarea Flujo de datos\Premium ADO NET Source 1.Outputs[Default Output].Columns[de_contacto]" />
+                      lineageId="Package\Tarea Flujo de datos\Premium ADO NET Source Persona.Outputs[Default Output].Columns[de_contacto]" />
                     <inputColumn
                       refId="Package\Tarea Flujo de datos\Premium Flat File Destination.Inputs[Primary Input].Columns[co_responsable]"
                       cachedDataType="wstr"
                       cachedLength="4000"
                       cachedName="co_responsable"
                       externalMetadataColumnId="Package\Tarea Flujo de datos\Premium Flat File Destination.Inputs[Primary Input].ExternalColumns[Column10]"
-                      lineageId="Package\Tarea Flujo de datos\Premium ADO NET Source 1.Outputs[Default Output].Columns[co_responsable]" />
+                      lineageId="Package\Tarea Flujo de datos\Premium ADO NET Source Persona.Outputs[Default Output].Columns[co_responsable]" />
                     <inputColumn
                       refId="Package\Tarea Flujo de datos\Premium Flat File Destination.Inputs[Primary Input].Columns[fe_registro_persona]"
                       cachedCodepage="1252"
                       cachedDataType="text"
                       cachedName="fe_registro_persona"
                       externalMetadataColumnId="Package\Tarea Flujo de datos\Premium Flat File Destination.Inputs[Primary Input].ExternalColumns[Column11]"
-                      lineageId="Package\Tarea Flujo de datos\Premium ADO NET Source 1.Outputs[Default Output].Columns[fe_registro_persona]" />
+                      lineageId="Package\Tarea Flujo de datos\Premium ADO NET Source Persona.Outputs[Default Output].Columns[fe_registro_persona]" />
                     <inputColumn
                       refId="Package\Tarea Flujo de datos\Premium Flat File Destination.Inputs[Primary Input].Columns[identificacion_persona]"
                       cachedDataType="wstr"
                       cachedLength="4000"
                       cachedName="identificacion_persona"
                       externalMetadataColumnId="Package\Tarea Flujo de datos\Premium Flat File Destination.Inputs[Primary Input].ExternalColumns[Column17]"
-                      lineageId="Package\Tarea Flujo de datos\Premium ADO NET Source 1.Outputs[Default Output].Columns[identificacion_persona]" />
+                      lineageId="Package\Tarea Flujo de datos\Premium ADO NET Source Persona.Outputs[Default Output].Columns[identificacion_persona]" />
                     <inputColumn
                       refId="Package\Tarea Flujo de datos\Premium Flat File Destination.Inputs[Primary Input].Columns[Text]"
                       cachedCodepage="1252"
@@ -1792,20 +1792,20 @@ WHERE C.co_persona IN (53880, 53881, 37550, 53536, 66,224,248,253,292,339,844,10
                       cachedLength="14"
                       cachedName="Text"
                       externalMetadataColumnId="Package\Tarea Flujo de datos\Premium Flat File Destination.Inputs[Primary Input].ExternalColumns[Column16]"
-                      lineageId="Package\Tarea Flujo de datos\Premium ADO NET Source 1.Outputs[Default Output].Columns[Text]" />
+                      lineageId="Package\Tarea Flujo de datos\Premium ADO NET Source Persona.Outputs[Default Output].Columns[Text]" />
                     <inputColumn
                       refId="Package\Tarea Flujo de datos\Premium Flat File Destination.Inputs[Primary Input].Columns[TARGET]"
                       cachedDataType="i4"
                       cachedName="TARGET"
                       externalMetadataColumnId="Package\Tarea Flujo de datos\Premium Flat File Destination.Inputs[Primary Input].ExternalColumns[Column28]"
-                      lineageId="Package\Tarea Flujo de datos\Premium ADO NET Source 1.Outputs[Default Output].Columns[TARGET]" />
+                      lineageId="Package\Tarea Flujo de datos\Premium ADO NET Source Persona.Outputs[Default Output].Columns[TARGET]" />
                     <inputColumn
                       refId="Package\Tarea Flujo de datos\Premium Flat File Destination.Inputs[Primary Input].Columns[ti_persona]"
                       cachedDataType="wstr"
                       cachedLength="1"
                       cachedName="ti_persona"
                       externalMetadataColumnId="Package\Tarea Flujo de datos\Premium Flat File Destination.Inputs[Primary Input].ExternalColumns[Column27]"
-                      lineageId="Package\Tarea Flujo de datos\Premium ADO NET Source 1.Outputs[Default Output].Columns[ti_persona]" />
+                      lineageId="Package\Tarea Flujo de datos\Premium ADO NET Source Persona.Outputs[Default Output].Columns[ti_persona]" />
                     <inputColumn
                       refId="Package\Tarea Flujo de datos\Premium Flat File Destination.Inputs[Primary Input].Columns[LT_TP_ACCIONISTAS]"
                       cachedDataType="wstr"
@@ -1824,13 +1824,13 @@ WHERE C.co_persona IN (53880, 53881, 37550, 53536, 66,224,248,253,292,339,844,10
                       cachedDataType="i4"
                       cachedName="Cod_Broker_persona"
                       externalMetadataColumnId="Package\Tarea Flujo de datos\Premium Flat File Destination.Inputs[Primary Input].ExternalColumns[Column24]"
-                      lineageId="Package\Tarea Flujo de datos\Premium ADO NET Source 1.Outputs[Default Output].Columns[Cod_Broker_persona]" />
+                      lineageId="Package\Tarea Flujo de datos\Premium ADO NET Source Persona.Outputs[Default Output].Columns[Cod_Broker_persona]" />
                     <inputColumn
                       refId="Package\Tarea Flujo de datos\Premium Flat File Destination.Inputs[Primary Input].Columns[EXTERN_CUS_ID]"
                       cachedDataType="i4"
                       cachedName="EXTERN_CUS_ID"
                       externalMetadataColumnId="Package\Tarea Flujo de datos\Premium Flat File Destination.Inputs[Primary Input].ExternalColumns[Column23]"
-                      lineageId="Package\Tarea Flujo de datos\Premium ADO NET Source 1.Outputs[Default Output].Columns[EXTERN_CUS_ID]" />
+                      lineageId="Package\Tarea Flujo de datos\Premium ADO NET Source Persona.Outputs[Default Output].Columns[EXTERN_CUS_ID]" />
                     <inputColumn
                       refId="Package\Tarea Flujo de datos\Premium Flat File Destination.Inputs[Primary Input].Columns[fe_registro_persona02]"
                       cachedCodepage="1252"
@@ -1845,7 +1845,7 @@ WHERE C.co_persona IN (53880, 53881, 37550, 53536, 66,224,248,253,292,339,844,10
                       cachedLength="100"
                       cachedName="Email_persona"
                       externalMetadataColumnId="Package\Tarea Flujo de datos\Premium Flat File Destination.Inputs[Primary Input].ExternalColumns[Column21]"
-                      lineageId="Package\Tarea Flujo de datos\Premium ADO NET Source 1.Outputs[Default Output].Columns[Email_persona]" />
+                      lineageId="Package\Tarea Flujo de datos\Premium ADO NET Source Persona.Outputs[Default Output].Columns[Email_persona]" />
                     <inputColumn
                       refId="Package\Tarea Flujo de datos\Premium Flat File Destination.Inputs[Primary Input].Columns[LANGUAGEId]"
                       cachedDataType="wstr"
@@ -1865,7 +1865,7 @@ WHERE C.co_persona IN (53880, 53881, 37550, 53536, 66,224,248,253,292,339,844,10
                       cachedLength="18"
                       cachedName="Co_CIIU"
                       externalMetadataColumnId="Package\Tarea Flujo de datos\Premium Flat File Destination.Inputs[Primary Input].ExternalColumns[Column12]"
-                      lineageId="Package\Tarea Flujo de datos\Premium ADO NET Source 1.Outputs[Default Output].Columns[Co_CIIU]" />
+                      lineageId="Package\Tarea Flujo de datos\Premium ADO NET Source Persona.Outputs[Default Output].Columns[Co_CIIU]" />
                     <inputColumn
                       refId="Package\Tarea Flujo de datos\Premium Flat File Destination.Inputs[Primary Input].Columns[NATIONALITYId]"
                       cachedDataType="wstr"
@@ -2717,7 +2717,7 @@ WHERE C.co_persona IN (53880, 53881, 37550, 53536, 66,224,248,253,292,339,844,10
                       cachedDataType="i2"
                       cachedName="co_pais_base"
                       externalMetadataColumnId="Package\Tarea Flujo de datos\PSL  CO_PAIS_BASE.Inputs[Primary Input].ExternalColumns[co_pais_base]"
-                      lineageId="Package\Tarea Flujo de datos\Premium ADO NET Source 1.Outputs[Default Output].Columns[co_pais_base]" />
+                      lineageId="Package\Tarea Flujo de datos\Premium ADO NET Source Persona.Outputs[Default Output].Columns[co_pais_base]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -2917,7 +2917,7 @@ WHERE
                       cachedDataType="i2"
                       cachedName="co_pais_nacionalidad"
                       externalMetadataColumnId="Package\Tarea Flujo de datos\PSL  CO_PAIS_NACIO.Inputs[Primary Input].ExternalColumns[co_pais_nacionalidad]"
-                      lineageId="Package\Tarea Flujo de datos\Premium ADO NET Source 1.Outputs[Default Output].Columns[co_pais_nacionalidad]" />
+                      lineageId="Package\Tarea Flujo de datos\Premium ADO NET Source Persona.Outputs[Default Output].Columns[co_pais_nacionalidad]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -3111,7 +3111,7 @@ WHERE
                       cachedDataType="i2"
                       cachedName="co_idioma_comunicacion"
                       externalMetadataColumnId="Package\Tarea Flujo de datos\PSL  LANGUAGE.Inputs[Primary Input].ExternalColumns[co_idioma_comunicacion]"
-                      lineageId="Package\Tarea Flujo de datos\Premium ADO NET Source 1.Outputs[Default Output].Columns[co_idioma_comunicacion]" />
+                      lineageId="Package\Tarea Flujo de datos\Premium ADO NET Source Persona.Outputs[Default Output].Columns[co_idioma_comunicacion]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -3323,7 +3323,7 @@ WHERE
                       cachedDataType="i4"
                       cachedName="co_persona"
                       externalMetadataColumnId="Package\Tarea Flujo de datos\PSL  LEGAL_ISS_DATE.Inputs[Primary Input].ExternalColumns[co_persona]"
-                      lineageId="Package\Tarea Flujo de datos\Premium ADO NET Source 1.Outputs[Default Output].Columns[co_persona]" />
+                      lineageId="Package\Tarea Flujo de datos\Premium ADO NET Source Persona.Outputs[Default Output].Columns[co_persona]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -3881,7 +3881,7 @@ WHERE
                       cachedDataType="i2"
                       cachedName="co_unidad_responsable"
                       externalMetadataColumnId="Package\Tarea Flujo de datos\PSL ACC_OFFICER.Inputs[Primary Input].ExternalColumns[co_unidad_responsable]"
-                      lineageId="Package\Tarea Flujo de datos\Premium ADO NET Source 1.Outputs[Default Output].Columns[co_unidad_responsable]" />
+                      lineageId="Package\Tarea Flujo de datos\Premium ADO NET Source Persona.Outputs[Default Output].Columns[co_unidad_responsable]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -4611,7 +4611,7 @@ WHERE
                       cachedDataType="i2"
                       cachedName="co_pais_base"
                       externalMetadataColumnId="Package\Tarea Flujo de datos\PSL COUNTRY.Inputs[Primary Input].ExternalColumns[co_pais_base]"
-                      lineageId="Package\Tarea Flujo de datos\Premium ADO NET Source 1.Outputs[Default Output].Columns[co_pais_base]" />
+                      lineageId="Package\Tarea Flujo de datos\Premium ADO NET Source Persona.Outputs[Default Output].Columns[co_pais_base]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -4805,7 +4805,7 @@ WHERE
                       cachedDataType="i2"
                       cachedName="co_sector_economico"
                       externalMetadataColumnId="Package\Tarea Flujo de datos\PSL INDUSTRY.Inputs[Primary Input].ExternalColumns[co_sector_economico]"
-                      lineageId="Package\Tarea Flujo de datos\Premium ADO NET Source 1.Outputs[Default Output].Columns[co_sector_economico]" />
+                      lineageId="Package\Tarea Flujo de datos\Premium ADO NET Source Persona.Outputs[Default Output].Columns[co_sector_economico]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -5331,7 +5331,7 @@ WHERE
                       cachedDataType="i4"
                       cachedName="co_persona"
                       externalMetadataColumnId="Package\Tarea Flujo de datos\PSL LT_TP_ACCIONISTAS.Inputs[Primary Input].ExternalColumns[co_persona]"
-                      lineageId="Package\Tarea Flujo de datos\Premium ADO NET Source 1.Outputs[Default Output].Columns[co_persona]" />
+                      lineageId="Package\Tarea Flujo de datos\Premium ADO NET Source Persona.Outputs[Default Output].Columns[co_persona]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -5634,7 +5634,7 @@ WHERE
                       cachedDataType="i2"
                       cachedName="co_ti_cliente"
                       externalMetadataColumnId="Package\Tarea Flujo de datos\PSL SECTOR.Inputs[Primary Input].ExternalColumns[co_ti_cliente]"
-                      lineageId="Package\Tarea Flujo de datos\Premium ADO NET Source 1.Outputs[Default Output].Columns[co_ti_cliente]" />
+                      lineageId="Package\Tarea Flujo de datos\Premium ADO NET Source Persona.Outputs[Default Output].Columns[co_ti_cliente]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -6075,7 +6075,7 @@ WHERE
                       cachedDataType="i4"
                       cachedName="co_persona"
                       externalMetadataColumnId="Package\Tarea Flujo de datos\PSL Tmp_Clientes.Inputs[Primary Input].ExternalColumns[co_persona]"
-                      lineageId="Package\Tarea Flujo de datos\Premium ADO NET Source 1.Outputs[Default Output].Columns[co_persona]" />
+                      lineageId="Package\Tarea Flujo de datos\Premium ADO NET Source Persona.Outputs[Default Output].Columns[co_persona]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -6398,89 +6398,89 @@ WHERE
               startId="Package\Tarea Flujo de datos\División condicional.Outputs[Case 1]" />
             <path
               refId="Package\Tarea Flujo de datos.Paths[Default Ouptut13]"
-              endId="Package\Tarea Flujo de datos\PSL SECTOR_INST.Inputs[Primary Input]"
-              name="Default Ouptut"
-              startId="Package\Tarea Flujo de datos\PSL  PER_JURIDICA.Outputs[Default Ouptut]" />
-            <path
-              refId="Package\Tarea Flujo de datos.Paths[Default Ouptut12]"
-              endId="Package\Tarea Flujo de datos\PSL  PER_JURIDICA.Inputs[Primary Input]"
-              name="Default Ouptut"
-              startId="Package\Tarea Flujo de datos\PSL INDUSTRY.Outputs[Default Ouptut]" />
-            <path
-              refId="Package\Tarea Flujo de datos.Paths[Default Ouptut11]"
-              endId="Package\Tarea Flujo de datos\PSL  CO_PAIS_BASE.Inputs[Primary Input]"
-              name="Default Ouptut"
-              startId="Package\Tarea Flujo de datos\PSL  CO_PAIS_NACIO.Outputs[Default Ouptut]" />
-            <path
-              refId="Package\Tarea Flujo de datos.Paths[Default Ouptut10]"
-              endId="Package\Tarea Flujo de datos\PSL  LEGAL_ISS_DATE.Inputs[Primary Input]"
-              name="Default Ouptut"
-              startId="Package\Tarea Flujo de datos\PSL  CO_PAIS_BASE.Outputs[Default Ouptut]" />
-            <path
-              refId="Package\Tarea Flujo de datos.Paths[Default Ouptut9]"
-              endId="Package\Tarea Flujo de datos\PSL  CO_PAIS_NACIO.Inputs[Primary Input]"
-              name="Default Ouptut"
-              startId="Package\Tarea Flujo de datos\PSL SECTOR_INST.Outputs[Default Ouptut]" />
-            <path
-              refId="Package\Tarea Flujo de datos.Paths[Default Ouptut7]"
-              endId="Package\Tarea Flujo de datos\PSL LT_SEC_ECON.Inputs[Primary Input]"
-              name="Default Ouptut"
-              startId="Package\Tarea Flujo de datos\PSL  LANGUAGE.Outputs[Default Ouptut]" />
-            <path
-              refId="Package\Tarea Flujo de datos.Paths[Default Ouptut8]"
-              endId="Package\Tarea Flujo de datos\PSL  LANGUAGE.Inputs[Primary Input]"
-              name="Default Ouptut"
-              startId="Package\Tarea Flujo de datos\PSL  LEGAL_ISS_DATE.Outputs[Default Ouptut]" />
-            <path
-              refId="Package\Tarea Flujo de datos.Paths[Default Ouptut5]"
-              endId="Package\Tarea Flujo de datos\Columna derivada 1.Inputs[Entrada de columna derivada]"
-              name="Default Ouptut"
-              startId="Package\Tarea Flujo de datos\PSL LT_TP_ACCIONISTAS.Outputs[Default Ouptut]" />
-            <path
-              refId="Package\Tarea Flujo de datos.Paths[Default Ouptut4]"
-              endId="Package\Tarea Flujo de datos\PSL INDUSTRY.Inputs[Primary Input]"
-              name="Default Ouptut"
-              startId="Package\Tarea Flujo de datos\PSL Tmp_Clientes.Outputs[Default Ouptut]" />
-            <path
-              refId="Package\Tarea Flujo de datos.Paths[Default Ouptut3]"
-              endId="Package\Tarea Flujo de datos\PSL Tmp_Clientes.Inputs[Primary Input]"
-              name="Default Ouptut"
-              startId="Package\Tarea Flujo de datos\PSL ACC_OFFICER.Outputs[Default Ouptut]" />
-            <path
-              refId="Package\Tarea Flujo de datos.Paths[Default Ouptut2]"
-              endId="Package\Tarea Flujo de datos\PSL ACC_OFFICER.Inputs[Primary Input]"
-              name="Default Ouptut"
-              startId="Package\Tarea Flujo de datos\PSL SECTOR.Outputs[Default Ouptut]" />
-            <path
-              refId="Package\Tarea Flujo de datos.Paths[Default Ouptut1]"
-              endId="Package\Tarea Flujo de datos\PSL COUNTRY.Inputs[Primary Input]"
-              name="Default Ouptut"
-              startId="Package\Tarea Flujo de datos\PSL COMPANY.Outputs[Default Ouptut]" />
-            <path
-              refId="Package\Tarea Flujo de datos.Paths[Default Ouptut]"
-              endId="Package\Tarea Flujo de datos\PSL SECTOR.Inputs[Primary Input]"
-              name="Default Ouptut"
-              startId="Package\Tarea Flujo de datos\PSL COUNTRY.Outputs[Default Ouptut]" />
-            <path
-              refId="Package\Tarea Flujo de datos.Paths[Default Ouptut6]"
               endId="Package\Tarea Flujo de datos\PSL LT_TP_ACCIONISTAS.Inputs[Primary Input]"
               name="Default Ouptut"
               startId="Package\Tarea Flujo de datos\PSL LT_SEC_ECON.Outputs[Default Ouptut]" />
             <path
+              refId="Package\Tarea Flujo de datos.Paths[Default Ouptut12]"
+              endId="Package\Tarea Flujo de datos\PSL SECTOR.Inputs[Primary Input]"
+              name="Default Ouptut"
+              startId="Package\Tarea Flujo de datos\PSL COUNTRY.Outputs[Default Ouptut]" />
+            <path
+              refId="Package\Tarea Flujo de datos.Paths[Default Ouptut11]"
+              endId="Package\Tarea Flujo de datos\PSL COUNTRY.Inputs[Primary Input]"
+              name="Default Ouptut"
+              startId="Package\Tarea Flujo de datos\PSL COMPANY.Outputs[Default Ouptut]" />
+            <path
+              refId="Package\Tarea Flujo de datos.Paths[Default Ouptut10]"
+              endId="Package\Tarea Flujo de datos\PSL ACC_OFFICER.Inputs[Primary Input]"
+              name="Default Ouptut"
+              startId="Package\Tarea Flujo de datos\PSL SECTOR.Outputs[Default Ouptut]" />
+            <path
+              refId="Package\Tarea Flujo de datos.Paths[Default Ouptut9]"
+              endId="Package\Tarea Flujo de datos\PSL Tmp_Clientes.Inputs[Primary Input]"
+              name="Default Ouptut"
+              startId="Package\Tarea Flujo de datos\PSL ACC_OFFICER.Outputs[Default Ouptut]" />
+            <path
+              refId="Package\Tarea Flujo de datos.Paths[Default Ouptut7]"
+              endId="Package\Tarea Flujo de datos\Columna derivada 1.Inputs[Entrada de columna derivada]"
+              name="Default Ouptut"
+              startId="Package\Tarea Flujo de datos\PSL LT_TP_ACCIONISTAS.Outputs[Default Ouptut]" />
+            <path
+              refId="Package\Tarea Flujo de datos.Paths[Default Ouptut8]"
+              endId="Package\Tarea Flujo de datos\PSL INDUSTRY.Inputs[Primary Input]"
+              name="Default Ouptut"
+              startId="Package\Tarea Flujo de datos\PSL Tmp_Clientes.Outputs[Default Ouptut]" />
+            <path
+              refId="Package\Tarea Flujo de datos.Paths[Default Ouptut5]"
+              endId="Package\Tarea Flujo de datos\PSL LT_SEC_ECON.Inputs[Primary Input]"
+              name="Default Ouptut"
+              startId="Package\Tarea Flujo de datos\PSL  LANGUAGE.Outputs[Default Ouptut]" />
+            <path
+              refId="Package\Tarea Flujo de datos.Paths[Default Ouptut4]"
+              endId="Package\Tarea Flujo de datos\PSL  CO_PAIS_NACIO.Inputs[Primary Input]"
+              name="Default Ouptut"
+              startId="Package\Tarea Flujo de datos\PSL SECTOR_INST.Outputs[Default Ouptut]" />
+            <path
+              refId="Package\Tarea Flujo de datos.Paths[Default Ouptut3]"
+              endId="Package\Tarea Flujo de datos\PSL  LEGAL_ISS_DATE.Inputs[Primary Input]"
+              name="Default Ouptut"
+              startId="Package\Tarea Flujo de datos\PSL  CO_PAIS_BASE.Outputs[Default Ouptut]" />
+            <path
+              refId="Package\Tarea Flujo de datos.Paths[Default Ouptut2]"
+              endId="Package\Tarea Flujo de datos\PSL  CO_PAIS_BASE.Inputs[Primary Input]"
+              name="Default Ouptut"
+              startId="Package\Tarea Flujo de datos\PSL  CO_PAIS_NACIO.Outputs[Default Ouptut]" />
+            <path
+              refId="Package\Tarea Flujo de datos.Paths[Default Ouptut1]"
+              endId="Package\Tarea Flujo de datos\PSL  PER_JURIDICA.Inputs[Primary Input]"
+              name="Default Ouptut"
+              startId="Package\Tarea Flujo de datos\PSL INDUSTRY.Outputs[Default Ouptut]" />
+            <path
+              refId="Package\Tarea Flujo de datos.Paths[Default Ouptut]"
+              endId="Package\Tarea Flujo de datos\PSL SECTOR_INST.Inputs[Primary Input]"
+              name="Default Ouptut"
+              startId="Package\Tarea Flujo de datos\PSL  PER_JURIDICA.Outputs[Default Ouptut]" />
+            <path
+              refId="Package\Tarea Flujo de datos.Paths[Default Ouptut6]"
+              endId="Package\Tarea Flujo de datos\PSL  LANGUAGE.Inputs[Primary Input]"
+              name="Default Ouptut"
+              startId="Package\Tarea Flujo de datos\PSL  LEGAL_ISS_DATE.Outputs[Default Ouptut]" />
+            <path
               refId="Package\Tarea Flujo de datos.Paths[Default Output]"
               endId="Package\Tarea Flujo de datos\Columna derivada.Inputs[Entrada de columna derivada]"
               name="Default Output"
-              startId="Package\Tarea Flujo de datos\Premium ADO NET Source 1.Outputs[Default Output]" />
+              startId="Package\Tarea Flujo de datos\Premium ADO NET Source Persona.Outputs[Default Output]" />
             <path
               refId="Package\Tarea Flujo de datos.Paths[Salida de columna derivada1]"
-              endId="Package\Tarea Flujo de datos\PSL COMPANY.Inputs[Primary Input]"
-              name="Salida de columna derivada"
-              startId="Package\Tarea Flujo de datos\Columna derivada.Outputs[Salida de columna derivada]" />
-            <path
-              refId="Package\Tarea Flujo de datos.Paths[Salida de columna derivada]"
               endId="Package\Tarea Flujo de datos\División condicional.Inputs[Entrada de división condicional]"
               name="Salida de columna derivada"
               startId="Package\Tarea Flujo de datos\Columna derivada 1.Outputs[Salida de columna derivada]" />
+            <path
+              refId="Package\Tarea Flujo de datos.Paths[Salida de columna derivada]"
+              endId="Package\Tarea Flujo de datos\PSL COMPANY.Inputs[Primary Input]"
+              name="Salida de columna derivada"
+              startId="Package\Tarea Flujo de datos\Columna derivada.Outputs[Salida de columna derivada]" />
             <path
               refId="Package\Tarea Flujo de datos.Paths[Salida predeterminada de división condicional]"
               endId="Package\Tarea Flujo de datos\Premium Flat File Destination.Inputs[Primary Input]"
@@ -6492,12 +6492,12 @@ WHERE
     </DTS:Executable>
   </DTS:Executables>
   <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
-<!--Esta sección CDATA contiene la información de diseño del paquete. Esta sección incluye información como, por ejemplo, las coordenadas (x,y), el ancho y el alto.-->
-<!--Si edita manualmente esta sección y comete un error, puede eliminarlo. -->
-<!--El paquete podrá cargarse normalmente, pero se perderá la información de diseño anterior y el diseñador reorganizará los elementos automáticamente en la superficie de diseño.-->
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
 <Objects
   Version="8">
-  <!--Cada uno de los nodos siguientes contiene propiedades que no afectan al comportamiento en tiempo de ejecución.-->
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
   <Package
     design-time-name="Package">
     <LayoutInfo>
@@ -6548,8 +6548,8 @@ WHERE
           Id="Package\Tarea Flujo de datos\PSL Tmp_Clientes"
           TopLeft="1234.24994853512,27.3684207521317" />
         <NodeLayout
-          Size="222,42"
-          Id="Package\Tarea Flujo de datos\Premium ADO NET Source 1"
+          Size="256,42"
+          Id="Package\Tarea Flujo de datos\Premium ADO NET Source Persona"
           TopLeft="0.125000307336393,27.4561457223122" />
         <NodeLayout
           Size="216,42"
@@ -6586,7 +6586,7 @@ WHERE
         <NodeLayout
           Size="139,42"
           Id="Package\Tarea Flujo de datos\Columna derivada"
-          TopLeft="254.750002067536,28" />
+          TopLeft="282.750002067536,29" />
         <NodeLayout
           Size="211,42"
           Id="Package\Tarea Flujo de datos\Premium Excel Destination"
@@ -6621,28 +6621,6 @@ WHERE
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Tarea Flujo de datos.Paths[Salida de columna derivada1]"
-          TopLeft="393.750002067536,49">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="52.8750003632159,0"
-              Start="0,0"
-              End="45.3750003632159,0">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="45.3750003632159,0" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Tarea Flujo de datos.Paths[Salida de columna derivada]"
           TopLeft="688.99995216727,224.171050595693">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -6664,19 +6642,41 @@ WHERE
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\Tarea Flujo de datos.Paths[Default Output]"
-          TopLeft="222.125000307336,48.7280728611561">
+          Id="Package\Tarea Flujo de datos.Paths[Salida de columna derivada]"
+          TopLeft="421.750002067536,49.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="32.6250017601996,0"
+              EndConnector="24.8750003632159,0"
               Start="0,0"
-              End="25.1250017601996,0">
+              End="17.3750003632159,0">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="25.1250017601996,0" />
+                    End="17.3750003632159,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Tarea Flujo de datos.Paths[Default Output]"
+          TopLeft="256.125000307336,49.2280728611561">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="26.6250017601996,0"
+              Start="0,0"
+              End="19.1250017601996,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="19.1250017601996,0" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -6687,160 +6687,6 @@ WHERE
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Tarea Flujo de datos.Paths[Default Ouptut13]"
-          TopLeft="1431.12500030734,143.789472989304">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-305.125000307336,0"
-              Start="0,0"
-              End="-297.625000307336,0">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="-297.625000307336,0" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Tarea Flujo de datos.Paths[Default Ouptut12]"
-          TopLeft="1523.81247908715,69.929828873576">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,51.649117105033"
-              Start="0,0"
-              End="0,44.149117105033">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,44.149117105033" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Tarea Flujo de datos.Paths[Default Ouptut11]"
-          TopLeft="682.125000307336,142.789472989304">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-35.1250003073364,0"
-              Start="0,0"
-              End="-27.6250003073364,0">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="-27.6250003073364,0" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Tarea Flujo de datos.Paths[Default Ouptut10]"
-          TopLeft="458,143.789472989304">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-27.874999692664,0"
-              Start="0,0"
-              End="-20.374999692664,0">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="-20.374999692664,0" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Tarea Flujo de datos.Paths[Default Ouptut9]"
-          TopLeft="946,143.289472989304">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-69.8749996926636,0"
-              Start="0,0"
-              End="-62.3749996926636,0">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="-62.3749996926636,0" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Tarea Flujo de datos.Paths[Default Ouptut8]"
-          TopLeft="230.125000307336,145.078945978609">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-49.9999999999996,0"
-              Start="0,0"
-              End="-42.4999999999996,0">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="-42.4999999999996,0" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Tarea Flujo de datos.Paths[Default Ouptut7]"
-          TopLeft="99.3750003073364,167.578945978609">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,29"
-              Start="0,0"
-              End="0,21.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,21.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Tarea Flujo de datos.Paths[Default Ouptut6]"
           TopLeft="193.125000307336,218.789472989304">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -6862,19 +6708,19 @@ WHERE
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\Tarea Flujo de datos.Paths[Default Ouptut5]"
-          TopLeft="450,220.171050595693">
+          Id="Package\Tarea Flujo de datos.Paths[Default Ouptut12]"
+          TopLeft="794.249973569066,48.7894734175168">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="93.99995216727,0"
+              EndConnector="34.124992260711,0"
               Start="0,0"
-              End="86.49995216727,0">
+              End="26.624992260711,0">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="86.49995216727,0" />
+                    End="26.624992260711,0" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -6884,73 +6730,7 @@ WHERE
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\Tarea Flujo de datos.Paths[Default Ouptut4]"
-          TopLeft="1405.24994853512,48.6491248128539">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="39.2500093318499,0"
-              Start="0,0"
-              End="31.7500093318499,0">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="31.7500093318499,0" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Tarea Flujo de datos.Paths[Default Ouptut3]"
-          TopLeft="1195.74995803461,48.8157891957218">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="38.49999050051,0"
-              Start="0,0"
-              End="30.99999050051,0">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="30.99999050051,0" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Tarea Flujo de datos.Paths[Default Ouptut2]"
-          TopLeft="982.374965829777,48.5131576393119">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="33.374992204833,0"
-              Start="0,0"
-              End="25.874992204833,0">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="25.874992204833,0" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Tarea Flujo de datos.Paths[Default Ouptut1]"
+          Id="Package\Tarea Flujo de datos.Paths[Default Ouptut11]"
           TopLeft="604.625002430752,49.4078945978609">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -6972,19 +6752,239 @@ WHERE
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\Tarea Flujo de datos.Paths[Default Ouptut]"
-          TopLeft="794.249973569066,48.7894734175168">
+          Id="Package\Tarea Flujo de datos.Paths[Default Ouptut10]"
+          TopLeft="982.374965829777,48.5131576393119">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="34.124992260711,0"
+              EndConnector="33.374992204833,0"
               Start="0,0"
-              End="26.624992260711,0">
+              End="25.874992204833,0">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="26.624992260711,0" />
+                    End="25.874992204833,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Tarea Flujo de datos.Paths[Default Ouptut9]"
+          TopLeft="1195.74995803461,48.8157891957218">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="38.49999050051,0"
+              Start="0,0"
+              End="30.99999050051,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="30.99999050051,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Tarea Flujo de datos.Paths[Default Ouptut8]"
+          TopLeft="1405.24994853512,48.6491248128539">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="39.2500093318499,0"
+              Start="0,0"
+              End="31.7500093318499,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="31.7500093318499,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Tarea Flujo de datos.Paths[Default Ouptut7]"
+          TopLeft="450,220.171050595693">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="93.99995216727,0"
+              Start="0,0"
+              End="86.49995216727,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="86.49995216727,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Tarea Flujo de datos.Paths[Default Ouptut6]"
+          TopLeft="230.125000307336,145.078945978609">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-49.9999999999996,0"
+              Start="0,0"
+              End="-42.4999999999996,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="-42.4999999999996,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Tarea Flujo de datos.Paths[Default Ouptut5]"
+          TopLeft="99.3750003073364,167.578945978609">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,29"
+              Start="0,0"
+              End="0,21.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,21.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Tarea Flujo de datos.Paths[Default Ouptut4]"
+          TopLeft="946,143.289472989304">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-69.8749996926636,0"
+              Start="0,0"
+              End="-62.3749996926636,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="-62.3749996926636,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Tarea Flujo de datos.Paths[Default Ouptut3]"
+          TopLeft="458,143.789472989304">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-27.874999692664,0"
+              Start="0,0"
+              End="-20.374999692664,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="-20.374999692664,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Tarea Flujo de datos.Paths[Default Ouptut2]"
+          TopLeft="682.125000307336,142.789472989304">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-35.1250003073364,0"
+              Start="0,0"
+              End="-27.6250003073364,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="-27.6250003073364,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Tarea Flujo de datos.Paths[Default Ouptut1]"
+          TopLeft="1523.81247908715,69.929828873576">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,51.649117105033"
+              Start="0,0"
+              End="0,44.149117105033">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,44.149117105033" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Tarea Flujo de datos.Paths[Default Ouptut]"
+          TopLeft="1431.12500030734,143.789472989304">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-305.125000307336,0"
+              Start="0,0"
+              End="-297.625000307336,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="-297.625000307336,0" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
