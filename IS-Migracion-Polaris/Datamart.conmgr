@@ -1,0 +1,14 @@
+﻿<?xml version="1.0"?>
+<DTS:ConnectionManager xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:ObjectName="Datamart"
+  DTS:DTSID="{AAD17A8E-FD3C-434E-B306-56015BA906EB}"
+  DTS:CreationName="OLEDB">
+  <DTS:PropertyExpression
+    DTS:Name="ConnectionString">@[$Project::pConnectionStringDbDatamart]</DTS:PropertyExpression>
+  <DTS:ObjectData>
+    <DTS:ConnectionManager
+      DTS:ConnectRetryCount="1"
+      DTS:ConnectRetryInterval="5"
+      DTS:ConnectionString="Data Source=VENJJCR20;Initial Catalog=datamart;Provider=SQLOLEDB.1;Integrated Security=SSPI;Auto Translate=false;Application Name=SSIS-PqExtraeDesdeDatamart-{AAD17A8E-FD3C-434E-B306-56015BA906EB}SourceConnectionOLEDB;" />
+  </DTS:ObjectData>
+</DTS:ConnectionManager>

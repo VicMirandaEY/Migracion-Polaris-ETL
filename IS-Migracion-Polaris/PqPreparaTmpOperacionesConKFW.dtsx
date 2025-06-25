@@ -1,0 +1,730 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="11/11/2024 10:51:48 AM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="VENJJCR20"
+  DTS:CreatorName="CAF-CON\ls42731"
+  DTS:Description="DTS Wizard-generated package"
+  DTS:DTSID="{D4AEF062-29FE-411F-A1A6-3673ABCE6A97}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="16.0.5270.0"
+  DTS:LocaleID="1033"
+  DTS:MaxErrorCount="0"
+  DTS:ObjectName="PqPreparaTmpOperacionesConKFW"
+  DTS:VersionBuild="4"
+  DTS:VersionGUID="{9DF1AA54-242B-43C8-80F6-258F32692265}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[DestinationConnectionOLEDB]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{37347750-3FA6-43BA-9991-FCB05CEB3F83}"
+      DTS:ObjectName="DestinationConnectionOLEDB">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=VENJJCR20;Initial Catalog=STGLegados;Provider=SQLOLEDB;Integrated Security=SSPI;Auto Translate=false;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[SourceConnectionFlatFile]"
+      DTS:CreationName="FLATFILE"
+      DTS:DTSID="{9F9FE9E0-7AA7-4B6D-9967-01F609FA9181}"
+      DTS:ObjectName="SourceConnectionFlatFile">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="Delimited"
+          DTS:LocaleID="1033"
+          DTS:HeaderRowDelimiter="_x003B_"
+          DTS:ColumnNamesInFirstDataRow="True"
+          DTS:RowDelimiter=""
+          DTS:TextQualifier="_x003C_none_x003E_"
+          DTS:CodePage="65001"
+          DTS:ConnectionString="D:\App\Migracion-Polaris-ETL1\Csv\ReporteOperacionesConKFW.csv">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="15"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="coOperacionActiva"
+              DTS:DTSID="{59781EE8-5F48-4AC2-AABC-93990C51B5B8}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="15"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="coOperacionBeneficioKFW"
+              DTS:DTSID="{E74FE840-FA01-47DF-A924-1C1549124B94}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:DataType="131"
+              DTS:DataPrecision="9"
+              DTS:DataScale="4"
+              DTS:TextQualified="True"
+              DTS:ObjectName="taMargen"
+              DTS:DTSID="{E6B8B27E-461C-44FA-A6FB-9BED4C3D3737}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:DataType="7"
+              DTS:TextQualified="True"
+              DTS:ObjectName="feCulminacionAbaratamientoKFW"
+              DTS:DTSID="{77196826-C5D8-482C-8DBA-5EE503DF601D}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000D__x000A_"
+              DTS:DataType="131"
+              DTS:DataPrecision="21"
+              DTS:DataScale="2"
+              DTS:TextQualified="True"
+              DTS:ObjectName="moAprobadoKFW"
+              DTS:DTSID="{5C96F397-F581-4ACE-BC07-190AFD72FF71}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Carga TmpOperacionesConKFW"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:DelayValidation="True"
+      DTS:DTSID="{1121F87A-E774-45C0-AC6A-9EC3EEA1A307}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:FailPackageOnFailure="True"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Carga TmpOperacionesConKFW"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          defaultBufferSize="3145728"
+          version="1">
+          <components>
+            <component
+              refId="Package\Carga TmpOperacionesConKFW\Data Conversion 0 - 0"
+              componentClassID="Microsoft.DataConvert"
+              contactInfo="Data Conversion;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Data Conversion"
+              name="Data Conversion 0 - 0"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Carga TmpOperacionesConKFW\Data Conversion 0 - 0.Inputs[Data Conversion Input]"
+                  name="Data Conversion Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Carga TmpOperacionesConKFW\Data Conversion 0 - 0.Inputs[Data Conversion Input].Columns[feCulminacionAbaratamientoKFW]"
+                      cachedDataType="date"
+                      cachedName="feCulminacionAbaratamientoKFW"
+                      lineageId="Package\Carga TmpOperacionesConKFW\Source - ReporteOperacionesConKFW_csv.Outputs[Flat File Source Output].Columns[feCulminacionAbaratamientoKFW]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Carga TmpOperacionesConKFW\Data Conversion 0 - 0.Outputs[Data Conversion Output]"
+                  exclusionGroup="1"
+                  name="Data Conversion Output"
+                  synchronousInputId="Package\Carga TmpOperacionesConKFW\Data Conversion 0 - 0.Inputs[Data Conversion Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Carga TmpOperacionesConKFW\Data Conversion 0 - 0.Outputs[Data Conversion Output].Columns[feCulminacionAbaratamientoKFW]"
+                      dataType="dbDate"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="IgnoreFailure"
+                      lineageId="Package\Carga TmpOperacionesConKFW\Data Conversion 0 - 0.Outputs[Data Conversion Output].Columns[feCulminacionAbaratamientoKFW]"
+                      name="feCulminacionAbaratamientoKFW"
+                      truncationRowDisposition="IgnoreFailure">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Carga TmpOperacionesConKFW\Source - ReporteOperacionesConKFW_csv.Outputs[Flat File Source Output].Columns[feCulminacionAbaratamientoKFW]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Carga TmpOperacionesConKFW\Data Conversion 0 - 0.Outputs[Data Conversion Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Data Conversion Error Output"
+                  synchronousInputId="Package\Carga TmpOperacionesConKFW\Data Conversion 0 - 0.Inputs[Data Conversion Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Carga TmpOperacionesConKFW\Data Conversion 0 - 0.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Carga TmpOperacionesConKFW\Data Conversion 0 - 0.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Carga TmpOperacionesConKFW\Data Conversion 0 - 0.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Carga TmpOperacionesConKFW\Data Conversion 0 - 0.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Carga TmpOperacionesConKFW\Destination - TmpOperacionesConKFW"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="Destination - TmpOperacionesConKFW"
+              usesDispositions="true"
+              validateExternalMetadata="False"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[TmpOperacionesConKFW]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=16.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Carga TmpOperacionesConKFW\Destination - TmpOperacionesConKFW.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[DestinationConnectionOLEDB]"
+                  connectionManagerRefId="Package.ConnectionManagers[DestinationConnectionOLEDB]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Carga TmpOperacionesConKFW\Destination - TmpOperacionesConKFW.Inputs[Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Carga TmpOperacionesConKFW\Destination - TmpOperacionesConKFW.Inputs[Destination Input].Columns[coOperacionActiva]"
+                      cachedDataType="wstr"
+                      cachedLength="15"
+                      cachedName="coOperacionActiva"
+                      externalMetadataColumnId="Package\Carga TmpOperacionesConKFW\Destination - TmpOperacionesConKFW.Inputs[Destination Input].ExternalColumns[coOperacionActiva]"
+                      lineageId="Package\Carga TmpOperacionesConKFW\Source - ReporteOperacionesConKFW_csv.Outputs[Flat File Source Output].Columns[coOperacionActiva]" />
+                    <inputColumn
+                      refId="Package\Carga TmpOperacionesConKFW\Destination - TmpOperacionesConKFW.Inputs[Destination Input].Columns[coOperacionBeneficioKFW]"
+                      cachedDataType="wstr"
+                      cachedLength="15"
+                      cachedName="coOperacionBeneficioKFW"
+                      externalMetadataColumnId="Package\Carga TmpOperacionesConKFW\Destination - TmpOperacionesConKFW.Inputs[Destination Input].ExternalColumns[coOperacionBeneficioKFW]"
+                      lineageId="Package\Carga TmpOperacionesConKFW\Source - ReporteOperacionesConKFW_csv.Outputs[Flat File Source Output].Columns[coOperacionBeneficioKFW]" />
+                    <inputColumn
+                      refId="Package\Carga TmpOperacionesConKFW\Destination - TmpOperacionesConKFW.Inputs[Destination Input].Columns[taMargen]"
+                      cachedDataType="numeric"
+                      cachedName="taMargen"
+                      cachedPrecision="9"
+                      cachedScale="4"
+                      externalMetadataColumnId="Package\Carga TmpOperacionesConKFW\Destination - TmpOperacionesConKFW.Inputs[Destination Input].ExternalColumns[taMargen]"
+                      lineageId="Package\Carga TmpOperacionesConKFW\Source - ReporteOperacionesConKFW_csv.Outputs[Flat File Source Output].Columns[taMargen]" />
+                    <inputColumn
+                      refId="Package\Carga TmpOperacionesConKFW\Destination - TmpOperacionesConKFW.Inputs[Destination Input].Columns[feCulminacionAbaratamientoKFW]"
+                      cachedDataType="dbDate"
+                      cachedName="feCulminacionAbaratamientoKFW"
+                      externalMetadataColumnId="Package\Carga TmpOperacionesConKFW\Destination - TmpOperacionesConKFW.Inputs[Destination Input].ExternalColumns[feCulminacionAbaratamientoKFW]"
+                      lineageId="Package\Carga TmpOperacionesConKFW\Data Conversion 0 - 0.Outputs[Data Conversion Output].Columns[feCulminacionAbaratamientoKFW]" />
+                    <inputColumn
+                      refId="Package\Carga TmpOperacionesConKFW\Destination - TmpOperacionesConKFW.Inputs[Destination Input].Columns[moAprobadoKFW]"
+                      cachedDataType="numeric"
+                      cachedName="moAprobadoKFW"
+                      cachedPrecision="21"
+                      cachedScale="2"
+                      externalMetadataColumnId="Package\Carga TmpOperacionesConKFW\Destination - TmpOperacionesConKFW.Inputs[Destination Input].ExternalColumns[moAprobadoKFW]"
+                      lineageId="Package\Carga TmpOperacionesConKFW\Source - ReporteOperacionesConKFW_csv.Outputs[Flat File Source Output].Columns[moAprobadoKFW]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Carga TmpOperacionesConKFW\Destination - TmpOperacionesConKFW.Inputs[Destination Input].ExternalColumns[coOperacionActiva]"
+                      dataType="wstr"
+                      length="15"
+                      name="coOperacionActiva" />
+                    <externalMetadataColumn
+                      refId="Package\Carga TmpOperacionesConKFW\Destination - TmpOperacionesConKFW.Inputs[Destination Input].ExternalColumns[coOperacionBeneficioKFW]"
+                      dataType="wstr"
+                      length="15"
+                      name="coOperacionBeneficioKFW" />
+                    <externalMetadataColumn
+                      refId="Package\Carga TmpOperacionesConKFW\Destination - TmpOperacionesConKFW.Inputs[Destination Input].ExternalColumns[taMargen]"
+                      dataType="numeric"
+                      name="taMargen"
+                      precision="9"
+                      scale="4" />
+                    <externalMetadataColumn
+                      refId="Package\Carga TmpOperacionesConKFW\Destination - TmpOperacionesConKFW.Inputs[Destination Input].ExternalColumns[feCulminacionAbaratamientoKFW]"
+                      dataType="dbDate"
+                      name="feCulminacionAbaratamientoKFW" />
+                    <externalMetadataColumn
+                      refId="Package\Carga TmpOperacionesConKFW\Destination - TmpOperacionesConKFW.Inputs[Destination Input].ExternalColumns[moAprobadoKFW]"
+                      dataType="numeric"
+                      name="moAprobadoKFW"
+                      precision="21"
+                      scale="2" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Carga TmpOperacionesConKFW\Destination - TmpOperacionesConKFW.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\Carga TmpOperacionesConKFW\Destination - TmpOperacionesConKFW.Inputs[Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Carga TmpOperacionesConKFW\Destination - TmpOperacionesConKFW.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Carga TmpOperacionesConKFW\Destination - TmpOperacionesConKFW.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Carga TmpOperacionesConKFW\Destination - TmpOperacionesConKFW.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Carga TmpOperacionesConKFW\Destination - TmpOperacionesConKFW.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Carga TmpOperacionesConKFW\Source - ReporteOperacionesConKFW_csv"
+              componentClassID="Microsoft.FlatFileSource"
+              contactInfo="Flat File Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Flat File Source"
+              localeId="1033"
+              name="Source - ReporteOperacionesConKFW_csv"
+              usesDispositions="true"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Specifies whether zero-length columns are treated as null."
+                  name="RetainNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of an output column containing the file name. If no name is specified, no output column containing the file name will be generated."
+                  name="FileNameColumnName"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Carga TmpOperacionesConKFW\Source - ReporteOperacionesConKFW_csv.Connections[FlatFileConnection]"
+                  connectionManagerID="Package.ConnectionManagers[SourceConnectionFlatFile]"
+                  connectionManagerRefId="Package.ConnectionManagers[SourceConnectionFlatFile]"
+                  name="FlatFileConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Carga TmpOperacionesConKFW\Source - ReporteOperacionesConKFW_csv.Outputs[Flat File Source Output]"
+                  name="Flat File Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Carga TmpOperacionesConKFW\Source - ReporteOperacionesConKFW_csv.Outputs[Flat File Source Output].Columns[coOperacionActiva]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Carga TmpOperacionesConKFW\Source - ReporteOperacionesConKFW_csv.Outputs[Flat File Source Output].ExternalColumns[coOperacionActiva]"
+                      length="15"
+                      lineageId="Package\Carga TmpOperacionesConKFW\Source - ReporteOperacionesConKFW_csv.Outputs[Flat File Source Output].Columns[coOperacionActiva]"
+                      name="coOperacionActiva"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Carga TmpOperacionesConKFW\Source - ReporteOperacionesConKFW_csv.Outputs[Flat File Source Output].Columns[coOperacionBeneficioKFW]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Carga TmpOperacionesConKFW\Source - ReporteOperacionesConKFW_csv.Outputs[Flat File Source Output].ExternalColumns[coOperacionBeneficioKFW]"
+                      length="15"
+                      lineageId="Package\Carga TmpOperacionesConKFW\Source - ReporteOperacionesConKFW_csv.Outputs[Flat File Source Output].Columns[coOperacionBeneficioKFW]"
+                      name="coOperacionBeneficioKFW"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Carga TmpOperacionesConKFW\Source - ReporteOperacionesConKFW_csv.Outputs[Flat File Source Output].Columns[taMargen]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Carga TmpOperacionesConKFW\Source - ReporteOperacionesConKFW_csv.Outputs[Flat File Source Output].ExternalColumns[taMargen]"
+                      lineageId="Package\Carga TmpOperacionesConKFW\Source - ReporteOperacionesConKFW_csv.Outputs[Flat File Source Output].Columns[taMargen]"
+                      name="taMargen"
+                      precision="9"
+                      scale="4"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Carga TmpOperacionesConKFW\Source - ReporteOperacionesConKFW_csv.Outputs[Flat File Source Output].Columns[feCulminacionAbaratamientoKFW]"
+                      dataType="date"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Carga TmpOperacionesConKFW\Source - ReporteOperacionesConKFW_csv.Outputs[Flat File Source Output].ExternalColumns[feCulminacionAbaratamientoKFW]"
+                      lineageId="Package\Carga TmpOperacionesConKFW\Source - ReporteOperacionesConKFW_csv.Outputs[Flat File Source Output].Columns[feCulminacionAbaratamientoKFW]"
+                      name="feCulminacionAbaratamientoKFW"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Carga TmpOperacionesConKFW\Source - ReporteOperacionesConKFW_csv.Outputs[Flat File Source Output].Columns[moAprobadoKFW]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Carga TmpOperacionesConKFW\Source - ReporteOperacionesConKFW_csv.Outputs[Flat File Source Output].ExternalColumns[moAprobadoKFW]"
+                      lineageId="Package\Carga TmpOperacionesConKFW\Source - ReporteOperacionesConKFW_csv.Outputs[Flat File Source Output].Columns[moAprobadoKFW]"
+                      name="moAprobadoKFW"
+                      precision="21"
+                      scale="2"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Carga TmpOperacionesConKFW\Source - ReporteOperacionesConKFW_csv.Outputs[Flat File Source Output].ExternalColumns[coOperacionActiva]"
+                      dataType="wstr"
+                      length="15"
+                      name="coOperacionActiva" />
+                    <externalMetadataColumn
+                      refId="Package\Carga TmpOperacionesConKFW\Source - ReporteOperacionesConKFW_csv.Outputs[Flat File Source Output].ExternalColumns[coOperacionBeneficioKFW]"
+                      dataType="wstr"
+                      length="15"
+                      name="coOperacionBeneficioKFW" />
+                    <externalMetadataColumn
+                      refId="Package\Carga TmpOperacionesConKFW\Source - ReporteOperacionesConKFW_csv.Outputs[Flat File Source Output].ExternalColumns[taMargen]"
+                      dataType="numeric"
+                      name="taMargen"
+                      precision="9"
+                      scale="4" />
+                    <externalMetadataColumn
+                      refId="Package\Carga TmpOperacionesConKFW\Source - ReporteOperacionesConKFW_csv.Outputs[Flat File Source Output].ExternalColumns[feCulminacionAbaratamientoKFW]"
+                      dataType="date"
+                      name="feCulminacionAbaratamientoKFW" />
+                    <externalMetadataColumn
+                      refId="Package\Carga TmpOperacionesConKFW\Source - ReporteOperacionesConKFW_csv.Outputs[Flat File Source Output].ExternalColumns[moAprobadoKFW]"
+                      dataType="numeric"
+                      name="moAprobadoKFW"
+                      precision="21"
+                      scale="2" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Carga TmpOperacionesConKFW\Source - ReporteOperacionesConKFW_csv.Outputs[Flat File Source Error Output]"
+                  isErrorOut="true"
+                  name="Flat File Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Carga TmpOperacionesConKFW\Source - ReporteOperacionesConKFW_csv.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                      codePage="65001"
+                      dataType="text"
+                      description="Flat File Source Error Output Column"
+                      lineageId="Package\Carga TmpOperacionesConKFW\Source - ReporteOperacionesConKFW_csv.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                      name="Flat File Source Error Output Column" />
+                    <outputColumn
+                      refId="Package\Carga TmpOperacionesConKFW\Source - ReporteOperacionesConKFW_csv.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Carga TmpOperacionesConKFW\Source - ReporteOperacionesConKFW_csv.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Carga TmpOperacionesConKFW\Source - ReporteOperacionesConKFW_csv.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Carga TmpOperacionesConKFW\Source - ReporteOperacionesConKFW_csv.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Carga TmpOperacionesConKFW.Paths[Data Conversion Output]"
+              endId="Package\Carga TmpOperacionesConKFW\Destination - TmpOperacionesConKFW.Inputs[Destination Input]"
+              name="Data Conversion Output"
+              startId="Package\Carga TmpOperacionesConKFW\Data Conversion 0 - 0.Outputs[Data Conversion Output]" />
+            <path
+              refId="Package\Carga TmpOperacionesConKFW.Paths[Flat File Source Output]"
+              endId="Package\Carga TmpOperacionesConKFW\Data Conversion 0 - 0.Inputs[Data Conversion Input]"
+              name="Flat File Source Output"
+              startId="Package\Carga TmpOperacionesConKFW\Source - ReporteOperacionesConKFW_csv.Outputs[Flat File Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Preparation SQL Task 1"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Disabled="True"
+      DTS:DTSID="{78B7EA2E-0070-4BB8-9A57-F0B8BFEBBA1B}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:FailPackageOnFailure="True"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Preparation SQL Task 1"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{37347750-3FA6-43BA-9991-FCB05CEB3F83}"
+          SQLTask:SqlStatementSource="CREATE TABLE [dbo].[TmpOperacionesConKFW] (&#xA;[coOperacionActiva] nvarchar(15),&#xA;[coOperacionBeneficioKFW] nvarchar(15),&#xA;[taMargen] numeric(9,4),&#xA;[feCulminacionAbaratamientoKFW] date,&#xA;[moAprobadoKFW] numeric(21,2)&#xA;)&#xA;GO&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Trunca Tabla TmpOperacionesConKFW"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{9B2CD4F2-8164-4017-B071-92D804EEBFA9}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Trunca Tabla TmpOperacionesConKFW"
+      DTS:ThreadHint="1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{70000693-BDE1-4FE0-B772-11B7D4A7A452}"
+          SQLTask:SqlStatementSource="--&#xA;TRUNCATE TABLE [STGLegados].[dbo].[TmpOperacionesConKFW]&#xA;--" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{95913295-92DA-4802-A56A-342B3C08F894}"
+      DTS:From="Package\Trunca Tabla TmpOperacionesConKFW"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\Carga TmpOperacionesConKFW" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="228,42"
+          Id="Package\Carga TmpOperacionesConKFW"
+          TopLeft="256.5,107.5" />
+        <NodeLayout
+          Size="190,42"
+          Id="Package\Preparation SQL Task 1"
+          TopLeft="5.5,107.5" />
+        <NodeLayout
+          Size="263,42"
+          Id="Package\Trunca Tabla TmpOperacionesConKFW"
+          TopLeft="239,5.5" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="370.5,47.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Carga TmpOperacionesConKFW">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="261,42"
+          Id="Package\Carga TmpOperacionesConKFW\Destination - TmpOperacionesConKFW"
+          TopLeft="13.5,209.5" />
+        <NodeLayout
+          Size="277,42"
+          Id="Package\Carga TmpOperacionesConKFW\Source - ReporteOperacionesConKFW_csv"
+          TopLeft="5.5,5.5" />
+        <NodeLayout
+          Size="182,42"
+          Id="Package\Carga TmpOperacionesConKFW\Data Conversion 0 - 0"
+          TopLeft="53,107.5" />
+        <EdgeLayout
+          Id="Package\Carga TmpOperacionesConKFW.Paths[Flat File Source Output]"
+          TopLeft="144,47.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Carga TmpOperacionesConKFW.Paths[Data Conversion Output]"
+          TopLeft="144,149.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

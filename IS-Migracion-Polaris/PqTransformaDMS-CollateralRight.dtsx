@@ -1,0 +1,385 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="4/5/2023 10:26:02 AM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="VENJJCR20"
+  DTS:CreatorName="CAF-CON\ls42731"
+  DTS:DTSID="{CC989B59-BBFB-4305-9B12-C6B5B42B952B}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="16.0.5270.0"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="PqTransformaDMS-CollateralRight"
+  DTS:PackageType="5"
+  DTS:VersionBuild="75"
+  DTS:VersionGUID="{496092FD-7E5C-473B-A84B-5468CC18857D}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Filtra Mandatorios"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{5148233C-4E5E-4617-A793-EDB82094B338}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Filtra Mandatorios"
+      DTS:ThreadHint="1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{73E9BE98-144D-4887-A1CD-FCE6E4AB9CF5}"
+          SQLTask:SqlStatementSource="USE [STGPolaris]&#xA;GO&#xA;--&#xA;DECLARE @YYYY int --Año&#xA;       ,@MM   int --Mes&#xA;       ,@DD   int --Dia&#xA;&#x9;   ,@primerDiaMesMigracionINT int&#xA;&#x9;   ,@ultimoDiaMesMigracionINT int&#xA;       ,@feLineaTiempo datetime&#xA;&#x9;   ,@feUltimoDiaMesMigracion date&#xA;&#x9;   ,@feMigracion date&#xA;&#x9;   ,@feMigracionST nvarchar(8)&#xA;--&#xA;--&#xA;SET @feLineaTiempo = (SELECT MAX(fe_linea_tiempo)  FROM [STGLegados].[dbo].[linea_tiempo])&#xA;SET @feMigracion = DATEADD(DAY, 1, @feLineaTiempo) &#xA;SET @YYYY = YEAR(@feMigracion)  -- Año correspondiente a la fecha de migración&#xA;SET @MM = MONTH(@feMigracion)   -- Mes correspondiente a la fecha de migración&#xA;SET @DD = DAY(@feMigracion)     -- Dia correspondiente a la fecha de migración&#xA;SET @feUltimoDiaMesMigracion = DATEADD(dd,-1,DATEADD(mm, DATEDIFF(mm,0,@feMigracion)+1,0)) -- Fecha de último día del mes de la migración&#xA;SET @ultimoDiaMesMigracionINT = YEAR(@feUltimoDiaMesMigracion)*10000 + MONTH(@feUltimoDiaMesMigracion)*100 + DAY(@feUltimoDiaMesMigracion)&#xA;SET @primerDiaMesMigracionINT = YEAR(@feUltimoDiaMesMigracion)*10000 + MONTH(@feUltimoDiaMesMigracion)*100 + 1&#xA;SET @feMigracionST = Convert(nvarchar(8),@feMigracion,112)&#xA;--&#xA;--&#xA;TRUNCATE TABLE [STGPolaris].[dbo].[DMS-COLLATERAL.RIGHT]&#xA;INSERT INTO [STGPolaris].[dbo].[DMS-COLLATERAL.RIGHT]&#xA;SELECT [UPLOAD.COMPANY]&#xA;      ,[ID/COLLATERAL.RIGHT]&#xA;      ,[COLLATERAL.CODE]&#xA;      ,[LIMIT.REFERENCE]&#xA;      ,[EXPIRY.DATE]&#xA;      ,[NOTE]&#xA;      ,[CUSTOMER]&#xA;      ,[co_garantia]&#xA;      ,[co_garantia_fct]&#xA;      ,[co_ficha]&#xA;  FROM [dbo].[DMS-COLLATERAL.RIGHT-v1.4]&#xA; WHERE [UPLOAD.COMPANY] IS NOT NULL&#xA;   AND [ID/COLLATERAL.RIGHT] IS NOT NULL&#xA;   AND [COLLATERAL.CODE] IS NOT NULL&#xA;   AND [LIMIT.REFERENCE] IS NOT NULL&#xA;   AND [CUSTOMER] IS NOT NULL&#xA;   AND [EXPIRY.DATE] IS NOT NULL&#xA;   AND [NOTE] IS NOT NULL&#xA;GO&#xA;-- Fin" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Fix 1"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:Disabled="True"
+      DTS:DTSID="{3E73F271-B7A9-4CDD-A789-8B0E7C75D096}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Fix 1"
+      DTS:ThreadHint="2">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{73E9BE98-144D-4887-A1CD-FCE6E4AB9CF5}"
+          SQLTask:SqlStatementSource="USE [STGPolaris]&#xA;GO&#xA;--&#xA;DECLARE @YYYY int --Año&#xA;       ,@MM   int --Mes&#xA;       ,@DD   int --Dia&#xA;&#x9;   ,@primerDiaMesMigracionINT int&#xA;&#x9;   ,@ultimoDiaMesMigracionINT int&#xA;       ,@feLineaTiempo datetime&#xA;&#x9;   ,@feUltimoDiaMesMigracion date&#xA;&#x9;   ,@feMigracion date&#xA;&#x9;   ,@feMigracionST nvarchar(8)&#xA;--&#xA;--&#xA;SET @feLineaTiempo = (SELECT MAX(fe_linea_tiempo)  FROM [STGLegados].[dbo].[linea_tiempo])&#xA;SET @feMigracion = DATEADD(DAY, 1, @feLineaTiempo) &#xA;SET @YYYY = YEAR(@feMigracion)  -- Año correspondiente a la fecha de migración&#xA;SET @MM = MONTH(@feMigracion)   -- Mes correspondiente a la fecha de migración&#xA;SET @DD = DAY(@feMigracion)     -- Dia correspondiente a la fecha de migración&#xA;SET @feUltimoDiaMesMigracion = DATEADD(dd,-1,DATEADD(mm, DATEDIFF(mm,0,@feMigracion)+1,0)) -- Fecha de último día del mes de la migración&#xA;SET @ultimoDiaMesMigracionINT = YEAR(@feUltimoDiaMesMigracion)*10000 + MONTH(@feUltimoDiaMesMigracion)*100 + DAY(@feUltimoDiaMesMigracion)&#xA;SET @primerDiaMesMigracionINT = YEAR(@feUltimoDiaMesMigracion)*10000 + MONTH(@feUltimoDiaMesMigracion)*100 + 1&#xA;SET @feMigracionST = Convert(nvarchar(8),@feMigracion,112)&#xA;--&#xA;--&#xA;TRUNCATE TABLE [STGPolaris].[dbo].[DMS-COLLATERAL.RIGHT]&#xA;INSERT INTO [STGPolaris].[dbo].[DMS-COLLATERAL.RIGHT]&#xA;SELECT [UPLOAD.COMPANY]&#xA;      ,[ID/COLLATERAL.RIGHT]&#xA;      ,[COLLATERAL.CODE]&#xA;      ,[LIMIT.REFERENCE]&#xA;      ,[EXPIRY.DATE]&#xA;      ,[NOTE]&#xA;      ,[CUSTOMER]&#xA;      ,[co_garantia]&#xA;      ,[co_garantia_fct]&#xA;      ,[co_ficha]&#xA;  FROM [dbo].[DMS-COLLATERAL.RIGHT-v1.4]&#xA; WHERE [UPLOAD.COMPANY] IS NOT NULL&#xA;   AND [ID/COLLATERAL.RIGHT] IS NOT NULL&#xA;   AND [COLLATERAL.CODE] IS NOT NULL&#xA;   AND [LIMIT.REFERENCE] IS NOT NULL&#xA;   AND [CUSTOMER] IS NOT NULL&#xA;   AND [EXPIRY.DATE] IS NOT NULL&#xA;   AND [NOTE] IS NOT NULL&#xA;   AND [ID/COLLATERAL.RIGHT] IN&#xA;(SELECT -- garantias_activas     prefijo 9 en el Id&#xA;&#x9;  -- COM.Id as coCompaniaCollateralRightTransact &#xA;&#x9;   Convert(nvarchar(13),'COR'+Substring(Convert(nvarchar(4),YEAR(ISNULL(OPER.feContratoOriginalCompromisoActivaTransact,@feMigracion))),3,2)+Substring(Convert(nvarchar(4),1000+DATEPART(DAYOFYEAR,ISNULL(OPER.feContratoOriginalCompromisoActivaTransact,@feMigracion))),2,3)+'9'+Substring(Convert(nvarchar(6),100000+CR.co_garantia),3,4)) as coCollateralRightTransact&#xA;--&#x9;  ,OPER.feContratoOriginalCompromisoActivaTransact&#xA;--&#x9;  ,RTRIM(LTRIM(COL.Id)) as coCollateralCodeTransact&#xA;--&#x9;  ,OPER.coLimiteDeValidacionActivaTransact &#xA;--&#x9;  ,Convert(nvarchar(10),1000000+CR.co_persona_prestatario) as coClienteCollateralRightTransact&#xA;--&#x9;  ,Convert(numeric(21,2),CR.mo_total_garantia) as moTotalCollateralRight&#xA;--&#x9;  ,OPER.feContratoOriginalCompromisoActivaTransact&#xA;--&#x9;  ,CR.fe_vencimiento_garantia as feVencimientoGarantia&#xA;--&#x9;  ,CR.co_garantia&#xA;--&#x9;  ,Convert(int,NULL) as co_garantia_fct&#xA;--&#x9;  ,Convert(int,NULL) as co_ficha&#xA;--&#x9;  ,OPER.coCompromisoActiva&#xA;--&#x9;  ,Convert(nvarchar(512),'GARANTIA ACT: '+Convert(nvarchar(6),CR.co_garantia)+' - '+ISNULL([STGPolaris].[dbo].[fn_udfTrim](CR.de_garantia),'')+' '+ISNULL([STGPolaris].[dbo].[fn_udfTrim](CR.de_garantia_2),'')) as deGarantia&#xA;----&#x9;  INTO [STGLegados].[dbo].[TmpCollateralRightFix]&#xA;FROM   [STGLegados].[dbo].[TmpGarantiasActivasDia] as CR&#xA;  LEFT OUTER JOIN (SELECT T.coCompromisoActiva&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9; ,T.coCompromisoActivaTransact&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9; ,T.coAprobacionActiva&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9; ,T.coAprobacionActivaTransact&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9; ,T.coLimiteDeUtilizacionActivaTransact&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9; ,T.coLimiteDeValidacionActivaTransact &#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9; ,Convert(datetime,T.feContratoOriginalCompromisoActivaTransact) as feContratoOriginalCompromisoActivaTransact&#xA;&#x9;&#x9;&#x9;&#x9;&#x9; FROM [STGLegados].[dbo].[TmpAprobacionCompromisoOperacionActiva] as T&#xA;&#x9;&#x9;&#x9;&#x9;   GROUP BY T.coCompromisoActiva&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9; ,T.coCompromisoActivaTransact&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9; ,T.coAprobacionActiva&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9; ,T.coAprobacionActivaTransact&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9; ,T.coLimiteDeUtilizacionActivaTransact&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9; ,T.coLimiteDeValidacionActivaTransact &#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9; ,T.feContratoOriginalCompromisoActivaTransact&#xA;&#x9;&#x9;&#x9;&#x9;&#x9; UNION&#xA;&#x9;&#x9;&#x9;&#x9;&#x9; SELECT T.coCompromisoActiva&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9; ,T.coCompromisoActivaTransact&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9; ,T.coAprobacionActiva&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9; ,T.coAprobacionActivaTransact&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9; ,T.coLimiteDeUtilizacionActivaTransact&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9; ,T.coLimiteDeValidacionActivaTransact &#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9; ,Convert(datetime,T.feContratoOriginalCompromisoActivaTransact) as feContratoOriginalCompromisoActivaTransact&#xA;&#x9;&#x9;&#x9;&#x9;&#x9; FROM [STGLegados].[dbo].[TmpAprobacionCompromisoActiva] as T&#xA;&#x9;&#x9;&#x9;&#x9;   GROUP BY T.coCompromisoActiva&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9; ,T.coCompromisoActivaTransact&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9; ,T.coAprobacionActiva&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9; ,T.coAprobacionActivaTransact&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9; ,T.coLimiteDeUtilizacionActivaTransact&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9; ,T.coLimiteDeValidacionActivaTransact &#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9; ,T.feContratoOriginalCompromisoActivaTransact) as OPER ON&#xA;    OPER.coCompromisoActiva = Convert(nvarchar(15),CR.co_compromiso_garantizado)&#xA;  LEFT OUTER JOIN [STGPolaris].[dbo].[COMPANY] as COM ON&#xA;    COM.CodCompaniaPersona = 1547  -- Solo se cargaran los Clientes en BNK. Esto se cambio por nuevos criterios y acuerdos donde se quedó en reunión de conciliación que sólo se va a enviar los clientes con una compañía (Ignacio). Según conversación con Oliver. Chat Teams 24/1. ¿Las Garantías se gestionan con todas las compañías (CAF, FIDE, FDH, FFC)?.... No, hasta ahora solo en CAF, el FFC jamas tendria eso y FIDE y FDH tampoco hasta el momento pero no es imposible para estas dos últimas&#xA;  LEFT OUTER JOIN [STGPolaris].[dbo].[COLLATERAL.CODE] as COL ON&#xA;    COL.CoTiColateralDatamart = CR.ti_colateral&#xA;  --LEFT OUTER JOIN [STGPolaris].[dbo].[CURRENCY] as CUR ON&#xA;  --  CUR.CcyId = Convert(nvarchar(3),CR.co_moneda) &#xA;WHERE CR.fe_vencimiento_garantia &gt; @feMigracion&#xA; AND  OPER.feContratoOriginalCompromisoActivaTransact IS NULL)" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Fix2"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:Disabled="True"
+      DTS:DTSID="{998C2539-AE98-4156-B760-B779C5F20FEF}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Fix2"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{73E9BE98-144D-4887-A1CD-FCE6E4AB9CF5}"
+          SQLTask:SqlStatementSource="DECLARE @YYYY int --Año&#xA;       ,@MM   int --Mes&#xA;       ,@DD   int --Dia&#xA;&#x9;   ,@primerDiaMesMigracionINT int&#xA;&#x9;   ,@ultimoDiaMesMigracionINT int&#xA;       ,@feLineaTiempo datetime&#xA;&#x9;   ,@feUltimoDiaMesMigracion date&#xA;&#x9;   ,@feMigracion date&#xA;&#x9;   ,@feMigracionST nvarchar(8)&#xA;--&#xA;--&#xA;SET @feLineaTiempo = (SELECT MAX(fe_linea_tiempo)  FROM [STGLegados].[dbo].[linea_tiempo])&#xA;SET @feMigracion = DATEADD(DAY, 1, @feLineaTiempo) &#xA;SET @YYYY = YEAR(@feMigracion)  -- Año correspondiente a la fecha de migración&#xA;SET @MM = MONTH(@feMigracion)   -- Mes correspondiente a la fecha de migración&#xA;SET @DD = DAY(@feMigracion)     -- Dia correspondiente a la fecha de migración&#xA;SET @feUltimoDiaMesMigracion = DATEADD(dd,-1,DATEADD(mm, DATEDIFF(mm,0,@feMigracion)+1,0)) -- Fecha de último día del mes de la migración&#xA;SET @ultimoDiaMesMigracionINT = YEAR(@feUltimoDiaMesMigracion)*10000 + MONTH(@feUltimoDiaMesMigracion)*100 + DAY(@feUltimoDiaMesMigracion)&#xA;SET @primerDiaMesMigracionINT = YEAR(@feUltimoDiaMesMigracion)*10000 + MONTH(@feUltimoDiaMesMigracion)*100 + 1&#xA;SET @feMigracionST = Convert(nvarchar(8),@feMigracion,112)&#xA;--&#xA;--&#xA;TRUNCATE TABLE [STGPolaris].[dbo].[DMS-COLLATERAL.RIGHT]&#xA;INSERT INTO [STGPolaris].[dbo].[DMS-COLLATERAL.RIGHT]&#xA;SELECT [UPLOAD.COMPANY]&#xA;      ,[ID/COLLATERAL.RIGHT]&#xA;      ,[COLLATERAL.CODE]&#xA;      ,[LIMIT.REFERENCE]&#xA;      ,[EXPIRY.DATE]&#xA;      ,[NOTE]&#xA;      ,[CUSTOMER]&#xA;      ,[co_garantia]&#xA;      ,[co_garantia_fct]&#xA;      ,[co_ficha]&#xA;  FROM [dbo].[DMS-COLLATERAL.RIGHT-v1.4]&#xA; WHERE [UPLOAD.COMPANY] IS NOT NULL&#xA;   AND [ID/COLLATERAL.RIGHT] IS NOT NULL&#xA;   AND [COLLATERAL.CODE] IS NOT NULL&#xA;   AND [LIMIT.REFERENCE] IS NOT NULL&#xA;   AND [CUSTOMER] IS NOT NULL&#xA;   AND [EXPIRY.DATE] IS NOT NULL&#xA;   AND [NOTE] IS NOT NULL&#xA;   AND [LIMIT.REFERENCE]  &lt;&gt; ''&#xA;   AND [ID/COLLATERAL.RIGHT] NOT IN&#xA;(&#xA; 'COR0704371231'&#xA;,'COR0704371240'&#xA;,'COR0716971585'&#xA;,'COR0821272484'&#xA;,'COR0826772575'&#xA;,'COR0836172685'&#xA;,'COR0904190485'&#xA;,'COR0912873067'&#xA;,'COR0915273109'&#xA;,'COR1007673658'&#xA;,'COR1007673659'&#xA;,'COR1011690380'&#xA;,'COR1023273853'&#xA;,'COR1024390387'&#xA;,'COR1117990396'&#xA;,'COR1210090706'&#xA;,'COR1212890672'&#xA;,'COR1213590703'&#xA;,'COR1213590704'&#xA;,'COR1218590719'&#xA;,'COR1224490702'&#xA;,'COR1225090581'&#xA;,'COR1225090757'&#xA;,'COR1225090758'&#xA;,'COR1225090963'&#xA;,'COR1225090964'&#xA;,'COR1225790696'&#xA;,'COR1230875519'&#xA;,'COR1231890707'&#xA;,'COR1232790697'&#xA;,'COR1233975654'&#xA;,'COR1234090698'&#xA;,'COR1235290404'&#xA;,'COR1312876218'&#xA;,'COR1318276466'&#xA;,'COR1323590400'&#xA;,'COR1324090750'&#xA;,'COR1324176699'&#xA;,'COR1324176700'&#xA;,'COR1333990947'&#xA;,'COR1333990948'&#xA;,'COR1333990949'&#xA;,'COR1333990950'&#xA;,'COR1333990951'&#xA;,'COR1333990952'&#xA;,'COR1405690423'&#xA;,'COR1406577378'&#xA;,'COR1407790715'&#xA;,'COR1417590705'&#xA;,'COR1418890687'&#xA;,'COR1420690699'&#xA;,'COR1423890505'&#xA;,'COR1425890562'&#xA;,'COR1425890563'&#xA;,'COR1425890564'&#xA;,'COR1425890756'&#xA;,'COR1425891034'&#xA;,'COR1425891035'&#xA;,'COR1425891036'&#xA;,'COR1425891037'&#xA;,'COR1425891038'&#xA;,'COR1425891039'&#xA;,'COR1425891040'&#xA;,'COR1425891041'&#xA;,'COR1425891042'&#xA;,'COR1425891043'&#xA;,'COR1425891044'&#xA;,'COR1425891045'&#xA;,'COR1425891046'&#xA;,'COR1425891048'&#xA;,'COR1425891049'&#xA;,'COR1425891050'&#xA;,'COR1427290506'&#xA;,'COR1429490726'&#xA;,'COR1429490727'&#xA;,'COR1432990720'&#xA;,'COR1435690566'&#xA;,'COR1435690567'&#xA;,'COR1435690568'&#xA;,'COR1435690569'&#xA;,'COR1435690570'&#xA;,'COR1436578239'&#xA;,'COR1504278331'&#xA;,'COR1504278332'&#xA;,'COR1507890846'&#xA;,'COR1507890847'&#xA;,'COR1511378578'&#xA;,'COR1518178833'&#xA;,'COR1521078988'&#xA;,'COR1521579010'&#xA;,'COR1526479193'&#xA;,'COR1526479194'&#xA;,'COR1526479195'&#xA;,'COR1529990716'&#xA;,'COR1532490725'&#xA;,'COR1608390651'&#xA;,'COR1608390660'&#xA;,'COR1608390661'&#xA;,'COR1608390662'&#xA;,'COR1608391023'&#xA;,'COR1608391024'&#xA;,'COR1608391025'&#xA;,'COR1608391026'&#xA;,'COR1608391027'&#xA;,'COR1608391028'&#xA;,'COR1608391029'&#xA;,'COR1608391030'&#xA;,'COR1610879706'&#xA;,'COR1610879707'&#xA;,'COR1610879708'&#xA;,'COR1616679885'&#xA;,'COR1616679886'&#xA;,'COR1617290640'&#xA;,'COR1620190691'&#xA;,'COR1622390749'&#xA;,'COR1623970102'&#xA;,'COR1625270164'&#xA;,'COR1625270165'&#xA;,'COR1625270166'&#xA;,'COR1629990653'&#xA;,'COR1633070359'&#xA;,'COR1633070360'&#xA;,'COR1633070361'&#xA;,'COR1633070362'&#xA;,'COR1633590710'&#xA;,'COR1705470548'&#xA;,'COR1705470549'&#xA;,'COR1705470550'&#xA;,'COR1705470551'&#xA;,'COR1710870662'&#xA;,'COR1713790711'&#xA;,'COR1714670869'&#xA;,'COR1715170900'&#xA;,'COR1715170901'&#xA;,'COR1715170904'&#xA;,'COR1716090669'&#xA;,'COR1718590692'&#xA;,'COR1720290686'&#xA;,'COR1721671077'&#xA;,'COR1721671078'&#xA;,'COR1723671129'&#xA;,'COR1724371150'&#xA;,'COR1725671176'&#xA;,'COR1725671177'&#xA;,'COR1727890751'&#xA;,'COR1730090689'&#xA;,'COR1730090690'&#xA;,'COR1733590714'&#xA;,'COR1733971398'&#xA;,'COR1733971399'&#xA;,'COR1733971400'&#xA;,'COR1734690694'&#xA;,'COR1734871416'&#xA;,'COR1736290729'&#xA;,'COR1801690738'&#xA;,'COR1801690739'&#xA;,'COR1801971518'&#xA;,'COR1804690742'&#xA;,'COR1805890759'&#xA;,'COR1805890760'&#xA;,'COR1805890761'&#xA;,'COR1805890762'&#xA;,'COR1805890763'&#xA;,'COR1805890764'&#xA;,'COR1805890942'&#xA;,'COR1805891181'&#xA;,'COR1805891197'&#xA;,'COR1806571641'&#xA;,'COR1815071778'&#xA;,'COR1815590765'&#xA;,'COR1816490787'&#xA;,'COR1816490788'&#xA;,'COR1816490789'&#xA;,'COR1816490790'&#xA;,'COR1816490791'&#xA;,'COR1816490792'&#xA;,'COR1816490938'&#xA;,'COR1816491060'&#xA;,'COR1817071813'&#xA;,'COR1817090773'&#xA;,'COR1817090774'&#xA;,'COR1817090775'&#xA;,'COR1817090776'&#xA;,'COR1817090777'&#xA;,'COR1817090778'&#xA;,'COR1817090907'&#xA;,'COR1817090908'&#xA;,'COR1817090909'&#xA;,'COR1817090910'&#xA;,'COR1817090911'&#xA;,'COR1817090912'&#xA;,'COR1817090913'&#xA;,'COR1817090914'&#xA;,'COR1817090915'&#xA;,'COR1817090916'&#xA;,'COR1817090917'&#xA;,'COR1817090923'&#xA;,'COR1817090924'&#xA;,'COR1817090925'&#xA;,'COR1817090926'&#xA;,'COR1817090927'&#xA;,'COR1817091080'&#xA;,'COR1821271895'&#xA;,'COR1821490766'&#xA;,'COR1821871904'&#xA;,'COR1824890770'&#xA;,'COR1825790767'&#xA;,'COR1826171997'&#xA;,'COR1826490780'&#xA;,'COR1826490811'&#xA;,'COR1826490812'&#xA;,'COR1826490953'&#xA;,'COR1826490954'&#xA;,'COR1826490956'&#xA;,'COR1826490957'&#xA;,'COR1826491002'&#xA;,'COR1827190769'&#xA;,'COR1828290771'&#xA;,'COR1829090772'&#xA;,'COR1829090817'&#xA;,'COR1831890782'&#xA;,'COR1832490818'&#xA;,'COR1832490819'&#xA;,'COR1832490836'&#xA;,'COR1832490928'&#xA;,'COR1832490929'&#xA;,'COR1832490930'&#xA;,'COR1833290781'&#xA;,'COR1835290785'&#xA;,'COR1835290786'&#xA;,'COR1835490784'&#xA;,'COR1836290783'&#xA;,'COR1836290794'&#xA;,'COR1904972509'&#xA;,'COR1905090795'&#xA;,'COR1905090796'&#xA;,'COR1905772526'&#xA;,'COR1907990806'&#xA;,'COR1907990807'&#xA;,'COR1907990809'&#xA;,'COR1907990810'&#xA;,'COR1907991061'&#xA;,'COR1907991103'&#xA;,'COR1907991104'&#xA;,'COR1909972673'&#xA;,'COR1910072674'&#xA;,'COR1911372712'&#xA;,'COR1914872849'&#xA;,'COR1914872853'&#xA;,'COR1915772910'&#xA;,'COR1915790816'&#xA;,'COR1916472931'&#xA;,'COR1916590931'&#xA;,'COR1916590932'&#xA;,'COR1916590933'&#xA;,'COR1916590934'&#xA;,'COR1916590970'&#xA;,'COR1916591057'&#xA;,'COR1916591058'&#xA;,'COR1916591059'&#xA;,'COR1918573000'&#xA;,'COR1920590813'&#xA;,'COR1921273083'&#xA;,'COR1922590815'&#xA;,'COR1924773192'&#xA;,'COR1925590837'&#xA;,'COR1925590838'&#xA;,'COR1925590839'&#xA;,'COR1925590840'&#xA;,'COR1925590841'&#xA;,'COR1925590842'&#xA;,'COR1925590843'&#xA;,'COR1925591052'&#xA;,'COR1925591053'&#xA;,'COR1925591054'&#xA;,'COR1927073217'&#xA;,'COR1928090971'&#xA;,'COR1929490850'&#xA;,'COR1929490853'&#xA;,'COR1929490854'&#xA;,'COR1929490894'&#xA;,'COR1929490895'&#xA;,'COR1929490944'&#xA;,'COR1929491073'&#xA;,'COR1929491074'&#xA;,'COR1929491117'&#xA;,'COR1929491132'&#xA;,'COR1929491133'&#xA;,'COR1930173302'&#xA;,'COR1930873333'&#xA;,'COR1931790857'&#xA;,'COR1933073420'&#xA;,'COR1933273458'&#xA;,'COR1933273461'&#xA;,'COR1933273464'&#xA;,'COR1933373472'&#xA;,'COR1933373473'&#xA;,'COR1933373474'&#xA;,'COR1933390870'&#xA;,'COR1933390871'&#xA;,'COR1933390872'&#xA;,'COR1933390873'&#xA;,'COR1933390874'&#xA;,'COR1933390880'&#xA;,'COR1933391075'&#xA;,'COR1933391076'&#xA;,'COR1933391077'&#xA;,'COR1933391078'&#xA;,'COR1933773491'&#xA;,'COR1934690972'&#xA;,'COR1935073542'&#xA;,'COR1935490968'&#xA;,'COR1936490973'&#xA;,'COR2000673611'&#xA;,'COR2000873613'&#xA;,'COR2002990882'&#xA;,'COR2002990883'&#xA;,'COR2002990884'&#xA;,'COR2002990885'&#xA;,'COR2002990886'&#xA;,'COR2002990887'&#xA;,'COR2002990982'&#xA;,'COR2002990983'&#xA;,'COR2002990984'&#xA;,'COR2002990985'&#xA;,'COR2002990986'&#xA;,'COR2002991081'&#xA;,'COR2003873720'&#xA;,'COR2004973766'&#xA;,'COR2005073784'&#xA;,'COR2006673825'&#xA;,'COR2007873842'&#xA;,'COR2009090688'&#xA;,'COR2010073887'&#xA;,'COR2012790969'&#xA;,'COR2014873976'&#xA;,'COR2020474087'&#xA;,'COR2022574189'&#xA;,'COR2022674192'&#xA;,'COR2022774193'&#xA;,'COR2023174197'&#xA;,'COR2024774233'&#xA;,'COR2027474314'&#xA;,'COR2027474315'&#xA;,'COR2029775402'&#xA;,'COR2029775406'&#xA;,'COR2030475420'&#xA;,'COR2030775437'&#xA;,'COR2032175463'&#xA;,'COR2033075476'&#xA;,'COR2033175479'&#xA;,'COR2033990959'&#xA;,'COR2035375591'&#xA;,'COR2036575634'&#xA;,'COR2036575635'&#xA;,'COR2103575707'&#xA;,'COR2107190987'&#xA;,'COR2107190988'&#xA;,'COR2107190990'&#xA;,'COR2107190991'&#xA;,'COR2107190992'&#xA;,'COR2107190993'&#xA;,'COR2107190995'&#xA;,'COR2107190996'&#xA;,'COR2107191129'&#xA;,'COR2107191130'&#xA;,'COR2107575813'&#xA;,'COR2107775819'&#xA;,'COR2108575835'&#xA;,'COR2108575838'&#xA;,'COR2113175928'&#xA;,'COR2114775960'&#xA;,'COR2115391003'&#xA;,'COR2117391005'&#xA;,'COR2120276074'&#xA;,'COR2121676112'&#xA;,'COR2126576240'&#xA;,'COR2126576241'&#xA;,'COR2126776251'&#xA;,'COR2127276253'&#xA;,'COR2127791106'&#xA;,'COR2127791107'&#xA;,'COR2127791108'&#xA;,'COR2127791109'&#xA;,'COR2127791110'&#xA;,'COR2127791111'&#xA;,'COR2127791112'&#xA;,'COR2127791113'&#xA;,'COR2127791114'&#xA;,'COR2128776267'&#xA;,'COR2129276289'&#xA;,'COR2129576312'&#xA;,'COR2129576314'&#xA;,'COR2131476364'&#xA;,'COR2132776381'&#xA;,'COR2134391118'&#xA;,'COR2134991201'&#xA;,'COR2134991203'&#xA;,'COR2134991204'&#xA;,'COR2134991205'&#xA;,'COR2134991206'&#xA;,'COR2135676507'&#xA;,'COR2135676509'&#xA;,'COR2136276511'&#xA;,'COR2136276512'&#xA;,'COR2202776569'&#xA;,'COR2202876575'&#xA;,'COR2208876751'&#xA;,'COR2208876752'&#xA;,'COR2209576770'&#xA;,'COR2209576771'&#xA;,'COR2211076801'&#xA;,'COR2213876908'&#xA;,'COR2214591134'&#xA;,'COR2214776922'&#xA;,'COR2214776923'&#xA;,'COR2219377084'&#xA;,'COR2220877119'&#xA;,'COR2220877120'&#xA;,'COR2221477151'&#xA;,'COR2222977186'&#xA;,'COR2222977190'&#xA;,'COR2222977191'&#xA;,'COR2225777295'&#xA;,'COR2225777296'&#xA;,'COR2227677362'&#xA;,'COR2227891141'&#xA;,'COR2227891142'&#xA;,'COR2227891143'&#xA;,'COR2227891144'&#xA;,'COR2227891145'&#xA;,'COR2227891146'&#xA;,'COR2227891147'&#xA;,'COR2227891148'&#xA;,'COR2227891149'&#xA;,'COR2227891150'&#xA;,'COR2232877524'&#xA;,'COR2235791176'&#xA;,'COR2236177644'&#xA;,'COR2301777701'&#xA;,'COR2303477773'&#xA;,'COR2309478038'&#xA;,'COR2310478051'&#xA;,'COR2311491187'&#xA;,'COR2311491188'&#xA;,'COR2313891185'&#xA;,'COR2314278140'&#xA;,'COR2318178259'&#xA;,'COR2318178261'&#xA;,'COR2318791189'&#xA;,'COR2320878347'&#xA;,'COR2321578420'&#xA;,'COR2321578423'&#xA;,'COR2321578424'&#xA;,'COR2324178527'&#xA;,'COR2325491193'&#xA;,'COR2326378579'&#xA;,'COR2327291192'&#xA;,'COR2328678658'&#xA;,'COR2334979015'&#xA;,'COR2336379056'&#xA;,'COR2336379057'&#xA;,'COR2336379059'&#xA;,'COR2401779117'&#xA;,'COR2401879119'&#xA;,'COR2401879120'&#xA;,'COR2401879121'&#xA;,'COR2402479153'&#xA;,'COR2404779189'&#xA;,'COR2404779190'&#xA;,'COR2405179197'&#xA;,'COR2405279201'&#xA;,'COR2405879208'&#xA;,'COR2407479257'&#xA;,'COR2408679280'&#xA;,'COR2408879295'&#xA;,'COR2408879296'&#xA;,'COR2409691208'&#xA;,'COR2409691209'&#xA;,'COR2409691210'&#xA;,'COR2409691211'&#xA;,'COR2409691212'&#xA;,'COR2409691213'&#xA;,'COR2409691214'&#xA;,'COR2409691215'&#xA;,'COR2409691216'&#xA;,'COR2409691217'&#xA;,'COR2409691218'&#xA;,'COR2409691219'&#xA;,'COR2411079336'&#xA;,'COR2414979389'&#xA;,'COR2417379419'&#xA;,'COR2417879444'&#xA;,'COR2417879445'&#xA;,'COR2418579459'&#xA;,'COR2419079464'&#xA;,'COR2419279478'&#xA;,'COR2420079495'&#xA;,'COR2420079496'&#xA;,'COR2421279513'&#xA;,'COR2421379514'&#xA;,'COR2421379515'&#xA;,'COR2423279523'&#xA;,'COR2423379525'&#xA;,'COR2423579562'&#xA;,'COR2423879565'&#xA;,'COR2424079566'&#xA;,'COR2424979596'&#xA;,'COR2424979597'&#xA;,'COR2424979598'&#xA;,'COR2424979599'&#xA;,'COR2425379610'&#xA;,'COR2426379616'&#xA;,'COR2426779617'&#xA;,'COR2426879618'&#xA;,'COR2426879619'&#xA;,'COR2426879620'&#xA;,'COR2426879621'&#xA;,'COR2426879622'&#xA;,'COR2426879623'&#xA;,'COR2426879624'&#xA;,'COR2426879625'&#xA;,'COR2426879629'&#xA;,'COR2426979630'&#xA;,'COR2427079635'&#xA;,'COR2429679655'&#xA;,'COR2429779656'&#xA;,'COR2429879658'&#xA;,'COR2429879659'&#xA;,'COR2429879660'&#xA;,'COR2429879661'&#xA;,'COR2429879662'&#xA;,'COR2429879663'&#xA;,'COR2429879664'&#xA;,'COR2429879665'&#xA;,'COR2430379666'&#xA;,'COR2431179678'&#xA;,'COR2431179680'&#xA;,'COR2431179681'&#xA;,'COR2431179682'&#xA;,'COR2431179683'&#xA;,'COR2431179684'&#xA;,'COR2431179685'&#xA;,'COR2431179686'&#xA;,'COR2433179707'&#xA;,'COR2433179708'&#xA;,'COR2433379710'&#xA;,'COR2433479727'&#xA;,'COR2433479728'&#xA;,'COR2434079735'&#xA;,'COR2434079736'&#xA;,'COR2435979746'&#xA;,'COR2436279752'&#xA;,'COR2502879773'&#xA;,'COR2504879850'&#xA;,'COR2504879851'&#xA;,'COR2504879852'&#xA;,'COR2504879853'&#xA;,'COR2504879854'&#xA;,'COR2504879855'&#xA;,'COR2504879856'&#xA;,'COR2505779881'&#xA;,'COR2505779882'&#xA;,'COR2505779883'&#xA;,'COR2505779884'&#xA;,'COR2505779885'&#xA;,'COR2505779886'&#xA;,'COR2505779887'&#xA;,'COR2505779888'&#xA;,'COR2505879891'&#xA;,'COR2507079900'&#xA;,'COR2509179965'&#xA;,'COR2509979971'&#xA;,'COR2510679980'&#xA;,'COR2510679981'&#xA;,'COR2510679982'&#xA;,'COR2510679983'&#xA;,'COR2510679984'&#xA;,'COR2510679985'&#xA;,'COR2510679986'&#xA;,'COR2510679987'&#xA;,'COR2511279995'&#xA;,'COR2511970004'&#xA;,'COR2512770021'&#xA;,'COR2513281191'&#xA;)&#xA;GO&#xA;-- Fin&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Inicializa parametros"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{E8C3E643-6203-497C-B7AA-087585363938}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Inicializa parametros"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{70000693-BDE1-4FE0-B772-11B7D4A7A452}"
+          SQLTask:SqlStatementSource="-- =============================================&#xA;-- Autor:  José A. Guillen &#xA;-- Fecha de creación: 05-09-2022&#xA;-- Descripción:  Inicializa parametros desde valores guardados en una base de datos SQL Server para la Solución Migracion-Polaris-ETL1-v1.0&#xA;--      &#xA;-- Archivos Origen:  &#xA;--   &#xA;--      &#xA;-- Historia:&#xA;-- José A. Guillén 05-09-2022 Codificación inicial&#xA;-- =============================================&#xA;--&#xA;-- &lt;Aquí se debe colocar el código SQL que lee los parámetros que se van a manejar desde tablas de parámetros&gt; &#xA;--&#xA;SELECT 1 &#xA;--" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Prepara TmpCollateralRight"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{494C13A3-6903-472C-AB71-EB4DBDAB65C3}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Prepara TmpCollateralRight"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{70000693-BDE1-4FE0-B772-11B7D4A7A452}"
+          SQLTask:SqlStatementSource="USE [STGLegados]&#xA;GO&#xA;&#xA;DECLARE @RC int&#xA;&#xA;-- TODO: Set parameter values here.&#xA;&#xA;EXECUTE @RC = [dbo].[PreparaTmpCollateralRight] &#xA;GO&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Transforma CollateralRight"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{8A1280B7-F510-4181-9BAF-1CDA02BB85C6}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Transforma CollateralRight"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{70000693-BDE1-4FE0-B772-11B7D4A7A452}"
+          SQLTask:SqlStatementSource="USE [STGLegados]&#xA;GO&#xA;&#xA;DECLARE @RC int&#xA;&#xA;-- TODO: Set parameter values here.&#xA;&#xA;EXECUTE @RC = [dbo].[Transforma-DMS-COLLATERAL.RIGHT] &#xA;GO&#xA;--" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Trunca DMS-COLLATERAL-RIGHT y DMS-COLLATERAL-RIGHT-MODIFIED"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{93B2128E-5A50-4397-9EB5-A526A336B7A9}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Trunca DMS-COLLATERAL-RIGHT y DMS-COLLATERAL-RIGHT-MODIFIED"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{73E9BE98-144D-4887-A1CD-FCE6E4AB9CF5}"
+          SQLTask:SqlStatementSource="TRUNCATE TABLE [STGPolaris].[dbo].[DMS-COLLATERAL.RIGHT]&#xA;TRUNCATE TABLE [STGPolaris].[dbo].[DMS-COLLATERAL.RIGHT.MODIFIED]&#xA;TRUNCATE TABLE [STGPolaris].[dbo].[DMS-COLLATERAL.RIGHT-v1.4]" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{5209E2B1-0011-4E68-83F9-DA80643E805E}"
+      DTS:From="Package\Inicializa parametros"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\Trunca DMS-COLLATERAL-RIGHT y DMS-COLLATERAL-RIGHT-MODIFIED" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 1]"
+      DTS:CreationName=""
+      DTS:DTSID="{256CE1F0-5F34-4E31-97C8-8B5ADADEFE6D}"
+      DTS:From="Package\Trunca DMS-COLLATERAL-RIGHT y DMS-COLLATERAL-RIGHT-MODIFIED"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 1"
+      DTS:To="Package\Prepara TmpCollateralRight" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 2]"
+      DTS:CreationName=""
+      DTS:DTSID="{FA846A9E-C19E-4752-80A5-4C745F5D5210}"
+      DTS:From="Package\Transforma CollateralRight"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 2"
+      DTS:To="Package\Filtra Mandatorios" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 3]"
+      DTS:CreationName=""
+      DTS:DTSID="{CB76E2F7-88A2-4444-B8C1-B18CD276DA21}"
+      DTS:From="Package\Transforma CollateralRight"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 3"
+      DTS:To="Package\Fix 1" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 4]"
+      DTS:CreationName=""
+      DTS:DTSID="{2E4BF496-1AC2-42FB-AD1E-6844AC8CE65C}"
+      DTS:From="Package\Prepara TmpCollateralRight"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 4"
+      DTS:To="Package\Transforma CollateralRight" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 5]"
+      DTS:CreationName=""
+      DTS:DTSID="{A354FC31-00FA-486C-9F8D-0B961E65BEDE}"
+      DTS:From="Package\Transforma CollateralRight"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 5"
+      DTS:To="Package\Fix2" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="163,42"
+          Id="Package\Filtra Mandatorios"
+          TopLeft="5.50000000000006,413.5" />
+        <NodeLayout
+          Size="101,42"
+          Id="Package\Fix 1"
+          TopLeft="229.5,413.5" />
+        <NodeLayout
+          Size="176,42"
+          Id="Package\Inicializa parametros"
+          TopLeft="192,5.5" />
+        <NodeLayout
+          Size="208,42"
+          Id="Package\Prepara TmpCollateralRight"
+          TopLeft="176,209.5" />
+        <NodeLayout
+          Size="205,42"
+          Id="Package\Transforma CollateralRight"
+          TopLeft="177.5,311.5" />
+        <NodeLayout
+          Size="424,42"
+          Id="Package\Trunca DMS-COLLATERAL-RIGHT y DMS-COLLATERAL-RIGHT-MODIFIED"
+          TopLeft="68,107.5" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="280,47.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 1]"
+          TopLeft="280,149.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 2]"
+          TopLeft="230.75,353.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-143.75,60"
+              Start="0,0"
+              End="-143.75,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,16.5136436597111" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,16.5136436597111"
+                    Point2="0,20.5136436597111"
+                    Point3="-4,20.5136436597111" />
+                  <mssgle:LineSegment
+                    End="-139.75,20.5136436597111" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-139.75,20.5136436597111"
+                    Point2="-143.75,20.5136436597111"
+                    Point3="-143.75,24.5136436597111" />
+                  <mssgle:LineSegment
+                    End="-143.75,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 3]"
+          TopLeft="280,353.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 4]"
+          TopLeft="280,251.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="98,42"
+          Id="Package\Fix2"
+          TopLeft="391,413.5" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 5]"
+          TopLeft="329.25,353.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="110.75,60"
+              Start="0,0"
+              End="110.75,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,16.5136436597111" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,16.5136436597111"
+                    Point2="0,20.5136436597111"
+                    Point3="4,20.5136436597111" />
+                  <mssgle:LineSegment
+                    End="106.75,20.5136436597111" />
+                  <mssgle:CubicBezierSegment
+                    Point1="106.75,20.5136436597111"
+                    Point2="110.75,20.5136436597111"
+                    Point3="110.75,24.5136436597111" />
+                  <mssgle:LineSegment
+                    End="110.75,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

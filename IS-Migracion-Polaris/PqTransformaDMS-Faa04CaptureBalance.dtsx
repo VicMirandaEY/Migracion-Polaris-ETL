@@ -1,0 +1,285 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="2/8/2025 4:37:14 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="VENJJCR20"
+  DTS:CreatorName="CAF-CON\ls42731"
+  DTS:DTSID="{FBFE5F3C-C974-430A-8E67-F5F81CD7748B}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="16.0.5270.0"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="PqTransformaDMS-Faa04CaptureBalance"
+  DTS:PackageType="5"
+  DTS:VersionBuild="3"
+  DTS:VersionGUID="{FFA4AFC6-D0A1-4808-AE55-B8A2429B2AA8}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Filtra Mandatorios"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{a08f9f0b-342f-4022-a9b9-0da85cfcd55b}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Filtra Mandatorios"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{73E9BE98-144D-4887-A1CD-FCE6E4AB9CF5}"
+          SQLTask:SqlStatementSource="USE [STGPolaris]&#xA;GO&#xA;&#xA;TRUNCATE TABLE [STGPolaris].[dbo].[DMS.FAA.04.CAPTURE.BALANCE]&#xA;INSERT INTO [STGPolaris].[dbo].[DMS.FAA.04.CAPTURE.BALANCE]&#xA;SELECT [UPLOAD.COMPANY]&#xA;      ,[ID/ARR.SEQUENCE]&#xA;      ,[ARRANGEMENT]&#xA;      ,[ACTIVITY]&#xA;      ,[CUSTOMER]&#xA;      ,[CUSTOMER.ROLE]&#xA;      ,[MASTER.ARRANGEMENT]&#xA;      ,[PRODUCT]&#xA;      ,[CURRENCY]&#xA;      ,[PROPERTY]&#xA;      ,[FIELD.NAME]&#xA;      ,[FIELD.VALUE]&#xA;  FROM [dbo].[DMS.FAA.04.CAPTURE.BALANCE-v0.5]&#xA; WHERE [UPLOAD.COMPANY] IS NOT NULL&#xA;   AND [ID/ARR.SEQUENCE] IS NOT NULL&#xA;   AND [ARRANGEMENT] IS NOT NULL&#xA;   AND [ACTIVITY] IS NOT NULL&#xA;   AND [CUSTOMER] IS NOT NULL&#xA;   AND [CUSTOMER.ROLE] IS NOT NULL&#xA;   AND [MASTER.ARRANGEMENT] IS NOT NULL&#xA;   AND [PRODUCT] IS NOT NULL&#xA;   AND [CURRENCY] IS NOT NULL&#xA;   AND [PROPERTY] IS NOT NULL&#xA;   AND [FIELD.NAME] IS NOT NULL&#xA;   AND [FIELD.VALUE] IS NOT NULL&#xA;   AND [FIELD.NAME] &lt;&gt; ''&#xA;   AND [FIELD.VALUE] &lt;&gt; ''&#xA;GO&#xA;-- Fin" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Fix"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:Disabled="True"
+      DTS:DTSID="{4b5a95db-6f66-4fc3-b9d3-257f582ca0d0}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Fix"
+      DTS:ThreadHint="1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{73E9BE98-144D-4887-A1CD-FCE6E4AB9CF5}"
+          SQLTask:SqlStatementSource="SELECT 1" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Inicializa parametros"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{4aae40e2-b229-466c-a397-2a57e2387ef1}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Inicializa parametros"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{70000693-BDE1-4FE0-B772-11B7D4A7A452}"
+          SQLTask:SqlStatementSource="-- =============================================&#xA;-- Autor:  José A. Guillen &#xA;-- Fecha de creación: 05-09-2022&#xA;-- Descripción:  Inicializa parametros desde valores guardados en una base de datos SQL Server para la Solución Migracion-Polaris-ETL1-v1.0&#xA;--      &#xA;-- Archivos Origen:  &#xA;--   &#xA;--      &#xA;-- Historia:&#xA;-- José A. Guillén 05-09-2022 Codificación inicial&#xA;-- =============================================&#xA;--&#xA;-- &lt;Aquí se debe colocar el código SQL que lee los parámetros que se van a manejar desde tablas de parámetros&gt; &#xA;--&#xA;SELECT 1 &#xA;--" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Transforma DMS-FAA-04-CAPTURE-BALANCE"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{5dd5ef91-68de-4dd7-955c-b560e34b6779}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Transforma DMS-FAA-04-CAPTURE-BALANCE"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{70000693-BDE1-4FE0-B772-11B7D4A7A452}"
+          SQLTask:SqlStatementSource="USE [STGLegados]&#xA;GO&#xA;&#xA;DECLARE @RC int&#xA;&#xA;-- TODO: Set parameter values here.&#xA;&#xA;EXECUTE @RC = [dbo].[Transforma-DMS.FAA.04.CAPTURE.BALANCE] &#xA;GO&#xA;&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Trunca DMS-FAA-04-CAPTURE-BALANCE"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{17eb417c-ee66-411a-aa50-d6918095e1c2}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Trunca DMS-FAA-04-CAPTURE-BALANCE"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{73E9BE98-144D-4887-A1CD-FCE6E4AB9CF5}"
+          SQLTask:SqlStatementSource="--&#xA;TRUNCATE TABLE [STGPolaris].[dbo].[DMS.FAA.04.CAPTURE.BALANCE]&#xA;TRUNCATE TABLE [STGPolaris].[dbo].[DMS.FAA.04.CAPTURE.BALANCE-v0.5]&#xA;--" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{98c040ee-ce88-44b6-8753-7296f215d457}"
+      DTS:From="Package\Inicializa parametros"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\Trunca DMS-FAA-04-CAPTURE-BALANCE" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 1]"
+      DTS:CreationName=""
+      DTS:DTSID="{2196174f-4152-4f18-a909-03b1e63c12b3}"
+      DTS:From="Package\Trunca DMS-FAA-04-CAPTURE-BALANCE"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 1"
+      DTS:To="Package\Transforma DMS-FAA-04-CAPTURE-BALANCE" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 2]"
+      DTS:CreationName=""
+      DTS:DTSID="{f4ccf3e2-b5ca-4037-a325-602c5ac9520e}"
+      DTS:From="Package\Transforma DMS-FAA-04-CAPTURE-BALANCE"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 2"
+      DTS:To="Package\Filtra Mandatorios" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 3]"
+      DTS:CreationName=""
+      DTS:DTSID="{813e036c-cf55-432b-aaf3-83f18f139aef}"
+      DTS:From="Package\Transforma DMS-FAA-04-CAPTURE-BALANCE"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 3"
+      DTS:To="Package\Fix" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="163,42"
+          Id="Package\Filtra Mandatorios"
+          TopLeft="5.50000000000006,311.5" />
+        <NodeLayout
+          Size="92,42"
+          Id="Package\Fix"
+          TopLeft="229,311.5" />
+        <NodeLayout
+          Size="176,42"
+          Id="Package\Inicializa parametros"
+          TopLeft="187,5.5" />
+        <NodeLayout
+          Size="292,42"
+          Id="Package\Transforma DMS-FAA-04-CAPTURE-BALANCE"
+          TopLeft="129,209.5" />
+        <NodeLayout
+          Size="270,42"
+          Id="Package\Trunca DMS-FAA-04-CAPTURE-BALANCE"
+          TopLeft="140,107.5" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="275,47.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 1]"
+          TopLeft="275,149.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 2]"
+          TopLeft="227.666666666667,251.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-140.666666666667,60"
+              Start="0,0"
+              End="-140.666666666667,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,20.1961852861035" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,20.1961852861035"
+                    Point2="0,24.1961852861035"
+                    Point3="-4,24.1961852861035" />
+                  <mssgle:LineSegment
+                    End="-136.666666666667,24.1961852861035" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-136.666666666667,24.1961852861035"
+                    Point2="-140.666666666667,24.1961852861035"
+                    Point3="-140.666666666667,28.1961852861035" />
+                  <mssgle:LineSegment
+                    End="-140.666666666667,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 3]"
+          TopLeft="322.333333333333,251.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-47.3333333333333,60"
+              Start="0,0"
+              End="-47.3333333333333,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,20.1961852861035" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,20.1961852861035"
+                    Point2="0,24.1961852861035"
+                    Point3="-4,24.1961852861035" />
+                  <mssgle:LineSegment
+                    End="-43.3333333333333,24.1961852861035" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-43.3333333333333,24.1961852861035"
+                    Point2="-47.3333333333333,24.1961852861035"
+                    Point3="-47.3333333333333,28.1961852861035" />
+                  <mssgle:LineSegment
+                    End="-47.3333333333333,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

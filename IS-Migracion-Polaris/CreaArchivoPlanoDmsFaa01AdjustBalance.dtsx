@@ -1,0 +1,826 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="11/25/2024 3:10:45 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="VENJJCR20"
+  DTS:CreatorName="CAF-CON\ls42731"
+  DTS:DTSID="{749E732C-709C-4C84-9E7B-732FBBEDD154}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="16.0.5270.0"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="CreaArchivoPlanoDmsFaa01AdjustBalance"
+  DTS:PackageType="5"
+  DTS:VersionBuild="8"
+  DTS:VersionGUID="{D0D7EA11-AA02-49DD-9E82-A09FD7EC8B02}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Flat File Connection Manager]"
+      DTS:CreationName="FLATFILE"
+      DTS:DTSID="{239FF43C-E95F-4F2C-B79D-A2B774605951}"
+      DTS:ObjectName="Flat File Connection Manager">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="Delimited"
+          DTS:LocaleID="1033"
+          DTS:HeaderRowDelimiter="_x007C_"
+          DTS:RowDelimiter=""
+          DTS:TextQualifier="_x003C_none_x003E_"
+          DTS:CodePage="65001"
+          DTS:ConnectionString="D:\App\Migracion-Polaris-ETL1\Txt\DMS.FAA.01.ADJUST.BALANCE.txt">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="9"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="UPLOAD.COMPANY"
+              DTS:DTSID="{50D69C6D-78EF-41D8-81C6-D78595BB999D}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="18"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="ID/ARR.SEQUENCE"
+              DTS:DTSID="{10845822-A5FA-4FCC-A10F-784BFA5F25A2}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="12"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="ARRANGEMENT"
+              DTS:DTSID="{EAD35358-B67A-4068-B1D8-9EBE5E764FF3}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="64"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="ACTIVITY"
+              DTS:DTSID="{BFDD45DC-C2BF-4065-86C4-3AF423307303}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="128"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="CUSTOMER"
+              DTS:DTSID="{DF49255C-DA69-406C-9F95-1BDFA251243D}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="128"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="CUSTOMER.ROLE"
+              DTS:DTSID="{C324D811-9551-4FDA-BD7A-563301D0D47D}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="12"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="MASTER.ARRANGEMENT"
+              DTS:DTSID="{328DD9AC-F14C-4A0F-B3E1-439B25F48D3A}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="64"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="PRODUCT"
+              DTS:DTSID="{4CFEFC6A-2A75-4219-B651-B41A2D3ACF31}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="3"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="CURRENCY"
+              DTS:DTSID="{4DEC69BE-F22C-43AB-9E38-0594D7E5BA8A}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="1024"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="PROPERTY"
+              DTS:DTSID="{84892242-98EB-417A-B53B-5C2698DDBF43}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="4000"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="FIELD.NAME"
+              DTS:DTSID="{D4655139-FE9B-41BB-8502-766F4508C7AD}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000D__x000A_"
+              DTS:MaximumWidth="4000"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="FIELD.VALUE"
+              DTS:DTSID="{EEBC8572-C3D8-432B-B156-F4C319DE4ADA}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Crea Archivo Plano DMS FAA 01 Adjust Balance"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{827def8c-d673-4476-adb2-bddcc58d447e}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Crea Archivo Plano DMS FAA 01 Adjust Balance"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Crea Archivo Plano DMS FAA 01 Adjust Balance\Flat File DMS FAA 01 ADJUST BALANCE"
+              componentClassID="Microsoft.FlatFileDestination"
+              contactInfo="Flat File Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Flat File Destination"
+              localeId="1033"
+              name="Flat File DMS FAA 01 ADJUST BALANCE"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Specifies whether the data will overwrite or append to the destination file."
+                  name="Overwrite">true</property>
+                <property
+                  dataType="System.Null"
+                  description="Specifies the text to write to the destination file before any data is written."
+                  expressionType="Notify"
+                  name="Header" />
+                <property
+                  dataType="System.Boolean"
+                  description="When text qualifier is enabled, specifies whether the text qualifier in the data written to the destination file will be escaped or not."
+                  name="EscapeQualifier">false</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Crea Archivo Plano DMS FAA 01 Adjust Balance\Flat File DMS FAA 01 ADJUST BALANCE.Connections[FlatFileConnection]"
+                  connectionManagerID="Package.ConnectionManagers[Flat File Connection Manager]"
+                  connectionManagerRefId="Package.ConnectionManagers[Flat File Connection Manager]"
+                  name="FlatFileConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Crea Archivo Plano DMS FAA 01 Adjust Balance\Flat File DMS FAA 01 ADJUST BALANCE.Inputs[Flat File Destination Input]"
+                  hasSideEffects="true"
+                  name="Flat File Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Crea Archivo Plano DMS FAA 01 Adjust Balance\Flat File DMS FAA 01 ADJUST BALANCE.Inputs[Flat File Destination Input].Columns[UPLOAD.COMPANY]"
+                      cachedDataType="wstr"
+                      cachedLength="9"
+                      cachedName="UPLOAD.COMPANY"
+                      externalMetadataColumnId="Package\Crea Archivo Plano DMS FAA 01 Adjust Balance\Flat File DMS FAA 01 ADJUST BALANCE.Inputs[Flat File Destination Input].ExternalColumns[UPLOAD.COMPANY]"
+                      lineageId="Package\Crea Archivo Plano DMS FAA 01 Adjust Balance\Source DMS FAA 01 ADJUST BALANCE.Outputs[OLE DB Source Output].Columns[UPLOAD.COMPANY]" />
+                    <inputColumn
+                      refId="Package\Crea Archivo Plano DMS FAA 01 Adjust Balance\Flat File DMS FAA 01 ADJUST BALANCE.Inputs[Flat File Destination Input].Columns[ID/ARR.SEQUENCE]"
+                      cachedDataType="wstr"
+                      cachedLength="18"
+                      cachedName="ID/ARR.SEQUENCE"
+                      externalMetadataColumnId="Package\Crea Archivo Plano DMS FAA 01 Adjust Balance\Flat File DMS FAA 01 ADJUST BALANCE.Inputs[Flat File Destination Input].ExternalColumns[ID/ARR.SEQUENCE]"
+                      lineageId="Package\Crea Archivo Plano DMS FAA 01 Adjust Balance\Source DMS FAA 01 ADJUST BALANCE.Outputs[OLE DB Source Output].Columns[ID/ARR.SEQUENCE]" />
+                    <inputColumn
+                      refId="Package\Crea Archivo Plano DMS FAA 01 Adjust Balance\Flat File DMS FAA 01 ADJUST BALANCE.Inputs[Flat File Destination Input].Columns[ARRANGEMENT]"
+                      cachedDataType="wstr"
+                      cachedLength="12"
+                      cachedName="ARRANGEMENT"
+                      externalMetadataColumnId="Package\Crea Archivo Plano DMS FAA 01 Adjust Balance\Flat File DMS FAA 01 ADJUST BALANCE.Inputs[Flat File Destination Input].ExternalColumns[ARRANGEMENT]"
+                      lineageId="Package\Crea Archivo Plano DMS FAA 01 Adjust Balance\Source DMS FAA 01 ADJUST BALANCE.Outputs[OLE DB Source Output].Columns[ARRANGEMENT]" />
+                    <inputColumn
+                      refId="Package\Crea Archivo Plano DMS FAA 01 Adjust Balance\Flat File DMS FAA 01 ADJUST BALANCE.Inputs[Flat File Destination Input].Columns[ACTIVITY]"
+                      cachedDataType="wstr"
+                      cachedLength="64"
+                      cachedName="ACTIVITY"
+                      externalMetadataColumnId="Package\Crea Archivo Plano DMS FAA 01 Adjust Balance\Flat File DMS FAA 01 ADJUST BALANCE.Inputs[Flat File Destination Input].ExternalColumns[ACTIVITY]"
+                      lineageId="Package\Crea Archivo Plano DMS FAA 01 Adjust Balance\Source DMS FAA 01 ADJUST BALANCE.Outputs[OLE DB Source Output].Columns[ACTIVITY]" />
+                    <inputColumn
+                      refId="Package\Crea Archivo Plano DMS FAA 01 Adjust Balance\Flat File DMS FAA 01 ADJUST BALANCE.Inputs[Flat File Destination Input].Columns[CUSTOMER]"
+                      cachedDataType="wstr"
+                      cachedLength="128"
+                      cachedName="CUSTOMER"
+                      externalMetadataColumnId="Package\Crea Archivo Plano DMS FAA 01 Adjust Balance\Flat File DMS FAA 01 ADJUST BALANCE.Inputs[Flat File Destination Input].ExternalColumns[CUSTOMER]"
+                      lineageId="Package\Crea Archivo Plano DMS FAA 01 Adjust Balance\Source DMS FAA 01 ADJUST BALANCE.Outputs[OLE DB Source Output].Columns[CUSTOMER]" />
+                    <inputColumn
+                      refId="Package\Crea Archivo Plano DMS FAA 01 Adjust Balance\Flat File DMS FAA 01 ADJUST BALANCE.Inputs[Flat File Destination Input].Columns[CUSTOMER.ROLE]"
+                      cachedDataType="wstr"
+                      cachedLength="128"
+                      cachedName="CUSTOMER.ROLE"
+                      externalMetadataColumnId="Package\Crea Archivo Plano DMS FAA 01 Adjust Balance\Flat File DMS FAA 01 ADJUST BALANCE.Inputs[Flat File Destination Input].ExternalColumns[CUSTOMER.ROLE]"
+                      lineageId="Package\Crea Archivo Plano DMS FAA 01 Adjust Balance\Source DMS FAA 01 ADJUST BALANCE.Outputs[OLE DB Source Output].Columns[CUSTOMER.ROLE]" />
+                    <inputColumn
+                      refId="Package\Crea Archivo Plano DMS FAA 01 Adjust Balance\Flat File DMS FAA 01 ADJUST BALANCE.Inputs[Flat File Destination Input].Columns[MASTER.ARRANGEMENT]"
+                      cachedDataType="wstr"
+                      cachedLength="12"
+                      cachedName="MASTER.ARRANGEMENT"
+                      externalMetadataColumnId="Package\Crea Archivo Plano DMS FAA 01 Adjust Balance\Flat File DMS FAA 01 ADJUST BALANCE.Inputs[Flat File Destination Input].ExternalColumns[MASTER.ARRANGEMENT]"
+                      lineageId="Package\Crea Archivo Plano DMS FAA 01 Adjust Balance\Source DMS FAA 01 ADJUST BALANCE.Outputs[OLE DB Source Output].Columns[MASTER.ARRANGEMENT]" />
+                    <inputColumn
+                      refId="Package\Crea Archivo Plano DMS FAA 01 Adjust Balance\Flat File DMS FAA 01 ADJUST BALANCE.Inputs[Flat File Destination Input].Columns[PRODUCT]"
+                      cachedDataType="wstr"
+                      cachedLength="64"
+                      cachedName="PRODUCT"
+                      externalMetadataColumnId="Package\Crea Archivo Plano DMS FAA 01 Adjust Balance\Flat File DMS FAA 01 ADJUST BALANCE.Inputs[Flat File Destination Input].ExternalColumns[PRODUCT]"
+                      lineageId="Package\Crea Archivo Plano DMS FAA 01 Adjust Balance\Source DMS FAA 01 ADJUST BALANCE.Outputs[OLE DB Source Output].Columns[PRODUCT]" />
+                    <inputColumn
+                      refId="Package\Crea Archivo Plano DMS FAA 01 Adjust Balance\Flat File DMS FAA 01 ADJUST BALANCE.Inputs[Flat File Destination Input].Columns[CURRENCY]"
+                      cachedDataType="wstr"
+                      cachedLength="3"
+                      cachedName="CURRENCY"
+                      externalMetadataColumnId="Package\Crea Archivo Plano DMS FAA 01 Adjust Balance\Flat File DMS FAA 01 ADJUST BALANCE.Inputs[Flat File Destination Input].ExternalColumns[CURRENCY]"
+                      lineageId="Package\Crea Archivo Plano DMS FAA 01 Adjust Balance\Source DMS FAA 01 ADJUST BALANCE.Outputs[OLE DB Source Output].Columns[CURRENCY]" />
+                    <inputColumn
+                      refId="Package\Crea Archivo Plano DMS FAA 01 Adjust Balance\Flat File DMS FAA 01 ADJUST BALANCE.Inputs[Flat File Destination Input].Columns[PROPERTY]"
+                      cachedDataType="wstr"
+                      cachedLength="1024"
+                      cachedName="PROPERTY"
+                      externalMetadataColumnId="Package\Crea Archivo Plano DMS FAA 01 Adjust Balance\Flat File DMS FAA 01 ADJUST BALANCE.Inputs[Flat File Destination Input].ExternalColumns[PROPERTY]"
+                      lineageId="Package\Crea Archivo Plano DMS FAA 01 Adjust Balance\Source DMS FAA 01 ADJUST BALANCE.Outputs[OLE DB Source Output].Columns[PROPERTY]" />
+                    <inputColumn
+                      refId="Package\Crea Archivo Plano DMS FAA 01 Adjust Balance\Flat File DMS FAA 01 ADJUST BALANCE.Inputs[Flat File Destination Input].Columns[FIELD.NAME]"
+                      cachedDataType="wstr"
+                      cachedLength="4000"
+                      cachedName="FIELD.NAME"
+                      externalMetadataColumnId="Package\Crea Archivo Plano DMS FAA 01 Adjust Balance\Flat File DMS FAA 01 ADJUST BALANCE.Inputs[Flat File Destination Input].ExternalColumns[FIELD.NAME]"
+                      lineageId="Package\Crea Archivo Plano DMS FAA 01 Adjust Balance\Source DMS FAA 01 ADJUST BALANCE.Outputs[OLE DB Source Output].Columns[FIELD.NAME]" />
+                    <inputColumn
+                      refId="Package\Crea Archivo Plano DMS FAA 01 Adjust Balance\Flat File DMS FAA 01 ADJUST BALANCE.Inputs[Flat File Destination Input].Columns[FIELD.VALUE]"
+                      cachedDataType="wstr"
+                      cachedLength="4000"
+                      cachedName="FIELD.VALUE"
+                      externalMetadataColumnId="Package\Crea Archivo Plano DMS FAA 01 Adjust Balance\Flat File DMS FAA 01 ADJUST BALANCE.Inputs[Flat File Destination Input].ExternalColumns[FIELD.VALUE]"
+                      lineageId="Package\Crea Archivo Plano DMS FAA 01 Adjust Balance\Source DMS FAA 01 ADJUST BALANCE.Outputs[OLE DB Source Output].Columns[FIELD.VALUE]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Crea Archivo Plano DMS FAA 01 Adjust Balance\Flat File DMS FAA 01 ADJUST BALANCE.Inputs[Flat File Destination Input].ExternalColumns[UPLOAD.COMPANY]"
+                      dataType="wstr"
+                      length="9"
+                      name="UPLOAD.COMPANY" />
+                    <externalMetadataColumn
+                      refId="Package\Crea Archivo Plano DMS FAA 01 Adjust Balance\Flat File DMS FAA 01 ADJUST BALANCE.Inputs[Flat File Destination Input].ExternalColumns[ID/ARR.SEQUENCE]"
+                      dataType="wstr"
+                      length="18"
+                      name="ID/ARR.SEQUENCE" />
+                    <externalMetadataColumn
+                      refId="Package\Crea Archivo Plano DMS FAA 01 Adjust Balance\Flat File DMS FAA 01 ADJUST BALANCE.Inputs[Flat File Destination Input].ExternalColumns[ARRANGEMENT]"
+                      dataType="wstr"
+                      length="12"
+                      name="ARRANGEMENT" />
+                    <externalMetadataColumn
+                      refId="Package\Crea Archivo Plano DMS FAA 01 Adjust Balance\Flat File DMS FAA 01 ADJUST BALANCE.Inputs[Flat File Destination Input].ExternalColumns[ACTIVITY]"
+                      dataType="wstr"
+                      length="64"
+                      name="ACTIVITY" />
+                    <externalMetadataColumn
+                      refId="Package\Crea Archivo Plano DMS FAA 01 Adjust Balance\Flat File DMS FAA 01 ADJUST BALANCE.Inputs[Flat File Destination Input].ExternalColumns[CUSTOMER]"
+                      dataType="wstr"
+                      length="128"
+                      name="CUSTOMER" />
+                    <externalMetadataColumn
+                      refId="Package\Crea Archivo Plano DMS FAA 01 Adjust Balance\Flat File DMS FAA 01 ADJUST BALANCE.Inputs[Flat File Destination Input].ExternalColumns[CUSTOMER.ROLE]"
+                      dataType="wstr"
+                      length="128"
+                      name="CUSTOMER.ROLE" />
+                    <externalMetadataColumn
+                      refId="Package\Crea Archivo Plano DMS FAA 01 Adjust Balance\Flat File DMS FAA 01 ADJUST BALANCE.Inputs[Flat File Destination Input].ExternalColumns[MASTER.ARRANGEMENT]"
+                      dataType="wstr"
+                      length="12"
+                      name="MASTER.ARRANGEMENT" />
+                    <externalMetadataColumn
+                      refId="Package\Crea Archivo Plano DMS FAA 01 Adjust Balance\Flat File DMS FAA 01 ADJUST BALANCE.Inputs[Flat File Destination Input].ExternalColumns[PRODUCT]"
+                      dataType="wstr"
+                      length="64"
+                      name="PRODUCT" />
+                    <externalMetadataColumn
+                      refId="Package\Crea Archivo Plano DMS FAA 01 Adjust Balance\Flat File DMS FAA 01 ADJUST BALANCE.Inputs[Flat File Destination Input].ExternalColumns[CURRENCY]"
+                      dataType="wstr"
+                      length="3"
+                      name="CURRENCY" />
+                    <externalMetadataColumn
+                      refId="Package\Crea Archivo Plano DMS FAA 01 Adjust Balance\Flat File DMS FAA 01 ADJUST BALANCE.Inputs[Flat File Destination Input].ExternalColumns[PROPERTY]"
+                      dataType="wstr"
+                      length="1024"
+                      name="PROPERTY" />
+                    <externalMetadataColumn
+                      refId="Package\Crea Archivo Plano DMS FAA 01 Adjust Balance\Flat File DMS FAA 01 ADJUST BALANCE.Inputs[Flat File Destination Input].ExternalColumns[FIELD.NAME]"
+                      dataType="wstr"
+                      length="4000"
+                      name="FIELD.NAME" />
+                    <externalMetadataColumn
+                      refId="Package\Crea Archivo Plano DMS FAA 01 Adjust Balance\Flat File DMS FAA 01 ADJUST BALANCE.Inputs[Flat File Destination Input].ExternalColumns[FIELD.VALUE]"
+                      dataType="wstr"
+                      length="4000"
+                      name="FIELD.VALUE" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+            </component>
+            <component
+              refId="Package\Crea Archivo Plano DMS FAA 01 Adjust Balance\Source DMS FAA 01 ADJUST BALANCE"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="Source DMS FAA 01 ADJUST BALANCE"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[DMS.FAA.01.ADJUST.BALANCE]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=16.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Crea Archivo Plano DMS FAA 01 Adjust Balance\Source DMS FAA 01 ADJUST BALANCE.Connections[OleDbConnection]"
+                  connectionManagerID="{73E9BE98-144D-4887-A1CD-FCE6E4AB9CF5}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[STGPolaris]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Crea Archivo Plano DMS FAA 01 Adjust Balance\Source DMS FAA 01 ADJUST BALANCE.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Crea Archivo Plano DMS FAA 01 Adjust Balance\Source DMS FAA 01 ADJUST BALANCE.Outputs[OLE DB Source Output].Columns[UPLOAD.COMPANY]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Crea Archivo Plano DMS FAA 01 Adjust Balance\Source DMS FAA 01 ADJUST BALANCE.Outputs[OLE DB Source Output].ExternalColumns[UPLOAD.COMPANY]"
+                      length="9"
+                      lineageId="Package\Crea Archivo Plano DMS FAA 01 Adjust Balance\Source DMS FAA 01 ADJUST BALANCE.Outputs[OLE DB Source Output].Columns[UPLOAD.COMPANY]"
+                      name="UPLOAD.COMPANY"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Crea Archivo Plano DMS FAA 01 Adjust Balance\Source DMS FAA 01 ADJUST BALANCE.Outputs[OLE DB Source Output].Columns[ID/ARR.SEQUENCE]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Crea Archivo Plano DMS FAA 01 Adjust Balance\Source DMS FAA 01 ADJUST BALANCE.Outputs[OLE DB Source Output].ExternalColumns[ID/ARR.SEQUENCE]"
+                      length="18"
+                      lineageId="Package\Crea Archivo Plano DMS FAA 01 Adjust Balance\Source DMS FAA 01 ADJUST BALANCE.Outputs[OLE DB Source Output].Columns[ID/ARR.SEQUENCE]"
+                      name="ID/ARR.SEQUENCE"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Crea Archivo Plano DMS FAA 01 Adjust Balance\Source DMS FAA 01 ADJUST BALANCE.Outputs[OLE DB Source Output].Columns[ARRANGEMENT]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Crea Archivo Plano DMS FAA 01 Adjust Balance\Source DMS FAA 01 ADJUST BALANCE.Outputs[OLE DB Source Output].ExternalColumns[ARRANGEMENT]"
+                      length="12"
+                      lineageId="Package\Crea Archivo Plano DMS FAA 01 Adjust Balance\Source DMS FAA 01 ADJUST BALANCE.Outputs[OLE DB Source Output].Columns[ARRANGEMENT]"
+                      name="ARRANGEMENT"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Crea Archivo Plano DMS FAA 01 Adjust Balance\Source DMS FAA 01 ADJUST BALANCE.Outputs[OLE DB Source Output].Columns[ACTIVITY]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Crea Archivo Plano DMS FAA 01 Adjust Balance\Source DMS FAA 01 ADJUST BALANCE.Outputs[OLE DB Source Output].ExternalColumns[ACTIVITY]"
+                      length="64"
+                      lineageId="Package\Crea Archivo Plano DMS FAA 01 Adjust Balance\Source DMS FAA 01 ADJUST BALANCE.Outputs[OLE DB Source Output].Columns[ACTIVITY]"
+                      name="ACTIVITY"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Crea Archivo Plano DMS FAA 01 Adjust Balance\Source DMS FAA 01 ADJUST BALANCE.Outputs[OLE DB Source Output].Columns[CUSTOMER]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Crea Archivo Plano DMS FAA 01 Adjust Balance\Source DMS FAA 01 ADJUST BALANCE.Outputs[OLE DB Source Output].ExternalColumns[CUSTOMER]"
+                      length="128"
+                      lineageId="Package\Crea Archivo Plano DMS FAA 01 Adjust Balance\Source DMS FAA 01 ADJUST BALANCE.Outputs[OLE DB Source Output].Columns[CUSTOMER]"
+                      name="CUSTOMER"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Crea Archivo Plano DMS FAA 01 Adjust Balance\Source DMS FAA 01 ADJUST BALANCE.Outputs[OLE DB Source Output].Columns[CUSTOMER.ROLE]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Crea Archivo Plano DMS FAA 01 Adjust Balance\Source DMS FAA 01 ADJUST BALANCE.Outputs[OLE DB Source Output].ExternalColumns[CUSTOMER.ROLE]"
+                      length="128"
+                      lineageId="Package\Crea Archivo Plano DMS FAA 01 Adjust Balance\Source DMS FAA 01 ADJUST BALANCE.Outputs[OLE DB Source Output].Columns[CUSTOMER.ROLE]"
+                      name="CUSTOMER.ROLE"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Crea Archivo Plano DMS FAA 01 Adjust Balance\Source DMS FAA 01 ADJUST BALANCE.Outputs[OLE DB Source Output].Columns[MASTER.ARRANGEMENT]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Crea Archivo Plano DMS FAA 01 Adjust Balance\Source DMS FAA 01 ADJUST BALANCE.Outputs[OLE DB Source Output].ExternalColumns[MASTER.ARRANGEMENT]"
+                      length="12"
+                      lineageId="Package\Crea Archivo Plano DMS FAA 01 Adjust Balance\Source DMS FAA 01 ADJUST BALANCE.Outputs[OLE DB Source Output].Columns[MASTER.ARRANGEMENT]"
+                      name="MASTER.ARRANGEMENT"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Crea Archivo Plano DMS FAA 01 Adjust Balance\Source DMS FAA 01 ADJUST BALANCE.Outputs[OLE DB Source Output].Columns[PRODUCT]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Crea Archivo Plano DMS FAA 01 Adjust Balance\Source DMS FAA 01 ADJUST BALANCE.Outputs[OLE DB Source Output].ExternalColumns[PRODUCT]"
+                      length="64"
+                      lineageId="Package\Crea Archivo Plano DMS FAA 01 Adjust Balance\Source DMS FAA 01 ADJUST BALANCE.Outputs[OLE DB Source Output].Columns[PRODUCT]"
+                      name="PRODUCT"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Crea Archivo Plano DMS FAA 01 Adjust Balance\Source DMS FAA 01 ADJUST BALANCE.Outputs[OLE DB Source Output].Columns[CURRENCY]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Crea Archivo Plano DMS FAA 01 Adjust Balance\Source DMS FAA 01 ADJUST BALANCE.Outputs[OLE DB Source Output].ExternalColumns[CURRENCY]"
+                      length="3"
+                      lineageId="Package\Crea Archivo Plano DMS FAA 01 Adjust Balance\Source DMS FAA 01 ADJUST BALANCE.Outputs[OLE DB Source Output].Columns[CURRENCY]"
+                      name="CURRENCY"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Crea Archivo Plano DMS FAA 01 Adjust Balance\Source DMS FAA 01 ADJUST BALANCE.Outputs[OLE DB Source Output].Columns[PROPERTY]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Crea Archivo Plano DMS FAA 01 Adjust Balance\Source DMS FAA 01 ADJUST BALANCE.Outputs[OLE DB Source Output].ExternalColumns[PROPERTY]"
+                      length="1024"
+                      lineageId="Package\Crea Archivo Plano DMS FAA 01 Adjust Balance\Source DMS FAA 01 ADJUST BALANCE.Outputs[OLE DB Source Output].Columns[PROPERTY]"
+                      name="PROPERTY"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Crea Archivo Plano DMS FAA 01 Adjust Balance\Source DMS FAA 01 ADJUST BALANCE.Outputs[OLE DB Source Output].Columns[FIELD.NAME]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Crea Archivo Plano DMS FAA 01 Adjust Balance\Source DMS FAA 01 ADJUST BALANCE.Outputs[OLE DB Source Output].ExternalColumns[FIELD.NAME]"
+                      length="4000"
+                      lineageId="Package\Crea Archivo Plano DMS FAA 01 Adjust Balance\Source DMS FAA 01 ADJUST BALANCE.Outputs[OLE DB Source Output].Columns[FIELD.NAME]"
+                      name="FIELD.NAME"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Crea Archivo Plano DMS FAA 01 Adjust Balance\Source DMS FAA 01 ADJUST BALANCE.Outputs[OLE DB Source Output].Columns[FIELD.VALUE]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Crea Archivo Plano DMS FAA 01 Adjust Balance\Source DMS FAA 01 ADJUST BALANCE.Outputs[OLE DB Source Output].ExternalColumns[FIELD.VALUE]"
+                      length="4000"
+                      lineageId="Package\Crea Archivo Plano DMS FAA 01 Adjust Balance\Source DMS FAA 01 ADJUST BALANCE.Outputs[OLE DB Source Output].Columns[FIELD.VALUE]"
+                      name="FIELD.VALUE"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Crea Archivo Plano DMS FAA 01 Adjust Balance\Source DMS FAA 01 ADJUST BALANCE.Outputs[OLE DB Source Output].ExternalColumns[UPLOAD.COMPANY]"
+                      dataType="wstr"
+                      length="9"
+                      name="UPLOAD.COMPANY" />
+                    <externalMetadataColumn
+                      refId="Package\Crea Archivo Plano DMS FAA 01 Adjust Balance\Source DMS FAA 01 ADJUST BALANCE.Outputs[OLE DB Source Output].ExternalColumns[ID/ARR.SEQUENCE]"
+                      dataType="wstr"
+                      length="18"
+                      name="ID/ARR.SEQUENCE" />
+                    <externalMetadataColumn
+                      refId="Package\Crea Archivo Plano DMS FAA 01 Adjust Balance\Source DMS FAA 01 ADJUST BALANCE.Outputs[OLE DB Source Output].ExternalColumns[ARRANGEMENT]"
+                      dataType="wstr"
+                      length="12"
+                      name="ARRANGEMENT" />
+                    <externalMetadataColumn
+                      refId="Package\Crea Archivo Plano DMS FAA 01 Adjust Balance\Source DMS FAA 01 ADJUST BALANCE.Outputs[OLE DB Source Output].ExternalColumns[ACTIVITY]"
+                      dataType="wstr"
+                      length="64"
+                      name="ACTIVITY" />
+                    <externalMetadataColumn
+                      refId="Package\Crea Archivo Plano DMS FAA 01 Adjust Balance\Source DMS FAA 01 ADJUST BALANCE.Outputs[OLE DB Source Output].ExternalColumns[CUSTOMER]"
+                      dataType="wstr"
+                      length="128"
+                      name="CUSTOMER" />
+                    <externalMetadataColumn
+                      refId="Package\Crea Archivo Plano DMS FAA 01 Adjust Balance\Source DMS FAA 01 ADJUST BALANCE.Outputs[OLE DB Source Output].ExternalColumns[CUSTOMER.ROLE]"
+                      dataType="wstr"
+                      length="128"
+                      name="CUSTOMER.ROLE" />
+                    <externalMetadataColumn
+                      refId="Package\Crea Archivo Plano DMS FAA 01 Adjust Balance\Source DMS FAA 01 ADJUST BALANCE.Outputs[OLE DB Source Output].ExternalColumns[MASTER.ARRANGEMENT]"
+                      dataType="wstr"
+                      length="12"
+                      name="MASTER.ARRANGEMENT" />
+                    <externalMetadataColumn
+                      refId="Package\Crea Archivo Plano DMS FAA 01 Adjust Balance\Source DMS FAA 01 ADJUST BALANCE.Outputs[OLE DB Source Output].ExternalColumns[PRODUCT]"
+                      dataType="wstr"
+                      length="64"
+                      name="PRODUCT" />
+                    <externalMetadataColumn
+                      refId="Package\Crea Archivo Plano DMS FAA 01 Adjust Balance\Source DMS FAA 01 ADJUST BALANCE.Outputs[OLE DB Source Output].ExternalColumns[CURRENCY]"
+                      dataType="wstr"
+                      length="3"
+                      name="CURRENCY" />
+                    <externalMetadataColumn
+                      refId="Package\Crea Archivo Plano DMS FAA 01 Adjust Balance\Source DMS FAA 01 ADJUST BALANCE.Outputs[OLE DB Source Output].ExternalColumns[PROPERTY]"
+                      dataType="wstr"
+                      length="1024"
+                      name="PROPERTY" />
+                    <externalMetadataColumn
+                      refId="Package\Crea Archivo Plano DMS FAA 01 Adjust Balance\Source DMS FAA 01 ADJUST BALANCE.Outputs[OLE DB Source Output].ExternalColumns[FIELD.NAME]"
+                      dataType="wstr"
+                      length="4000"
+                      name="FIELD.NAME" />
+                    <externalMetadataColumn
+                      refId="Package\Crea Archivo Plano DMS FAA 01 Adjust Balance\Source DMS FAA 01 ADJUST BALANCE.Outputs[OLE DB Source Output].ExternalColumns[FIELD.VALUE]"
+                      dataType="wstr"
+                      length="4000"
+                      name="FIELD.VALUE" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Crea Archivo Plano DMS FAA 01 Adjust Balance\Source DMS FAA 01 ADJUST BALANCE.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Crea Archivo Plano DMS FAA 01 Adjust Balance\Source DMS FAA 01 ADJUST BALANCE.Outputs[OLE DB Source Error Output].Columns[UPLOAD.COMPANY]"
+                      dataType="wstr"
+                      length="9"
+                      lineageId="Package\Crea Archivo Plano DMS FAA 01 Adjust Balance\Source DMS FAA 01 ADJUST BALANCE.Outputs[OLE DB Source Error Output].Columns[UPLOAD.COMPANY]"
+                      name="UPLOAD.COMPANY" />
+                    <outputColumn
+                      refId="Package\Crea Archivo Plano DMS FAA 01 Adjust Balance\Source DMS FAA 01 ADJUST BALANCE.Outputs[OLE DB Source Error Output].Columns[ID/ARR.SEQUENCE]"
+                      dataType="wstr"
+                      length="18"
+                      lineageId="Package\Crea Archivo Plano DMS FAA 01 Adjust Balance\Source DMS FAA 01 ADJUST BALANCE.Outputs[OLE DB Source Error Output].Columns[ID/ARR.SEQUENCE]"
+                      name="ID/ARR.SEQUENCE" />
+                    <outputColumn
+                      refId="Package\Crea Archivo Plano DMS FAA 01 Adjust Balance\Source DMS FAA 01 ADJUST BALANCE.Outputs[OLE DB Source Error Output].Columns[ARRANGEMENT]"
+                      dataType="wstr"
+                      length="12"
+                      lineageId="Package\Crea Archivo Plano DMS FAA 01 Adjust Balance\Source DMS FAA 01 ADJUST BALANCE.Outputs[OLE DB Source Error Output].Columns[ARRANGEMENT]"
+                      name="ARRANGEMENT" />
+                    <outputColumn
+                      refId="Package\Crea Archivo Plano DMS FAA 01 Adjust Balance\Source DMS FAA 01 ADJUST BALANCE.Outputs[OLE DB Source Error Output].Columns[ACTIVITY]"
+                      dataType="wstr"
+                      length="64"
+                      lineageId="Package\Crea Archivo Plano DMS FAA 01 Adjust Balance\Source DMS FAA 01 ADJUST BALANCE.Outputs[OLE DB Source Error Output].Columns[ACTIVITY]"
+                      name="ACTIVITY" />
+                    <outputColumn
+                      refId="Package\Crea Archivo Plano DMS FAA 01 Adjust Balance\Source DMS FAA 01 ADJUST BALANCE.Outputs[OLE DB Source Error Output].Columns[CUSTOMER]"
+                      dataType="wstr"
+                      length="128"
+                      lineageId="Package\Crea Archivo Plano DMS FAA 01 Adjust Balance\Source DMS FAA 01 ADJUST BALANCE.Outputs[OLE DB Source Error Output].Columns[CUSTOMER]"
+                      name="CUSTOMER" />
+                    <outputColumn
+                      refId="Package\Crea Archivo Plano DMS FAA 01 Adjust Balance\Source DMS FAA 01 ADJUST BALANCE.Outputs[OLE DB Source Error Output].Columns[CUSTOMER.ROLE]"
+                      dataType="wstr"
+                      length="128"
+                      lineageId="Package\Crea Archivo Plano DMS FAA 01 Adjust Balance\Source DMS FAA 01 ADJUST BALANCE.Outputs[OLE DB Source Error Output].Columns[CUSTOMER.ROLE]"
+                      name="CUSTOMER.ROLE" />
+                    <outputColumn
+                      refId="Package\Crea Archivo Plano DMS FAA 01 Adjust Balance\Source DMS FAA 01 ADJUST BALANCE.Outputs[OLE DB Source Error Output].Columns[MASTER.ARRANGEMENT]"
+                      dataType="wstr"
+                      length="12"
+                      lineageId="Package\Crea Archivo Plano DMS FAA 01 Adjust Balance\Source DMS FAA 01 ADJUST BALANCE.Outputs[OLE DB Source Error Output].Columns[MASTER.ARRANGEMENT]"
+                      name="MASTER.ARRANGEMENT" />
+                    <outputColumn
+                      refId="Package\Crea Archivo Plano DMS FAA 01 Adjust Balance\Source DMS FAA 01 ADJUST BALANCE.Outputs[OLE DB Source Error Output].Columns[PRODUCT]"
+                      dataType="wstr"
+                      length="64"
+                      lineageId="Package\Crea Archivo Plano DMS FAA 01 Adjust Balance\Source DMS FAA 01 ADJUST BALANCE.Outputs[OLE DB Source Error Output].Columns[PRODUCT]"
+                      name="PRODUCT" />
+                    <outputColumn
+                      refId="Package\Crea Archivo Plano DMS FAA 01 Adjust Balance\Source DMS FAA 01 ADJUST BALANCE.Outputs[OLE DB Source Error Output].Columns[CURRENCY]"
+                      dataType="wstr"
+                      length="3"
+                      lineageId="Package\Crea Archivo Plano DMS FAA 01 Adjust Balance\Source DMS FAA 01 ADJUST BALANCE.Outputs[OLE DB Source Error Output].Columns[CURRENCY]"
+                      name="CURRENCY" />
+                    <outputColumn
+                      refId="Package\Crea Archivo Plano DMS FAA 01 Adjust Balance\Source DMS FAA 01 ADJUST BALANCE.Outputs[OLE DB Source Error Output].Columns[PROPERTY]"
+                      dataType="wstr"
+                      length="1024"
+                      lineageId="Package\Crea Archivo Plano DMS FAA 01 Adjust Balance\Source DMS FAA 01 ADJUST BALANCE.Outputs[OLE DB Source Error Output].Columns[PROPERTY]"
+                      name="PROPERTY" />
+                    <outputColumn
+                      refId="Package\Crea Archivo Plano DMS FAA 01 Adjust Balance\Source DMS FAA 01 ADJUST BALANCE.Outputs[OLE DB Source Error Output].Columns[FIELD.NAME]"
+                      dataType="wstr"
+                      length="4000"
+                      lineageId="Package\Crea Archivo Plano DMS FAA 01 Adjust Balance\Source DMS FAA 01 ADJUST BALANCE.Outputs[OLE DB Source Error Output].Columns[FIELD.NAME]"
+                      name="FIELD.NAME" />
+                    <outputColumn
+                      refId="Package\Crea Archivo Plano DMS FAA 01 Adjust Balance\Source DMS FAA 01 ADJUST BALANCE.Outputs[OLE DB Source Error Output].Columns[FIELD.VALUE]"
+                      dataType="wstr"
+                      length="4000"
+                      lineageId="Package\Crea Archivo Plano DMS FAA 01 Adjust Balance\Source DMS FAA 01 ADJUST BALANCE.Outputs[OLE DB Source Error Output].Columns[FIELD.VALUE]"
+                      name="FIELD.VALUE" />
+                    <outputColumn
+                      refId="Package\Crea Archivo Plano DMS FAA 01 Adjust Balance\Source DMS FAA 01 ADJUST BALANCE.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Crea Archivo Plano DMS FAA 01 Adjust Balance\Source DMS FAA 01 ADJUST BALANCE.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Crea Archivo Plano DMS FAA 01 Adjust Balance\Source DMS FAA 01 ADJUST BALANCE.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Crea Archivo Plano DMS FAA 01 Adjust Balance\Source DMS FAA 01 ADJUST BALANCE.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Crea Archivo Plano DMS FAA 01 Adjust Balance.Paths[OLE DB Source Output]"
+              endId="Package\Crea Archivo Plano DMS FAA 01 Adjust Balance\Flat File DMS FAA 01 ADJUST BALANCE.Inputs[Flat File Destination Input]"
+              name="OLE DB Source Output"
+              startId="Package\Crea Archivo Plano DMS FAA 01 Adjust Balance\Source DMS FAA 01 ADJUST BALANCE.Outputs[OLE DB Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Inicializa parametros"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{71acb548-74cc-4fe7-a9ab-421dcb8dec51}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Inicializa parametros"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{70000693-BDE1-4FE0-B772-11B7D4A7A452}"
+          SQLTask:SqlStatementSource="-- =============================================&#xA;-- Autor:  José A. Guillen &#xA;-- Fecha de creación: 05-09-2022&#xA;-- Descripción:  Inicializa parametros desde valores guardados en una base de datos SQL Server para la Solución Migracion-Polaris-ETL1-v1.0&#xA;--      &#xA;-- Archivos Origen:  &#xA;--   &#xA;--      &#xA;-- Historia:&#xA;-- José A. Guillén 05-09-2022 Codificación inicial&#xA;-- =============================================&#xA;--&#xA;-- &lt;Aquí se debe colocar el código SQL que lee los parámetros que se van a manejar desde tablas de parámetros&gt; &#xA;--&#xA;SELECT 1 &#xA;--" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{19478a74-0618-43ae-a8a6-7495f8e8a71f}"
+      DTS:From="Package\Inicializa parametros"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\Crea Archivo Plano DMS FAA 01 Adjust Balance" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="301,42"
+          Id="Package\Crea Archivo Plano DMS FAA 01 Adjust Balance"
+          TopLeft="5.50000000000003,107.5" />
+        <NodeLayout
+          Size="176,42"
+          Id="Package\Inicializa parametros"
+          TopLeft="68,5.5" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="156,47.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Crea Archivo Plano DMS FAA 01 Adjust Balance">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="260,42"
+          Id="Package\Crea Archivo Plano DMS FAA 01 Adjust Balance\Source DMS FAA 01 ADJUST BALANCE"
+          TopLeft="8,5.5" />
+        <NodeLayout
+          Size="265,42"
+          Id="Package\Crea Archivo Plano DMS FAA 01 Adjust Balance\Flat File DMS FAA 01 ADJUST BALANCE"
+          TopLeft="5.50000000000003,107.5" />
+        <EdgeLayout
+          Id="Package\Crea Archivo Plano DMS FAA 01 Adjust Balance.Paths[OLE DB Source Output]"
+          TopLeft="138,47.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Crea Archivo Plano DMS FAA 01 Adjust Balance\Source DMS FAA 01 ADJUST BALANCE">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

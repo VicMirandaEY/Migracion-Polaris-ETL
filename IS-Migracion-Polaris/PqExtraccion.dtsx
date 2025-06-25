@@ -1,0 +1,440 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="5/25/2022 10:01:48 AM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="VENJJCR20"
+  DTS:CreatorName="CAF-CON\LS42731"
+  DTS:DTSID="{6F24BE77-A1FB-48B3-BF3D-A98747152CCF}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="16.0.5270.0"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="PqExtraccion"
+  DTS:PackageType="5"
+  DTS:VersionBuild="18"
+  DTS:VersionGUID="{46B0125F-12B6-4C2D-B30C-398C0A359457}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Inicializa parametros"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{9685f901-6991-45d4-9d77-8a4913345851}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Inicializa parametros"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{70000693-BDE1-4FE0-B772-11B7D4A7A452}"
+          SQLTask:SqlStatementSource="-- =============================================&#xA;-- Autor:  José A. Guillen &#xA;-- Fecha de creación: 05-09-2022&#xA;-- Descripción:  Inicializa parametros desde valores guardados en una base de datos SQL Server para la Solución Migracion-Polaris-ETL1-v1.0&#xA;--      &#xA;-- Archivos Origen:  &#xA;--   &#xA;--      &#xA;-- Historia:&#xA;-- José A. Guillén 05-09-2022 Codificación inicial&#xA;-- =============================================&#xA;--&#xA;-- &lt;Aquí se debe colocar el código SQL que lee los parámetros que se van a manejar desde tablas de parámetros&gt; &#xA;--&#xA;SELECT 1 &#xA;--" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\PqExtraeDesdeDatamart"
+      DTS:CreationName="Microsoft.ExecutePackageTask"
+      DTS:Description="Execute Package Task"
+      DTS:DTSID="{3567B3A3-1642-430C-BBC3-0DCB7D668690}"
+      DTS:ExecutableType="Microsoft.ExecutePackageTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="PqExtraeDesdeDatamart"
+      DTS:TaskContact="Microsoft Corporation; Microsoft SQL Server; Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <ExecutePackageTask>
+          <UseProjectReference>True</UseProjectReference>
+          <PackageName>PqExtraeDesdeDatamart.dtsx</PackageName>
+        </ExecutePackageTask>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\PqExtraeDesdePersonas"
+      DTS:CreationName="Microsoft.ExecutePackageTask"
+      DTS:Description="Execute Package Task"
+      DTS:DTSID="{EEB3EA77-C2D9-44E5-ABA0-5BC32D6A6238}"
+      DTS:ExecutableType="Microsoft.ExecutePackageTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="PqExtraeDesdePersonas"
+      DTS:TaskContact="Microsoft Corporation; Microsoft SQL Server; Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <ExecutePackageTask>
+          <UseProjectReference>True</UseProjectReference>
+          <PackageName>PqExtraeDesdePersonas.dtsx</PackageName>
+        </ExecutePackageTask>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\PqExtraeDesdePhoenix"
+      DTS:CreationName="Microsoft.ExecutePackageTask"
+      DTS:Description="Execute Package Task"
+      DTS:DTSID="{4376A641-8970-479B-8B3E-BCBCD48C3EDA}"
+      DTS:ExecutableType="Microsoft.ExecutePackageTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="PqExtraeDesdePhoenix"
+      DTS:TaskContact="Microsoft Corporation; Microsoft SQL Server; Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <ExecutePackageTask>
+          <UseProjectReference>True</UseProjectReference>
+          <PackageName>PqExtraeDesdePhoenix.dtsx</PackageName>
+        </ExecutePackageTask>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\PqExtraeDesdePortalDeNegocio"
+      DTS:CreationName="Microsoft.ExecutePackageTask"
+      DTS:Description="Execute Package Task"
+      DTS:Disabled="True"
+      DTS:DTSID="{9D749E90-613B-4F32-AE8B-154B885AEDDB}"
+      DTS:ExecutableType="Microsoft.ExecutePackageTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="PqExtraeDesdePortalDeNegocio"
+      DTS:TaskContact="Microsoft Corporation; Microsoft SQL Server; Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <ExecutePackageTask>
+          <UseProjectReference>True</UseProjectReference>
+          <PackageName>PqExtraeDesdePortalDeNegocio.dtsx</PackageName>
+        </ExecutePackageTask>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\PqExtraeDesdeSap"
+      DTS:CreationName="Microsoft.ExecutePackageTask"
+      DTS:Description="Execute Package Task"
+      DTS:DTSID="{9585364A-EB23-4390-99F3-9DE2F127D6E8}"
+      DTS:ExecutableType="Microsoft.ExecutePackageTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="PqExtraeDesdeSap"
+      DTS:TaskContact="Microsoft Corporation; Microsoft SQL Server; Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <ExecutePackageTask>
+          <UseProjectReference>True</UseProjectReference>
+          <PackageName>PqExtraeDesdeSap.dtsx</PackageName>
+        </ExecutePackageTask>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\PqExtraeDesdeScrc"
+      DTS:CreationName="Microsoft.ExecutePackageTask"
+      DTS:Description="Execute Package Task"
+      DTS:Disabled="True"
+      DTS:DTSID="{F7C40539-4DA3-4069-B0ED-AB63AB04513A}"
+      DTS:ExecutableType="Microsoft.ExecutePackageTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="PqExtraeDesdeScrc"
+      DTS:TaskContact="Microsoft Corporation; Microsoft SQL Server; Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <ExecutePackageTask>
+          <UseProjectReference>True</UseProjectReference>
+          <PackageName>PqExtraeDesdeScrc.dtsx</PackageName>
+        </ExecutePackageTask>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{0679F688-2754-4362-9234-4295F314F188}"
+      DTS:From="Package\Inicializa parametros"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\PqExtraeDesdePhoenix" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 1]"
+      DTS:CreationName=""
+      DTS:DTSID="{5EAD0FFF-0979-4345-8EAE-42F3E8FEC17F}"
+      DTS:From="Package\Inicializa parametros"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 1"
+      DTS:To="Package\PqExtraeDesdeDatamart" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 2]"
+      DTS:CreationName=""
+      DTS:DTSID="{045ADFCB-C386-4DC5-80A7-3E6D71501F32}"
+      DTS:From="Package\Inicializa parametros"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 2"
+      DTS:To="Package\PqExtraeDesdePersonas" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 3]"
+      DTS:CreationName=""
+      DTS:DTSID="{9A05A55F-9ADB-4102-92F7-92935CCC6B48}"
+      DTS:From="Package\Inicializa parametros"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 3"
+      DTS:To="Package\PqExtraeDesdePortalDeNegocio" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 4]"
+      DTS:CreationName=""
+      DTS:DTSID="{7F9161B7-6754-4183-A93E-E5D38E72B2EC}"
+      DTS:From="Package\Inicializa parametros"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 4"
+      DTS:To="Package\PqExtraeDesdeSap" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 5]"
+      DTS:CreationName=""
+      DTS:DTSID="{1E8C0637-D583-44BD-A394-C237276F2729}"
+      DTS:From="Package\Inicializa parametros"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 5"
+      DTS:To="Package\PqExtraeDesdeScrc" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="177,43"
+          Id="Package\Inicializa parametros"
+          TopLeft="787.833333333333,5.50000000000004" />
+        <NodeLayout
+          Size="195,43"
+          Id="Package\PqExtraeDesdeDatamart"
+          TopLeft="254.166666666667,108.166666666667" />
+        <NodeLayout
+          Size="192,42"
+          Id="Package\PqExtraeDesdePersonas"
+          TopLeft="509.5,108.5" />
+        <NodeLayout
+          Size="188,43"
+          Id="Package\PqExtraeDesdePhoenix"
+          TopLeft="5.5,108.166666666667" />
+        <NodeLayout
+          Size="228,43"
+          Id="Package\PqExtraeDesdePortalDeNegocio"
+          TopLeft="762.5,108.166666666667" />
+        <NodeLayout
+          Size="168,43"
+          Id="Package\PqExtraeDesdeSap"
+          TopLeft="1051.5,108.166666666667" />
+        <NodeLayout
+          Size="171,43"
+          Id="Package\PqExtraeDesdeScrc"
+          TopLeft="1280.16666666667,108.166666666667" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="816.02380952381,48.1666666666667">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-716.52380952381,60.0000000000001"
+              Start="0,0"
+              End="-716.52380952381,52.5000000000001">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,10.4743276283619" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,10.4743276283619"
+                    Point2="0,14.4743276283619"
+                    Point3="-4,14.4743276283619" />
+                  <mssgle:LineSegment
+                    End="-712.52380952381,14.4743276283619" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-712.52380952381,14.4743276283619"
+                    Point2="-716.52380952381,14.4743276283619"
+                    Point3="-716.52380952381,18.4743276283619" />
+                  <mssgle:LineSegment
+                    End="-716.52380952381,52.5000000000001" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 1]"
+          TopLeft="840.214285714286,48.1666666666667">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-488.714285714286,60.0000000000001"
+              Start="0,0"
+              End="-488.714285714286,52.5000000000001">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,18.2822417285618" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,18.2822417285618"
+                    Point2="0,22.2822417285618"
+                    Point3="-4,22.2822417285618" />
+                  <mssgle:LineSegment
+                    End="-484.714285714286,22.2822417285618" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-484.714285714286,22.2822417285618"
+                    Point2="-488.714285714286,22.2822417285618"
+                    Point3="-488.714285714286,26.2822417285618" />
+                  <mssgle:LineSegment
+                    End="-488.714285714286,52.5000000000001" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 2]"
+          TopLeft="864.404761904762,48.1666666666667">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-258.904761904762,60.3333333333334"
+              Start="0,0"
+              End="-258.904761904762,52.8333333333334">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,23.9585014409222" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,23.9585014409222"
+                    Point2="0,27.9585014409222"
+                    Point3="-4,27.9585014409222" />
+                  <mssgle:LineSegment
+                    End="-254.904761904762,27.9585014409222" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-254.904761904762,27.9585014409222"
+                    Point2="-258.904761904762,27.9585014409222"
+                    Point3="-258.904761904762,31.9585014409222" />
+                  <mssgle:LineSegment
+                    End="-258.904761904762,52.8333333333334" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 3]"
+          TopLeft="888.595238095238,48.1666666666667">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-12.0952380952381,60.0000000000001"
+              Start="0,0"
+              End="-12.0952380952381,52.5000000000001">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,23.8040345821326" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,23.8040345821326"
+                    Point2="0,27.8040345821326"
+                    Point3="-4,27.8040345821326" />
+                  <mssgle:LineSegment
+                    End="-8.09523809523807,27.8040345821326" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-8.09523809523807,27.8040345821326"
+                    Point2="-12.0952380952381,27.8040345821326"
+                    Point3="-12.0952380952381,31.8040345821326" />
+                  <mssgle:LineSegment
+                    End="-12.0952380952381,52.5000000000001" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 4]"
+          TopLeft="912.785714285714,48.1666666666667">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="222.714285714286,60"
+              Start="0,0"
+              End="222.714285714286,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,18.2822417285618" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,18.2822417285618"
+                    Point2="0,22.2822417285618"
+                    Point3="4,22.2822417285618" />
+                  <mssgle:LineSegment
+                    End="218.714285714286,22.2822417285618" />
+                  <mssgle:CubicBezierSegment
+                    Point1="218.714285714286,22.2822417285618"
+                    Point2="222.714285714286,22.2822417285618"
+                    Point3="222.714285714286,26.2822417285618" />
+                  <mssgle:LineSegment
+                    End="222.714285714286,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 5]"
+          TopLeft="936.97619047619,48.1666666666667">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="428.52380952381,60"
+              Start="0,0"
+              End="428.52380952381,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,10.4743276283619" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,10.4743276283619"
+                    Point2="0,14.4743276283619"
+                    Point3="4,14.4743276283619" />
+                  <mssgle:LineSegment
+                    End="424.52380952381,14.4743276283619" />
+                  <mssgle:CubicBezierSegment
+                    Point1="424.52380952381,14.4743276283619"
+                    Point2="428.52380952381,14.4743276283619"
+                    Point3="428.52380952381,18.4743276283619" />
+                  <mssgle:LineSegment
+                    End="428.52380952381,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

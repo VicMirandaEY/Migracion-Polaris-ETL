@@ -1,0 +1,1288 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="4/17/2023 3:33:15 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="VENJJCR20"
+  DTS:CreatorName="CAF-CON\ls42731"
+  DTS:DTSID="{50885722-F61A-4B45-BC80-1FF8BCBE58B8}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="16.0.5270.0"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="CreaArchivoPlanoDmsCollateral"
+  DTS:PackageType="5"
+  DTS:VersionBuild="27"
+  DTS:VersionGUID="{7F957D03-3BDA-4C1F-AD96-0670E5AB993D}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Flat File Connection DMS COLLATERAL]"
+      DTS:CreationName="FLATFILE"
+      DTS:DTSID="{B3AE7114-AA60-479B-BB4F-47E980A22666}"
+      DTS:ObjectName="Flat File Connection DMS COLLATERAL">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="Delimited"
+          DTS:LocaleID="1033"
+          DTS:HeaderRowDelimiter="_x000D__x000A_"
+          DTS:RowDelimiter=""
+          DTS:TextQualifier="_x003C_none_x003E_"
+          DTS:CodePage="65001"
+          DTS:ConnectionString="D:\App\Migracion-Polaris-ETL1\Txt\COLLATERAL.txt">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="9"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="UPLOAD.COMPANY"
+              DTS:DTSID="{06187E3A-A82E-4F1C-81DB-DB51D892B1DE}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="12"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="ID/COLLATERAL.ID"
+              DTS:DTSID="{B01A2D8D-573F-4BC7-A5B2-547FA3D75E49}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="3"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="COLLATERAL.TYPE"
+              DTS:DTSID="{C8334AE7-DF21-4159-A2FC-FD21B61BCBD5}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="4000"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="DESCRIPTION"
+              DTS:DTSID="{DDD48BC0-3635-41E7-ACF3-3559C5F66289}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="3"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="CURRENCY"
+              DTS:DTSID="{C1C0206A-F695-4B43-A3D1-D46D001FC2FD}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="2"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="COUNTRY"
+              DTS:DTSID="{D6A75DBE-67DB-408A-8DCE-1D0D5AE70351}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="21"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="NOMINAL.VALUE"
+              DTS:DTSID="{646FD100-5C63-4F23-9B52-1D366A2903A0}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="8"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="VALUE.DATE"
+              DTS:DTSID="{EA210171-5956-490E-A115-CCE45AB96241}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="8"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="EXPIRY.DATE"
+              DTS:DTSID="{7B5E55EF-F9FD-4107-893E-00EC3F967D3B}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="3"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="COLLATERAL.CODE"
+              DTS:DTSID="{D22EC4EE-F094-4123-BD46-F4B7F6C7667F}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="10"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="CUSTOMER.ID"
+              DTS:DTSID="{4D54001F-A01E-4858-A91F-8DA6E786797C}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="13"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="COLLATERAL.RIGHT.ID"
+              DTS:DTSID="{E5F8D728-8852-4D82-83D5-78752154D12E}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="512"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="NOTES"
+              DTS:DTSID="{3AD06E6E-EF9F-4D0D-AE51-10273EFBADA0}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="8"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="REGISTER.DATE"
+              DTS:DTSID="{BF256AC9-0199-4C5A-8B52-DF7C2DFC8632}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="30"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="REGISTRATION.NO"
+              DTS:DTSID="{C212DBAB-9CF4-4D3B-9352-B2C4B3B28D34}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="4000"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="CENTRAL.BANK.VALUE"
+              DTS:DTSID="{DC9E77AE-BB1F-494B-A5BA-30588BCB6486}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="4000"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="ADDRESS"
+              DTS:DTSID="{650EBF53-2D2A-4046-A280-A4CB90078B09}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="4000"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="ISSUER"
+              DTS:DTSID="{0F97BFC1-C46D-420C-B029-95AB735496D5}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="4000"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="VEHICLE.MODEL"
+              DTS:DTSID="{A0F1A944-FEBC-4F06-8376-BA9296F0EF24}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="4000"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="INS.EXPIRY.DT"
+              DTS:DTSID="{9D5A95AF-DDB5-4989-AFA9-9DFD218B3BBD}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="4000"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="MANUFACTURER"
+              DTS:DTSID="{32203115-D6C8-43B8-B49A-54CB8E125BA0}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="4000"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="MANUFACTURE.YR"
+              DTS:DTSID="{8061613A-430F-4FC6-8200-859BB53287AD}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000D__x000A_"
+              DTS:MaximumWidth="4000"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="ENGINE.NUMBER"
+              DTS:DTSID="{BC3D2FC8-674D-4B15-9F9D-0193621E8A16}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Crea Archivo Plano DMS COLLATERAL"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{F2A52423-70AF-498C-AA61-88BD4EE6401F}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Crea Archivo Plano DMS COLLATERAL"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Crea Archivo Plano DMS COLLATERAL\DMS COLLATERAL"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="DMS COLLATERAL"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[DMS-COLLATERAL]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=16.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Crea Archivo Plano DMS COLLATERAL\DMS COLLATERAL.Connections[OleDbConnection]"
+                  connectionManagerID="{73E9BE98-144D-4887-A1CD-FCE6E4AB9CF5}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[STGPolaris]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Crea Archivo Plano DMS COLLATERAL\DMS COLLATERAL.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Crea Archivo Plano DMS COLLATERAL\DMS COLLATERAL.Outputs[OLE DB Source Output].Columns[UPLOAD.COMPANY]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Crea Archivo Plano DMS COLLATERAL\DMS COLLATERAL.Outputs[OLE DB Source Output].ExternalColumns[UPLOAD.COMPANY]"
+                      length="9"
+                      lineageId="Package\Crea Archivo Plano DMS COLLATERAL\DMS COLLATERAL.Outputs[OLE DB Source Output].Columns[UPLOAD.COMPANY]"
+                      name="UPLOAD.COMPANY"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Crea Archivo Plano DMS COLLATERAL\DMS COLLATERAL.Outputs[OLE DB Source Output].Columns[ID/COLLATERAL.ID]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Crea Archivo Plano DMS COLLATERAL\DMS COLLATERAL.Outputs[OLE DB Source Output].ExternalColumns[ID/COLLATERAL.ID]"
+                      length="12"
+                      lineageId="Package\Crea Archivo Plano DMS COLLATERAL\DMS COLLATERAL.Outputs[OLE DB Source Output].Columns[ID/COLLATERAL.ID]"
+                      name="ID/COLLATERAL.ID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Crea Archivo Plano DMS COLLATERAL\DMS COLLATERAL.Outputs[OLE DB Source Output].Columns[COLLATERAL.TYPE]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Crea Archivo Plano DMS COLLATERAL\DMS COLLATERAL.Outputs[OLE DB Source Output].ExternalColumns[COLLATERAL.TYPE]"
+                      length="3"
+                      lineageId="Package\Crea Archivo Plano DMS COLLATERAL\DMS COLLATERAL.Outputs[OLE DB Source Output].Columns[COLLATERAL.TYPE]"
+                      name="COLLATERAL.TYPE"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Crea Archivo Plano DMS COLLATERAL\DMS COLLATERAL.Outputs[OLE DB Source Output].Columns[DESCRIPTION]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Crea Archivo Plano DMS COLLATERAL\DMS COLLATERAL.Outputs[OLE DB Source Output].ExternalColumns[DESCRIPTION]"
+                      length="4000"
+                      lineageId="Package\Crea Archivo Plano DMS COLLATERAL\DMS COLLATERAL.Outputs[OLE DB Source Output].Columns[DESCRIPTION]"
+                      name="DESCRIPTION"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Crea Archivo Plano DMS COLLATERAL\DMS COLLATERAL.Outputs[OLE DB Source Output].Columns[CURRENCY]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Crea Archivo Plano DMS COLLATERAL\DMS COLLATERAL.Outputs[OLE DB Source Output].ExternalColumns[CURRENCY]"
+                      length="3"
+                      lineageId="Package\Crea Archivo Plano DMS COLLATERAL\DMS COLLATERAL.Outputs[OLE DB Source Output].Columns[CURRENCY]"
+                      name="CURRENCY"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Crea Archivo Plano DMS COLLATERAL\DMS COLLATERAL.Outputs[OLE DB Source Output].Columns[COUNTRY]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Crea Archivo Plano DMS COLLATERAL\DMS COLLATERAL.Outputs[OLE DB Source Output].ExternalColumns[COUNTRY]"
+                      length="2"
+                      lineageId="Package\Crea Archivo Plano DMS COLLATERAL\DMS COLLATERAL.Outputs[OLE DB Source Output].Columns[COUNTRY]"
+                      name="COUNTRY"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Crea Archivo Plano DMS COLLATERAL\DMS COLLATERAL.Outputs[OLE DB Source Output].Columns[NOMINAL.VALUE]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Crea Archivo Plano DMS COLLATERAL\DMS COLLATERAL.Outputs[OLE DB Source Output].ExternalColumns[NOMINAL.VALUE]"
+                      length="21"
+                      lineageId="Package\Crea Archivo Plano DMS COLLATERAL\DMS COLLATERAL.Outputs[OLE DB Source Output].Columns[NOMINAL.VALUE]"
+                      name="NOMINAL.VALUE"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Crea Archivo Plano DMS COLLATERAL\DMS COLLATERAL.Outputs[OLE DB Source Output].Columns[VALUE.DATE]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Crea Archivo Plano DMS COLLATERAL\DMS COLLATERAL.Outputs[OLE DB Source Output].ExternalColumns[VALUE.DATE]"
+                      length="8"
+                      lineageId="Package\Crea Archivo Plano DMS COLLATERAL\DMS COLLATERAL.Outputs[OLE DB Source Output].Columns[VALUE.DATE]"
+                      name="VALUE.DATE"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Crea Archivo Plano DMS COLLATERAL\DMS COLLATERAL.Outputs[OLE DB Source Output].Columns[EXPIRY.DATE]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Crea Archivo Plano DMS COLLATERAL\DMS COLLATERAL.Outputs[OLE DB Source Output].ExternalColumns[EXPIRY.DATE]"
+                      length="8"
+                      lineageId="Package\Crea Archivo Plano DMS COLLATERAL\DMS COLLATERAL.Outputs[OLE DB Source Output].Columns[EXPIRY.DATE]"
+                      name="EXPIRY.DATE"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Crea Archivo Plano DMS COLLATERAL\DMS COLLATERAL.Outputs[OLE DB Source Output].Columns[COLLATERAL.CODE]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Crea Archivo Plano DMS COLLATERAL\DMS COLLATERAL.Outputs[OLE DB Source Output].ExternalColumns[COLLATERAL.CODE]"
+                      length="3"
+                      lineageId="Package\Crea Archivo Plano DMS COLLATERAL\DMS COLLATERAL.Outputs[OLE DB Source Output].Columns[COLLATERAL.CODE]"
+                      name="COLLATERAL.CODE"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Crea Archivo Plano DMS COLLATERAL\DMS COLLATERAL.Outputs[OLE DB Source Output].Columns[CUSTOMER.ID]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Crea Archivo Plano DMS COLLATERAL\DMS COLLATERAL.Outputs[OLE DB Source Output].ExternalColumns[CUSTOMER.ID]"
+                      length="10"
+                      lineageId="Package\Crea Archivo Plano DMS COLLATERAL\DMS COLLATERAL.Outputs[OLE DB Source Output].Columns[CUSTOMER.ID]"
+                      name="CUSTOMER.ID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Crea Archivo Plano DMS COLLATERAL\DMS COLLATERAL.Outputs[OLE DB Source Output].Columns[COLLATERAL.RIGHT.ID]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Crea Archivo Plano DMS COLLATERAL\DMS COLLATERAL.Outputs[OLE DB Source Output].ExternalColumns[COLLATERAL.RIGHT.ID]"
+                      length="13"
+                      lineageId="Package\Crea Archivo Plano DMS COLLATERAL\DMS COLLATERAL.Outputs[OLE DB Source Output].Columns[COLLATERAL.RIGHT.ID]"
+                      name="COLLATERAL.RIGHT.ID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Crea Archivo Plano DMS COLLATERAL\DMS COLLATERAL.Outputs[OLE DB Source Output].Columns[NOTES]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Crea Archivo Plano DMS COLLATERAL\DMS COLLATERAL.Outputs[OLE DB Source Output].ExternalColumns[NOTES]"
+                      length="512"
+                      lineageId="Package\Crea Archivo Plano DMS COLLATERAL\DMS COLLATERAL.Outputs[OLE DB Source Output].Columns[NOTES]"
+                      name="NOTES"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Crea Archivo Plano DMS COLLATERAL\DMS COLLATERAL.Outputs[OLE DB Source Output].Columns[REGISTER.DATE]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Crea Archivo Plano DMS COLLATERAL\DMS COLLATERAL.Outputs[OLE DB Source Output].ExternalColumns[REGISTER.DATE]"
+                      length="8"
+                      lineageId="Package\Crea Archivo Plano DMS COLLATERAL\DMS COLLATERAL.Outputs[OLE DB Source Output].Columns[REGISTER.DATE]"
+                      name="REGISTER.DATE"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Crea Archivo Plano DMS COLLATERAL\DMS COLLATERAL.Outputs[OLE DB Source Output].Columns[REGISTRATION.NO]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Crea Archivo Plano DMS COLLATERAL\DMS COLLATERAL.Outputs[OLE DB Source Output].ExternalColumns[REGISTRATION.NO]"
+                      length="30"
+                      lineageId="Package\Crea Archivo Plano DMS COLLATERAL\DMS COLLATERAL.Outputs[OLE DB Source Output].Columns[REGISTRATION.NO]"
+                      name="REGISTRATION.NO"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Crea Archivo Plano DMS COLLATERAL\DMS COLLATERAL.Outputs[OLE DB Source Output].Columns[CENTRAL.BANK.VALUE]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Crea Archivo Plano DMS COLLATERAL\DMS COLLATERAL.Outputs[OLE DB Source Output].ExternalColumns[CENTRAL.BANK.VALUE]"
+                      length="4000"
+                      lineageId="Package\Crea Archivo Plano DMS COLLATERAL\DMS COLLATERAL.Outputs[OLE DB Source Output].Columns[CENTRAL.BANK.VALUE]"
+                      name="CENTRAL.BANK.VALUE"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Crea Archivo Plano DMS COLLATERAL\DMS COLLATERAL.Outputs[OLE DB Source Output].Columns[ADDRESS]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Crea Archivo Plano DMS COLLATERAL\DMS COLLATERAL.Outputs[OLE DB Source Output].ExternalColumns[ADDRESS]"
+                      length="4000"
+                      lineageId="Package\Crea Archivo Plano DMS COLLATERAL\DMS COLLATERAL.Outputs[OLE DB Source Output].Columns[ADDRESS]"
+                      name="ADDRESS"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Crea Archivo Plano DMS COLLATERAL\DMS COLLATERAL.Outputs[OLE DB Source Output].Columns[ISSUER]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Crea Archivo Plano DMS COLLATERAL\DMS COLLATERAL.Outputs[OLE DB Source Output].ExternalColumns[ISSUER]"
+                      length="4000"
+                      lineageId="Package\Crea Archivo Plano DMS COLLATERAL\DMS COLLATERAL.Outputs[OLE DB Source Output].Columns[ISSUER]"
+                      name="ISSUER"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Crea Archivo Plano DMS COLLATERAL\DMS COLLATERAL.Outputs[OLE DB Source Output].Columns[VEHICLE.MODEL]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Crea Archivo Plano DMS COLLATERAL\DMS COLLATERAL.Outputs[OLE DB Source Output].ExternalColumns[VEHICLE.MODEL]"
+                      length="4000"
+                      lineageId="Package\Crea Archivo Plano DMS COLLATERAL\DMS COLLATERAL.Outputs[OLE DB Source Output].Columns[VEHICLE.MODEL]"
+                      name="VEHICLE.MODEL"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Crea Archivo Plano DMS COLLATERAL\DMS COLLATERAL.Outputs[OLE DB Source Output].Columns[INS.EXPIRY.DT]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Crea Archivo Plano DMS COLLATERAL\DMS COLLATERAL.Outputs[OLE DB Source Output].ExternalColumns[INS.EXPIRY.DT]"
+                      length="4000"
+                      lineageId="Package\Crea Archivo Plano DMS COLLATERAL\DMS COLLATERAL.Outputs[OLE DB Source Output].Columns[INS.EXPIRY.DT]"
+                      name="INS.EXPIRY.DT"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Crea Archivo Plano DMS COLLATERAL\DMS COLLATERAL.Outputs[OLE DB Source Output].Columns[MANUFACTURER]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Crea Archivo Plano DMS COLLATERAL\DMS COLLATERAL.Outputs[OLE DB Source Output].ExternalColumns[MANUFACTURER]"
+                      length="4000"
+                      lineageId="Package\Crea Archivo Plano DMS COLLATERAL\DMS COLLATERAL.Outputs[OLE DB Source Output].Columns[MANUFACTURER]"
+                      name="MANUFACTURER"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Crea Archivo Plano DMS COLLATERAL\DMS COLLATERAL.Outputs[OLE DB Source Output].Columns[MANUFACTURE.YR]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Crea Archivo Plano DMS COLLATERAL\DMS COLLATERAL.Outputs[OLE DB Source Output].ExternalColumns[MANUFACTURE.YR]"
+                      length="4000"
+                      lineageId="Package\Crea Archivo Plano DMS COLLATERAL\DMS COLLATERAL.Outputs[OLE DB Source Output].Columns[MANUFACTURE.YR]"
+                      name="MANUFACTURE.YR"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Crea Archivo Plano DMS COLLATERAL\DMS COLLATERAL.Outputs[OLE DB Source Output].Columns[ENGINE.NUMBER]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Crea Archivo Plano DMS COLLATERAL\DMS COLLATERAL.Outputs[OLE DB Source Output].ExternalColumns[ENGINE.NUMBER]"
+                      length="4000"
+                      lineageId="Package\Crea Archivo Plano DMS COLLATERAL\DMS COLLATERAL.Outputs[OLE DB Source Output].Columns[ENGINE.NUMBER]"
+                      name="ENGINE.NUMBER"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Crea Archivo Plano DMS COLLATERAL\DMS COLLATERAL.Outputs[OLE DB Source Output].ExternalColumns[UPLOAD.COMPANY]"
+                      dataType="wstr"
+                      length="9"
+                      name="UPLOAD.COMPANY" />
+                    <externalMetadataColumn
+                      refId="Package\Crea Archivo Plano DMS COLLATERAL\DMS COLLATERAL.Outputs[OLE DB Source Output].ExternalColumns[ID/COLLATERAL.ID]"
+                      dataType="wstr"
+                      length="12"
+                      name="ID/COLLATERAL.ID" />
+                    <externalMetadataColumn
+                      refId="Package\Crea Archivo Plano DMS COLLATERAL\DMS COLLATERAL.Outputs[OLE DB Source Output].ExternalColumns[COLLATERAL.TYPE]"
+                      dataType="wstr"
+                      length="3"
+                      name="COLLATERAL.TYPE" />
+                    <externalMetadataColumn
+                      refId="Package\Crea Archivo Plano DMS COLLATERAL\DMS COLLATERAL.Outputs[OLE DB Source Output].ExternalColumns[DESCRIPTION]"
+                      dataType="wstr"
+                      length="4000"
+                      name="DESCRIPTION" />
+                    <externalMetadataColumn
+                      refId="Package\Crea Archivo Plano DMS COLLATERAL\DMS COLLATERAL.Outputs[OLE DB Source Output].ExternalColumns[CURRENCY]"
+                      dataType="wstr"
+                      length="3"
+                      name="CURRENCY" />
+                    <externalMetadataColumn
+                      refId="Package\Crea Archivo Plano DMS COLLATERAL\DMS COLLATERAL.Outputs[OLE DB Source Output].ExternalColumns[COUNTRY]"
+                      dataType="wstr"
+                      length="2"
+                      name="COUNTRY" />
+                    <externalMetadataColumn
+                      refId="Package\Crea Archivo Plano DMS COLLATERAL\DMS COLLATERAL.Outputs[OLE DB Source Output].ExternalColumns[NOMINAL.VALUE]"
+                      dataType="wstr"
+                      length="21"
+                      name="NOMINAL.VALUE" />
+                    <externalMetadataColumn
+                      refId="Package\Crea Archivo Plano DMS COLLATERAL\DMS COLLATERAL.Outputs[OLE DB Source Output].ExternalColumns[VALUE.DATE]"
+                      dataType="wstr"
+                      length="8"
+                      name="VALUE.DATE" />
+                    <externalMetadataColumn
+                      refId="Package\Crea Archivo Plano DMS COLLATERAL\DMS COLLATERAL.Outputs[OLE DB Source Output].ExternalColumns[EXPIRY.DATE]"
+                      dataType="wstr"
+                      length="8"
+                      name="EXPIRY.DATE" />
+                    <externalMetadataColumn
+                      refId="Package\Crea Archivo Plano DMS COLLATERAL\DMS COLLATERAL.Outputs[OLE DB Source Output].ExternalColumns[COLLATERAL.CODE]"
+                      dataType="wstr"
+                      length="3"
+                      name="COLLATERAL.CODE" />
+                    <externalMetadataColumn
+                      refId="Package\Crea Archivo Plano DMS COLLATERAL\DMS COLLATERAL.Outputs[OLE DB Source Output].ExternalColumns[CUSTOMER.ID]"
+                      dataType="wstr"
+                      length="10"
+                      name="CUSTOMER.ID" />
+                    <externalMetadataColumn
+                      refId="Package\Crea Archivo Plano DMS COLLATERAL\DMS COLLATERAL.Outputs[OLE DB Source Output].ExternalColumns[COLLATERAL.RIGHT.ID]"
+                      dataType="wstr"
+                      length="13"
+                      name="COLLATERAL.RIGHT.ID" />
+                    <externalMetadataColumn
+                      refId="Package\Crea Archivo Plano DMS COLLATERAL\DMS COLLATERAL.Outputs[OLE DB Source Output].ExternalColumns[NOTES]"
+                      dataType="wstr"
+                      length="512"
+                      name="NOTES" />
+                    <externalMetadataColumn
+                      refId="Package\Crea Archivo Plano DMS COLLATERAL\DMS COLLATERAL.Outputs[OLE DB Source Output].ExternalColumns[REGISTER.DATE]"
+                      dataType="wstr"
+                      length="8"
+                      name="REGISTER.DATE" />
+                    <externalMetadataColumn
+                      refId="Package\Crea Archivo Plano DMS COLLATERAL\DMS COLLATERAL.Outputs[OLE DB Source Output].ExternalColumns[REGISTRATION.NO]"
+                      dataType="wstr"
+                      length="30"
+                      name="REGISTRATION.NO" />
+                    <externalMetadataColumn
+                      refId="Package\Crea Archivo Plano DMS COLLATERAL\DMS COLLATERAL.Outputs[OLE DB Source Output].ExternalColumns[CENTRAL.BANK.VALUE]"
+                      dataType="wstr"
+                      length="4000"
+                      name="CENTRAL.BANK.VALUE" />
+                    <externalMetadataColumn
+                      refId="Package\Crea Archivo Plano DMS COLLATERAL\DMS COLLATERAL.Outputs[OLE DB Source Output].ExternalColumns[ADDRESS]"
+                      dataType="wstr"
+                      length="4000"
+                      name="ADDRESS" />
+                    <externalMetadataColumn
+                      refId="Package\Crea Archivo Plano DMS COLLATERAL\DMS COLLATERAL.Outputs[OLE DB Source Output].ExternalColumns[ISSUER]"
+                      dataType="wstr"
+                      length="4000"
+                      name="ISSUER" />
+                    <externalMetadataColumn
+                      refId="Package\Crea Archivo Plano DMS COLLATERAL\DMS COLLATERAL.Outputs[OLE DB Source Output].ExternalColumns[VEHICLE.MODEL]"
+                      dataType="wstr"
+                      length="4000"
+                      name="VEHICLE.MODEL" />
+                    <externalMetadataColumn
+                      refId="Package\Crea Archivo Plano DMS COLLATERAL\DMS COLLATERAL.Outputs[OLE DB Source Output].ExternalColumns[INS.EXPIRY.DT]"
+                      dataType="wstr"
+                      length="4000"
+                      name="INS.EXPIRY.DT" />
+                    <externalMetadataColumn
+                      refId="Package\Crea Archivo Plano DMS COLLATERAL\DMS COLLATERAL.Outputs[OLE DB Source Output].ExternalColumns[MANUFACTURER]"
+                      dataType="wstr"
+                      length="4000"
+                      name="MANUFACTURER" />
+                    <externalMetadataColumn
+                      refId="Package\Crea Archivo Plano DMS COLLATERAL\DMS COLLATERAL.Outputs[OLE DB Source Output].ExternalColumns[MANUFACTURE.YR]"
+                      dataType="wstr"
+                      length="4000"
+                      name="MANUFACTURE.YR" />
+                    <externalMetadataColumn
+                      refId="Package\Crea Archivo Plano DMS COLLATERAL\DMS COLLATERAL.Outputs[OLE DB Source Output].ExternalColumns[ENGINE.NUMBER]"
+                      dataType="wstr"
+                      length="4000"
+                      name="ENGINE.NUMBER" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Crea Archivo Plano DMS COLLATERAL\DMS COLLATERAL.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Crea Archivo Plano DMS COLLATERAL\DMS COLLATERAL.Outputs[OLE DB Source Error Output].Columns[UPLOAD.COMPANY]"
+                      dataType="wstr"
+                      length="9"
+                      lineageId="Package\Crea Archivo Plano DMS COLLATERAL\DMS COLLATERAL.Outputs[OLE DB Source Error Output].Columns[UPLOAD.COMPANY]"
+                      name="UPLOAD.COMPANY" />
+                    <outputColumn
+                      refId="Package\Crea Archivo Plano DMS COLLATERAL\DMS COLLATERAL.Outputs[OLE DB Source Error Output].Columns[ID/COLLATERAL.ID]"
+                      dataType="wstr"
+                      length="12"
+                      lineageId="Package\Crea Archivo Plano DMS COLLATERAL\DMS COLLATERAL.Outputs[OLE DB Source Error Output].Columns[ID/COLLATERAL.ID]"
+                      name="ID/COLLATERAL.ID" />
+                    <outputColumn
+                      refId="Package\Crea Archivo Plano DMS COLLATERAL\DMS COLLATERAL.Outputs[OLE DB Source Error Output].Columns[COLLATERAL.TYPE]"
+                      dataType="wstr"
+                      length="3"
+                      lineageId="Package\Crea Archivo Plano DMS COLLATERAL\DMS COLLATERAL.Outputs[OLE DB Source Error Output].Columns[COLLATERAL.TYPE]"
+                      name="COLLATERAL.TYPE" />
+                    <outputColumn
+                      refId="Package\Crea Archivo Plano DMS COLLATERAL\DMS COLLATERAL.Outputs[OLE DB Source Error Output].Columns[DESCRIPTION]"
+                      dataType="wstr"
+                      length="4000"
+                      lineageId="Package\Crea Archivo Plano DMS COLLATERAL\DMS COLLATERAL.Outputs[OLE DB Source Error Output].Columns[DESCRIPTION]"
+                      name="DESCRIPTION" />
+                    <outputColumn
+                      refId="Package\Crea Archivo Plano DMS COLLATERAL\DMS COLLATERAL.Outputs[OLE DB Source Error Output].Columns[CURRENCY]"
+                      dataType="wstr"
+                      length="3"
+                      lineageId="Package\Crea Archivo Plano DMS COLLATERAL\DMS COLLATERAL.Outputs[OLE DB Source Error Output].Columns[CURRENCY]"
+                      name="CURRENCY" />
+                    <outputColumn
+                      refId="Package\Crea Archivo Plano DMS COLLATERAL\DMS COLLATERAL.Outputs[OLE DB Source Error Output].Columns[COUNTRY]"
+                      dataType="wstr"
+                      length="2"
+                      lineageId="Package\Crea Archivo Plano DMS COLLATERAL\DMS COLLATERAL.Outputs[OLE DB Source Error Output].Columns[COUNTRY]"
+                      name="COUNTRY" />
+                    <outputColumn
+                      refId="Package\Crea Archivo Plano DMS COLLATERAL\DMS COLLATERAL.Outputs[OLE DB Source Error Output].Columns[NOMINAL.VALUE]"
+                      dataType="wstr"
+                      length="21"
+                      lineageId="Package\Crea Archivo Plano DMS COLLATERAL\DMS COLLATERAL.Outputs[OLE DB Source Error Output].Columns[NOMINAL.VALUE]"
+                      name="NOMINAL.VALUE" />
+                    <outputColumn
+                      refId="Package\Crea Archivo Plano DMS COLLATERAL\DMS COLLATERAL.Outputs[OLE DB Source Error Output].Columns[VALUE.DATE]"
+                      dataType="wstr"
+                      length="8"
+                      lineageId="Package\Crea Archivo Plano DMS COLLATERAL\DMS COLLATERAL.Outputs[OLE DB Source Error Output].Columns[VALUE.DATE]"
+                      name="VALUE.DATE" />
+                    <outputColumn
+                      refId="Package\Crea Archivo Plano DMS COLLATERAL\DMS COLLATERAL.Outputs[OLE DB Source Error Output].Columns[EXPIRY.DATE]"
+                      dataType="wstr"
+                      length="8"
+                      lineageId="Package\Crea Archivo Plano DMS COLLATERAL\DMS COLLATERAL.Outputs[OLE DB Source Error Output].Columns[EXPIRY.DATE]"
+                      name="EXPIRY.DATE" />
+                    <outputColumn
+                      refId="Package\Crea Archivo Plano DMS COLLATERAL\DMS COLLATERAL.Outputs[OLE DB Source Error Output].Columns[COLLATERAL.CODE]"
+                      dataType="wstr"
+                      length="3"
+                      lineageId="Package\Crea Archivo Plano DMS COLLATERAL\DMS COLLATERAL.Outputs[OLE DB Source Error Output].Columns[COLLATERAL.CODE]"
+                      name="COLLATERAL.CODE" />
+                    <outputColumn
+                      refId="Package\Crea Archivo Plano DMS COLLATERAL\DMS COLLATERAL.Outputs[OLE DB Source Error Output].Columns[CUSTOMER.ID]"
+                      dataType="wstr"
+                      length="10"
+                      lineageId="Package\Crea Archivo Plano DMS COLLATERAL\DMS COLLATERAL.Outputs[OLE DB Source Error Output].Columns[CUSTOMER.ID]"
+                      name="CUSTOMER.ID" />
+                    <outputColumn
+                      refId="Package\Crea Archivo Plano DMS COLLATERAL\DMS COLLATERAL.Outputs[OLE DB Source Error Output].Columns[COLLATERAL.RIGHT.ID]"
+                      dataType="wstr"
+                      length="13"
+                      lineageId="Package\Crea Archivo Plano DMS COLLATERAL\DMS COLLATERAL.Outputs[OLE DB Source Error Output].Columns[COLLATERAL.RIGHT.ID]"
+                      name="COLLATERAL.RIGHT.ID" />
+                    <outputColumn
+                      refId="Package\Crea Archivo Plano DMS COLLATERAL\DMS COLLATERAL.Outputs[OLE DB Source Error Output].Columns[NOTES]"
+                      dataType="wstr"
+                      length="512"
+                      lineageId="Package\Crea Archivo Plano DMS COLLATERAL\DMS COLLATERAL.Outputs[OLE DB Source Error Output].Columns[NOTES]"
+                      name="NOTES" />
+                    <outputColumn
+                      refId="Package\Crea Archivo Plano DMS COLLATERAL\DMS COLLATERAL.Outputs[OLE DB Source Error Output].Columns[REGISTER.DATE]"
+                      dataType="wstr"
+                      length="8"
+                      lineageId="Package\Crea Archivo Plano DMS COLLATERAL\DMS COLLATERAL.Outputs[OLE DB Source Error Output].Columns[REGISTER.DATE]"
+                      name="REGISTER.DATE" />
+                    <outputColumn
+                      refId="Package\Crea Archivo Plano DMS COLLATERAL\DMS COLLATERAL.Outputs[OLE DB Source Error Output].Columns[REGISTRATION.NO]"
+                      dataType="wstr"
+                      length="30"
+                      lineageId="Package\Crea Archivo Plano DMS COLLATERAL\DMS COLLATERAL.Outputs[OLE DB Source Error Output].Columns[REGISTRATION.NO]"
+                      name="REGISTRATION.NO" />
+                    <outputColumn
+                      refId="Package\Crea Archivo Plano DMS COLLATERAL\DMS COLLATERAL.Outputs[OLE DB Source Error Output].Columns[CENTRAL.BANK.VALUE]"
+                      dataType="wstr"
+                      length="4000"
+                      lineageId="Package\Crea Archivo Plano DMS COLLATERAL\DMS COLLATERAL.Outputs[OLE DB Source Error Output].Columns[CENTRAL.BANK.VALUE]"
+                      name="CENTRAL.BANK.VALUE" />
+                    <outputColumn
+                      refId="Package\Crea Archivo Plano DMS COLLATERAL\DMS COLLATERAL.Outputs[OLE DB Source Error Output].Columns[ADDRESS]"
+                      dataType="wstr"
+                      length="4000"
+                      lineageId="Package\Crea Archivo Plano DMS COLLATERAL\DMS COLLATERAL.Outputs[OLE DB Source Error Output].Columns[ADDRESS]"
+                      name="ADDRESS" />
+                    <outputColumn
+                      refId="Package\Crea Archivo Plano DMS COLLATERAL\DMS COLLATERAL.Outputs[OLE DB Source Error Output].Columns[ISSUER]"
+                      dataType="wstr"
+                      length="4000"
+                      lineageId="Package\Crea Archivo Plano DMS COLLATERAL\DMS COLLATERAL.Outputs[OLE DB Source Error Output].Columns[ISSUER]"
+                      name="ISSUER" />
+                    <outputColumn
+                      refId="Package\Crea Archivo Plano DMS COLLATERAL\DMS COLLATERAL.Outputs[OLE DB Source Error Output].Columns[VEHICLE.MODEL]"
+                      dataType="wstr"
+                      length="4000"
+                      lineageId="Package\Crea Archivo Plano DMS COLLATERAL\DMS COLLATERAL.Outputs[OLE DB Source Error Output].Columns[VEHICLE.MODEL]"
+                      name="VEHICLE.MODEL" />
+                    <outputColumn
+                      refId="Package\Crea Archivo Plano DMS COLLATERAL\DMS COLLATERAL.Outputs[OLE DB Source Error Output].Columns[INS.EXPIRY.DT]"
+                      dataType="wstr"
+                      length="4000"
+                      lineageId="Package\Crea Archivo Plano DMS COLLATERAL\DMS COLLATERAL.Outputs[OLE DB Source Error Output].Columns[INS.EXPIRY.DT]"
+                      name="INS.EXPIRY.DT" />
+                    <outputColumn
+                      refId="Package\Crea Archivo Plano DMS COLLATERAL\DMS COLLATERAL.Outputs[OLE DB Source Error Output].Columns[MANUFACTURER]"
+                      dataType="wstr"
+                      length="4000"
+                      lineageId="Package\Crea Archivo Plano DMS COLLATERAL\DMS COLLATERAL.Outputs[OLE DB Source Error Output].Columns[MANUFACTURER]"
+                      name="MANUFACTURER" />
+                    <outputColumn
+                      refId="Package\Crea Archivo Plano DMS COLLATERAL\DMS COLLATERAL.Outputs[OLE DB Source Error Output].Columns[MANUFACTURE.YR]"
+                      dataType="wstr"
+                      length="4000"
+                      lineageId="Package\Crea Archivo Plano DMS COLLATERAL\DMS COLLATERAL.Outputs[OLE DB Source Error Output].Columns[MANUFACTURE.YR]"
+                      name="MANUFACTURE.YR" />
+                    <outputColumn
+                      refId="Package\Crea Archivo Plano DMS COLLATERAL\DMS COLLATERAL.Outputs[OLE DB Source Error Output].Columns[ENGINE.NUMBER]"
+                      dataType="wstr"
+                      length="4000"
+                      lineageId="Package\Crea Archivo Plano DMS COLLATERAL\DMS COLLATERAL.Outputs[OLE DB Source Error Output].Columns[ENGINE.NUMBER]"
+                      name="ENGINE.NUMBER" />
+                    <outputColumn
+                      refId="Package\Crea Archivo Plano DMS COLLATERAL\DMS COLLATERAL.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Crea Archivo Plano DMS COLLATERAL\DMS COLLATERAL.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Crea Archivo Plano DMS COLLATERAL\DMS COLLATERAL.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Crea Archivo Plano DMS COLLATERAL\DMS COLLATERAL.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Crea Archivo Plano DMS COLLATERAL\Flat File Connection DMS Collateral"
+              componentClassID="Microsoft.FlatFileDestination"
+              contactInfo="Flat File Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Flat File Destination"
+              localeId="1033"
+              name="Flat File Connection DMS Collateral"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Specifies whether the data will overwrite or append to the destination file."
+                  name="Overwrite">true</property>
+                <property
+                  dataType="System.Null"
+                  description="Specifies the text to write to the destination file before any data is written."
+                  expressionType="Notify"
+                  name="Header" />
+                <property
+                  dataType="System.Boolean"
+                  description="When text qualifier is enabled, specifies whether the text qualifier in the data written to the destination file will be escaped or not."
+                  name="EscapeQualifier">false</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Crea Archivo Plano DMS COLLATERAL\Flat File Connection DMS Collateral.Connections[FlatFileConnection]"
+                  connectionManagerID="Package.ConnectionManagers[Flat File Connection DMS COLLATERAL]"
+                  connectionManagerRefId="Package.ConnectionManagers[Flat File Connection DMS COLLATERAL]"
+                  name="FlatFileConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Crea Archivo Plano DMS COLLATERAL\Flat File Connection DMS Collateral.Inputs[Flat File Destination Input]"
+                  hasSideEffects="true"
+                  name="Flat File Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Crea Archivo Plano DMS COLLATERAL\Flat File Connection DMS Collateral.Inputs[Flat File Destination Input].Columns[UPLOAD.COMPANY]"
+                      cachedDataType="wstr"
+                      cachedLength="9"
+                      cachedName="UPLOAD.COMPANY"
+                      externalMetadataColumnId="Package\Crea Archivo Plano DMS COLLATERAL\Flat File Connection DMS Collateral.Inputs[Flat File Destination Input].ExternalColumns[UPLOAD.COMPANY]"
+                      lineageId="Package\Crea Archivo Plano DMS COLLATERAL\DMS COLLATERAL.Outputs[OLE DB Source Output].Columns[UPLOAD.COMPANY]" />
+                    <inputColumn
+                      refId="Package\Crea Archivo Plano DMS COLLATERAL\Flat File Connection DMS Collateral.Inputs[Flat File Destination Input].Columns[ID/COLLATERAL.ID]"
+                      cachedDataType="wstr"
+                      cachedLength="12"
+                      cachedName="ID/COLLATERAL.ID"
+                      externalMetadataColumnId="Package\Crea Archivo Plano DMS COLLATERAL\Flat File Connection DMS Collateral.Inputs[Flat File Destination Input].ExternalColumns[ID/COLLATERAL.ID]"
+                      lineageId="Package\Crea Archivo Plano DMS COLLATERAL\DMS COLLATERAL.Outputs[OLE DB Source Output].Columns[ID/COLLATERAL.ID]" />
+                    <inputColumn
+                      refId="Package\Crea Archivo Plano DMS COLLATERAL\Flat File Connection DMS Collateral.Inputs[Flat File Destination Input].Columns[COLLATERAL.TYPE]"
+                      cachedDataType="wstr"
+                      cachedLength="3"
+                      cachedName="COLLATERAL.TYPE"
+                      externalMetadataColumnId="Package\Crea Archivo Plano DMS COLLATERAL\Flat File Connection DMS Collateral.Inputs[Flat File Destination Input].ExternalColumns[COLLATERAL.TYPE]"
+                      lineageId="Package\Crea Archivo Plano DMS COLLATERAL\DMS COLLATERAL.Outputs[OLE DB Source Output].Columns[COLLATERAL.TYPE]" />
+                    <inputColumn
+                      refId="Package\Crea Archivo Plano DMS COLLATERAL\Flat File Connection DMS Collateral.Inputs[Flat File Destination Input].Columns[DESCRIPTION]"
+                      cachedDataType="wstr"
+                      cachedLength="4000"
+                      cachedName="DESCRIPTION"
+                      externalMetadataColumnId="Package\Crea Archivo Plano DMS COLLATERAL\Flat File Connection DMS Collateral.Inputs[Flat File Destination Input].ExternalColumns[DESCRIPTION]"
+                      lineageId="Package\Crea Archivo Plano DMS COLLATERAL\DMS COLLATERAL.Outputs[OLE DB Source Output].Columns[DESCRIPTION]" />
+                    <inputColumn
+                      refId="Package\Crea Archivo Plano DMS COLLATERAL\Flat File Connection DMS Collateral.Inputs[Flat File Destination Input].Columns[CURRENCY]"
+                      cachedDataType="wstr"
+                      cachedLength="3"
+                      cachedName="CURRENCY"
+                      externalMetadataColumnId="Package\Crea Archivo Plano DMS COLLATERAL\Flat File Connection DMS Collateral.Inputs[Flat File Destination Input].ExternalColumns[CURRENCY]"
+                      lineageId="Package\Crea Archivo Plano DMS COLLATERAL\DMS COLLATERAL.Outputs[OLE DB Source Output].Columns[CURRENCY]" />
+                    <inputColumn
+                      refId="Package\Crea Archivo Plano DMS COLLATERAL\Flat File Connection DMS Collateral.Inputs[Flat File Destination Input].Columns[COUNTRY]"
+                      cachedDataType="wstr"
+                      cachedLength="2"
+                      cachedName="COUNTRY"
+                      externalMetadataColumnId="Package\Crea Archivo Plano DMS COLLATERAL\Flat File Connection DMS Collateral.Inputs[Flat File Destination Input].ExternalColumns[COUNTRY]"
+                      lineageId="Package\Crea Archivo Plano DMS COLLATERAL\DMS COLLATERAL.Outputs[OLE DB Source Output].Columns[COUNTRY]" />
+                    <inputColumn
+                      refId="Package\Crea Archivo Plano DMS COLLATERAL\Flat File Connection DMS Collateral.Inputs[Flat File Destination Input].Columns[NOMINAL.VALUE]"
+                      cachedDataType="wstr"
+                      cachedLength="21"
+                      cachedName="NOMINAL.VALUE"
+                      externalMetadataColumnId="Package\Crea Archivo Plano DMS COLLATERAL\Flat File Connection DMS Collateral.Inputs[Flat File Destination Input].ExternalColumns[NOMINAL.VALUE]"
+                      lineageId="Package\Crea Archivo Plano DMS COLLATERAL\DMS COLLATERAL.Outputs[OLE DB Source Output].Columns[NOMINAL.VALUE]" />
+                    <inputColumn
+                      refId="Package\Crea Archivo Plano DMS COLLATERAL\Flat File Connection DMS Collateral.Inputs[Flat File Destination Input].Columns[VALUE.DATE]"
+                      cachedDataType="wstr"
+                      cachedLength="8"
+                      cachedName="VALUE.DATE"
+                      externalMetadataColumnId="Package\Crea Archivo Plano DMS COLLATERAL\Flat File Connection DMS Collateral.Inputs[Flat File Destination Input].ExternalColumns[VALUE.DATE]"
+                      lineageId="Package\Crea Archivo Plano DMS COLLATERAL\DMS COLLATERAL.Outputs[OLE DB Source Output].Columns[VALUE.DATE]" />
+                    <inputColumn
+                      refId="Package\Crea Archivo Plano DMS COLLATERAL\Flat File Connection DMS Collateral.Inputs[Flat File Destination Input].Columns[EXPIRY.DATE]"
+                      cachedDataType="wstr"
+                      cachedLength="8"
+                      cachedName="EXPIRY.DATE"
+                      externalMetadataColumnId="Package\Crea Archivo Plano DMS COLLATERAL\Flat File Connection DMS Collateral.Inputs[Flat File Destination Input].ExternalColumns[EXPIRY.DATE]"
+                      lineageId="Package\Crea Archivo Plano DMS COLLATERAL\DMS COLLATERAL.Outputs[OLE DB Source Output].Columns[EXPIRY.DATE]" />
+                    <inputColumn
+                      refId="Package\Crea Archivo Plano DMS COLLATERAL\Flat File Connection DMS Collateral.Inputs[Flat File Destination Input].Columns[COLLATERAL.CODE]"
+                      cachedDataType="wstr"
+                      cachedLength="3"
+                      cachedName="COLLATERAL.CODE"
+                      externalMetadataColumnId="Package\Crea Archivo Plano DMS COLLATERAL\Flat File Connection DMS Collateral.Inputs[Flat File Destination Input].ExternalColumns[COLLATERAL.CODE]"
+                      lineageId="Package\Crea Archivo Plano DMS COLLATERAL\DMS COLLATERAL.Outputs[OLE DB Source Output].Columns[COLLATERAL.CODE]" />
+                    <inputColumn
+                      refId="Package\Crea Archivo Plano DMS COLLATERAL\Flat File Connection DMS Collateral.Inputs[Flat File Destination Input].Columns[CUSTOMER.ID]"
+                      cachedDataType="wstr"
+                      cachedLength="10"
+                      cachedName="CUSTOMER.ID"
+                      externalMetadataColumnId="Package\Crea Archivo Plano DMS COLLATERAL\Flat File Connection DMS Collateral.Inputs[Flat File Destination Input].ExternalColumns[CUSTOMER.ID]"
+                      lineageId="Package\Crea Archivo Plano DMS COLLATERAL\DMS COLLATERAL.Outputs[OLE DB Source Output].Columns[CUSTOMER.ID]" />
+                    <inputColumn
+                      refId="Package\Crea Archivo Plano DMS COLLATERAL\Flat File Connection DMS Collateral.Inputs[Flat File Destination Input].Columns[COLLATERAL.RIGHT.ID]"
+                      cachedDataType="wstr"
+                      cachedLength="13"
+                      cachedName="COLLATERAL.RIGHT.ID"
+                      externalMetadataColumnId="Package\Crea Archivo Plano DMS COLLATERAL\Flat File Connection DMS Collateral.Inputs[Flat File Destination Input].ExternalColumns[COLLATERAL.RIGHT.ID]"
+                      lineageId="Package\Crea Archivo Plano DMS COLLATERAL\DMS COLLATERAL.Outputs[OLE DB Source Output].Columns[COLLATERAL.RIGHT.ID]" />
+                    <inputColumn
+                      refId="Package\Crea Archivo Plano DMS COLLATERAL\Flat File Connection DMS Collateral.Inputs[Flat File Destination Input].Columns[NOTES]"
+                      cachedDataType="wstr"
+                      cachedLength="512"
+                      cachedName="NOTES"
+                      externalMetadataColumnId="Package\Crea Archivo Plano DMS COLLATERAL\Flat File Connection DMS Collateral.Inputs[Flat File Destination Input].ExternalColumns[NOTES]"
+                      lineageId="Package\Crea Archivo Plano DMS COLLATERAL\DMS COLLATERAL.Outputs[OLE DB Source Output].Columns[NOTES]" />
+                    <inputColumn
+                      refId="Package\Crea Archivo Plano DMS COLLATERAL\Flat File Connection DMS Collateral.Inputs[Flat File Destination Input].Columns[REGISTER.DATE]"
+                      cachedDataType="wstr"
+                      cachedLength="8"
+                      cachedName="REGISTER.DATE"
+                      externalMetadataColumnId="Package\Crea Archivo Plano DMS COLLATERAL\Flat File Connection DMS Collateral.Inputs[Flat File Destination Input].ExternalColumns[REGISTER.DATE]"
+                      lineageId="Package\Crea Archivo Plano DMS COLLATERAL\DMS COLLATERAL.Outputs[OLE DB Source Output].Columns[REGISTER.DATE]" />
+                    <inputColumn
+                      refId="Package\Crea Archivo Plano DMS COLLATERAL\Flat File Connection DMS Collateral.Inputs[Flat File Destination Input].Columns[REGISTRATION.NO]"
+                      cachedDataType="wstr"
+                      cachedLength="30"
+                      cachedName="REGISTRATION.NO"
+                      externalMetadataColumnId="Package\Crea Archivo Plano DMS COLLATERAL\Flat File Connection DMS Collateral.Inputs[Flat File Destination Input].ExternalColumns[REGISTRATION.NO]"
+                      lineageId="Package\Crea Archivo Plano DMS COLLATERAL\DMS COLLATERAL.Outputs[OLE DB Source Output].Columns[REGISTRATION.NO]" />
+                    <inputColumn
+                      refId="Package\Crea Archivo Plano DMS COLLATERAL\Flat File Connection DMS Collateral.Inputs[Flat File Destination Input].Columns[CENTRAL.BANK.VALUE]"
+                      cachedDataType="wstr"
+                      cachedLength="4000"
+                      cachedName="CENTRAL.BANK.VALUE"
+                      externalMetadataColumnId="Package\Crea Archivo Plano DMS COLLATERAL\Flat File Connection DMS Collateral.Inputs[Flat File Destination Input].ExternalColumns[CENTRAL.BANK.VALUE]"
+                      lineageId="Package\Crea Archivo Plano DMS COLLATERAL\DMS COLLATERAL.Outputs[OLE DB Source Output].Columns[CENTRAL.BANK.VALUE]" />
+                    <inputColumn
+                      refId="Package\Crea Archivo Plano DMS COLLATERAL\Flat File Connection DMS Collateral.Inputs[Flat File Destination Input].Columns[ADDRESS]"
+                      cachedDataType="wstr"
+                      cachedLength="4000"
+                      cachedName="ADDRESS"
+                      externalMetadataColumnId="Package\Crea Archivo Plano DMS COLLATERAL\Flat File Connection DMS Collateral.Inputs[Flat File Destination Input].ExternalColumns[ADDRESS]"
+                      lineageId="Package\Crea Archivo Plano DMS COLLATERAL\DMS COLLATERAL.Outputs[OLE DB Source Output].Columns[ADDRESS]" />
+                    <inputColumn
+                      refId="Package\Crea Archivo Plano DMS COLLATERAL\Flat File Connection DMS Collateral.Inputs[Flat File Destination Input].Columns[ISSUER]"
+                      cachedDataType="wstr"
+                      cachedLength="4000"
+                      cachedName="ISSUER"
+                      externalMetadataColumnId="Package\Crea Archivo Plano DMS COLLATERAL\Flat File Connection DMS Collateral.Inputs[Flat File Destination Input].ExternalColumns[ISSUER]"
+                      lineageId="Package\Crea Archivo Plano DMS COLLATERAL\DMS COLLATERAL.Outputs[OLE DB Source Output].Columns[ISSUER]" />
+                    <inputColumn
+                      refId="Package\Crea Archivo Plano DMS COLLATERAL\Flat File Connection DMS Collateral.Inputs[Flat File Destination Input].Columns[VEHICLE.MODEL]"
+                      cachedDataType="wstr"
+                      cachedLength="4000"
+                      cachedName="VEHICLE.MODEL"
+                      externalMetadataColumnId="Package\Crea Archivo Plano DMS COLLATERAL\Flat File Connection DMS Collateral.Inputs[Flat File Destination Input].ExternalColumns[VEHICLE.MODEL]"
+                      lineageId="Package\Crea Archivo Plano DMS COLLATERAL\DMS COLLATERAL.Outputs[OLE DB Source Output].Columns[VEHICLE.MODEL]" />
+                    <inputColumn
+                      refId="Package\Crea Archivo Plano DMS COLLATERAL\Flat File Connection DMS Collateral.Inputs[Flat File Destination Input].Columns[INS.EXPIRY.DT]"
+                      cachedDataType="wstr"
+                      cachedLength="4000"
+                      cachedName="INS.EXPIRY.DT"
+                      externalMetadataColumnId="Package\Crea Archivo Plano DMS COLLATERAL\Flat File Connection DMS Collateral.Inputs[Flat File Destination Input].ExternalColumns[INS.EXPIRY.DT]"
+                      lineageId="Package\Crea Archivo Plano DMS COLLATERAL\DMS COLLATERAL.Outputs[OLE DB Source Output].Columns[INS.EXPIRY.DT]" />
+                    <inputColumn
+                      refId="Package\Crea Archivo Plano DMS COLLATERAL\Flat File Connection DMS Collateral.Inputs[Flat File Destination Input].Columns[MANUFACTURER]"
+                      cachedDataType="wstr"
+                      cachedLength="4000"
+                      cachedName="MANUFACTURER"
+                      externalMetadataColumnId="Package\Crea Archivo Plano DMS COLLATERAL\Flat File Connection DMS Collateral.Inputs[Flat File Destination Input].ExternalColumns[MANUFACTURER]"
+                      lineageId="Package\Crea Archivo Plano DMS COLLATERAL\DMS COLLATERAL.Outputs[OLE DB Source Output].Columns[MANUFACTURER]" />
+                    <inputColumn
+                      refId="Package\Crea Archivo Plano DMS COLLATERAL\Flat File Connection DMS Collateral.Inputs[Flat File Destination Input].Columns[MANUFACTURE.YR]"
+                      cachedDataType="wstr"
+                      cachedLength="4000"
+                      cachedName="MANUFACTURE.YR"
+                      externalMetadataColumnId="Package\Crea Archivo Plano DMS COLLATERAL\Flat File Connection DMS Collateral.Inputs[Flat File Destination Input].ExternalColumns[MANUFACTURE.YR]"
+                      lineageId="Package\Crea Archivo Plano DMS COLLATERAL\DMS COLLATERAL.Outputs[OLE DB Source Output].Columns[MANUFACTURE.YR]" />
+                    <inputColumn
+                      refId="Package\Crea Archivo Plano DMS COLLATERAL\Flat File Connection DMS Collateral.Inputs[Flat File Destination Input].Columns[ENGINE.NUMBER]"
+                      cachedDataType="wstr"
+                      cachedLength="4000"
+                      cachedName="ENGINE.NUMBER"
+                      externalMetadataColumnId="Package\Crea Archivo Plano DMS COLLATERAL\Flat File Connection DMS Collateral.Inputs[Flat File Destination Input].ExternalColumns[ENGINE.NUMBER]"
+                      lineageId="Package\Crea Archivo Plano DMS COLLATERAL\DMS COLLATERAL.Outputs[OLE DB Source Output].Columns[ENGINE.NUMBER]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Crea Archivo Plano DMS COLLATERAL\Flat File Connection DMS Collateral.Inputs[Flat File Destination Input].ExternalColumns[UPLOAD.COMPANY]"
+                      dataType="wstr"
+                      length="9"
+                      name="UPLOAD.COMPANY" />
+                    <externalMetadataColumn
+                      refId="Package\Crea Archivo Plano DMS COLLATERAL\Flat File Connection DMS Collateral.Inputs[Flat File Destination Input].ExternalColumns[ID/COLLATERAL.ID]"
+                      dataType="wstr"
+                      length="12"
+                      name="ID/COLLATERAL.ID" />
+                    <externalMetadataColumn
+                      refId="Package\Crea Archivo Plano DMS COLLATERAL\Flat File Connection DMS Collateral.Inputs[Flat File Destination Input].ExternalColumns[COLLATERAL.TYPE]"
+                      dataType="wstr"
+                      length="3"
+                      name="COLLATERAL.TYPE" />
+                    <externalMetadataColumn
+                      refId="Package\Crea Archivo Plano DMS COLLATERAL\Flat File Connection DMS Collateral.Inputs[Flat File Destination Input].ExternalColumns[DESCRIPTION]"
+                      dataType="wstr"
+                      length="4000"
+                      name="DESCRIPTION" />
+                    <externalMetadataColumn
+                      refId="Package\Crea Archivo Plano DMS COLLATERAL\Flat File Connection DMS Collateral.Inputs[Flat File Destination Input].ExternalColumns[CURRENCY]"
+                      dataType="wstr"
+                      length="3"
+                      name="CURRENCY" />
+                    <externalMetadataColumn
+                      refId="Package\Crea Archivo Plano DMS COLLATERAL\Flat File Connection DMS Collateral.Inputs[Flat File Destination Input].ExternalColumns[COUNTRY]"
+                      dataType="wstr"
+                      length="2"
+                      name="COUNTRY" />
+                    <externalMetadataColumn
+                      refId="Package\Crea Archivo Plano DMS COLLATERAL\Flat File Connection DMS Collateral.Inputs[Flat File Destination Input].ExternalColumns[NOMINAL.VALUE]"
+                      dataType="wstr"
+                      length="21"
+                      name="NOMINAL.VALUE" />
+                    <externalMetadataColumn
+                      refId="Package\Crea Archivo Plano DMS COLLATERAL\Flat File Connection DMS Collateral.Inputs[Flat File Destination Input].ExternalColumns[VALUE.DATE]"
+                      dataType="wstr"
+                      length="8"
+                      name="VALUE.DATE" />
+                    <externalMetadataColumn
+                      refId="Package\Crea Archivo Plano DMS COLLATERAL\Flat File Connection DMS Collateral.Inputs[Flat File Destination Input].ExternalColumns[EXPIRY.DATE]"
+                      dataType="wstr"
+                      length="8"
+                      name="EXPIRY.DATE" />
+                    <externalMetadataColumn
+                      refId="Package\Crea Archivo Plano DMS COLLATERAL\Flat File Connection DMS Collateral.Inputs[Flat File Destination Input].ExternalColumns[COLLATERAL.CODE]"
+                      dataType="wstr"
+                      length="3"
+                      name="COLLATERAL.CODE" />
+                    <externalMetadataColumn
+                      refId="Package\Crea Archivo Plano DMS COLLATERAL\Flat File Connection DMS Collateral.Inputs[Flat File Destination Input].ExternalColumns[CUSTOMER.ID]"
+                      dataType="wstr"
+                      length="10"
+                      name="CUSTOMER.ID" />
+                    <externalMetadataColumn
+                      refId="Package\Crea Archivo Plano DMS COLLATERAL\Flat File Connection DMS Collateral.Inputs[Flat File Destination Input].ExternalColumns[COLLATERAL.RIGHT.ID]"
+                      dataType="wstr"
+                      length="13"
+                      name="COLLATERAL.RIGHT.ID" />
+                    <externalMetadataColumn
+                      refId="Package\Crea Archivo Plano DMS COLLATERAL\Flat File Connection DMS Collateral.Inputs[Flat File Destination Input].ExternalColumns[NOTES]"
+                      dataType="wstr"
+                      length="512"
+                      name="NOTES" />
+                    <externalMetadataColumn
+                      refId="Package\Crea Archivo Plano DMS COLLATERAL\Flat File Connection DMS Collateral.Inputs[Flat File Destination Input].ExternalColumns[REGISTER.DATE]"
+                      dataType="wstr"
+                      length="8"
+                      name="REGISTER.DATE" />
+                    <externalMetadataColumn
+                      refId="Package\Crea Archivo Plano DMS COLLATERAL\Flat File Connection DMS Collateral.Inputs[Flat File Destination Input].ExternalColumns[REGISTRATION.NO]"
+                      dataType="wstr"
+                      length="30"
+                      name="REGISTRATION.NO" />
+                    <externalMetadataColumn
+                      refId="Package\Crea Archivo Plano DMS COLLATERAL\Flat File Connection DMS Collateral.Inputs[Flat File Destination Input].ExternalColumns[CENTRAL.BANK.VALUE]"
+                      dataType="wstr"
+                      length="4000"
+                      name="CENTRAL.BANK.VALUE" />
+                    <externalMetadataColumn
+                      refId="Package\Crea Archivo Plano DMS COLLATERAL\Flat File Connection DMS Collateral.Inputs[Flat File Destination Input].ExternalColumns[ADDRESS]"
+                      dataType="wstr"
+                      length="4000"
+                      name="ADDRESS" />
+                    <externalMetadataColumn
+                      refId="Package\Crea Archivo Plano DMS COLLATERAL\Flat File Connection DMS Collateral.Inputs[Flat File Destination Input].ExternalColumns[ISSUER]"
+                      dataType="wstr"
+                      length="4000"
+                      name="ISSUER" />
+                    <externalMetadataColumn
+                      refId="Package\Crea Archivo Plano DMS COLLATERAL\Flat File Connection DMS Collateral.Inputs[Flat File Destination Input].ExternalColumns[VEHICLE.MODEL]"
+                      dataType="wstr"
+                      length="4000"
+                      name="VEHICLE.MODEL" />
+                    <externalMetadataColumn
+                      refId="Package\Crea Archivo Plano DMS COLLATERAL\Flat File Connection DMS Collateral.Inputs[Flat File Destination Input].ExternalColumns[INS.EXPIRY.DT]"
+                      dataType="wstr"
+                      length="4000"
+                      name="INS.EXPIRY.DT" />
+                    <externalMetadataColumn
+                      refId="Package\Crea Archivo Plano DMS COLLATERAL\Flat File Connection DMS Collateral.Inputs[Flat File Destination Input].ExternalColumns[MANUFACTURER]"
+                      dataType="wstr"
+                      length="4000"
+                      name="MANUFACTURER" />
+                    <externalMetadataColumn
+                      refId="Package\Crea Archivo Plano DMS COLLATERAL\Flat File Connection DMS Collateral.Inputs[Flat File Destination Input].ExternalColumns[MANUFACTURE.YR]"
+                      dataType="wstr"
+                      length="4000"
+                      name="MANUFACTURE.YR" />
+                    <externalMetadataColumn
+                      refId="Package\Crea Archivo Plano DMS COLLATERAL\Flat File Connection DMS Collateral.Inputs[Flat File Destination Input].ExternalColumns[ENGINE.NUMBER]"
+                      dataType="wstr"
+                      length="4000"
+                      name="ENGINE.NUMBER" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Crea Archivo Plano DMS COLLATERAL.Paths[OLE DB Source Output]"
+              endId="Package\Crea Archivo Plano DMS COLLATERAL\Flat File Connection DMS Collateral.Inputs[Flat File Destination Input]"
+              name="OLE DB Source Output"
+              startId="Package\Crea Archivo Plano DMS COLLATERAL\DMS COLLATERAL.Outputs[OLE DB Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Inicializa parametros"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{c0372f2e-9475-419d-973e-2d019fd76b3b}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Inicializa parametros"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{70000693-BDE1-4FE0-B772-11B7D4A7A452}"
+          SQLTask:SqlStatementSource="-- =============================================&#xA;-- Autor:  José A. Guillen &#xA;-- Fecha de creación: 05-09-2022&#xA;-- Descripción:  Inicializa parametros desde valores guardados en una base de datos SQL Server para la Solución Migracion-Polaris-ETL1-v1.0&#xA;--      &#xA;-- Archivos Origen:  &#xA;--   &#xA;--      &#xA;-- Historia:&#xA;-- José A. Guillén 05-09-2022 Codificación inicial&#xA;-- =============================================&#xA;--&#xA;-- &lt;Aquí se debe colocar el código SQL que lee los parámetros que se van a manejar desde tablas de parámetros&gt; &#xA;--&#xA;SELECT 1 &#xA;--" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{15AF5C3D-5AA3-4BE0-8471-7114445433F0}"
+      DTS:From="Package\Inicializa parametros"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\Crea Archivo Plano DMS COLLATERAL" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="257,42"
+          Id="Package\Crea Archivo Plano DMS COLLATERAL"
+          TopLeft="5.50000000000003,107.5" />
+        <NodeLayout
+          Size="176,42"
+          Id="Package\Inicializa parametros"
+          TopLeft="46,5.5" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="134,47.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Crea Archivo Plano DMS COLLATERAL">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="243,42"
+          Id="Package\Crea Archivo Plano DMS COLLATERAL\Flat File Connection DMS Collateral"
+          TopLeft="5.50000000000001,107.5" />
+        <NodeLayout
+          Size="165,42"
+          Id="Package\Crea Archivo Plano DMS COLLATERAL\DMS COLLATERAL"
+          TopLeft="44.5,5.5" />
+        <EdgeLayout
+          Id="Package\Crea Archivo Plano DMS COLLATERAL.Paths[OLE DB Source Output]"
+          TopLeft="127,47.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Crea Archivo Plano DMS COLLATERAL\DMS COLLATERAL">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

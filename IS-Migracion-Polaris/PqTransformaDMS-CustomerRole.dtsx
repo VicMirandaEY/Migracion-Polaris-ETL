@@ -1,0 +1,1500 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="12/7/2022 5:49:13 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="VENJJCR20"
+  DTS:CreatorName="CAF-CON\ls42731"
+  DTS:DTSID="{FC2629C3-00CF-4FD5-8D07-9B7E172211E6}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="16.0.521.0"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="PqTransformaDMS-CustomerRole"
+  DTS:PackageType="5"
+  DTS:VersionBuild="16"
+  DTS:VersionGUID="{069ED4C1-EC96-4F6C-9C92-CAB959341EBB}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Inicializa parametros"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{3ed9b03a-748b-46ed-918c-1d4cff543ec7}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Inicializa parametros"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{70000693-BDE1-4FE0-B772-11B7D4A7A452}"
+          SQLTask:SqlStatementSource="-- =============================================&#xA;-- Autor:  José A. Guillen &#xA;-- Fecha de creación: 05-09-2022&#xA;-- Descripción:  Inicializa parametros desde valores guardados en una base de datos SQL Server para la Solución Migracion-Polaris-ETL1-v1.0&#xA;--      &#xA;-- Archivos Origen:  &#xA;--   &#xA;--      &#xA;-- Historia:&#xA;-- José A. Guillén 05-09-2022 Codificación inicial&#xA;-- =============================================&#xA;--&#xA;-- &lt;Aquí se debe colocar el código SQL que lee los parámetros que se van a manejar desde tablas de parámetros&gt; &#xA;--&#xA;SELECT 1 &#xA;--" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Transforma ClienteRole"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{FC7ADC21-5BE9-4A7E-B8CB-A67E24E98702}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Transforma ClienteRole"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Transforma ClienteRole\Almacena registros modificados en DMS-CUSTOMER-ROLE-MODIFIED"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="Almacena registros modificados en DMS-CUSTOMER-ROLE-MODIFIED"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[DMS-CUSTOMER.ROLE.MODIFIED]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=16.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Transforma ClienteRole\Almacena registros modificados en DMS-CUSTOMER-ROLE-MODIFIED.Connections[OleDbConnection]"
+                  connectionManagerID="{73E9BE98-144D-4887-A1CD-FCE6E4AB9CF5}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[STGPolaris]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Transforma ClienteRole\Almacena registros modificados en DMS-CUSTOMER-ROLE-MODIFIED.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Transforma ClienteRole\Almacena registros modificados en DMS-CUSTOMER-ROLE-MODIFIED.Inputs[OLE DB Destination Input].Columns[UPLOAD.COMPANY]"
+                      cachedDataType="wstr"
+                      cachedLength="9"
+                      cachedName="UPLOAD.COMPANY"
+                      externalMetadataColumnId="Package\Transforma ClienteRole\Almacena registros modificados en DMS-CUSTOMER-ROLE-MODIFIED.Inputs[OLE DB Destination Input].ExternalColumns[UPLOAD.COMPANY]"
+                      lineageId="Package\Transforma ClienteRole\Genera DMS-CUSTOMER-ROLE.Outputs[OLE DB Source Output].Columns[UPLOAD.COMPANY]" />
+                    <inputColumn
+                      refId="Package\Transforma ClienteRole\Almacena registros modificados en DMS-CUSTOMER-ROLE-MODIFIED.Inputs[OLE DB Destination Input].Columns[CUSTOMER.CODE]"
+                      cachedDataType="wstr"
+                      cachedLength="10"
+                      cachedName="CUSTOMER.CODE"
+                      externalMetadataColumnId="Package\Transforma ClienteRole\Almacena registros modificados en DMS-CUSTOMER-ROLE-MODIFIED.Inputs[OLE DB Destination Input].ExternalColumns[CUSTOMER.CODE]"
+                      lineageId="Package\Transforma ClienteRole\Genera DMS-CUSTOMER-ROLE.Outputs[OLE DB Source Output].Columns[CUSTOMER.CODE]" />
+                    <inputColumn
+                      refId="Package\Transforma ClienteRole\Almacena registros modificados en DMS-CUSTOMER-ROLE-MODIFIED.Inputs[OLE DB Destination Input].Columns[RELATION.CODE]"
+                      cachedDataType="nText"
+                      cachedName="RELATION.CODE"
+                      externalMetadataColumnId="Package\Transforma ClienteRole\Almacena registros modificados en DMS-CUSTOMER-ROLE-MODIFIED.Inputs[OLE DB Destination Input].ExternalColumns[RELATION.CODE]"
+                      lineageId="Package\Transforma ClienteRole\Genera DMS-CUSTOMER-ROLE.Outputs[OLE DB Source Output].Columns[RELATION.CODE]" />
+                    <inputColumn
+                      refId="Package\Transforma ClienteRole\Almacena registros modificados en DMS-CUSTOMER-ROLE-MODIFIED.Inputs[OLE DB Destination Input].Columns[REL.CUSTOMER]"
+                      cachedDataType="nText"
+                      cachedName="REL.CUSTOMER"
+                      externalMetadataColumnId="Package\Transforma ClienteRole\Almacena registros modificados en DMS-CUSTOMER-ROLE-MODIFIED.Inputs[OLE DB Destination Input].ExternalColumns[REL.CUSTOMER]"
+                      lineageId="Package\Transforma ClienteRole\Genera DMS-CUSTOMER-ROLE.Outputs[OLE DB Source Output].Columns[REL.CUSTOMER]" />
+                    <inputColumn
+                      refId="Package\Transforma ClienteRole\Almacena registros modificados en DMS-CUSTOMER-ROLE-MODIFIED.Inputs[OLE DB Destination Input].Columns[REL.DELIV.OPT]"
+                      cachedDataType="nText"
+                      cachedName="REL.DELIV.OPT"
+                      externalMetadataColumnId="Package\Transforma ClienteRole\Almacena registros modificados en DMS-CUSTOMER-ROLE-MODIFIED.Inputs[OLE DB Destination Input].ExternalColumns[REL.DELIV.OPT]"
+                      lineageId="Package\Transforma ClienteRole\Genera DMS-CUSTOMER-ROLE.Outputs[OLE DB Source Output].Columns[REL.DELIV.OPT]" />
+                    <inputColumn
+                      refId="Package\Transforma ClienteRole\Almacena registros modificados en DMS-CUSTOMER-ROLE-MODIFIED.Inputs[OLE DB Destination Input].Columns[ROLE]"
+                      cachedDataType="nText"
+                      cachedName="ROLE"
+                      externalMetadataColumnId="Package\Transforma ClienteRole\Almacena registros modificados en DMS-CUSTOMER-ROLE-MODIFIED.Inputs[OLE DB Destination Input].ExternalColumns[ROLE]"
+                      lineageId="Package\Transforma ClienteRole\Genera DMS-CUSTOMER-ROLE.Outputs[OLE DB Source Output].Columns[ROLE]" />
+                    <inputColumn
+                      refId="Package\Transforma ClienteRole\Almacena registros modificados en DMS-CUSTOMER-ROLE-MODIFIED.Inputs[OLE DB Destination Input].Columns[ROLE.MORE.INFO]"
+                      cachedDataType="nText"
+                      cachedName="ROLE.MORE.INFO"
+                      externalMetadataColumnId="Package\Transforma ClienteRole\Almacena registros modificados en DMS-CUSTOMER-ROLE-MODIFIED.Inputs[OLE DB Destination Input].ExternalColumns[ROLE.MORE.INFO]"
+                      lineageId="Package\Transforma ClienteRole\Genera DMS-CUSTOMER-ROLE.Outputs[OLE DB Source Output].Columns[ROLE.MORE.INFO]" />
+                    <inputColumn
+                      refId="Package\Transforma ClienteRole\Almacena registros modificados en DMS-CUSTOMER-ROLE-MODIFIED.Inputs[OLE DB Destination Input].Columns[ROLE.NOTES]"
+                      cachedDataType="nText"
+                      cachedName="ROLE.NOTES"
+                      externalMetadataColumnId="Package\Transforma ClienteRole\Almacena registros modificados en DMS-CUSTOMER-ROLE-MODIFIED.Inputs[OLE DB Destination Input].ExternalColumns[ROLE.NOTES]"
+                      lineageId="Package\Transforma ClienteRole\Genera DMS-CUSTOMER-ROLE.Outputs[OLE DB Source Output].Columns[ROLE.NOTES]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Transforma ClienteRole\Almacena registros modificados en DMS-CUSTOMER-ROLE-MODIFIED.Inputs[OLE DB Destination Input].ExternalColumns[UPLOAD.COMPANY]"
+                      dataType="wstr"
+                      length="9"
+                      name="UPLOAD.COMPANY" />
+                    <externalMetadataColumn
+                      refId="Package\Transforma ClienteRole\Almacena registros modificados en DMS-CUSTOMER-ROLE-MODIFIED.Inputs[OLE DB Destination Input].ExternalColumns[CUSTOMER.CODE]"
+                      dataType="wstr"
+                      length="10"
+                      name="CUSTOMER.CODE" />
+                    <externalMetadataColumn
+                      refId="Package\Transforma ClienteRole\Almacena registros modificados en DMS-CUSTOMER-ROLE-MODIFIED.Inputs[OLE DB Destination Input].ExternalColumns[RELATION.CODE]"
+                      dataType="nText"
+                      name="RELATION.CODE" />
+                    <externalMetadataColumn
+                      refId="Package\Transforma ClienteRole\Almacena registros modificados en DMS-CUSTOMER-ROLE-MODIFIED.Inputs[OLE DB Destination Input].ExternalColumns[REL.CUSTOMER]"
+                      dataType="nText"
+                      name="REL.CUSTOMER" />
+                    <externalMetadataColumn
+                      refId="Package\Transforma ClienteRole\Almacena registros modificados en DMS-CUSTOMER-ROLE-MODIFIED.Inputs[OLE DB Destination Input].ExternalColumns[REL.DELIV.OPT]"
+                      dataType="nText"
+                      name="REL.DELIV.OPT" />
+                    <externalMetadataColumn
+                      refId="Package\Transforma ClienteRole\Almacena registros modificados en DMS-CUSTOMER-ROLE-MODIFIED.Inputs[OLE DB Destination Input].ExternalColumns[ROLE]"
+                      dataType="nText"
+                      name="ROLE" />
+                    <externalMetadataColumn
+                      refId="Package\Transforma ClienteRole\Almacena registros modificados en DMS-CUSTOMER-ROLE-MODIFIED.Inputs[OLE DB Destination Input].ExternalColumns[ROLE.MORE.INFO]"
+                      dataType="nText"
+                      name="ROLE.MORE.INFO" />
+                    <externalMetadataColumn
+                      refId="Package\Transforma ClienteRole\Almacena registros modificados en DMS-CUSTOMER-ROLE-MODIFIED.Inputs[OLE DB Destination Input].ExternalColumns[ROLE.NOTES]"
+                      dataType="nText"
+                      name="ROLE.NOTES" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Transforma ClienteRole\Almacena registros modificados en DMS-CUSTOMER-ROLE-MODIFIED.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\Transforma ClienteRole\Almacena registros modificados en DMS-CUSTOMER-ROLE-MODIFIED.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Transforma ClienteRole\Almacena registros modificados en DMS-CUSTOMER-ROLE-MODIFIED.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Transforma ClienteRole\Almacena registros modificados en DMS-CUSTOMER-ROLE-MODIFIED.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Transforma ClienteRole\Almacena registros modificados en DMS-CUSTOMER-ROLE-MODIFIED.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Transforma ClienteRole\Almacena registros modificados en DMS-CUSTOMER-ROLE-MODIFIED.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Transforma ClienteRole\Almacena registros nuevos en DMS-CUSTOMER-ROLE-v1-0"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="Almacena registros nuevos en DMS-CUSTOMER-ROLE-v1-0"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[DMS-CUSTOMER.ROLE-v1.0]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=16.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Transforma ClienteRole\Almacena registros nuevos en DMS-CUSTOMER-ROLE-v1-0.Connections[OleDbConnection]"
+                  connectionManagerID="{73E9BE98-144D-4887-A1CD-FCE6E4AB9CF5}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[STGPolaris]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Transforma ClienteRole\Almacena registros nuevos en DMS-CUSTOMER-ROLE-v1-0.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Transforma ClienteRole\Almacena registros nuevos en DMS-CUSTOMER-ROLE-v1-0.Inputs[OLE DB Destination Input].Columns[UPLOAD.COMPANY]"
+                      cachedDataType="wstr"
+                      cachedLength="9"
+                      cachedName="UPLOAD.COMPANY"
+                      externalMetadataColumnId="Package\Transforma ClienteRole\Almacena registros nuevos en DMS-CUSTOMER-ROLE-v1-0.Inputs[OLE DB Destination Input].ExternalColumns[UPLOAD.COMPANY]"
+                      lineageId="Package\Transforma ClienteRole\Genera DMS-CUSTOMER-ROLE.Outputs[OLE DB Source Output].Columns[UPLOAD.COMPANY]" />
+                    <inputColumn
+                      refId="Package\Transforma ClienteRole\Almacena registros nuevos en DMS-CUSTOMER-ROLE-v1-0.Inputs[OLE DB Destination Input].Columns[CUSTOMER.CODE]"
+                      cachedDataType="wstr"
+                      cachedLength="10"
+                      cachedName="CUSTOMER.CODE"
+                      externalMetadataColumnId="Package\Transforma ClienteRole\Almacena registros nuevos en DMS-CUSTOMER-ROLE-v1-0.Inputs[OLE DB Destination Input].ExternalColumns[CUSTOMER.CODE]"
+                      lineageId="Package\Transforma ClienteRole\Genera DMS-CUSTOMER-ROLE.Outputs[OLE DB Source Output].Columns[CUSTOMER.CODE]" />
+                    <inputColumn
+                      refId="Package\Transforma ClienteRole\Almacena registros nuevos en DMS-CUSTOMER-ROLE-v1-0.Inputs[OLE DB Destination Input].Columns[RELATION.CODE]"
+                      cachedDataType="nText"
+                      cachedName="RELATION.CODE"
+                      externalMetadataColumnId="Package\Transforma ClienteRole\Almacena registros nuevos en DMS-CUSTOMER-ROLE-v1-0.Inputs[OLE DB Destination Input].ExternalColumns[RELATION.CODE]"
+                      lineageId="Package\Transforma ClienteRole\Genera DMS-CUSTOMER-ROLE.Outputs[OLE DB Source Output].Columns[RELATION.CODE]" />
+                    <inputColumn
+                      refId="Package\Transforma ClienteRole\Almacena registros nuevos en DMS-CUSTOMER-ROLE-v1-0.Inputs[OLE DB Destination Input].Columns[REL.CUSTOMER]"
+                      cachedDataType="nText"
+                      cachedName="REL.CUSTOMER"
+                      externalMetadataColumnId="Package\Transforma ClienteRole\Almacena registros nuevos en DMS-CUSTOMER-ROLE-v1-0.Inputs[OLE DB Destination Input].ExternalColumns[REL.CUSTOMER]"
+                      lineageId="Package\Transforma ClienteRole\Genera DMS-CUSTOMER-ROLE.Outputs[OLE DB Source Output].Columns[REL.CUSTOMER]" />
+                    <inputColumn
+                      refId="Package\Transforma ClienteRole\Almacena registros nuevos en DMS-CUSTOMER-ROLE-v1-0.Inputs[OLE DB Destination Input].Columns[REL.DELIV.OPT]"
+                      cachedDataType="nText"
+                      cachedName="REL.DELIV.OPT"
+                      externalMetadataColumnId="Package\Transforma ClienteRole\Almacena registros nuevos en DMS-CUSTOMER-ROLE-v1-0.Inputs[OLE DB Destination Input].ExternalColumns[REL.DELIV.OPT]"
+                      lineageId="Package\Transforma ClienteRole\Genera DMS-CUSTOMER-ROLE.Outputs[OLE DB Source Output].Columns[REL.DELIV.OPT]" />
+                    <inputColumn
+                      refId="Package\Transforma ClienteRole\Almacena registros nuevos en DMS-CUSTOMER-ROLE-v1-0.Inputs[OLE DB Destination Input].Columns[ROLE]"
+                      cachedDataType="nText"
+                      cachedName="ROLE"
+                      externalMetadataColumnId="Package\Transforma ClienteRole\Almacena registros nuevos en DMS-CUSTOMER-ROLE-v1-0.Inputs[OLE DB Destination Input].ExternalColumns[ROLE]"
+                      lineageId="Package\Transforma ClienteRole\Genera DMS-CUSTOMER-ROLE.Outputs[OLE DB Source Output].Columns[ROLE]" />
+                    <inputColumn
+                      refId="Package\Transforma ClienteRole\Almacena registros nuevos en DMS-CUSTOMER-ROLE-v1-0.Inputs[OLE DB Destination Input].Columns[ROLE.MORE.INFO]"
+                      cachedDataType="nText"
+                      cachedName="ROLE.MORE.INFO"
+                      externalMetadataColumnId="Package\Transforma ClienteRole\Almacena registros nuevos en DMS-CUSTOMER-ROLE-v1-0.Inputs[OLE DB Destination Input].ExternalColumns[ROLE.MORE.INFO]"
+                      lineageId="Package\Transforma ClienteRole\Genera DMS-CUSTOMER-ROLE.Outputs[OLE DB Source Output].Columns[ROLE.MORE.INFO]" />
+                    <inputColumn
+                      refId="Package\Transforma ClienteRole\Almacena registros nuevos en DMS-CUSTOMER-ROLE-v1-0.Inputs[OLE DB Destination Input].Columns[ROLE.NOTES]"
+                      cachedDataType="nText"
+                      cachedName="ROLE.NOTES"
+                      externalMetadataColumnId="Package\Transforma ClienteRole\Almacena registros nuevos en DMS-CUSTOMER-ROLE-v1-0.Inputs[OLE DB Destination Input].ExternalColumns[ROLE.NOTES]"
+                      lineageId="Package\Transforma ClienteRole\Genera DMS-CUSTOMER-ROLE.Outputs[OLE DB Source Output].Columns[ROLE.NOTES]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Transforma ClienteRole\Almacena registros nuevos en DMS-CUSTOMER-ROLE-v1-0.Inputs[OLE DB Destination Input].ExternalColumns[UPLOAD.COMPANY]"
+                      dataType="wstr"
+                      length="9"
+                      name="UPLOAD.COMPANY" />
+                    <externalMetadataColumn
+                      refId="Package\Transforma ClienteRole\Almacena registros nuevos en DMS-CUSTOMER-ROLE-v1-0.Inputs[OLE DB Destination Input].ExternalColumns[CUSTOMER.CODE]"
+                      dataType="wstr"
+                      length="10"
+                      name="CUSTOMER.CODE" />
+                    <externalMetadataColumn
+                      refId="Package\Transforma ClienteRole\Almacena registros nuevos en DMS-CUSTOMER-ROLE-v1-0.Inputs[OLE DB Destination Input].ExternalColumns[RELATION.CODE]"
+                      dataType="nText"
+                      name="RELATION.CODE" />
+                    <externalMetadataColumn
+                      refId="Package\Transforma ClienteRole\Almacena registros nuevos en DMS-CUSTOMER-ROLE-v1-0.Inputs[OLE DB Destination Input].ExternalColumns[REL.CUSTOMER]"
+                      dataType="nText"
+                      name="REL.CUSTOMER" />
+                    <externalMetadataColumn
+                      refId="Package\Transforma ClienteRole\Almacena registros nuevos en DMS-CUSTOMER-ROLE-v1-0.Inputs[OLE DB Destination Input].ExternalColumns[REL.DELIV.OPT]"
+                      dataType="nText"
+                      name="REL.DELIV.OPT" />
+                    <externalMetadataColumn
+                      refId="Package\Transforma ClienteRole\Almacena registros nuevos en DMS-CUSTOMER-ROLE-v1-0.Inputs[OLE DB Destination Input].ExternalColumns[ROLE]"
+                      dataType="nText"
+                      name="ROLE" />
+                    <externalMetadataColumn
+                      refId="Package\Transforma ClienteRole\Almacena registros nuevos en DMS-CUSTOMER-ROLE-v1-0.Inputs[OLE DB Destination Input].ExternalColumns[ROLE.MORE.INFO]"
+                      dataType="nText"
+                      name="ROLE.MORE.INFO" />
+                    <externalMetadataColumn
+                      refId="Package\Transforma ClienteRole\Almacena registros nuevos en DMS-CUSTOMER-ROLE-v1-0.Inputs[OLE DB Destination Input].ExternalColumns[ROLE.NOTES]"
+                      dataType="nText"
+                      name="ROLE.NOTES" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Transforma ClienteRole\Almacena registros nuevos en DMS-CUSTOMER-ROLE-v1-0.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\Transforma ClienteRole\Almacena registros nuevos en DMS-CUSTOMER-ROLE-v1-0.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Transforma ClienteRole\Almacena registros nuevos en DMS-CUSTOMER-ROLE-v1-0.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Transforma ClienteRole\Almacena registros nuevos en DMS-CUSTOMER-ROLE-v1-0.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Transforma ClienteRole\Almacena registros nuevos en DMS-CUSTOMER-ROLE-v1-0.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Transforma ClienteRole\Almacena registros nuevos en DMS-CUSTOMER-ROLE-v1-0.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Transforma ClienteRole\Almacena todos los registros generados en DMS-CUSTOMER-ROLE"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="Almacena todos los registros generados en DMS-CUSTOMER-ROLE"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[DMS-CUSTOMER.ROLE]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=16.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Transforma ClienteRole\Almacena todos los registros generados en DMS-CUSTOMER-ROLE.Connections[OleDbConnection]"
+                  connectionManagerID="{73E9BE98-144D-4887-A1CD-FCE6E4AB9CF5}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[STGPolaris]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Transforma ClienteRole\Almacena todos los registros generados en DMS-CUSTOMER-ROLE.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Transforma ClienteRole\Almacena todos los registros generados en DMS-CUSTOMER-ROLE.Inputs[OLE DB Destination Input].Columns[UPLOAD.COMPANY]"
+                      cachedDataType="wstr"
+                      cachedLength="9"
+                      cachedName="UPLOAD.COMPANY"
+                      externalMetadataColumnId="Package\Transforma ClienteRole\Almacena todos los registros generados en DMS-CUSTOMER-ROLE.Inputs[OLE DB Destination Input].ExternalColumns[UPLOAD.COMPANY]"
+                      lineageId="Package\Transforma ClienteRole\Genera DMS-CUSTOMER-ROLE.Outputs[OLE DB Source Output].Columns[UPLOAD.COMPANY]" />
+                    <inputColumn
+                      refId="Package\Transforma ClienteRole\Almacena todos los registros generados en DMS-CUSTOMER-ROLE.Inputs[OLE DB Destination Input].Columns[CUSTOMER.CODE]"
+                      cachedDataType="wstr"
+                      cachedLength="10"
+                      cachedName="CUSTOMER.CODE"
+                      externalMetadataColumnId="Package\Transforma ClienteRole\Almacena todos los registros generados en DMS-CUSTOMER-ROLE.Inputs[OLE DB Destination Input].ExternalColumns[CUSTOMER.CODE]"
+                      lineageId="Package\Transforma ClienteRole\Genera DMS-CUSTOMER-ROLE.Outputs[OLE DB Source Output].Columns[CUSTOMER.CODE]" />
+                    <inputColumn
+                      refId="Package\Transforma ClienteRole\Almacena todos los registros generados en DMS-CUSTOMER-ROLE.Inputs[OLE DB Destination Input].Columns[RELATION.CODE]"
+                      cachedDataType="nText"
+                      cachedName="RELATION.CODE"
+                      externalMetadataColumnId="Package\Transforma ClienteRole\Almacena todos los registros generados en DMS-CUSTOMER-ROLE.Inputs[OLE DB Destination Input].ExternalColumns[RELATION.CODE]"
+                      lineageId="Package\Transforma ClienteRole\Genera DMS-CUSTOMER-ROLE.Outputs[OLE DB Source Output].Columns[RELATION.CODE]" />
+                    <inputColumn
+                      refId="Package\Transforma ClienteRole\Almacena todos los registros generados en DMS-CUSTOMER-ROLE.Inputs[OLE DB Destination Input].Columns[REL.CUSTOMER]"
+                      cachedDataType="nText"
+                      cachedName="REL.CUSTOMER"
+                      externalMetadataColumnId="Package\Transforma ClienteRole\Almacena todos los registros generados en DMS-CUSTOMER-ROLE.Inputs[OLE DB Destination Input].ExternalColumns[REL.CUSTOMER]"
+                      lineageId="Package\Transforma ClienteRole\Genera DMS-CUSTOMER-ROLE.Outputs[OLE DB Source Output].Columns[REL.CUSTOMER]" />
+                    <inputColumn
+                      refId="Package\Transforma ClienteRole\Almacena todos los registros generados en DMS-CUSTOMER-ROLE.Inputs[OLE DB Destination Input].Columns[REL.DELIV.OPT]"
+                      cachedDataType="nText"
+                      cachedName="REL.DELIV.OPT"
+                      externalMetadataColumnId="Package\Transforma ClienteRole\Almacena todos los registros generados en DMS-CUSTOMER-ROLE.Inputs[OLE DB Destination Input].ExternalColumns[REL.DELIV.OPT]"
+                      lineageId="Package\Transforma ClienteRole\Genera DMS-CUSTOMER-ROLE.Outputs[OLE DB Source Output].Columns[REL.DELIV.OPT]" />
+                    <inputColumn
+                      refId="Package\Transforma ClienteRole\Almacena todos los registros generados en DMS-CUSTOMER-ROLE.Inputs[OLE DB Destination Input].Columns[ROLE]"
+                      cachedDataType="nText"
+                      cachedName="ROLE"
+                      externalMetadataColumnId="Package\Transforma ClienteRole\Almacena todos los registros generados en DMS-CUSTOMER-ROLE.Inputs[OLE DB Destination Input].ExternalColumns[ROLE]"
+                      lineageId="Package\Transforma ClienteRole\Genera DMS-CUSTOMER-ROLE.Outputs[OLE DB Source Output].Columns[ROLE]" />
+                    <inputColumn
+                      refId="Package\Transforma ClienteRole\Almacena todos los registros generados en DMS-CUSTOMER-ROLE.Inputs[OLE DB Destination Input].Columns[ROLE.MORE.INFO]"
+                      cachedDataType="nText"
+                      cachedName="ROLE.MORE.INFO"
+                      externalMetadataColumnId="Package\Transforma ClienteRole\Almacena todos los registros generados en DMS-CUSTOMER-ROLE.Inputs[OLE DB Destination Input].ExternalColumns[ROLE.MORE.INFO]"
+                      lineageId="Package\Transforma ClienteRole\Genera DMS-CUSTOMER-ROLE.Outputs[OLE DB Source Output].Columns[ROLE.MORE.INFO]" />
+                    <inputColumn
+                      refId="Package\Transforma ClienteRole\Almacena todos los registros generados en DMS-CUSTOMER-ROLE.Inputs[OLE DB Destination Input].Columns[ROLE.NOTES]"
+                      cachedDataType="nText"
+                      cachedName="ROLE.NOTES"
+                      externalMetadataColumnId="Package\Transforma ClienteRole\Almacena todos los registros generados en DMS-CUSTOMER-ROLE.Inputs[OLE DB Destination Input].ExternalColumns[ROLE.NOTES]"
+                      lineageId="Package\Transforma ClienteRole\Genera DMS-CUSTOMER-ROLE.Outputs[OLE DB Source Output].Columns[ROLE.NOTES]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Transforma ClienteRole\Almacena todos los registros generados en DMS-CUSTOMER-ROLE.Inputs[OLE DB Destination Input].ExternalColumns[UPLOAD.COMPANY]"
+                      dataType="wstr"
+                      length="9"
+                      name="UPLOAD.COMPANY" />
+                    <externalMetadataColumn
+                      refId="Package\Transforma ClienteRole\Almacena todos los registros generados en DMS-CUSTOMER-ROLE.Inputs[OLE DB Destination Input].ExternalColumns[CUSTOMER.CODE]"
+                      dataType="wstr"
+                      length="10"
+                      name="CUSTOMER.CODE" />
+                    <externalMetadataColumn
+                      refId="Package\Transforma ClienteRole\Almacena todos los registros generados en DMS-CUSTOMER-ROLE.Inputs[OLE DB Destination Input].ExternalColumns[RELATION.CODE]"
+                      dataType="nText"
+                      name="RELATION.CODE" />
+                    <externalMetadataColumn
+                      refId="Package\Transforma ClienteRole\Almacena todos los registros generados en DMS-CUSTOMER-ROLE.Inputs[OLE DB Destination Input].ExternalColumns[REL.CUSTOMER]"
+                      dataType="nText"
+                      name="REL.CUSTOMER" />
+                    <externalMetadataColumn
+                      refId="Package\Transforma ClienteRole\Almacena todos los registros generados en DMS-CUSTOMER-ROLE.Inputs[OLE DB Destination Input].ExternalColumns[REL.DELIV.OPT]"
+                      dataType="nText"
+                      name="REL.DELIV.OPT" />
+                    <externalMetadataColumn
+                      refId="Package\Transforma ClienteRole\Almacena todos los registros generados en DMS-CUSTOMER-ROLE.Inputs[OLE DB Destination Input].ExternalColumns[ROLE]"
+                      dataType="nText"
+                      name="ROLE" />
+                    <externalMetadataColumn
+                      refId="Package\Transforma ClienteRole\Almacena todos los registros generados en DMS-CUSTOMER-ROLE.Inputs[OLE DB Destination Input].ExternalColumns[ROLE.MORE.INFO]"
+                      dataType="nText"
+                      name="ROLE.MORE.INFO" />
+                    <externalMetadataColumn
+                      refId="Package\Transforma ClienteRole\Almacena todos los registros generados en DMS-CUSTOMER-ROLE.Inputs[OLE DB Destination Input].ExternalColumns[ROLE.NOTES]"
+                      dataType="nText"
+                      name="ROLE.NOTES" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Transforma ClienteRole\Almacena todos los registros generados en DMS-CUSTOMER-ROLE.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\Transforma ClienteRole\Almacena todos los registros generados en DMS-CUSTOMER-ROLE.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Transforma ClienteRole\Almacena todos los registros generados en DMS-CUSTOMER-ROLE.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Transforma ClienteRole\Almacena todos los registros generados en DMS-CUSTOMER-ROLE.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Transforma ClienteRole\Almacena todos los registros generados en DMS-CUSTOMER-ROLE.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Transforma ClienteRole\Almacena todos los registros generados en DMS-CUSTOMER-ROLE.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Transforma ClienteRole\Genera DMS-CUSTOMER-ROLE"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="Genera DMS-CUSTOMER-ROLE"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset"></property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=16.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">-- =============================================
+-- Autor:				José A. Guillen 
+-- Fecha de creación:	01-12-2022
+-- Descripción:			Consulta que genera los registros mapeados segun especificaciones del DMS CUSTOMER.ROLE
+--						Se toma el CUSTOMER.CODE = cup + 1000000
+--						
+-- Archivos Origen:		personas.dbo.persona
+--						
+-- Historia:
+-- José A. Guillén		01-12-2022	Codificación inicial
+-- =============================================
+--
+SELECT DISTINCT
+	 COM.Id as [UPLOAD.COMPANY]
+	,RTRIM(LTRIM(Convert(nvarchar(10),CUS.co_persona + 1000000))) as [CUSTOMER.CODE]	-- This is the numeric code by which the Customer will be uniquely identified. The ID must be in the range 1-9999999999 (10 digits). This number can be generated automatically on input by T24, according to the value defined in the COMPANY table, or manually providing the number has not been used. 
+--	,LEN(Convert(nvarchar(MAX),REL.RelationCode)) as LongitudRelCode	-- Solo para DEBUG
+	,Convert(nvarchar(MAX),REL.RelationCode) as [RELATION.CODE]		-- Su valor viene de la tabla RELATION. Multivalor.
+--	,LEN(Convert(nvarchar(MAX),REL.RelationCode)) as LongitudRelCustomer	-- Solo para DEBUG
+	,Convert(nvarchar(MAX),REL.RelCustomer) as [REL.CUSTOMER]		-- Su valor viene de la tabla CUSTOMER. Multivalor
+	,Convert(nvarchar(MAX),'') as [REL.DELIV.OPT]
+--	,LEN(Convert(nvarchar(MAX),REL.RoleSujeto)) as LongitudRole		-- Solo para DEBUG
+	,Convert(nvarchar(MAX),REL.RoleSujeto) as [ROLE]				-- Su valor viene de la tabla EB.ROLE. Segun mapeo este campo deberia ser Multivalue, pero no esta definido asi en DMS. Longitud de cada tramo es 20
+	,Convert(nvarchar(MAX),'') as [ROLE.MORE.INFO]
+	,Convert(nvarchar(MAX),'') as [ROLE.NOTES]
+--INTO [STGPolaris].[dbo].[DMS-CUSTOMER.ROLE] 
+FROM   [STGLegados].[dbo].[TmpCliente-x-Compania] as CXC	-- Tabla preparada con los clientes (beneficiarios) incluyendo los clientes internos
+  LEFT OUTER JOIN [STGLegados].[dbo].[persona] as CUS ON
+    CUS.co_persona = CXC.co_persona
+  --LEFT OUTER JOIN [STGLegados].[dbo].[persona_juridica] as PJU ON
+  --  PJU.co_persona_juridica = CXC.co_persona
+  LEFT OUTER JOIN [STGPolaris].[dbo].[COMPANY] as COM ON	-- Tabla con valores de parámetros de Temenos mapeados a la fuente.
+    COM.CodCompaniaPersona = CXC.co_compania
+  LEFT OUTER JOIN (SELECT RCF.co_persona_sujeto_relacion
+                         ,TC.[UPLOAD.COMPANY]
+						 ,STRING_AGG( ISNULL(Substring(LTRIM(RTRIM(TEBR.Id)),1,20), ' '), '!!') as RoleSujeto
+						 ,STRING_AGG( ISNULL(LTRIM(RTRIM(TR.Id)), ' '), ':') as RelationCode
+						 ,STRING_AGG( ISNULL(LTRIM(RTRIM(TC.[CUSTOMER.CODE])), ' '), '::') as RelCustomer
+                   FROM  [STGLegados].[dbo].[relacion] as RCF
+				     LEFT OUTER JOIN [STGPolaris].[dbo].[RELATION] as TR ON
+					   TR.CoTiRelacionCAF = RCF.co_ti_relacion
+					 LEFT OUTER JOIN [STGPolaris].[dbo].[DMS-CUSTOMER-v1.0] as TC ON
+					   TC.[EXTERN.SYS.ID] = RCF.co_persona_objeto_relacion
+					 LEFT OUTER JOIN [STGPolaris].[dbo].[EB.ROLE] as TEBR ON
+					   TEBR.DeRolePersona = RCF.de_cargo_rol_sujeto
+				   WHERE RCF.co_persona_sujeto_relacion IN (SELECT co_persona FROM [STGLegados].[dbo].[TmpCliente-x-Compania])
+				     AND RCF.co_persona_objeto_relacion IN (SELECT co_persona FROM [STGLegados].[dbo].[TmpCliente-x-Compania])
+				   GROUP BY RCF.co_persona_sujeto_relacion
+				           ,TC.[UPLOAD.COMPANY]) as REL ON
+		REL.co_persona_sujeto_relacion = CXC.co_persona
+	AND REL.[UPLOAD.COMPANY] = COM.Id
+EXCEPT
+SELECT * FROM [STGPolaris].[dbo].[DMS-CUSTOMER.ROLE-v1.0]</property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">2</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Transforma ClienteRole\Genera DMS-CUSTOMER-ROLE.Connections[OleDbConnection]"
+                  connectionManagerID="{70000693-BDE1-4FE0-B772-11B7D4A7A452}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[STGLegados]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Transforma ClienteRole\Genera DMS-CUSTOMER-ROLE.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Transforma ClienteRole\Genera DMS-CUSTOMER-ROLE.Outputs[OLE DB Source Output].Columns[UPLOAD.COMPANY]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Transforma ClienteRole\Genera DMS-CUSTOMER-ROLE.Outputs[OLE DB Source Output].ExternalColumns[UPLOAD.COMPANY]"
+                      length="9"
+                      lineageId="Package\Transforma ClienteRole\Genera DMS-CUSTOMER-ROLE.Outputs[OLE DB Source Output].Columns[UPLOAD.COMPANY]"
+                      name="UPLOAD.COMPANY"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Transforma ClienteRole\Genera DMS-CUSTOMER-ROLE.Outputs[OLE DB Source Output].Columns[CUSTOMER.CODE]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Transforma ClienteRole\Genera DMS-CUSTOMER-ROLE.Outputs[OLE DB Source Output].ExternalColumns[CUSTOMER.CODE]"
+                      length="10"
+                      lineageId="Package\Transforma ClienteRole\Genera DMS-CUSTOMER-ROLE.Outputs[OLE DB Source Output].Columns[CUSTOMER.CODE]"
+                      name="CUSTOMER.CODE"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Transforma ClienteRole\Genera DMS-CUSTOMER-ROLE.Outputs[OLE DB Source Output].Columns[RELATION.CODE]"
+                      dataType="nText"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Transforma ClienteRole\Genera DMS-CUSTOMER-ROLE.Outputs[OLE DB Source Output].ExternalColumns[RELATION.CODE]"
+                      lineageId="Package\Transforma ClienteRole\Genera DMS-CUSTOMER-ROLE.Outputs[OLE DB Source Output].Columns[RELATION.CODE]"
+                      name="RELATION.CODE"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Transforma ClienteRole\Genera DMS-CUSTOMER-ROLE.Outputs[OLE DB Source Output].Columns[REL.CUSTOMER]"
+                      dataType="nText"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Transforma ClienteRole\Genera DMS-CUSTOMER-ROLE.Outputs[OLE DB Source Output].ExternalColumns[REL.CUSTOMER]"
+                      lineageId="Package\Transforma ClienteRole\Genera DMS-CUSTOMER-ROLE.Outputs[OLE DB Source Output].Columns[REL.CUSTOMER]"
+                      name="REL.CUSTOMER"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Transforma ClienteRole\Genera DMS-CUSTOMER-ROLE.Outputs[OLE DB Source Output].Columns[REL.DELIV.OPT]"
+                      dataType="nText"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Transforma ClienteRole\Genera DMS-CUSTOMER-ROLE.Outputs[OLE DB Source Output].ExternalColumns[REL.DELIV.OPT]"
+                      lineageId="Package\Transforma ClienteRole\Genera DMS-CUSTOMER-ROLE.Outputs[OLE DB Source Output].Columns[REL.DELIV.OPT]"
+                      name="REL.DELIV.OPT"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Transforma ClienteRole\Genera DMS-CUSTOMER-ROLE.Outputs[OLE DB Source Output].Columns[ROLE]"
+                      dataType="nText"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Transforma ClienteRole\Genera DMS-CUSTOMER-ROLE.Outputs[OLE DB Source Output].ExternalColumns[ROLE]"
+                      lineageId="Package\Transforma ClienteRole\Genera DMS-CUSTOMER-ROLE.Outputs[OLE DB Source Output].Columns[ROLE]"
+                      name="ROLE"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Transforma ClienteRole\Genera DMS-CUSTOMER-ROLE.Outputs[OLE DB Source Output].Columns[ROLE.MORE.INFO]"
+                      dataType="nText"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Transforma ClienteRole\Genera DMS-CUSTOMER-ROLE.Outputs[OLE DB Source Output].ExternalColumns[ROLE.MORE.INFO]"
+                      lineageId="Package\Transforma ClienteRole\Genera DMS-CUSTOMER-ROLE.Outputs[OLE DB Source Output].Columns[ROLE.MORE.INFO]"
+                      name="ROLE.MORE.INFO"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Transforma ClienteRole\Genera DMS-CUSTOMER-ROLE.Outputs[OLE DB Source Output].Columns[ROLE.NOTES]"
+                      dataType="nText"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Transforma ClienteRole\Genera DMS-CUSTOMER-ROLE.Outputs[OLE DB Source Output].ExternalColumns[ROLE.NOTES]"
+                      lineageId="Package\Transforma ClienteRole\Genera DMS-CUSTOMER-ROLE.Outputs[OLE DB Source Output].Columns[ROLE.NOTES]"
+                      name="ROLE.NOTES"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Transforma ClienteRole\Genera DMS-CUSTOMER-ROLE.Outputs[OLE DB Source Output].ExternalColumns[UPLOAD.COMPANY]"
+                      dataType="wstr"
+                      length="9"
+                      name="UPLOAD.COMPANY" />
+                    <externalMetadataColumn
+                      refId="Package\Transforma ClienteRole\Genera DMS-CUSTOMER-ROLE.Outputs[OLE DB Source Output].ExternalColumns[CUSTOMER.CODE]"
+                      dataType="wstr"
+                      length="10"
+                      name="CUSTOMER.CODE" />
+                    <externalMetadataColumn
+                      refId="Package\Transforma ClienteRole\Genera DMS-CUSTOMER-ROLE.Outputs[OLE DB Source Output].ExternalColumns[RELATION.CODE]"
+                      dataType="nText"
+                      name="RELATION.CODE" />
+                    <externalMetadataColumn
+                      refId="Package\Transforma ClienteRole\Genera DMS-CUSTOMER-ROLE.Outputs[OLE DB Source Output].ExternalColumns[REL.CUSTOMER]"
+                      dataType="nText"
+                      name="REL.CUSTOMER" />
+                    <externalMetadataColumn
+                      refId="Package\Transforma ClienteRole\Genera DMS-CUSTOMER-ROLE.Outputs[OLE DB Source Output].ExternalColumns[REL.DELIV.OPT]"
+                      dataType="nText"
+                      name="REL.DELIV.OPT" />
+                    <externalMetadataColumn
+                      refId="Package\Transforma ClienteRole\Genera DMS-CUSTOMER-ROLE.Outputs[OLE DB Source Output].ExternalColumns[ROLE]"
+                      dataType="nText"
+                      name="ROLE" />
+                    <externalMetadataColumn
+                      refId="Package\Transforma ClienteRole\Genera DMS-CUSTOMER-ROLE.Outputs[OLE DB Source Output].ExternalColumns[ROLE.MORE.INFO]"
+                      dataType="nText"
+                      name="ROLE.MORE.INFO" />
+                    <externalMetadataColumn
+                      refId="Package\Transforma ClienteRole\Genera DMS-CUSTOMER-ROLE.Outputs[OLE DB Source Output].ExternalColumns[ROLE.NOTES]"
+                      dataType="nText"
+                      name="ROLE.NOTES" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Transforma ClienteRole\Genera DMS-CUSTOMER-ROLE.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Transforma ClienteRole\Genera DMS-CUSTOMER-ROLE.Outputs[OLE DB Source Error Output].Columns[UPLOAD.COMPANY]"
+                      dataType="wstr"
+                      length="9"
+                      lineageId="Package\Transforma ClienteRole\Genera DMS-CUSTOMER-ROLE.Outputs[OLE DB Source Error Output].Columns[UPLOAD.COMPANY]"
+                      name="UPLOAD.COMPANY" />
+                    <outputColumn
+                      refId="Package\Transforma ClienteRole\Genera DMS-CUSTOMER-ROLE.Outputs[OLE DB Source Error Output].Columns[CUSTOMER.CODE]"
+                      dataType="wstr"
+                      length="10"
+                      lineageId="Package\Transforma ClienteRole\Genera DMS-CUSTOMER-ROLE.Outputs[OLE DB Source Error Output].Columns[CUSTOMER.CODE]"
+                      name="CUSTOMER.CODE" />
+                    <outputColumn
+                      refId="Package\Transforma ClienteRole\Genera DMS-CUSTOMER-ROLE.Outputs[OLE DB Source Error Output].Columns[RELATION.CODE]"
+                      dataType="nText"
+                      lineageId="Package\Transforma ClienteRole\Genera DMS-CUSTOMER-ROLE.Outputs[OLE DB Source Error Output].Columns[RELATION.CODE]"
+                      name="RELATION.CODE" />
+                    <outputColumn
+                      refId="Package\Transforma ClienteRole\Genera DMS-CUSTOMER-ROLE.Outputs[OLE DB Source Error Output].Columns[REL.CUSTOMER]"
+                      dataType="nText"
+                      lineageId="Package\Transforma ClienteRole\Genera DMS-CUSTOMER-ROLE.Outputs[OLE DB Source Error Output].Columns[REL.CUSTOMER]"
+                      name="REL.CUSTOMER" />
+                    <outputColumn
+                      refId="Package\Transforma ClienteRole\Genera DMS-CUSTOMER-ROLE.Outputs[OLE DB Source Error Output].Columns[REL.DELIV.OPT]"
+                      dataType="nText"
+                      lineageId="Package\Transforma ClienteRole\Genera DMS-CUSTOMER-ROLE.Outputs[OLE DB Source Error Output].Columns[REL.DELIV.OPT]"
+                      name="REL.DELIV.OPT" />
+                    <outputColumn
+                      refId="Package\Transforma ClienteRole\Genera DMS-CUSTOMER-ROLE.Outputs[OLE DB Source Error Output].Columns[ROLE]"
+                      dataType="nText"
+                      lineageId="Package\Transforma ClienteRole\Genera DMS-CUSTOMER-ROLE.Outputs[OLE DB Source Error Output].Columns[ROLE]"
+                      name="ROLE" />
+                    <outputColumn
+                      refId="Package\Transforma ClienteRole\Genera DMS-CUSTOMER-ROLE.Outputs[OLE DB Source Error Output].Columns[ROLE.MORE.INFO]"
+                      dataType="nText"
+                      lineageId="Package\Transforma ClienteRole\Genera DMS-CUSTOMER-ROLE.Outputs[OLE DB Source Error Output].Columns[ROLE.MORE.INFO]"
+                      name="ROLE.MORE.INFO" />
+                    <outputColumn
+                      refId="Package\Transforma ClienteRole\Genera DMS-CUSTOMER-ROLE.Outputs[OLE DB Source Error Output].Columns[ROLE.NOTES]"
+                      dataType="nText"
+                      lineageId="Package\Transforma ClienteRole\Genera DMS-CUSTOMER-ROLE.Outputs[OLE DB Source Error Output].Columns[ROLE.NOTES]"
+                      name="ROLE.NOTES" />
+                    <outputColumn
+                      refId="Package\Transforma ClienteRole\Genera DMS-CUSTOMER-ROLE.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Transforma ClienteRole\Genera DMS-CUSTOMER-ROLE.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Transforma ClienteRole\Genera DMS-CUSTOMER-ROLE.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Transforma ClienteRole\Genera DMS-CUSTOMER-ROLE.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Transforma ClienteRole\Lookup"
+              componentClassID="Microsoft.Lookup"
+              contactInfo="Lookup;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;6"
+              description="Joins additional columns to the data flow by looking up values in a table. For example, join to the 'employee id' column the employees table to get 'hire date' and 'employee name'. We recommend this transformation when the lookup table can fit into memory."
+              name="Lookup"
+              usesDispositions="true"
+              version="6">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Specifies the SQL statement that generates the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=16.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">select * from [dbo].[DMS-CUSTOMER.ROLE-v1.0]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies a SQL statement that uses parameters to generate the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommandParam"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=16.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">select * from (select * from [dbo].[DMS-CUSTOMER.ROLE-v1.0]) [refTable]
+where [refTable].[UPLOAD.COMPANY] = ? and [refTable].[CUSTOMER.CODE] = ?</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the type of connection used to access the reference dataset."
+                  name="ConnectionType"
+                  typeConverter="LookupConnectionType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the cache type of the lookup table."
+                  name="CacheType"
+                  typeConverter="CacheType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies how the Lookup transformation handles rows without matching entries in the reference data set."
+                  name="NoMatchBehavior"
+                  typeConverter="LookupNoMatchBehavior">1</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the percentage of the cache that is allocated for rows with no matching entries in the reference dataset."
+                  name="NoMatchCachePercentage">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Maximum Memory Usage for Reference Cache on a 32 bit platform."
+                  name="MaxMemoryUsage">25</property>
+                <property
+                  dataType="System.Int64"
+                  description="Maximum Memory Usage for Reference Cache on a 64 bit platform."
+                  name="MaxMemoryUsage64">25</property>
+                <property
+                  dataType="System.String"
+                  description="Indicates whether to reference metadata in an XML format."
+                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="UPLOAD.COMPANY" dataType="DT_WSTR" length="9" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="CUSTOMER.CODE" dataType="DT_WSTR" length="10" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="RELATION.CODE" dataType="DT_NTEXT" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="REL.CUSTOMER" dataType="DT_NTEXT" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="REL.DELIV.OPT" dataType="DT_NTEXT" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="ROLE" dataType="DT_NTEXT" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="ROLE.MORE.INFO" dataType="DT_NTEXT" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="ROLE.NOTES" dataType="DT_NTEXT" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                <property
+                  containsID="true"
+                  dataType="System.String"
+                  description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
+                  name="ParameterMap">#{Package\Transforma ClienteRole\Genera DMS-CUSTOMER-ROLE.Outputs[OLE DB Source Output].Columns[UPLOAD.COMPANY]};#{Package\Transforma ClienteRole\Genera DMS-CUSTOMER-ROLE.Outputs[OLE DB Source Output].Columns[CUSTOMER.CODE]};</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Determines whether duplicate keys in the reference data should be treated as errors when full cache mode is used."
+                  name="TreatDuplicateKeysAsError">false</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Transforma ClienteRole\Lookup.Connections[OleDbConnection]"
+                  connectionManagerID="{73E9BE98-144D-4887-A1CD-FCE6E4AB9CF5}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[STGPolaris]"
+                  description="Connection manager used to access lookup data."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Transforma ClienteRole\Lookup.Inputs[Lookup Input]"
+                  name="Lookup Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Transforma ClienteRole\Lookup.Inputs[Lookup Input].Columns[UPLOAD.COMPANY]"
+                      cachedDataType="wstr"
+                      cachedLength="9"
+                      cachedName="UPLOAD.COMPANY"
+                      lineageId="Package\Transforma ClienteRole\Genera DMS-CUSTOMER-ROLE.Outputs[OLE DB Source Output].Columns[UPLOAD.COMPANY]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table that a column joins."
+                          name="JoinToReferenceColumn">UPLOAD.COMPANY</property>
+                        <property
+                          dataType="System.Null"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Transforma ClienteRole\Lookup.Inputs[Lookup Input].Columns[CUSTOMER.CODE]"
+                      cachedDataType="wstr"
+                      cachedLength="10"
+                      cachedName="CUSTOMER.CODE"
+                      lineageId="Package\Transforma ClienteRole\Genera DMS-CUSTOMER-ROLE.Outputs[OLE DB Source Output].Columns[CUSTOMER.CODE]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table that a column joins."
+                          name="JoinToReferenceColumn">CUSTOMER.CODE</property>
+                        <property
+                          dataType="System.Null"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Transforma ClienteRole\Lookup.Outputs[Lookup Match Output]"
+                  errorOrTruncationOperation="Lookup"
+                  exclusionGroup="1"
+                  name="Lookup Match Output"
+                  synchronousInputId="Package\Transforma ClienteRole\Lookup.Inputs[Lookup Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Transforma ClienteRole\Lookup.Outputs[Lookup No Match Output]"
+                  description="The Lookup output that handles rows with no matching entries in the reference dataset. Use this output when the NoMatchBehavior property is set to &quot;Send rows with no matching entries to the no match output.&quot;"
+                  exclusionGroup="1"
+                  name="Lookup No Match Output"
+                  synchronousInputId="Package\Transforma ClienteRole\Lookup.Inputs[Lookup Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Transforma ClienteRole\Lookup.Outputs[Lookup Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Lookup Error Output"
+                  synchronousInputId="Package\Transforma ClienteRole\Lookup.Inputs[Lookup Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Transforma ClienteRole\Lookup.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Transforma ClienteRole\Lookup.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Transforma ClienteRole\Lookup.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Transforma ClienteRole\Lookup.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Transforma ClienteRole\Multicast"
+              componentClassID="Microsoft.Multicast"
+              contactInfo="Multicast;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Distributes every input row to every row in one or more outputs. For example, branch your data flow to make a copy of data so that some values can be masked before sharing with external partners."
+              name="Multicast">
+              <inputs>
+                <input
+                  refId="Package\Transforma ClienteRole\Multicast.Inputs[Multicast Input 1]"
+                  name="Multicast Input 1">
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Transforma ClienteRole\Multicast.Outputs[Multicast Output 1]"
+                  deleteOutputOnPathDetached="true"
+                  name="Multicast Output 1"
+                  synchronousInputId="Package\Transforma ClienteRole\Multicast.Inputs[Multicast Input 1]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Transforma ClienteRole\Multicast.Outputs[Multicast Output 2]"
+                  deleteOutputOnPathDetached="true"
+                  name="Multicast Output 2"
+                  synchronousInputId="Package\Transforma ClienteRole\Multicast.Inputs[Multicast Input 1]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Transforma ClienteRole\Multicast.Outputs[Multicast Output 3]"
+                  dangling="true"
+                  deleteOutputOnPathDetached="true"
+                  name="Multicast Output 3"
+                  synchronousInputId="Package\Transforma ClienteRole\Multicast.Inputs[Multicast Input 1]">
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Transforma ClienteRole.Paths[Lookup Match Output]"
+              endId="Package\Transforma ClienteRole\Almacena registros modificados en DMS-CUSTOMER-ROLE-MODIFIED.Inputs[OLE DB Destination Input]"
+              name="Lookup Match Output"
+              startId="Package\Transforma ClienteRole\Lookup.Outputs[Lookup Match Output]" />
+            <path
+              refId="Package\Transforma ClienteRole.Paths[Lookup No Match Output]"
+              endId="Package\Transforma ClienteRole\Almacena registros nuevos en DMS-CUSTOMER-ROLE-v1-0.Inputs[OLE DB Destination Input]"
+              name="Lookup No Match Output"
+              startId="Package\Transforma ClienteRole\Lookup.Outputs[Lookup No Match Output]" />
+            <path
+              refId="Package\Transforma ClienteRole.Paths[Multicast Output 1]"
+              endId="Package\Transforma ClienteRole\Lookup.Inputs[Lookup Input]"
+              name="Multicast Output 1"
+              startId="Package\Transforma ClienteRole\Multicast.Outputs[Multicast Output 1]" />
+            <path
+              refId="Package\Transforma ClienteRole.Paths[Multicast Output 2]"
+              endId="Package\Transforma ClienteRole\Almacena todos los registros generados en DMS-CUSTOMER-ROLE.Inputs[OLE DB Destination Input]"
+              name="Multicast Output 2"
+              startId="Package\Transforma ClienteRole\Multicast.Outputs[Multicast Output 2]" />
+            <path
+              refId="Package\Transforma ClienteRole.Paths[OLE DB Source Output]"
+              endId="Package\Transforma ClienteRole\Multicast.Inputs[Multicast Input 1]"
+              name="OLE DB Source Output"
+              startId="Package\Transforma ClienteRole\Genera DMS-CUSTOMER-ROLE.Outputs[OLE DB Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Trunca DMS-CUSTOMER-ROLE y DMS-CUSTOMER-ROLE-MODIFIED"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{16057fee-5cc1-40d4-88ee-d288a73a1d7f}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Trunca DMS-CUSTOMER-ROLE y DMS-CUSTOMER-ROLE-MODIFIED"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{73E9BE98-144D-4887-A1CD-FCE6E4AB9CF5}"
+          SQLTask:SqlStatementSource="TRUNCATE TABLE [STGPolaris].[dbo].[DMS-CUSTOMER.ROLE]&#xA;TRUNCATE TABLE [STGPolaris].[dbo].[DMS-CUSTOMER.ROLE.MODIFIED]" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{dd08459e-1ab9-4e36-a99c-5a165bb63fda}"
+      DTS:From="Package\Inicializa parametros"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\Trunca DMS-CUSTOMER-ROLE y DMS-CUSTOMER-ROLE-MODIFIED" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 1]"
+      DTS:CreationName=""
+      DTS:DTSID="{38858991-9F57-4A54-9E07-01A67296E7CD}"
+      DTS:From="Package\Trunca DMS-CUSTOMER-ROLE y DMS-CUSTOMER-ROLE-MODIFIED"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 1"
+      DTS:To="Package\Transforma ClienteRole" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="176,42"
+          Id="Package\Inicializa parametros"
+          TopLeft="116.5,5.5" />
+        <NodeLayout
+          Size="189,42"
+          Id="Package\Transforma ClienteRole"
+          TopLeft="110,209.5" />
+        <NodeLayout
+          Size="398,42"
+          Id="Package\Trunca DMS-CUSTOMER-ROLE y DMS-CUSTOMER-ROLE-MODIFIED"
+          TopLeft="5.5,107.5" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="204.5,47.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 1]"
+          TopLeft="204.5,149.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Transforma ClienteRole">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="225,42"
+          Id="Package\Transforma ClienteRole\Genera DMS-CUSTOMER-ROLE"
+          TopLeft="385.5,5.49999999999989" />
+        <NodeLayout
+          Size="120,42"
+          Id="Package\Transforma ClienteRole\Multicast"
+          TopLeft="438,107.5" />
+        <NodeLayout
+          Size="113,42"
+          Id="Package\Transforma ClienteRole\Lookup"
+          TopLeft="127.5,209.5" />
+        <NodeLayout
+          Size="408,42"
+          Id="Package\Transforma ClienteRole\Almacena registros modificados en DMS-CUSTOMER-ROLE-MODIFIED"
+          TopLeft="423,311.5" />
+        <NodeLayout
+          Size="357,42"
+          Id="Package\Transforma ClienteRole\Almacena registros nuevos en DMS-CUSTOMER-ROLE-v1-0"
+          TopLeft="5.50000000000006,311.5" />
+        <NodeLayout
+          Size="393,42"
+          Id="Package\Transforma ClienteRole\Almacena todos los registros generados en DMS-CUSTOMER-ROLE"
+          TopLeft="301.5,209.5" />
+        <EdgeLayout
+          Id="Package\Transforma ClienteRole.Paths[OLE DB Source Output]"
+          TopLeft="498,47.4999999999999">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Transforma ClienteRole.Paths[Multicast Output 2]"
+          TopLeft="516.666666666667,149.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-18.6666666666666,60"
+              Start="0,0"
+              End="-18.6666666666666,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,20.4736842105263" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,20.4736842105263"
+                    Point2="0,24.4736842105263"
+                    Point3="-4,24.4736842105263" />
+                  <mssgle:LineSegment
+                    End="-14.6666666666666,24.4736842105263" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-14.6666666666666,24.4736842105263"
+                    Point2="-18.6666666666666,24.4736842105263"
+                    Point3="-18.6666666666666,28.4736842105263" />
+                  <mssgle:LineSegment
+                    End="-18.6666666666666,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Transforma ClienteRole.Paths[Multicast Output 1]"
+          TopLeft="479.333333333333,149.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-295.333333333333,60"
+              Start="0,0"
+              End="-295.333333333333,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,20.4736842105263" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,20.4736842105263"
+                    Point2="0,24.4736842105263"
+                    Point3="-4,24.4736842105263" />
+                  <mssgle:LineSegment
+                    End="-291.333333333333,24.4736842105263" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-291.333333333333,24.4736842105263"
+                    Point2="-295.333333333333,24.4736842105263"
+                    Point3="-295.333333333333,28.4736842105263" />
+                  <mssgle:LineSegment
+                    End="-295.333333333333,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Transforma ClienteRole.Paths[Lookup No Match Output]"
+          TopLeft="166.5,251.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="17.5000000000001,60"
+              Start="0,0"
+              End="17.5000000000001,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,20.5026178010471" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,20.5026178010471"
+                    Point2="0,24.5026178010471"
+                    Point3="4,24.5026178010471" />
+                  <mssgle:LineSegment
+                    End="13.5000000000001,24.5026178010471" />
+                  <mssgle:CubicBezierSegment
+                    Point1="13.5000000000001,24.5026178010471"
+                    Point2="17.5000000000001,24.5026178010471"
+                    Point3="17.5000000000001,28.5026178010471" />
+                  <mssgle:LineSegment
+                    End="17.5000000000001,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-47.05638671875,29.5026178010471,111.6127734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Transforma ClienteRole.Paths[Lookup Match Output]"
+          TopLeft="201.5,251.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="425.5,60"
+              Start="0,0"
+              End="425.5,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,20.5026178010471" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,20.5026178010471"
+                    Point2="0,24.5026178010471"
+                    Point3="4,24.5026178010471" />
+                  <mssgle:LineSegment
+                    End="421.5,24.5026178010471" />
+                  <mssgle:CubicBezierSegment
+                    Point1="421.5,24.5026178010471"
+                    Point2="425.5,24.5026178010471"
+                    Point3="425.5,28.5026178010471" />
+                  <mssgle:LineSegment
+                    End="425.5,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="164.55861328125,29.5026178010471,96.3827734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Transforma ClienteRole\Genera DMS-CUSTOMER-ROLE">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Transforma ClienteRole\Lookup">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:string">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[dbo].[DMS-CUSTOMER.ROLE-v1.0]</Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:string">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Transforma ClienteRole\Almacena registros modificados en DMS-CUSTOMER-ROLE-MODIFIED">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Transforma ClienteRole\Almacena registros nuevos en DMS-CUSTOMER-ROLE-v1-0">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Transforma ClienteRole\Almacena todos los registros generados en DMS-CUSTOMER-ROLE">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

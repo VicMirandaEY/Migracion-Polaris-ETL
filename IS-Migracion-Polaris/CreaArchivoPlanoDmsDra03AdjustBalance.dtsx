@@ -1,0 +1,826 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="11/20/2024 6:46:03 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="VENJJCR20"
+  DTS:CreatorName="CAF-CON\ls42731"
+  DTS:DTSID="{E17491F9-A455-43D7-BA35-B9515B2B9A83}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="16.0.5270.0"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="CreaArchivoPlanoDmsDra03AdjustBalance"
+  DTS:PackageType="5"
+  DTS:VersionBuild="8"
+  DTS:VersionGUID="{267728CB-1DCE-4C9B-B9C8-5639E16345AA}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Flat File Destination DRA03 ADJUSTBALANCE]"
+      DTS:CreationName="FLATFILE"
+      DTS:DTSID="{279782A2-3125-41CC-91AC-B5929E90E8AC}"
+      DTS:ObjectName="Flat File Destination DRA03 ADJUSTBALANCE">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="Delimited"
+          DTS:LocaleID="1033"
+          DTS:HeaderRowDelimiter="_x000D__x000A_"
+          DTS:RowDelimiter=""
+          DTS:TextQualifier="_x003C_none_x003E_"
+          DTS:CodePage="65001"
+          DTS:ConnectionString="D:\App\Migracion-Polaris-ETL1\Txt\DMS.DRA.03.ADJUST.BALANCE.txt">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="9"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="UPLOAD.COMPANY"
+              DTS:DTSID="{2F33DFFE-EC1C-4236-896C-1A1432701D68}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="18"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="ID/ARR.SEQUENCE"
+              DTS:DTSID="{2A356DA1-E6A3-4DEF-A760-1225093E9071}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="12"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="ARRANGEMENT"
+              DTS:DTSID="{C8FCF228-7ABD-4AB5-B355-6B3904CBD5BA}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="64"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="ACTIVITY"
+              DTS:DTSID="{23F5C30A-510C-44EA-A885-5641932CA624}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="10"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="CUSTOMER"
+              DTS:DTSID="{AF32CC68-98C8-4E85-8545-0970048A2D61}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="5"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="CUSTOMER.ROLE"
+              DTS:DTSID="{17D81D27-442A-4BB5-903F-D29A9BE902A9}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="8"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="PRODUCT"
+              DTS:DTSID="{3C98FB53-3854-4BD5-9B4B-A723C49EB039}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="3"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="CURRENCY"
+              DTS:DTSID="{8AC4194A-982F-4B83-B2AB-A5F447E1098D}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="8"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="ORIG.CONTRACT.DATE"
+              DTS:DTSID="{0B77EB14-AD64-43C1-8BB5-4CE1E96CC3AD}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="1024"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="PROPERTY"
+              DTS:DTSID="{ED6DF8F7-14CA-4A93-9CE2-D75C0546D251}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="2048"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="FIELD.NAME"
+              DTS:DTSID="{06B12938-EDDA-49A9-B0B9-819187DB4DC9}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000D__x000A_"
+              DTS:MaximumWidth="2048"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="FIELD.VALUE"
+              DTS:DTSID="{4E5094A4-8EC7-4B07-8710-F945F1DB48E1}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Crea Archivo Plano DMS DRA 03 AdjustBalance"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{b816c3a2-12ab-468f-8d24-1886af800bd5}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Crea Archivo Plano DMS DRA 03 AdjustBalance"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Crea Archivo Plano DMS DRA 03 AdjustBalance\DRA03 ADJUSTBALANCE Source"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="DRA03 ADJUSTBALANCE Source"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[DMS.DRA.03.ADJUST.BALANCE]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=16.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Crea Archivo Plano DMS DRA 03 AdjustBalance\DRA03 ADJUSTBALANCE Source.Connections[OleDbConnection]"
+                  connectionManagerID="{73E9BE98-144D-4887-A1CD-FCE6E4AB9CF5}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[STGPolaris]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Crea Archivo Plano DMS DRA 03 AdjustBalance\DRA03 ADJUSTBALANCE Source.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Crea Archivo Plano DMS DRA 03 AdjustBalance\DRA03 ADJUSTBALANCE Source.Outputs[OLE DB Source Output].Columns[UPLOAD.COMPANY]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Crea Archivo Plano DMS DRA 03 AdjustBalance\DRA03 ADJUSTBALANCE Source.Outputs[OLE DB Source Output].ExternalColumns[UPLOAD.COMPANY]"
+                      length="9"
+                      lineageId="Package\Crea Archivo Plano DMS DRA 03 AdjustBalance\DRA03 ADJUSTBALANCE Source.Outputs[OLE DB Source Output].Columns[UPLOAD.COMPANY]"
+                      name="UPLOAD.COMPANY"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Crea Archivo Plano DMS DRA 03 AdjustBalance\DRA03 ADJUSTBALANCE Source.Outputs[OLE DB Source Output].Columns[ID/ARR.SEQUENCE]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Crea Archivo Plano DMS DRA 03 AdjustBalance\DRA03 ADJUSTBALANCE Source.Outputs[OLE DB Source Output].ExternalColumns[ID/ARR.SEQUENCE]"
+                      length="18"
+                      lineageId="Package\Crea Archivo Plano DMS DRA 03 AdjustBalance\DRA03 ADJUSTBALANCE Source.Outputs[OLE DB Source Output].Columns[ID/ARR.SEQUENCE]"
+                      name="ID/ARR.SEQUENCE"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Crea Archivo Plano DMS DRA 03 AdjustBalance\DRA03 ADJUSTBALANCE Source.Outputs[OLE DB Source Output].Columns[ARRANGEMENT]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Crea Archivo Plano DMS DRA 03 AdjustBalance\DRA03 ADJUSTBALANCE Source.Outputs[OLE DB Source Output].ExternalColumns[ARRANGEMENT]"
+                      length="12"
+                      lineageId="Package\Crea Archivo Plano DMS DRA 03 AdjustBalance\DRA03 ADJUSTBALANCE Source.Outputs[OLE DB Source Output].Columns[ARRANGEMENT]"
+                      name="ARRANGEMENT"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Crea Archivo Plano DMS DRA 03 AdjustBalance\DRA03 ADJUSTBALANCE Source.Outputs[OLE DB Source Output].Columns[ACTIVITY]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Crea Archivo Plano DMS DRA 03 AdjustBalance\DRA03 ADJUSTBALANCE Source.Outputs[OLE DB Source Output].ExternalColumns[ACTIVITY]"
+                      length="64"
+                      lineageId="Package\Crea Archivo Plano DMS DRA 03 AdjustBalance\DRA03 ADJUSTBALANCE Source.Outputs[OLE DB Source Output].Columns[ACTIVITY]"
+                      name="ACTIVITY"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Crea Archivo Plano DMS DRA 03 AdjustBalance\DRA03 ADJUSTBALANCE Source.Outputs[OLE DB Source Output].Columns[CUSTOMER]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Crea Archivo Plano DMS DRA 03 AdjustBalance\DRA03 ADJUSTBALANCE Source.Outputs[OLE DB Source Output].ExternalColumns[CUSTOMER]"
+                      length="10"
+                      lineageId="Package\Crea Archivo Plano DMS DRA 03 AdjustBalance\DRA03 ADJUSTBALANCE Source.Outputs[OLE DB Source Output].Columns[CUSTOMER]"
+                      name="CUSTOMER"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Crea Archivo Plano DMS DRA 03 AdjustBalance\DRA03 ADJUSTBALANCE Source.Outputs[OLE DB Source Output].Columns[CUSTOMER.ROLE]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Crea Archivo Plano DMS DRA 03 AdjustBalance\DRA03 ADJUSTBALANCE Source.Outputs[OLE DB Source Output].ExternalColumns[CUSTOMER.ROLE]"
+                      length="5"
+                      lineageId="Package\Crea Archivo Plano DMS DRA 03 AdjustBalance\DRA03 ADJUSTBALANCE Source.Outputs[OLE DB Source Output].Columns[CUSTOMER.ROLE]"
+                      name="CUSTOMER.ROLE"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Crea Archivo Plano DMS DRA 03 AdjustBalance\DRA03 ADJUSTBALANCE Source.Outputs[OLE DB Source Output].Columns[PRODUCT]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Crea Archivo Plano DMS DRA 03 AdjustBalance\DRA03 ADJUSTBALANCE Source.Outputs[OLE DB Source Output].ExternalColumns[PRODUCT]"
+                      length="8"
+                      lineageId="Package\Crea Archivo Plano DMS DRA 03 AdjustBalance\DRA03 ADJUSTBALANCE Source.Outputs[OLE DB Source Output].Columns[PRODUCT]"
+                      name="PRODUCT"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Crea Archivo Plano DMS DRA 03 AdjustBalance\DRA03 ADJUSTBALANCE Source.Outputs[OLE DB Source Output].Columns[CURRENCY]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Crea Archivo Plano DMS DRA 03 AdjustBalance\DRA03 ADJUSTBALANCE Source.Outputs[OLE DB Source Output].ExternalColumns[CURRENCY]"
+                      length="3"
+                      lineageId="Package\Crea Archivo Plano DMS DRA 03 AdjustBalance\DRA03 ADJUSTBALANCE Source.Outputs[OLE DB Source Output].Columns[CURRENCY]"
+                      name="CURRENCY"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Crea Archivo Plano DMS DRA 03 AdjustBalance\DRA03 ADJUSTBALANCE Source.Outputs[OLE DB Source Output].Columns[ORIG.CONTRACT.DATE]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Crea Archivo Plano DMS DRA 03 AdjustBalance\DRA03 ADJUSTBALANCE Source.Outputs[OLE DB Source Output].ExternalColumns[ORIG.CONTRACT.DATE]"
+                      length="8"
+                      lineageId="Package\Crea Archivo Plano DMS DRA 03 AdjustBalance\DRA03 ADJUSTBALANCE Source.Outputs[OLE DB Source Output].Columns[ORIG.CONTRACT.DATE]"
+                      name="ORIG.CONTRACT.DATE"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Crea Archivo Plano DMS DRA 03 AdjustBalance\DRA03 ADJUSTBALANCE Source.Outputs[OLE DB Source Output].Columns[PROPERTY]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Crea Archivo Plano DMS DRA 03 AdjustBalance\DRA03 ADJUSTBALANCE Source.Outputs[OLE DB Source Output].ExternalColumns[PROPERTY]"
+                      length="1024"
+                      lineageId="Package\Crea Archivo Plano DMS DRA 03 AdjustBalance\DRA03 ADJUSTBALANCE Source.Outputs[OLE DB Source Output].Columns[PROPERTY]"
+                      name="PROPERTY"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Crea Archivo Plano DMS DRA 03 AdjustBalance\DRA03 ADJUSTBALANCE Source.Outputs[OLE DB Source Output].Columns[FIELD.NAME]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Crea Archivo Plano DMS DRA 03 AdjustBalance\DRA03 ADJUSTBALANCE Source.Outputs[OLE DB Source Output].ExternalColumns[FIELD.NAME]"
+                      length="2048"
+                      lineageId="Package\Crea Archivo Plano DMS DRA 03 AdjustBalance\DRA03 ADJUSTBALANCE Source.Outputs[OLE DB Source Output].Columns[FIELD.NAME]"
+                      name="FIELD.NAME"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Crea Archivo Plano DMS DRA 03 AdjustBalance\DRA03 ADJUSTBALANCE Source.Outputs[OLE DB Source Output].Columns[FIELD.VALUE]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Crea Archivo Plano DMS DRA 03 AdjustBalance\DRA03 ADJUSTBALANCE Source.Outputs[OLE DB Source Output].ExternalColumns[FIELD.VALUE]"
+                      length="2048"
+                      lineageId="Package\Crea Archivo Plano DMS DRA 03 AdjustBalance\DRA03 ADJUSTBALANCE Source.Outputs[OLE DB Source Output].Columns[FIELD.VALUE]"
+                      name="FIELD.VALUE"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Crea Archivo Plano DMS DRA 03 AdjustBalance\DRA03 ADJUSTBALANCE Source.Outputs[OLE DB Source Output].ExternalColumns[UPLOAD.COMPANY]"
+                      dataType="wstr"
+                      length="9"
+                      name="UPLOAD.COMPANY" />
+                    <externalMetadataColumn
+                      refId="Package\Crea Archivo Plano DMS DRA 03 AdjustBalance\DRA03 ADJUSTBALANCE Source.Outputs[OLE DB Source Output].ExternalColumns[ID/ARR.SEQUENCE]"
+                      dataType="wstr"
+                      length="18"
+                      name="ID/ARR.SEQUENCE" />
+                    <externalMetadataColumn
+                      refId="Package\Crea Archivo Plano DMS DRA 03 AdjustBalance\DRA03 ADJUSTBALANCE Source.Outputs[OLE DB Source Output].ExternalColumns[ARRANGEMENT]"
+                      dataType="wstr"
+                      length="12"
+                      name="ARRANGEMENT" />
+                    <externalMetadataColumn
+                      refId="Package\Crea Archivo Plano DMS DRA 03 AdjustBalance\DRA03 ADJUSTBALANCE Source.Outputs[OLE DB Source Output].ExternalColumns[ACTIVITY]"
+                      dataType="wstr"
+                      length="64"
+                      name="ACTIVITY" />
+                    <externalMetadataColumn
+                      refId="Package\Crea Archivo Plano DMS DRA 03 AdjustBalance\DRA03 ADJUSTBALANCE Source.Outputs[OLE DB Source Output].ExternalColumns[CUSTOMER]"
+                      dataType="wstr"
+                      length="10"
+                      name="CUSTOMER" />
+                    <externalMetadataColumn
+                      refId="Package\Crea Archivo Plano DMS DRA 03 AdjustBalance\DRA03 ADJUSTBALANCE Source.Outputs[OLE DB Source Output].ExternalColumns[CUSTOMER.ROLE]"
+                      dataType="wstr"
+                      length="5"
+                      name="CUSTOMER.ROLE" />
+                    <externalMetadataColumn
+                      refId="Package\Crea Archivo Plano DMS DRA 03 AdjustBalance\DRA03 ADJUSTBALANCE Source.Outputs[OLE DB Source Output].ExternalColumns[PRODUCT]"
+                      dataType="wstr"
+                      length="8"
+                      name="PRODUCT" />
+                    <externalMetadataColumn
+                      refId="Package\Crea Archivo Plano DMS DRA 03 AdjustBalance\DRA03 ADJUSTBALANCE Source.Outputs[OLE DB Source Output].ExternalColumns[CURRENCY]"
+                      dataType="wstr"
+                      length="3"
+                      name="CURRENCY" />
+                    <externalMetadataColumn
+                      refId="Package\Crea Archivo Plano DMS DRA 03 AdjustBalance\DRA03 ADJUSTBALANCE Source.Outputs[OLE DB Source Output].ExternalColumns[ORIG.CONTRACT.DATE]"
+                      dataType="wstr"
+                      length="8"
+                      name="ORIG.CONTRACT.DATE" />
+                    <externalMetadataColumn
+                      refId="Package\Crea Archivo Plano DMS DRA 03 AdjustBalance\DRA03 ADJUSTBALANCE Source.Outputs[OLE DB Source Output].ExternalColumns[PROPERTY]"
+                      dataType="wstr"
+                      length="1024"
+                      name="PROPERTY" />
+                    <externalMetadataColumn
+                      refId="Package\Crea Archivo Plano DMS DRA 03 AdjustBalance\DRA03 ADJUSTBALANCE Source.Outputs[OLE DB Source Output].ExternalColumns[FIELD.NAME]"
+                      dataType="wstr"
+                      length="2048"
+                      name="FIELD.NAME" />
+                    <externalMetadataColumn
+                      refId="Package\Crea Archivo Plano DMS DRA 03 AdjustBalance\DRA03 ADJUSTBALANCE Source.Outputs[OLE DB Source Output].ExternalColumns[FIELD.VALUE]"
+                      dataType="wstr"
+                      length="2048"
+                      name="FIELD.VALUE" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Crea Archivo Plano DMS DRA 03 AdjustBalance\DRA03 ADJUSTBALANCE Source.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Crea Archivo Plano DMS DRA 03 AdjustBalance\DRA03 ADJUSTBALANCE Source.Outputs[OLE DB Source Error Output].Columns[UPLOAD.COMPANY]"
+                      dataType="wstr"
+                      length="9"
+                      lineageId="Package\Crea Archivo Plano DMS DRA 03 AdjustBalance\DRA03 ADJUSTBALANCE Source.Outputs[OLE DB Source Error Output].Columns[UPLOAD.COMPANY]"
+                      name="UPLOAD.COMPANY" />
+                    <outputColumn
+                      refId="Package\Crea Archivo Plano DMS DRA 03 AdjustBalance\DRA03 ADJUSTBALANCE Source.Outputs[OLE DB Source Error Output].Columns[ID/ARR.SEQUENCE]"
+                      dataType="wstr"
+                      length="18"
+                      lineageId="Package\Crea Archivo Plano DMS DRA 03 AdjustBalance\DRA03 ADJUSTBALANCE Source.Outputs[OLE DB Source Error Output].Columns[ID/ARR.SEQUENCE]"
+                      name="ID/ARR.SEQUENCE" />
+                    <outputColumn
+                      refId="Package\Crea Archivo Plano DMS DRA 03 AdjustBalance\DRA03 ADJUSTBALANCE Source.Outputs[OLE DB Source Error Output].Columns[ARRANGEMENT]"
+                      dataType="wstr"
+                      length="12"
+                      lineageId="Package\Crea Archivo Plano DMS DRA 03 AdjustBalance\DRA03 ADJUSTBALANCE Source.Outputs[OLE DB Source Error Output].Columns[ARRANGEMENT]"
+                      name="ARRANGEMENT" />
+                    <outputColumn
+                      refId="Package\Crea Archivo Plano DMS DRA 03 AdjustBalance\DRA03 ADJUSTBALANCE Source.Outputs[OLE DB Source Error Output].Columns[ACTIVITY]"
+                      dataType="wstr"
+                      length="64"
+                      lineageId="Package\Crea Archivo Plano DMS DRA 03 AdjustBalance\DRA03 ADJUSTBALANCE Source.Outputs[OLE DB Source Error Output].Columns[ACTIVITY]"
+                      name="ACTIVITY" />
+                    <outputColumn
+                      refId="Package\Crea Archivo Plano DMS DRA 03 AdjustBalance\DRA03 ADJUSTBALANCE Source.Outputs[OLE DB Source Error Output].Columns[CUSTOMER]"
+                      dataType="wstr"
+                      length="10"
+                      lineageId="Package\Crea Archivo Plano DMS DRA 03 AdjustBalance\DRA03 ADJUSTBALANCE Source.Outputs[OLE DB Source Error Output].Columns[CUSTOMER]"
+                      name="CUSTOMER" />
+                    <outputColumn
+                      refId="Package\Crea Archivo Plano DMS DRA 03 AdjustBalance\DRA03 ADJUSTBALANCE Source.Outputs[OLE DB Source Error Output].Columns[CUSTOMER.ROLE]"
+                      dataType="wstr"
+                      length="5"
+                      lineageId="Package\Crea Archivo Plano DMS DRA 03 AdjustBalance\DRA03 ADJUSTBALANCE Source.Outputs[OLE DB Source Error Output].Columns[CUSTOMER.ROLE]"
+                      name="CUSTOMER.ROLE" />
+                    <outputColumn
+                      refId="Package\Crea Archivo Plano DMS DRA 03 AdjustBalance\DRA03 ADJUSTBALANCE Source.Outputs[OLE DB Source Error Output].Columns[PRODUCT]"
+                      dataType="wstr"
+                      length="8"
+                      lineageId="Package\Crea Archivo Plano DMS DRA 03 AdjustBalance\DRA03 ADJUSTBALANCE Source.Outputs[OLE DB Source Error Output].Columns[PRODUCT]"
+                      name="PRODUCT" />
+                    <outputColumn
+                      refId="Package\Crea Archivo Plano DMS DRA 03 AdjustBalance\DRA03 ADJUSTBALANCE Source.Outputs[OLE DB Source Error Output].Columns[CURRENCY]"
+                      dataType="wstr"
+                      length="3"
+                      lineageId="Package\Crea Archivo Plano DMS DRA 03 AdjustBalance\DRA03 ADJUSTBALANCE Source.Outputs[OLE DB Source Error Output].Columns[CURRENCY]"
+                      name="CURRENCY" />
+                    <outputColumn
+                      refId="Package\Crea Archivo Plano DMS DRA 03 AdjustBalance\DRA03 ADJUSTBALANCE Source.Outputs[OLE DB Source Error Output].Columns[ORIG.CONTRACT.DATE]"
+                      dataType="wstr"
+                      length="8"
+                      lineageId="Package\Crea Archivo Plano DMS DRA 03 AdjustBalance\DRA03 ADJUSTBALANCE Source.Outputs[OLE DB Source Error Output].Columns[ORIG.CONTRACT.DATE]"
+                      name="ORIG.CONTRACT.DATE" />
+                    <outputColumn
+                      refId="Package\Crea Archivo Plano DMS DRA 03 AdjustBalance\DRA03 ADJUSTBALANCE Source.Outputs[OLE DB Source Error Output].Columns[PROPERTY]"
+                      dataType="wstr"
+                      length="1024"
+                      lineageId="Package\Crea Archivo Plano DMS DRA 03 AdjustBalance\DRA03 ADJUSTBALANCE Source.Outputs[OLE DB Source Error Output].Columns[PROPERTY]"
+                      name="PROPERTY" />
+                    <outputColumn
+                      refId="Package\Crea Archivo Plano DMS DRA 03 AdjustBalance\DRA03 ADJUSTBALANCE Source.Outputs[OLE DB Source Error Output].Columns[FIELD.NAME]"
+                      dataType="wstr"
+                      length="2048"
+                      lineageId="Package\Crea Archivo Plano DMS DRA 03 AdjustBalance\DRA03 ADJUSTBALANCE Source.Outputs[OLE DB Source Error Output].Columns[FIELD.NAME]"
+                      name="FIELD.NAME" />
+                    <outputColumn
+                      refId="Package\Crea Archivo Plano DMS DRA 03 AdjustBalance\DRA03 ADJUSTBALANCE Source.Outputs[OLE DB Source Error Output].Columns[FIELD.VALUE]"
+                      dataType="wstr"
+                      length="2048"
+                      lineageId="Package\Crea Archivo Plano DMS DRA 03 AdjustBalance\DRA03 ADJUSTBALANCE Source.Outputs[OLE DB Source Error Output].Columns[FIELD.VALUE]"
+                      name="FIELD.VALUE" />
+                    <outputColumn
+                      refId="Package\Crea Archivo Plano DMS DRA 03 AdjustBalance\DRA03 ADJUSTBALANCE Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Crea Archivo Plano DMS DRA 03 AdjustBalance\DRA03 ADJUSTBALANCE Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Crea Archivo Plano DMS DRA 03 AdjustBalance\DRA03 ADJUSTBALANCE Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Crea Archivo Plano DMS DRA 03 AdjustBalance\DRA03 ADJUSTBALANCE Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Crea Archivo Plano DMS DRA 03 AdjustBalance\Flat File Destination DRA03 ADJUSTBALANCE"
+              componentClassID="Microsoft.FlatFileDestination"
+              contactInfo="Flat File Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Flat File Destination"
+              localeId="1033"
+              name="Flat File Destination DRA03 ADJUSTBALANCE"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Specifies whether the data will overwrite or append to the destination file."
+                  name="Overwrite">true</property>
+                <property
+                  dataType="System.Null"
+                  description="Specifies the text to write to the destination file before any data is written."
+                  expressionType="Notify"
+                  name="Header" />
+                <property
+                  dataType="System.Boolean"
+                  description="When text qualifier is enabled, specifies whether the text qualifier in the data written to the destination file will be escaped or not."
+                  name="EscapeQualifier">false</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Crea Archivo Plano DMS DRA 03 AdjustBalance\Flat File Destination DRA03 ADJUSTBALANCE.Connections[FlatFileConnection]"
+                  connectionManagerID="Package.ConnectionManagers[Flat File Destination DRA03 ADJUSTBALANCE]"
+                  connectionManagerRefId="Package.ConnectionManagers[Flat File Destination DRA03 ADJUSTBALANCE]"
+                  name="FlatFileConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Crea Archivo Plano DMS DRA 03 AdjustBalance\Flat File Destination DRA03 ADJUSTBALANCE.Inputs[Flat File Destination Input]"
+                  hasSideEffects="true"
+                  name="Flat File Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Crea Archivo Plano DMS DRA 03 AdjustBalance\Flat File Destination DRA03 ADJUSTBALANCE.Inputs[Flat File Destination Input].Columns[UPLOAD.COMPANY]"
+                      cachedDataType="wstr"
+                      cachedLength="9"
+                      cachedName="UPLOAD.COMPANY"
+                      externalMetadataColumnId="Package\Crea Archivo Plano DMS DRA 03 AdjustBalance\Flat File Destination DRA03 ADJUSTBALANCE.Inputs[Flat File Destination Input].ExternalColumns[UPLOAD.COMPANY]"
+                      lineageId="Package\Crea Archivo Plano DMS DRA 03 AdjustBalance\DRA03 ADJUSTBALANCE Source.Outputs[OLE DB Source Output].Columns[UPLOAD.COMPANY]" />
+                    <inputColumn
+                      refId="Package\Crea Archivo Plano DMS DRA 03 AdjustBalance\Flat File Destination DRA03 ADJUSTBALANCE.Inputs[Flat File Destination Input].Columns[ID/ARR.SEQUENCE]"
+                      cachedDataType="wstr"
+                      cachedLength="18"
+                      cachedName="ID/ARR.SEQUENCE"
+                      externalMetadataColumnId="Package\Crea Archivo Plano DMS DRA 03 AdjustBalance\Flat File Destination DRA03 ADJUSTBALANCE.Inputs[Flat File Destination Input].ExternalColumns[ID/ARR.SEQUENCE]"
+                      lineageId="Package\Crea Archivo Plano DMS DRA 03 AdjustBalance\DRA03 ADJUSTBALANCE Source.Outputs[OLE DB Source Output].Columns[ID/ARR.SEQUENCE]" />
+                    <inputColumn
+                      refId="Package\Crea Archivo Plano DMS DRA 03 AdjustBalance\Flat File Destination DRA03 ADJUSTBALANCE.Inputs[Flat File Destination Input].Columns[ARRANGEMENT]"
+                      cachedDataType="wstr"
+                      cachedLength="12"
+                      cachedName="ARRANGEMENT"
+                      externalMetadataColumnId="Package\Crea Archivo Plano DMS DRA 03 AdjustBalance\Flat File Destination DRA03 ADJUSTBALANCE.Inputs[Flat File Destination Input].ExternalColumns[ARRANGEMENT]"
+                      lineageId="Package\Crea Archivo Plano DMS DRA 03 AdjustBalance\DRA03 ADJUSTBALANCE Source.Outputs[OLE DB Source Output].Columns[ARRANGEMENT]" />
+                    <inputColumn
+                      refId="Package\Crea Archivo Plano DMS DRA 03 AdjustBalance\Flat File Destination DRA03 ADJUSTBALANCE.Inputs[Flat File Destination Input].Columns[ACTIVITY]"
+                      cachedDataType="wstr"
+                      cachedLength="64"
+                      cachedName="ACTIVITY"
+                      externalMetadataColumnId="Package\Crea Archivo Plano DMS DRA 03 AdjustBalance\Flat File Destination DRA03 ADJUSTBALANCE.Inputs[Flat File Destination Input].ExternalColumns[ACTIVITY]"
+                      lineageId="Package\Crea Archivo Plano DMS DRA 03 AdjustBalance\DRA03 ADJUSTBALANCE Source.Outputs[OLE DB Source Output].Columns[ACTIVITY]" />
+                    <inputColumn
+                      refId="Package\Crea Archivo Plano DMS DRA 03 AdjustBalance\Flat File Destination DRA03 ADJUSTBALANCE.Inputs[Flat File Destination Input].Columns[CUSTOMER]"
+                      cachedDataType="wstr"
+                      cachedLength="10"
+                      cachedName="CUSTOMER"
+                      externalMetadataColumnId="Package\Crea Archivo Plano DMS DRA 03 AdjustBalance\Flat File Destination DRA03 ADJUSTBALANCE.Inputs[Flat File Destination Input].ExternalColumns[CUSTOMER]"
+                      lineageId="Package\Crea Archivo Plano DMS DRA 03 AdjustBalance\DRA03 ADJUSTBALANCE Source.Outputs[OLE DB Source Output].Columns[CUSTOMER]" />
+                    <inputColumn
+                      refId="Package\Crea Archivo Plano DMS DRA 03 AdjustBalance\Flat File Destination DRA03 ADJUSTBALANCE.Inputs[Flat File Destination Input].Columns[CUSTOMER.ROLE]"
+                      cachedDataType="wstr"
+                      cachedLength="5"
+                      cachedName="CUSTOMER.ROLE"
+                      externalMetadataColumnId="Package\Crea Archivo Plano DMS DRA 03 AdjustBalance\Flat File Destination DRA03 ADJUSTBALANCE.Inputs[Flat File Destination Input].ExternalColumns[CUSTOMER.ROLE]"
+                      lineageId="Package\Crea Archivo Plano DMS DRA 03 AdjustBalance\DRA03 ADJUSTBALANCE Source.Outputs[OLE DB Source Output].Columns[CUSTOMER.ROLE]" />
+                    <inputColumn
+                      refId="Package\Crea Archivo Plano DMS DRA 03 AdjustBalance\Flat File Destination DRA03 ADJUSTBALANCE.Inputs[Flat File Destination Input].Columns[PRODUCT]"
+                      cachedDataType="wstr"
+                      cachedLength="8"
+                      cachedName="PRODUCT"
+                      externalMetadataColumnId="Package\Crea Archivo Plano DMS DRA 03 AdjustBalance\Flat File Destination DRA03 ADJUSTBALANCE.Inputs[Flat File Destination Input].ExternalColumns[PRODUCT]"
+                      lineageId="Package\Crea Archivo Plano DMS DRA 03 AdjustBalance\DRA03 ADJUSTBALANCE Source.Outputs[OLE DB Source Output].Columns[PRODUCT]" />
+                    <inputColumn
+                      refId="Package\Crea Archivo Plano DMS DRA 03 AdjustBalance\Flat File Destination DRA03 ADJUSTBALANCE.Inputs[Flat File Destination Input].Columns[CURRENCY]"
+                      cachedDataType="wstr"
+                      cachedLength="3"
+                      cachedName="CURRENCY"
+                      externalMetadataColumnId="Package\Crea Archivo Plano DMS DRA 03 AdjustBalance\Flat File Destination DRA03 ADJUSTBALANCE.Inputs[Flat File Destination Input].ExternalColumns[CURRENCY]"
+                      lineageId="Package\Crea Archivo Plano DMS DRA 03 AdjustBalance\DRA03 ADJUSTBALANCE Source.Outputs[OLE DB Source Output].Columns[CURRENCY]" />
+                    <inputColumn
+                      refId="Package\Crea Archivo Plano DMS DRA 03 AdjustBalance\Flat File Destination DRA03 ADJUSTBALANCE.Inputs[Flat File Destination Input].Columns[ORIG.CONTRACT.DATE]"
+                      cachedDataType="wstr"
+                      cachedLength="8"
+                      cachedName="ORIG.CONTRACT.DATE"
+                      externalMetadataColumnId="Package\Crea Archivo Plano DMS DRA 03 AdjustBalance\Flat File Destination DRA03 ADJUSTBALANCE.Inputs[Flat File Destination Input].ExternalColumns[ORIG.CONTRACT.DATE]"
+                      lineageId="Package\Crea Archivo Plano DMS DRA 03 AdjustBalance\DRA03 ADJUSTBALANCE Source.Outputs[OLE DB Source Output].Columns[ORIG.CONTRACT.DATE]" />
+                    <inputColumn
+                      refId="Package\Crea Archivo Plano DMS DRA 03 AdjustBalance\Flat File Destination DRA03 ADJUSTBALANCE.Inputs[Flat File Destination Input].Columns[PROPERTY]"
+                      cachedDataType="wstr"
+                      cachedLength="1024"
+                      cachedName="PROPERTY"
+                      externalMetadataColumnId="Package\Crea Archivo Plano DMS DRA 03 AdjustBalance\Flat File Destination DRA03 ADJUSTBALANCE.Inputs[Flat File Destination Input].ExternalColumns[PROPERTY]"
+                      lineageId="Package\Crea Archivo Plano DMS DRA 03 AdjustBalance\DRA03 ADJUSTBALANCE Source.Outputs[OLE DB Source Output].Columns[PROPERTY]" />
+                    <inputColumn
+                      refId="Package\Crea Archivo Plano DMS DRA 03 AdjustBalance\Flat File Destination DRA03 ADJUSTBALANCE.Inputs[Flat File Destination Input].Columns[FIELD.NAME]"
+                      cachedDataType="wstr"
+                      cachedLength="2048"
+                      cachedName="FIELD.NAME"
+                      externalMetadataColumnId="Package\Crea Archivo Plano DMS DRA 03 AdjustBalance\Flat File Destination DRA03 ADJUSTBALANCE.Inputs[Flat File Destination Input].ExternalColumns[FIELD.NAME]"
+                      lineageId="Package\Crea Archivo Plano DMS DRA 03 AdjustBalance\DRA03 ADJUSTBALANCE Source.Outputs[OLE DB Source Output].Columns[FIELD.NAME]" />
+                    <inputColumn
+                      refId="Package\Crea Archivo Plano DMS DRA 03 AdjustBalance\Flat File Destination DRA03 ADJUSTBALANCE.Inputs[Flat File Destination Input].Columns[FIELD.VALUE]"
+                      cachedDataType="wstr"
+                      cachedLength="2048"
+                      cachedName="FIELD.VALUE"
+                      externalMetadataColumnId="Package\Crea Archivo Plano DMS DRA 03 AdjustBalance\Flat File Destination DRA03 ADJUSTBALANCE.Inputs[Flat File Destination Input].ExternalColumns[FIELD.VALUE]"
+                      lineageId="Package\Crea Archivo Plano DMS DRA 03 AdjustBalance\DRA03 ADJUSTBALANCE Source.Outputs[OLE DB Source Output].Columns[FIELD.VALUE]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Crea Archivo Plano DMS DRA 03 AdjustBalance\Flat File Destination DRA03 ADJUSTBALANCE.Inputs[Flat File Destination Input].ExternalColumns[UPLOAD.COMPANY]"
+                      dataType="wstr"
+                      length="9"
+                      name="UPLOAD.COMPANY" />
+                    <externalMetadataColumn
+                      refId="Package\Crea Archivo Plano DMS DRA 03 AdjustBalance\Flat File Destination DRA03 ADJUSTBALANCE.Inputs[Flat File Destination Input].ExternalColumns[ID/ARR.SEQUENCE]"
+                      dataType="wstr"
+                      length="18"
+                      name="ID/ARR.SEQUENCE" />
+                    <externalMetadataColumn
+                      refId="Package\Crea Archivo Plano DMS DRA 03 AdjustBalance\Flat File Destination DRA03 ADJUSTBALANCE.Inputs[Flat File Destination Input].ExternalColumns[ARRANGEMENT]"
+                      dataType="wstr"
+                      length="12"
+                      name="ARRANGEMENT" />
+                    <externalMetadataColumn
+                      refId="Package\Crea Archivo Plano DMS DRA 03 AdjustBalance\Flat File Destination DRA03 ADJUSTBALANCE.Inputs[Flat File Destination Input].ExternalColumns[ACTIVITY]"
+                      dataType="wstr"
+                      length="64"
+                      name="ACTIVITY" />
+                    <externalMetadataColumn
+                      refId="Package\Crea Archivo Plano DMS DRA 03 AdjustBalance\Flat File Destination DRA03 ADJUSTBALANCE.Inputs[Flat File Destination Input].ExternalColumns[CUSTOMER]"
+                      dataType="wstr"
+                      length="10"
+                      name="CUSTOMER" />
+                    <externalMetadataColumn
+                      refId="Package\Crea Archivo Plano DMS DRA 03 AdjustBalance\Flat File Destination DRA03 ADJUSTBALANCE.Inputs[Flat File Destination Input].ExternalColumns[CUSTOMER.ROLE]"
+                      dataType="wstr"
+                      length="5"
+                      name="CUSTOMER.ROLE" />
+                    <externalMetadataColumn
+                      refId="Package\Crea Archivo Plano DMS DRA 03 AdjustBalance\Flat File Destination DRA03 ADJUSTBALANCE.Inputs[Flat File Destination Input].ExternalColumns[PRODUCT]"
+                      dataType="wstr"
+                      length="8"
+                      name="PRODUCT" />
+                    <externalMetadataColumn
+                      refId="Package\Crea Archivo Plano DMS DRA 03 AdjustBalance\Flat File Destination DRA03 ADJUSTBALANCE.Inputs[Flat File Destination Input].ExternalColumns[CURRENCY]"
+                      dataType="wstr"
+                      length="3"
+                      name="CURRENCY" />
+                    <externalMetadataColumn
+                      refId="Package\Crea Archivo Plano DMS DRA 03 AdjustBalance\Flat File Destination DRA03 ADJUSTBALANCE.Inputs[Flat File Destination Input].ExternalColumns[ORIG.CONTRACT.DATE]"
+                      dataType="wstr"
+                      length="8"
+                      name="ORIG.CONTRACT.DATE" />
+                    <externalMetadataColumn
+                      refId="Package\Crea Archivo Plano DMS DRA 03 AdjustBalance\Flat File Destination DRA03 ADJUSTBALANCE.Inputs[Flat File Destination Input].ExternalColumns[PROPERTY]"
+                      dataType="wstr"
+                      length="1024"
+                      name="PROPERTY" />
+                    <externalMetadataColumn
+                      refId="Package\Crea Archivo Plano DMS DRA 03 AdjustBalance\Flat File Destination DRA03 ADJUSTBALANCE.Inputs[Flat File Destination Input].ExternalColumns[FIELD.NAME]"
+                      dataType="wstr"
+                      length="2048"
+                      name="FIELD.NAME" />
+                    <externalMetadataColumn
+                      refId="Package\Crea Archivo Plano DMS DRA 03 AdjustBalance\Flat File Destination DRA03 ADJUSTBALANCE.Inputs[Flat File Destination Input].ExternalColumns[FIELD.VALUE]"
+                      dataType="wstr"
+                      length="2048"
+                      name="FIELD.VALUE" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Crea Archivo Plano DMS DRA 03 AdjustBalance.Paths[OLE DB Source Output]"
+              endId="Package\Crea Archivo Plano DMS DRA 03 AdjustBalance\Flat File Destination DRA03 ADJUSTBALANCE.Inputs[Flat File Destination Input]"
+              name="OLE DB Source Output"
+              startId="Package\Crea Archivo Plano DMS DRA 03 AdjustBalance\DRA03 ADJUSTBALANCE Source.Outputs[OLE DB Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Inicializa parametros"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{1b696c4b-535f-43b2-a085-ee6bf90f7551}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Inicializa parametros"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{70000693-BDE1-4FE0-B772-11B7D4A7A452}"
+          SQLTask:SqlStatementSource="-- =============================================&#xA;-- Autor:  José A. Guillen &#xA;-- Fecha de creación: 05-09-2022&#xA;-- Descripción:  Inicializa parametros desde valores guardados en una base de datos SQL Server para la Solución Migracion-Polaris-ETL1-v1.0&#xA;--      &#xA;-- Archivos Origen:  &#xA;--   &#xA;--      &#xA;-- Historia:&#xA;-- José A. Guillén 05-09-2022 Codificación inicial&#xA;-- =============================================&#xA;--&#xA;-- &lt;Aquí se debe colocar el código SQL que lee los parámetros que se van a manejar desde tablas de parámetros&gt; &#xA;--&#xA;SELECT 1 &#xA;--" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{d01a2aea-f712-43c2-9f60-dff529a78eac}"
+      DTS:From="Package\Inicializa parametros"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\Crea Archivo Plano DMS DRA 03 AdjustBalance" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="300,42"
+          Id="Package\Crea Archivo Plano DMS DRA 03 AdjustBalance"
+          TopLeft="5.50000000000003,107.5" />
+        <NodeLayout
+          Size="176,42"
+          Id="Package\Inicializa parametros"
+          TopLeft="67.5,5.5" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="155.5,47.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Crea Archivo Plano DMS DRA 03 AdjustBalance">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="231,42"
+          Id="Package\Crea Archivo Plano DMS DRA 03 AdjustBalance\DRA03 ADJUSTBALANCE Source"
+          TopLeft="35.5,5.5" />
+        <NodeLayout
+          Size="291,42"
+          Id="Package\Crea Archivo Plano DMS DRA 03 AdjustBalance\Flat File Destination DRA03 ADJUSTBALANCE"
+          TopLeft="5.50000000000003,107.5" />
+        <EdgeLayout
+          Id="Package\Crea Archivo Plano DMS DRA 03 AdjustBalance.Paths[OLE DB Source Output]"
+          TopLeft="151,47.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Crea Archivo Plano DMS DRA 03 AdjustBalance\DRA03 ADJUSTBALANCE Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

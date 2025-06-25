@@ -1,0 +1,286 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="11/15/2024 7:26:16 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="VENJJCR20"
+  DTS:CreatorName="CAF-CON\ls42731"
+  DTS:DTSID="{56453124-8686-43F0-B118-9B96F358B7C0}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="16.0.5270.0"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="PqTransformaDMS-Dra03CaptureBalance"
+  DTS:PackageType="5"
+  DTS:VersionBuild="9"
+  DTS:VersionGUID="{AB6BD350-198E-497A-A64E-B1619A054335}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Filtra Mandatorios"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{5aa2792d-b180-42fa-b82f-d55bb0f3f622}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Filtra Mandatorios"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{73E9BE98-144D-4887-A1CD-FCE6E4AB9CF5}"
+          SQLTask:SqlStatementSource="--&#xA;TRUNCATE TABLE [STGPolaris].[dbo].[DMS.DRA.03.CAPTURE.BALANCE]&#xA;INSERT INTO [STGPolaris].[dbo].[DMS.DRA.03.CAPTURE.BALANCE]&#xA;SELECT [UPLOAD.COMPANY]&#xA;      ,[ID/ARR.SEQUENCE]&#xA;      ,[ARRANGEMENT]&#xA;      ,[ACTIVITY]&#xA;      ,[CUSTOMER]&#xA;      ,[CUSTOMER.ROLE]&#xA;      ,[PRODUCT]&#xA;      ,[CURRENCY]&#xA;      ,[ORIG.CONTRACT.DATE]&#xA;      ,[PROPERTY]&#xA;      ,[FIELD.NAME]&#xA;      ,[FIELD.VALUE]&#xA;  FROM [STGPolaris].[dbo].[DMS.DRA.03.CAPTURE.BALANCE-v0.5]&#xA; WHERE [UPLOAD.COMPANY] IS NOT NULL&#xA;  AND [ID/ARR.SEQUENCE] IS NOT NULL&#xA;  AND [ARRANGEMENT] IS NOT NULL&#xA;  AND [ACTIVITY] IS NOT NULL&#xA;  AND [CUSTOMER] IS NOT NULL&#xA;  AND [CUSTOMER.ROLE] IS NOT NULL&#xA;  AND [PRODUCT] IS NOT NULL&#xA;  AND [CURRENCY] IS NOT NULL&#xA;  AND [ORIG.CONTRACT.DATE] IS NOT NULL&#xA;  AND [PROPERTY] IS NOT NULL&#xA;  AND [FIELD.NAME] IS NOT NULL&#xA;  AND [FIELD.VALUE] IS NOT NULL&#xA;--&#xA;GO" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Fix"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:Disabled="True"
+      DTS:DTSID="{394c09f8-e03f-4d0f-92e5-9bd261ef1a5d}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Fix"
+      DTS:ThreadHint="1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{73E9BE98-144D-4887-A1CD-FCE6E4AB9CF5}"
+          SQLTask:SqlStatementSource="USE [STGPolaris]&#xA;GO&#xA;--DECLARE @DefaultApprovalDate nvarchar(8) = '20240812'&#xA;--&#xA;--&#xA;TRUNCATE TABLE [STGPolaris].[dbo].[DMS.DRA.01.CAPTURE.BALANCE]&#xA;INSERT INTO [STGPolaris].[dbo].[DMS.DRA.01.CAPTURE.BALANCE]&#xA;SELECT [UPLOAD.COMPANY]&#xA;      ,[ID/ARR.SEQUENCE]&#xA;      ,[ARRANGEMENT]&#xA;      ,[ACTIVITY]&#xA;      ,[CUSTOMER]&#xA;      ,[CUSTOMER.ROLE]&#xA;      ,[MASTER.ARRANGEMENT]&#xA;      ,[PRODUCT]&#xA;      ,[CURRENCY]&#xA;      ,[PROPERTY]&#xA;      ,[FIELD.NAME]&#xA;      ,[FIELD.VALUE]&#xA;      ,[coOperacionActiva]&#xA;      ,[inCapBalPropertyACCOUNT]&#xA;      ,[inCapBalPropertyDWCOMMITMENT]&#xA;      ,[inCapBalPropertyINTERESTFFC]&#xA;      ,[inCapBalPropertyINTVENCIDO]&#xA;      ,[inCapBalPropertyPRINCIPALINT]&#xA;      ,[nuTotalPropertiesInCapBal]&#xA;      ,[sa_CAF_moneda_origen]&#xA;      ,[mo_total_desembolsado_origen]&#xA;      ,[mo_interes_cmpnscion_acum_x_cobrar_orgen]&#xA;      ,[mo_interes_vncdo_x_cobrar]&#xA;      ,[mo_intereses_x_cobrar]&#xA;  FROM [STGPolaris].[dbo].[DMS.DRA.01.CAPTURE.BALANCE-v0.5]&#xA; WHERE [UPLOAD.COMPANY] IS NOT NULL&#xA;   AND [ID/ARR.SEQUENCE] IS NOT NULL&#xA;   AND [ARRANGEMENT] IS NOT NULL&#xA;   AND [ACTIVITY] IS NOT NULL&#xA;   AND [CUSTOMER] IS NOT NULL&#xA;   AND [CUSTOMER.ROLE] IS NOT NULL&#xA;   AND [PRODUCT] IS NOT NULL&#xA;   AND [CURRENCY] IS NOT NULL&#xA;   AND [PROPERTY] IS NOT NULL&#xA;   AND [FIELD.NAME] IS NOT NULL&#xA;   AND [FIELD.VALUE] IS NOT NULL&#xA;   AND [MASTER.ARRANGEMENT]  IS NOT NULL&#xA;   AND [nuTotalPropertiesInCapBal] &lt;&gt; 0&#xA;   AND [ARRANGEMENT] IN&#xA;(&#xA; 'AA1900310647'&#xA;,'AA2421112323'&#xA;,'AA1033406903'&#xA;,'AA0624803565'&#xA;,'AA2206711684'&#xA;,'AA0823404991'&#xA;,'AA0819104844'&#xA;,'AA0736104536'&#xA;,'AA1519508959'&#xA;,'AA0717704081'&#xA;,'AA1309408126'&#xA;,'AA2334912183'&#xA;,'AA1227907934'&#xA;,'AA2326912121'&#xA;,'AA2206711688'&#xA;,'AA2334712184'&#xA;,'AA2408712245'&#xA;,'AA1433908759'&#xA;,'AA2408712242'&#xA;,'AA0701203676'&#xA;,'AA2406112226'&#xA;,'AA0630303714'&#xA;,'AA1217707809'&#xA;,'AA1333708396'&#xA;,'AA2320912067'&#xA;,'AA2322012076'&#xA;,'AA0627803559'&#xA;,'AA1020706534'&#xA;,'AA0627803561'&#xA;,'AA0920805544'&#xA;,'AA1432908741'&#xA;,'AA2421212325'&#xA;,'AA2320912064'&#xA;,'AA1432208734'&#xA;,'AA1825710451'&#xA;,'AA2325812119'&#xA;,'AA0734304488'&#xA;,'AA1834610602'&#xA;,'AA2235511899'&#xA;,'AA0929205702'&#xA;,'AA1909110730'&#xA;,'AA2012611208'&#xA;,'AA1932210989'&#xA;,'AA1914810801'&#xA;,'AA0734304492'&#xA;,'AA2331312158'&#xA;,'AA1914410787'&#xA;,'AA1020706536'&#xA;,'AA2407812237'&#xA;,'AA1004006029'&#xA;,'AA2233611909'&#xA;,'AA2020511260'&#xA;,'AA2033911371'&#xA;,'AA2113811489'&#xA;,'AA1215307840'&#xA;,'AA1008206182'&#xA;,'AA2115411504'&#xA;,'AA2033911375'&#xA;,'AA1020706532'&#xA;,'AA1620309448'&#xA;,'AA2134111634'&#xA;,'AA0726404274'&#xA;,'AA0733304515'&#xA;,'AA1215307860'&#xA;,'AA1902510666'&#xA;,'AA2134111636'&#xA;,'AA1008306141'&#xA;,'AA2124911625'&#xA;,'AA1626709543'&#xA;,'AA1827110491'&#xA;,'AA2124311549'&#xA;,'AA2223111779'&#xA;,'AA1827110502'&#xA;,'AA1033506923'&#xA;,'AA2206711682'&#xA;,'AA1235308028'&#xA;,'AA1932611022'&#xA;,'AA1929610973'&#xA;,'AA0932405802'&#xA;,'AA1235308031'&#xA;,'AA1932611024'&#xA;,'AA2223111783'&#xA;,'AA2134311632'&#xA;,'AA1303708079'&#xA;,'AA2314412016'&#xA;,'AA1824810450'&#xA;,'AA1933311027'&#xA;,'AA2329012141'&#xA;,'AA1916510824'&#xA;,'AA2217511746'&#xA;,'AA1916510825'&#xA;,'AA2419212316'&#xA;,'AA1423108640'&#xA;,'AA2411012260'&#xA;,'AA1424708653'&#xA;,'AA2411012256'&#xA;,'AA1035506983'&#xA;,'AA1427308673'&#xA;,'AA2411312262'&#xA;,'AA1416908591'&#xA;,'AA2025411299'&#xA;,'AA2402212208'&#xA;,'AA1034806993'&#xA;,'AA1416908593'&#xA;,'AA2025411300'&#xA;,'AA1734810142'&#xA;,'AA1035506985'&#xA;,'AA2009011191'&#xA;,'AA2012611207'&#xA;,'AA1035506986'&#xA;,'AA2017711245'&#xA;,'AA1606909301'&#xA;,'AA1718509914'&#xA;,'AA1223707902'&#xA;,'AA1922510867'&#xA;,'AA2135111650'&#xA;,'AA2012711218'&#xA;,'AA1420308602'&#xA;,'AA2326912126'&#xA;,'AA2035211384'&#xA;,'AA2012711220'&#xA;,'AA1227807943'&#xA;,'AA2236111906'&#xA;,'AA2231911857'&#xA;,'AA2405912223'&#xA;,'AA1513908919'&#xA;,'AA2012111209'&#xA;,'AA1823310412'&#xA;,'AA2111111459'&#xA;,'AA2008511164'&#xA;,'AA1826010459'&#xA;,'AA1430408729'&#xA;,'AA2223511792'&#xA;,'AA2408712243'&#xA;,'AA0903705320'&#xA;,'AA1905310703'&#xA;,'AA2128111571'&#xA;,'AA2416912295'&#xA;,'AA2324212101'&#xA;,'AA1034406966'&#xA;,'AA2225611810'&#xA;,'AA1021006567'&#xA;,'AA2411412265'&#xA;,'AA2115311497'&#xA;,'AA2028211318'&#xA;,'AA2032511363'&#xA;,'AA1107707351'&#xA;,'AA2035111385'&#xA;,'AA1303708083'&#xA;,'AA2419012315'&#xA;,'AA2405412221'&#xA;,'AA2035211387'&#xA;,'AA2307412118'&#xA;,'AA2227711827'&#xA;,'AA2318112043'&#xA;,'AA1224307908'&#xA;,'AA2319112054'&#xA;,'AA2332112165'&#xA;,'AA2132811618'&#xA;,'AA2335412200'&#xA;,'AA1235308089'&#xA;,'AA2412012268'&#xA;,'AA2012511215'&#xA;,'AA1633509728'&#xA;,'AA2235711904'&#xA;,'AA1232007970'&#xA;,'AA2035611395'&#xA;,'AA2203511679'&#xA;,'AA2416412289'&#xA;,'AA1835410634'&#xA;,'AA2416612292'&#xA;,'AA1326408340'&#xA;,'AA1824110426'&#xA;,'AA2323512095'&#xA;,'AA1432908744'&#xA;,'AA1727810048'&#xA;,'AA1322008237'&#xA;,'AA2024711307'&#xA;,'AA2318612061'&#xA;,'AA1727810051'&#xA;,'AA1811310259'&#xA;,'AA1706709759'&#xA;,'AA2016411243'&#xA;,'AA2231911854'&#xA;,'AA2024711295'&#xA;,'AA1720209929'&#xA;,'AA1707409784'&#xA;,'AA1914410793'&#xA;,'AA2300511917'&#xA;,'AA1835210637'&#xA;,'AA2231911860'&#xA;,'AA1707409787'&#xA;,'AA2215011726'&#xA;,'AA2300511919'&#xA;,'AA1835210639'&#xA;,'AA1322008239'&#xA;,'AA2408112253'&#xA;,'AA1931711008'&#xA;,'AA2104811419'&#xA;,'AA2417712306'&#xA;,'AA1931711016'&#xA;,'AA2207611691'&#xA;,'AA2413712279'&#xA;,'AA1113307372'&#xA;,'AA2200711666'&#xA;,'AA1322008296'&#xA;,'AA1820410454'&#xA;,'AA1501908763'&#xA;,'AA1734610150'&#xA;,'AA1633509646'&#xA;,'AA1821110449'&#xA;,'AA1635609693'&#xA;,'AA1821410398'&#xA;,'AA2217311750'&#xA;,'AA1735410148'&#xA;,'AA1421008619'&#xA;,'AA1534509174'&#xA;,'AA1023006113'&#xA;,'AA1218507836'&#xA;,'AA1936411063'&#xA;,'AA2312911999'&#xA;,'AA2318812050'&#xA;,'AA2332512166'&#xA;,'AA2334512205'&#xA;,'AA2135111652'&#xA;,'AA2408112251'&#xA;,'AA2414412277'&#xA;,'AA0708603805'&#xA;,'AA2419212317'&#xA;,'AA2417812307'&#xA;,'AA1024306800'&#xA;,'AA1335008422'&#xA;,'AA2405912222'&#xA;,'AA1417508586'&#xA;,'AA2409312249'&#xA;,'AA1516608945'&#xA;,'AA0708603807'&#xA;,'AA1920510852'&#xA;,'AA2031611346'&#xA;,'AA1731910094'&#xA;,'AA2102711411'&#xA;,'AA1021806616'&#xA;,'AA2223111781'&#xA;,'AA0734804495'&#xA;,'AA1732510099'&#xA;,'AA1730010059'&#xA;,'AA1107707352'&#xA;,'AA1235308015'&#xA;,'AA1905010689'&#xA;,'AA1212807822'&#xA;,'AA1235308026'&#xA;,'AA1416908581'&#xA;,'AA1905010690'&#xA;,'AA2215311730'&#xA;,'AA1213507786'&#xA;,'AA1029106987'&#xA;,'AA1213507788'&#xA;,'AA1828210505'&#xA;,'AA0735404508'&#xA;,'AA2411612263'&#xA;,'AA1915710812'&#xA;,'AA2323312093'&#xA;,'AA0935205900'&#xA;,'AA2417912310'&#xA;,'AA1815510352'&#xA;,'AA1716009896'&#xA;,'AA1035506982'&#xA;,'AA1235208018'&#xA;,'AA1815510356'&#xA;,'AA1136207673'&#xA;,'AA1622309477'&#xA;,'AA2232811865'&#xA;,'AA1429408702'&#xA;,'AA1435108785'&#xA;,'AA1622309481'&#xA;,'AA1420608680'&#xA;,'AA2307311955'&#xA;,'AA1224407950'&#xA;,'AA1833310628'&#xA;,'AA1429408703'&#xA;,'AA1323508253'&#xA;,'AA2307611960'&#xA;,'AA1232707996'&#xA;,'AA2009011177'&#xA;,'AA1234008002'&#xA;,'AA2132211613'&#xA;,'AA1225707948'&#xA;,'AA2214511740'&#xA;,'AA1225707949'&#xA;,'AA1825710482'&#xA;,'AA1532409150'&#xA;,'AA2235411901'&#xA;,'AA2406012224'&#xA;,'AA0734804496'&#xA;,'AA2416612293'&#xA;,'AA0804204579'&#xA;,'AA2421212322'&#xA;,'AA2331212160'&#xA;,'AA2417912309'&#xA;,'AA2417012300'&#xA;,'AA2329312145'&#xA;,'AA2412412272'&#xA;,'AA0804204580'&#xA;,'AA2407812239'&#xA;,'AA1520108993'&#xA;,'AA1736310158'&#xA;,'AA2233511878'&#xA;,'AA1622509451'&#xA;,'AA1533409170'&#xA;,'AA2223111786'&#xA;,'AA1206607725'&#xA;,'AA2121411537'&#xA;,'AA1934011052'&#xA;,'AA2223111788'&#xA;,'AA1936411065'&#xA;,'AA2223111790'&#xA;,'AA1901810675'&#xA;,'AA1830210546'&#xA;,'AA1819810385'&#xA;,'AA2204111686'&#xA;,'AA1028506763'&#xA;,'AA2333812171'&#xA;,'AA2217511744'&#xA;,'AA2217311752'&#xA;,'AA2327712134'&#xA;,'AA1334408360'&#xA;,'AA2316412033'&#xA;,'AA2224511805'&#xA;,'AA1407708491'&#xA;,'AA1334408390'&#xA;,'AA0817104808'&#xA;,'AA1117907407'&#xA;,'AA2009011202'&#xA;,'AA2306211948'&#xA;,'AA1324008261'&#xA;,'AA2009011194'&#xA;,'AA2124911553'&#xA;,'AA2129111574'&#xA;,'AA1324008262'&#xA;,'AA0934805978'&#xA;,'AA2129111583'&#xA;,'AA1736210157'&#xA;,'AA0823404987'&#xA;,'AA1733510131'&#xA;,'AA1620109410'&#xA;,'AA2411012261'&#xA;,'AA1011606271'&#xA;,'AA2024711297'&#xA;,'AA2116911514'&#xA;,'AA2415912288'&#xA;,'AA1836210641'&#xA;,'AA1632909626'&#xA;,'AA1836210686'&#xA;,'AA2028211320'&#xA;,'AA2233311872'&#xA;,'AA1532809148'&#xA;,'AA2327212135'&#xA;,'AA2323412086'&#xA;,'AA2229311840'&#xA;,'AA2327112130'&#xA;,'AA1317908204'&#xA;,'AA2330012153'&#xA;,'AA2202611677'&#xA;,'AA2324812113'&#xA;,'AA2324812116'&#xA;,'AA1831810569'&#xA;,'AA0726404295'&#xA;,'AA2335612198'&#xA;,'AA1829010552'&#xA;,'AA2219211759'&#xA;,'AA2015311235'&#xA;,'AA1829010521'&#xA;,'AA1926110917'&#xA;,'AA2033211367'&#xA;,'AA2202611678'&#xA;,'AA2215411733'&#xA;,'AA1929710968'&#xA;,'AA1622509458'&#xA;,'AA1035106959'&#xA;,'AA1133207657'&#xA;,'AA0933805842'&#xA;,'AA2017511250'&#xA;,'AA2130211592'&#xA;,'AA0823404990'&#xA;,'AA2021011264'&#xA;,'AA1706709757'&#xA;,'AA1429408700'&#xA;,'AA1104207151'&#xA;,'AA0705703747'&#xA;,'AA1120107485'&#xA;,'AA2123111545'&#xA;,'AA1925510910'&#xA;,'AA2224511807'&#xA;,'AA2234111886'&#xA;,'AA2234011882'&#xA;,'AA2127711570'&#xA;,'AA1928010938'&#xA;,'AA2306811967'&#xA;,'AA2129111585'&#xA;,'AA2225811815'&#xA;,'AA1929410977'&#xA;,'AA2306811968'&#xA;,'AA2311511983'&#xA;,'AA2135611663'&#xA;,'AA2225811824'&#xA;,'AA1933311061'&#xA;,'AA1120107532'&#xA;,'AA2311711985'&#xA;,'AA2207611694'&#xA;,'AA2227811831'&#xA;,'AA1935411048'&#xA;,'AA2209511699'&#xA;,'AA2312911997'&#xA;,'AA2313812008'&#xA;,'AA1935411057'&#xA;,'AA2213811724'&#xA;,'AA2318512056'&#xA;,'AA2312911994'&#xA;,'AA1935811072'&#xA;,'AA2214511832'&#xA;,'AA1418808606'&#xA;,'AA2318712048'&#xA;,'AA1936411060'&#xA;,'AA2224511803'&#xA;,'AA1400908417'&#xA;,'AA1418808633'&#xA;,'AA1410608548'&#xA;,'AA2002911100'&#xA;,'AA1210007783'&#xA;,'AA1423808717'&#xA;,'AA1404408468'&#xA;,'AA1418808604'&#xA;,'AA2009011175'&#xA;,'AA1405608457'&#xA;,'AA1424508686'&#xA;,'AA1427208715'&#xA;,'AA1218507894'&#xA;,'AA1429508711'&#xA;,'AA1409808507'&#xA;,'AA1434608787'&#xA;,'AA1110907357'&#xA;,'AA1231808006'&#xA;,'AA0904105319'&#xA;,'AA0834408426'&#xA;,'AA1434608788'&#xA;,'AA2009011189'&#xA;,'AA2115811501'&#xA;,'AA0834405331'&#xA;,'AA2107111447'&#xA;,'AA2010811196'&#xA;,'AA1234508014'&#xA;,'AA1410508517'&#xA;,'AA1235408041'&#xA;,'AA2107111448'&#xA;,'AA2017711247'&#xA;,'AA1303708086'&#xA;,'AA1307008109'&#xA;,'AA2031611342'&#xA;,'AA1334408392'&#xA;,'AA2029311326'&#xA;,'AA2108211456'&#xA;,'AA2033911373'&#xA;,'AA2409612258'&#xA;,'AA2035911408'&#xA;,'AA1335408401'&#xA;,'AA1117907413'&#xA;,'AA1435108789'&#xA;,'AA2409612259'&#xA;,'AA2412212281'&#xA;,'AA1732110126'&#xA;,'AA2421312327'&#xA;,'AA1436408791'&#xA;,'AA2412812275'&#xA;,'AA1133207649'&#xA;,'AA2415812302'&#xA;,'AA1801610170'&#xA;,'AA1503408814'&#xA;,'AA2334512206'&#xA;,'AA2415812304'&#xA;,'AA1801610180'&#xA;,'AA1104207142'&#xA;,'AA2335212190'&#xA;,'AA1136207671'&#xA;,'AA1801610199'&#xA;,'AA1503408832'&#xA;,'AA1832410649'&#xA;,'AA2402612218'&#xA;,'AA1922510873'&#xA;,'AA2419012320'&#xA;,'AA1833210579'&#xA;,'AA1533509238'&#xA;,'AA2320912066'&#xA;,'AA1503408839'&#xA;,'AA1434608793'&#xA;,'AA1533509239'&#xA;,'AA2327212132'&#xA;,'AA1604809277'&#xA;,'AA2329312150'&#xA;,'AA1534109172'&#xA;,'AA2329712147'&#xA;,'AA1804610209'&#xA;,'AA1634709660'&#xA;,'AA1434608794'&#xA;,'AA1534209204'&#xA;,'AA1517708949'&#xA;,'AA1805810298'&#xA;,'AA1636509691'&#xA;,'AA1617209408'&#xA;,'AA1534209209'&#xA;,'AA1517709229'&#xA;,'AA1809410253'&#xA;,'AA1703009710'&#xA;,'AA1534209213'&#xA;,'AA0914205382'&#xA;,'AA1817010362'&#xA;,'AA1031406843'&#xA;,'AA1711409854'&#xA;,'AA1534309208'&#xA;,'AA1520208967'&#xA;,'AA1817010524'&#xA;,'AA1833210588'&#xA;,'AA1711609852'&#xA;,'AA1604909272'&#xA;,'AA1826210515'&#xA;,'AA1713709883'&#xA;,'AA1020706780'&#xA;,'AA1529909117'&#xA;,'AA1833910606'&#xA;,'AA1621509482'&#xA;,'AA1534309211'&#xA;,'AA1613809344'&#xA;,'AA1834710613'&#xA;,'AA1533509236'&#xA;,'AA1534509225'&#xA;,'AA1627709596'&#xA;,'AA1625809545'&#xA;,'AA1907210713'&#xA;,'AA1718509919'&#xA;,'AA1629909629'&#xA;,'AA1629809609'&#xA;,'AA1913410784'&#xA;,'AA1907910726'&#xA;,'AA1720209938'&#xA;,'AA1921710869'&#xA;,'AA1730010061'&#xA;,'AA1103907705'&#xA;)&#xA;GO&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Inicializa parametros"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{c4fe47d4-60b7-4ac1-ade8-ef59a6ca252d}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Inicializa parametros"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{70000693-BDE1-4FE0-B772-11B7D4A7A452}"
+          SQLTask:SqlStatementSource="-- =============================================&#xA;-- Autor:  José A. Guillen &#xA;-- Fecha de creación: 05-09-2022&#xA;-- Descripción:  Inicializa parametros desde valores guardados en una base de datos SQL Server para la Solución Migracion-Polaris-ETL1-v1.0&#xA;--      &#xA;-- Archivos Origen:  &#xA;--   &#xA;--      &#xA;-- Historia:&#xA;-- José A. Guillén 05-09-2022 Codificación inicial&#xA;-- =============================================&#xA;--&#xA;-- &lt;Aquí se debe colocar el código SQL que lee los parámetros que se van a manejar desde tablas de parámetros&gt; &#xA;--&#xA;SELECT 1 &#xA;--" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Transforma DMS-DRA-03-CAPTURE-BALANCE"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{4085b8ae-8ab6-4396-98cf-c7d51619eef2}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Transforma DMS-DRA-03-CAPTURE-BALANCE"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{70000693-BDE1-4FE0-B772-11B7D4A7A452}"
+          SQLTask:BypassPrepare="False"
+          SQLTask:SqlStatementSource="USE [STGLegados]&#xA;GO&#xA;&#xA;DECLARE @RC int&#xA;&#xA;-- TODO: Set parameter values here.&#xA;&#xA;EXECUTE @RC = [dbo].[Transforma-DMS.DRA.03.CAPTURE.BALANCE] &#xA;GO&#xA;&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Trunca DMS-DRA-03-CAPTURE-BALANCE"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{13efe5ac-25c4-486d-bbd9-9f7e30b4cc34}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Trunca DMS-DRA-03-CAPTURE-BALANCE"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{73E9BE98-144D-4887-A1CD-FCE6E4AB9CF5}"
+          SQLTask:SqlStatementSource="--&#xA;TRUNCATE TABLE [STGPolaris].[dbo].[DMS.DRA.03.CAPTURE.BALANCE]&#xA;TRUNCATE TABLE [STGPolaris].[dbo].[DMS.DRA.03.CAPTURE.BALANCE-v0.5]&#xA;--&#xA;GO" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{91d0b512-78ef-49f4-a496-28eab0243b23}"
+      DTS:From="Package\Inicializa parametros"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\Trunca DMS-DRA-03-CAPTURE-BALANCE" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 1]"
+      DTS:CreationName=""
+      DTS:DTSID="{aba6c817-8bdc-4c3e-8635-5c43b58a9b91}"
+      DTS:From="Package\Trunca DMS-DRA-03-CAPTURE-BALANCE"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 1"
+      DTS:To="Package\Transforma DMS-DRA-03-CAPTURE-BALANCE" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 2]"
+      DTS:CreationName=""
+      DTS:DTSID="{6fa9069a-4d0d-4f55-b4c6-460a96558979}"
+      DTS:From="Package\Transforma DMS-DRA-03-CAPTURE-BALANCE"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 2"
+      DTS:To="Package\Filtra Mandatorios" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 3]"
+      DTS:CreationName=""
+      DTS:DTSID="{6349b889-e290-425e-8b06-4228467d9b29}"
+      DTS:From="Package\Transforma DMS-DRA-03-CAPTURE-BALANCE"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 3"
+      DTS:To="Package\Fix" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="163,42"
+          Id="Package\Filtra Mandatorios"
+          TopLeft="5.50000000000006,311.5" />
+        <NodeLayout
+          Size="92,42"
+          Id="Package\Fix"
+          TopLeft="229,311.5" />
+        <NodeLayout
+          Size="176,42"
+          Id="Package\Inicializa parametros"
+          TopLeft="187,5.5" />
+        <NodeLayout
+          Size="293,42"
+          Id="Package\Transforma DMS-DRA-03-CAPTURE-BALANCE"
+          TopLeft="128.5,209.5" />
+        <NodeLayout
+          Size="272,42"
+          Id="Package\Trunca DMS-DRA-03-CAPTURE-BALANCE"
+          TopLeft="139,107.5" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="275,47.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 1]"
+          TopLeft="275,149.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 2]"
+          TopLeft="227.5,251.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-140.5,60"
+              Start="0,0"
+              End="-140.5,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,20.1955193482688" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,20.1955193482688"
+                    Point2="0,24.1955193482688"
+                    Point3="-4,24.1955193482688" />
+                  <mssgle:LineSegment
+                    End="-136.5,24.1955193482688" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-136.5,24.1955193482688"
+                    Point2="-140.5,24.1955193482688"
+                    Point3="-140.5,28.1955193482688" />
+                  <mssgle:LineSegment
+                    End="-140.5,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 3]"
+          TopLeft="322.5,251.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-47.5,60"
+              Start="0,0"
+              End="-47.5,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,20.1955193482688" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,20.1955193482688"
+                    Point2="0,24.1955193482688"
+                    Point3="-4,24.1955193482688" />
+                  <mssgle:LineSegment
+                    End="-43.5,24.1955193482688" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-43.5,24.1955193482688"
+                    Point2="-47.5,24.1955193482688"
+                    Point3="-47.5,28.1955193482688" />
+                  <mssgle:LineSegment
+                    End="-47.5,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

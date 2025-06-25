@@ -1,0 +1,3090 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="11/21/2024 9:56:58 AM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="VENJJCR20"
+  DTS:CreatorName="CAF-CON\ls42731"
+  DTS:Description="DTS Wizard-generated package"
+  DTS:DTSID="{90F8BF94-143F-4749-9A27-6B3F7F6482BB}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="16.0.5270.0"
+  DTS:LocaleID="1033"
+  DTS:MaxErrorCount="0"
+  DTS:ObjectName="PqPreparaTmpArchivoPlanoGarantiasRecibidas"
+  DTS:VersionBuild="9"
+  DTS:VersionGUID="{654318B5-CFF9-4DBE-B352-FD6C2B98960F}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Flat File Connection Manager 1]"
+      DTS:CreationName="FLATFILE"
+      DTS:DTSID="{49E82E6A-FBE9-4E64-A997-65E9B493F77B}"
+      DTS:ObjectName="Flat File Connection Manager 1">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="Delimited"
+          DTS:LocaleID="1033"
+          DTS:HeaderRowDelimiter="_x003B_"
+          DTS:ColumnNamesInFirstDataRow="True"
+          DTS:RowDelimiter=""
+          DTS:TextQualifier="_x003C_none_x003E_"
+          DTS:CodePage="65001"
+          DTS:ConnectionString="D:\App\Migracion-Polaris-ETL1\Csv\ArchivoPlanoGarantiasRecibidas1.csv">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:DataType="3"
+              DTS:TextQualified="True"
+              DTS:ObjectName="co_garantia"
+              DTS:DTSID="{9800EE70-D591-4696-9794-57184E9F7EB0}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000D__x000A_"
+              DTS:MaximumWidth="4000"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="CENTRAL BANK VALUE"
+              DTS:DTSID="{7C80CC57-CBDD-4ECD-9C31-44E09914D127}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Flat File Connection Manager2]"
+      DTS:CreationName="FLATFILE"
+      DTS:DTSID="{C0776F0F-9A05-42E5-8CFC-EF3114192F08}"
+      DTS:ObjectName="Flat File Connection Manager2">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="Delimited"
+          DTS:LocaleID="1033"
+          DTS:HeaderRowDelimiter="_x003B_"
+          DTS:ColumnNamesInFirstDataRow="True"
+          DTS:RowDelimiter=""
+          DTS:TextQualifier="_x003C_none_x003E_"
+          DTS:CodePage="65001"
+          DTS:ConnectionString="D:\App\Migracion-Polaris-ETL1\Csv\ArchivoPlanoGarantiasRecibidas2.csv">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:DataType="3"
+              DTS:TextQualified="True"
+              DTS:ObjectName="co_garantia"
+              DTS:DTSID="{5517FEEC-B7D4-4AD3-AB63-00914C59896F}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000D__x000A_"
+              DTS:MaximumWidth="4000"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="ADDRESS"
+              DTS:DTSID="{0DB98AAF-FA24-45FB-8F48-0E7D4402B907}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Flat File Connection Manager3]"
+      DTS:CreationName="FLATFILE"
+      DTS:DTSID="{7B22A0DE-C6EA-4CF0-99B1-1B12DB079DD8}"
+      DTS:ObjectName="Flat File Connection Manager3">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="Delimited"
+          DTS:LocaleID="1033"
+          DTS:HeaderRowDelimiter="_x003B_"
+          DTS:ColumnNamesInFirstDataRow="True"
+          DTS:RowDelimiter=""
+          DTS:TextQualifier="_x003C_none_x003E_"
+          DTS:CodePage="65001"
+          DTS:ConnectionString="D:\App\Migracion-Polaris-ETL1\Csv\ArchivoPlanoGarantiasRecibidas3.csv">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:DataType="3"
+              DTS:TextQualified="True"
+              DTS:ObjectName="co_garantia"
+              DTS:DTSID="{A708BF88-C017-445A-A2DE-F508286DBF6A}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000D__x000A_"
+              DTS:MaximumWidth="4000"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="ISSUER"
+              DTS:DTSID="{DE5BCD88-411D-43FE-B654-560D2B881501}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Flat File Connection Manager4]"
+      DTS:CreationName="FLATFILE"
+      DTS:DTSID="{505F71DD-2C46-44DD-82B0-4B5EE9728963}"
+      DTS:ObjectName="Flat File Connection Manager4">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="Delimited"
+          DTS:LocaleID="1033"
+          DTS:HeaderRowDelimiter="_x003B_"
+          DTS:ColumnNamesInFirstDataRow="True"
+          DTS:RowDelimiter=""
+          DTS:TextQualifier="_x003C_none_x003E_"
+          DTS:CodePage="65001"
+          DTS:ConnectionString="D:\App\Migracion-Polaris-ETL1\Csv\ArchivoPlanoGarantiasRecibidas4.csv">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:DataType="3"
+              DTS:TextQualified="True"
+              DTS:ObjectName="co_garantia"
+              DTS:DTSID="{A36C11D3-8CD4-49EC-A310-E103CBA67B3C}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000D__x000A_"
+              DTS:MaximumWidth="4000"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="VEHICLE MODEL"
+              DTS:DTSID="{20D13C48-4C80-4548-9FA6-08F82ACBA55A}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Flat File Connection Manager5]"
+      DTS:CreationName="FLATFILE"
+      DTS:DTSID="{F850CE27-5A6D-4904-968B-28C157C9C449}"
+      DTS:ObjectName="Flat File Connection Manager5">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="Delimited"
+          DTS:LocaleID="1033"
+          DTS:HeaderRowDelimiter="_x003B_"
+          DTS:ColumnNamesInFirstDataRow="True"
+          DTS:RowDelimiter=""
+          DTS:TextQualifier="_x003C_none_x003E_"
+          DTS:CodePage="65001"
+          DTS:ConnectionString="D:\App\Migracion-Polaris-ETL1\Csv\ArchivoPlanoGarantiasRecibidas5.csv">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:DataType="3"
+              DTS:TextQualified="True"
+              DTS:ObjectName="co_garantia"
+              DTS:DTSID="{090B6FAC-659A-4C51-874F-1B8C2F584C2C}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000D__x000A_"
+              DTS:MaximumWidth="4000"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="INS EXPIRY DT"
+              DTS:DTSID="{7A8280EB-DD23-4DA3-9BF1-74C0F14CA821}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Flat File Connection Manager6]"
+      DTS:CreationName="FLATFILE"
+      DTS:DTSID="{A8C89DAB-08C6-4E7C-A85D-AD14B119329F}"
+      DTS:ObjectName="Flat File Connection Manager6">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="Delimited"
+          DTS:LocaleID="1033"
+          DTS:HeaderRowDelimiter="_x003B_"
+          DTS:ColumnNamesInFirstDataRow="True"
+          DTS:RowDelimiter=""
+          DTS:TextQualifier="_x003C_none_x003E_"
+          DTS:CodePage="65001"
+          DTS:ConnectionString="D:\App\Migracion-Polaris-ETL1\Csv\ArchivoPlanoGarantiasRecibidas6.csv">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:DataType="3"
+              DTS:TextQualified="True"
+              DTS:ObjectName="co_garantia"
+              DTS:DTSID="{FD1B02C0-F7DF-4206-A2D1-82FD77011333}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000D__x000A_"
+              DTS:MaximumWidth="4000"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="LICENCE NO"
+              DTS:DTSID="{32CCAEF5-A686-4B6A-BCC9-B71664996EBC}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Flat File Connection Manager7]"
+      DTS:CreationName="FLATFILE"
+      DTS:DTSID="{1D317AA2-FDDE-4C5A-959A-5624AA460676}"
+      DTS:ObjectName="Flat File Connection Manager7">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="Delimited"
+          DTS:LocaleID="1033"
+          DTS:HeaderRowDelimiter="_x003B_"
+          DTS:ColumnNamesInFirstDataRow="True"
+          DTS:RowDelimiter=""
+          DTS:TextQualifier="_x003C_none_x003E_"
+          DTS:CodePage="65001"
+          DTS:ConnectionString="D:\App\Migracion-Polaris-ETL1\Csv\ArchivoPlanoGarantiasRecibidas7.csv">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:DataType="3"
+              DTS:TextQualified="True"
+              DTS:ObjectName="co_garantia"
+              DTS:DTSID="{CB5668A5-FCC5-42C4-B96F-ABEC0C6F733C}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000D__x000A_"
+              DTS:MaximumWidth="4000"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="MANUFACTURER"
+              DTS:DTSID="{C92F3D8C-CB18-41BC-8A35-1056B88A3C70}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Flat File Connection Manager8]"
+      DTS:CreationName="FLATFILE"
+      DTS:DTSID="{B76C5B0A-03A6-463F-A3D4-C1CF77A8249A}"
+      DTS:ObjectName="Flat File Connection Manager8">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="Delimited"
+          DTS:LocaleID="1033"
+          DTS:HeaderRowDelimiter="_x003B_"
+          DTS:ColumnNamesInFirstDataRow="True"
+          DTS:RowDelimiter=""
+          DTS:TextQualifier="_x003C_none_x003E_"
+          DTS:CodePage="65001"
+          DTS:ConnectionString="D:\App\Migracion-Polaris-ETL1\Csv\ArchivoPlanoGarantiasRecibidas8.csv">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:DataType="20"
+              DTS:TextQualified="True"
+              DTS:ObjectName="co_garantia"
+              DTS:DTSID="{4579272A-56FE-4A95-A401-4FFDFB4CD416}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000D__x000A_"
+              DTS:MaximumWidth="4000"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="MANUFACTURE YR"
+              DTS:DTSID="{707C6471-270E-4EF4-9586-27AA405E6884}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Flat File Connection Manager9]"
+      DTS:CreationName="FLATFILE"
+      DTS:DTSID="{E4646272-E3D4-40AB-8185-800A7546FA88}"
+      DTS:ObjectName="Flat File Connection Manager9">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="Delimited"
+          DTS:LocaleID="1033"
+          DTS:HeaderRowDelimiter="_x003B_"
+          DTS:ColumnNamesInFirstDataRow="True"
+          DTS:RowDelimiter=""
+          DTS:TextQualifier="_x003C_none_x003E_"
+          DTS:CodePage="65001"
+          DTS:ConnectionString="D:\App\Migracion-Polaris-ETL1\Csv\ArchivoPlanoGarantiasRecibidas9.csv">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:DataType="3"
+              DTS:TextQualified="True"
+              DTS:ObjectName="co_garantia"
+              DTS:DTSID="{75B7A653-6667-43F6-9F72-E88C21D9D330}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000D__x000A_"
+              DTS:MaximumWidth="4000"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="ENGINE NUMBER"
+              DTS:DTSID="{96987CAD-3C53-4DFE-AF7A-270BF1E8CE2C}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Carga Datos de archivo Plano de garantias Recibidas"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:DelayValidation="True"
+      DTS:DTSID="{230FEBFB-8CD4-4D4A-B3B5-7A7B515500C6}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:FailPackageOnFailure="True"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Carga Datos de archivo Plano de garantias Recibidas"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          defaultBufferSize="3145728"
+          version="1">
+          <components>
+            <component
+              refId="Package\Carga Datos de archivo Plano de garantias Recibidas\Flat File Source ArchivoPlanoGarantiasRecibidas1_csv"
+              componentClassID="Microsoft.FlatFileSource"
+              contactInfo="Flat File Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Flat File Source"
+              localeId="1033"
+              name="Flat File Source ArchivoPlanoGarantiasRecibidas1_csv"
+              usesDispositions="true"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Specifies whether zero-length columns are treated as null."
+                  name="RetainNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of an output column containing the file name. If no name is specified, no output column containing the file name will be generated."
+                  name="FileNameColumnName"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Carga Datos de archivo Plano de garantias Recibidas\Flat File Source ArchivoPlanoGarantiasRecibidas1_csv.Connections[FlatFileConnection]"
+                  connectionManagerID="Package.ConnectionManagers[Flat File Connection Manager 1]"
+                  connectionManagerRefId="Package.ConnectionManagers[Flat File Connection Manager 1]"
+                  name="FlatFileConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Carga Datos de archivo Plano de garantias Recibidas\Flat File Source ArchivoPlanoGarantiasRecibidas1_csv.Outputs[Flat File Source Output]"
+                  name="Flat File Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Carga Datos de archivo Plano de garantias Recibidas\Flat File Source ArchivoPlanoGarantiasRecibidas1_csv.Outputs[Flat File Source Output].Columns[co_garantia]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Carga Datos de archivo Plano de garantias Recibidas\Flat File Source ArchivoPlanoGarantiasRecibidas1_csv.Outputs[Flat File Source Output].ExternalColumns[co_garantia]"
+                      lineageId="Package\Carga Datos de archivo Plano de garantias Recibidas\Flat File Source ArchivoPlanoGarantiasRecibidas1_csv.Outputs[Flat File Source Output].Columns[co_garantia]"
+                      name="co_garantia"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Carga Datos de archivo Plano de garantias Recibidas\Flat File Source ArchivoPlanoGarantiasRecibidas1_csv.Outputs[Flat File Source Output].Columns[CENTRAL BANK VALUE]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Carga Datos de archivo Plano de garantias Recibidas\Flat File Source ArchivoPlanoGarantiasRecibidas1_csv.Outputs[Flat File Source Output].ExternalColumns[CENTRAL BANK VALUE]"
+                      length="4000"
+                      lineageId="Package\Carga Datos de archivo Plano de garantias Recibidas\Flat File Source ArchivoPlanoGarantiasRecibidas1_csv.Outputs[Flat File Source Output].Columns[CENTRAL BANK VALUE]"
+                      name="CENTRAL BANK VALUE"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Carga Datos de archivo Plano de garantias Recibidas\Flat File Source ArchivoPlanoGarantiasRecibidas1_csv.Outputs[Flat File Source Output].ExternalColumns[co_garantia]"
+                      dataType="i4"
+                      name="co_garantia" />
+                    <externalMetadataColumn
+                      refId="Package\Carga Datos de archivo Plano de garantias Recibidas\Flat File Source ArchivoPlanoGarantiasRecibidas1_csv.Outputs[Flat File Source Output].ExternalColumns[CENTRAL BANK VALUE]"
+                      dataType="wstr"
+                      length="4000"
+                      name="CENTRAL BANK VALUE" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Carga Datos de archivo Plano de garantias Recibidas\Flat File Source ArchivoPlanoGarantiasRecibidas1_csv.Outputs[Flat File Source Error Output]"
+                  isErrorOut="true"
+                  name="Flat File Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Carga Datos de archivo Plano de garantias Recibidas\Flat File Source ArchivoPlanoGarantiasRecibidas1_csv.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                      codePage="65001"
+                      dataType="text"
+                      description="Flat File Source Error Output Column"
+                      lineageId="Package\Carga Datos de archivo Plano de garantias Recibidas\Flat File Source ArchivoPlanoGarantiasRecibidas1_csv.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                      name="Flat File Source Error Output Column" />
+                    <outputColumn
+                      refId="Package\Carga Datos de archivo Plano de garantias Recibidas\Flat File Source ArchivoPlanoGarantiasRecibidas1_csv.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Carga Datos de archivo Plano de garantias Recibidas\Flat File Source ArchivoPlanoGarantiasRecibidas1_csv.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Carga Datos de archivo Plano de garantias Recibidas\Flat File Source ArchivoPlanoGarantiasRecibidas1_csv.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Carga Datos de archivo Plano de garantias Recibidas\Flat File Source ArchivoPlanoGarantiasRecibidas1_csv.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Carga Datos de archivo Plano de garantias Recibidas\Flat File Source ArchivoPlanoGarantiasRecibidas2_csv"
+              componentClassID="Microsoft.FlatFileSource"
+              contactInfo="Flat File Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Flat File Source"
+              localeId="1033"
+              name="Flat File Source ArchivoPlanoGarantiasRecibidas2_csv"
+              usesDispositions="true"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Specifies whether zero-length columns are treated as null."
+                  name="RetainNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of an output column containing the file name. If no name is specified, no output column containing the file name will be generated."
+                  name="FileNameColumnName"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Carga Datos de archivo Plano de garantias Recibidas\Flat File Source ArchivoPlanoGarantiasRecibidas2_csv.Connections[FlatFileConnection]"
+                  connectionManagerID="Package.ConnectionManagers[Flat File Connection Manager2]"
+                  connectionManagerRefId="Package.ConnectionManagers[Flat File Connection Manager2]"
+                  name="FlatFileConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Carga Datos de archivo Plano de garantias Recibidas\Flat File Source ArchivoPlanoGarantiasRecibidas2_csv.Outputs[Flat File Source Output]"
+                  name="Flat File Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Carga Datos de archivo Plano de garantias Recibidas\Flat File Source ArchivoPlanoGarantiasRecibidas2_csv.Outputs[Flat File Source Output].Columns[co_garantia]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Carga Datos de archivo Plano de garantias Recibidas\Flat File Source ArchivoPlanoGarantiasRecibidas2_csv.Outputs[Flat File Source Output].ExternalColumns[co_garantia]"
+                      lineageId="Package\Carga Datos de archivo Plano de garantias Recibidas\Flat File Source ArchivoPlanoGarantiasRecibidas2_csv.Outputs[Flat File Source Output].Columns[co_garantia]"
+                      name="co_garantia"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Carga Datos de archivo Plano de garantias Recibidas\Flat File Source ArchivoPlanoGarantiasRecibidas2_csv.Outputs[Flat File Source Output].Columns[ADDRESS]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Carga Datos de archivo Plano de garantias Recibidas\Flat File Source ArchivoPlanoGarantiasRecibidas2_csv.Outputs[Flat File Source Output].ExternalColumns[ADDRESS]"
+                      length="4000"
+                      lineageId="Package\Carga Datos de archivo Plano de garantias Recibidas\Flat File Source ArchivoPlanoGarantiasRecibidas2_csv.Outputs[Flat File Source Output].Columns[ADDRESS]"
+                      name="ADDRESS"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Carga Datos de archivo Plano de garantias Recibidas\Flat File Source ArchivoPlanoGarantiasRecibidas2_csv.Outputs[Flat File Source Output].ExternalColumns[co_garantia]"
+                      dataType="i4"
+                      name="co_garantia" />
+                    <externalMetadataColumn
+                      refId="Package\Carga Datos de archivo Plano de garantias Recibidas\Flat File Source ArchivoPlanoGarantiasRecibidas2_csv.Outputs[Flat File Source Output].ExternalColumns[ADDRESS]"
+                      dataType="wstr"
+                      length="4000"
+                      name="ADDRESS" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Carga Datos de archivo Plano de garantias Recibidas\Flat File Source ArchivoPlanoGarantiasRecibidas2_csv.Outputs[Flat File Source Error Output]"
+                  isErrorOut="true"
+                  name="Flat File Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Carga Datos de archivo Plano de garantias Recibidas\Flat File Source ArchivoPlanoGarantiasRecibidas2_csv.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                      codePage="65001"
+                      dataType="text"
+                      description="Flat File Source Error Output Column"
+                      lineageId="Package\Carga Datos de archivo Plano de garantias Recibidas\Flat File Source ArchivoPlanoGarantiasRecibidas2_csv.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                      name="Flat File Source Error Output Column" />
+                    <outputColumn
+                      refId="Package\Carga Datos de archivo Plano de garantias Recibidas\Flat File Source ArchivoPlanoGarantiasRecibidas2_csv.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Carga Datos de archivo Plano de garantias Recibidas\Flat File Source ArchivoPlanoGarantiasRecibidas2_csv.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Carga Datos de archivo Plano de garantias Recibidas\Flat File Source ArchivoPlanoGarantiasRecibidas2_csv.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Carga Datos de archivo Plano de garantias Recibidas\Flat File Source ArchivoPlanoGarantiasRecibidas2_csv.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Carga Datos de archivo Plano de garantias Recibidas\Flat File Source ArchivoPlanoGarantiasRecibidas3_csv"
+              componentClassID="Microsoft.FlatFileSource"
+              contactInfo="Flat File Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Flat File Source"
+              localeId="1033"
+              name="Flat File Source ArchivoPlanoGarantiasRecibidas3_csv"
+              usesDispositions="true"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Specifies whether zero-length columns are treated as null."
+                  name="RetainNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of an output column containing the file name. If no name is specified, no output column containing the file name will be generated."
+                  name="FileNameColumnName"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Carga Datos de archivo Plano de garantias Recibidas\Flat File Source ArchivoPlanoGarantiasRecibidas3_csv.Connections[FlatFileConnection]"
+                  connectionManagerID="Package.ConnectionManagers[Flat File Connection Manager3]"
+                  connectionManagerRefId="Package.ConnectionManagers[Flat File Connection Manager3]"
+                  name="FlatFileConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Carga Datos de archivo Plano de garantias Recibidas\Flat File Source ArchivoPlanoGarantiasRecibidas3_csv.Outputs[Flat File Source Output]"
+                  name="Flat File Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Carga Datos de archivo Plano de garantias Recibidas\Flat File Source ArchivoPlanoGarantiasRecibidas3_csv.Outputs[Flat File Source Output].Columns[co_garantia]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Carga Datos de archivo Plano de garantias Recibidas\Flat File Source ArchivoPlanoGarantiasRecibidas3_csv.Outputs[Flat File Source Output].ExternalColumns[co_garantia]"
+                      lineageId="Package\Carga Datos de archivo Plano de garantias Recibidas\Flat File Source ArchivoPlanoGarantiasRecibidas3_csv.Outputs[Flat File Source Output].Columns[co_garantia]"
+                      name="co_garantia"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Carga Datos de archivo Plano de garantias Recibidas\Flat File Source ArchivoPlanoGarantiasRecibidas3_csv.Outputs[Flat File Source Output].Columns[ISSUER]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Carga Datos de archivo Plano de garantias Recibidas\Flat File Source ArchivoPlanoGarantiasRecibidas3_csv.Outputs[Flat File Source Output].ExternalColumns[ISSUER]"
+                      length="4000"
+                      lineageId="Package\Carga Datos de archivo Plano de garantias Recibidas\Flat File Source ArchivoPlanoGarantiasRecibidas3_csv.Outputs[Flat File Source Output].Columns[ISSUER]"
+                      name="ISSUER"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Carga Datos de archivo Plano de garantias Recibidas\Flat File Source ArchivoPlanoGarantiasRecibidas3_csv.Outputs[Flat File Source Output].ExternalColumns[co_garantia]"
+                      dataType="i4"
+                      name="co_garantia" />
+                    <externalMetadataColumn
+                      refId="Package\Carga Datos de archivo Plano de garantias Recibidas\Flat File Source ArchivoPlanoGarantiasRecibidas3_csv.Outputs[Flat File Source Output].ExternalColumns[ISSUER]"
+                      dataType="wstr"
+                      length="4000"
+                      name="ISSUER" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Carga Datos de archivo Plano de garantias Recibidas\Flat File Source ArchivoPlanoGarantiasRecibidas3_csv.Outputs[Flat File Source Error Output]"
+                  isErrorOut="true"
+                  name="Flat File Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Carga Datos de archivo Plano de garantias Recibidas\Flat File Source ArchivoPlanoGarantiasRecibidas3_csv.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                      codePage="65001"
+                      dataType="text"
+                      description="Flat File Source Error Output Column"
+                      lineageId="Package\Carga Datos de archivo Plano de garantias Recibidas\Flat File Source ArchivoPlanoGarantiasRecibidas3_csv.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                      name="Flat File Source Error Output Column" />
+                    <outputColumn
+                      refId="Package\Carga Datos de archivo Plano de garantias Recibidas\Flat File Source ArchivoPlanoGarantiasRecibidas3_csv.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Carga Datos de archivo Plano de garantias Recibidas\Flat File Source ArchivoPlanoGarantiasRecibidas3_csv.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Carga Datos de archivo Plano de garantias Recibidas\Flat File Source ArchivoPlanoGarantiasRecibidas3_csv.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Carga Datos de archivo Plano de garantias Recibidas\Flat File Source ArchivoPlanoGarantiasRecibidas3_csv.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Carga Datos de archivo Plano de garantias Recibidas\Flat File Source ArchivoPlanoGarantiasRecibidas4_csv"
+              componentClassID="Microsoft.FlatFileSource"
+              contactInfo="Flat File Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Flat File Source"
+              localeId="1033"
+              name="Flat File Source ArchivoPlanoGarantiasRecibidas4_csv"
+              usesDispositions="true"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Specifies whether zero-length columns are treated as null."
+                  name="RetainNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of an output column containing the file name. If no name is specified, no output column containing the file name will be generated."
+                  name="FileNameColumnName"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Carga Datos de archivo Plano de garantias Recibidas\Flat File Source ArchivoPlanoGarantiasRecibidas4_csv.Connections[FlatFileConnection]"
+                  connectionManagerID="Package.ConnectionManagers[Flat File Connection Manager4]"
+                  connectionManagerRefId="Package.ConnectionManagers[Flat File Connection Manager4]"
+                  name="FlatFileConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Carga Datos de archivo Plano de garantias Recibidas\Flat File Source ArchivoPlanoGarantiasRecibidas4_csv.Outputs[Flat File Source Output]"
+                  name="Flat File Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Carga Datos de archivo Plano de garantias Recibidas\Flat File Source ArchivoPlanoGarantiasRecibidas4_csv.Outputs[Flat File Source Output].Columns[co_garantia]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Carga Datos de archivo Plano de garantias Recibidas\Flat File Source ArchivoPlanoGarantiasRecibidas4_csv.Outputs[Flat File Source Output].ExternalColumns[co_garantia]"
+                      lineageId="Package\Carga Datos de archivo Plano de garantias Recibidas\Flat File Source ArchivoPlanoGarantiasRecibidas4_csv.Outputs[Flat File Source Output].Columns[co_garantia]"
+                      name="co_garantia"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Carga Datos de archivo Plano de garantias Recibidas\Flat File Source ArchivoPlanoGarantiasRecibidas4_csv.Outputs[Flat File Source Output].Columns[VEHICLE MODEL]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Carga Datos de archivo Plano de garantias Recibidas\Flat File Source ArchivoPlanoGarantiasRecibidas4_csv.Outputs[Flat File Source Output].ExternalColumns[VEHICLE MODEL]"
+                      length="4000"
+                      lineageId="Package\Carga Datos de archivo Plano de garantias Recibidas\Flat File Source ArchivoPlanoGarantiasRecibidas4_csv.Outputs[Flat File Source Output].Columns[VEHICLE MODEL]"
+                      name="VEHICLE MODEL"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Carga Datos de archivo Plano de garantias Recibidas\Flat File Source ArchivoPlanoGarantiasRecibidas4_csv.Outputs[Flat File Source Output].ExternalColumns[co_garantia]"
+                      dataType="i4"
+                      name="co_garantia" />
+                    <externalMetadataColumn
+                      refId="Package\Carga Datos de archivo Plano de garantias Recibidas\Flat File Source ArchivoPlanoGarantiasRecibidas4_csv.Outputs[Flat File Source Output].ExternalColumns[VEHICLE MODEL]"
+                      dataType="wstr"
+                      length="4000"
+                      name="VEHICLE MODEL" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Carga Datos de archivo Plano de garantias Recibidas\Flat File Source ArchivoPlanoGarantiasRecibidas4_csv.Outputs[Flat File Source Error Output]"
+                  isErrorOut="true"
+                  name="Flat File Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Carga Datos de archivo Plano de garantias Recibidas\Flat File Source ArchivoPlanoGarantiasRecibidas4_csv.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                      codePage="65001"
+                      dataType="text"
+                      description="Flat File Source Error Output Column"
+                      lineageId="Package\Carga Datos de archivo Plano de garantias Recibidas\Flat File Source ArchivoPlanoGarantiasRecibidas4_csv.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                      name="Flat File Source Error Output Column" />
+                    <outputColumn
+                      refId="Package\Carga Datos de archivo Plano de garantias Recibidas\Flat File Source ArchivoPlanoGarantiasRecibidas4_csv.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Carga Datos de archivo Plano de garantias Recibidas\Flat File Source ArchivoPlanoGarantiasRecibidas4_csv.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Carga Datos de archivo Plano de garantias Recibidas\Flat File Source ArchivoPlanoGarantiasRecibidas4_csv.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Carga Datos de archivo Plano de garantias Recibidas\Flat File Source ArchivoPlanoGarantiasRecibidas4_csv.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Carga Datos de archivo Plano de garantias Recibidas\Flat File Source ArchivoPlanoGarantiasRecibidas5_csv"
+              componentClassID="Microsoft.FlatFileSource"
+              contactInfo="Flat File Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Flat File Source"
+              localeId="1033"
+              name="Flat File Source ArchivoPlanoGarantiasRecibidas5_csv"
+              usesDispositions="true"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Specifies whether zero-length columns are treated as null."
+                  name="RetainNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of an output column containing the file name. If no name is specified, no output column containing the file name will be generated."
+                  name="FileNameColumnName"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Carga Datos de archivo Plano de garantias Recibidas\Flat File Source ArchivoPlanoGarantiasRecibidas5_csv.Connections[FlatFileConnection]"
+                  connectionManagerID="Package.ConnectionManagers[Flat File Connection Manager5]"
+                  connectionManagerRefId="Package.ConnectionManagers[Flat File Connection Manager5]"
+                  name="FlatFileConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Carga Datos de archivo Plano de garantias Recibidas\Flat File Source ArchivoPlanoGarantiasRecibidas5_csv.Outputs[Flat File Source Output]"
+                  name="Flat File Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Carga Datos de archivo Plano de garantias Recibidas\Flat File Source ArchivoPlanoGarantiasRecibidas5_csv.Outputs[Flat File Source Output].Columns[co_garantia]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Carga Datos de archivo Plano de garantias Recibidas\Flat File Source ArchivoPlanoGarantiasRecibidas5_csv.Outputs[Flat File Source Output].ExternalColumns[co_garantia]"
+                      lineageId="Package\Carga Datos de archivo Plano de garantias Recibidas\Flat File Source ArchivoPlanoGarantiasRecibidas5_csv.Outputs[Flat File Source Output].Columns[co_garantia]"
+                      name="co_garantia"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Carga Datos de archivo Plano de garantias Recibidas\Flat File Source ArchivoPlanoGarantiasRecibidas5_csv.Outputs[Flat File Source Output].Columns[INS EXPIRY DT]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Carga Datos de archivo Plano de garantias Recibidas\Flat File Source ArchivoPlanoGarantiasRecibidas5_csv.Outputs[Flat File Source Output].ExternalColumns[INS EXPIRY DT]"
+                      length="4000"
+                      lineageId="Package\Carga Datos de archivo Plano de garantias Recibidas\Flat File Source ArchivoPlanoGarantiasRecibidas5_csv.Outputs[Flat File Source Output].Columns[INS EXPIRY DT]"
+                      name="INS EXPIRY DT"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Carga Datos de archivo Plano de garantias Recibidas\Flat File Source ArchivoPlanoGarantiasRecibidas5_csv.Outputs[Flat File Source Output].ExternalColumns[co_garantia]"
+                      dataType="i4"
+                      name="co_garantia" />
+                    <externalMetadataColumn
+                      refId="Package\Carga Datos de archivo Plano de garantias Recibidas\Flat File Source ArchivoPlanoGarantiasRecibidas5_csv.Outputs[Flat File Source Output].ExternalColumns[INS EXPIRY DT]"
+                      dataType="wstr"
+                      length="4000"
+                      name="INS EXPIRY DT" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Carga Datos de archivo Plano de garantias Recibidas\Flat File Source ArchivoPlanoGarantiasRecibidas5_csv.Outputs[Flat File Source Error Output]"
+                  isErrorOut="true"
+                  name="Flat File Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Carga Datos de archivo Plano de garantias Recibidas\Flat File Source ArchivoPlanoGarantiasRecibidas5_csv.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                      codePage="65001"
+                      dataType="text"
+                      description="Flat File Source Error Output Column"
+                      lineageId="Package\Carga Datos de archivo Plano de garantias Recibidas\Flat File Source ArchivoPlanoGarantiasRecibidas5_csv.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                      name="Flat File Source Error Output Column" />
+                    <outputColumn
+                      refId="Package\Carga Datos de archivo Plano de garantias Recibidas\Flat File Source ArchivoPlanoGarantiasRecibidas5_csv.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Carga Datos de archivo Plano de garantias Recibidas\Flat File Source ArchivoPlanoGarantiasRecibidas5_csv.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Carga Datos de archivo Plano de garantias Recibidas\Flat File Source ArchivoPlanoGarantiasRecibidas5_csv.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Carga Datos de archivo Plano de garantias Recibidas\Flat File Source ArchivoPlanoGarantiasRecibidas5_csv.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Carga Datos de archivo Plano de garantias Recibidas\Flat File Source ArchivoPlanoGarantiasRecibidas6_csv"
+              componentClassID="Microsoft.FlatFileSource"
+              contactInfo="Flat File Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Flat File Source"
+              localeId="1033"
+              name="Flat File Source ArchivoPlanoGarantiasRecibidas6_csv"
+              usesDispositions="true"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Specifies whether zero-length columns are treated as null."
+                  name="RetainNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of an output column containing the file name. If no name is specified, no output column containing the file name will be generated."
+                  name="FileNameColumnName"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Carga Datos de archivo Plano de garantias Recibidas\Flat File Source ArchivoPlanoGarantiasRecibidas6_csv.Connections[FlatFileConnection]"
+                  connectionManagerID="Package.ConnectionManagers[Flat File Connection Manager6]"
+                  connectionManagerRefId="Package.ConnectionManagers[Flat File Connection Manager6]"
+                  name="FlatFileConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Carga Datos de archivo Plano de garantias Recibidas\Flat File Source ArchivoPlanoGarantiasRecibidas6_csv.Outputs[Flat File Source Output]"
+                  name="Flat File Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Carga Datos de archivo Plano de garantias Recibidas\Flat File Source ArchivoPlanoGarantiasRecibidas6_csv.Outputs[Flat File Source Output].Columns[co_garantia]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Carga Datos de archivo Plano de garantias Recibidas\Flat File Source ArchivoPlanoGarantiasRecibidas6_csv.Outputs[Flat File Source Output].ExternalColumns[co_garantia]"
+                      lineageId="Package\Carga Datos de archivo Plano de garantias Recibidas\Flat File Source ArchivoPlanoGarantiasRecibidas6_csv.Outputs[Flat File Source Output].Columns[co_garantia]"
+                      name="co_garantia"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Carga Datos de archivo Plano de garantias Recibidas\Flat File Source ArchivoPlanoGarantiasRecibidas6_csv.Outputs[Flat File Source Output].Columns[LICENCE NO]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Carga Datos de archivo Plano de garantias Recibidas\Flat File Source ArchivoPlanoGarantiasRecibidas6_csv.Outputs[Flat File Source Output].ExternalColumns[LICENCE NO]"
+                      length="4000"
+                      lineageId="Package\Carga Datos de archivo Plano de garantias Recibidas\Flat File Source ArchivoPlanoGarantiasRecibidas6_csv.Outputs[Flat File Source Output].Columns[LICENCE NO]"
+                      name="LICENCE NO"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Carga Datos de archivo Plano de garantias Recibidas\Flat File Source ArchivoPlanoGarantiasRecibidas6_csv.Outputs[Flat File Source Output].ExternalColumns[co_garantia]"
+                      dataType="i4"
+                      name="co_garantia" />
+                    <externalMetadataColumn
+                      refId="Package\Carga Datos de archivo Plano de garantias Recibidas\Flat File Source ArchivoPlanoGarantiasRecibidas6_csv.Outputs[Flat File Source Output].ExternalColumns[LICENCE NO]"
+                      dataType="wstr"
+                      length="4000"
+                      name="LICENCE NO" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Carga Datos de archivo Plano de garantias Recibidas\Flat File Source ArchivoPlanoGarantiasRecibidas6_csv.Outputs[Flat File Source Error Output]"
+                  isErrorOut="true"
+                  name="Flat File Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Carga Datos de archivo Plano de garantias Recibidas\Flat File Source ArchivoPlanoGarantiasRecibidas6_csv.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                      codePage="65001"
+                      dataType="text"
+                      description="Flat File Source Error Output Column"
+                      lineageId="Package\Carga Datos de archivo Plano de garantias Recibidas\Flat File Source ArchivoPlanoGarantiasRecibidas6_csv.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                      name="Flat File Source Error Output Column" />
+                    <outputColumn
+                      refId="Package\Carga Datos de archivo Plano de garantias Recibidas\Flat File Source ArchivoPlanoGarantiasRecibidas6_csv.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Carga Datos de archivo Plano de garantias Recibidas\Flat File Source ArchivoPlanoGarantiasRecibidas6_csv.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Carga Datos de archivo Plano de garantias Recibidas\Flat File Source ArchivoPlanoGarantiasRecibidas6_csv.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Carga Datos de archivo Plano de garantias Recibidas\Flat File Source ArchivoPlanoGarantiasRecibidas6_csv.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Carga Datos de archivo Plano de garantias Recibidas\Flat File Source ArchivoPlanoGarantiasRecibidas7_csv"
+              componentClassID="Microsoft.FlatFileSource"
+              contactInfo="Flat File Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Flat File Source"
+              localeId="1033"
+              name="Flat File Source ArchivoPlanoGarantiasRecibidas7_csv"
+              usesDispositions="true"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Specifies whether zero-length columns are treated as null."
+                  name="RetainNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of an output column containing the file name. If no name is specified, no output column containing the file name will be generated."
+                  name="FileNameColumnName"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Carga Datos de archivo Plano de garantias Recibidas\Flat File Source ArchivoPlanoGarantiasRecibidas7_csv.Connections[FlatFileConnection]"
+                  connectionManagerID="Package.ConnectionManagers[Flat File Connection Manager7]"
+                  connectionManagerRefId="Package.ConnectionManagers[Flat File Connection Manager7]"
+                  name="FlatFileConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Carga Datos de archivo Plano de garantias Recibidas\Flat File Source ArchivoPlanoGarantiasRecibidas7_csv.Outputs[Flat File Source Output]"
+                  name="Flat File Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Carga Datos de archivo Plano de garantias Recibidas\Flat File Source ArchivoPlanoGarantiasRecibidas7_csv.Outputs[Flat File Source Output].Columns[co_garantia]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Carga Datos de archivo Plano de garantias Recibidas\Flat File Source ArchivoPlanoGarantiasRecibidas7_csv.Outputs[Flat File Source Output].ExternalColumns[co_garantia]"
+                      lineageId="Package\Carga Datos de archivo Plano de garantias Recibidas\Flat File Source ArchivoPlanoGarantiasRecibidas7_csv.Outputs[Flat File Source Output].Columns[co_garantia]"
+                      name="co_garantia"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Carga Datos de archivo Plano de garantias Recibidas\Flat File Source ArchivoPlanoGarantiasRecibidas7_csv.Outputs[Flat File Source Output].Columns[MANUFACTURER]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Carga Datos de archivo Plano de garantias Recibidas\Flat File Source ArchivoPlanoGarantiasRecibidas7_csv.Outputs[Flat File Source Output].ExternalColumns[MANUFACTURER]"
+                      length="4000"
+                      lineageId="Package\Carga Datos de archivo Plano de garantias Recibidas\Flat File Source ArchivoPlanoGarantiasRecibidas7_csv.Outputs[Flat File Source Output].Columns[MANUFACTURER]"
+                      name="MANUFACTURER"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Carga Datos de archivo Plano de garantias Recibidas\Flat File Source ArchivoPlanoGarantiasRecibidas7_csv.Outputs[Flat File Source Output].ExternalColumns[co_garantia]"
+                      dataType="i4"
+                      name="co_garantia" />
+                    <externalMetadataColumn
+                      refId="Package\Carga Datos de archivo Plano de garantias Recibidas\Flat File Source ArchivoPlanoGarantiasRecibidas7_csv.Outputs[Flat File Source Output].ExternalColumns[MANUFACTURER]"
+                      dataType="wstr"
+                      length="4000"
+                      name="MANUFACTURER" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Carga Datos de archivo Plano de garantias Recibidas\Flat File Source ArchivoPlanoGarantiasRecibidas7_csv.Outputs[Flat File Source Error Output]"
+                  isErrorOut="true"
+                  name="Flat File Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Carga Datos de archivo Plano de garantias Recibidas\Flat File Source ArchivoPlanoGarantiasRecibidas7_csv.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                      codePage="65001"
+                      dataType="text"
+                      description="Flat File Source Error Output Column"
+                      lineageId="Package\Carga Datos de archivo Plano de garantias Recibidas\Flat File Source ArchivoPlanoGarantiasRecibidas7_csv.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                      name="Flat File Source Error Output Column" />
+                    <outputColumn
+                      refId="Package\Carga Datos de archivo Plano de garantias Recibidas\Flat File Source ArchivoPlanoGarantiasRecibidas7_csv.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Carga Datos de archivo Plano de garantias Recibidas\Flat File Source ArchivoPlanoGarantiasRecibidas7_csv.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Carga Datos de archivo Plano de garantias Recibidas\Flat File Source ArchivoPlanoGarantiasRecibidas7_csv.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Carga Datos de archivo Plano de garantias Recibidas\Flat File Source ArchivoPlanoGarantiasRecibidas7_csv.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Carga Datos de archivo Plano de garantias Recibidas\Flat File Source ArchivoPlanoGarantiasRecibidas8_csv"
+              componentClassID="Microsoft.FlatFileSource"
+              contactInfo="Flat File Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Flat File Source"
+              localeId="1033"
+              name="Flat File Source ArchivoPlanoGarantiasRecibidas8_csv"
+              usesDispositions="true"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Specifies whether zero-length columns are treated as null."
+                  name="RetainNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of an output column containing the file name. If no name is specified, no output column containing the file name will be generated."
+                  name="FileNameColumnName"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Carga Datos de archivo Plano de garantias Recibidas\Flat File Source ArchivoPlanoGarantiasRecibidas8_csv.Connections[FlatFileConnection]"
+                  connectionManagerID="Package.ConnectionManagers[Flat File Connection Manager8]"
+                  connectionManagerRefId="Package.ConnectionManagers[Flat File Connection Manager8]"
+                  name="FlatFileConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Carga Datos de archivo Plano de garantias Recibidas\Flat File Source ArchivoPlanoGarantiasRecibidas8_csv.Outputs[Flat File Source Output]"
+                  name="Flat File Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Carga Datos de archivo Plano de garantias Recibidas\Flat File Source ArchivoPlanoGarantiasRecibidas8_csv.Outputs[Flat File Source Output].Columns[co_garantia]"
+                      dataType="i8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Carga Datos de archivo Plano de garantias Recibidas\Flat File Source ArchivoPlanoGarantiasRecibidas8_csv.Outputs[Flat File Source Output].ExternalColumns[co_garantia]"
+                      lineageId="Package\Carga Datos de archivo Plano de garantias Recibidas\Flat File Source ArchivoPlanoGarantiasRecibidas8_csv.Outputs[Flat File Source Output].Columns[co_garantia]"
+                      name="co_garantia"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Carga Datos de archivo Plano de garantias Recibidas\Flat File Source ArchivoPlanoGarantiasRecibidas8_csv.Outputs[Flat File Source Output].Columns[MANUFACTURE YR]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Carga Datos de archivo Plano de garantias Recibidas\Flat File Source ArchivoPlanoGarantiasRecibidas8_csv.Outputs[Flat File Source Output].ExternalColumns[MANUFACTURE YR]"
+                      length="4000"
+                      lineageId="Package\Carga Datos de archivo Plano de garantias Recibidas\Flat File Source ArchivoPlanoGarantiasRecibidas8_csv.Outputs[Flat File Source Output].Columns[MANUFACTURE YR]"
+                      name="MANUFACTURE YR"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Carga Datos de archivo Plano de garantias Recibidas\Flat File Source ArchivoPlanoGarantiasRecibidas8_csv.Outputs[Flat File Source Output].ExternalColumns[co_garantia]"
+                      dataType="i8"
+                      name="co_garantia" />
+                    <externalMetadataColumn
+                      refId="Package\Carga Datos de archivo Plano de garantias Recibidas\Flat File Source ArchivoPlanoGarantiasRecibidas8_csv.Outputs[Flat File Source Output].ExternalColumns[MANUFACTURE YR]"
+                      dataType="wstr"
+                      length="4000"
+                      name="MANUFACTURE YR" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Carga Datos de archivo Plano de garantias Recibidas\Flat File Source ArchivoPlanoGarantiasRecibidas8_csv.Outputs[Flat File Source Error Output]"
+                  isErrorOut="true"
+                  name="Flat File Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Carga Datos de archivo Plano de garantias Recibidas\Flat File Source ArchivoPlanoGarantiasRecibidas8_csv.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                      codePage="65001"
+                      dataType="text"
+                      description="Flat File Source Error Output Column"
+                      lineageId="Package\Carga Datos de archivo Plano de garantias Recibidas\Flat File Source ArchivoPlanoGarantiasRecibidas8_csv.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                      name="Flat File Source Error Output Column" />
+                    <outputColumn
+                      refId="Package\Carga Datos de archivo Plano de garantias Recibidas\Flat File Source ArchivoPlanoGarantiasRecibidas8_csv.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Carga Datos de archivo Plano de garantias Recibidas\Flat File Source ArchivoPlanoGarantiasRecibidas8_csv.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Carga Datos de archivo Plano de garantias Recibidas\Flat File Source ArchivoPlanoGarantiasRecibidas8_csv.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Carga Datos de archivo Plano de garantias Recibidas\Flat File Source ArchivoPlanoGarantiasRecibidas8_csv.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Carga Datos de archivo Plano de garantias Recibidas\Flat File Source ArchivoPlanoGarantiasRecibidas9_csv"
+              componentClassID="Microsoft.FlatFileSource"
+              contactInfo="Flat File Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Flat File Source"
+              localeId="1033"
+              name="Flat File Source ArchivoPlanoGarantiasRecibidas9_csv"
+              usesDispositions="true"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Specifies whether zero-length columns are treated as null."
+                  name="RetainNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of an output column containing the file name. If no name is specified, no output column containing the file name will be generated."
+                  name="FileNameColumnName"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Carga Datos de archivo Plano de garantias Recibidas\Flat File Source ArchivoPlanoGarantiasRecibidas9_csv.Connections[FlatFileConnection]"
+                  connectionManagerID="Package.ConnectionManagers[Flat File Connection Manager9]"
+                  connectionManagerRefId="Package.ConnectionManagers[Flat File Connection Manager9]"
+                  name="FlatFileConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Carga Datos de archivo Plano de garantias Recibidas\Flat File Source ArchivoPlanoGarantiasRecibidas9_csv.Outputs[Flat File Source Output]"
+                  name="Flat File Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Carga Datos de archivo Plano de garantias Recibidas\Flat File Source ArchivoPlanoGarantiasRecibidas9_csv.Outputs[Flat File Source Output].Columns[co_garantia]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Carga Datos de archivo Plano de garantias Recibidas\Flat File Source ArchivoPlanoGarantiasRecibidas9_csv.Outputs[Flat File Source Output].ExternalColumns[co_garantia]"
+                      lineageId="Package\Carga Datos de archivo Plano de garantias Recibidas\Flat File Source ArchivoPlanoGarantiasRecibidas9_csv.Outputs[Flat File Source Output].Columns[co_garantia]"
+                      name="co_garantia"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Carga Datos de archivo Plano de garantias Recibidas\Flat File Source ArchivoPlanoGarantiasRecibidas9_csv.Outputs[Flat File Source Output].Columns[ENGINE NUMBER]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Carga Datos de archivo Plano de garantias Recibidas\Flat File Source ArchivoPlanoGarantiasRecibidas9_csv.Outputs[Flat File Source Output].ExternalColumns[ENGINE NUMBER]"
+                      length="4000"
+                      lineageId="Package\Carga Datos de archivo Plano de garantias Recibidas\Flat File Source ArchivoPlanoGarantiasRecibidas9_csv.Outputs[Flat File Source Output].Columns[ENGINE NUMBER]"
+                      name="ENGINE NUMBER"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Carga Datos de archivo Plano de garantias Recibidas\Flat File Source ArchivoPlanoGarantiasRecibidas9_csv.Outputs[Flat File Source Output].ExternalColumns[co_garantia]"
+                      dataType="i4"
+                      name="co_garantia" />
+                    <externalMetadataColumn
+                      refId="Package\Carga Datos de archivo Plano de garantias Recibidas\Flat File Source ArchivoPlanoGarantiasRecibidas9_csv.Outputs[Flat File Source Output].ExternalColumns[ENGINE NUMBER]"
+                      dataType="wstr"
+                      length="4000"
+                      name="ENGINE NUMBER" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Carga Datos de archivo Plano de garantias Recibidas\Flat File Source ArchivoPlanoGarantiasRecibidas9_csv.Outputs[Flat File Source Error Output]"
+                  isErrorOut="true"
+                  name="Flat File Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Carga Datos de archivo Plano de garantias Recibidas\Flat File Source ArchivoPlanoGarantiasRecibidas9_csv.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                      codePage="65001"
+                      dataType="text"
+                      description="Flat File Source Error Output Column"
+                      lineageId="Package\Carga Datos de archivo Plano de garantias Recibidas\Flat File Source ArchivoPlanoGarantiasRecibidas9_csv.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                      name="Flat File Source Error Output Column" />
+                    <outputColumn
+                      refId="Package\Carga Datos de archivo Plano de garantias Recibidas\Flat File Source ArchivoPlanoGarantiasRecibidas9_csv.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Carga Datos de archivo Plano de garantias Recibidas\Flat File Source ArchivoPlanoGarantiasRecibidas9_csv.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Carga Datos de archivo Plano de garantias Recibidas\Flat File Source ArchivoPlanoGarantiasRecibidas9_csv.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Carga Datos de archivo Plano de garantias Recibidas\Flat File Source ArchivoPlanoGarantiasRecibidas9_csv.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Carga Datos de archivo Plano de garantias Recibidas\OLE DB Destination 7"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="OLE DB Destination 7"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[TmpArchivoPlanoGarantiasRecibidas7]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=16.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Carga Datos de archivo Plano de garantias Recibidas\OLE DB Destination 7.Connections[OleDbConnection]"
+                  connectionManagerID="{70000693-BDE1-4FE0-B772-11B7D4A7A452}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[STGLegados]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Carga Datos de archivo Plano de garantias Recibidas\OLE DB Destination 7.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Carga Datos de archivo Plano de garantias Recibidas\OLE DB Destination 7.Inputs[OLE DB Destination Input].Columns[co_garantia]"
+                      cachedDataType="i4"
+                      cachedName="co_garantia"
+                      externalMetadataColumnId="Package\Carga Datos de archivo Plano de garantias Recibidas\OLE DB Destination 7.Inputs[OLE DB Destination Input].ExternalColumns[co_garantia]"
+                      lineageId="Package\Carga Datos de archivo Plano de garantias Recibidas\Flat File Source ArchivoPlanoGarantiasRecibidas7_csv.Outputs[Flat File Source Output].Columns[co_garantia]" />
+                    <inputColumn
+                      refId="Package\Carga Datos de archivo Plano de garantias Recibidas\OLE DB Destination 7.Inputs[OLE DB Destination Input].Columns[MANUFACTURER]"
+                      cachedDataType="wstr"
+                      cachedLength="4000"
+                      cachedName="MANUFACTURER"
+                      externalMetadataColumnId="Package\Carga Datos de archivo Plano de garantias Recibidas\OLE DB Destination 7.Inputs[OLE DB Destination Input].ExternalColumns[MANUFACTURER]"
+                      lineageId="Package\Carga Datos de archivo Plano de garantias Recibidas\Flat File Source ArchivoPlanoGarantiasRecibidas7_csv.Outputs[Flat File Source Output].Columns[MANUFACTURER]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Carga Datos de archivo Plano de garantias Recibidas\OLE DB Destination 7.Inputs[OLE DB Destination Input].ExternalColumns[co_garantia]"
+                      dataType="i4"
+                      name="co_garantia" />
+                    <externalMetadataColumn
+                      refId="Package\Carga Datos de archivo Plano de garantias Recibidas\OLE DB Destination 7.Inputs[OLE DB Destination Input].ExternalColumns[MANUFACTURER]"
+                      dataType="nText"
+                      name="MANUFACTURER" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Carga Datos de archivo Plano de garantias Recibidas\OLE DB Destination 7.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\Carga Datos de archivo Plano de garantias Recibidas\OLE DB Destination 7.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Carga Datos de archivo Plano de garantias Recibidas\OLE DB Destination 7.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Carga Datos de archivo Plano de garantias Recibidas\OLE DB Destination 7.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Carga Datos de archivo Plano de garantias Recibidas\OLE DB Destination 7.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Carga Datos de archivo Plano de garantias Recibidas\OLE DB Destination 7.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Carga Datos de archivo Plano de garantias Recibidas\OLE DB Destination 8"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="OLE DB Destination 8"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[TmpArchivoPlanoGarantiasRecibidas8]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=16.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Carga Datos de archivo Plano de garantias Recibidas\OLE DB Destination 8.Connections[OleDbConnection]"
+                  connectionManagerID="{70000693-BDE1-4FE0-B772-11B7D4A7A452}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[STGLegados]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Carga Datos de archivo Plano de garantias Recibidas\OLE DB Destination 8.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Carga Datos de archivo Plano de garantias Recibidas\OLE DB Destination 8.Inputs[OLE DB Destination Input].Columns[co_garantia]"
+                      cachedDataType="i8"
+                      cachedName="co_garantia"
+                      externalMetadataColumnId="Package\Carga Datos de archivo Plano de garantias Recibidas\OLE DB Destination 8.Inputs[OLE DB Destination Input].ExternalColumns[co_garantia]"
+                      lineageId="Package\Carga Datos de archivo Plano de garantias Recibidas\Flat File Source ArchivoPlanoGarantiasRecibidas8_csv.Outputs[Flat File Source Output].Columns[co_garantia]" />
+                    <inputColumn
+                      refId="Package\Carga Datos de archivo Plano de garantias Recibidas\OLE DB Destination 8.Inputs[OLE DB Destination Input].Columns[MANUFACTURE YR]"
+                      cachedDataType="wstr"
+                      cachedLength="4000"
+                      cachedName="MANUFACTURE YR"
+                      externalMetadataColumnId="Package\Carga Datos de archivo Plano de garantias Recibidas\OLE DB Destination 8.Inputs[OLE DB Destination Input].ExternalColumns[MANUFACTURE.YR]"
+                      lineageId="Package\Carga Datos de archivo Plano de garantias Recibidas\Flat File Source ArchivoPlanoGarantiasRecibidas8_csv.Outputs[Flat File Source Output].Columns[MANUFACTURE YR]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Carga Datos de archivo Plano de garantias Recibidas\OLE DB Destination 8.Inputs[OLE DB Destination Input].ExternalColumns[co_garantia]"
+                      dataType="i4"
+                      name="co_garantia" />
+                    <externalMetadataColumn
+                      refId="Package\Carga Datos de archivo Plano de garantias Recibidas\OLE DB Destination 8.Inputs[OLE DB Destination Input].ExternalColumns[MANUFACTURE.YR]"
+                      dataType="nText"
+                      name="MANUFACTURE.YR" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Carga Datos de archivo Plano de garantias Recibidas\OLE DB Destination 8.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\Carga Datos de archivo Plano de garantias Recibidas\OLE DB Destination 8.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Carga Datos de archivo Plano de garantias Recibidas\OLE DB Destination 8.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Carga Datos de archivo Plano de garantias Recibidas\OLE DB Destination 8.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Carga Datos de archivo Plano de garantias Recibidas\OLE DB Destination 8.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Carga Datos de archivo Plano de garantias Recibidas\OLE DB Destination 8.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Carga Datos de archivo Plano de garantias Recibidas\OLE DB Destination 9"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="OLE DB Destination 9"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[TmpArchivoPlanoGarantiasRecibidas9]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=16.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Carga Datos de archivo Plano de garantias Recibidas\OLE DB Destination 9.Connections[OleDbConnection]"
+                  connectionManagerID="{70000693-BDE1-4FE0-B772-11B7D4A7A452}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[STGLegados]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Carga Datos de archivo Plano de garantias Recibidas\OLE DB Destination 9.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Carga Datos de archivo Plano de garantias Recibidas\OLE DB Destination 9.Inputs[OLE DB Destination Input].Columns[co_garantia]"
+                      cachedDataType="i4"
+                      cachedName="co_garantia"
+                      externalMetadataColumnId="Package\Carga Datos de archivo Plano de garantias Recibidas\OLE DB Destination 9.Inputs[OLE DB Destination Input].ExternalColumns[co_garantia]"
+                      lineageId="Package\Carga Datos de archivo Plano de garantias Recibidas\Flat File Source ArchivoPlanoGarantiasRecibidas9_csv.Outputs[Flat File Source Output].Columns[co_garantia]" />
+                    <inputColumn
+                      refId="Package\Carga Datos de archivo Plano de garantias Recibidas\OLE DB Destination 9.Inputs[OLE DB Destination Input].Columns[ENGINE NUMBER]"
+                      cachedDataType="wstr"
+                      cachedLength="4000"
+                      cachedName="ENGINE NUMBER"
+                      externalMetadataColumnId="Package\Carga Datos de archivo Plano de garantias Recibidas\OLE DB Destination 9.Inputs[OLE DB Destination Input].ExternalColumns[ENGINE.NUMBER]"
+                      lineageId="Package\Carga Datos de archivo Plano de garantias Recibidas\Flat File Source ArchivoPlanoGarantiasRecibidas9_csv.Outputs[Flat File Source Output].Columns[ENGINE NUMBER]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Carga Datos de archivo Plano de garantias Recibidas\OLE DB Destination 9.Inputs[OLE DB Destination Input].ExternalColumns[co_garantia]"
+                      dataType="i4"
+                      name="co_garantia" />
+                    <externalMetadataColumn
+                      refId="Package\Carga Datos de archivo Plano de garantias Recibidas\OLE DB Destination 9.Inputs[OLE DB Destination Input].ExternalColumns[ENGINE.NUMBER]"
+                      dataType="nText"
+                      name="ENGINE.NUMBER" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Carga Datos de archivo Plano de garantias Recibidas\OLE DB Destination 9.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\Carga Datos de archivo Plano de garantias Recibidas\OLE DB Destination 9.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Carga Datos de archivo Plano de garantias Recibidas\OLE DB Destination 9.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Carga Datos de archivo Plano de garantias Recibidas\OLE DB Destination 9.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Carga Datos de archivo Plano de garantias Recibidas\OLE DB Destination 9.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Carga Datos de archivo Plano de garantias Recibidas\OLE DB Destination 9.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Carga Datos de archivo Plano de garantias Recibidas\OLE DB Destination1"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="OLE DB Destination1"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[TmpArchivoPlanoGarantiasRecibidas1]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=16.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Carga Datos de archivo Plano de garantias Recibidas\OLE DB Destination1.Connections[OleDbConnection]"
+                  connectionManagerID="{70000693-BDE1-4FE0-B772-11B7D4A7A452}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[STGLegados]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Carga Datos de archivo Plano de garantias Recibidas\OLE DB Destination1.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Carga Datos de archivo Plano de garantias Recibidas\OLE DB Destination1.Inputs[OLE DB Destination Input].Columns[co_garantia]"
+                      cachedDataType="i4"
+                      cachedName="co_garantia"
+                      externalMetadataColumnId="Package\Carga Datos de archivo Plano de garantias Recibidas\OLE DB Destination1.Inputs[OLE DB Destination Input].ExternalColumns[co_garantia]"
+                      lineageId="Package\Carga Datos de archivo Plano de garantias Recibidas\Flat File Source ArchivoPlanoGarantiasRecibidas1_csv.Outputs[Flat File Source Output].Columns[co_garantia]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Carga Datos de archivo Plano de garantias Recibidas\OLE DB Destination1.Inputs[OLE DB Destination Input].ExternalColumns[co_garantia]"
+                      dataType="i4"
+                      name="co_garantia" />
+                    <externalMetadataColumn
+                      refId="Package\Carga Datos de archivo Plano de garantias Recibidas\OLE DB Destination1.Inputs[OLE DB Destination Input].ExternalColumns[DESCRIPTION]"
+                      dataType="nText"
+                      name="DESCRIPTION" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Carga Datos de archivo Plano de garantias Recibidas\OLE DB Destination1.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\Carga Datos de archivo Plano de garantias Recibidas\OLE DB Destination1.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Carga Datos de archivo Plano de garantias Recibidas\OLE DB Destination1.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Carga Datos de archivo Plano de garantias Recibidas\OLE DB Destination1.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Carga Datos de archivo Plano de garantias Recibidas\OLE DB Destination1.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Carga Datos de archivo Plano de garantias Recibidas\OLE DB Destination1.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Carga Datos de archivo Plano de garantias Recibidas\OLE DB Destination2"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="OLE DB Destination2"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[TmpArchivoPlanoGarantiasRecibidas2]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=16.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Carga Datos de archivo Plano de garantias Recibidas\OLE DB Destination2.Connections[OleDbConnection]"
+                  connectionManagerID="{70000693-BDE1-4FE0-B772-11B7D4A7A452}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[STGLegados]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Carga Datos de archivo Plano de garantias Recibidas\OLE DB Destination2.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Carga Datos de archivo Plano de garantias Recibidas\OLE DB Destination2.Inputs[OLE DB Destination Input].Columns[co_garantia]"
+                      cachedDataType="i4"
+                      cachedName="co_garantia"
+                      externalMetadataColumnId="Package\Carga Datos de archivo Plano de garantias Recibidas\OLE DB Destination2.Inputs[OLE DB Destination Input].ExternalColumns[co_garantia]"
+                      lineageId="Package\Carga Datos de archivo Plano de garantias Recibidas\Flat File Source ArchivoPlanoGarantiasRecibidas2_csv.Outputs[Flat File Source Output].Columns[co_garantia]" />
+                    <inputColumn
+                      refId="Package\Carga Datos de archivo Plano de garantias Recibidas\OLE DB Destination2.Inputs[OLE DB Destination Input].Columns[ADDRESS]"
+                      cachedDataType="wstr"
+                      cachedLength="4000"
+                      cachedName="ADDRESS"
+                      externalMetadataColumnId="Package\Carga Datos de archivo Plano de garantias Recibidas\OLE DB Destination2.Inputs[OLE DB Destination Input].ExternalColumns[ADDRESS]"
+                      lineageId="Package\Carga Datos de archivo Plano de garantias Recibidas\Flat File Source ArchivoPlanoGarantiasRecibidas2_csv.Outputs[Flat File Source Output].Columns[ADDRESS]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Carga Datos de archivo Plano de garantias Recibidas\OLE DB Destination2.Inputs[OLE DB Destination Input].ExternalColumns[co_garantia]"
+                      dataType="i4"
+                      name="co_garantia" />
+                    <externalMetadataColumn
+                      refId="Package\Carga Datos de archivo Plano de garantias Recibidas\OLE DB Destination2.Inputs[OLE DB Destination Input].ExternalColumns[ADDRESS]"
+                      dataType="nText"
+                      name="ADDRESS" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Carga Datos de archivo Plano de garantias Recibidas\OLE DB Destination2.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\Carga Datos de archivo Plano de garantias Recibidas\OLE DB Destination2.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Carga Datos de archivo Plano de garantias Recibidas\OLE DB Destination2.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Carga Datos de archivo Plano de garantias Recibidas\OLE DB Destination2.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Carga Datos de archivo Plano de garantias Recibidas\OLE DB Destination2.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Carga Datos de archivo Plano de garantias Recibidas\OLE DB Destination2.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Carga Datos de archivo Plano de garantias Recibidas\OLE DB Destination3"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="OLE DB Destination3"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[TmpArchivoPlanoGarantiasRecibidas3]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=16.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Carga Datos de archivo Plano de garantias Recibidas\OLE DB Destination3.Connections[OleDbConnection]"
+                  connectionManagerID="{70000693-BDE1-4FE0-B772-11B7D4A7A452}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[STGLegados]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Carga Datos de archivo Plano de garantias Recibidas\OLE DB Destination3.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Carga Datos de archivo Plano de garantias Recibidas\OLE DB Destination3.Inputs[OLE DB Destination Input].Columns[co_garantia]"
+                      cachedDataType="i4"
+                      cachedName="co_garantia"
+                      externalMetadataColumnId="Package\Carga Datos de archivo Plano de garantias Recibidas\OLE DB Destination3.Inputs[OLE DB Destination Input].ExternalColumns[co_garantia]"
+                      lineageId="Package\Carga Datos de archivo Plano de garantias Recibidas\Flat File Source ArchivoPlanoGarantiasRecibidas3_csv.Outputs[Flat File Source Output].Columns[co_garantia]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Carga Datos de archivo Plano de garantias Recibidas\OLE DB Destination3.Inputs[OLE DB Destination Input].ExternalColumns[co_garantia]"
+                      dataType="i4"
+                      name="co_garantia" />
+                    <externalMetadataColumn
+                      refId="Package\Carga Datos de archivo Plano de garantias Recibidas\OLE DB Destination3.Inputs[OLE DB Destination Input].ExternalColumns[ADDRESS]"
+                      dataType="nText"
+                      name="ADDRESS" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Carga Datos de archivo Plano de garantias Recibidas\OLE DB Destination3.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\Carga Datos de archivo Plano de garantias Recibidas\OLE DB Destination3.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Carga Datos de archivo Plano de garantias Recibidas\OLE DB Destination3.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Carga Datos de archivo Plano de garantias Recibidas\OLE DB Destination3.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Carga Datos de archivo Plano de garantias Recibidas\OLE DB Destination3.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Carga Datos de archivo Plano de garantias Recibidas\OLE DB Destination3.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Carga Datos de archivo Plano de garantias Recibidas\OLE DB Destination4"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="OLE DB Destination4"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[TmpArchivoPlanoGarantiasRecibidas4]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=16.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Carga Datos de archivo Plano de garantias Recibidas\OLE DB Destination4.Connections[OleDbConnection]"
+                  connectionManagerID="{70000693-BDE1-4FE0-B772-11B7D4A7A452}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[STGLegados]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Carga Datos de archivo Plano de garantias Recibidas\OLE DB Destination4.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Carga Datos de archivo Plano de garantias Recibidas\OLE DB Destination4.Inputs[OLE DB Destination Input].Columns[co_garantia]"
+                      cachedDataType="i4"
+                      cachedName="co_garantia"
+                      externalMetadataColumnId="Package\Carga Datos de archivo Plano de garantias Recibidas\OLE DB Destination4.Inputs[OLE DB Destination Input].ExternalColumns[co_garantia]"
+                      lineageId="Package\Carga Datos de archivo Plano de garantias Recibidas\Flat File Source ArchivoPlanoGarantiasRecibidas4_csv.Outputs[Flat File Source Output].Columns[co_garantia]" />
+                    <inputColumn
+                      refId="Package\Carga Datos de archivo Plano de garantias Recibidas\OLE DB Destination4.Inputs[OLE DB Destination Input].Columns[VEHICLE MODEL]"
+                      cachedDataType="wstr"
+                      cachedLength="4000"
+                      cachedName="VEHICLE MODEL"
+                      externalMetadataColumnId="Package\Carga Datos de archivo Plano de garantias Recibidas\OLE DB Destination4.Inputs[OLE DB Destination Input].ExternalColumns[VEHICLE.MODEL]"
+                      lineageId="Package\Carga Datos de archivo Plano de garantias Recibidas\Flat File Source ArchivoPlanoGarantiasRecibidas4_csv.Outputs[Flat File Source Output].Columns[VEHICLE MODEL]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Carga Datos de archivo Plano de garantias Recibidas\OLE DB Destination4.Inputs[OLE DB Destination Input].ExternalColumns[co_garantia]"
+                      dataType="i4"
+                      name="co_garantia" />
+                    <externalMetadataColumn
+                      refId="Package\Carga Datos de archivo Plano de garantias Recibidas\OLE DB Destination4.Inputs[OLE DB Destination Input].ExternalColumns[VEHICLE.MODEL]"
+                      dataType="nText"
+                      name="VEHICLE.MODEL" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Carga Datos de archivo Plano de garantias Recibidas\OLE DB Destination4.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\Carga Datos de archivo Plano de garantias Recibidas\OLE DB Destination4.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Carga Datos de archivo Plano de garantias Recibidas\OLE DB Destination4.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Carga Datos de archivo Plano de garantias Recibidas\OLE DB Destination4.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Carga Datos de archivo Plano de garantias Recibidas\OLE DB Destination4.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Carga Datos de archivo Plano de garantias Recibidas\OLE DB Destination4.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Carga Datos de archivo Plano de garantias Recibidas\OLE DB Destination5"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="OLE DB Destination5"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[TmpArchivoPlanoGarantiasRecibidas5]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=16.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Carga Datos de archivo Plano de garantias Recibidas\OLE DB Destination5.Connections[OleDbConnection]"
+                  connectionManagerID="{70000693-BDE1-4FE0-B772-11B7D4A7A452}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[STGLegados]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Carga Datos de archivo Plano de garantias Recibidas\OLE DB Destination5.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Carga Datos de archivo Plano de garantias Recibidas\OLE DB Destination5.Inputs[OLE DB Destination Input].Columns[co_garantia]"
+                      cachedDataType="i4"
+                      cachedName="co_garantia"
+                      externalMetadataColumnId="Package\Carga Datos de archivo Plano de garantias Recibidas\OLE DB Destination5.Inputs[OLE DB Destination Input].ExternalColumns[co_garantia]"
+                      lineageId="Package\Carga Datos de archivo Plano de garantias Recibidas\Flat File Source ArchivoPlanoGarantiasRecibidas5_csv.Outputs[Flat File Source Output].Columns[co_garantia]" />
+                    <inputColumn
+                      refId="Package\Carga Datos de archivo Plano de garantias Recibidas\OLE DB Destination5.Inputs[OLE DB Destination Input].Columns[INS EXPIRY DT]"
+                      cachedDataType="wstr"
+                      cachedLength="4000"
+                      cachedName="INS EXPIRY DT"
+                      externalMetadataColumnId="Package\Carga Datos de archivo Plano de garantias Recibidas\OLE DB Destination5.Inputs[OLE DB Destination Input].ExternalColumns[INS.EXPIRY.DT]"
+                      lineageId="Package\Carga Datos de archivo Plano de garantias Recibidas\Flat File Source ArchivoPlanoGarantiasRecibidas5_csv.Outputs[Flat File Source Output].Columns[INS EXPIRY DT]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Carga Datos de archivo Plano de garantias Recibidas\OLE DB Destination5.Inputs[OLE DB Destination Input].ExternalColumns[co_garantia]"
+                      dataType="i4"
+                      name="co_garantia" />
+                    <externalMetadataColumn
+                      refId="Package\Carga Datos de archivo Plano de garantias Recibidas\OLE DB Destination5.Inputs[OLE DB Destination Input].ExternalColumns[INS.EXPIRY.DT]"
+                      dataType="nText"
+                      name="INS.EXPIRY.DT" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Carga Datos de archivo Plano de garantias Recibidas\OLE DB Destination5.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\Carga Datos de archivo Plano de garantias Recibidas\OLE DB Destination5.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Carga Datos de archivo Plano de garantias Recibidas\OLE DB Destination5.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Carga Datos de archivo Plano de garantias Recibidas\OLE DB Destination5.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Carga Datos de archivo Plano de garantias Recibidas\OLE DB Destination5.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Carga Datos de archivo Plano de garantias Recibidas\OLE DB Destination5.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Carga Datos de archivo Plano de garantias Recibidas\OLE DB Destination6"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="OLE DB Destination6"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[TmpArchivoPlanoGarantiasRecibidas6]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=16.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Carga Datos de archivo Plano de garantias Recibidas\OLE DB Destination6.Connections[OleDbConnection]"
+                  connectionManagerID="{70000693-BDE1-4FE0-B772-11B7D4A7A452}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[STGLegados]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Carga Datos de archivo Plano de garantias Recibidas\OLE DB Destination6.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Carga Datos de archivo Plano de garantias Recibidas\OLE DB Destination6.Inputs[OLE DB Destination Input].Columns[co_garantia]"
+                      cachedDataType="i4"
+                      cachedName="co_garantia"
+                      externalMetadataColumnId="Package\Carga Datos de archivo Plano de garantias Recibidas\OLE DB Destination6.Inputs[OLE DB Destination Input].ExternalColumns[co_garantia]"
+                      lineageId="Package\Carga Datos de archivo Plano de garantias Recibidas\Flat File Source ArchivoPlanoGarantiasRecibidas6_csv.Outputs[Flat File Source Output].Columns[co_garantia]" />
+                    <inputColumn
+                      refId="Package\Carga Datos de archivo Plano de garantias Recibidas\OLE DB Destination6.Inputs[OLE DB Destination Input].Columns[LICENCE NO]"
+                      cachedDataType="wstr"
+                      cachedLength="4000"
+                      cachedName="LICENCE NO"
+                      externalMetadataColumnId="Package\Carga Datos de archivo Plano de garantias Recibidas\OLE DB Destination6.Inputs[OLE DB Destination Input].ExternalColumns[LICENCE.NO]"
+                      lineageId="Package\Carga Datos de archivo Plano de garantias Recibidas\Flat File Source ArchivoPlanoGarantiasRecibidas6_csv.Outputs[Flat File Source Output].Columns[LICENCE NO]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Carga Datos de archivo Plano de garantias Recibidas\OLE DB Destination6.Inputs[OLE DB Destination Input].ExternalColumns[co_garantia]"
+                      dataType="i4"
+                      name="co_garantia" />
+                    <externalMetadataColumn
+                      refId="Package\Carga Datos de archivo Plano de garantias Recibidas\OLE DB Destination6.Inputs[OLE DB Destination Input].ExternalColumns[LICENCE.NO]"
+                      dataType="nText"
+                      name="LICENCE.NO" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Carga Datos de archivo Plano de garantias Recibidas\OLE DB Destination6.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\Carga Datos de archivo Plano de garantias Recibidas\OLE DB Destination6.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Carga Datos de archivo Plano de garantias Recibidas\OLE DB Destination6.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Carga Datos de archivo Plano de garantias Recibidas\OLE DB Destination6.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Carga Datos de archivo Plano de garantias Recibidas\OLE DB Destination6.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Carga Datos de archivo Plano de garantias Recibidas\OLE DB Destination6.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Carga Datos de archivo Plano de garantias Recibidas.Paths[Flat File Source Output]"
+              endId="Package\Carga Datos de archivo Plano de garantias Recibidas\OLE DB Destination1.Inputs[OLE DB Destination Input]"
+              name="Flat File Source Output"
+              startId="Package\Carga Datos de archivo Plano de garantias Recibidas\Flat File Source ArchivoPlanoGarantiasRecibidas1_csv.Outputs[Flat File Source Output]" />
+            <path
+              refId="Package\Carga Datos de archivo Plano de garantias Recibidas.Paths[Flat File Source Output1]"
+              endId="Package\Carga Datos de archivo Plano de garantias Recibidas\OLE DB Destination2.Inputs[OLE DB Destination Input]"
+              name="Flat File Source Output"
+              startId="Package\Carga Datos de archivo Plano de garantias Recibidas\Flat File Source ArchivoPlanoGarantiasRecibidas2_csv.Outputs[Flat File Source Output]" />
+            <path
+              refId="Package\Carga Datos de archivo Plano de garantias Recibidas.Paths[Flat File Source Output2]"
+              endId="Package\Carga Datos de archivo Plano de garantias Recibidas\OLE DB Destination3.Inputs[OLE DB Destination Input]"
+              name="Flat File Source Output"
+              startId="Package\Carga Datos de archivo Plano de garantias Recibidas\Flat File Source ArchivoPlanoGarantiasRecibidas3_csv.Outputs[Flat File Source Output]" />
+            <path
+              refId="Package\Carga Datos de archivo Plano de garantias Recibidas.Paths[Flat File Source Output3]"
+              endId="Package\Carga Datos de archivo Plano de garantias Recibidas\OLE DB Destination4.Inputs[OLE DB Destination Input]"
+              name="Flat File Source Output"
+              startId="Package\Carga Datos de archivo Plano de garantias Recibidas\Flat File Source ArchivoPlanoGarantiasRecibidas4_csv.Outputs[Flat File Source Output]" />
+            <path
+              refId="Package\Carga Datos de archivo Plano de garantias Recibidas.Paths[Flat File Source Output4]"
+              endId="Package\Carga Datos de archivo Plano de garantias Recibidas\OLE DB Destination5.Inputs[OLE DB Destination Input]"
+              name="Flat File Source Output"
+              startId="Package\Carga Datos de archivo Plano de garantias Recibidas\Flat File Source ArchivoPlanoGarantiasRecibidas5_csv.Outputs[Flat File Source Output]" />
+            <path
+              refId="Package\Carga Datos de archivo Plano de garantias Recibidas.Paths[Flat File Source Output5]"
+              endId="Package\Carga Datos de archivo Plano de garantias Recibidas\OLE DB Destination6.Inputs[OLE DB Destination Input]"
+              name="Flat File Source Output"
+              startId="Package\Carga Datos de archivo Plano de garantias Recibidas\Flat File Source ArchivoPlanoGarantiasRecibidas6_csv.Outputs[Flat File Source Output]" />
+            <path
+              refId="Package\Carga Datos de archivo Plano de garantias Recibidas.Paths[Flat File Source Output6]"
+              endId="Package\Carga Datos de archivo Plano de garantias Recibidas\OLE DB Destination 9.Inputs[OLE DB Destination Input]"
+              name="Flat File Source Output"
+              startId="Package\Carga Datos de archivo Plano de garantias Recibidas\Flat File Source ArchivoPlanoGarantiasRecibidas9_csv.Outputs[Flat File Source Output]" />
+            <path
+              refId="Package\Carga Datos de archivo Plano de garantias Recibidas.Paths[Flat File Source Output7]"
+              endId="Package\Carga Datos de archivo Plano de garantias Recibidas\OLE DB Destination 7.Inputs[OLE DB Destination Input]"
+              name="Flat File Source Output"
+              startId="Package\Carga Datos de archivo Plano de garantias Recibidas\Flat File Source ArchivoPlanoGarantiasRecibidas7_csv.Outputs[Flat File Source Output]" />
+            <path
+              refId="Package\Carga Datos de archivo Plano de garantias Recibidas.Paths[Flat File Source Output8]"
+              endId="Package\Carga Datos de archivo Plano de garantias Recibidas\OLE DB Destination 8.Inputs[OLE DB Destination Input]"
+              name="Flat File Source Output"
+              startId="Package\Carga Datos de archivo Plano de garantias Recibidas\Flat File Source ArchivoPlanoGarantiasRecibidas8_csv.Outputs[Flat File Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Inserta en TmpArchivoPlanoGarantiasRecibidas"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:Disabled="True"
+      DTS:DTSID="{32C04626-7401-4173-93E9-E2DE1AFC0627}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Inserta en TmpArchivoPlanoGarantiasRecibidas"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Truncate Tabla TmpArchivoPlanoGarantiasRecibidas"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:DTSID="{54DE17DB-27C6-4D97-A860-A3F9B8A63D62}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:FailPackageOnFailure="True"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Truncate Tabla TmpArchivoPlanoGarantiasRecibidas"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{70000693-BDE1-4FE0-B772-11B7D4A7A452}"
+          SQLTask:SqlStatementSource="--&#xA;TRUNCATE TABLE [STGLegados].[dbo].[TmpArchivoPlanoGarantiasRecibidas]&#xA;TRUNCATE TABLE [STGLegados].[dbo].[TmpArchivoPlanoGarantiasRecibidas1]&#xA;TRUNCATE TABLE [STGLegados].[dbo].[TmpArchivoPlanoGarantiasRecibidas2]&#xA;TRUNCATE TABLE [STGLegados].[dbo].[TmpArchivoPlanoGarantiasRecibidas3]&#xA;TRUNCATE TABLE [STGLegados].[dbo].[TmpArchivoPlanoGarantiasRecibidas4]&#xA;TRUNCATE TABLE [STGLegados].[dbo].[TmpArchivoPlanoGarantiasRecibidas5]&#xA;TRUNCATE TABLE [STGLegados].[dbo].[TmpArchivoPlanoGarantiasRecibidas6]&#xA;TRUNCATE TABLE [STGLegados].[dbo].[TmpArchivoPlanoGarantiasRecibidas7]&#xA;TRUNCATE TABLE [STGLegados].[dbo].[TmpArchivoPlanoGarantiasRecibidas8]&#xA;TRUNCATE TABLE [STGLegados].[dbo].[TmpArchivoPlanoGarantiasRecibidas9]&#xA;--&#xA;--" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{8156A021-986B-4B4D-86DD-8A01E2E4C12E}"
+      DTS:From="Package\Carga Datos de archivo Plano de garantias Recibidas"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\Inserta en TmpArchivoPlanoGarantiasRecibidas" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[{1FD89D3E-A787-41F7-8215-89300CBE7FAB\}]"
+      DTS:CreationName=""
+      DTS:DTSID="{1FD89D3E-A787-41F7-8215-89300CBE7FAB}"
+      DTS:From="Package\Truncate Tabla TmpArchivoPlanoGarantiasRecibidas"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="{1FD89D3E-A787-41F7-8215-89300CBE7FAB}"
+      DTS:To="Package\Carga Datos de archivo Plano de garantias Recibidas" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="327,42"
+          Id="Package\Carga Datos de archivo Plano de garantias Recibidas"
+          TopLeft="5.50000000000003,107.5" />
+        <NodeLayout
+          Size="301,42"
+          Id="Package\Inserta en TmpArchivoPlanoGarantiasRecibidas"
+          TopLeft="338,283" />
+        <NodeLayout
+          Size="323,42"
+          Id="Package\Truncate Tabla TmpArchivoPlanoGarantiasRecibidas"
+          TopLeft="7.5,5.5" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="169,149.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="319.5,133.5"
+              Start="0,0"
+              End="319.5,126">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,62.75" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,62.75"
+                    Point2="0,66.75"
+                    Point3="4,66.75" />
+                  <mssgle:LineSegment
+                    End="315.5,66.75" />
+                  <mssgle:CubicBezierSegment
+                    Point1="315.5,66.75"
+                    Point2="319.5,66.75"
+                    Point3="319.5,70.75" />
+                  <mssgle:LineSegment
+                    End="319.5,126" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[{1FD89D3E-A787-41F7-8215-89300CBE7FAB\}]"
+          TopLeft="169,47.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Carga Datos de archivo Plano de garantias Recibidas">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="330,42"
+          Id="Package\Carga Datos de archivo Plano de garantias Recibidas\Flat File Source ArchivoPlanoGarantiasRecibidas3_csv"
+          TopLeft="787.5,5.49999999999989" />
+        <NodeLayout
+          Size="177,42"
+          Id="Package\Carga Datos de archivo Plano de garantias Recibidas\OLE DB Destination6"
+          TopLeft="2037,107.5" />
+        <NodeLayout
+          Size="330,42"
+          Id="Package\Carga Datos de archivo Plano de garantias Recibidas\Flat File Source ArchivoPlanoGarantiasRecibidas5_csv"
+          TopLeft="1569.5,5.49999999999977" />
+        <NodeLayout
+          Size="330,42"
+          Id="Package\Carga Datos de archivo Plano de garantias Recibidas\Flat File Source ArchivoPlanoGarantiasRecibidas7_csv"
+          TopLeft="2351.5,5.49999999999966" />
+        <NodeLayout
+          Size="180,42"
+          Id="Package\Carga Datos de archivo Plano de garantias Recibidas\OLE DB Destination 8"
+          TopLeft="2817.5,107.5" />
+        <NodeLayout
+          Size="330,42"
+          Id="Package\Carga Datos de archivo Plano de garantias Recibidas\Flat File Source ArchivoPlanoGarantiasRecibidas9_csv"
+          TopLeft="3133.5,5.49999999999955" />
+        <NodeLayout
+          Size="177,42"
+          Id="Package\Carga Datos de archivo Plano de garantias Recibidas\OLE DB Destination4"
+          TopLeft="1255,107.5" />
+        <NodeLayout
+          Size="330,42"
+          Id="Package\Carga Datos de archivo Plano de garantias Recibidas\Flat File Source ArchivoPlanoGarantiasRecibidas2_csv"
+          TopLeft="396.5,5.49999999999989" />
+        <NodeLayout
+          Size="177,42"
+          Id="Package\Carga Datos de archivo Plano de garantias Recibidas\OLE DB Destination2"
+          TopLeft="473,107.5" />
+        <NodeLayout
+          Size="330,42"
+          Id="Package\Carga Datos de archivo Plano de garantias Recibidas\Flat File Source ArchivoPlanoGarantiasRecibidas4_csv"
+          TopLeft="1178.5,5.49999999999977" />
+        <NodeLayout
+          Size="330,42"
+          Id="Package\Carga Datos de archivo Plano de garantias Recibidas\Flat File Source ArchivoPlanoGarantiasRecibidas6_csv"
+          TopLeft="1960.5,5.49999999999966" />
+        <NodeLayout
+          Size="180,42"
+          Id="Package\Carga Datos de archivo Plano de garantias Recibidas\OLE DB Destination 9"
+          TopLeft="3208.5,107.5" />
+        <NodeLayout
+          Size="330,42"
+          Id="Package\Carga Datos de archivo Plano de garantias Recibidas\Flat File Source ArchivoPlanoGarantiasRecibidas8_csv"
+          TopLeft="2742.5,5.49999999999955" />
+        <NodeLayout
+          Size="180,42"
+          Id="Package\Carga Datos de archivo Plano de garantias Recibidas\OLE DB Destination 7"
+          TopLeft="2426.5,107.5" />
+        <NodeLayout
+          Size="177,42"
+          Id="Package\Carga Datos de archivo Plano de garantias Recibidas\OLE DB Destination5"
+          TopLeft="1646,107.5" />
+        <NodeLayout
+          Size="177,42"
+          Id="Package\Carga Datos de archivo Plano de garantias Recibidas\OLE DB Destination1"
+          TopLeft="82,107.5" />
+        <NodeLayout
+          Size="330,42"
+          Id="Package\Carga Datos de archivo Plano de garantias Recibidas\Flat File Source ArchivoPlanoGarantiasRecibidas1_csv"
+          TopLeft="5.5,5.49999999999989" />
+        <NodeLayout
+          Size="177,42"
+          Id="Package\Carga Datos de archivo Plano de garantias Recibidas\OLE DB Destination3"
+          TopLeft="864,107.5" />
+        <EdgeLayout
+          Id="Package\Carga Datos de archivo Plano de garantias Recibidas.Paths[Flat File Source Output8]"
+          TopLeft="2907.5,47.4999999999995">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Carga Datos de archivo Plano de garantias Recibidas.Paths[Flat File Source Output7]"
+          TopLeft="2516.5,47.4999999999997">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Carga Datos de archivo Plano de garantias Recibidas.Paths[Flat File Source Output6]"
+          TopLeft="3298.5,47.4999999999995">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Carga Datos de archivo Plano de garantias Recibidas.Paths[Flat File Source Output5]"
+          TopLeft="2125.5,47.4999999999997">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Carga Datos de archivo Plano de garantias Recibidas.Paths[Flat File Source Output4]"
+          TopLeft="1734.5,47.4999999999998">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Carga Datos de archivo Plano de garantias Recibidas.Paths[Flat File Source Output3]"
+          TopLeft="1343.5,47.4999999999998">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Carga Datos de archivo Plano de garantias Recibidas.Paths[Flat File Source Output2]"
+          TopLeft="952.5,47.4999999999999">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Carga Datos de archivo Plano de garantias Recibidas.Paths[Flat File Source Output1]"
+          TopLeft="561.5,47.4999999999999">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Carga Datos de archivo Plano de garantias Recibidas.Paths[Flat File Source Output]"
+          TopLeft="170.5,47.4999999999999">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60.0000000000001"
+              Start="0,0"
+              End="0,52.5000000000001">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5000000000001" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Carga Datos de archivo Plano de garantias Recibidas\OLE DB Destination6">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Carga Datos de archivo Plano de garantias Recibidas\OLE DB Destination 8">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Carga Datos de archivo Plano de garantias Recibidas\OLE DB Destination4">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Carga Datos de archivo Plano de garantias Recibidas\OLE DB Destination2">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Carga Datos de archivo Plano de garantias Recibidas\OLE DB Destination 9">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Carga Datos de archivo Plano de garantias Recibidas\OLE DB Destination 7">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Carga Datos de archivo Plano de garantias Recibidas\OLE DB Destination5">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Carga Datos de archivo Plano de garantias Recibidas\OLE DB Destination1">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Carga Datos de archivo Plano de garantias Recibidas\OLE DB Destination3">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

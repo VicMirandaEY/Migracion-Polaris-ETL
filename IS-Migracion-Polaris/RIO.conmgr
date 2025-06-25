@@ -1,0 +1,14 @@
+﻿<?xml version="1.0"?>
+<DTS:ConnectionManager xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:ObjectName="RIO"
+  DTS:DTSID="{A741CF2F-23F0-49E6-B90A-58F0B96D7E44}"
+  DTS:CreationName="OLEDB">
+  <DTS:PropertyExpression
+    DTS:Name="ConnectionString">@[$Project::pConnectionStringDbRIO]</DTS:PropertyExpression>
+  <DTS:ObjectData>
+    <DTS:ConnectionManager
+      DTS:ConnectRetryCount="1"
+      DTS:ConnectRetryInterval="5"
+      DTS:ConnectionString="Data Source=VENJJCR20;Initial Catalog=RIO;Provider=SQLOLEDB.1;Integrated Security=SSPI;Auto Translate=false;Application Name=SSIS-{A741CF2F-23F0-49E6-B90A-58F0B96D7E44}RIO;" />
+  </DTS:ObjectData>
+</DTS:ConnectionManager>

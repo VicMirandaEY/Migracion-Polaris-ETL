@@ -1,0 +1,11 @@
+﻿<?xml version="1.0"?>
+<DTS:ConnectionManager xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:ObjectName="PersonaDataProfiler.xml"
+  DTS:DTSID="{09DC4D8E-0D78-4C25-ADA4-72804735C685}"
+  DTS:CreationName="FILE">
+  <DTS:ObjectData>
+    <DTS:ConnectionManager
+      DTS:FileUsageType="1"
+      DTS:ConnectionString="D:\App\Migracion-Polaris-ETL1\Db\v1.0\SourceDataProfiling\PersonaDataProfiler.xml" />
+  </DTS:ObjectData>
+</DTS:ConnectionManager>

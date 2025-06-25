@@ -1,0 +1,1647 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="8/14/2024 2:13:01 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="VENJJCR20"
+  DTS:CreatorName="CAF-CON\ls42731"
+  DTS:DTSID="{7109A7DD-F428-45E9-825D-9B15B33C5E65}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="16.0.5270.0"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="CreaArchivoPlanoDmsDra01Takeover"
+  DTS:PackageType="5"
+  DTS:VersionBuild="22"
+  DTS:VersionGUID="{9CCC3225-BD2D-4C85-885D-271656787EBF}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Flat File Destination DMS DRA01TAKEOVER]"
+      DTS:CreationName="FLATFILE"
+      DTS:DTSID="{A1D2BD29-9A11-4B4D-AB55-41694FEFCBE0}"
+      DTS:ObjectName="Flat File Destination DMS DRA01TAKEOVER">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="Delimited"
+          DTS:LocaleID="1033"
+          DTS:HeaderRowDelimiter="_x000D__x000A_"
+          DTS:RowDelimiter=""
+          DTS:TextQualifier="_x003C_none_x003E_"
+          DTS:CodePage="1252"
+          DTS:ConnectionString="D:\App\Migracion-Polaris-ETL1\Txt\DMS.DRA.01.TAKEOVER1.txt">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="9"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="UPLOAD.COMPANY"
+              DTS:DTSID="{E076FB71-24B2-4438-B44D-9ABD5EEFAA29}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="18"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="ID/ARR.SEQUENCE"
+              DTS:DTSID="{8317031C-9DF3-42FA-AFC0-50237C143119}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="12"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="ARRANGEMENT"
+              DTS:DTSID="{52701C80-4C23-45D3-BFC4-DC6F1072B16A}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="64"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="ACTIVITY"
+              DTS:DTSID="{A1FABCD0-9019-47D2-9AA0-C22A8B7426AA}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="128"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="CUSTOMER"
+              DTS:DTSID="{5642585B-BBF2-4B20-8EE0-51615D0B55C6}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="128"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="CUSTOMER.ROLE"
+              DTS:DTSID="{AB5A0637-97FD-49FF-970C-E65F64103151}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="12"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="MASTER.ARRANGEMENT"
+              DTS:DTSID="{08BCA2E4-0204-4A54-BEC9-02F36EC6E2F7}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="64"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="PRODUCT"
+              DTS:DTSID="{BCAD9994-4EDC-4BEE-A81D-43E3F350151B}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="3"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="CURRENCY"
+              DTS:DTSID="{CA201F28-8482-4ECE-9A85-4EBA66D5B5AC}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="8"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="ORIG.CONTRACT.DATE"
+              DTS:DTSID="{93D673A8-7C07-4A85-B844-0322E827A61D}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="1024"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="PROPERTY"
+              DTS:DTSID="{827B9E08-14B1-49E3-987F-387B659D548B}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="8000"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="FIELD.NAME"
+              DTS:DTSID="{8755D9E8-536F-4F1F-91B9-931E52C274A3}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="8000"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="FIELD.VALUE"
+              DTS:DTSID="{6DCE444E-EEC2-4D8B-ABEF-B5FA1509FEC0}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000D__x000A_"
+              DTS:MaximumWidth="150"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="REASON"
+              DTS:DTSID="{214643C5-17C1-4460-AA92-26BCF6BE2765}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{E8FD24D4-C0E6-4D45-B57F-56BA45A5D9A0}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="ArchivoEntrada">
+      <DTS:VariableValue
+        DTS:DataType="8">"D:\App\Migracion-Polaris-ETL1\Txt\DMS.DRA.01.TAKEOVER1.txt"</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{D89DA5D2-6407-4D02-BBC0-F4A4CFC8099A}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="ArchivoSalida">
+      <DTS:VariableValue
+        DTS:DataType="8">"D:\App\Migracion-Polaris-ETL1\Txt\DMS.DRA.01.TAKEOVER.txt"</DTS:VariableValue>
+    </DTS:Variable>
+  </DTS:Variables>
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Convierte a Formato UTF-8"
+      DTS:CreationName="Microsoft.ScriptTask"
+      DTS:Description="Script Task"
+      DTS:Disabled="True"
+      DTS:DTSID="{0A6A7027-BB15-46BE-95DE-262E340BA01F}"
+      DTS:ExecutableType="Microsoft.ScriptTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Convierte a Formato UTF-8"
+      DTS:ThreadHint="1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <ScriptProject
+          Name="ST_b982004a07bf41aeb36e2c8e95d5a56b"
+          VSTAMajorVersion="15"
+          VSTAMinorVersion="0"
+          Language="CSharp"
+          ReadOnlyVariables="User::ArchivoEntrada,User::ArchivoSalida">
+          <ProjectItem
+            Name="Properties\Resources.resx"
+            Encoding="UTF8"><![CDATA[<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+</root>]]></ProjectItem>
+          <ProjectItem
+            Name="Properties\Settings.Designer.cs"
+            Encoding="UTF8"><![CDATA[//------------------------------------------------------------------------------
+// <auto-generated>
+//     This code was generated by a tool.
+//
+//     Changes to this file may cause incorrect behavior and will be lost if
+//     the code is regenerated.
+// </auto-generated>
+//------------------------------------------------------------------------------
+
+[assembly: global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode", Scope="member", Target="ST_b982004a07bf41aeb36e2c8e95d5a56b.Properties.Settings.get_Default():ST_b982004a07bf41aeb36e2c8e95d5a56b.Properties.Sett" +
+    "ings")]
+
+namespace ST_b982004a07bf41aeb36e2c8e95d5a56b.Properties {
+    
+    
+    internal sealed partial class Settings : global::System.Configuration.ApplicationSettingsBase {
+        
+        [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
+        private static Settings defaultInstance = new Settings();
+        
+        public static Settings Default {
+            get {
+                return defaultInstance;
+            }
+        }
+    }
+}]]></ProjectItem>
+          <ProjectItem
+            Name="ScriptMain.cs"
+            Encoding="UTF8"><![CDATA[#region Help:  Introduction to the script task
+/* The Script Task allows you to perform virtually any operation that can be accomplished in
+ * a .Net application within the context of an Integration Services control flow. 
+ * 
+ * Expand the other regions which have "Help" prefixes for examples of specific ways to use
+ * Integration Services features within this script task. */
+#endregion
+
+
+#region Namespaces
+using System;
+using System.Data;
+using Microsoft.SqlServer.Dts.Runtime;
+using System.Windows.Forms;
+using System.IO;
+using System.Text;
+#endregion
+
+namespace ST_b982004a07bf41aeb36e2c8e95d5a56b
+{
+    /// <summary>
+    /// ScriptMain is the entry point class of the script.  Do not change the name, attributes,
+    /// or parent of this class.
+    /// </summary>
+	[Microsoft.SqlServer.Dts.Tasks.ScriptTask.SSISScriptTaskEntryPointAttribute]
+	public partial class ScriptMain : Microsoft.SqlServer.Dts.Tasks.ScriptTask.VSTARTScriptObjectModelBase
+	{
+        #region Help:  Using Integration Services variables and parameters in a script
+        /* To use a variable in this script, first ensure that the variable has been added to 
+         * either the list contained in the ReadOnlyVariables property or the list contained in 
+         * the ReadWriteVariables property of this script task, according to whether or not your
+         * code needs to write to the variable.  To add the variable, save this script, close this instance of
+         * Visual Studio, and update the ReadOnlyVariables and 
+         * ReadWriteVariables properties in the Script Transformation Editor window.
+         * To use a parameter in this script, follow the same steps. Parameters are always read-only.
+         * 
+         * Example of reading from a variable:
+         *  DateTime startTime = (DateTime) Dts.Variables["System::StartTime"].Value;
+         * 
+         * Example of writing to a variable:
+         *  Dts.Variables["User::myStringVariable"].Value = "new value";
+         * 
+         * Example of reading from a package parameter:
+         *  int batchId = (int) Dts.Variables["$Package::batchId"].Value;
+         *  
+         * Example of reading from a project parameter:
+         *  int batchId = (int) Dts.Variables["$Project::batchId"].Value;
+         * 
+         * Example of reading from a sensitive project parameter:
+         *  int batchId = (int) Dts.Variables["$Project::batchId"].GetSensitiveValue();
+         * */
+
+        #endregion
+
+        #region Help:  Firing Integration Services events from a script
+        /* This script task can fire events for logging purposes.
+         * 
+         * Example of firing an error event:
+         *  Dts.Events.FireError(18, "Process Values", "Bad value", "", 0);
+         * 
+         * Example of firing an information event:
+         *  Dts.Events.FireInformation(3, "Process Values", "Processing has started", "", 0, ref fireAgain)
+         * 
+         * Example of firing a warning event:
+         *  Dts.Events.FireWarning(14, "Process Values", "No values received for input", "", 0);
+         * */
+        #endregion
+
+        #region Help:  Using Integration Services connection managers in a script
+        /* Some types of connection managers can be used in this script task.  See the topic 
+         * "Working with Connection Managers Programatically" for details.
+         * 
+         * Example of using an ADO.Net connection manager:
+         *  object rawConnection = Dts.Connections["Sales DB"].AcquireConnection(Dts.Transaction);
+         *  SqlConnection myADONETConnection = (SqlConnection)rawConnection;
+         *  //Use the connection in some code here, then release the connection
+         *  Dts.Connections["Sales DB"].ReleaseConnection(rawConnection);
+         *
+         * Example of using a File connection manager
+         *  object rawConnection = Dts.Connections["Prices.zip"].AcquireConnection(Dts.Transaction);
+         *  string filePath = (string)rawConnection;
+         *  //Use the connection in some code here, then release the connection
+         *  Dts.Connections["Prices.zip"].ReleaseConnection(rawConnection);
+         * */
+        #endregion
+
+
+		/// <summary>
+        /// This method is called when this script task executes in the control flow.
+        /// Before returning from this method, set the value of Dts.TaskResult to indicate success or failure.
+        /// To open Help, press F1.
+        /// </summary>
+		public void Main()
+		{
+            // TODO: Add your code here
+
+            void Main()
+            {
+                try
+                {
+                    // Obtener la ruta del archivo desde SSIS
+                    string archivoOriginal   = Dts.Variables["User::ArchivoEntrada"].Value.ToString();
+                    string archivoConvertido = Dts.Variables["User::ArchivoSalida"].Value.ToString();
+
+                    //string archivoUTF8 = archivoOriginal.Replace(".txt", "_utf8.txt");
+
+                    // Leer el archivo en su codificaci�n original
+                    string contenido = File.ReadAllText(archivoOriginal, Encoding.Default);
+
+                    // Escribir el archivo en UTF-8
+                    File.WriteAllText(archivoConvertido, contenido, Encoding.UTF8);
+
+                    Dts.TaskResult = (int)ScriptResults.Success;
+                }
+                catch (Exception ex)
+                {
+                    Dts.Events.FireError(0, "Script Task", ex.Message, "", 0);
+                    Dts.TaskResult = (int)ScriptResults.Failure;
+                }
+            }
+            Dts.TaskResult = (int)ScriptResults.Success;
+		}
+
+        #region ScriptResults declaration
+        /// <summary>
+        /// This enum provides a convenient shorthand within the scope of this class for setting the
+        /// result of the script.
+        /// 
+        /// This code was generated automatically.
+        /// </summary>
+        enum ScriptResults
+        {
+            Success = Microsoft.SqlServer.Dts.Runtime.DTSExecResult.Success,
+            Failure = Microsoft.SqlServer.Dts.Runtime.DTSExecResult.Failure
+        };
+        #endregion
+
+	}
+}]]></ProjectItem>
+          <ProjectItem
+            Name="ST_b982004a07bf41aeb36e2c8e95d5a56b.csproj"
+            Encoding="UTF8"><![CDATA[<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <ProjectTypeGuids>{30D016F9-3734-4E33-A861-5E7D899E18F3};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{75a1cc28-4e96-48c3-addb-d86634300abe}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ST_b982004a07bf41aeb36e2c8e95d5a56b</RootNamespace>
+    <AssemblyName>ST_b982004a07bf41aeb36e2c8e95d5a56b</AssemblyName>
+    <TargetFrameworkVersion>v4.7</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ResolveAssemblyReferenceIgnoreTargetFrameworkAttributeVersionMismatch>true</ResolveAssemblyReferenceIgnoreTargetFrameworkAttributeVersionMismatch>
+  </PropertyGroup>
+
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>.\bin\Debug\</OutputPath>
+    <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <DebugSymbols>false</DebugSymbols>
+    <Optimize>true</Optimize>
+    <OutputPath>.\bin\Release\</OutputPath>
+    <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.SqlServer.ManagedDTS, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" />
+    <Reference Include="Microsoft.SqlServer.ScriptTask, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <AppDesigner Include="Properties\" />
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+         <Generator>ResXFileCodeGenerator</Generator>
+         <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+             <AutoGen>True</AutoGen>
+         <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <None Include="Properties\Settings.settings">
+         <Generator>SettingsSingleFileGenerator</Generator>
+         <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+         <AutoGen>True</AutoGen>
+         <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="ScriptMain.cs">
+         <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+
+  <!-- Include the build rules for a C# project.-->
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{30D016F9-3734-4E33-A861-5E7D899E18F3}">
+        <ProjectProperties HostName="ScriptTask"
+                           HostPackage="{B3A685AA-7EAF-4BC6-9940-57959FA5AC07}"
+                           ApplicationType="usd"
+                           Language="cs"
+                           TemplatesPath=""
+                           DebugInfoCommandLine=""
+                           DebugInfoWorkingDir=""
+                           IconImageList=""/>
+        <Host Name="ScriptTask" GeneratedNamespace="$safeprojectname" IconIndex="">
+        </Host>
+        <ProjectClient>
+            <HostIdentifier>SSIS_ST150</HostIdentifier>
+        </ProjectClient>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>]]></ProjectItem>
+          <ProjectItem
+            Name="Project"
+            Encoding="UTF16LE"><![CDATA[<?xml version="1.0" encoding="UTF-16" standalone="yes"?>
+<c:Project xmlns:c="http://schemas.microsoft.com/codeprojectml/2010/08/main" xmlns:msb="http://schemas.microsoft.com/developer/msbuild/2003" runtimeVersion="3.0" schemaVersion="1.0">
+  <msb:PropertyGroup>
+    <msb:Language>msBuild</msb:Language>
+    <msb:CodeName>ST_b982004a07bf41aeb36e2c8e95d5a56b</msb:CodeName>
+    <msb:DisplayName>ST_b982004a07bf41aeb36e2c8e95d5a56b</msb:DisplayName>
+    <msb:ProjectId>{A01A8025-A5A7-4075-82C9-694F3E36F3A2}</msb:ProjectId>
+  </msb:PropertyGroup>
+  <msb:ItemGroup>
+    <msb:Project Include="ST_b982004a07bf41aeb36e2c8e95d5a56b.csproj" />
+    <msb:File Include="Properties\Settings.settings" />
+    <msb:File Include="Properties\AssemblyInfo.cs" />
+    <msb:File Include="Properties\Resources.resx" />
+    <msb:File Include="Properties\Resources.Designer.cs" />
+    <msb:File Include="Properties\Settings.Designer.cs" />
+    <msb:File Include="ScriptMain.cs" />
+  </msb:ItemGroup>
+</c:Project>]]></ProjectItem>
+          <ProjectItem
+            Name="Properties\AssemblyInfo.cs"
+            Encoding="UTF8"><![CDATA[using System.Reflection;
+using System.Runtime.CompilerServices;
+
+//
+// General Information about an assembly is controlled through the following 
+// set of attributes. Change these attribute values to modify the information
+// associated with an assembly.
+//
+[assembly: AssemblyTitle("ST_b982004a07bf41aeb36e2c8e95d5a56b")]
+[assembly: AssemblyDescription("")]
+[assembly: AssemblyConfiguration("")]
+[assembly: AssemblyCompany("")]
+[assembly: AssemblyProduct("ST_b982004a07bf41aeb36e2c8e95d5a56b")]
+[assembly: AssemblyCopyright("Copyright @  2025")]
+[assembly: AssemblyTrademark("")]
+[assembly: AssemblyCulture("")]
+//
+// Version information for an assembly consists of the following four values:
+//
+//      Major Version
+//      Minor Version 
+//      Build Number
+//      Revision
+//
+// You can specify all the values or you can default the Revision and Build Numbers 
+// by using the '*' as shown below:
+
+[assembly: AssemblyVersion("1.0.*")]]]></ProjectItem>
+          <ProjectItem
+            Name="Properties\Settings.settings"
+            Encoding="UTF8"><![CDATA[<?xml version='1.0' encoding='iso-8859-1'?>
+<SettingsFile xmlns="uri:settings" CurrentProfile="(Default)">
+  <Profiles>
+    <Profile Name="(Default)" />
+  </Profiles>
+  <Settings />
+</SettingsFile>]]></ProjectItem>
+          <ProjectItem
+            Name="Properties\Resources.Designer.cs"
+            Encoding="UTF8"><![CDATA[//------------------------------------------------------------------------------
+// <auto-generated>
+//     This code was generated by a tool.
+//
+//     Changes to this file may cause incorrect behavior and will be lost if
+//     the code is regenerated.
+// </auto-generated>
+//------------------------------------------------------------------------------
+
+[assembly: global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode", Scope="member", Target="ST_b982004a07bf41aeb36e2c8e95d5a56b.Properties.Resources.get_ResourceManager():System.Resources.Resou" +
+    "rceManager")]
+[assembly: global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode", Scope="member", Target="ST_b982004a07bf41aeb36e2c8e95d5a56b.Properties.Resources.get_Culture():System.Globalization.CultureIn" +
+    "fo")]
+[assembly: global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode", Scope="member", Target="ST_b982004a07bf41aeb36e2c8e95d5a56b.Properties.Resources.set_Culture(System.Globalization.CultureInfo" +
+    "):Void")]
+
+namespace ST_b982004a07bf41aeb36e2c8e95d5a56b.Properties {
+    
+    
+    /// <summary>
+    ///   A strongly-typed resource class, for looking up localized strings, etc.
+    /// </summary>
+    // This class was auto-generated by the StronglyTypedResourceBuilder
+    // class via a tool like ResGen or Visual Studio.
+    // To add or remove a member, edit your .ResX file then rerun ResGen
+    // with the /str option, or rebuild your VS project.
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+    internal class Resources {
+        
+        private static global::System.Resources.ResourceManager resourceMan;
+        
+        private static global::System.Globalization.CultureInfo resourceCulture;
+        
+        [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
+        internal Resources() {
+        }
+        
+        /// <summary>
+        ///   Returns the cached ResourceManager instance used by this class.
+        /// </summary>
+        [global::System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        internal static global::System.Resources.ResourceManager ResourceManager {
+            get {
+                if ((resourceMan == null)) {
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("ST_b982004a07bf41aeb36e2c8e95d5a56b.Properties.Resources", typeof(Resources).Assembly);
+                    resourceMan = temp;
+                }
+                return resourceMan;
+            }
+        }
+        
+        /// <summary>
+        ///   Overrides the current thread's CurrentUICulture property for all
+        ///   resource lookups using this strongly typed resource class.
+        /// </summary>
+        [global::System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        internal static global::System.Globalization.CultureInfo Culture {
+            get {
+                return resourceCulture;
+            }
+            set {
+                resourceCulture = value;
+            }
+        }
+    }
+}]]></ProjectItem>
+          <BinaryItem
+            Name="ST_b982004a07bf41aeb36e2c8e95d5a56b.dll">TVqQAAMAAAAEAAAA//8AALgAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAgAAAAA4fug4AtAnNIbgBTM0hVGhpcyBwcm9ncmFtIGNhbm5vdCBiZSBydW4gaW4gRE9TIG1v
+ZGUuDQ0KJAAAAAAAAABQRQAATAEDAKIhQ2gAAAAAAAAAAOAAIiALATAAABAAAAAIAAAAAAAAdi8A
+AAAgAAAAQAAAAAAAEAAgAAAAAgAABAAAAAAAAAAGAAAAAAAAAACAAAAAAgAAAAAAAAMAYIUAABAA
+ABAAAAAAEAAAEAAAAAAAABAAAAAAAAAAAAAAACQvAABPAAAAAEAAAHgEAAAAAAAAAAAAAAAAAAAA
+AAAAAGAAAAwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAIAAACAAAAAAAAAAAAAAACCAAAEgAAAAAAAAAAAAAAC50ZXh0AAAAfA8AAAAgAAAAEAAAAAIA
+AAAAAAAAAAAAAAAAACAAAGAucnNyYwAAAHgEAAAAQAAAAAYAAAASAAAAAAAAAAAAAAAAAABAAABA
+LnJlbG9jAAAMAAAAAGAAAAACAAAAGAAAAAAAAAAAAAAAAAAAQAAAQgAAAAAAAAAAAAAAAAAAAABY
+LwAAAAAAAEgAAAACAAUAfCEAAPAMAAABAAAAAAAAAGwuAAC4AAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAADYCKBAAAAoWbxEAAAoqHgIoEgAACioAABswBgCXAAAAAQAA
+EQIoEAAACm8TAAAKcgEAAHBvFAAACm8VAAAKbxYAAAoKAigQAAAKbxMAAApyKwAAcG8UAAAKbxUA
+AApvFgAACgYoFwAACigYAAAKCwcoGQAACigaAAAKAigQAAAKFm8RAAAK3jIMAigQAAAKbxsAAAoW
+clMAAHAIbxwAAApyawAAcBZvHQAACiYCKBAAAAoXbxEAAAreACoAARAAAAAAAABkZAAyEAAAAR4C
+KB4AAAoqrn4BAAAELR5ybQAAcNADAAACKB8AAApvIAAACnMhAAAKgAEAAAR+AQAABCoafgIAAAQq
+HgKAAgAABCoafgMAAAQqHgIoIgAACioucwkAAAaAAwAABCoAAEJTSkIBAAEAAAAAAAwAAAB2NC4w
+LjMwMzE5AAAAAAUAbAAAABQEAAAjfgAAgAQAAPQFAAAjU3RyaW5ncwAAAAB0CgAA4AAAACNVUwBU
+CwAAEAAAACNHVUlEAAAAZAsAAIwBAAAjQmxvYgAAAAAAAAACAAABVx2iAQkDAAAA+gEzABYAAAEA
+AAAhAAAABQAAAAYAAAAKAAAAAQAAACIAAAACAAAAEQAAAAEAAAACAAAAAwAAAAQAAAABAAAABAAA
+AAEAAAABAAAAAAC0AwEAAAAAAAYAWwKsBAYA6gKsBAYApwGZBA8AIAUAAAYA1AEyBAYAPgIyBAYA
+HwIyBAYA0QIyBAYAewIyBAYAlAIyBAYA6wEyBAYABgIhAwoArwJjAwoAJgFjAwYAbwGsBAYARATl
+AwYA7APlAwYAigGZBAYAngXlAwYAXgTMBAYATgQdBA4AWgGeAw4AuwGeAw4AQgEIBAoAjANjAxIA
+YgXRABIAnwDRAAYAGAPABQYAzAAlAAoAbgRjAwYA8QDlAwYAqADlAwYA6QUyBAAAAAAcAAAAAAAB
+AAEAAQAQAP0DVgA5AAEAAQAAABAA0wQvBU0AAQAEAAABEABsBS8FYQADAAgAAwEAAIUFAABFAAQA
+CwARAPEDjgARABYBkgARAIMAlgAGBk4AmgBWgHUFnQBWgPYAnQBQIAAAAACGAAMEBgABAF4gAAAA
+AIYYjAQGAAEAaCAAAAAAgQABAAYAAQAcIQAAAACDGIwEBgABACQhAAAAAJMIWgShAAEAUCEAAAAA
+kwj+AKYAAQBXIQAAAACTCAoBqwABAF8hAAAAAJYIpQWxAAIAZiEAAAAAhhiMBAYAAgBuIQAAAACR
+GJIEtgACAAAAAQASAwkAjAQBABEAjAQGABkAjAQKACkAjAQQADEAjAQQADkAjAQQAEEAjAQQAEkA
+jAQQAFEAjAQQAFkAjAQQAGEAjAQQAGkAjAQGAHkAjAQGAJEAjAQGALkAjAQVAHEAfQUbAMkAsQUB
+AHEAjAQGAMkAXgUnANEA3AMsANkACAMyAJkAOwM2AOEApQU6AOkAzAU/AOEAEwA6AOkA2AVGAMkA
+kwVOAIEAkwA2APEAggRTAJkAjAQGAPkAugBcAPkA5QVkAKEAjARqAMEAjAQGAAgAFACEAAgAGACJ
+ACkAewDxAC4ACwDJAC4AEwDSAC4AGwDxAC4AIwD6AC4AKwAjAS4AMwAjAS4AOwAjAS4AQwD6AC4A
+SwApAS4AUwAjAS4AWwBAAUMAYwCJAEkAewDxAGAAawCJAGEAawCJAGMAcwCJACAAAwABAAQAAwAA
+AF4EugAAAB4BvwAAAKkFxAACAAUAAwACAAYABQABAAcABQACAAgABwAEgAAAAQAAAEgk8FwAAAAA
+AABWAAAABAAAAAAAAAAAAAAAcgB6AAAAAAAPAAAAAAAAAAAAAAB7AEQDAAAAAAQAAAAAAAAAAAAA
+AHIA5QMAAAAADwAAAAAAAAAAAAAAewAvAAAAAAAAAAAAAQAAAN0EAAAFAAIAAAAAAAA8TWFpbj5n
+X19NYWlufDBfMABnZXRfVVRGOAA8TW9kdWxlPgBTeXN0ZW0uSU8ATWljcm9zb2Z0LlNxbFNlcnZl
+ci5NYW5hZ2VkRFRTAHZhbHVlX18AU1RfYjk4MjAwNGEwN2JmNDFhZWIzNmUyYzhlOTVkNWE1NmIA
+bXNjb3JsaWIAZGVmYXVsdEluc3RhbmNlAGdldF9NZXNzYWdlAFZhcmlhYmxlAFJ1bnRpbWVUeXBl
+SGFuZGxlAEdldFR5cGVGcm9tSGFuZGxlAEZpbGUATWljcm9zb2Z0LlNxbFNlcnZlci5EdHMuUnVu
+dGltZQBUeXBlAEZhaWx1cmUAZ2V0X0N1bHR1cmUAc2V0X0N1bHR1cmUAcmVzb3VyY2VDdWx0dXJl
+AFZTVEFSVFNjcmlwdE9iamVjdE1vZGVsQmFzZQBBcHBsaWNhdGlvblNldHRpbmdzQmFzZQBFZGl0
+b3JCcm93c2FibGVTdGF0ZQBDb21waWxlckdlbmVyYXRlZEF0dHJpYnV0ZQBEZWJ1Z2dlck5vblVz
+ZXJDb2RlQXR0cmlidXRlAERlYnVnZ2FibGVBdHRyaWJ1dGUARWRpdG9yQnJvd3NhYmxlQXR0cmli
+dXRlAEFzc2VtYmx5VGl0bGVBdHRyaWJ1dGUAQXNzZW1ibHlUcmFkZW1hcmtBdHRyaWJ1dGUAVGFy
+Z2V0RnJhbWV3b3JrQXR0cmlidXRlAEFzc2VtYmx5Q29uZmlndXJhdGlvbkF0dHJpYnV0ZQBBc3Nl
+bWJseURlc2NyaXB0aW9uQXR0cmlidXRlAENvbXBpbGF0aW9uUmVsYXhhdGlvbnNBdHRyaWJ1dGUA
+QXNzZW1ibHlQcm9kdWN0QXR0cmlidXRlAEFzc2VtYmx5Q29weXJpZ2h0QXR0cmlidXRlAFNTSVNT
+Y3JpcHRUYXNrRW50cnlQb2ludEF0dHJpYnV0ZQBBc3NlbWJseUNvbXBhbnlBdHRyaWJ1dGUAUnVu
+dGltZUNvbXBhdGliaWxpdHlBdHRyaWJ1dGUAZ2V0X1ZhbHVlAHZhbHVlAEVuY29kaW5nAFN5c3Rl
+bS5SdW50aW1lLlZlcnNpb25pbmcAVG9TdHJpbmcATWljcm9zb2Z0LlNxbFNlcnZlci5TY3JpcHRU
+YXNrAE1pY3Jvc29mdC5TcWxTZXJ2ZXIuRHRzLlRhc2tzLlNjcmlwdFRhc2sAU2NyaXB0T2JqZWN0
+TW9kZWwAU3lzdGVtLkNvbXBvbmVudE1vZGVsAFNUX2I5ODIwMDRhMDdiZjQxYWViMzZlMmM4ZTk1
+ZDVhNTZiLmRsbABnZXRfSXRlbQBTeXN0ZW0ARW51bQByZXNvdXJjZU1hbgBTY3JpcHRNYWluAFN5
+c3RlbS5Db25maWd1cmF0aW9uAFN5c3RlbS5HbG9iYWxpemF0aW9uAFN5c3RlbS5SZWZsZWN0aW9u
+AEV4Y2VwdGlvbgBDdWx0dXJlSW5mbwBnZXRfUmVzb3VyY2VNYW5hZ2VyAEV2ZW50c09iamVjdFdy
+YXBwZXIARmlyZUVycm9yAC5jdG9yAC5jY3RvcgBTeXN0ZW0uRGlhZ25vc3RpY3MAU3lzdGVtLlJ1
+bnRpbWUuQ29tcGlsZXJTZXJ2aWNlcwBTeXN0ZW0uUmVzb3VyY2VzAFNUX2I5ODIwMDRhMDdiZjQx
+YWViMzZlMmM4ZTk1ZDVhNTZiLlByb3BlcnRpZXMuUmVzb3VyY2VzLnJlc291cmNlcwBEZWJ1Z2dp
+bmdNb2RlcwBTVF9iOTgyMDA0YTA3YmY0MWFlYjM2ZTJjOGU5NWQ1YTU2Yi5Qcm9wZXJ0aWVzAGdl
+dF9WYXJpYWJsZXMAU2V0dGluZ3MAU3VjY2VzcwBnZXRfRHRzAFNjcmlwdFJlc3VsdHMAZ2V0X0V2
+ZW50cwBPYmplY3QAZ2V0X0RlZmF1bHQAc2V0X1Rhc2tSZXN1bHQAU3lzdGVtLlRleHQAUmVhZEFs
+bFRleHQAV3JpdGVBbGxUZXh0AGdldF9Bc3NlbWJseQAAAAApVQBzAGUAcgA6ADoAQQByAGMAaABp
+AHYAbwBFAG4AdAByAGEAZABhAAAnVQBzAGUAcgA6ADoAQQByAGMAaABpAHYAbwBTAGEAbABpAGQA
+YQAAF1MAYwByAGkAcAB0ACAAVABhAHMAawAAAQBxUwBUAF8AYgA5ADgAMgAwADAANABhADAANwBi
+AGYANAAxAGEAZQBiADMANgBlADIAYwA4AGUAOQA1AGQANQBhADUANgBiAC4AUAByAG8AcABlAHIA
+dABpAGUAcwAuAFIAZQBzAG8AdQByAGMAZQBzAAAA5HSIs2s0j0ioa3kFdZl2tAAEIAEBCAMgAAEF
+IAEBEREEIAEBDgUgAQERWQQgABJlBgcDDg4SQQQgABJpBSABEm0cAyAAHAMgAA4EAAAScQYAAg4O
+EnEHAAMBDg4ScQQgABJ5CCAFAggODg4IBwABEn0RgIEFIAASgIUHIAIBDhKAhQi3elxWGTTgiQiJ
+hF3NgIDMkQQAAAAABAEAAAADBhJRAwYSVQMGEhACBggDBhEUBAAAElEEAAASVQUAAQESVQQAABIQ
+AwAAAQQIABJRBAgAElUECAASEAgBAAgAAAAAAB4BAAEAVAIWV3JhcE5vbkV4Y2VwdGlvblRocm93
+cwEIAQACAAAAAAAoAQAjU1RfYjk4MjAwNGEwN2JmNDFhZWIzNmUyYzhlOTVkNWE1NmIAAAUBAAAA
+ABYBABFDb3B5cmlnaHQgQCAgMjAyNQAASQEAGi5ORVRGcmFtZXdvcmssVmVyc2lvbj12NC43AQBU
+DhRGcmFtZXdvcmtEaXNwbGF5TmFtZRIuTkVUIEZyYW1ld29yayA0LjcAALQAAADOyu++AQAAAJEA
+AABsU3lzdGVtLlJlc291cmNlcy5SZXNvdXJjZVJlYWRlciwgbXNjb3JsaWIsIFZlcnNpb249NC4w
+LjAuMCwgQ3VsdHVyZT1uZXV0cmFsLCBQdWJsaWNLZXlUb2tlbj1iNzdhNWM1NjE5MzRlMDg5I1N5
+c3RlbS5SZXNvdXJjZXMuUnVudGltZVJlc291cmNlU2V0AgAAAAAAAAAAAAAAUEFEUEFEULQAAABM
+LwAAAAAAAAAAAABmLwAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAWC8AAAAAAAAAAAAAAABfQ29y
+RGxsTWFpbgBtc2NvcmVlLmRsbAAAAAAA/yUAIAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAABABAAAAAYAACAAAAAAAAAAAAAAAAAAAABAAEAAAAwAACAAAAAAAAAAAAAAAAAAAABAAAA
+AABIAAAAWEAAABoEAAAAAAAAAAAAABoENAAAAFYAUwBfAFYARQBSAFMASQBPAE4AXwBJAE4ARgBP
+AAAAAAC9BO/+AAABAAAAAQDwXEgkAAABAPBcSCQ/AAAAAAAAAAQAAAACAAAAAAAAAAAAAAAAAAAA
+RAAAAAEAVgBhAHIARgBpAGwAZQBJAG4AZgBvAAAAAAAkAAQAAABUAHIAYQBuAHMAbABhAHQAaQBv
+AG4AAAAAAAAAsAR6AwAAAQBTAHQAcgBpAG4AZwBGAGkAbABlAEkAbgBmAG8AAABWAwAAAQAwADAA
+MAAwADAANABiADAAAAAaAAEAAQBDAG8AbQBtAGUAbgB0AHMAAAAAAAAAIgABAAEAQwBvAG0AcABh
+AG4AeQBOAGEAbQBlAAAAAAAAAAAAcAAkAAEARgBpAGwAZQBEAGUAcwBjAHIAaQBwAHQAaQBvAG4A
+AAAAAFMAVABfAGIAOQA4ADIAMAAwADQAYQAwADcAYgBmADQAMQBhAGUAYgAzADYAZQAyAGMAOABl
+ADkANQBkADUAYQA1ADYAYgAAAD4ADwABAEYAaQBsAGUAVgBlAHIAcwBpAG8AbgAAAAAAMQAuADAA
+LgA5ADIAOAA4AC4AMgAzADcAOQAyAAAAAABwACgAAQBJAG4AdABlAHIAbgBhAGwATgBhAG0AZQAA
+AFMAVABfAGIAOQA4ADIAMAAwADQAYQAwADcAYgBmADQAMQBhAGUAYgAzADYAZQAyAGMAOABlADkA
+NQBkADUAYQA1ADYAYgAuAGQAbABsAAAASAASAAEATABlAGcAYQBsAEMAbwBwAHkAcgBpAGcAaAB0
+AAAAQwBvAHAAeQByAGkAZwBoAHQAIABAACAAIAAyADAAMgA1AAAAKgABAAEATABlAGcAYQBsAFQA
+cgBhAGQAZQBtAGEAcgBrAHMAAAAAAAAAAAB4ACgAAQBPAHIAaQBnAGkAbgBhAGwARgBpAGwAZQBu
+AGEAbQBlAAAAUwBUAF8AYgA5ADgAMgAwADAANABhADAANwBiAGYANAAxAGEAZQBiADMANgBlADIA
+YwA4AGUAOQA1AGQANQBhADUANgBiAC4AZABsAGwAAABoACQAAQBQAHIAbwBkAHUAYwB0AE4AYQBt
+AGUAAAAAAFMAVABfAGIAOQA4ADIAMAAwADQAYQAwADcAYgBmADQAMQBhAGUAYgAzADYAZQAyAGMA
+OABlADkANQBkADUAYQA1ADYAYgAAAEIADwABAFAAcgBvAGQAdQBjAHQAVgBlAHIAcwBpAG8AbgAA
+ADEALgAwAC4AOQAyADgAOAAuADIAMwA3ADkAMgAAAAAARgAPAAEAQQBzAHMAZQBtAGIAbAB5ACAA
+VgBlAHIAcwBpAG8AbgAAADEALgAwAC4AOQAyADgAOAAuADIAMwA3ADkAMgAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAwAAAB4PwAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</BinaryItem>
+        </ScriptProject>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Convierte a Formato UTF-8 sin BOM"
+      DTS:CreationName="Microsoft.ExecuteProcess"
+      DTS:Description="Execute Process Task"
+      DTS:DTSID="{32D218B6-A307-4605-9E36-13EC4C663C97}"
+      DTS:ExecutableType="Microsoft.ExecuteProcess"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Convierte a Formato UTF-8 sin BOM"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <ExecuteProcessData
+          Executable="powershell.exe"
+          Arguments="-ExecutionPolicy Bypass -File &quot;D:\App\Migracion-Polaris-ETL1\Sol\CovertANSI_UTF8_Sin_BOM.ps1&quot;" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Crea Archivo Plano DMS DRA 01 Takeover"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{3e55ce8e-7e1d-4fda-9f9e-87ae283fc55a}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Crea Archivo Plano DMS DRA 01 Takeover"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Crea Archivo Plano DMS DRA 01 Takeover\Flat File Destination DMS DRA01TAKEOVER"
+              componentClassID="Microsoft.FlatFileDestination"
+              contactInfo="Flat File Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Flat File Destination"
+              localeId="1033"
+              name="Flat File Destination DMS DRA01TAKEOVER"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Specifies whether the data will overwrite or append to the destination file."
+                  name="Overwrite">true</property>
+                <property
+                  dataType="System.Null"
+                  description="Specifies the text to write to the destination file before any data is written."
+                  expressionType="Notify"
+                  name="Header" />
+                <property
+                  dataType="System.Boolean"
+                  description="When text qualifier is enabled, specifies whether the text qualifier in the data written to the destination file will be escaped or not."
+                  name="EscapeQualifier">false</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Crea Archivo Plano DMS DRA 01 Takeover\Flat File Destination DMS DRA01TAKEOVER.Connections[FlatFileConnection]"
+                  connectionManagerID="Package.ConnectionManagers[Flat File Destination DMS DRA01TAKEOVER]"
+                  connectionManagerRefId="Package.ConnectionManagers[Flat File Destination DMS DRA01TAKEOVER]"
+                  name="FlatFileConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Crea Archivo Plano DMS DRA 01 Takeover\Flat File Destination DMS DRA01TAKEOVER.Inputs[Flat File Destination Input]"
+                  hasSideEffects="true"
+                  name="Flat File Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Crea Archivo Plano DMS DRA 01 Takeover\Flat File Destination DMS DRA01TAKEOVER.Inputs[Flat File Destination Input].Columns[UPLOAD.COMPANY]"
+                      cachedDataType="wstr"
+                      cachedLength="9"
+                      cachedName="UPLOAD.COMPANY"
+                      externalMetadataColumnId="Package\Crea Archivo Plano DMS DRA 01 Takeover\Flat File Destination DMS DRA01TAKEOVER.Inputs[Flat File Destination Input].ExternalColumns[UPLOAD.COMPANY]"
+                      lineageId="Package\Crea Archivo Plano DMS DRA 01 Takeover\Source DMS DRA 01 TAKEOVER.Outputs[OLE DB Source Output].Columns[UPLOAD.COMPANY]" />
+                    <inputColumn
+                      refId="Package\Crea Archivo Plano DMS DRA 01 Takeover\Flat File Destination DMS DRA01TAKEOVER.Inputs[Flat File Destination Input].Columns[ID/ARR.SEQUENCE]"
+                      cachedDataType="wstr"
+                      cachedLength="18"
+                      cachedName="ID/ARR.SEQUENCE"
+                      externalMetadataColumnId="Package\Crea Archivo Plano DMS DRA 01 Takeover\Flat File Destination DMS DRA01TAKEOVER.Inputs[Flat File Destination Input].ExternalColumns[ID/ARR.SEQUENCE]"
+                      lineageId="Package\Crea Archivo Plano DMS DRA 01 Takeover\Source DMS DRA 01 TAKEOVER.Outputs[OLE DB Source Output].Columns[ID/ARR.SEQUENCE]" />
+                    <inputColumn
+                      refId="Package\Crea Archivo Plano DMS DRA 01 Takeover\Flat File Destination DMS DRA01TAKEOVER.Inputs[Flat File Destination Input].Columns[ARRANGEMENT]"
+                      cachedDataType="wstr"
+                      cachedLength="12"
+                      cachedName="ARRANGEMENT"
+                      externalMetadataColumnId="Package\Crea Archivo Plano DMS DRA 01 Takeover\Flat File Destination DMS DRA01TAKEOVER.Inputs[Flat File Destination Input].ExternalColumns[ARRANGEMENT]"
+                      lineageId="Package\Crea Archivo Plano DMS DRA 01 Takeover\Source DMS DRA 01 TAKEOVER.Outputs[OLE DB Source Output].Columns[ARRANGEMENT]" />
+                    <inputColumn
+                      refId="Package\Crea Archivo Plano DMS DRA 01 Takeover\Flat File Destination DMS DRA01TAKEOVER.Inputs[Flat File Destination Input].Columns[ACTIVITY]"
+                      cachedDataType="wstr"
+                      cachedLength="64"
+                      cachedName="ACTIVITY"
+                      externalMetadataColumnId="Package\Crea Archivo Plano DMS DRA 01 Takeover\Flat File Destination DMS DRA01TAKEOVER.Inputs[Flat File Destination Input].ExternalColumns[ACTIVITY]"
+                      lineageId="Package\Crea Archivo Plano DMS DRA 01 Takeover\Source DMS DRA 01 TAKEOVER.Outputs[OLE DB Source Output].Columns[ACTIVITY]" />
+                    <inputColumn
+                      refId="Package\Crea Archivo Plano DMS DRA 01 Takeover\Flat File Destination DMS DRA01TAKEOVER.Inputs[Flat File Destination Input].Columns[CUSTOMER]"
+                      cachedDataType="wstr"
+                      cachedLength="128"
+                      cachedName="CUSTOMER"
+                      externalMetadataColumnId="Package\Crea Archivo Plano DMS DRA 01 Takeover\Flat File Destination DMS DRA01TAKEOVER.Inputs[Flat File Destination Input].ExternalColumns[CUSTOMER]"
+                      lineageId="Package\Crea Archivo Plano DMS DRA 01 Takeover\Source DMS DRA 01 TAKEOVER.Outputs[OLE DB Source Output].Columns[CUSTOMER]" />
+                    <inputColumn
+                      refId="Package\Crea Archivo Plano DMS DRA 01 Takeover\Flat File Destination DMS DRA01TAKEOVER.Inputs[Flat File Destination Input].Columns[CUSTOMER.ROLE]"
+                      cachedDataType="wstr"
+                      cachedLength="128"
+                      cachedName="CUSTOMER.ROLE"
+                      externalMetadataColumnId="Package\Crea Archivo Plano DMS DRA 01 Takeover\Flat File Destination DMS DRA01TAKEOVER.Inputs[Flat File Destination Input].ExternalColumns[CUSTOMER.ROLE]"
+                      lineageId="Package\Crea Archivo Plano DMS DRA 01 Takeover\Source DMS DRA 01 TAKEOVER.Outputs[OLE DB Source Output].Columns[CUSTOMER.ROLE]" />
+                    <inputColumn
+                      refId="Package\Crea Archivo Plano DMS DRA 01 Takeover\Flat File Destination DMS DRA01TAKEOVER.Inputs[Flat File Destination Input].Columns[MASTER.ARRANGEMENT]"
+                      cachedDataType="wstr"
+                      cachedLength="12"
+                      cachedName="MASTER.ARRANGEMENT"
+                      externalMetadataColumnId="Package\Crea Archivo Plano DMS DRA 01 Takeover\Flat File Destination DMS DRA01TAKEOVER.Inputs[Flat File Destination Input].ExternalColumns[MASTER.ARRANGEMENT]"
+                      lineageId="Package\Crea Archivo Plano DMS DRA 01 Takeover\Source DMS DRA 01 TAKEOVER.Outputs[OLE DB Source Output].Columns[MASTER.ARRANGEMENT]" />
+                    <inputColumn
+                      refId="Package\Crea Archivo Plano DMS DRA 01 Takeover\Flat File Destination DMS DRA01TAKEOVER.Inputs[Flat File Destination Input].Columns[PRODUCT]"
+                      cachedDataType="wstr"
+                      cachedLength="64"
+                      cachedName="PRODUCT"
+                      externalMetadataColumnId="Package\Crea Archivo Plano DMS DRA 01 Takeover\Flat File Destination DMS DRA01TAKEOVER.Inputs[Flat File Destination Input].ExternalColumns[PRODUCT]"
+                      lineageId="Package\Crea Archivo Plano DMS DRA 01 Takeover\Source DMS DRA 01 TAKEOVER.Outputs[OLE DB Source Output].Columns[PRODUCT]" />
+                    <inputColumn
+                      refId="Package\Crea Archivo Plano DMS DRA 01 Takeover\Flat File Destination DMS DRA01TAKEOVER.Inputs[Flat File Destination Input].Columns[CURRENCY]"
+                      cachedDataType="wstr"
+                      cachedLength="3"
+                      cachedName="CURRENCY"
+                      externalMetadataColumnId="Package\Crea Archivo Plano DMS DRA 01 Takeover\Flat File Destination DMS DRA01TAKEOVER.Inputs[Flat File Destination Input].ExternalColumns[CURRENCY]"
+                      lineageId="Package\Crea Archivo Plano DMS DRA 01 Takeover\Source DMS DRA 01 TAKEOVER.Outputs[OLE DB Source Output].Columns[CURRENCY]" />
+                    <inputColumn
+                      refId="Package\Crea Archivo Plano DMS DRA 01 Takeover\Flat File Destination DMS DRA01TAKEOVER.Inputs[Flat File Destination Input].Columns[ORIG.CONTRACT.DATE]"
+                      cachedDataType="wstr"
+                      cachedLength="8"
+                      cachedName="ORIG.CONTRACT.DATE"
+                      externalMetadataColumnId="Package\Crea Archivo Plano DMS DRA 01 Takeover\Flat File Destination DMS DRA01TAKEOVER.Inputs[Flat File Destination Input].ExternalColumns[ORIG.CONTRACT.DATE]"
+                      lineageId="Package\Crea Archivo Plano DMS DRA 01 Takeover\Source DMS DRA 01 TAKEOVER.Outputs[OLE DB Source Output].Columns[ORIG.CONTRACT.DATE]" />
+                    <inputColumn
+                      refId="Package\Crea Archivo Plano DMS DRA 01 Takeover\Flat File Destination DMS DRA01TAKEOVER.Inputs[Flat File Destination Input].Columns[PROPERTY]"
+                      cachedDataType="wstr"
+                      cachedLength="1024"
+                      cachedName="PROPERTY"
+                      externalMetadataColumnId="Package\Crea Archivo Plano DMS DRA 01 Takeover\Flat File Destination DMS DRA01TAKEOVER.Inputs[Flat File Destination Input].ExternalColumns[PROPERTY]"
+                      lineageId="Package\Crea Archivo Plano DMS DRA 01 Takeover\Source DMS DRA 01 TAKEOVER.Outputs[OLE DB Source Output].Columns[PROPERTY]" />
+                    <inputColumn
+                      refId="Package\Crea Archivo Plano DMS DRA 01 Takeover\Flat File Destination DMS DRA01TAKEOVER.Inputs[Flat File Destination Input].Columns[FIELD.NAME]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="8000"
+                      cachedName="FIELD.NAME"
+                      externalMetadataColumnId="Package\Crea Archivo Plano DMS DRA 01 Takeover\Flat File Destination DMS DRA01TAKEOVER.Inputs[Flat File Destination Input].ExternalColumns[FIELD.NAME]"
+                      lineageId="Package\Crea Archivo Plano DMS DRA 01 Takeover\Source DMS DRA 01 TAKEOVER.Outputs[OLE DB Source Output].Columns[FIELD.NAME]" />
+                    <inputColumn
+                      refId="Package\Crea Archivo Plano DMS DRA 01 Takeover\Flat File Destination DMS DRA01TAKEOVER.Inputs[Flat File Destination Input].Columns[FIELD.VALUE]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="8000"
+                      cachedName="FIELD.VALUE"
+                      externalMetadataColumnId="Package\Crea Archivo Plano DMS DRA 01 Takeover\Flat File Destination DMS DRA01TAKEOVER.Inputs[Flat File Destination Input].ExternalColumns[FIELD.VALUE]"
+                      lineageId="Package\Crea Archivo Plano DMS DRA 01 Takeover\Source DMS DRA 01 TAKEOVER.Outputs[OLE DB Source Output].Columns[FIELD.VALUE]" />
+                    <inputColumn
+                      refId="Package\Crea Archivo Plano DMS DRA 01 Takeover\Flat File Destination DMS DRA01TAKEOVER.Inputs[Flat File Destination Input].Columns[REASON]"
+                      cachedDataType="wstr"
+                      cachedLength="150"
+                      cachedName="REASON"
+                      externalMetadataColumnId="Package\Crea Archivo Plano DMS DRA 01 Takeover\Flat File Destination DMS DRA01TAKEOVER.Inputs[Flat File Destination Input].ExternalColumns[REASON]"
+                      lineageId="Package\Crea Archivo Plano DMS DRA 01 Takeover\Source DMS DRA 01 TAKEOVER.Outputs[OLE DB Source Output].Columns[REASON]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Crea Archivo Plano DMS DRA 01 Takeover\Flat File Destination DMS DRA01TAKEOVER.Inputs[Flat File Destination Input].ExternalColumns[UPLOAD.COMPANY]"
+                      dataType="wstr"
+                      length="9"
+                      name="UPLOAD.COMPANY" />
+                    <externalMetadataColumn
+                      refId="Package\Crea Archivo Plano DMS DRA 01 Takeover\Flat File Destination DMS DRA01TAKEOVER.Inputs[Flat File Destination Input].ExternalColumns[ID/ARR.SEQUENCE]"
+                      dataType="wstr"
+                      length="18"
+                      name="ID/ARR.SEQUENCE" />
+                    <externalMetadataColumn
+                      refId="Package\Crea Archivo Plano DMS DRA 01 Takeover\Flat File Destination DMS DRA01TAKEOVER.Inputs[Flat File Destination Input].ExternalColumns[ARRANGEMENT]"
+                      dataType="wstr"
+                      length="12"
+                      name="ARRANGEMENT" />
+                    <externalMetadataColumn
+                      refId="Package\Crea Archivo Plano DMS DRA 01 Takeover\Flat File Destination DMS DRA01TAKEOVER.Inputs[Flat File Destination Input].ExternalColumns[ACTIVITY]"
+                      dataType="wstr"
+                      length="64"
+                      name="ACTIVITY" />
+                    <externalMetadataColumn
+                      refId="Package\Crea Archivo Plano DMS DRA 01 Takeover\Flat File Destination DMS DRA01TAKEOVER.Inputs[Flat File Destination Input].ExternalColumns[CUSTOMER]"
+                      dataType="wstr"
+                      length="128"
+                      name="CUSTOMER" />
+                    <externalMetadataColumn
+                      refId="Package\Crea Archivo Plano DMS DRA 01 Takeover\Flat File Destination DMS DRA01TAKEOVER.Inputs[Flat File Destination Input].ExternalColumns[CUSTOMER.ROLE]"
+                      dataType="wstr"
+                      length="128"
+                      name="CUSTOMER.ROLE" />
+                    <externalMetadataColumn
+                      refId="Package\Crea Archivo Plano DMS DRA 01 Takeover\Flat File Destination DMS DRA01TAKEOVER.Inputs[Flat File Destination Input].ExternalColumns[MASTER.ARRANGEMENT]"
+                      dataType="wstr"
+                      length="12"
+                      name="MASTER.ARRANGEMENT" />
+                    <externalMetadataColumn
+                      refId="Package\Crea Archivo Plano DMS DRA 01 Takeover\Flat File Destination DMS DRA01TAKEOVER.Inputs[Flat File Destination Input].ExternalColumns[PRODUCT]"
+                      dataType="wstr"
+                      length="64"
+                      name="PRODUCT" />
+                    <externalMetadataColumn
+                      refId="Package\Crea Archivo Plano DMS DRA 01 Takeover\Flat File Destination DMS DRA01TAKEOVER.Inputs[Flat File Destination Input].ExternalColumns[CURRENCY]"
+                      dataType="wstr"
+                      length="3"
+                      name="CURRENCY" />
+                    <externalMetadataColumn
+                      refId="Package\Crea Archivo Plano DMS DRA 01 Takeover\Flat File Destination DMS DRA01TAKEOVER.Inputs[Flat File Destination Input].ExternalColumns[ORIG.CONTRACT.DATE]"
+                      dataType="wstr"
+                      length="8"
+                      name="ORIG.CONTRACT.DATE" />
+                    <externalMetadataColumn
+                      refId="Package\Crea Archivo Plano DMS DRA 01 Takeover\Flat File Destination DMS DRA01TAKEOVER.Inputs[Flat File Destination Input].ExternalColumns[PROPERTY]"
+                      dataType="wstr"
+                      length="1024"
+                      name="PROPERTY" />
+                    <externalMetadataColumn
+                      refId="Package\Crea Archivo Plano DMS DRA 01 Takeover\Flat File Destination DMS DRA01TAKEOVER.Inputs[Flat File Destination Input].ExternalColumns[FIELD.NAME]"
+                      codePage="1252"
+                      dataType="str"
+                      length="8000"
+                      name="FIELD.NAME" />
+                    <externalMetadataColumn
+                      refId="Package\Crea Archivo Plano DMS DRA 01 Takeover\Flat File Destination DMS DRA01TAKEOVER.Inputs[Flat File Destination Input].ExternalColumns[FIELD.VALUE]"
+                      codePage="1252"
+                      dataType="str"
+                      length="8000"
+                      name="FIELD.VALUE" />
+                    <externalMetadataColumn
+                      refId="Package\Crea Archivo Plano DMS DRA 01 Takeover\Flat File Destination DMS DRA01TAKEOVER.Inputs[Flat File Destination Input].ExternalColumns[REASON]"
+                      dataType="wstr"
+                      length="150"
+                      name="REASON" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+            </component>
+            <component
+              refId="Package\Crea Archivo Plano DMS DRA 01 Takeover\Source DMS DRA 01 TAKEOVER"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="Source DMS DRA 01 TAKEOVER"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[DMS.DRA.01.TAKEOVER]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=16.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Crea Archivo Plano DMS DRA 01 Takeover\Source DMS DRA 01 TAKEOVER.Connections[OleDbConnection]"
+                  connectionManagerID="{73E9BE98-144D-4887-A1CD-FCE6E4AB9CF5}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[STGPolaris]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Crea Archivo Plano DMS DRA 01 Takeover\Source DMS DRA 01 TAKEOVER.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Crea Archivo Plano DMS DRA 01 Takeover\Source DMS DRA 01 TAKEOVER.Outputs[OLE DB Source Output].Columns[UPLOAD.COMPANY]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Crea Archivo Plano DMS DRA 01 Takeover\Source DMS DRA 01 TAKEOVER.Outputs[OLE DB Source Output].ExternalColumns[UPLOAD.COMPANY]"
+                      length="9"
+                      lineageId="Package\Crea Archivo Plano DMS DRA 01 Takeover\Source DMS DRA 01 TAKEOVER.Outputs[OLE DB Source Output].Columns[UPLOAD.COMPANY]"
+                      name="UPLOAD.COMPANY"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Crea Archivo Plano DMS DRA 01 Takeover\Source DMS DRA 01 TAKEOVER.Outputs[OLE DB Source Output].Columns[ID/ARR.SEQUENCE]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Crea Archivo Plano DMS DRA 01 Takeover\Source DMS DRA 01 TAKEOVER.Outputs[OLE DB Source Output].ExternalColumns[ID/ARR.SEQUENCE]"
+                      length="18"
+                      lineageId="Package\Crea Archivo Plano DMS DRA 01 Takeover\Source DMS DRA 01 TAKEOVER.Outputs[OLE DB Source Output].Columns[ID/ARR.SEQUENCE]"
+                      name="ID/ARR.SEQUENCE"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Crea Archivo Plano DMS DRA 01 Takeover\Source DMS DRA 01 TAKEOVER.Outputs[OLE DB Source Output].Columns[ARRANGEMENT]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Crea Archivo Plano DMS DRA 01 Takeover\Source DMS DRA 01 TAKEOVER.Outputs[OLE DB Source Output].ExternalColumns[ARRANGEMENT]"
+                      length="12"
+                      lineageId="Package\Crea Archivo Plano DMS DRA 01 Takeover\Source DMS DRA 01 TAKEOVER.Outputs[OLE DB Source Output].Columns[ARRANGEMENT]"
+                      name="ARRANGEMENT"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Crea Archivo Plano DMS DRA 01 Takeover\Source DMS DRA 01 TAKEOVER.Outputs[OLE DB Source Output].Columns[ACTIVITY]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Crea Archivo Plano DMS DRA 01 Takeover\Source DMS DRA 01 TAKEOVER.Outputs[OLE DB Source Output].ExternalColumns[ACTIVITY]"
+                      length="64"
+                      lineageId="Package\Crea Archivo Plano DMS DRA 01 Takeover\Source DMS DRA 01 TAKEOVER.Outputs[OLE DB Source Output].Columns[ACTIVITY]"
+                      name="ACTIVITY"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Crea Archivo Plano DMS DRA 01 Takeover\Source DMS DRA 01 TAKEOVER.Outputs[OLE DB Source Output].Columns[CUSTOMER]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Crea Archivo Plano DMS DRA 01 Takeover\Source DMS DRA 01 TAKEOVER.Outputs[OLE DB Source Output].ExternalColumns[CUSTOMER]"
+                      length="128"
+                      lineageId="Package\Crea Archivo Plano DMS DRA 01 Takeover\Source DMS DRA 01 TAKEOVER.Outputs[OLE DB Source Output].Columns[CUSTOMER]"
+                      name="CUSTOMER"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Crea Archivo Plano DMS DRA 01 Takeover\Source DMS DRA 01 TAKEOVER.Outputs[OLE DB Source Output].Columns[CUSTOMER.ROLE]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Crea Archivo Plano DMS DRA 01 Takeover\Source DMS DRA 01 TAKEOVER.Outputs[OLE DB Source Output].ExternalColumns[CUSTOMER.ROLE]"
+                      length="128"
+                      lineageId="Package\Crea Archivo Plano DMS DRA 01 Takeover\Source DMS DRA 01 TAKEOVER.Outputs[OLE DB Source Output].Columns[CUSTOMER.ROLE]"
+                      name="CUSTOMER.ROLE"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Crea Archivo Plano DMS DRA 01 Takeover\Source DMS DRA 01 TAKEOVER.Outputs[OLE DB Source Output].Columns[MASTER.ARRANGEMENT]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Crea Archivo Plano DMS DRA 01 Takeover\Source DMS DRA 01 TAKEOVER.Outputs[OLE DB Source Output].ExternalColumns[MASTER.ARRANGEMENT]"
+                      length="12"
+                      lineageId="Package\Crea Archivo Plano DMS DRA 01 Takeover\Source DMS DRA 01 TAKEOVER.Outputs[OLE DB Source Output].Columns[MASTER.ARRANGEMENT]"
+                      name="MASTER.ARRANGEMENT"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Crea Archivo Plano DMS DRA 01 Takeover\Source DMS DRA 01 TAKEOVER.Outputs[OLE DB Source Output].Columns[PRODUCT]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Crea Archivo Plano DMS DRA 01 Takeover\Source DMS DRA 01 TAKEOVER.Outputs[OLE DB Source Output].ExternalColumns[PRODUCT]"
+                      length="64"
+                      lineageId="Package\Crea Archivo Plano DMS DRA 01 Takeover\Source DMS DRA 01 TAKEOVER.Outputs[OLE DB Source Output].Columns[PRODUCT]"
+                      name="PRODUCT"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Crea Archivo Plano DMS DRA 01 Takeover\Source DMS DRA 01 TAKEOVER.Outputs[OLE DB Source Output].Columns[CURRENCY]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Crea Archivo Plano DMS DRA 01 Takeover\Source DMS DRA 01 TAKEOVER.Outputs[OLE DB Source Output].ExternalColumns[CURRENCY]"
+                      length="3"
+                      lineageId="Package\Crea Archivo Plano DMS DRA 01 Takeover\Source DMS DRA 01 TAKEOVER.Outputs[OLE DB Source Output].Columns[CURRENCY]"
+                      name="CURRENCY"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Crea Archivo Plano DMS DRA 01 Takeover\Source DMS DRA 01 TAKEOVER.Outputs[OLE DB Source Output].Columns[ORIG.CONTRACT.DATE]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Crea Archivo Plano DMS DRA 01 Takeover\Source DMS DRA 01 TAKEOVER.Outputs[OLE DB Source Output].ExternalColumns[ORIG.CONTRACT.DATE]"
+                      length="8"
+                      lineageId="Package\Crea Archivo Plano DMS DRA 01 Takeover\Source DMS DRA 01 TAKEOVER.Outputs[OLE DB Source Output].Columns[ORIG.CONTRACT.DATE]"
+                      name="ORIG.CONTRACT.DATE"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Crea Archivo Plano DMS DRA 01 Takeover\Source DMS DRA 01 TAKEOVER.Outputs[OLE DB Source Output].Columns[PROPERTY]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Crea Archivo Plano DMS DRA 01 Takeover\Source DMS DRA 01 TAKEOVER.Outputs[OLE DB Source Output].ExternalColumns[PROPERTY]"
+                      length="1024"
+                      lineageId="Package\Crea Archivo Plano DMS DRA 01 Takeover\Source DMS DRA 01 TAKEOVER.Outputs[OLE DB Source Output].Columns[PROPERTY]"
+                      name="PROPERTY"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Crea Archivo Plano DMS DRA 01 Takeover\Source DMS DRA 01 TAKEOVER.Outputs[OLE DB Source Output].Columns[FIELD.NAME]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Crea Archivo Plano DMS DRA 01 Takeover\Source DMS DRA 01 TAKEOVER.Outputs[OLE DB Source Output].ExternalColumns[FIELD.NAME]"
+                      length="8000"
+                      lineageId="Package\Crea Archivo Plano DMS DRA 01 Takeover\Source DMS DRA 01 TAKEOVER.Outputs[OLE DB Source Output].Columns[FIELD.NAME]"
+                      name="FIELD.NAME"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Crea Archivo Plano DMS DRA 01 Takeover\Source DMS DRA 01 TAKEOVER.Outputs[OLE DB Source Output].Columns[FIELD.VALUE]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Crea Archivo Plano DMS DRA 01 Takeover\Source DMS DRA 01 TAKEOVER.Outputs[OLE DB Source Output].ExternalColumns[FIELD.VALUE]"
+                      length="8000"
+                      lineageId="Package\Crea Archivo Plano DMS DRA 01 Takeover\Source DMS DRA 01 TAKEOVER.Outputs[OLE DB Source Output].Columns[FIELD.VALUE]"
+                      name="FIELD.VALUE"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Crea Archivo Plano DMS DRA 01 Takeover\Source DMS DRA 01 TAKEOVER.Outputs[OLE DB Source Output].Columns[REASON]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Crea Archivo Plano DMS DRA 01 Takeover\Source DMS DRA 01 TAKEOVER.Outputs[OLE DB Source Output].ExternalColumns[REASON]"
+                      length="150"
+                      lineageId="Package\Crea Archivo Plano DMS DRA 01 Takeover\Source DMS DRA 01 TAKEOVER.Outputs[OLE DB Source Output].Columns[REASON]"
+                      name="REASON"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Crea Archivo Plano DMS DRA 01 Takeover\Source DMS DRA 01 TAKEOVER.Outputs[OLE DB Source Output].ExternalColumns[UPLOAD.COMPANY]"
+                      dataType="wstr"
+                      length="9"
+                      name="UPLOAD.COMPANY" />
+                    <externalMetadataColumn
+                      refId="Package\Crea Archivo Plano DMS DRA 01 Takeover\Source DMS DRA 01 TAKEOVER.Outputs[OLE DB Source Output].ExternalColumns[ID/ARR.SEQUENCE]"
+                      dataType="wstr"
+                      length="18"
+                      name="ID/ARR.SEQUENCE" />
+                    <externalMetadataColumn
+                      refId="Package\Crea Archivo Plano DMS DRA 01 Takeover\Source DMS DRA 01 TAKEOVER.Outputs[OLE DB Source Output].ExternalColumns[ARRANGEMENT]"
+                      dataType="wstr"
+                      length="12"
+                      name="ARRANGEMENT" />
+                    <externalMetadataColumn
+                      refId="Package\Crea Archivo Plano DMS DRA 01 Takeover\Source DMS DRA 01 TAKEOVER.Outputs[OLE DB Source Output].ExternalColumns[ACTIVITY]"
+                      dataType="wstr"
+                      length="64"
+                      name="ACTIVITY" />
+                    <externalMetadataColumn
+                      refId="Package\Crea Archivo Plano DMS DRA 01 Takeover\Source DMS DRA 01 TAKEOVER.Outputs[OLE DB Source Output].ExternalColumns[CUSTOMER]"
+                      dataType="wstr"
+                      length="128"
+                      name="CUSTOMER" />
+                    <externalMetadataColumn
+                      refId="Package\Crea Archivo Plano DMS DRA 01 Takeover\Source DMS DRA 01 TAKEOVER.Outputs[OLE DB Source Output].ExternalColumns[CUSTOMER.ROLE]"
+                      dataType="wstr"
+                      length="128"
+                      name="CUSTOMER.ROLE" />
+                    <externalMetadataColumn
+                      refId="Package\Crea Archivo Plano DMS DRA 01 Takeover\Source DMS DRA 01 TAKEOVER.Outputs[OLE DB Source Output].ExternalColumns[MASTER.ARRANGEMENT]"
+                      dataType="wstr"
+                      length="12"
+                      name="MASTER.ARRANGEMENT" />
+                    <externalMetadataColumn
+                      refId="Package\Crea Archivo Plano DMS DRA 01 Takeover\Source DMS DRA 01 TAKEOVER.Outputs[OLE DB Source Output].ExternalColumns[PRODUCT]"
+                      dataType="wstr"
+                      length="64"
+                      name="PRODUCT" />
+                    <externalMetadataColumn
+                      refId="Package\Crea Archivo Plano DMS DRA 01 Takeover\Source DMS DRA 01 TAKEOVER.Outputs[OLE DB Source Output].ExternalColumns[CURRENCY]"
+                      dataType="wstr"
+                      length="3"
+                      name="CURRENCY" />
+                    <externalMetadataColumn
+                      refId="Package\Crea Archivo Plano DMS DRA 01 Takeover\Source DMS DRA 01 TAKEOVER.Outputs[OLE DB Source Output].ExternalColumns[ORIG.CONTRACT.DATE]"
+                      dataType="wstr"
+                      length="8"
+                      name="ORIG.CONTRACT.DATE" />
+                    <externalMetadataColumn
+                      refId="Package\Crea Archivo Plano DMS DRA 01 Takeover\Source DMS DRA 01 TAKEOVER.Outputs[OLE DB Source Output].ExternalColumns[PROPERTY]"
+                      dataType="wstr"
+                      length="1024"
+                      name="PROPERTY" />
+                    <externalMetadataColumn
+                      refId="Package\Crea Archivo Plano DMS DRA 01 Takeover\Source DMS DRA 01 TAKEOVER.Outputs[OLE DB Source Output].ExternalColumns[FIELD.NAME]"
+                      codePage="1252"
+                      dataType="str"
+                      length="8000"
+                      name="FIELD.NAME" />
+                    <externalMetadataColumn
+                      refId="Package\Crea Archivo Plano DMS DRA 01 Takeover\Source DMS DRA 01 TAKEOVER.Outputs[OLE DB Source Output].ExternalColumns[FIELD.VALUE]"
+                      codePage="1252"
+                      dataType="str"
+                      length="8000"
+                      name="FIELD.VALUE" />
+                    <externalMetadataColumn
+                      refId="Package\Crea Archivo Plano DMS DRA 01 Takeover\Source DMS DRA 01 TAKEOVER.Outputs[OLE DB Source Output].ExternalColumns[REASON]"
+                      dataType="wstr"
+                      length="150"
+                      name="REASON" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Crea Archivo Plano DMS DRA 01 Takeover\Source DMS DRA 01 TAKEOVER.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Crea Archivo Plano DMS DRA 01 Takeover\Source DMS DRA 01 TAKEOVER.Outputs[OLE DB Source Error Output].Columns[UPLOAD.COMPANY]"
+                      dataType="wstr"
+                      length="9"
+                      lineageId="Package\Crea Archivo Plano DMS DRA 01 Takeover\Source DMS DRA 01 TAKEOVER.Outputs[OLE DB Source Error Output].Columns[UPLOAD.COMPANY]"
+                      name="UPLOAD.COMPANY" />
+                    <outputColumn
+                      refId="Package\Crea Archivo Plano DMS DRA 01 Takeover\Source DMS DRA 01 TAKEOVER.Outputs[OLE DB Source Error Output].Columns[ID/ARR.SEQUENCE]"
+                      dataType="wstr"
+                      length="18"
+                      lineageId="Package\Crea Archivo Plano DMS DRA 01 Takeover\Source DMS DRA 01 TAKEOVER.Outputs[OLE DB Source Error Output].Columns[ID/ARR.SEQUENCE]"
+                      name="ID/ARR.SEQUENCE" />
+                    <outputColumn
+                      refId="Package\Crea Archivo Plano DMS DRA 01 Takeover\Source DMS DRA 01 TAKEOVER.Outputs[OLE DB Source Error Output].Columns[ARRANGEMENT]"
+                      dataType="wstr"
+                      length="12"
+                      lineageId="Package\Crea Archivo Plano DMS DRA 01 Takeover\Source DMS DRA 01 TAKEOVER.Outputs[OLE DB Source Error Output].Columns[ARRANGEMENT]"
+                      name="ARRANGEMENT" />
+                    <outputColumn
+                      refId="Package\Crea Archivo Plano DMS DRA 01 Takeover\Source DMS DRA 01 TAKEOVER.Outputs[OLE DB Source Error Output].Columns[ACTIVITY]"
+                      dataType="wstr"
+                      length="64"
+                      lineageId="Package\Crea Archivo Plano DMS DRA 01 Takeover\Source DMS DRA 01 TAKEOVER.Outputs[OLE DB Source Error Output].Columns[ACTIVITY]"
+                      name="ACTIVITY" />
+                    <outputColumn
+                      refId="Package\Crea Archivo Plano DMS DRA 01 Takeover\Source DMS DRA 01 TAKEOVER.Outputs[OLE DB Source Error Output].Columns[CUSTOMER]"
+                      dataType="wstr"
+                      length="128"
+                      lineageId="Package\Crea Archivo Plano DMS DRA 01 Takeover\Source DMS DRA 01 TAKEOVER.Outputs[OLE DB Source Error Output].Columns[CUSTOMER]"
+                      name="CUSTOMER" />
+                    <outputColumn
+                      refId="Package\Crea Archivo Plano DMS DRA 01 Takeover\Source DMS DRA 01 TAKEOVER.Outputs[OLE DB Source Error Output].Columns[CUSTOMER.ROLE]"
+                      dataType="wstr"
+                      length="128"
+                      lineageId="Package\Crea Archivo Plano DMS DRA 01 Takeover\Source DMS DRA 01 TAKEOVER.Outputs[OLE DB Source Error Output].Columns[CUSTOMER.ROLE]"
+                      name="CUSTOMER.ROLE" />
+                    <outputColumn
+                      refId="Package\Crea Archivo Plano DMS DRA 01 Takeover\Source DMS DRA 01 TAKEOVER.Outputs[OLE DB Source Error Output].Columns[MASTER.ARRANGEMENT]"
+                      dataType="wstr"
+                      length="12"
+                      lineageId="Package\Crea Archivo Plano DMS DRA 01 Takeover\Source DMS DRA 01 TAKEOVER.Outputs[OLE DB Source Error Output].Columns[MASTER.ARRANGEMENT]"
+                      name="MASTER.ARRANGEMENT" />
+                    <outputColumn
+                      refId="Package\Crea Archivo Plano DMS DRA 01 Takeover\Source DMS DRA 01 TAKEOVER.Outputs[OLE DB Source Error Output].Columns[PRODUCT]"
+                      dataType="wstr"
+                      length="64"
+                      lineageId="Package\Crea Archivo Plano DMS DRA 01 Takeover\Source DMS DRA 01 TAKEOVER.Outputs[OLE DB Source Error Output].Columns[PRODUCT]"
+                      name="PRODUCT" />
+                    <outputColumn
+                      refId="Package\Crea Archivo Plano DMS DRA 01 Takeover\Source DMS DRA 01 TAKEOVER.Outputs[OLE DB Source Error Output].Columns[CURRENCY]"
+                      dataType="wstr"
+                      length="3"
+                      lineageId="Package\Crea Archivo Plano DMS DRA 01 Takeover\Source DMS DRA 01 TAKEOVER.Outputs[OLE DB Source Error Output].Columns[CURRENCY]"
+                      name="CURRENCY" />
+                    <outputColumn
+                      refId="Package\Crea Archivo Plano DMS DRA 01 Takeover\Source DMS DRA 01 TAKEOVER.Outputs[OLE DB Source Error Output].Columns[ORIG.CONTRACT.DATE]"
+                      dataType="wstr"
+                      length="8"
+                      lineageId="Package\Crea Archivo Plano DMS DRA 01 Takeover\Source DMS DRA 01 TAKEOVER.Outputs[OLE DB Source Error Output].Columns[ORIG.CONTRACT.DATE]"
+                      name="ORIG.CONTRACT.DATE" />
+                    <outputColumn
+                      refId="Package\Crea Archivo Plano DMS DRA 01 Takeover\Source DMS DRA 01 TAKEOVER.Outputs[OLE DB Source Error Output].Columns[PROPERTY]"
+                      dataType="wstr"
+                      length="1024"
+                      lineageId="Package\Crea Archivo Plano DMS DRA 01 Takeover\Source DMS DRA 01 TAKEOVER.Outputs[OLE DB Source Error Output].Columns[PROPERTY]"
+                      name="PROPERTY" />
+                    <outputColumn
+                      refId="Package\Crea Archivo Plano DMS DRA 01 Takeover\Source DMS DRA 01 TAKEOVER.Outputs[OLE DB Source Error Output].Columns[FIELD.NAME]"
+                      codePage="1252"
+                      dataType="str"
+                      length="8000"
+                      lineageId="Package\Crea Archivo Plano DMS DRA 01 Takeover\Source DMS DRA 01 TAKEOVER.Outputs[OLE DB Source Error Output].Columns[FIELD.NAME]"
+                      name="FIELD.NAME" />
+                    <outputColumn
+                      refId="Package\Crea Archivo Plano DMS DRA 01 Takeover\Source DMS DRA 01 TAKEOVER.Outputs[OLE DB Source Error Output].Columns[FIELD.VALUE]"
+                      codePage="1252"
+                      dataType="str"
+                      length="8000"
+                      lineageId="Package\Crea Archivo Plano DMS DRA 01 Takeover\Source DMS DRA 01 TAKEOVER.Outputs[OLE DB Source Error Output].Columns[FIELD.VALUE]"
+                      name="FIELD.VALUE" />
+                    <outputColumn
+                      refId="Package\Crea Archivo Plano DMS DRA 01 Takeover\Source DMS DRA 01 TAKEOVER.Outputs[OLE DB Source Error Output].Columns[REASON]"
+                      dataType="wstr"
+                      length="150"
+                      lineageId="Package\Crea Archivo Plano DMS DRA 01 Takeover\Source DMS DRA 01 TAKEOVER.Outputs[OLE DB Source Error Output].Columns[REASON]"
+                      name="REASON" />
+                    <outputColumn
+                      refId="Package\Crea Archivo Plano DMS DRA 01 Takeover\Source DMS DRA 01 TAKEOVER.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Crea Archivo Plano DMS DRA 01 Takeover\Source DMS DRA 01 TAKEOVER.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Crea Archivo Plano DMS DRA 01 Takeover\Source DMS DRA 01 TAKEOVER.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Crea Archivo Plano DMS DRA 01 Takeover\Source DMS DRA 01 TAKEOVER.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Crea Archivo Plano DMS DRA 01 Takeover.Paths[OLE DB Source Output]"
+              endId="Package\Crea Archivo Plano DMS DRA 01 Takeover\Flat File Destination DMS DRA01TAKEOVER.Inputs[Flat File Destination Input]"
+              name="OLE DB Source Output"
+              startId="Package\Crea Archivo Plano DMS DRA 01 Takeover\Source DMS DRA 01 TAKEOVER.Outputs[OLE DB Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Inicializa parametros"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{0eaf095c-7381-443f-8dc9-07f64796c20a}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Inicializa parametros"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{70000693-BDE1-4FE0-B772-11B7D4A7A452}"
+          SQLTask:SqlStatementSource="-- =============================================&#xA;-- Autor:  José A. Guillen &#xA;-- Fecha de creación: 05-09-2022&#xA;-- Descripción:  Inicializa parametros desde valores guardados en una base de datos SQL Server para la Solución Migracion-Polaris-ETL1-v1.0&#xA;--      &#xA;-- Archivos Origen:  &#xA;--   &#xA;--      &#xA;-- Historia:&#xA;-- José A. Guillén 05-09-2022 Codificación inicial&#xA;-- =============================================&#xA;--&#xA;-- &lt;Aquí se debe colocar el código SQL que lee los parámetros que se van a manejar desde tablas de parámetros&gt; &#xA;--&#xA;SELECT 1 &#xA;--" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{5d47a340-f9b3-40be-b2c2-363ed9dcd001}"
+      DTS:From="Package\Inicializa parametros"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\Crea Archivo Plano DMS DRA 01 Takeover" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 1]"
+      DTS:CreationName=""
+      DTS:DTSID="{AA43AB0A-0AD3-4E73-AB11-1E22E5DB44BE}"
+      DTS:From="Package\Crea Archivo Plano DMS DRA 01 Takeover"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 1"
+      DTS:To="Package\Convierte a Formato UTF-8 sin BOM" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="277,42"
+          Id="Package\Crea Archivo Plano DMS DRA 01 Takeover"
+          TopLeft="5.50000000000006,107.5" />
+        <NodeLayout
+          Size="176,42"
+          Id="Package\Inicializa parametros"
+          TopLeft="56,5.5" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="144,47.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="207,42"
+          Id="Package\Convierte a Formato UTF-8"
+          TopLeft="329.5,209.5" />
+        <NodeLayout
+          Size="249,42"
+          Id="Package\Convierte a Formato UTF-8 sin BOM"
+          TopLeft="19.5000000000001,209.5" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 1]"
+          TopLeft="144,149.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Crea Archivo Plano DMS DRA 01 Takeover">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="229,42"
+          Id="Package\Crea Archivo Plano DMS DRA 01 Takeover\Source DMS DRA 01 TAKEOVER"
+          TopLeft="32.5,5.5" />
+        <NodeLayout
+          Size="283,42"
+          Id="Package\Crea Archivo Plano DMS DRA 01 Takeover\Flat File Destination DMS DRA01TAKEOVER"
+          TopLeft="5.50000000000003,107.5" />
+        <EdgeLayout
+          Id="Package\Crea Archivo Plano DMS DRA 01 Takeover.Paths[OLE DB Source Output]"
+          TopLeft="147,47.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Crea Archivo Plano DMS DRA 01 Takeover\Source DMS DRA 01 TAKEOVER">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

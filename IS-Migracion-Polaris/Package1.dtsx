@@ -1,0 +1,1995 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="1/24/2025 9:53:38 AM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="VENJJCR20"
+  DTS:CreatorName="CAF-CON\ls42731"
+  DTS:Description="DTS Wizard-generated package"
+  DTS:DTSID="{C73E992E-AB30-4011-9A14-B68E7E29C076}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="16.0.5270.0"
+  DTS:LocaleID="1033"
+  DTS:MaxErrorCount="0"
+  DTS:ObjectName="Package1"
+  DTS:VersionBuild="1"
+  DTS:VersionGUID="{922F9794-F147-44CA-8B04-B0393A321429}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[DestinationConnectionOLEDB]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{D5D4358F-7319-43A0-AD83-84D874BE09FD}"
+      DTS:ObjectName="DestinationConnectionOLEDB">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=VENJJCR20;Initial Catalog=STGLegados;Provider=SQLOLEDB;Integrated Security=SSPI;Auto Translate=false;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[SourceConnectionOLEDB]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{D5238C57-C0E2-4CC6-AD53-7B380002A2B2}"
+      DTS:ObjectName="SourceConnectionOLEDB">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=VENJJCR20;Initial Catalog=datamart;Provider=SQLOLEDB;Integrated Security=SSPI;Auto Translate=false;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Data Flow Task 20"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:DelayValidation="True"
+      DTS:DTSID="{AF278FC2-3F5A-46F1-BB7E-52BDBBE0C49F}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:FailPackageOnFailure="True"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Data Flow Task 20"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          defaultBufferSize="3145728"
+          version="1">
+          <components>
+            <component
+              refId="Package\Data Flow Task 20\Destination - amortizacion_plan_activa"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="Destination - amortizacion_plan_activa"
+              usesDispositions="true"
+              validateExternalMetadata="False"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[amortizacion_plan_activa]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=16.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Data Flow Task 20\Destination - amortizacion_plan_activa.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[DestinationConnectionOLEDB]"
+                  connectionManagerRefId="Package.ConnectionManagers[DestinationConnectionOLEDB]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Data Flow Task 20\Destination - amortizacion_plan_activa.Inputs[Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Data Flow Task 20\Destination - amortizacion_plan_activa.Inputs[Destination Input].Columns[co_amortizacion]"
+                      cachedDataType="i4"
+                      cachedName="co_amortizacion"
+                      externalMetadataColumnId="Package\Data Flow Task 20\Destination - amortizacion_plan_activa.Inputs[Destination Input].ExternalColumns[co_amortizacion]"
+                      lineageId="Package\Data Flow Task 20\Source - amortizacion_plan_activa.Outputs[OLE DB Source Output].Columns[co_amortizacion]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 20\Destination - amortizacion_plan_activa.Inputs[Destination Input].Columns[fe_vencimiento_cuota]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="fe_vencimiento_cuota"
+                      externalMetadataColumnId="Package\Data Flow Task 20\Destination - amortizacion_plan_activa.Inputs[Destination Input].ExternalColumns[fe_vencimiento_cuota]"
+                      lineageId="Package\Data Flow Task 20\Source - amortizacion_plan_activa.Outputs[OLE DB Source Output].Columns[fe_vencimiento_cuota]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 20\Destination - amortizacion_plan_activa.Inputs[Destination Input].Columns[fe_valor_cuota]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="fe_valor_cuota"
+                      externalMetadataColumnId="Package\Data Flow Task 20\Destination - amortizacion_plan_activa.Inputs[Destination Input].ExternalColumns[fe_valor_cuota]"
+                      lineageId="Package\Data Flow Task 20\Source - amortizacion_plan_activa.Outputs[OLE DB Source Output].Columns[fe_valor_cuota]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 20\Destination - amortizacion_plan_activa.Inputs[Destination Input].Columns[co_moneda]"
+                      cachedDataType="i2"
+                      cachedName="co_moneda"
+                      externalMetadataColumnId="Package\Data Flow Task 20\Destination - amortizacion_plan_activa.Inputs[Destination Input].ExternalColumns[co_moneda]"
+                      lineageId="Package\Data Flow Task 20\Source - amortizacion_plan_activa.Outputs[OLE DB Source Output].Columns[co_moneda]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 20\Destination - amortizacion_plan_activa.Inputs[Destination Input].Columns[mo_capital_usd]"
+                      cachedDataType="numeric"
+                      cachedName="mo_capital_usd"
+                      cachedPrecision="21"
+                      cachedScale="6"
+                      externalMetadataColumnId="Package\Data Flow Task 20\Destination - amortizacion_plan_activa.Inputs[Destination Input].ExternalColumns[mo_capital_usd]"
+                      lineageId="Package\Data Flow Task 20\Source - amortizacion_plan_activa.Outputs[OLE DB Source Output].Columns[mo_capital_usd]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 20\Destination - amortizacion_plan_activa.Inputs[Destination Input].Columns[mo_capital_moneda_origen]"
+                      cachedDataType="numeric"
+                      cachedName="mo_capital_moneda_origen"
+                      cachedPrecision="21"
+                      cachedScale="6"
+                      externalMetadataColumnId="Package\Data Flow Task 20\Destination - amortizacion_plan_activa.Inputs[Destination Input].ExternalColumns[mo_capital_moneda_origen]"
+                      lineageId="Package\Data Flow Task 20\Source - amortizacion_plan_activa.Outputs[OLE DB Source Output].Columns[mo_capital_moneda_origen]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 20\Destination - amortizacion_plan_activa.Inputs[Destination Input].Columns[mo_interes_usd]"
+                      cachedDataType="numeric"
+                      cachedName="mo_interes_usd"
+                      cachedPrecision="21"
+                      cachedScale="6"
+                      externalMetadataColumnId="Package\Data Flow Task 20\Destination - amortizacion_plan_activa.Inputs[Destination Input].ExternalColumns[mo_interes_usd]"
+                      lineageId="Package\Data Flow Task 20\Source - amortizacion_plan_activa.Outputs[OLE DB Source Output].Columns[mo_interes_usd]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 20\Destination - amortizacion_plan_activa.Inputs[Destination Input].Columns[mo_interes_moneda_origen]"
+                      cachedDataType="numeric"
+                      cachedName="mo_interes_moneda_origen"
+                      cachedPrecision="21"
+                      cachedScale="6"
+                      externalMetadataColumnId="Package\Data Flow Task 20\Destination - amortizacion_plan_activa.Inputs[Destination Input].ExternalColumns[mo_interes_moneda_origen]"
+                      lineageId="Package\Data Flow Task 20\Source - amortizacion_plan_activa.Outputs[OLE DB Source Output].Columns[mo_interes_moneda_origen]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 20\Destination - amortizacion_plan_activa.Inputs[Destination Input].Columns[mo_comision_usd]"
+                      cachedDataType="numeric"
+                      cachedName="mo_comision_usd"
+                      cachedPrecision="21"
+                      cachedScale="6"
+                      externalMetadataColumnId="Package\Data Flow Task 20\Destination - amortizacion_plan_activa.Inputs[Destination Input].ExternalColumns[mo_comision_usd]"
+                      lineageId="Package\Data Flow Task 20\Source - amortizacion_plan_activa.Outputs[OLE DB Source Output].Columns[mo_comision_usd]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 20\Destination - amortizacion_plan_activa.Inputs[Destination Input].Columns[mo_comision_moneda_origen]"
+                      cachedDataType="numeric"
+                      cachedName="mo_comision_moneda_origen"
+                      cachedPrecision="21"
+                      cachedScale="6"
+                      externalMetadataColumnId="Package\Data Flow Task 20\Destination - amortizacion_plan_activa.Inputs[Destination Input].ExternalColumns[mo_comision_moneda_origen]"
+                      lineageId="Package\Data Flow Task 20\Source - amortizacion_plan_activa.Outputs[OLE DB Source Output].Columns[mo_comision_moneda_origen]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 20\Destination - amortizacion_plan_activa.Inputs[Destination Input].Columns[co_operacion_activa]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="15"
+                      cachedName="co_operacion_activa"
+                      externalMetadataColumnId="Package\Data Flow Task 20\Destination - amortizacion_plan_activa.Inputs[Destination Input].ExternalColumns[co_operacion_activa]"
+                      lineageId="Package\Data Flow Task 20\Source - amortizacion_plan_activa.Outputs[OLE DB Source Output].Columns[co_operacion_activa]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 20\Destination - amortizacion_plan_activa.Inputs[Destination Input].Columns[co_operacion_act_participante]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="15"
+                      cachedName="co_operacion_act_participante"
+                      externalMetadataColumnId="Package\Data Flow Task 20\Destination - amortizacion_plan_activa.Inputs[Destination Input].ExternalColumns[co_operacion_act_participante]"
+                      lineageId="Package\Data Flow Task 20\Source - amortizacion_plan_activa.Outputs[OLE DB Source Output].Columns[co_operacion_act_participante]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 20\Destination - amortizacion_plan_activa.Inputs[Destination Input].Columns[mo_interes_mora_usd]"
+                      cachedDataType="numeric"
+                      cachedName="mo_interes_mora_usd"
+                      cachedPrecision="21"
+                      cachedScale="6"
+                      externalMetadataColumnId="Package\Data Flow Task 20\Destination - amortizacion_plan_activa.Inputs[Destination Input].ExternalColumns[mo_interes_mora_usd]"
+                      lineageId="Package\Data Flow Task 20\Source - amortizacion_plan_activa.Outputs[OLE DB Source Output].Columns[mo_interes_mora_usd]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 20\Destination - amortizacion_plan_activa.Inputs[Destination Input].Columns[mo_interes_mora_origen]"
+                      cachedDataType="numeric"
+                      cachedName="mo_interes_mora_origen"
+                      cachedPrecision="21"
+                      cachedScale="6"
+                      externalMetadataColumnId="Package\Data Flow Task 20\Destination - amortizacion_plan_activa.Inputs[Destination Input].ExternalColumns[mo_interes_mora_origen]"
+                      lineageId="Package\Data Flow Task 20\Source - amortizacion_plan_activa.Outputs[OLE DB Source Output].Columns[mo_interes_mora_origen]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 20\Destination - amortizacion_plan_activa.Inputs[Destination Input].Columns[mo_interes_vncdo_usd]"
+                      cachedDataType="numeric"
+                      cachedName="mo_interes_vncdo_usd"
+                      cachedPrecision="21"
+                      cachedScale="6"
+                      externalMetadataColumnId="Package\Data Flow Task 20\Destination - amortizacion_plan_activa.Inputs[Destination Input].ExternalColumns[mo_interes_vncdo_usd]"
+                      lineageId="Package\Data Flow Task 20\Source - amortizacion_plan_activa.Outputs[OLE DB Source Output].Columns[mo_interes_vncdo_usd]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 20\Destination - amortizacion_plan_activa.Inputs[Destination Input].Columns[mo_interes_vncdo_origen]"
+                      cachedDataType="numeric"
+                      cachedName="mo_interes_vncdo_origen"
+                      cachedPrecision="21"
+                      cachedScale="6"
+                      externalMetadataColumnId="Package\Data Flow Task 20\Destination - amortizacion_plan_activa.Inputs[Destination Input].ExternalColumns[mo_interes_vncdo_origen]"
+                      lineageId="Package\Data Flow Task 20\Source - amortizacion_plan_activa.Outputs[OLE DB Source Output].Columns[mo_interes_vncdo_origen]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 20\Destination - amortizacion_plan_activa.Inputs[Destination Input].Columns[mo_interes_cmpnscion_origen]"
+                      cachedDataType="numeric"
+                      cachedName="mo_interes_cmpnscion_origen"
+                      cachedPrecision="21"
+                      cachedScale="6"
+                      externalMetadataColumnId="Package\Data Flow Task 20\Destination - amortizacion_plan_activa.Inputs[Destination Input].ExternalColumns[mo_interes_cmpnscion_origen]"
+                      lineageId="Package\Data Flow Task 20\Source - amortizacion_plan_activa.Outputs[OLE DB Source Output].Columns[mo_interes_cmpnscion_origen]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 20\Destination - amortizacion_plan_activa.Inputs[Destination Input].Columns[mo_interes_cmpnscion_usd]"
+                      cachedDataType="numeric"
+                      cachedName="mo_interes_cmpnscion_usd"
+                      cachedPrecision="21"
+                      cachedScale="6"
+                      externalMetadataColumnId="Package\Data Flow Task 20\Destination - amortizacion_plan_activa.Inputs[Destination Input].ExternalColumns[mo_interes_cmpnscion_usd]"
+                      lineageId="Package\Data Flow Task 20\Source - amortizacion_plan_activa.Outputs[OLE DB Source Output].Columns[mo_interes_cmpnscion_usd]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 20\Destination - amortizacion_plan_activa.Inputs[Destination Input].Columns[nb_status]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="12"
+                      cachedName="nb_status"
+                      externalMetadataColumnId="Package\Data Flow Task 20\Destination - amortizacion_plan_activa.Inputs[Destination Input].ExternalColumns[nb_status]"
+                      lineageId="Package\Data Flow Task 20\Source - amortizacion_plan_activa.Outputs[OLE DB Source Output].Columns[nb_status]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 20\Destination - amortizacion_plan_activa.Inputs[Destination Input].Columns[de_tipo]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="9"
+                      cachedName="de_tipo"
+                      externalMetadataColumnId="Package\Data Flow Task 20\Destination - amortizacion_plan_activa.Inputs[Destination Input].ExternalColumns[de_tipo]"
+                      lineageId="Package\Data Flow Task 20\Source - amortizacion_plan_activa.Outputs[OLE DB Source Output].Columns[de_tipo]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 20\Destination - amortizacion_plan_activa.Inputs[Destination Input].Columns[co_clase]"
+                      cachedDataType="i2"
+                      cachedName="co_clase"
+                      externalMetadataColumnId="Package\Data Flow Task 20\Destination - amortizacion_plan_activa.Inputs[Destination Input].ExternalColumns[co_clase]"
+                      lineageId="Package\Data Flow Task 20\Source - amortizacion_plan_activa.Outputs[OLE DB Source Output].Columns[co_clase]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 20\Destination - amortizacion_plan_activa.Inputs[Destination Input].ExternalColumns[co_amortizacion]"
+                      dataType="i4"
+                      name="co_amortizacion" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 20\Destination - amortizacion_plan_activa.Inputs[Destination Input].ExternalColumns[fe_vencimiento_cuota]"
+                      dataType="dbTimeStamp"
+                      name="fe_vencimiento_cuota" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 20\Destination - amortizacion_plan_activa.Inputs[Destination Input].ExternalColumns[fe_valor_cuota]"
+                      dataType="dbTimeStamp"
+                      name="fe_valor_cuota" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 20\Destination - amortizacion_plan_activa.Inputs[Destination Input].ExternalColumns[co_moneda]"
+                      dataType="i2"
+                      name="co_moneda" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 20\Destination - amortizacion_plan_activa.Inputs[Destination Input].ExternalColumns[mo_capital_usd]"
+                      dataType="numeric"
+                      name="mo_capital_usd"
+                      precision="21"
+                      scale="6" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 20\Destination - amortizacion_plan_activa.Inputs[Destination Input].ExternalColumns[mo_capital_moneda_origen]"
+                      dataType="numeric"
+                      name="mo_capital_moneda_origen"
+                      precision="21"
+                      scale="6" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 20\Destination - amortizacion_plan_activa.Inputs[Destination Input].ExternalColumns[mo_interes_usd]"
+                      dataType="numeric"
+                      name="mo_interes_usd"
+                      precision="21"
+                      scale="6" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 20\Destination - amortizacion_plan_activa.Inputs[Destination Input].ExternalColumns[mo_interes_moneda_origen]"
+                      dataType="numeric"
+                      name="mo_interes_moneda_origen"
+                      precision="21"
+                      scale="6" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 20\Destination - amortizacion_plan_activa.Inputs[Destination Input].ExternalColumns[mo_comision_usd]"
+                      dataType="numeric"
+                      name="mo_comision_usd"
+                      precision="21"
+                      scale="6" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 20\Destination - amortizacion_plan_activa.Inputs[Destination Input].ExternalColumns[mo_comision_moneda_origen]"
+                      dataType="numeric"
+                      name="mo_comision_moneda_origen"
+                      precision="21"
+                      scale="6" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 20\Destination - amortizacion_plan_activa.Inputs[Destination Input].ExternalColumns[co_operacion_activa]"
+                      codePage="1252"
+                      dataType="str"
+                      length="15"
+                      name="co_operacion_activa" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 20\Destination - amortizacion_plan_activa.Inputs[Destination Input].ExternalColumns[co_operacion_act_participante]"
+                      codePage="1252"
+                      dataType="str"
+                      length="15"
+                      name="co_operacion_act_participante" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 20\Destination - amortizacion_plan_activa.Inputs[Destination Input].ExternalColumns[mo_interes_mora_usd]"
+                      dataType="numeric"
+                      name="mo_interes_mora_usd"
+                      precision="21"
+                      scale="6" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 20\Destination - amortizacion_plan_activa.Inputs[Destination Input].ExternalColumns[mo_interes_mora_origen]"
+                      dataType="numeric"
+                      name="mo_interes_mora_origen"
+                      precision="21"
+                      scale="6" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 20\Destination - amortizacion_plan_activa.Inputs[Destination Input].ExternalColumns[mo_interes_vncdo_usd]"
+                      dataType="numeric"
+                      name="mo_interes_vncdo_usd"
+                      precision="21"
+                      scale="6" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 20\Destination - amortizacion_plan_activa.Inputs[Destination Input].ExternalColumns[mo_interes_vncdo_origen]"
+                      dataType="numeric"
+                      name="mo_interes_vncdo_origen"
+                      precision="21"
+                      scale="6" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 20\Destination - amortizacion_plan_activa.Inputs[Destination Input].ExternalColumns[mo_interes_cmpnscion_origen]"
+                      dataType="numeric"
+                      name="mo_interes_cmpnscion_origen"
+                      precision="21"
+                      scale="6" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 20\Destination - amortizacion_plan_activa.Inputs[Destination Input].ExternalColumns[mo_interes_cmpnscion_usd]"
+                      dataType="numeric"
+                      name="mo_interes_cmpnscion_usd"
+                      precision="21"
+                      scale="6" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 20\Destination - amortizacion_plan_activa.Inputs[Destination Input].ExternalColumns[nb_status]"
+                      codePage="1252"
+                      dataType="str"
+                      length="12"
+                      name="nb_status" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 20\Destination - amortizacion_plan_activa.Inputs[Destination Input].ExternalColumns[de_tipo]"
+                      codePage="1252"
+                      dataType="str"
+                      length="9"
+                      name="de_tipo" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 20\Destination - amortizacion_plan_activa.Inputs[Destination Input].ExternalColumns[co_clase]"
+                      dataType="i2"
+                      name="co_clase" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task 20\Destination - amortizacion_plan_activa.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\Data Flow Task 20\Destination - amortizacion_plan_activa.Inputs[Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task 20\Destination - amortizacion_plan_activa.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task 20\Destination - amortizacion_plan_activa.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 20\Destination - amortizacion_plan_activa.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task 20\Destination - amortizacion_plan_activa.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Data Flow Task 20\Destination 1 - amortizacion_plan_pasiva"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="Destination 1 - amortizacion_plan_pasiva"
+              usesDispositions="true"
+              validateExternalMetadata="False"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[amortizacion_plan_pasiva]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=16.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Data Flow Task 20\Destination 1 - amortizacion_plan_pasiva.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[DestinationConnectionOLEDB]"
+                  connectionManagerRefId="Package.ConnectionManagers[DestinationConnectionOLEDB]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Data Flow Task 20\Destination 1 - amortizacion_plan_pasiva.Inputs[Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Data Flow Task 20\Destination 1 - amortizacion_plan_pasiva.Inputs[Destination Input].Columns[co_amortizacion]"
+                      cachedDataType="i4"
+                      cachedName="co_amortizacion"
+                      externalMetadataColumnId="Package\Data Flow Task 20\Destination 1 - amortizacion_plan_pasiva.Inputs[Destination Input].ExternalColumns[co_amortizacion]"
+                      lineageId="Package\Data Flow Task 20\Source 1 - amortizacion_plan_pasiva.Outputs[OLE DB Source Output].Columns[co_amortizacion]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 20\Destination 1 - amortizacion_plan_pasiva.Inputs[Destination Input].Columns[fe_vencimiento_cuota]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="fe_vencimiento_cuota"
+                      externalMetadataColumnId="Package\Data Flow Task 20\Destination 1 - amortizacion_plan_pasiva.Inputs[Destination Input].ExternalColumns[fe_vencimiento_cuota]"
+                      lineageId="Package\Data Flow Task 20\Source 1 - amortizacion_plan_pasiva.Outputs[OLE DB Source Output].Columns[fe_vencimiento_cuota]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 20\Destination 1 - amortizacion_plan_pasiva.Inputs[Destination Input].Columns[fe_valor_cuota]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="fe_valor_cuota"
+                      externalMetadataColumnId="Package\Data Flow Task 20\Destination 1 - amortizacion_plan_pasiva.Inputs[Destination Input].ExternalColumns[fe_valor_cuota]"
+                      lineageId="Package\Data Flow Task 20\Source 1 - amortizacion_plan_pasiva.Outputs[OLE DB Source Output].Columns[fe_valor_cuota]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 20\Destination 1 - amortizacion_plan_pasiva.Inputs[Destination Input].Columns[co_moneda]"
+                      cachedDataType="i2"
+                      cachedName="co_moneda"
+                      externalMetadataColumnId="Package\Data Flow Task 20\Destination 1 - amortizacion_plan_pasiva.Inputs[Destination Input].ExternalColumns[co_moneda]"
+                      lineageId="Package\Data Flow Task 20\Source 1 - amortizacion_plan_pasiva.Outputs[OLE DB Source Output].Columns[co_moneda]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 20\Destination 1 - amortizacion_plan_pasiva.Inputs[Destination Input].Columns[mo_capital_usd]"
+                      cachedDataType="numeric"
+                      cachedName="mo_capital_usd"
+                      cachedPrecision="21"
+                      cachedScale="6"
+                      externalMetadataColumnId="Package\Data Flow Task 20\Destination 1 - amortizacion_plan_pasiva.Inputs[Destination Input].ExternalColumns[mo_capital_usd]"
+                      lineageId="Package\Data Flow Task 20\Source 1 - amortizacion_plan_pasiva.Outputs[OLE DB Source Output].Columns[mo_capital_usd]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 20\Destination 1 - amortizacion_plan_pasiva.Inputs[Destination Input].Columns[mo_capital_moneda_origen]"
+                      cachedDataType="numeric"
+                      cachedName="mo_capital_moneda_origen"
+                      cachedPrecision="21"
+                      cachedScale="6"
+                      externalMetadataColumnId="Package\Data Flow Task 20\Destination 1 - amortizacion_plan_pasiva.Inputs[Destination Input].ExternalColumns[mo_capital_moneda_origen]"
+                      lineageId="Package\Data Flow Task 20\Source 1 - amortizacion_plan_pasiva.Outputs[OLE DB Source Output].Columns[mo_capital_moneda_origen]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 20\Destination 1 - amortizacion_plan_pasiva.Inputs[Destination Input].Columns[mo_interes_usd]"
+                      cachedDataType="numeric"
+                      cachedName="mo_interes_usd"
+                      cachedPrecision="21"
+                      cachedScale="6"
+                      externalMetadataColumnId="Package\Data Flow Task 20\Destination 1 - amortizacion_plan_pasiva.Inputs[Destination Input].ExternalColumns[mo_interes_usd]"
+                      lineageId="Package\Data Flow Task 20\Source 1 - amortizacion_plan_pasiva.Outputs[OLE DB Source Output].Columns[mo_interes_usd]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 20\Destination 1 - amortizacion_plan_pasiva.Inputs[Destination Input].Columns[mo_interes_moneda_origen]"
+                      cachedDataType="numeric"
+                      cachedName="mo_interes_moneda_origen"
+                      cachedPrecision="21"
+                      cachedScale="6"
+                      externalMetadataColumnId="Package\Data Flow Task 20\Destination 1 - amortizacion_plan_pasiva.Inputs[Destination Input].ExternalColumns[mo_interes_moneda_origen]"
+                      lineageId="Package\Data Flow Task 20\Source 1 - amortizacion_plan_pasiva.Outputs[OLE DB Source Output].Columns[mo_interes_moneda_origen]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 20\Destination 1 - amortizacion_plan_pasiva.Inputs[Destination Input].Columns[mo_comision_usd]"
+                      cachedDataType="numeric"
+                      cachedName="mo_comision_usd"
+                      cachedPrecision="21"
+                      cachedScale="6"
+                      externalMetadataColumnId="Package\Data Flow Task 20\Destination 1 - amortizacion_plan_pasiva.Inputs[Destination Input].ExternalColumns[mo_comision_usd]"
+                      lineageId="Package\Data Flow Task 20\Source 1 - amortizacion_plan_pasiva.Outputs[OLE DB Source Output].Columns[mo_comision_usd]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 20\Destination 1 - amortizacion_plan_pasiva.Inputs[Destination Input].Columns[mo_comision_moneda_origen]"
+                      cachedDataType="numeric"
+                      cachedName="mo_comision_moneda_origen"
+                      cachedPrecision="21"
+                      cachedScale="6"
+                      externalMetadataColumnId="Package\Data Flow Task 20\Destination 1 - amortizacion_plan_pasiva.Inputs[Destination Input].ExternalColumns[mo_comision_moneda_origen]"
+                      lineageId="Package\Data Flow Task 20\Source 1 - amortizacion_plan_pasiva.Outputs[OLE DB Source Output].Columns[mo_comision_moneda_origen]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 20\Destination 1 - amortizacion_plan_pasiva.Inputs[Destination Input].Columns[co_operacion_pasiva]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="15"
+                      cachedName="co_operacion_pasiva"
+                      externalMetadataColumnId="Package\Data Flow Task 20\Destination 1 - amortizacion_plan_pasiva.Inputs[Destination Input].ExternalColumns[co_operacion_pasiva]"
+                      lineageId="Package\Data Flow Task 20\Source 1 - amortizacion_plan_pasiva.Outputs[OLE DB Source Output].Columns[co_operacion_pasiva]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 20\Destination 1 - amortizacion_plan_pasiva.Inputs[Destination Input].Columns[mo_interes_mora_usd]"
+                      cachedDataType="numeric"
+                      cachedName="mo_interes_mora_usd"
+                      cachedPrecision="21"
+                      cachedScale="6"
+                      externalMetadataColumnId="Package\Data Flow Task 20\Destination 1 - amortizacion_plan_pasiva.Inputs[Destination Input].ExternalColumns[mo_interes_mora_usd]"
+                      lineageId="Package\Data Flow Task 20\Source 1 - amortizacion_plan_pasiva.Outputs[OLE DB Source Output].Columns[mo_interes_mora_usd]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 20\Destination 1 - amortizacion_plan_pasiva.Inputs[Destination Input].Columns[mo_interes_mora_origen]"
+                      cachedDataType="numeric"
+                      cachedName="mo_interes_mora_origen"
+                      cachedPrecision="21"
+                      cachedScale="6"
+                      externalMetadataColumnId="Package\Data Flow Task 20\Destination 1 - amortizacion_plan_pasiva.Inputs[Destination Input].ExternalColumns[mo_interes_mora_origen]"
+                      lineageId="Package\Data Flow Task 20\Source 1 - amortizacion_plan_pasiva.Outputs[OLE DB Source Output].Columns[mo_interes_mora_origen]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 20\Destination 1 - amortizacion_plan_pasiva.Inputs[Destination Input].Columns[mo_interes_vncdo_usd]"
+                      cachedDataType="numeric"
+                      cachedName="mo_interes_vncdo_usd"
+                      cachedPrecision="21"
+                      cachedScale="6"
+                      externalMetadataColumnId="Package\Data Flow Task 20\Destination 1 - amortizacion_plan_pasiva.Inputs[Destination Input].ExternalColumns[mo_interes_vncdo_usd]"
+                      lineageId="Package\Data Flow Task 20\Source 1 - amortizacion_plan_pasiva.Outputs[OLE DB Source Output].Columns[mo_interes_vncdo_usd]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 20\Destination 1 - amortizacion_plan_pasiva.Inputs[Destination Input].Columns[mo_interes_vncdo_origen]"
+                      cachedDataType="numeric"
+                      cachedName="mo_interes_vncdo_origen"
+                      cachedPrecision="21"
+                      cachedScale="6"
+                      externalMetadataColumnId="Package\Data Flow Task 20\Destination 1 - amortizacion_plan_pasiva.Inputs[Destination Input].ExternalColumns[mo_interes_vncdo_origen]"
+                      lineageId="Package\Data Flow Task 20\Source 1 - amortizacion_plan_pasiva.Outputs[OLE DB Source Output].Columns[mo_interes_vncdo_origen]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 20\Destination 1 - amortizacion_plan_pasiva.Inputs[Destination Input].Columns[mo_interes_cmpnscion_origen]"
+                      cachedDataType="numeric"
+                      cachedName="mo_interes_cmpnscion_origen"
+                      cachedPrecision="21"
+                      cachedScale="6"
+                      externalMetadataColumnId="Package\Data Flow Task 20\Destination 1 - amortizacion_plan_pasiva.Inputs[Destination Input].ExternalColumns[mo_interes_cmpnscion_origen]"
+                      lineageId="Package\Data Flow Task 20\Source 1 - amortizacion_plan_pasiva.Outputs[OLE DB Source Output].Columns[mo_interes_cmpnscion_origen]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 20\Destination 1 - amortizacion_plan_pasiva.Inputs[Destination Input].Columns[mo_interes_cmpnscion_usd]"
+                      cachedDataType="numeric"
+                      cachedName="mo_interes_cmpnscion_usd"
+                      cachedPrecision="21"
+                      cachedScale="6"
+                      externalMetadataColumnId="Package\Data Flow Task 20\Destination 1 - amortizacion_plan_pasiva.Inputs[Destination Input].ExternalColumns[mo_interes_cmpnscion_usd]"
+                      lineageId="Package\Data Flow Task 20\Source 1 - amortizacion_plan_pasiva.Outputs[OLE DB Source Output].Columns[mo_interes_cmpnscion_usd]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 20\Destination 1 - amortizacion_plan_pasiva.Inputs[Destination Input].Columns[nb_status]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="12"
+                      cachedName="nb_status"
+                      externalMetadataColumnId="Package\Data Flow Task 20\Destination 1 - amortizacion_plan_pasiva.Inputs[Destination Input].ExternalColumns[nb_status]"
+                      lineageId="Package\Data Flow Task 20\Source 1 - amortizacion_plan_pasiva.Outputs[OLE DB Source Output].Columns[nb_status]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 20\Destination 1 - amortizacion_plan_pasiva.Inputs[Destination Input].Columns[de_tipo]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="9"
+                      cachedName="de_tipo"
+                      externalMetadataColumnId="Package\Data Flow Task 20\Destination 1 - amortizacion_plan_pasiva.Inputs[Destination Input].ExternalColumns[de_tipo]"
+                      lineageId="Package\Data Flow Task 20\Source 1 - amortizacion_plan_pasiva.Outputs[OLE DB Source Output].Columns[de_tipo]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 20\Destination 1 - amortizacion_plan_pasiva.Inputs[Destination Input].Columns[co_clase]"
+                      cachedDataType="i2"
+                      cachedName="co_clase"
+                      externalMetadataColumnId="Package\Data Flow Task 20\Destination 1 - amortizacion_plan_pasiva.Inputs[Destination Input].ExternalColumns[co_clase]"
+                      lineageId="Package\Data Flow Task 20\Source 1 - amortizacion_plan_pasiva.Outputs[OLE DB Source Output].Columns[co_clase]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 20\Destination 1 - amortizacion_plan_pasiva.Inputs[Destination Input].ExternalColumns[co_amortizacion]"
+                      dataType="i4"
+                      name="co_amortizacion" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 20\Destination 1 - amortizacion_plan_pasiva.Inputs[Destination Input].ExternalColumns[fe_vencimiento_cuota]"
+                      dataType="dbTimeStamp"
+                      name="fe_vencimiento_cuota" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 20\Destination 1 - amortizacion_plan_pasiva.Inputs[Destination Input].ExternalColumns[fe_valor_cuota]"
+                      dataType="dbTimeStamp"
+                      name="fe_valor_cuota" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 20\Destination 1 - amortizacion_plan_pasiva.Inputs[Destination Input].ExternalColumns[co_moneda]"
+                      dataType="i2"
+                      name="co_moneda" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 20\Destination 1 - amortizacion_plan_pasiva.Inputs[Destination Input].ExternalColumns[mo_capital_usd]"
+                      dataType="numeric"
+                      name="mo_capital_usd"
+                      precision="21"
+                      scale="6" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 20\Destination 1 - amortizacion_plan_pasiva.Inputs[Destination Input].ExternalColumns[mo_capital_moneda_origen]"
+                      dataType="numeric"
+                      name="mo_capital_moneda_origen"
+                      precision="21"
+                      scale="6" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 20\Destination 1 - amortizacion_plan_pasiva.Inputs[Destination Input].ExternalColumns[mo_interes_usd]"
+                      dataType="numeric"
+                      name="mo_interes_usd"
+                      precision="21"
+                      scale="6" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 20\Destination 1 - amortizacion_plan_pasiva.Inputs[Destination Input].ExternalColumns[mo_interes_moneda_origen]"
+                      dataType="numeric"
+                      name="mo_interes_moneda_origen"
+                      precision="21"
+                      scale="6" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 20\Destination 1 - amortizacion_plan_pasiva.Inputs[Destination Input].ExternalColumns[mo_comision_usd]"
+                      dataType="numeric"
+                      name="mo_comision_usd"
+                      precision="21"
+                      scale="6" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 20\Destination 1 - amortizacion_plan_pasiva.Inputs[Destination Input].ExternalColumns[mo_comision_moneda_origen]"
+                      dataType="numeric"
+                      name="mo_comision_moneda_origen"
+                      precision="21"
+                      scale="6" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 20\Destination 1 - amortizacion_plan_pasiva.Inputs[Destination Input].ExternalColumns[co_operacion_pasiva]"
+                      codePage="1252"
+                      dataType="str"
+                      length="15"
+                      name="co_operacion_pasiva" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 20\Destination 1 - amortizacion_plan_pasiva.Inputs[Destination Input].ExternalColumns[mo_interes_mora_usd]"
+                      dataType="numeric"
+                      name="mo_interes_mora_usd"
+                      precision="21"
+                      scale="6" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 20\Destination 1 - amortizacion_plan_pasiva.Inputs[Destination Input].ExternalColumns[mo_interes_mora_origen]"
+                      dataType="numeric"
+                      name="mo_interes_mora_origen"
+                      precision="21"
+                      scale="6" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 20\Destination 1 - amortizacion_plan_pasiva.Inputs[Destination Input].ExternalColumns[mo_interes_vncdo_usd]"
+                      dataType="numeric"
+                      name="mo_interes_vncdo_usd"
+                      precision="21"
+                      scale="6" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 20\Destination 1 - amortizacion_plan_pasiva.Inputs[Destination Input].ExternalColumns[mo_interes_vncdo_origen]"
+                      dataType="numeric"
+                      name="mo_interes_vncdo_origen"
+                      precision="21"
+                      scale="6" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 20\Destination 1 - amortizacion_plan_pasiva.Inputs[Destination Input].ExternalColumns[mo_interes_cmpnscion_origen]"
+                      dataType="numeric"
+                      name="mo_interes_cmpnscion_origen"
+                      precision="21"
+                      scale="6" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 20\Destination 1 - amortizacion_plan_pasiva.Inputs[Destination Input].ExternalColumns[mo_interes_cmpnscion_usd]"
+                      dataType="numeric"
+                      name="mo_interes_cmpnscion_usd"
+                      precision="21"
+                      scale="6" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 20\Destination 1 - amortizacion_plan_pasiva.Inputs[Destination Input].ExternalColumns[nb_status]"
+                      codePage="1252"
+                      dataType="str"
+                      length="12"
+                      name="nb_status" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 20\Destination 1 - amortizacion_plan_pasiva.Inputs[Destination Input].ExternalColumns[de_tipo]"
+                      codePage="1252"
+                      dataType="str"
+                      length="9"
+                      name="de_tipo" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 20\Destination 1 - amortizacion_plan_pasiva.Inputs[Destination Input].ExternalColumns[co_clase]"
+                      dataType="i2"
+                      name="co_clase" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task 20\Destination 1 - amortizacion_plan_pasiva.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\Data Flow Task 20\Destination 1 - amortizacion_plan_pasiva.Inputs[Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task 20\Destination 1 - amortizacion_plan_pasiva.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task 20\Destination 1 - amortizacion_plan_pasiva.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 20\Destination 1 - amortizacion_plan_pasiva.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task 20\Destination 1 - amortizacion_plan_pasiva.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Data Flow Task 20\Source - amortizacion_plan_activa"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="Source - amortizacion_plan_activa"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[amortizacion_plan_activa]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=16.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Data Flow Task 20\Source - amortizacion_plan_activa.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[SourceConnectionOLEDB]"
+                  connectionManagerRefId="Package.ConnectionManagers[SourceConnectionOLEDB]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task 20\Source - amortizacion_plan_activa.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task 20\Source - amortizacion_plan_activa.Outputs[OLE DB Source Output].Columns[co_amortizacion]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 20\Source - amortizacion_plan_activa.Outputs[OLE DB Source Output].ExternalColumns[co_amortizacion]"
+                      lineageId="Package\Data Flow Task 20\Source - amortizacion_plan_activa.Outputs[OLE DB Source Output].Columns[co_amortizacion]"
+                      name="co_amortizacion"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 20\Source - amortizacion_plan_activa.Outputs[OLE DB Source Output].Columns[fe_vencimiento_cuota]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 20\Source - amortizacion_plan_activa.Outputs[OLE DB Source Output].ExternalColumns[fe_vencimiento_cuota]"
+                      lineageId="Package\Data Flow Task 20\Source - amortizacion_plan_activa.Outputs[OLE DB Source Output].Columns[fe_vencimiento_cuota]"
+                      name="fe_vencimiento_cuota"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 20\Source - amortizacion_plan_activa.Outputs[OLE DB Source Output].Columns[fe_valor_cuota]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 20\Source - amortizacion_plan_activa.Outputs[OLE DB Source Output].ExternalColumns[fe_valor_cuota]"
+                      lineageId="Package\Data Flow Task 20\Source - amortizacion_plan_activa.Outputs[OLE DB Source Output].Columns[fe_valor_cuota]"
+                      name="fe_valor_cuota"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 20\Source - amortizacion_plan_activa.Outputs[OLE DB Source Output].Columns[co_moneda]"
+                      dataType="i2"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 20\Source - amortizacion_plan_activa.Outputs[OLE DB Source Output].ExternalColumns[co_moneda]"
+                      lineageId="Package\Data Flow Task 20\Source - amortizacion_plan_activa.Outputs[OLE DB Source Output].Columns[co_moneda]"
+                      name="co_moneda"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 20\Source - amortizacion_plan_activa.Outputs[OLE DB Source Output].Columns[mo_capital_usd]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 20\Source - amortizacion_plan_activa.Outputs[OLE DB Source Output].ExternalColumns[mo_capital_usd]"
+                      lineageId="Package\Data Flow Task 20\Source - amortizacion_plan_activa.Outputs[OLE DB Source Output].Columns[mo_capital_usd]"
+                      name="mo_capital_usd"
+                      precision="21"
+                      scale="6"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 20\Source - amortizacion_plan_activa.Outputs[OLE DB Source Output].Columns[mo_capital_moneda_origen]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 20\Source - amortizacion_plan_activa.Outputs[OLE DB Source Output].ExternalColumns[mo_capital_moneda_origen]"
+                      lineageId="Package\Data Flow Task 20\Source - amortizacion_plan_activa.Outputs[OLE DB Source Output].Columns[mo_capital_moneda_origen]"
+                      name="mo_capital_moneda_origen"
+                      precision="21"
+                      scale="6"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 20\Source - amortizacion_plan_activa.Outputs[OLE DB Source Output].Columns[mo_interes_usd]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 20\Source - amortizacion_plan_activa.Outputs[OLE DB Source Output].ExternalColumns[mo_interes_usd]"
+                      lineageId="Package\Data Flow Task 20\Source - amortizacion_plan_activa.Outputs[OLE DB Source Output].Columns[mo_interes_usd]"
+                      name="mo_interes_usd"
+                      precision="21"
+                      scale="6"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 20\Source - amortizacion_plan_activa.Outputs[OLE DB Source Output].Columns[mo_interes_moneda_origen]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 20\Source - amortizacion_plan_activa.Outputs[OLE DB Source Output].ExternalColumns[mo_interes_moneda_origen]"
+                      lineageId="Package\Data Flow Task 20\Source - amortizacion_plan_activa.Outputs[OLE DB Source Output].Columns[mo_interes_moneda_origen]"
+                      name="mo_interes_moneda_origen"
+                      precision="21"
+                      scale="6"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 20\Source - amortizacion_plan_activa.Outputs[OLE DB Source Output].Columns[mo_comision_usd]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 20\Source - amortizacion_plan_activa.Outputs[OLE DB Source Output].ExternalColumns[mo_comision_usd]"
+                      lineageId="Package\Data Flow Task 20\Source - amortizacion_plan_activa.Outputs[OLE DB Source Output].Columns[mo_comision_usd]"
+                      name="mo_comision_usd"
+                      precision="21"
+                      scale="6"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 20\Source - amortizacion_plan_activa.Outputs[OLE DB Source Output].Columns[mo_comision_moneda_origen]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 20\Source - amortizacion_plan_activa.Outputs[OLE DB Source Output].ExternalColumns[mo_comision_moneda_origen]"
+                      lineageId="Package\Data Flow Task 20\Source - amortizacion_plan_activa.Outputs[OLE DB Source Output].Columns[mo_comision_moneda_origen]"
+                      name="mo_comision_moneda_origen"
+                      precision="21"
+                      scale="6"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 20\Source - amortizacion_plan_activa.Outputs[OLE DB Source Output].Columns[co_operacion_activa]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 20\Source - amortizacion_plan_activa.Outputs[OLE DB Source Output].ExternalColumns[co_operacion_activa]"
+                      length="15"
+                      lineageId="Package\Data Flow Task 20\Source - amortizacion_plan_activa.Outputs[OLE DB Source Output].Columns[co_operacion_activa]"
+                      name="co_operacion_activa"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 20\Source - amortizacion_plan_activa.Outputs[OLE DB Source Output].Columns[co_operacion_act_participante]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 20\Source - amortizacion_plan_activa.Outputs[OLE DB Source Output].ExternalColumns[co_operacion_act_participante]"
+                      length="15"
+                      lineageId="Package\Data Flow Task 20\Source - amortizacion_plan_activa.Outputs[OLE DB Source Output].Columns[co_operacion_act_participante]"
+                      name="co_operacion_act_participante"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 20\Source - amortizacion_plan_activa.Outputs[OLE DB Source Output].Columns[mo_interes_mora_usd]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 20\Source - amortizacion_plan_activa.Outputs[OLE DB Source Output].ExternalColumns[mo_interes_mora_usd]"
+                      lineageId="Package\Data Flow Task 20\Source - amortizacion_plan_activa.Outputs[OLE DB Source Output].Columns[mo_interes_mora_usd]"
+                      name="mo_interes_mora_usd"
+                      precision="21"
+                      scale="6"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 20\Source - amortizacion_plan_activa.Outputs[OLE DB Source Output].Columns[mo_interes_mora_origen]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 20\Source - amortizacion_plan_activa.Outputs[OLE DB Source Output].ExternalColumns[mo_interes_mora_origen]"
+                      lineageId="Package\Data Flow Task 20\Source - amortizacion_plan_activa.Outputs[OLE DB Source Output].Columns[mo_interes_mora_origen]"
+                      name="mo_interes_mora_origen"
+                      precision="21"
+                      scale="6"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 20\Source - amortizacion_plan_activa.Outputs[OLE DB Source Output].Columns[mo_interes_vncdo_usd]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 20\Source - amortizacion_plan_activa.Outputs[OLE DB Source Output].ExternalColumns[mo_interes_vncdo_usd]"
+                      lineageId="Package\Data Flow Task 20\Source - amortizacion_plan_activa.Outputs[OLE DB Source Output].Columns[mo_interes_vncdo_usd]"
+                      name="mo_interes_vncdo_usd"
+                      precision="21"
+                      scale="6"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 20\Source - amortizacion_plan_activa.Outputs[OLE DB Source Output].Columns[mo_interes_vncdo_origen]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 20\Source - amortizacion_plan_activa.Outputs[OLE DB Source Output].ExternalColumns[mo_interes_vncdo_origen]"
+                      lineageId="Package\Data Flow Task 20\Source - amortizacion_plan_activa.Outputs[OLE DB Source Output].Columns[mo_interes_vncdo_origen]"
+                      name="mo_interes_vncdo_origen"
+                      precision="21"
+                      scale="6"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 20\Source - amortizacion_plan_activa.Outputs[OLE DB Source Output].Columns[mo_interes_cmpnscion_origen]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 20\Source - amortizacion_plan_activa.Outputs[OLE DB Source Output].ExternalColumns[mo_interes_cmpnscion_origen]"
+                      lineageId="Package\Data Flow Task 20\Source - amortizacion_plan_activa.Outputs[OLE DB Source Output].Columns[mo_interes_cmpnscion_origen]"
+                      name="mo_interes_cmpnscion_origen"
+                      precision="21"
+                      scale="6"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 20\Source - amortizacion_plan_activa.Outputs[OLE DB Source Output].Columns[mo_interes_cmpnscion_usd]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 20\Source - amortizacion_plan_activa.Outputs[OLE DB Source Output].ExternalColumns[mo_interes_cmpnscion_usd]"
+                      lineageId="Package\Data Flow Task 20\Source - amortizacion_plan_activa.Outputs[OLE DB Source Output].Columns[mo_interes_cmpnscion_usd]"
+                      name="mo_interes_cmpnscion_usd"
+                      precision="21"
+                      scale="6"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 20\Source - amortizacion_plan_activa.Outputs[OLE DB Source Output].Columns[nb_status]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 20\Source - amortizacion_plan_activa.Outputs[OLE DB Source Output].ExternalColumns[nb_status]"
+                      length="12"
+                      lineageId="Package\Data Flow Task 20\Source - amortizacion_plan_activa.Outputs[OLE DB Source Output].Columns[nb_status]"
+                      name="nb_status"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 20\Source - amortizacion_plan_activa.Outputs[OLE DB Source Output].Columns[de_tipo]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 20\Source - amortizacion_plan_activa.Outputs[OLE DB Source Output].ExternalColumns[de_tipo]"
+                      length="9"
+                      lineageId="Package\Data Flow Task 20\Source - amortizacion_plan_activa.Outputs[OLE DB Source Output].Columns[de_tipo]"
+                      name="de_tipo"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 20\Source - amortizacion_plan_activa.Outputs[OLE DB Source Output].Columns[co_clase]"
+                      dataType="i2"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 20\Source - amortizacion_plan_activa.Outputs[OLE DB Source Output].ExternalColumns[co_clase]"
+                      lineageId="Package\Data Flow Task 20\Source - amortizacion_plan_activa.Outputs[OLE DB Source Output].Columns[co_clase]"
+                      name="co_clase"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 20\Source - amortizacion_plan_activa.Outputs[OLE DB Source Output].ExternalColumns[co_amortizacion]"
+                      dataType="i4"
+                      name="co_amortizacion" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 20\Source - amortizacion_plan_activa.Outputs[OLE DB Source Output].ExternalColumns[fe_vencimiento_cuota]"
+                      dataType="dbTimeStamp"
+                      name="fe_vencimiento_cuota" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 20\Source - amortizacion_plan_activa.Outputs[OLE DB Source Output].ExternalColumns[fe_valor_cuota]"
+                      dataType="dbTimeStamp"
+                      name="fe_valor_cuota" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 20\Source - amortizacion_plan_activa.Outputs[OLE DB Source Output].ExternalColumns[co_moneda]"
+                      dataType="i2"
+                      name="co_moneda" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 20\Source - amortizacion_plan_activa.Outputs[OLE DB Source Output].ExternalColumns[mo_capital_usd]"
+                      dataType="numeric"
+                      name="mo_capital_usd"
+                      precision="21"
+                      scale="6" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 20\Source - amortizacion_plan_activa.Outputs[OLE DB Source Output].ExternalColumns[mo_capital_moneda_origen]"
+                      dataType="numeric"
+                      name="mo_capital_moneda_origen"
+                      precision="21"
+                      scale="6" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 20\Source - amortizacion_plan_activa.Outputs[OLE DB Source Output].ExternalColumns[mo_interes_usd]"
+                      dataType="numeric"
+                      name="mo_interes_usd"
+                      precision="21"
+                      scale="6" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 20\Source - amortizacion_plan_activa.Outputs[OLE DB Source Output].ExternalColumns[mo_interes_moneda_origen]"
+                      dataType="numeric"
+                      name="mo_interes_moneda_origen"
+                      precision="21"
+                      scale="6" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 20\Source - amortizacion_plan_activa.Outputs[OLE DB Source Output].ExternalColumns[mo_comision_usd]"
+                      dataType="numeric"
+                      name="mo_comision_usd"
+                      precision="21"
+                      scale="6" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 20\Source - amortizacion_plan_activa.Outputs[OLE DB Source Output].ExternalColumns[mo_comision_moneda_origen]"
+                      dataType="numeric"
+                      name="mo_comision_moneda_origen"
+                      precision="21"
+                      scale="6" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 20\Source - amortizacion_plan_activa.Outputs[OLE DB Source Output].ExternalColumns[co_operacion_activa]"
+                      codePage="1252"
+                      dataType="str"
+                      length="15"
+                      name="co_operacion_activa" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 20\Source - amortizacion_plan_activa.Outputs[OLE DB Source Output].ExternalColumns[co_operacion_act_participante]"
+                      codePage="1252"
+                      dataType="str"
+                      length="15"
+                      name="co_operacion_act_participante" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 20\Source - amortizacion_plan_activa.Outputs[OLE DB Source Output].ExternalColumns[mo_interes_mora_usd]"
+                      dataType="numeric"
+                      name="mo_interes_mora_usd"
+                      precision="21"
+                      scale="6" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 20\Source - amortizacion_plan_activa.Outputs[OLE DB Source Output].ExternalColumns[mo_interes_mora_origen]"
+                      dataType="numeric"
+                      name="mo_interes_mora_origen"
+                      precision="21"
+                      scale="6" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 20\Source - amortizacion_plan_activa.Outputs[OLE DB Source Output].ExternalColumns[mo_interes_vncdo_usd]"
+                      dataType="numeric"
+                      name="mo_interes_vncdo_usd"
+                      precision="21"
+                      scale="6" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 20\Source - amortizacion_plan_activa.Outputs[OLE DB Source Output].ExternalColumns[mo_interes_vncdo_origen]"
+                      dataType="numeric"
+                      name="mo_interes_vncdo_origen"
+                      precision="21"
+                      scale="6" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 20\Source - amortizacion_plan_activa.Outputs[OLE DB Source Output].ExternalColumns[mo_interes_cmpnscion_origen]"
+                      dataType="numeric"
+                      name="mo_interes_cmpnscion_origen"
+                      precision="21"
+                      scale="6" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 20\Source - amortizacion_plan_activa.Outputs[OLE DB Source Output].ExternalColumns[mo_interes_cmpnscion_usd]"
+                      dataType="numeric"
+                      name="mo_interes_cmpnscion_usd"
+                      precision="21"
+                      scale="6" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 20\Source - amortizacion_plan_activa.Outputs[OLE DB Source Output].ExternalColumns[nb_status]"
+                      codePage="1252"
+                      dataType="str"
+                      length="12"
+                      name="nb_status" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 20\Source - amortizacion_plan_activa.Outputs[OLE DB Source Output].ExternalColumns[de_tipo]"
+                      codePage="1252"
+                      dataType="str"
+                      length="9"
+                      name="de_tipo" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 20\Source - amortizacion_plan_activa.Outputs[OLE DB Source Output].ExternalColumns[co_clase]"
+                      dataType="i2"
+                      name="co_clase" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Data Flow Task 20\Source - amortizacion_plan_activa.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task 20\Source - amortizacion_plan_activa.Outputs[OLE DB Source Error Output].Columns[co_amortizacion]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task 20\Source - amortizacion_plan_activa.Outputs[OLE DB Source Error Output].Columns[co_amortizacion]"
+                      name="co_amortizacion" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 20\Source - amortizacion_plan_activa.Outputs[OLE DB Source Error Output].Columns[fe_vencimiento_cuota]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\Data Flow Task 20\Source - amortizacion_plan_activa.Outputs[OLE DB Source Error Output].Columns[fe_vencimiento_cuota]"
+                      name="fe_vencimiento_cuota" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 20\Source - amortizacion_plan_activa.Outputs[OLE DB Source Error Output].Columns[fe_valor_cuota]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\Data Flow Task 20\Source - amortizacion_plan_activa.Outputs[OLE DB Source Error Output].Columns[fe_valor_cuota]"
+                      name="fe_valor_cuota" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 20\Source - amortizacion_plan_activa.Outputs[OLE DB Source Error Output].Columns[co_moneda]"
+                      dataType="i2"
+                      lineageId="Package\Data Flow Task 20\Source - amortizacion_plan_activa.Outputs[OLE DB Source Error Output].Columns[co_moneda]"
+                      name="co_moneda" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 20\Source - amortizacion_plan_activa.Outputs[OLE DB Source Error Output].Columns[mo_capital_usd]"
+                      dataType="numeric"
+                      lineageId="Package\Data Flow Task 20\Source - amortizacion_plan_activa.Outputs[OLE DB Source Error Output].Columns[mo_capital_usd]"
+                      name="mo_capital_usd"
+                      precision="21"
+                      scale="6" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 20\Source - amortizacion_plan_activa.Outputs[OLE DB Source Error Output].Columns[mo_capital_moneda_origen]"
+                      dataType="numeric"
+                      lineageId="Package\Data Flow Task 20\Source - amortizacion_plan_activa.Outputs[OLE DB Source Error Output].Columns[mo_capital_moneda_origen]"
+                      name="mo_capital_moneda_origen"
+                      precision="21"
+                      scale="6" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 20\Source - amortizacion_plan_activa.Outputs[OLE DB Source Error Output].Columns[mo_interes_usd]"
+                      dataType="numeric"
+                      lineageId="Package\Data Flow Task 20\Source - amortizacion_plan_activa.Outputs[OLE DB Source Error Output].Columns[mo_interes_usd]"
+                      name="mo_interes_usd"
+                      precision="21"
+                      scale="6" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 20\Source - amortizacion_plan_activa.Outputs[OLE DB Source Error Output].Columns[mo_interes_moneda_origen]"
+                      dataType="numeric"
+                      lineageId="Package\Data Flow Task 20\Source - amortizacion_plan_activa.Outputs[OLE DB Source Error Output].Columns[mo_interes_moneda_origen]"
+                      name="mo_interes_moneda_origen"
+                      precision="21"
+                      scale="6" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 20\Source - amortizacion_plan_activa.Outputs[OLE DB Source Error Output].Columns[mo_comision_usd]"
+                      dataType="numeric"
+                      lineageId="Package\Data Flow Task 20\Source - amortizacion_plan_activa.Outputs[OLE DB Source Error Output].Columns[mo_comision_usd]"
+                      name="mo_comision_usd"
+                      precision="21"
+                      scale="6" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 20\Source - amortizacion_plan_activa.Outputs[OLE DB Source Error Output].Columns[mo_comision_moneda_origen]"
+                      dataType="numeric"
+                      lineageId="Package\Data Flow Task 20\Source - amortizacion_plan_activa.Outputs[OLE DB Source Error Output].Columns[mo_comision_moneda_origen]"
+                      name="mo_comision_moneda_origen"
+                      precision="21"
+                      scale="6" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 20\Source - amortizacion_plan_activa.Outputs[OLE DB Source Error Output].Columns[co_operacion_activa]"
+                      codePage="1252"
+                      dataType="str"
+                      length="15"
+                      lineageId="Package\Data Flow Task 20\Source - amortizacion_plan_activa.Outputs[OLE DB Source Error Output].Columns[co_operacion_activa]"
+                      name="co_operacion_activa" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 20\Source - amortizacion_plan_activa.Outputs[OLE DB Source Error Output].Columns[co_operacion_act_participante]"
+                      codePage="1252"
+                      dataType="str"
+                      length="15"
+                      lineageId="Package\Data Flow Task 20\Source - amortizacion_plan_activa.Outputs[OLE DB Source Error Output].Columns[co_operacion_act_participante]"
+                      name="co_operacion_act_participante" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 20\Source - amortizacion_plan_activa.Outputs[OLE DB Source Error Output].Columns[mo_interes_mora_usd]"
+                      dataType="numeric"
+                      lineageId="Package\Data Flow Task 20\Source - amortizacion_plan_activa.Outputs[OLE DB Source Error Output].Columns[mo_interes_mora_usd]"
+                      name="mo_interes_mora_usd"
+                      precision="21"
+                      scale="6" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 20\Source - amortizacion_plan_activa.Outputs[OLE DB Source Error Output].Columns[mo_interes_mora_origen]"
+                      dataType="numeric"
+                      lineageId="Package\Data Flow Task 20\Source - amortizacion_plan_activa.Outputs[OLE DB Source Error Output].Columns[mo_interes_mora_origen]"
+                      name="mo_interes_mora_origen"
+                      precision="21"
+                      scale="6" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 20\Source - amortizacion_plan_activa.Outputs[OLE DB Source Error Output].Columns[mo_interes_vncdo_usd]"
+                      dataType="numeric"
+                      lineageId="Package\Data Flow Task 20\Source - amortizacion_plan_activa.Outputs[OLE DB Source Error Output].Columns[mo_interes_vncdo_usd]"
+                      name="mo_interes_vncdo_usd"
+                      precision="21"
+                      scale="6" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 20\Source - amortizacion_plan_activa.Outputs[OLE DB Source Error Output].Columns[mo_interes_vncdo_origen]"
+                      dataType="numeric"
+                      lineageId="Package\Data Flow Task 20\Source - amortizacion_plan_activa.Outputs[OLE DB Source Error Output].Columns[mo_interes_vncdo_origen]"
+                      name="mo_interes_vncdo_origen"
+                      precision="21"
+                      scale="6" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 20\Source - amortizacion_plan_activa.Outputs[OLE DB Source Error Output].Columns[mo_interes_cmpnscion_origen]"
+                      dataType="numeric"
+                      lineageId="Package\Data Flow Task 20\Source - amortizacion_plan_activa.Outputs[OLE DB Source Error Output].Columns[mo_interes_cmpnscion_origen]"
+                      name="mo_interes_cmpnscion_origen"
+                      precision="21"
+                      scale="6" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 20\Source - amortizacion_plan_activa.Outputs[OLE DB Source Error Output].Columns[mo_interes_cmpnscion_usd]"
+                      dataType="numeric"
+                      lineageId="Package\Data Flow Task 20\Source - amortizacion_plan_activa.Outputs[OLE DB Source Error Output].Columns[mo_interes_cmpnscion_usd]"
+                      name="mo_interes_cmpnscion_usd"
+                      precision="21"
+                      scale="6" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 20\Source - amortizacion_plan_activa.Outputs[OLE DB Source Error Output].Columns[nb_status]"
+                      codePage="1252"
+                      dataType="str"
+                      length="12"
+                      lineageId="Package\Data Flow Task 20\Source - amortizacion_plan_activa.Outputs[OLE DB Source Error Output].Columns[nb_status]"
+                      name="nb_status" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 20\Source - amortizacion_plan_activa.Outputs[OLE DB Source Error Output].Columns[de_tipo]"
+                      codePage="1252"
+                      dataType="str"
+                      length="9"
+                      lineageId="Package\Data Flow Task 20\Source - amortizacion_plan_activa.Outputs[OLE DB Source Error Output].Columns[de_tipo]"
+                      name="de_tipo" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 20\Source - amortizacion_plan_activa.Outputs[OLE DB Source Error Output].Columns[co_clase]"
+                      dataType="i2"
+                      lineageId="Package\Data Flow Task 20\Source - amortizacion_plan_activa.Outputs[OLE DB Source Error Output].Columns[co_clase]"
+                      name="co_clase" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 20\Source - amortizacion_plan_activa.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task 20\Source - amortizacion_plan_activa.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 20\Source - amortizacion_plan_activa.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task 20\Source - amortizacion_plan_activa.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Data Flow Task 20\Source 1 - amortizacion_plan_pasiva"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="Source 1 - amortizacion_plan_pasiva"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[amortizacion_plan_pasiva]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=16.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Data Flow Task 20\Source 1 - amortizacion_plan_pasiva.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[SourceConnectionOLEDB]"
+                  connectionManagerRefId="Package.ConnectionManagers[SourceConnectionOLEDB]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task 20\Source 1 - amortizacion_plan_pasiva.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task 20\Source 1 - amortizacion_plan_pasiva.Outputs[OLE DB Source Output].Columns[co_amortizacion]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 20\Source 1 - amortizacion_plan_pasiva.Outputs[OLE DB Source Output].ExternalColumns[co_amortizacion]"
+                      lineageId="Package\Data Flow Task 20\Source 1 - amortizacion_plan_pasiva.Outputs[OLE DB Source Output].Columns[co_amortizacion]"
+                      name="co_amortizacion"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 20\Source 1 - amortizacion_plan_pasiva.Outputs[OLE DB Source Output].Columns[fe_vencimiento_cuota]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 20\Source 1 - amortizacion_plan_pasiva.Outputs[OLE DB Source Output].ExternalColumns[fe_vencimiento_cuota]"
+                      lineageId="Package\Data Flow Task 20\Source 1 - amortizacion_plan_pasiva.Outputs[OLE DB Source Output].Columns[fe_vencimiento_cuota]"
+                      name="fe_vencimiento_cuota"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 20\Source 1 - amortizacion_plan_pasiva.Outputs[OLE DB Source Output].Columns[fe_valor_cuota]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 20\Source 1 - amortizacion_plan_pasiva.Outputs[OLE DB Source Output].ExternalColumns[fe_valor_cuota]"
+                      lineageId="Package\Data Flow Task 20\Source 1 - amortizacion_plan_pasiva.Outputs[OLE DB Source Output].Columns[fe_valor_cuota]"
+                      name="fe_valor_cuota"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 20\Source 1 - amortizacion_plan_pasiva.Outputs[OLE DB Source Output].Columns[co_moneda]"
+                      dataType="i2"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 20\Source 1 - amortizacion_plan_pasiva.Outputs[OLE DB Source Output].ExternalColumns[co_moneda]"
+                      lineageId="Package\Data Flow Task 20\Source 1 - amortizacion_plan_pasiva.Outputs[OLE DB Source Output].Columns[co_moneda]"
+                      name="co_moneda"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 20\Source 1 - amortizacion_plan_pasiva.Outputs[OLE DB Source Output].Columns[mo_capital_usd]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 20\Source 1 - amortizacion_plan_pasiva.Outputs[OLE DB Source Output].ExternalColumns[mo_capital_usd]"
+                      lineageId="Package\Data Flow Task 20\Source 1 - amortizacion_plan_pasiva.Outputs[OLE DB Source Output].Columns[mo_capital_usd]"
+                      name="mo_capital_usd"
+                      precision="21"
+                      scale="6"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 20\Source 1 - amortizacion_plan_pasiva.Outputs[OLE DB Source Output].Columns[mo_capital_moneda_origen]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 20\Source 1 - amortizacion_plan_pasiva.Outputs[OLE DB Source Output].ExternalColumns[mo_capital_moneda_origen]"
+                      lineageId="Package\Data Flow Task 20\Source 1 - amortizacion_plan_pasiva.Outputs[OLE DB Source Output].Columns[mo_capital_moneda_origen]"
+                      name="mo_capital_moneda_origen"
+                      precision="21"
+                      scale="6"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 20\Source 1 - amortizacion_plan_pasiva.Outputs[OLE DB Source Output].Columns[mo_interes_usd]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 20\Source 1 - amortizacion_plan_pasiva.Outputs[OLE DB Source Output].ExternalColumns[mo_interes_usd]"
+                      lineageId="Package\Data Flow Task 20\Source 1 - amortizacion_plan_pasiva.Outputs[OLE DB Source Output].Columns[mo_interes_usd]"
+                      name="mo_interes_usd"
+                      precision="21"
+                      scale="6"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 20\Source 1 - amortizacion_plan_pasiva.Outputs[OLE DB Source Output].Columns[mo_interes_moneda_origen]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 20\Source 1 - amortizacion_plan_pasiva.Outputs[OLE DB Source Output].ExternalColumns[mo_interes_moneda_origen]"
+                      lineageId="Package\Data Flow Task 20\Source 1 - amortizacion_plan_pasiva.Outputs[OLE DB Source Output].Columns[mo_interes_moneda_origen]"
+                      name="mo_interes_moneda_origen"
+                      precision="21"
+                      scale="6"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 20\Source 1 - amortizacion_plan_pasiva.Outputs[OLE DB Source Output].Columns[mo_comision_usd]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 20\Source 1 - amortizacion_plan_pasiva.Outputs[OLE DB Source Output].ExternalColumns[mo_comision_usd]"
+                      lineageId="Package\Data Flow Task 20\Source 1 - amortizacion_plan_pasiva.Outputs[OLE DB Source Output].Columns[mo_comision_usd]"
+                      name="mo_comision_usd"
+                      precision="21"
+                      scale="6"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 20\Source 1 - amortizacion_plan_pasiva.Outputs[OLE DB Source Output].Columns[mo_comision_moneda_origen]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 20\Source 1 - amortizacion_plan_pasiva.Outputs[OLE DB Source Output].ExternalColumns[mo_comision_moneda_origen]"
+                      lineageId="Package\Data Flow Task 20\Source 1 - amortizacion_plan_pasiva.Outputs[OLE DB Source Output].Columns[mo_comision_moneda_origen]"
+                      name="mo_comision_moneda_origen"
+                      precision="21"
+                      scale="6"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 20\Source 1 - amortizacion_plan_pasiva.Outputs[OLE DB Source Output].Columns[co_operacion_pasiva]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 20\Source 1 - amortizacion_plan_pasiva.Outputs[OLE DB Source Output].ExternalColumns[co_operacion_pasiva]"
+                      length="15"
+                      lineageId="Package\Data Flow Task 20\Source 1 - amortizacion_plan_pasiva.Outputs[OLE DB Source Output].Columns[co_operacion_pasiva]"
+                      name="co_operacion_pasiva"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 20\Source 1 - amortizacion_plan_pasiva.Outputs[OLE DB Source Output].Columns[mo_interes_mora_usd]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 20\Source 1 - amortizacion_plan_pasiva.Outputs[OLE DB Source Output].ExternalColumns[mo_interes_mora_usd]"
+                      lineageId="Package\Data Flow Task 20\Source 1 - amortizacion_plan_pasiva.Outputs[OLE DB Source Output].Columns[mo_interes_mora_usd]"
+                      name="mo_interes_mora_usd"
+                      precision="21"
+                      scale="6"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 20\Source 1 - amortizacion_plan_pasiva.Outputs[OLE DB Source Output].Columns[mo_interes_mora_origen]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 20\Source 1 - amortizacion_plan_pasiva.Outputs[OLE DB Source Output].ExternalColumns[mo_interes_mora_origen]"
+                      lineageId="Package\Data Flow Task 20\Source 1 - amortizacion_plan_pasiva.Outputs[OLE DB Source Output].Columns[mo_interes_mora_origen]"
+                      name="mo_interes_mora_origen"
+                      precision="21"
+                      scale="6"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 20\Source 1 - amortizacion_plan_pasiva.Outputs[OLE DB Source Output].Columns[mo_interes_vncdo_usd]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 20\Source 1 - amortizacion_plan_pasiva.Outputs[OLE DB Source Output].ExternalColumns[mo_interes_vncdo_usd]"
+                      lineageId="Package\Data Flow Task 20\Source 1 - amortizacion_plan_pasiva.Outputs[OLE DB Source Output].Columns[mo_interes_vncdo_usd]"
+                      name="mo_interes_vncdo_usd"
+                      precision="21"
+                      scale="6"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 20\Source 1 - amortizacion_plan_pasiva.Outputs[OLE DB Source Output].Columns[mo_interes_vncdo_origen]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 20\Source 1 - amortizacion_plan_pasiva.Outputs[OLE DB Source Output].ExternalColumns[mo_interes_vncdo_origen]"
+                      lineageId="Package\Data Flow Task 20\Source 1 - amortizacion_plan_pasiva.Outputs[OLE DB Source Output].Columns[mo_interes_vncdo_origen]"
+                      name="mo_interes_vncdo_origen"
+                      precision="21"
+                      scale="6"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 20\Source 1 - amortizacion_plan_pasiva.Outputs[OLE DB Source Output].Columns[mo_interes_cmpnscion_origen]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 20\Source 1 - amortizacion_plan_pasiva.Outputs[OLE DB Source Output].ExternalColumns[mo_interes_cmpnscion_origen]"
+                      lineageId="Package\Data Flow Task 20\Source 1 - amortizacion_plan_pasiva.Outputs[OLE DB Source Output].Columns[mo_interes_cmpnscion_origen]"
+                      name="mo_interes_cmpnscion_origen"
+                      precision="21"
+                      scale="6"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 20\Source 1 - amortizacion_plan_pasiva.Outputs[OLE DB Source Output].Columns[mo_interes_cmpnscion_usd]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 20\Source 1 - amortizacion_plan_pasiva.Outputs[OLE DB Source Output].ExternalColumns[mo_interes_cmpnscion_usd]"
+                      lineageId="Package\Data Flow Task 20\Source 1 - amortizacion_plan_pasiva.Outputs[OLE DB Source Output].Columns[mo_interes_cmpnscion_usd]"
+                      name="mo_interes_cmpnscion_usd"
+                      precision="21"
+                      scale="6"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 20\Source 1 - amortizacion_plan_pasiva.Outputs[OLE DB Source Output].Columns[nb_status]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 20\Source 1 - amortizacion_plan_pasiva.Outputs[OLE DB Source Output].ExternalColumns[nb_status]"
+                      length="12"
+                      lineageId="Package\Data Flow Task 20\Source 1 - amortizacion_plan_pasiva.Outputs[OLE DB Source Output].Columns[nb_status]"
+                      name="nb_status"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 20\Source 1 - amortizacion_plan_pasiva.Outputs[OLE DB Source Output].Columns[de_tipo]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 20\Source 1 - amortizacion_plan_pasiva.Outputs[OLE DB Source Output].ExternalColumns[de_tipo]"
+                      length="9"
+                      lineageId="Package\Data Flow Task 20\Source 1 - amortizacion_plan_pasiva.Outputs[OLE DB Source Output].Columns[de_tipo]"
+                      name="de_tipo"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 20\Source 1 - amortizacion_plan_pasiva.Outputs[OLE DB Source Output].Columns[co_clase]"
+                      dataType="i2"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 20\Source 1 - amortizacion_plan_pasiva.Outputs[OLE DB Source Output].ExternalColumns[co_clase]"
+                      lineageId="Package\Data Flow Task 20\Source 1 - amortizacion_plan_pasiva.Outputs[OLE DB Source Output].Columns[co_clase]"
+                      name="co_clase"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 20\Source 1 - amortizacion_plan_pasiva.Outputs[OLE DB Source Output].ExternalColumns[co_amortizacion]"
+                      dataType="i4"
+                      name="co_amortizacion" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 20\Source 1 - amortizacion_plan_pasiva.Outputs[OLE DB Source Output].ExternalColumns[fe_vencimiento_cuota]"
+                      dataType="dbTimeStamp"
+                      name="fe_vencimiento_cuota" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 20\Source 1 - amortizacion_plan_pasiva.Outputs[OLE DB Source Output].ExternalColumns[fe_valor_cuota]"
+                      dataType="dbTimeStamp"
+                      name="fe_valor_cuota" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 20\Source 1 - amortizacion_plan_pasiva.Outputs[OLE DB Source Output].ExternalColumns[co_moneda]"
+                      dataType="i2"
+                      name="co_moneda" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 20\Source 1 - amortizacion_plan_pasiva.Outputs[OLE DB Source Output].ExternalColumns[mo_capital_usd]"
+                      dataType="numeric"
+                      name="mo_capital_usd"
+                      precision="21"
+                      scale="6" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 20\Source 1 - amortizacion_plan_pasiva.Outputs[OLE DB Source Output].ExternalColumns[mo_capital_moneda_origen]"
+                      dataType="numeric"
+                      name="mo_capital_moneda_origen"
+                      precision="21"
+                      scale="6" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 20\Source 1 - amortizacion_plan_pasiva.Outputs[OLE DB Source Output].ExternalColumns[mo_interes_usd]"
+                      dataType="numeric"
+                      name="mo_interes_usd"
+                      precision="21"
+                      scale="6" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 20\Source 1 - amortizacion_plan_pasiva.Outputs[OLE DB Source Output].ExternalColumns[mo_interes_moneda_origen]"
+                      dataType="numeric"
+                      name="mo_interes_moneda_origen"
+                      precision="21"
+                      scale="6" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 20\Source 1 - amortizacion_plan_pasiva.Outputs[OLE DB Source Output].ExternalColumns[mo_comision_usd]"
+                      dataType="numeric"
+                      name="mo_comision_usd"
+                      precision="21"
+                      scale="6" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 20\Source 1 - amortizacion_plan_pasiva.Outputs[OLE DB Source Output].ExternalColumns[mo_comision_moneda_origen]"
+                      dataType="numeric"
+                      name="mo_comision_moneda_origen"
+                      precision="21"
+                      scale="6" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 20\Source 1 - amortizacion_plan_pasiva.Outputs[OLE DB Source Output].ExternalColumns[co_operacion_pasiva]"
+                      codePage="1252"
+                      dataType="str"
+                      length="15"
+                      name="co_operacion_pasiva" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 20\Source 1 - amortizacion_plan_pasiva.Outputs[OLE DB Source Output].ExternalColumns[mo_interes_mora_usd]"
+                      dataType="numeric"
+                      name="mo_interes_mora_usd"
+                      precision="21"
+                      scale="6" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 20\Source 1 - amortizacion_plan_pasiva.Outputs[OLE DB Source Output].ExternalColumns[mo_interes_mora_origen]"
+                      dataType="numeric"
+                      name="mo_interes_mora_origen"
+                      precision="21"
+                      scale="6" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 20\Source 1 - amortizacion_plan_pasiva.Outputs[OLE DB Source Output].ExternalColumns[mo_interes_vncdo_usd]"
+                      dataType="numeric"
+                      name="mo_interes_vncdo_usd"
+                      precision="21"
+                      scale="6" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 20\Source 1 - amortizacion_plan_pasiva.Outputs[OLE DB Source Output].ExternalColumns[mo_interes_vncdo_origen]"
+                      dataType="numeric"
+                      name="mo_interes_vncdo_origen"
+                      precision="21"
+                      scale="6" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 20\Source 1 - amortizacion_plan_pasiva.Outputs[OLE DB Source Output].ExternalColumns[mo_interes_cmpnscion_origen]"
+                      dataType="numeric"
+                      name="mo_interes_cmpnscion_origen"
+                      precision="21"
+                      scale="6" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 20\Source 1 - amortizacion_plan_pasiva.Outputs[OLE DB Source Output].ExternalColumns[mo_interes_cmpnscion_usd]"
+                      dataType="numeric"
+                      name="mo_interes_cmpnscion_usd"
+                      precision="21"
+                      scale="6" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 20\Source 1 - amortizacion_plan_pasiva.Outputs[OLE DB Source Output].ExternalColumns[nb_status]"
+                      codePage="1252"
+                      dataType="str"
+                      length="12"
+                      name="nb_status" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 20\Source 1 - amortizacion_plan_pasiva.Outputs[OLE DB Source Output].ExternalColumns[de_tipo]"
+                      codePage="1252"
+                      dataType="str"
+                      length="9"
+                      name="de_tipo" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 20\Source 1 - amortizacion_plan_pasiva.Outputs[OLE DB Source Output].ExternalColumns[co_clase]"
+                      dataType="i2"
+                      name="co_clase" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Data Flow Task 20\Source 1 - amortizacion_plan_pasiva.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task 20\Source 1 - amortizacion_plan_pasiva.Outputs[OLE DB Source Error Output].Columns[co_amortizacion]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task 20\Source 1 - amortizacion_plan_pasiva.Outputs[OLE DB Source Error Output].Columns[co_amortizacion]"
+                      name="co_amortizacion" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 20\Source 1 - amortizacion_plan_pasiva.Outputs[OLE DB Source Error Output].Columns[fe_vencimiento_cuota]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\Data Flow Task 20\Source 1 - amortizacion_plan_pasiva.Outputs[OLE DB Source Error Output].Columns[fe_vencimiento_cuota]"
+                      name="fe_vencimiento_cuota" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 20\Source 1 - amortizacion_plan_pasiva.Outputs[OLE DB Source Error Output].Columns[fe_valor_cuota]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\Data Flow Task 20\Source 1 - amortizacion_plan_pasiva.Outputs[OLE DB Source Error Output].Columns[fe_valor_cuota]"
+                      name="fe_valor_cuota" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 20\Source 1 - amortizacion_plan_pasiva.Outputs[OLE DB Source Error Output].Columns[co_moneda]"
+                      dataType="i2"
+                      lineageId="Package\Data Flow Task 20\Source 1 - amortizacion_plan_pasiva.Outputs[OLE DB Source Error Output].Columns[co_moneda]"
+                      name="co_moneda" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 20\Source 1 - amortizacion_plan_pasiva.Outputs[OLE DB Source Error Output].Columns[mo_capital_usd]"
+                      dataType="numeric"
+                      lineageId="Package\Data Flow Task 20\Source 1 - amortizacion_plan_pasiva.Outputs[OLE DB Source Error Output].Columns[mo_capital_usd]"
+                      name="mo_capital_usd"
+                      precision="21"
+                      scale="6" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 20\Source 1 - amortizacion_plan_pasiva.Outputs[OLE DB Source Error Output].Columns[mo_capital_moneda_origen]"
+                      dataType="numeric"
+                      lineageId="Package\Data Flow Task 20\Source 1 - amortizacion_plan_pasiva.Outputs[OLE DB Source Error Output].Columns[mo_capital_moneda_origen]"
+                      name="mo_capital_moneda_origen"
+                      precision="21"
+                      scale="6" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 20\Source 1 - amortizacion_plan_pasiva.Outputs[OLE DB Source Error Output].Columns[mo_interes_usd]"
+                      dataType="numeric"
+                      lineageId="Package\Data Flow Task 20\Source 1 - amortizacion_plan_pasiva.Outputs[OLE DB Source Error Output].Columns[mo_interes_usd]"
+                      name="mo_interes_usd"
+                      precision="21"
+                      scale="6" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 20\Source 1 - amortizacion_plan_pasiva.Outputs[OLE DB Source Error Output].Columns[mo_interes_moneda_origen]"
+                      dataType="numeric"
+                      lineageId="Package\Data Flow Task 20\Source 1 - amortizacion_plan_pasiva.Outputs[OLE DB Source Error Output].Columns[mo_interes_moneda_origen]"
+                      name="mo_interes_moneda_origen"
+                      precision="21"
+                      scale="6" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 20\Source 1 - amortizacion_plan_pasiva.Outputs[OLE DB Source Error Output].Columns[mo_comision_usd]"
+                      dataType="numeric"
+                      lineageId="Package\Data Flow Task 20\Source 1 - amortizacion_plan_pasiva.Outputs[OLE DB Source Error Output].Columns[mo_comision_usd]"
+                      name="mo_comision_usd"
+                      precision="21"
+                      scale="6" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 20\Source 1 - amortizacion_plan_pasiva.Outputs[OLE DB Source Error Output].Columns[mo_comision_moneda_origen]"
+                      dataType="numeric"
+                      lineageId="Package\Data Flow Task 20\Source 1 - amortizacion_plan_pasiva.Outputs[OLE DB Source Error Output].Columns[mo_comision_moneda_origen]"
+                      name="mo_comision_moneda_origen"
+                      precision="21"
+                      scale="6" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 20\Source 1 - amortizacion_plan_pasiva.Outputs[OLE DB Source Error Output].Columns[co_operacion_pasiva]"
+                      codePage="1252"
+                      dataType="str"
+                      length="15"
+                      lineageId="Package\Data Flow Task 20\Source 1 - amortizacion_plan_pasiva.Outputs[OLE DB Source Error Output].Columns[co_operacion_pasiva]"
+                      name="co_operacion_pasiva" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 20\Source 1 - amortizacion_plan_pasiva.Outputs[OLE DB Source Error Output].Columns[mo_interes_mora_usd]"
+                      dataType="numeric"
+                      lineageId="Package\Data Flow Task 20\Source 1 - amortizacion_plan_pasiva.Outputs[OLE DB Source Error Output].Columns[mo_interes_mora_usd]"
+                      name="mo_interes_mora_usd"
+                      precision="21"
+                      scale="6" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 20\Source 1 - amortizacion_plan_pasiva.Outputs[OLE DB Source Error Output].Columns[mo_interes_mora_origen]"
+                      dataType="numeric"
+                      lineageId="Package\Data Flow Task 20\Source 1 - amortizacion_plan_pasiva.Outputs[OLE DB Source Error Output].Columns[mo_interes_mora_origen]"
+                      name="mo_interes_mora_origen"
+                      precision="21"
+                      scale="6" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 20\Source 1 - amortizacion_plan_pasiva.Outputs[OLE DB Source Error Output].Columns[mo_interes_vncdo_usd]"
+                      dataType="numeric"
+                      lineageId="Package\Data Flow Task 20\Source 1 - amortizacion_plan_pasiva.Outputs[OLE DB Source Error Output].Columns[mo_interes_vncdo_usd]"
+                      name="mo_interes_vncdo_usd"
+                      precision="21"
+                      scale="6" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 20\Source 1 - amortizacion_plan_pasiva.Outputs[OLE DB Source Error Output].Columns[mo_interes_vncdo_origen]"
+                      dataType="numeric"
+                      lineageId="Package\Data Flow Task 20\Source 1 - amortizacion_plan_pasiva.Outputs[OLE DB Source Error Output].Columns[mo_interes_vncdo_origen]"
+                      name="mo_interes_vncdo_origen"
+                      precision="21"
+                      scale="6" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 20\Source 1 - amortizacion_plan_pasiva.Outputs[OLE DB Source Error Output].Columns[mo_interes_cmpnscion_origen]"
+                      dataType="numeric"
+                      lineageId="Package\Data Flow Task 20\Source 1 - amortizacion_plan_pasiva.Outputs[OLE DB Source Error Output].Columns[mo_interes_cmpnscion_origen]"
+                      name="mo_interes_cmpnscion_origen"
+                      precision="21"
+                      scale="6" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 20\Source 1 - amortizacion_plan_pasiva.Outputs[OLE DB Source Error Output].Columns[mo_interes_cmpnscion_usd]"
+                      dataType="numeric"
+                      lineageId="Package\Data Flow Task 20\Source 1 - amortizacion_plan_pasiva.Outputs[OLE DB Source Error Output].Columns[mo_interes_cmpnscion_usd]"
+                      name="mo_interes_cmpnscion_usd"
+                      precision="21"
+                      scale="6" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 20\Source 1 - amortizacion_plan_pasiva.Outputs[OLE DB Source Error Output].Columns[nb_status]"
+                      codePage="1252"
+                      dataType="str"
+                      length="12"
+                      lineageId="Package\Data Flow Task 20\Source 1 - amortizacion_plan_pasiva.Outputs[OLE DB Source Error Output].Columns[nb_status]"
+                      name="nb_status" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 20\Source 1 - amortizacion_plan_pasiva.Outputs[OLE DB Source Error Output].Columns[de_tipo]"
+                      codePage="1252"
+                      dataType="str"
+                      length="9"
+                      lineageId="Package\Data Flow Task 20\Source 1 - amortizacion_plan_pasiva.Outputs[OLE DB Source Error Output].Columns[de_tipo]"
+                      name="de_tipo" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 20\Source 1 - amortizacion_plan_pasiva.Outputs[OLE DB Source Error Output].Columns[co_clase]"
+                      dataType="i2"
+                      lineageId="Package\Data Flow Task 20\Source 1 - amortizacion_plan_pasiva.Outputs[OLE DB Source Error Output].Columns[co_clase]"
+                      name="co_clase" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 20\Source 1 - amortizacion_plan_pasiva.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task 20\Source 1 - amortizacion_plan_pasiva.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 20\Source 1 - amortizacion_plan_pasiva.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task 20\Source 1 - amortizacion_plan_pasiva.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Data Flow Task 20.Paths[OLE DB Source Output]"
+              endId="Package\Data Flow Task 20\Destination - amortizacion_plan_activa.Inputs[Destination Input]"
+              name="OLE DB Source Output"
+              startId="Package\Data Flow Task 20\Source - amortizacion_plan_activa.Outputs[OLE DB Source Output]" />
+            <path
+              refId="Package\Data Flow Task 20.Paths[OLE DB Source Output1]"
+              endId="Package\Data Flow Task 20\Destination 1 - amortizacion_plan_pasiva.Inputs[Destination Input]"
+              name="OLE DB Source Output"
+              startId="Package\Data Flow Task 20\Source 1 - amortizacion_plan_pasiva.Outputs[OLE DB Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Preparation SQL Task 1"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:DTSID="{A39E39F3-84A2-4A13-836E-946FA05DB7CF}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:FailPackageOnFailure="True"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Preparation SQL Task 1"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{D5D4358F-7319-43A0-AD83-84D874BE09FD}"
+          SQLTask:SqlStatementSource="CREATE TABLE [dbo].[amortizacion_plan_activa] (&#xA;[co_amortizacion] int NOT NULL,&#xA;[fe_vencimiento_cuota] datetime,&#xA;[fe_valor_cuota] datetime,&#xA;[co_moneda] smallint,&#xA;[mo_capital_usd] decimal(21,6),&#xA;[mo_capital_moneda_origen] decimal(21,6),&#xA;[mo_interes_usd] decimal(21,6),&#xA;[mo_interes_moneda_origen] decimal(21,6),&#xA;[mo_comision_usd] decimal(21,6),&#xA;[mo_comision_moneda_origen] decimal(21,6),&#xA;[co_operacion_activa] char(15),&#xA;[co_operacion_act_participante] char(15),&#xA;[mo_interes_mora_usd] decimal(21,6),&#xA;[mo_interes_mora_origen] decimal(21,6),&#xA;[mo_interes_vncdo_usd] decimal(21,6),&#xA;[mo_interes_vncdo_origen] decimal(21,6),&#xA;[mo_interes_cmpnscion_origen] decimal(21,6),&#xA;[mo_interes_cmpnscion_usd] decimal(21,6),&#xA;[nb_status] char(12),&#xA;[de_tipo] char(9),&#xA;[co_clase] smallint&#xA;)&#xA;GO&#xA;CREATE TABLE [dbo].[amortizacion_plan_pasiva] (&#xA;[co_amortizacion] int NOT NULL,&#xA;[fe_vencimiento_cuota] datetime,&#xA;[fe_valor_cuota] datetime,&#xA;[co_moneda] smallint,&#xA;[mo_capital_usd] decimal(21,6),&#xA;[mo_capital_moneda_origen] decimal(21,6),&#xA;[mo_interes_usd] decimal(21,6),&#xA;[mo_interes_moneda_origen] decimal(21,6),&#xA;[mo_comision_usd] decimal(21,6),&#xA;[mo_comision_moneda_origen] decimal(21,6),&#xA;[co_operacion_pasiva] char(15),&#xA;[mo_interes_mora_usd] decimal(21,6),&#xA;[mo_interes_mora_origen] decimal(21,6),&#xA;[mo_interes_vncdo_usd] decimal(21,6),&#xA;[mo_interes_vncdo_origen] decimal(21,6),&#xA;[mo_interes_cmpnscion_origen] decimal(21,6),&#xA;[mo_interes_cmpnscion_usd] decimal(21,6),&#xA;[nb_status] char(12),&#xA;[de_tipo] char(9),&#xA;[co_clase] smallint&#xA;)&#xA;GO&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[{2DA30760-B0FB-4C6F-8815-007032594239\}]"
+      DTS:CreationName=""
+      DTS:DTSID="{2DA30760-B0FB-4C6F-8815-007032594239}"
+      DTS:From="Package\Preparation SQL Task 1"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="{2DA30760-B0FB-4C6F-8815-007032594239}"
+      DTS:To="Package\Data Flow Task 20" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="166,42"
+          Id="Package\Data Flow Task 20"
+          TopLeft="20.5,107.5" />
+        <NodeLayout
+          Size="190,42"
+          Id="Package\Preparation SQL Task 1"
+          TopLeft="5.50000000000001,5.5" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[{2DA30760-B0FB-4C6F-8815-007032594239\}]"
+          TopLeft="102,47.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

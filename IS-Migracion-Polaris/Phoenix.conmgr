@@ -1,0 +1,14 @@
+﻿<?xml version="1.0"?>
+<DTS:ConnectionManager xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:ObjectName="Phoenix"
+  DTS:DTSID="{43AF331C-1483-456E-AD0F-281A50F61549}"
+  DTS:CreationName="OLEDB">
+  <DTS:PropertyExpression
+    DTS:Name="ConnectionString">@[$Project::pConnectionStringDbPhoenix]</DTS:PropertyExpression>
+  <DTS:ObjectData>
+    <DTS:ConnectionManager
+      DTS:ConnectRetryCount="1"
+      DTS:ConnectRetryInterval="5"
+      DTS:ConnectionString="Data Source=VENJJCR20;Initial Catalog=Phoenix;Provider=SQLOLEDB.1;Integrated Security=SSPI;Auto Translate=false;Application Name=SSIS-{43AF331C-1483-456E-AD0F-281A50F61549}Phoenix;" />
+  </DTS:ObjectData>
+</DTS:ConnectionManager>

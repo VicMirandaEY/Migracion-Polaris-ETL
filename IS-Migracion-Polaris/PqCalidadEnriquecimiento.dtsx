@@ -1,0 +1,697 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="4/17/2023 4:55:55 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="VENJJCR20"
+  DTS:CreatorName="CAF-CON\ls42731"
+  DTS:DTSID="{D64B0CCD-45AA-492B-AB21-62EEDB5D6382}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="16.0.5270.0"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="PqCalidadEnriquecimiento"
+  DTS:PackageType="5"
+  DTS:VersionBuild="33"
+  DTS:VersionGUID="{D4476923-CE27-4A9D-A8D5-595F14DE0A0D}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Actualiza AprobacionesCompromisos"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{773A65D8-C9BE-4FF2-9F36-68703F14B415}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Actualiza AprobacionesCompromisos"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{70000693-BDE1-4FE0-B772-11B7D4A7A452}"
+          SQLTask:SqlStatementSource="DECLARE @YYYY int --Año&#xA;       ,@MM   int --Mes&#xA;       ,@DD   int --Dia&#xA;&#x9;   ,@primerDiaMesMigracionINT int&#xA;&#x9;   ,@ultimoDiaMesMigracionINT int&#xA;       ,@feLineaTiempo datetime&#xA;&#x9;   ,@feUltimoDiaMesMigracion date&#xA;&#x9;   ,@feMigracion date&#xA;&#x9;   ,@feMigracionST nvarchar(8)&#xA;--&#xA;--&#xA;SET @feLineaTiempo = (SELECT MAX(fe_linea_tiempo)  FROM [STGLegados].[dbo].[linea_tiempo])&#xA;SET @feMigracion = DATEADD(DAY, 1, @feLineaTiempo) &#xA;SET @YYYY = YEAR(@feMigracion)  -- Año correspondiente a la fecha de migración&#xA;SET @MM = MONTH(@feMigracion)   -- Mes correspondiente a la fecha de migración&#xA;SET @DD = DAY(@feMigracion)     -- Dia correspondiente a la fecha de migración&#xA;SET @feUltimoDiaMesMigracion = DATEADD(dd,-1,DATEADD(mm, DATEDIFF(mm,0,@feMigracion)+1,0)) -- Fecha de último día del mes de la migración&#xA;SET @ultimoDiaMesMigracionINT = YEAR(@feUltimoDiaMesMigracion)*10000 + MONTH(@feUltimoDiaMesMigracion)*100 + DAY(@feUltimoDiaMesMigracion)&#xA;SET @primerDiaMesMigracionINT = YEAR(@feUltimoDiaMesMigracion)*10000 + MONTH(@feUltimoDiaMesMigracion)*100 + 1&#xA;SET @feMigracionST = Convert(nvarchar(8),@feMigracion,112)&#xA;--&#xA;-- tercera pasada para actualizar los plazos y fechas de vencimiento y de contrato en [STGLegados].[dbo].[TmpAprobacionCompromisoActiva]&#xA;--&#xA;-- Aprobaciones&#xA;  UPDATE [STGLegados].[dbo].[TmpAprobacionCompromisoActiva]&#xA;  SET    [feVencimientoAprobacionActivaTransact] = T2.feVencimientoAprobacionActivaTransact&#xA;        --,[feContratoOriginalAprobacionActivaTransact] =T2.feContratoOriginalAprobacionActivaTransact -- No por los momentos. Fue modificada por Liz en ultimo mapeo. Diciembre 2024.&#xA;&#x9;&#x9;,[cafTipPlzAprobacionActiva] = (-- Nivel Aprobacion&#xA;&#x9;&#x9;                                CASE (T2.tiPlazoAprobacionActivaMaxN)&#xA;&#x9;&#x9;                                  WHEN 0 THEN&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;(&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;  -- Nivel Compromiso&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;  CASE (T2.tiPlazoCompromisoActivaMaxN)&#xA;&#x9;&#x9;                                        WHEN 0 THEN&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;      (&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;    -- Nivel Operacion&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;CASE (T2.tiPlazoOperacionActivaMaxN)&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;              WHEN 1 THEN&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;            (&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;              Convert(nvarchar(20),'Corto Plazo')&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;            )&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;              WHEN 2 THEN&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;            (&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;              Convert(nvarchar(20),'Mediano Plazo')&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;            )&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;              WHEN 3 THEN&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;            (&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;              Convert(nvarchar(20),'Largo Plazo')&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;            )&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;              ELSE Convert(nvarchar(20),NULL)&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;            END&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;-- Fin Nivel Operacion&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;      )&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;        WHEN 1 THEN&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;      (&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;        Convert(nvarchar(20),'Corto Plazo')&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;      )&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;        WHEN 2 THEN&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;      (&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;        Convert(nvarchar(20),'Mediano Plazo')&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;      )&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;        WHEN 3 THEN&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;      (&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;        Convert(nvarchar(20),'Largo Plazo')&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;      )&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;        ELSE Convert(nvarchar(20),NULL)&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;      END&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;  -- Fin Nivel Compormiso&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;)&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;  WHEN 1 THEN&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;(&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;  Convert(nvarchar(20),'Corto Plazo')&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;)&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;  WHEN 2 THEN&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;(&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;  Convert(nvarchar(20),'Mediano Plazo')&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;)&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;  WHEN 3 THEN&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;(&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;  Convert(nvarchar(20),'Largo Plazo')&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;)&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;  ELSE Convert(nvarchar(20),NULL)&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;END)&#xA;  FROM   [STGLegados].[dbo].[TmpAprobacionCompromisoActiva] as T1&#xA;    INNER JOIN (SELECT APROB.coAprobacionActiva&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;  --,Convert(nvarchar(8),MIN(ISNULL(APROB.feContratoMinArrangement,@feMigracion)),112) as feContratoOriginalAprobacionActivaTransact&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;  ,Convert(nvarchar(8),MAX(ISNULL(APROB.feVencimientoMaxArrangement,@feMigracion)),112) as feVencimientoAprobacionActivaTransact&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;  ,MAX(APROB.tiPlazoAprobacionActivaN) as tiPlazoAprobacionActivaMaxN&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;  ,MAX(APROB.tiPlazoCompromisoActivaN) as tiPlazoCompromisoActivaMaxN&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;  ,MAX(APROB.tiPlazoOperacionActivaN) as tiPlazoOperacionActivaMaxN&#xA;&#x9;&#x9;&#x9;    FROM  (SELECT coAprobacionActiva&#xA;&#x9;&#x9;&#x9;&#x9;             ,feContratoMinArrangement&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9; ,feVencimientoMaxArrangement&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9; ,tiPlazoAprobacionActivaN&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9; ,tiPlazoCompromisoActivaN&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9; ,tiPlazoOperacionActivaN&#xA;&#x9;&#x9;&#x9;&#x9;       FROM   [STGLegados].[dbo].[TmpAprobacionCompromisoOperacionActiva]&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;   WHERE  coAprobacionActiva IS NOT NULL AND coAprobacionActiva IN (SELECT coAprobacionActiva FROM [TmpAprobacionCompromisoActiva] WHERE coAprobacionActiva IS NOT NULL)&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;   UNION&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;   SELECT coAprobacionActiva&#xA;&#x9;&#x9;&#x9;&#x9;             ,feContratoMinArrangement&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9; ,feVencimientoMaxArrangement&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9; ,tiPlazoAprobacionActivaN&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9; ,tiPlazoCompromisoActivaN&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9; ,tiPlazoOperacionActivaN&#xA;&#x9;&#x9;&#x9;&#x9;       FROM   [STGLegados].[dbo].[TmpAprobacionCompromisoActiva]&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;   WHERE  coAprobacionActiva IS NOT NULL AND coAprobacionActiva IN (SELECT coAprobacionActiva FROM [TmpAprobacionCompromisoOperacionActiva] WHERE coAprobacionActiva IS NOT NULL)&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;   ) as APROB&#xA;&#x9;&#x9;&#x9;    GROUP BY APROB.coAprobacionActiva) as T2 ON&#xA;&#x9;  T2.coAprobacionActiva = T1.coAprobacionActiva&#xA;  --&#xA;  -- Aprobaciones: Montos. Tercera pasada para actualizar los montos en [STGLegados].[dbo].[TmpAprobacionCompromisoActiva]&#xA;  UPDATE [STGLegados].[dbo].[TmpAprobacionCompromisoActiva]&#xA;  SET    [moAprobadoMonedaAprobacionActiva] = CASE WHEN T2.moAprobadoMonedaAprobacionActivaSum &gt; [moAprobadoMonedaAprobacionActiva] THEN T2.moAprobadoMonedaAprobacionActivaSum ELSE [moAprobadoMonedaAprobacionActiva] END&#xA;&#x9;&#x9;,[moUtilizadoMonedaAprobacionActiva] = T2.moUtilizadoMonedaAprobacionActivaSum&#xA;&#x9;&#x9;,[moDisponibleMonedaAprobacionActiva] = T2.moDisponibleMonedaAprobacionActivaSum&#xA;  FROM   [STGLegados].[dbo].[TmpAprobacionCompromisoActiva] as T1&#xA;    INNER JOIN (SELECT APROB.coAprobacionActiva&#xA;&#x9;                  ,SUM(APROB.moAprobadoMonedaCompromisoActiva) as moAprobadoMonedaAprobacionActivaSum&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;  ,SUM(APROB.moUtilizadoMonedaCompromisoActiva) as moUtilizadoMonedaAprobacionActivaSum&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;  ,SUM(APROB.moDisponibleMonedaCompromisoActiva) as moDisponibleMonedaAprobacionActivaSum&#xA;&#x9;              FROM (SELECT DISTINCT &#xA;&#x9;&#x9;&#x9;&#x9;&#x9;           TMC1.coAprobacionActiva&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;          ,TMC1.coCompromisoActiva&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;          ,TMC1.moAprobadoMonedaCompromisoActiva&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;          ,TMC1.moUtilizadoMonedaCompromisoActiva&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;          ,TMC1.moDisponibleMonedaCompromisoActiva&#xA;&#x9;&#x9;&#x9;              FROM [STGLegados].[dbo].[TmpAprobacionCompromisoOperacionActiva] as TMC1&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;  WHERE TMC1.coAprobacionActiva IS NOT NULL&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;UNION&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;SELECT DISTINCT &#xA;&#x9;&#x9;&#x9;&#x9;&#x9;           TMC2.coAprobacionActiva&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;          ,TMC2.coCompromisoActiva&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;          ,TMC2.moAprobadoMonedaCompromisoActiva&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;          ,TMC2.moUtilizadoMonedaCompromisoActiva&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;          ,TMC2.moDisponibleMonedaCompromisoActiva&#xA;&#x9;&#x9;&#x9;             FROM [STGLegados].[dbo].[TmpAprobacionCompromisoActiva] as TMC2&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;WHERE TMC2.coCompromisoActiva NOT IN (SELECT coCompromisoActiva FROM [STGLegados].[dbo].[TmpAprobacionCompromisoOperacionActiva] WHERE coAprobacionActiva IS NOT NULL)&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;  AND TMC2.coAprobacionActiva IS NOT NULL&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;--UNION&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;--SELECT DISTINCT &#xA;&#x9;&#x9;&#x9;&#x9;&#x9; --          (SELECT T.coAprobacionActiva FROM [STGLegados].[dbo].[TmpAprobacionCompromisoOperacionActiva] as T WHERE T.coOperacionActiva = TMC3.coOperacionActiva) as coAprobacionActiva&#xA;&#x9;&#x9;&#x9;&#x9;&#x9; --         ,TMC3.coCompromisoActiva&#xA;&#x9;&#x9;&#x9;&#x9;&#x9; --         ,TMC3.moAprobadoMonedaCompromisoActiva&#xA;&#x9;&#x9;&#x9;&#x9;&#x9; --         ,TMC3.moUtilizadoMonedaCompromisoActiva&#xA;&#x9;&#x9;&#x9;&#x9;&#x9; --         ,TMC3.moDisponibleMonedaCompromisoActiva&#xA;&#x9;&#x9;&#x9;   --          FROM [STGLegados].[dbo].[TmpAprobacionCompromisoOperacionActivaParticipante] as TMC3&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;--WHERE coCompromisoActiva NOT IN (SELECT coCompromisoActiva FROM [STGLegados].[dbo].[TmpAprobacionCompromisoOperacionActiva])&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;--  AND coCompromisoActiva NOT IN (SELECT coCompromisoActiva FROM [STGLegados].[dbo].[TmpAprobacionCompromisoActiva])&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;) as APROB&#xA;&#x9;&#x9;&#x9;    GROUP BY APROB.coAprobacionActiva) as T2 ON&#xA;&#x9;  T2.coAprobacionActiva = T1.coAprobacionActiva&#xA;  --&#xA;  -- Aprobaciones: Montos.  Tercera pasada para actualizar los montos en [STGLegados].[dbo].[TmpAprobacionCompromisoOperacionActiva]&#xA;  UPDATE [STGLegados].[dbo].[TmpAprobacionCompromisoOperacionActiva]&#xA;  SET    [moAprobadoMonedaAprobacionActiva] = CASE WHEN T2.moAprobadoMonedaAprobacionActivaSum &gt; [moAprobadoMonedaAprobacionActiva] THEN T2.moAprobadoMonedaAprobacionActivaSum ELSE [moAprobadoMonedaAprobacionActiva] END&#xA;&#x9;&#x9;,[moUtilizadoMonedaAprobacionActiva] = T2.moUtilizadoMonedaAprobacionActivaSum&#xA;&#x9;&#x9;,[moDisponibleMonedaAprobacionActiva] = T2.moDisponibleMonedaAprobacionActivaSum&#xA;  FROM   [STGLegados].[dbo].[TmpAprobacionCompromisoOperacionActiva] as T1&#xA;    INNER JOIN (SELECT APROB.coAprobacionActiva&#xA;&#x9;                  ,SUM(APROB.moAprobadoMonedaCompromisoActiva) as moAprobadoMonedaAprobacionActivaSum&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;  ,SUM(APROB.moUtilizadoMonedaCompromisoActiva) as moUtilizadoMonedaAprobacionActivaSum&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;  ,SUM(APROB.moDisponibleMonedaCompromisoActiva) as moDisponibleMonedaAprobacionActivaSum&#xA;&#x9;              FROM (SELECT DISTINCT &#xA;&#x9;&#x9;&#x9;&#x9;&#x9;           TMC1.coAprobacionActiva&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;          ,TMC1.coCompromisoActiva&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;          ,TMC1.moAprobadoMonedaCompromisoActiva&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;          ,TMC1.moUtilizadoMonedaCompromisoActiva&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;          ,TMC1.moDisponibleMonedaCompromisoActiva&#xA;&#x9;&#x9;&#x9;              FROM [STGLegados].[dbo].[TmpAprobacionCompromisoOperacionActiva] as TMC1&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;  WHERE TMC1.coAprobacionActiva IS NOT NULL&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;UNION&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;SELECT DISTINCT &#xA;&#x9;&#x9;&#x9;&#x9;&#x9;           TMC2.coAprobacionActiva&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;          ,TMC2.coCompromisoActiva&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;          ,TMC2.moAprobadoMonedaCompromisoActiva&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;          ,TMC2.moUtilizadoMonedaCompromisoActiva&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;          ,TMC2.moDisponibleMonedaCompromisoActiva&#xA;&#x9;&#x9;&#x9;             FROM [STGLegados].[dbo].[TmpAprobacionCompromisoActiva] as TMC2&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;WHERE TMC2.coCompromisoActiva NOT IN (SELECT coCompromisoActiva FROM [STGLegados].[dbo].[TmpAprobacionCompromisoOperacionActiva] WHERE coAprobacionActiva IS NOT NULL)&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;  AND TMC2.coAprobacionActiva IS NOT NULL&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;--UNION&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;--SELECT DISTINCT &#xA;&#x9;&#x9;&#x9;&#x9;&#x9; --          (SELECT T.coAprobacionActiva FROM [STGLegados].[dbo].[TmpAprobacionCompromisoOperacionActiva] as T WHERE T.coOperacionActiva = TMC3.coOperacionActiva) as coAprobacionActiva&#xA;&#x9;&#x9;&#x9;&#x9;&#x9; --         ,TMC3.coCompromisoActiva&#xA;&#x9;&#x9;&#x9;&#x9;&#x9; --         ,TMC3.moAprobadoMonedaCompromisoActiva&#xA;&#x9;&#x9;&#x9;&#x9;&#x9; --         ,TMC3.moUtilizadoMonedaCompromisoActiva&#xA;&#x9;&#x9;&#x9;&#x9;&#x9; --         ,TMC3.moDisponibleMonedaCompromisoActiva&#xA;&#x9;&#x9;&#x9;   --          FROM [STGLegados].[dbo].[TmpAprobacionCompromisoOperacionActivaParticipante] as TMC3&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;--WHERE coCompromisoActiva NOT IN (SELECT coCompromisoActiva FROM [STGLegados].[dbo].[TmpAprobacionCompromisoOperacionActiva])&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;--  AND coCompromisoActiva NOT IN (SELECT coCompromisoActiva FROM [STGLegados].[dbo].[TmpAprobacionCompromisoActiva])&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;) as APROB&#xA;&#x9;&#x9;&#x9;    GROUP BY APROB.coAprobacionActiva) as T2 ON&#xA;&#x9;  T2.coAprobacionActiva = T1.coAprobacionActiva&#xA;  --&#xA;  -- Compromisos&#xA;  UPDATE [STGLegados].[dbo].[TmpAprobacionCompromisoActiva]&#xA;  SET    [feVencimientoCompromisoActivaTransact] = T2.feVencimientoCompromisoActivaTransact&#xA;        --,[feContratoOriginalCompromisoActivaTransact] =T2.feContratoOriginalCompromisoActivaTransact&#xA;&#x9;&#x9;,[cafDocPagCompromisoActiva] = T2.cafDocPagCompromisoActiva&#xA;  FROM   [STGLegados].[dbo].[TmpAprobacionCompromisoActiva] as T1&#xA;    INNER JOIN (SELECT COMP.coCompromisoActiva&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;  ,Convert(nvarchar(8),MIN(ISNULL(COMP.feContratoMinArrangement,@feMigracion)),112) as feContratoOriginalCompromisoActivaTransact&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;  ,Convert(nvarchar(8),MAX(ISNULL(COMP.feVencimientoMaxArrangement,@feMigracion)),112) as feVencimientoCompromisoActivaTransact&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;  ,MAX(COMP.cafDocPagCompromisoActiva) as cafDocPagCompromisoActiva&#xA;&#x9;&#x9;&#x9;    FROM  (SELECT coCompromisoActiva&#xA;&#x9;&#x9;&#x9;&#x9;             ,feContratoMinArrangement&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9; ,feVencimientoMaxArrangement&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9; ,tiPlazoAprobacionActivaN&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9; ,tiPlazoCompromisoActivaN&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9; ,tiPlazoOperacionActivaN&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9; ,cafDocPagCompromisoActiva&#xA;&#x9;&#x9;&#x9;&#x9;       FROM   [STGLegados].[dbo].[TmpAprobacionCompromisoOperacionActiva]&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;   WHERE  coAprobacionActiva IN (SELECT coAprobacionActiva FROM [TmpAprobacionCompromisoActiva] WHERE coAprobacionActiva IS NOT NULL)&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;     AND  coAprobacionActiva IS NOT NULL&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;   UNION&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;   SELECT coAprobacionActiva&#xA;&#x9;&#x9;&#x9;&#x9;             ,feContratoMinArrangement&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9; ,feVencimientoMaxArrangement&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9; ,tiPlazoAprobacionActivaN&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9; ,tiPlazoCompromisoActivaN&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9; ,tiPlazoOperacionActivaN&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9; ,cafDocPagCompromisoActiva&#xA;&#x9;&#x9;&#x9;&#x9;       FROM   [STGLegados].[dbo].[TmpAprobacionCompromisoActiva]&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;   WHERE  coAprobacionActiva IN (SELECT coAprobacionActiva FROM [TmpAprobacionCompromisoOperacionActiva] WHERE coAprobacionActiva IS NOT NULL)&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;     AND  coAprobacionActiva IS NOT NULL&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;   ) as COMP&#xA;&#x9;&#x9;&#x9;    GROUP BY COMP.coCompromisoActiva) as T2 ON&#xA;&#x9;  T2.coCompromisoActiva = T1.coCompromisoActiva&#xA;--&#xA;--&#xA;--&#xA;-- tercera pasada para actualizar los plazos y fechas de vencimiento y de contrato en [STGLegados].[dbo].[TmpAprobacionCompromisoOperacionActiva]&#xA;--&#xA;-- Aprobaciones&#xA;  UPDATE [STGLegados].[dbo].[TmpAprobacionCompromisoOperacionActiva]&#xA;  SET    [feVencimientoAprobacionActivaTransact] = T2.feVencimientoAprobacionActivaTransact&#xA;        --,[feContratoOriginalAprobacionActivaTransact] =T2.feContratoOriginalAprobacionActivaTransact&#xA;&#x9;&#x9;,[cafTipPlzAprobacionActiva] = (-- Nivel Aprobacion&#xA;&#x9;&#x9;                                CASE (T2.tiPlazoAprobacionActivaMaxN)&#xA;&#x9;&#x9;                                  WHEN 0 THEN&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;(&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;  -- Nivel Compromiso&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;  CASE (T2.tiPlazoCompromisoActivaMaxN)&#xA;&#x9;&#x9;                                        WHEN 0 THEN&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;      (&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;    -- Nivel Operacion&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;CASE (T2.tiPlazoOperacionActivaMaxN)&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;              WHEN 1 THEN&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;            (&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;              Convert(nvarchar(20),'Corto Plazo')&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;            )&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;              WHEN 2 THEN&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;            (&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;              Convert(nvarchar(20),'Mediano Plazo')&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;            )&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;              WHEN 3 THEN&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;            (&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;              Convert(nvarchar(20),'Largo Plazo')&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;            )&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;              ELSE Convert(nvarchar(20),NULL)&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;            END&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;-- Fin Nivel Operacion&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;      )&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;        WHEN 1 THEN&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;      (&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;        Convert(nvarchar(20),'Corto Plazo')&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;      )&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;        WHEN 2 THEN&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;      (&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;        Convert(nvarchar(20),'Mediano Plazo')&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;      )&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;        WHEN 3 THEN&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;      (&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;        Convert(nvarchar(20),'Largo Plazo')&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;      )&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;        ELSE Convert(nvarchar(20),NULL)&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;      END&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;  -- Fin Nivel Compormiso&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;)&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;  WHEN 1 THEN&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;(&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;  Convert(nvarchar(20),'Corto Plazo')&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;)&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;  WHEN 2 THEN&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;(&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;  Convert(nvarchar(20),'Mediano Plazo')&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;)&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;  WHEN 3 THEN&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;(&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;  Convert(nvarchar(20),'Largo Plazo')&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;)&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;  ELSE Convert(nvarchar(20),NULL)&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;END)&#xA;  FROM   [STGLegados].[dbo].[TmpAprobacionCompromisoOperacionActiva] as T1&#xA;    INNER JOIN (SELECT APROB.coAprobacionActiva&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;  --,Convert(nvarchar(8),MIN(ISNULL(APROB.feContratoMinArrangement,@feMigracion)),112) as feContratoOriginalAprobacionActivaTransact&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;  ,Convert(nvarchar(8),MAX(ISNULL(APROB.feVencimientoMaxArrangement,@feMigracion)),112) as feVencimientoAprobacionActivaTransact&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;  ,MAX(APROB.tiPlazoAprobacionActivaN) as tiPlazoAprobacionActivaMaxN&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;  ,MAX(APROB.tiPlazoCompromisoActivaN) as tiPlazoCompromisoActivaMaxN&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;  ,MAX(APROB.tiPlazoOperacionActivaN) as tiPlazoOperacionActivaMaxN&#xA;&#x9;&#x9;&#x9;    FROM  (SELECT coAprobacionActiva&#xA;&#x9;&#x9;&#x9;&#x9;             ,feContratoMinArrangement&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9; ,feVencimientoMaxArrangement&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9; ,tiPlazoAprobacionActivaN&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9; ,tiPlazoCompromisoActivaN&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9; ,tiPlazoOperacionActivaN&#xA;&#x9;&#x9;&#x9;&#x9;       FROM   [STGLegados].[dbo].[TmpAprobacionCompromisoOperacionActiva]&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;   WHERE  coAprobacionActiva IN (SELECT coAprobacionActiva FROM [TmpAprobacionCompromisoActiva] WHERE coAprobacionActiva IS NOT NULL)&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;     AND  coAprobacionActiva IS NOT NULL&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;   UNION&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;   SELECT coAprobacionActiva&#xA;&#x9;&#x9;&#x9;&#x9;             ,feContratoMinArrangement&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9; ,feVencimientoMaxArrangement&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9; ,tiPlazoAprobacionActivaN&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9; ,tiPlazoCompromisoActivaN&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9; ,tiPlazoOperacionActivaN&#xA;&#x9;&#x9;&#x9;&#x9;       FROM   [STGLegados].[dbo].[TmpAprobacionCompromisoActiva]&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;   WHERE  coAprobacionActiva IN (SELECT coAprobacionActiva FROM [TmpAprobacionCompromisoOperacionActiva] WHERE coAprobacionActiva IS NOT NULL)&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;     AND  coAprobacionActiva IS NOT NULL&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;   ) as APROB&#xA;&#x9;&#x9;&#x9;    GROUP BY APROB.coAprobacionActiva) as T2 ON&#xA;&#x9;  T2.coAprobacionActiva = T1.coAprobacionActiva&#xA;  --&#xA;  -- Compromisos&#xA;  UPDATE [STGLegados].[dbo].[TmpAprobacionCompromisoOperacionActiva]&#xA;  SET    [feVencimientoCompromisoActivaTransact] = T2.feVencimientoCompromisoActivaTransact&#xA;        ,[feContratoOriginalCompromisoActivaTransact] =T2.feContratoOriginalCompromisoActivaTransact&#xA;&#x9;&#x9;,[cafDocPagCompromisoActiva] = T2.cafDocPagCompromisoActiva&#xA;  FROM   [STGLegados].[dbo].[TmpAprobacionCompromisoOperacionActiva] as T1&#xA;    INNER JOIN (SELECT COMP.coCompromisoActiva&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;  ,Convert(nvarchar(8),MIN(ISNULL(COMP.feContratoMinArrangement,@feMigracion)),112) as feContratoOriginalCompromisoActivaTransact&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;  ,Convert(nvarchar(8),MAX(ISNULL(COMP.feVencimientoMaxArrangement,@feMigracion)),112) as feVencimientoCompromisoActivaTransact&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;  ,MAX(COMP.cafDocPagCompromisoActiva) as cafDocPagCompromisoActiva&#xA;&#x9;&#x9;&#x9;    FROM  (SELECT coCompromisoActiva&#xA;&#x9;&#x9;&#x9;&#x9;             ,feContratoMinArrangement&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9; ,feVencimientoMaxArrangement&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9; ,tiPlazoAprobacionActivaN&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9; ,tiPlazoCompromisoActivaN&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9; ,tiPlazoOperacionActivaN&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9; ,cafDocPagCompromisoActiva&#xA;&#x9;&#x9;&#x9;&#x9;       FROM   [STGLegados].[dbo].[TmpAprobacionCompromisoOperacionActiva]&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;   WHERE  coAprobacionActiva IN (SELECT coAprobacionActiva FROM [TmpAprobacionCompromisoActiva] WHERE coAprobacionActiva IS NOT NULL)&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;     AND  coAprobacionActiva IS NOT NULL&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;   UNION&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;   SELECT coAprobacionActiva&#xA;&#x9;&#x9;&#x9;&#x9;             ,feContratoMinArrangement&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9; ,feVencimientoMaxArrangement&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9; ,tiPlazoAprobacionActivaN&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9; ,tiPlazoCompromisoActivaN&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9; ,tiPlazoOperacionActivaN&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9; ,cafDocPagCompromisoActiva&#xA;&#x9;&#x9;&#x9;&#x9;       FROM   [STGLegados].[dbo].[TmpAprobacionCompromisoActiva]&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;   WHERE  coAprobacionActiva IN (SELECT coAprobacionActiva FROM [TmpAprobacionCompromisoOperacionActiva] WHERE coAprobacionActiva IS NOT NULL)&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;     AND  coAprobacionActiva IS NOT NULL&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;   ) as COMP&#xA;&#x9;&#x9;&#x9;    GROUP BY COMP.coCompromisoActiva) as T2 ON&#xA;&#x9;  T2.coCompromisoActiva = T1.coCompromisoActiva&#xA;--&#xA;--&#xA;-- Fin" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Actualiza TmpRelacionadosConDealFacilityDrawing"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{8202A903-AA21-42E0-99DF-C6CA488BEFFA}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Actualiza TmpRelacionadosConDealFacilityDrawing"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{70000693-BDE1-4FE0-B772-11B7D4A7A452}"
+          SQLTask:SqlStatementSource="USE [STGLegados]&#xA;GO&#xA;&#xA;DECLARE @RC int&#xA;&#xA;-- TODO: Set parameter values here.&#xA;&#xA;EXECUTE @RC = [dbo].[ActualizaTmpRelacionadosConDealFacilityDrawing] &#xA;GO&#xA;&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Data Flow Task"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:Disabled="True"
+      DTS:DTSID="{4BC4F859-5DC7-416E-A7CA-D1D0CCB4932C}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Data Flow Task"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Inicializa parametros"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{9b79d22e-8d82-40f6-bda0-986e193676a1}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Inicializa parametros"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{70000693-BDE1-4FE0-B772-11B7D4A7A452}"
+          SQLTask:SqlStatementSource="-- =============================================&#xA;-- Autor:  José A. Guillen &#xA;-- Fecha de creación: 05-09-2022&#xA;-- Descripción:  Inicializa parametros desde valores guardados en una base de datos SQL Server para la Solución Migracion-Polaris-ETL1-v1.0&#xA;--      &#xA;-- Archivos Origen:  &#xA;--   &#xA;--      &#xA;-- Historia:&#xA;-- José A. Guillén 05-09-2022 Codificación inicial&#xA;-- =============================================&#xA;--&#xA;-- &lt;Aquí se debe colocar el código SQL que lee los parámetros que se van a manejar desde tablas de parámetros&gt; &#xA;--&#xA;SELECT 1 &#xA;--" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\PqCargaTmpArrangementPasiva"
+      DTS:CreationName="Microsoft.ExecutePackageTask"
+      DTS:Description="Execute Package Task"
+      DTS:DTSID="{503ECAC6-69B0-47E0-8AC6-33BE07F3C0F3}"
+      DTS:ExecutableType="Microsoft.ExecutePackageTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="PqCargaTmpArrangementPasiva"
+      DTS:TaskContact="Microsoft Corporation; Microsoft SQL Server; Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <ExecutePackageTask>
+          <UseProjectReference>True</UseProjectReference>
+          <PackageName>PqCargaTmpArrangementPasiva.dtsx</PackageName>
+        </ExecutePackageTask>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Prepara TmpAprobacionActivaSinFSinD"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{B35F794E-C5C3-4568-8258-BC4E10D7288B}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Prepara TmpAprobacionActivaSinFSinD"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{70000693-BDE1-4FE0-B772-11B7D4A7A452}"
+          SQLTask:SqlStatementSource="USE [STGLegados]&#xA;GO&#xA;&#xA;DECLARE @RC int&#xA;&#xA;-- TODO: Set parameter values here.&#xA;&#xA;EXECUTE @RC = [dbo].[PreparaTmpAprobacionActivaSinFSinD] &#xA;GO&#xA;&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Prepara TmpAprobacionCompromisoActiva"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{609D6EEA-D14A-49A2-8D73-A7B57899D958}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Prepara TmpAprobacionCompromisoActiva"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{70000693-BDE1-4FE0-B772-11B7D4A7A452}"
+          SQLTask:SqlStatementSource="USE [STGLegados]&#xA;GO&#xA;&#xA;DECLARE @RC int&#xA;&#xA;-- TODO: Set parameter values here.&#xA;&#xA;EXECUTE @RC = [STGLegados].[dbo].[PreparaTmpAprobacionCompromisoActiva] &#xA;GO&#xA;&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Prepara TmpAprobacionCompromisoOperacionActiva"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{C0669E59-A824-4068-9F15-A13E64B2208B}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Prepara TmpAprobacionCompromisoOperacionActiva"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{70000693-BDE1-4FE0-B772-11B7D4A7A452}"
+          SQLTask:SqlStatementSource="USE [STGLegados]&#xA;GO&#xA;&#xA;DECLARE @RC int&#xA;&#xA;-- TODO: Set parameter values here.&#xA;&#xA;EXECUTE @RC = [STGLegados].[dbo].[PreparaTmpAprobacionCompromisoOperacionActiva] &#xA;GO&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Prepara TmpAprobacionCompromisoOperacionActivaParticipante"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{429D5950-8C99-481E-9B12-438A81352FB9}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Prepara TmpAprobacionCompromisoOperacionActivaParticipante"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{70000693-BDE1-4FE0-B772-11B7D4A7A452}"
+          SQLTask:SqlStatementSource="USE [STGLegados]&#xA;GO&#xA;&#xA;DECLARE @RC int&#xA;&#xA;-- TODO: Set parameter values here.&#xA;&#xA;EXECUTE @RC = [dbo].[PreparaTmpAprobacionCompromisoOperacionActivaParticipante] &#xA;GO&#xA;&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Prepara TmpParametrosCompromisoFEESCHEDULE"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{669A73B2-025A-40CA-A728-17BA63BEF89B}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Prepara TmpParametrosCompromisoFEESCHEDULE"
+      DTS:ThreadHint="1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{70000693-BDE1-4FE0-B772-11B7D4A7A452}"
+          SQLTask:SqlStatementSource="USE [STGLegados]&#xA;GO&#xA;&#xA;DECLARE @RC int&#xA;&#xA;-- TODO: Set parameter values here.&#xA;&#xA;EXECUTE @RC = [dbo].[Prepara-TmpParametrosCompromisoFEESCHEDULE] &#xA;GO&#xA;&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Prepara TmpParametrosDrawing"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:Disabled="True"
+      DTS:DTSID="{E245E38E-1067-4B22-A0C2-ED3CFFD5CB4E}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Prepara TmpParametrosDrawing"
+      DTS:ThreadHint="2">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{70000693-BDE1-4FE0-B772-11B7D4A7A452}"
+          SQLTask:SqlStatementSource="USE [STGLegados]&#xA;GO&#xA;&#xA;DECLARE @RC int&#xA;&#xA;-- TODO: Set parameter values here.&#xA;&#xA;EXECUTE @RC = [dbo].[Transforma-TmpParametrosDrawing] &#xA;GO&#xA;-- Fin" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Prepara TmpParametrosDrawingSCHEDULE"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:Disabled="True"
+      DTS:DTSID="{F936F286-0126-4AB8-B037-91FCBF4C49D3}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Prepara TmpParametrosDrawingSCHEDULE"
+      DTS:ThreadHint="1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{70000693-BDE1-4FE0-B772-11B7D4A7A452}"
+          SQLTask:SqlStatementSource="USE [STGLegados]&#xA;GO&#xA;&#xA;DECLARE @RC int&#xA;&#xA;-- TODO: Set parameter values here.&#xA;&#xA;EXECUTE @RC = [dbo].[Prepara-TmpParametrosDrawingSCHEDULE] &#xA;GO&#xA;&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{F3A1163A-1463-47CA-99A3-A39D0850B582}"
+      DTS:From="Package\Inicializa parametros"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\Data Flow Task" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 1]"
+      DTS:CreationName=""
+      DTS:DTSID="{640B188B-6940-4AF8-AC6F-52204DBE2A7F}"
+      DTS:From="Package\Inicializa parametros"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 1"
+      DTS:To="Package\Prepara TmpAprobacionCompromisoOperacionActiva" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 10]"
+      DTS:CreationName=""
+      DTS:DTSID="{02F2361B-EB43-45E6-A796-F5FEB8AD76D2}"
+      DTS:From="Package\Prepara TmpParametrosCompromisoFEESCHEDULE"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 10"
+      DTS:To="Package\Prepara TmpParametrosDrawingSCHEDULE" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 2]"
+      DTS:CreationName=""
+      DTS:DTSID="{2DB65081-E3BE-4353-B2AB-7895DD76ED5D}"
+      DTS:From="Package\Prepara TmpAprobacionCompromisoOperacionActiva"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 2"
+      DTS:To="Package\Prepara TmpAprobacionCompromisoActiva" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 3]"
+      DTS:CreationName=""
+      DTS:DTSID="{05951139-3EBD-4ADE-9B27-14A6CA953F81}"
+      DTS:From="Package\Prepara TmpAprobacionCompromisoActiva"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 3"
+      DTS:To="Package\Actualiza AprobacionesCompromisos" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 4]"
+      DTS:CreationName=""
+      DTS:DTSID="{345BDCAF-2A44-4B30-B9F1-29ED88236209}"
+      DTS:From="Package\Actualiza AprobacionesCompromisos"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 4"
+      DTS:To="Package\Prepara TmpAprobacionCompromisoOperacionActivaParticipante" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 5]"
+      DTS:CreationName=""
+      DTS:DTSID="{BC024822-9233-4362-9D4A-2F17342A2B69}"
+      DTS:From="Package\Inicializa parametros"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 5"
+      DTS:To="Package\PqCargaTmpArrangementPasiva" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 6]"
+      DTS:CreationName=""
+      DTS:DTSID="{B332D58B-2751-439F-9948-B868404D692B}"
+      DTS:From="Package\Inicializa parametros"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 6"
+      DTS:To="Package\Prepara TmpParametrosDrawing" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 7]"
+      DTS:CreationName=""
+      DTS:DTSID="{E1A66C29-8F9E-4DC8-B53C-A5BBCF7C0187}"
+      DTS:From="Package\Prepara TmpAprobacionCompromisoOperacionActivaParticipante"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 7"
+      DTS:To="Package\Prepara TmpAprobacionActivaSinFSinD" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 8]"
+      DTS:CreationName=""
+      DTS:DTSID="{9A2D7B89-0203-4706-899F-A9312BDC54E2}"
+      DTS:From="Package\Prepara TmpAprobacionActivaSinFSinD"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 8"
+      DTS:To="Package\Actualiza TmpRelacionadosConDealFacilityDrawing" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 9]"
+      DTS:CreationName=""
+      DTS:DTSID="{25628876-4A8F-46B8-803F-E6D876BB24F8}"
+      DTS:From="Package\Prepara TmpAprobacionCompromisoOperacionActivaParticipante"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 9"
+      DTS:To="Package\Prepara TmpParametrosCompromisoFEESCHEDULE" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="250,42"
+          Id="Package\Actualiza AprobacionesCompromisos"
+          TopLeft="400,311.5" />
+        <NodeLayout
+          Size="317,42"
+          Id="Package\Actualiza TmpRelacionadosConDealFacilityDrawing"
+          TopLeft="5.50000000000011,617.5" />
+        <NodeLayout
+          Size="151,42"
+          Id="Package\Data Flow Task"
+          TopLeft="149.5,107.5" />
+        <NodeLayout
+          Size="176,42"
+          Id="Package\Inicializa parametros"
+          TopLeft="781,5.49999999999977" />
+        <NodeLayout
+          Size="230,42"
+          Id="Package\PqCargaTmpArrangementPasiva"
+          TopLeft="749.5,107.5" />
+        <NodeLayout
+          Size="262,42"
+          Id="Package\Prepara TmpAprobacionActivaSinFSinD"
+          TopLeft="42.0000000000001,515.5" />
+        <NodeLayout
+          Size="279,42"
+          Id="Package\Prepara TmpAprobacionCompromisoActiva"
+          TopLeft="385.5,209.5" />
+        <NodeLayout
+          Size="327,42"
+          Id="Package\Prepara TmpAprobacionCompromisoOperacionActiva"
+          TopLeft="361.5,107.5" />
+        <NodeLayout
+          Size="382,42"
+          Id="Package\Prepara TmpAprobacionCompromisoOperacionActivaParticipante"
+          TopLeft="334,413.5" />
+        <NodeLayout
+          Size="320,42"
+          Id="Package\Prepara TmpParametrosCompromisoFEESCHEDULE"
+          TopLeft="365,515.5" />
+        <NodeLayout
+          Size="232,42"
+          Id="Package\Prepara TmpParametrosDrawing"
+          TopLeft="1049,107.5" />
+        <NodeLayout
+          Size="283,42"
+          Id="Package\Prepara TmpParametrosDrawingSCHEDULE"
+          TopLeft="383.5,617.5" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="818.6,47.4999999999998">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-593.6,60.0000000000002"
+              Start="0,0"
+              End="-593.6,52.5000000000002">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,13.9617834394905" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,13.9617834394905"
+                    Point2="0,17.9617834394905"
+                    Point3="-4,17.9617834394905" />
+                  <mssgle:LineSegment
+                    End="-589.6,17.9617834394905" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-589.6,17.9617834394905"
+                    Point2="-593.6,17.9617834394905"
+                    Point3="-593.6,21.9617834394905" />
+                  <mssgle:LineSegment
+                    End="-593.6,52.5000000000002" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 1]"
+          TopLeft="852.2,47.4999999999998">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-327.2,60"
+              Start="0,0"
+              End="-327.2,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,22.8341708542714" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,22.8341708542714"
+                    Point2="0,26.8341708542714"
+                    Point3="-4,26.8341708542714" />
+                  <mssgle:LineSegment
+                    End="-323.2,26.8341708542714" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-323.2,26.8341708542714"
+                    Point2="-327.2,26.8341708542714"
+                    Point3="-327.2,30.8341708542714" />
+                  <mssgle:LineSegment
+                    End="-327.2,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 10]"
+          TopLeft="525,557.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 2]"
+          TopLeft="525,149.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60.0000000000001"
+              Start="0,0"
+              End="0,52.5000000000001">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5000000000001" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 3]"
+          TopLeft="525,251.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 4]"
+          TopLeft="525,353.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 5]"
+          TopLeft="885.8,47.4999999999998">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-21.3,60.0000000000002"
+              Start="0,0"
+              End="-21.3,52.5000000000002">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,22.8341708542715" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,22.8341708542715"
+                    Point2="0,26.8341708542715"
+                    Point3="-4,26.8341708542715" />
+                  <mssgle:LineSegment
+                    End="-17.3,26.8341708542715" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-17.3,26.8341708542715"
+                    Point2="-21.3,26.8341708542715"
+                    Point3="-21.3,30.8341708542715" />
+                  <mssgle:LineSegment
+                    End="-21.3,52.5000000000002" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 6]"
+          TopLeft="919.4,47.4999999999998">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="245.6,60"
+              Start="0,0"
+              End="245.6,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,13.9617834394905" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,13.9617834394905"
+                    Point2="0,17.9617834394905"
+                    Point3="4,17.9617834394905" />
+                  <mssgle:LineSegment
+                    End="241.6,17.9617834394905" />
+                  <mssgle:CubicBezierSegment
+                    Point1="241.6,17.9617834394905"
+                    Point2="245.6,17.9617834394905"
+                    Point3="245.6,21.9617834394905" />
+                  <mssgle:LineSegment
+                    End="245.6,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 7]"
+          TopLeft="462.666666666667,455.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-289.666666666667,60"
+              Start="0,0"
+              End="-289.666666666667,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,20.1501564129301" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,20.1501564129301"
+                    Point2="0,24.1501564129301"
+                    Point3="-4,24.1501564129301" />
+                  <mssgle:LineSegment
+                    End="-285.666666666667,24.1501564129301" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-285.666666666667,24.1501564129301"
+                    Point2="-289.666666666667,24.1501564129301"
+                    Point3="-289.666666666667,28.1501564129301" />
+                  <mssgle:LineSegment
+                    End="-289.666666666667,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 8]"
+          TopLeft="173,557.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-9,60"
+              Start="0,0"
+              End="-9,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,26" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,26"
+                    Point2="0,30"
+                    Point3="-4,30" />
+                  <mssgle:LineSegment
+                    End="-5,30" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-5,30"
+                    Point2="-9,30"
+                    Point3="-9,34" />
+                  <mssgle:LineSegment
+                    End="-9,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 9]"
+          TopLeft="587.333333333333,455.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-62.3333333333334,60"
+              Start="0,0"
+              End="-62.3333333333334,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,20.1501564129301" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,20.1501564129301"
+                    Point2="0,24.1501564129301"
+                    Point3="-4,24.1501564129301" />
+                  <mssgle:LineSegment
+                    End="-58.3333333333334,24.1501564129301" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-58.3333333333334,24.1501564129301"
+                    Point2="-62.3333333333334,24.1501564129301"
+                    Point3="-62.3333333333334,28.1501564129301" />
+                  <mssgle:LineSegment
+                    End="-62.3333333333334,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

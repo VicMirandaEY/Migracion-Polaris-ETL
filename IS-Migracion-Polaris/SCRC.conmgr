@@ -1,0 +1,14 @@
+﻿<?xml version="1.0"?>
+<DTS:ConnectionManager xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:ObjectName="SCRC"
+  DTS:DTSID="{0D7E6391-A49E-4F6A-BEC3-D3FDEADBEC07}"
+  DTS:CreationName="OLEDB">
+  <DTS:PropertyExpression
+    DTS:Name="ConnectionString">@[$Project::pConnectionStringDbScrc]</DTS:PropertyExpression>
+  <DTS:ObjectData>
+    <DTS:ConnectionManager
+      DTS:ConnectRetryCount="1"
+      DTS:ConnectRetryInterval="5"
+      DTS:ConnectionString="Data Source=VENGGCR20\NAPNNPR25;Initial Catalog=SCRC;Provider=SQLOLEDB.1;Integrated Security=SSPI;Auto Translate=false;Application Name=SSIS-{0D7E6391-A49E-4F6A-BEC3-D3FDEADBEC07}SCRC;" />
+  </DTS:ObjectData>
+</DTS:ConnectionManager>

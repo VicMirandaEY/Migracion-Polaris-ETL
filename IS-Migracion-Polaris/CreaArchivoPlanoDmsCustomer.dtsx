@@ -1,0 +1,1582 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="4/17/2023 12:44:27 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="VENJJCR20"
+  DTS:CreatorName="CAF-CON\ls42731"
+  DTS:DTSID="{9F2A61F3-7038-426B-8566-E61AFCE8412A}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="16.0.5270.0"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="CreaArchivoPlanoDmsCustomer"
+  DTS:PackageType="5"
+  DTS:VersionBuild="31"
+  DTS:VersionGUID="{CDC447A7-D6C5-4ECB-947D-F371BC96AD13}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Flat File Connection DMS Customer]"
+      DTS:CreationName="FLATFILE"
+      DTS:DTSID="{F29CB966-5410-44F5-9C91-1A2AB2A3C01F}"
+      DTS:ObjectName="Flat File Connection DMS Customer">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="Delimited"
+          DTS:LocaleID="1033"
+          DTS:HeaderRowDelimiter="_x000D__x000A_"
+          DTS:RowDelimiter=""
+          DTS:TextQualifier="_x003C_none_x003E_"
+          DTS:CodePage="65001"
+          DTS:ConnectionString="D:\App\Migracion-Polaris-ETL1\Txt\CUSTOMER.txt">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="9"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="UPLOAD.COMPANY"
+              DTS:DTSID="{818442E0-D4D8-44BB-8DEE-F35DBC2737AD}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="10"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="CUSTOMER.CODE"
+              DTS:DTSID="{5D3572C3-CDD2-428F-ADC0-45F7B3043810}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="10"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="MNEMONIC"
+              DTS:DTSID="{C1B5D499-CB48-4DDF-8E3E-C9C9D327220C}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="70"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="SHORT.NAME"
+              DTS:DTSID="{4AD041B2-D28C-4401-82C4-D35855A57319}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="70"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="NAME.1"
+              DTS:DTSID="{BABD5497-611A-48ED-83E9-C8902A192B1E}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="70"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="NAME.2"
+              DTS:DTSID="{10AF1FF9-866A-443C-BC19-F4C539F0C560}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="70"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="STREET"
+              DTS:DTSID="{3640E440-BF15-4214-9309-49D5E35D2546}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="2"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="COUNTRY"
+              DTS:DTSID="{308D1A0C-1013-4727-895A-5E8B77AAFDA8}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="10"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="SECTOR"
+              DTS:DTSID="{DD916B89-9B30-4730-A535-EB3F5BAB13D5}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="10"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="ACCOUNT.OFFICER"
+              DTS:DTSID="{9CB0AAD1-1A59-4AC3-8871-F1395D6E9E39}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="4000"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="OTHER.OFFICER"
+              DTS:DTSID="{CD712D63-7106-4CA8-8B6C-4D8545F9CC38}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="4"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="INDUSTRY"
+              DTS:DTSID="{D85F720C-710E-4256-A624-4EC8801D773B}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="2"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="NATIONALITY"
+              DTS:DTSID="{F8D8322C-1766-4A15-B718-22C70C89BBB1}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="4"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="CUSTOMER.STATUS"
+              DTS:DTSID="{9F7FBD4B-2FE8-49F9-BD7B-E0AB7C5F8603}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="2"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="RESIDENCE"
+              DTS:DTSID="{18A07DF5-2AA4-457F-B4FB-8239EC111903}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="4000"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="TEXT"
+              DTS:DTSID="{959D313C-C9A2-4FE6-BE1B-A472D3C7B513}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="4000"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="LEGAL.ID"
+              DTS:DTSID="{A0224D02-8297-4CEE-AD63-5D04DF0C16E9}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="4000"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="LEGAL.DOC.NAME"
+              DTS:DTSID="{D9A57271-C3AC-4D1C-8DD7-97AC141E4034}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="4000"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="LEGAL.ISS.DATE"
+              DTS:DTSID="{FFEAD236-77D2-48F5-B006-EEDE366700CA}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="2"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="LANGUAGE"
+              DTS:DTSID="{C015BBDF-1557-43D7-B8A3-EDC8D07B5433}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="4000"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="EMAIL.1"
+              DTS:DTSID="{3CCB0756-4C6C-45F9-A98D-AD3EF8B500E7}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="8"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="CUSTOMER.SINCE"
+              DTS:DTSID="{B6E25E42-1959-4BD9-A97F-A358BA70F059}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="EXTERN.CUS.ID"
+              DTS:DTSID="{CCBD7608-A91E-49C3-B060-FE65E028B035}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="10"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="LT.COD.BRK"
+              DTS:DTSID="{F656B89B-1D7B-4AC4-9C0E-AA8C089CC3CC}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="3"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="LT.SEC.ECON"
+              DTS:DTSID="{7458AA60-C815-4535-A515-B5C8CE59A267}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="10"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="LT.TP.ACCIONISTAS"
+              DTS:DTSID="{ADD8E098-1601-48BD-9A91-2C5426F2CEBD}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="1"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="LT.TIP.PERS"
+              DTS:DTSID="{3D47F4C9-2C2D-4C22-9A71-11EAF30D12FD}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="4000"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="LT.RISK.INT"
+              DTS:DTSID="{74B6123C-9AF0-4DB7-AA09-88A55AEB79D3}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="4000"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="LT.CALF.RG.INTN"
+              DTS:DTSID="{9A4D4A70-AE8A-45B3-A5AD-CA7DABBA3345}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000D__x000A_"
+              DTS:MaximumWidth="4"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="TARGET"
+              DTS:DTSID="{9EF34BFC-073A-4EBF-8B3B-EBB0A5A1F2DC}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Crea Archivo Plano DMS CUSTOMER"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{903356A8-A87F-45AE-950B-819B5F86AC4B}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Crea Archivo Plano DMS CUSTOMER"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Crea Archivo Plano DMS CUSTOMER\Flat File Destination DMS-CUSTOMER"
+              componentClassID="Microsoft.FlatFileDestination"
+              contactInfo="Flat File Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Flat File Destination"
+              localeId="1033"
+              name="Flat File Destination DMS-CUSTOMER"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Specifies whether the data will overwrite or append to the destination file."
+                  name="Overwrite">true</property>
+                <property
+                  dataType="System.Null"
+                  description="Specifies the text to write to the destination file before any data is written."
+                  expressionType="Notify"
+                  name="Header" />
+                <property
+                  dataType="System.Boolean"
+                  description="When text qualifier is enabled, specifies whether the text qualifier in the data written to the destination file will be escaped or not."
+                  name="EscapeQualifier">false</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Crea Archivo Plano DMS CUSTOMER\Flat File Destination DMS-CUSTOMER.Connections[FlatFileConnection]"
+                  connectionManagerID="Package.ConnectionManagers[Flat File Connection DMS Customer]"
+                  connectionManagerRefId="Package.ConnectionManagers[Flat File Connection DMS Customer]"
+                  name="FlatFileConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Crea Archivo Plano DMS CUSTOMER\Flat File Destination DMS-CUSTOMER.Inputs[Flat File Destination Input]"
+                  hasSideEffects="true"
+                  name="Flat File Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Crea Archivo Plano DMS CUSTOMER\Flat File Destination DMS-CUSTOMER.Inputs[Flat File Destination Input].Columns[UPLOAD.COMPANY]"
+                      cachedDataType="wstr"
+                      cachedLength="9"
+                      cachedName="UPLOAD.COMPANY"
+                      externalMetadataColumnId="Package\Crea Archivo Plano DMS CUSTOMER\Flat File Destination DMS-CUSTOMER.Inputs[Flat File Destination Input].ExternalColumns[UPLOAD.COMPANY]"
+                      lineageId="Package\Crea Archivo Plano DMS CUSTOMER\Source DMS-CUSTOMER.Outputs[OLE DB Source Output].Columns[UPLOAD.COMPANY]" />
+                    <inputColumn
+                      refId="Package\Crea Archivo Plano DMS CUSTOMER\Flat File Destination DMS-CUSTOMER.Inputs[Flat File Destination Input].Columns[CUSTOMER.CODE]"
+                      cachedDataType="wstr"
+                      cachedLength="10"
+                      cachedName="CUSTOMER.CODE"
+                      externalMetadataColumnId="Package\Crea Archivo Plano DMS CUSTOMER\Flat File Destination DMS-CUSTOMER.Inputs[Flat File Destination Input].ExternalColumns[CUSTOMER.CODE]"
+                      lineageId="Package\Crea Archivo Plano DMS CUSTOMER\Source DMS-CUSTOMER.Outputs[OLE DB Source Output].Columns[CUSTOMER.CODE]" />
+                    <inputColumn
+                      refId="Package\Crea Archivo Plano DMS CUSTOMER\Flat File Destination DMS-CUSTOMER.Inputs[Flat File Destination Input].Columns[MNEMONIC]"
+                      cachedDataType="wstr"
+                      cachedLength="10"
+                      cachedName="MNEMONIC"
+                      externalMetadataColumnId="Package\Crea Archivo Plano DMS CUSTOMER\Flat File Destination DMS-CUSTOMER.Inputs[Flat File Destination Input].ExternalColumns[MNEMONIC]"
+                      lineageId="Package\Crea Archivo Plano DMS CUSTOMER\Source DMS-CUSTOMER.Outputs[OLE DB Source Output].Columns[MNEMONIC]" />
+                    <inputColumn
+                      refId="Package\Crea Archivo Plano DMS CUSTOMER\Flat File Destination DMS-CUSTOMER.Inputs[Flat File Destination Input].Columns[SHORT.NAME]"
+                      cachedDataType="wstr"
+                      cachedLength="70"
+                      cachedName="SHORT.NAME"
+                      externalMetadataColumnId="Package\Crea Archivo Plano DMS CUSTOMER\Flat File Destination DMS-CUSTOMER.Inputs[Flat File Destination Input].ExternalColumns[SHORT.NAME]"
+                      lineageId="Package\Crea Archivo Plano DMS CUSTOMER\Source DMS-CUSTOMER.Outputs[OLE DB Source Output].Columns[SHORT.NAME]" />
+                    <inputColumn
+                      refId="Package\Crea Archivo Plano DMS CUSTOMER\Flat File Destination DMS-CUSTOMER.Inputs[Flat File Destination Input].Columns[NAME.1]"
+                      cachedDataType="wstr"
+                      cachedLength="70"
+                      cachedName="NAME.1"
+                      externalMetadataColumnId="Package\Crea Archivo Plano DMS CUSTOMER\Flat File Destination DMS-CUSTOMER.Inputs[Flat File Destination Input].ExternalColumns[NAME.1]"
+                      lineageId="Package\Crea Archivo Plano DMS CUSTOMER\Source DMS-CUSTOMER.Outputs[OLE DB Source Output].Columns[NAME.1]" />
+                    <inputColumn
+                      refId="Package\Crea Archivo Plano DMS CUSTOMER\Flat File Destination DMS-CUSTOMER.Inputs[Flat File Destination Input].Columns[NAME.2]"
+                      cachedDataType="wstr"
+                      cachedLength="70"
+                      cachedName="NAME.2"
+                      externalMetadataColumnId="Package\Crea Archivo Plano DMS CUSTOMER\Flat File Destination DMS-CUSTOMER.Inputs[Flat File Destination Input].ExternalColumns[NAME.2]"
+                      lineageId="Package\Crea Archivo Plano DMS CUSTOMER\Source DMS-CUSTOMER.Outputs[OLE DB Source Output].Columns[NAME.2]" />
+                    <inputColumn
+                      refId="Package\Crea Archivo Plano DMS CUSTOMER\Flat File Destination DMS-CUSTOMER.Inputs[Flat File Destination Input].Columns[STREET]"
+                      cachedDataType="wstr"
+                      cachedLength="70"
+                      cachedName="STREET"
+                      externalMetadataColumnId="Package\Crea Archivo Plano DMS CUSTOMER\Flat File Destination DMS-CUSTOMER.Inputs[Flat File Destination Input].ExternalColumns[STREET]"
+                      lineageId="Package\Crea Archivo Plano DMS CUSTOMER\Source DMS-CUSTOMER.Outputs[OLE DB Source Output].Columns[STREET]" />
+                    <inputColumn
+                      refId="Package\Crea Archivo Plano DMS CUSTOMER\Flat File Destination DMS-CUSTOMER.Inputs[Flat File Destination Input].Columns[COUNTRY]"
+                      cachedDataType="wstr"
+                      cachedLength="2"
+                      cachedName="COUNTRY"
+                      externalMetadataColumnId="Package\Crea Archivo Plano DMS CUSTOMER\Flat File Destination DMS-CUSTOMER.Inputs[Flat File Destination Input].ExternalColumns[COUNTRY]"
+                      lineageId="Package\Crea Archivo Plano DMS CUSTOMER\Source DMS-CUSTOMER.Outputs[OLE DB Source Output].Columns[COUNTRY]" />
+                    <inputColumn
+                      refId="Package\Crea Archivo Plano DMS CUSTOMER\Flat File Destination DMS-CUSTOMER.Inputs[Flat File Destination Input].Columns[SECTOR]"
+                      cachedDataType="wstr"
+                      cachedLength="10"
+                      cachedName="SECTOR"
+                      externalMetadataColumnId="Package\Crea Archivo Plano DMS CUSTOMER\Flat File Destination DMS-CUSTOMER.Inputs[Flat File Destination Input].ExternalColumns[SECTOR]"
+                      lineageId="Package\Crea Archivo Plano DMS CUSTOMER\Source DMS-CUSTOMER.Outputs[OLE DB Source Output].Columns[SECTOR]" />
+                    <inputColumn
+                      refId="Package\Crea Archivo Plano DMS CUSTOMER\Flat File Destination DMS-CUSTOMER.Inputs[Flat File Destination Input].Columns[ACCOUNT.OFFICER]"
+                      cachedDataType="wstr"
+                      cachedLength="10"
+                      cachedName="ACCOUNT.OFFICER"
+                      externalMetadataColumnId="Package\Crea Archivo Plano DMS CUSTOMER\Flat File Destination DMS-CUSTOMER.Inputs[Flat File Destination Input].ExternalColumns[ACCOUNT.OFFICER]"
+                      lineageId="Package\Crea Archivo Plano DMS CUSTOMER\Source DMS-CUSTOMER.Outputs[OLE DB Source Output].Columns[ACCOUNT.OFFICER]" />
+                    <inputColumn
+                      refId="Package\Crea Archivo Plano DMS CUSTOMER\Flat File Destination DMS-CUSTOMER.Inputs[Flat File Destination Input].Columns[OTHER.OFFICER]"
+                      cachedDataType="wstr"
+                      cachedLength="4000"
+                      cachedName="OTHER.OFFICER"
+                      externalMetadataColumnId="Package\Crea Archivo Plano DMS CUSTOMER\Flat File Destination DMS-CUSTOMER.Inputs[Flat File Destination Input].ExternalColumns[OTHER.OFFICER]"
+                      lineageId="Package\Crea Archivo Plano DMS CUSTOMER\Source DMS-CUSTOMER.Outputs[OLE DB Source Output].Columns[OTHER.OFFICER]" />
+                    <inputColumn
+                      refId="Package\Crea Archivo Plano DMS CUSTOMER\Flat File Destination DMS-CUSTOMER.Inputs[Flat File Destination Input].Columns[INDUSTRY]"
+                      cachedDataType="wstr"
+                      cachedLength="4"
+                      cachedName="INDUSTRY"
+                      externalMetadataColumnId="Package\Crea Archivo Plano DMS CUSTOMER\Flat File Destination DMS-CUSTOMER.Inputs[Flat File Destination Input].ExternalColumns[INDUSTRY]"
+                      lineageId="Package\Crea Archivo Plano DMS CUSTOMER\Source DMS-CUSTOMER.Outputs[OLE DB Source Output].Columns[INDUSTRY]" />
+                    <inputColumn
+                      refId="Package\Crea Archivo Plano DMS CUSTOMER\Flat File Destination DMS-CUSTOMER.Inputs[Flat File Destination Input].Columns[NATIONALITY]"
+                      cachedDataType="wstr"
+                      cachedLength="2"
+                      cachedName="NATIONALITY"
+                      externalMetadataColumnId="Package\Crea Archivo Plano DMS CUSTOMER\Flat File Destination DMS-CUSTOMER.Inputs[Flat File Destination Input].ExternalColumns[NATIONALITY]"
+                      lineageId="Package\Crea Archivo Plano DMS CUSTOMER\Source DMS-CUSTOMER.Outputs[OLE DB Source Output].Columns[NATIONALITY]" />
+                    <inputColumn
+                      refId="Package\Crea Archivo Plano DMS CUSTOMER\Flat File Destination DMS-CUSTOMER.Inputs[Flat File Destination Input].Columns[CUSTOMER.STATUS]"
+                      cachedDataType="wstr"
+                      cachedLength="4"
+                      cachedName="CUSTOMER.STATUS"
+                      externalMetadataColumnId="Package\Crea Archivo Plano DMS CUSTOMER\Flat File Destination DMS-CUSTOMER.Inputs[Flat File Destination Input].ExternalColumns[CUSTOMER.STATUS]"
+                      lineageId="Package\Crea Archivo Plano DMS CUSTOMER\Source DMS-CUSTOMER.Outputs[OLE DB Source Output].Columns[CUSTOMER.STATUS]" />
+                    <inputColumn
+                      refId="Package\Crea Archivo Plano DMS CUSTOMER\Flat File Destination DMS-CUSTOMER.Inputs[Flat File Destination Input].Columns[RESIDENCE]"
+                      cachedDataType="wstr"
+                      cachedLength="2"
+                      cachedName="RESIDENCE"
+                      externalMetadataColumnId="Package\Crea Archivo Plano DMS CUSTOMER\Flat File Destination DMS-CUSTOMER.Inputs[Flat File Destination Input].ExternalColumns[RESIDENCE]"
+                      lineageId="Package\Crea Archivo Plano DMS CUSTOMER\Source DMS-CUSTOMER.Outputs[OLE DB Source Output].Columns[RESIDENCE]" />
+                    <inputColumn
+                      refId="Package\Crea Archivo Plano DMS CUSTOMER\Flat File Destination DMS-CUSTOMER.Inputs[Flat File Destination Input].Columns[TEXT]"
+                      cachedDataType="wstr"
+                      cachedLength="4000"
+                      cachedName="TEXT"
+                      externalMetadataColumnId="Package\Crea Archivo Plano DMS CUSTOMER\Flat File Destination DMS-CUSTOMER.Inputs[Flat File Destination Input].ExternalColumns[TEXT]"
+                      lineageId="Package\Crea Archivo Plano DMS CUSTOMER\Source DMS-CUSTOMER.Outputs[OLE DB Source Output].Columns[TEXT]" />
+                    <inputColumn
+                      refId="Package\Crea Archivo Plano DMS CUSTOMER\Flat File Destination DMS-CUSTOMER.Inputs[Flat File Destination Input].Columns[LEGAL.ID]"
+                      cachedDataType="wstr"
+                      cachedLength="4000"
+                      cachedName="LEGAL.ID"
+                      externalMetadataColumnId="Package\Crea Archivo Plano DMS CUSTOMER\Flat File Destination DMS-CUSTOMER.Inputs[Flat File Destination Input].ExternalColumns[LEGAL.ID]"
+                      lineageId="Package\Crea Archivo Plano DMS CUSTOMER\Source DMS-CUSTOMER.Outputs[OLE DB Source Output].Columns[LEGAL.ID]" />
+                    <inputColumn
+                      refId="Package\Crea Archivo Plano DMS CUSTOMER\Flat File Destination DMS-CUSTOMER.Inputs[Flat File Destination Input].Columns[LEGAL.DOC.NAME]"
+                      cachedDataType="wstr"
+                      cachedLength="4000"
+                      cachedName="LEGAL.DOC.NAME"
+                      externalMetadataColumnId="Package\Crea Archivo Plano DMS CUSTOMER\Flat File Destination DMS-CUSTOMER.Inputs[Flat File Destination Input].ExternalColumns[LEGAL.DOC.NAME]"
+                      lineageId="Package\Crea Archivo Plano DMS CUSTOMER\Source DMS-CUSTOMER.Outputs[OLE DB Source Output].Columns[LEGAL.DOC.NAME]" />
+                    <inputColumn
+                      refId="Package\Crea Archivo Plano DMS CUSTOMER\Flat File Destination DMS-CUSTOMER.Inputs[Flat File Destination Input].Columns[LEGAL.ISS.DATE]"
+                      cachedDataType="wstr"
+                      cachedLength="4000"
+                      cachedName="LEGAL.ISS.DATE"
+                      externalMetadataColumnId="Package\Crea Archivo Plano DMS CUSTOMER\Flat File Destination DMS-CUSTOMER.Inputs[Flat File Destination Input].ExternalColumns[LEGAL.ISS.DATE]"
+                      lineageId="Package\Crea Archivo Plano DMS CUSTOMER\Source DMS-CUSTOMER.Outputs[OLE DB Source Output].Columns[LEGAL.ISS.DATE]" />
+                    <inputColumn
+                      refId="Package\Crea Archivo Plano DMS CUSTOMER\Flat File Destination DMS-CUSTOMER.Inputs[Flat File Destination Input].Columns[LANGUAGE]"
+                      cachedDataType="wstr"
+                      cachedLength="2"
+                      cachedName="LANGUAGE"
+                      externalMetadataColumnId="Package\Crea Archivo Plano DMS CUSTOMER\Flat File Destination DMS-CUSTOMER.Inputs[Flat File Destination Input].ExternalColumns[LANGUAGE]"
+                      lineageId="Package\Crea Archivo Plano DMS CUSTOMER\Source DMS-CUSTOMER.Outputs[OLE DB Source Output].Columns[LANGUAGE]" />
+                    <inputColumn
+                      refId="Package\Crea Archivo Plano DMS CUSTOMER\Flat File Destination DMS-CUSTOMER.Inputs[Flat File Destination Input].Columns[EMAIL.1]"
+                      cachedDataType="wstr"
+                      cachedLength="4000"
+                      cachedName="EMAIL.1"
+                      externalMetadataColumnId="Package\Crea Archivo Plano DMS CUSTOMER\Flat File Destination DMS-CUSTOMER.Inputs[Flat File Destination Input].ExternalColumns[EMAIL.1]"
+                      lineageId="Package\Crea Archivo Plano DMS CUSTOMER\Source DMS-CUSTOMER.Outputs[OLE DB Source Output].Columns[EMAIL.1]" />
+                    <inputColumn
+                      refId="Package\Crea Archivo Plano DMS CUSTOMER\Flat File Destination DMS-CUSTOMER.Inputs[Flat File Destination Input].Columns[CUSTOMER.SINCE]"
+                      cachedDataType="wstr"
+                      cachedLength="8"
+                      cachedName="CUSTOMER.SINCE"
+                      externalMetadataColumnId="Package\Crea Archivo Plano DMS CUSTOMER\Flat File Destination DMS-CUSTOMER.Inputs[Flat File Destination Input].ExternalColumns[CUSTOMER.SINCE]"
+                      lineageId="Package\Crea Archivo Plano DMS CUSTOMER\Source DMS-CUSTOMER.Outputs[OLE DB Source Output].Columns[CUSTOMER.SINCE]" />
+                    <inputColumn
+                      refId="Package\Crea Archivo Plano DMS CUSTOMER\Flat File Destination DMS-CUSTOMER.Inputs[Flat File Destination Input].Columns[EXTERN.CUS.ID]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="EXTERN.CUS.ID"
+                      externalMetadataColumnId="Package\Crea Archivo Plano DMS CUSTOMER\Flat File Destination DMS-CUSTOMER.Inputs[Flat File Destination Input].ExternalColumns[EXTERN.CUS.ID]"
+                      lineageId="Package\Crea Archivo Plano DMS CUSTOMER\Source DMS-CUSTOMER.Outputs[OLE DB Source Output].Columns[EXTERN.CUS.ID]" />
+                    <inputColumn
+                      refId="Package\Crea Archivo Plano DMS CUSTOMER\Flat File Destination DMS-CUSTOMER.Inputs[Flat File Destination Input].Columns[LT.COD.BRK]"
+                      cachedDataType="wstr"
+                      cachedLength="10"
+                      cachedName="LT.COD.BRK"
+                      externalMetadataColumnId="Package\Crea Archivo Plano DMS CUSTOMER\Flat File Destination DMS-CUSTOMER.Inputs[Flat File Destination Input].ExternalColumns[LT.COD.BRK]"
+                      lineageId="Package\Crea Archivo Plano DMS CUSTOMER\Source DMS-CUSTOMER.Outputs[OLE DB Source Output].Columns[LT.COD.BRK]" />
+                    <inputColumn
+                      refId="Package\Crea Archivo Plano DMS CUSTOMER\Flat File Destination DMS-CUSTOMER.Inputs[Flat File Destination Input].Columns[LT.SEC.ECON]"
+                      cachedDataType="wstr"
+                      cachedLength="3"
+                      cachedName="LT.SEC.ECON"
+                      externalMetadataColumnId="Package\Crea Archivo Plano DMS CUSTOMER\Flat File Destination DMS-CUSTOMER.Inputs[Flat File Destination Input].ExternalColumns[LT.SEC.ECON]"
+                      lineageId="Package\Crea Archivo Plano DMS CUSTOMER\Source DMS-CUSTOMER.Outputs[OLE DB Source Output].Columns[LT.SEC.ECON]" />
+                    <inputColumn
+                      refId="Package\Crea Archivo Plano DMS CUSTOMER\Flat File Destination DMS-CUSTOMER.Inputs[Flat File Destination Input].Columns[LT.TP.ACCIONISTAS]"
+                      cachedDataType="wstr"
+                      cachedLength="10"
+                      cachedName="LT.TP.ACCIONISTAS"
+                      externalMetadataColumnId="Package\Crea Archivo Plano DMS CUSTOMER\Flat File Destination DMS-CUSTOMER.Inputs[Flat File Destination Input].ExternalColumns[LT.TP.ACCIONISTAS]"
+                      lineageId="Package\Crea Archivo Plano DMS CUSTOMER\Source DMS-CUSTOMER.Outputs[OLE DB Source Output].Columns[LT.TP.ACCIONISTAS]" />
+                    <inputColumn
+                      refId="Package\Crea Archivo Plano DMS CUSTOMER\Flat File Destination DMS-CUSTOMER.Inputs[Flat File Destination Input].Columns[LT.TIP.PERS]"
+                      cachedDataType="wstr"
+                      cachedLength="1"
+                      cachedName="LT.TIP.PERS"
+                      externalMetadataColumnId="Package\Crea Archivo Plano DMS CUSTOMER\Flat File Destination DMS-CUSTOMER.Inputs[Flat File Destination Input].ExternalColumns[LT.TIP.PERS]"
+                      lineageId="Package\Crea Archivo Plano DMS CUSTOMER\Source DMS-CUSTOMER.Outputs[OLE DB Source Output].Columns[LT.TIP.PERS]" />
+                    <inputColumn
+                      refId="Package\Crea Archivo Plano DMS CUSTOMER\Flat File Destination DMS-CUSTOMER.Inputs[Flat File Destination Input].Columns[LT.RISK.INT]"
+                      cachedDataType="wstr"
+                      cachedLength="4000"
+                      cachedName="LT.RISK.INT"
+                      externalMetadataColumnId="Package\Crea Archivo Plano DMS CUSTOMER\Flat File Destination DMS-CUSTOMER.Inputs[Flat File Destination Input].ExternalColumns[LT.RISK.INT]"
+                      lineageId="Package\Crea Archivo Plano DMS CUSTOMER\Source DMS-CUSTOMER.Outputs[OLE DB Source Output].Columns[LT.RISK.INT]" />
+                    <inputColumn
+                      refId="Package\Crea Archivo Plano DMS CUSTOMER\Flat File Destination DMS-CUSTOMER.Inputs[Flat File Destination Input].Columns[LT.CALF.RG.INTN]"
+                      cachedDataType="wstr"
+                      cachedLength="4000"
+                      cachedName="LT.CALF.RG.INTN"
+                      externalMetadataColumnId="Package\Crea Archivo Plano DMS CUSTOMER\Flat File Destination DMS-CUSTOMER.Inputs[Flat File Destination Input].ExternalColumns[LT.CALF.RG.INTN]"
+                      lineageId="Package\Crea Archivo Plano DMS CUSTOMER\Source DMS-CUSTOMER.Outputs[OLE DB Source Output].Columns[LT.CALF.RG.INTN]" />
+                    <inputColumn
+                      refId="Package\Crea Archivo Plano DMS CUSTOMER\Flat File Destination DMS-CUSTOMER.Inputs[Flat File Destination Input].Columns[TARGET]"
+                      cachedDataType="wstr"
+                      cachedLength="4"
+                      cachedName="TARGET"
+                      externalMetadataColumnId="Package\Crea Archivo Plano DMS CUSTOMER\Flat File Destination DMS-CUSTOMER.Inputs[Flat File Destination Input].ExternalColumns[TARGET]"
+                      lineageId="Package\Crea Archivo Plano DMS CUSTOMER\Source DMS-CUSTOMER.Outputs[OLE DB Source Output].Columns[TARGET]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Crea Archivo Plano DMS CUSTOMER\Flat File Destination DMS-CUSTOMER.Inputs[Flat File Destination Input].ExternalColumns[UPLOAD.COMPANY]"
+                      dataType="wstr"
+                      length="9"
+                      name="UPLOAD.COMPANY" />
+                    <externalMetadataColumn
+                      refId="Package\Crea Archivo Plano DMS CUSTOMER\Flat File Destination DMS-CUSTOMER.Inputs[Flat File Destination Input].ExternalColumns[CUSTOMER.CODE]"
+                      dataType="wstr"
+                      length="10"
+                      name="CUSTOMER.CODE" />
+                    <externalMetadataColumn
+                      refId="Package\Crea Archivo Plano DMS CUSTOMER\Flat File Destination DMS-CUSTOMER.Inputs[Flat File Destination Input].ExternalColumns[MNEMONIC]"
+                      dataType="wstr"
+                      length="10"
+                      name="MNEMONIC" />
+                    <externalMetadataColumn
+                      refId="Package\Crea Archivo Plano DMS CUSTOMER\Flat File Destination DMS-CUSTOMER.Inputs[Flat File Destination Input].ExternalColumns[SHORT.NAME]"
+                      dataType="wstr"
+                      length="70"
+                      name="SHORT.NAME" />
+                    <externalMetadataColumn
+                      refId="Package\Crea Archivo Plano DMS CUSTOMER\Flat File Destination DMS-CUSTOMER.Inputs[Flat File Destination Input].ExternalColumns[NAME.1]"
+                      dataType="wstr"
+                      length="70"
+                      name="NAME.1" />
+                    <externalMetadataColumn
+                      refId="Package\Crea Archivo Plano DMS CUSTOMER\Flat File Destination DMS-CUSTOMER.Inputs[Flat File Destination Input].ExternalColumns[NAME.2]"
+                      dataType="wstr"
+                      length="70"
+                      name="NAME.2" />
+                    <externalMetadataColumn
+                      refId="Package\Crea Archivo Plano DMS CUSTOMER\Flat File Destination DMS-CUSTOMER.Inputs[Flat File Destination Input].ExternalColumns[STREET]"
+                      dataType="wstr"
+                      length="70"
+                      name="STREET" />
+                    <externalMetadataColumn
+                      refId="Package\Crea Archivo Plano DMS CUSTOMER\Flat File Destination DMS-CUSTOMER.Inputs[Flat File Destination Input].ExternalColumns[COUNTRY]"
+                      dataType="wstr"
+                      length="2"
+                      name="COUNTRY" />
+                    <externalMetadataColumn
+                      refId="Package\Crea Archivo Plano DMS CUSTOMER\Flat File Destination DMS-CUSTOMER.Inputs[Flat File Destination Input].ExternalColumns[SECTOR]"
+                      dataType="wstr"
+                      length="10"
+                      name="SECTOR" />
+                    <externalMetadataColumn
+                      refId="Package\Crea Archivo Plano DMS CUSTOMER\Flat File Destination DMS-CUSTOMER.Inputs[Flat File Destination Input].ExternalColumns[ACCOUNT.OFFICER]"
+                      dataType="wstr"
+                      length="10"
+                      name="ACCOUNT.OFFICER" />
+                    <externalMetadataColumn
+                      refId="Package\Crea Archivo Plano DMS CUSTOMER\Flat File Destination DMS-CUSTOMER.Inputs[Flat File Destination Input].ExternalColumns[OTHER.OFFICER]"
+                      dataType="wstr"
+                      length="4000"
+                      name="OTHER.OFFICER" />
+                    <externalMetadataColumn
+                      refId="Package\Crea Archivo Plano DMS CUSTOMER\Flat File Destination DMS-CUSTOMER.Inputs[Flat File Destination Input].ExternalColumns[INDUSTRY]"
+                      dataType="wstr"
+                      length="4"
+                      name="INDUSTRY" />
+                    <externalMetadataColumn
+                      refId="Package\Crea Archivo Plano DMS CUSTOMER\Flat File Destination DMS-CUSTOMER.Inputs[Flat File Destination Input].ExternalColumns[NATIONALITY]"
+                      dataType="wstr"
+                      length="2"
+                      name="NATIONALITY" />
+                    <externalMetadataColumn
+                      refId="Package\Crea Archivo Plano DMS CUSTOMER\Flat File Destination DMS-CUSTOMER.Inputs[Flat File Destination Input].ExternalColumns[CUSTOMER.STATUS]"
+                      dataType="wstr"
+                      length="4"
+                      name="CUSTOMER.STATUS" />
+                    <externalMetadataColumn
+                      refId="Package\Crea Archivo Plano DMS CUSTOMER\Flat File Destination DMS-CUSTOMER.Inputs[Flat File Destination Input].ExternalColumns[RESIDENCE]"
+                      dataType="wstr"
+                      length="2"
+                      name="RESIDENCE" />
+                    <externalMetadataColumn
+                      refId="Package\Crea Archivo Plano DMS CUSTOMER\Flat File Destination DMS-CUSTOMER.Inputs[Flat File Destination Input].ExternalColumns[TEXT]"
+                      dataType="wstr"
+                      length="4000"
+                      name="TEXT" />
+                    <externalMetadataColumn
+                      refId="Package\Crea Archivo Plano DMS CUSTOMER\Flat File Destination DMS-CUSTOMER.Inputs[Flat File Destination Input].ExternalColumns[LEGAL.ID]"
+                      dataType="wstr"
+                      length="4000"
+                      name="LEGAL.ID" />
+                    <externalMetadataColumn
+                      refId="Package\Crea Archivo Plano DMS CUSTOMER\Flat File Destination DMS-CUSTOMER.Inputs[Flat File Destination Input].ExternalColumns[LEGAL.DOC.NAME]"
+                      dataType="wstr"
+                      length="4000"
+                      name="LEGAL.DOC.NAME" />
+                    <externalMetadataColumn
+                      refId="Package\Crea Archivo Plano DMS CUSTOMER\Flat File Destination DMS-CUSTOMER.Inputs[Flat File Destination Input].ExternalColumns[LEGAL.ISS.DATE]"
+                      dataType="wstr"
+                      length="4000"
+                      name="LEGAL.ISS.DATE" />
+                    <externalMetadataColumn
+                      refId="Package\Crea Archivo Plano DMS CUSTOMER\Flat File Destination DMS-CUSTOMER.Inputs[Flat File Destination Input].ExternalColumns[LANGUAGE]"
+                      dataType="wstr"
+                      length="2"
+                      name="LANGUAGE" />
+                    <externalMetadataColumn
+                      refId="Package\Crea Archivo Plano DMS CUSTOMER\Flat File Destination DMS-CUSTOMER.Inputs[Flat File Destination Input].ExternalColumns[EMAIL.1]"
+                      dataType="wstr"
+                      length="4000"
+                      name="EMAIL.1" />
+                    <externalMetadataColumn
+                      refId="Package\Crea Archivo Plano DMS CUSTOMER\Flat File Destination DMS-CUSTOMER.Inputs[Flat File Destination Input].ExternalColumns[CUSTOMER.SINCE]"
+                      dataType="wstr"
+                      length="8"
+                      name="CUSTOMER.SINCE" />
+                    <externalMetadataColumn
+                      refId="Package\Crea Archivo Plano DMS CUSTOMER\Flat File Destination DMS-CUSTOMER.Inputs[Flat File Destination Input].ExternalColumns[EXTERN.CUS.ID]"
+                      dataType="wstr"
+                      length="50"
+                      name="EXTERN.CUS.ID" />
+                    <externalMetadataColumn
+                      refId="Package\Crea Archivo Plano DMS CUSTOMER\Flat File Destination DMS-CUSTOMER.Inputs[Flat File Destination Input].ExternalColumns[LT.COD.BRK]"
+                      dataType="wstr"
+                      length="10"
+                      name="LT.COD.BRK" />
+                    <externalMetadataColumn
+                      refId="Package\Crea Archivo Plano DMS CUSTOMER\Flat File Destination DMS-CUSTOMER.Inputs[Flat File Destination Input].ExternalColumns[LT.SEC.ECON]"
+                      dataType="wstr"
+                      length="3"
+                      name="LT.SEC.ECON" />
+                    <externalMetadataColumn
+                      refId="Package\Crea Archivo Plano DMS CUSTOMER\Flat File Destination DMS-CUSTOMER.Inputs[Flat File Destination Input].ExternalColumns[LT.TP.ACCIONISTAS]"
+                      dataType="wstr"
+                      length="10"
+                      name="LT.TP.ACCIONISTAS" />
+                    <externalMetadataColumn
+                      refId="Package\Crea Archivo Plano DMS CUSTOMER\Flat File Destination DMS-CUSTOMER.Inputs[Flat File Destination Input].ExternalColumns[LT.TIP.PERS]"
+                      dataType="wstr"
+                      length="1"
+                      name="LT.TIP.PERS" />
+                    <externalMetadataColumn
+                      refId="Package\Crea Archivo Plano DMS CUSTOMER\Flat File Destination DMS-CUSTOMER.Inputs[Flat File Destination Input].ExternalColumns[LT.RISK.INT]"
+                      dataType="wstr"
+                      length="4000"
+                      name="LT.RISK.INT" />
+                    <externalMetadataColumn
+                      refId="Package\Crea Archivo Plano DMS CUSTOMER\Flat File Destination DMS-CUSTOMER.Inputs[Flat File Destination Input].ExternalColumns[LT.CALF.RG.INTN]"
+                      dataType="wstr"
+                      length="4000"
+                      name="LT.CALF.RG.INTN" />
+                    <externalMetadataColumn
+                      refId="Package\Crea Archivo Plano DMS CUSTOMER\Flat File Destination DMS-CUSTOMER.Inputs[Flat File Destination Input].ExternalColumns[TARGET]"
+                      dataType="wstr"
+                      length="4"
+                      name="TARGET" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+            </component>
+            <component
+              refId="Package\Crea Archivo Plano DMS CUSTOMER\Source DMS-CUSTOMER"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="Source DMS-CUSTOMER"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[DMS-CUSTOMER]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=16.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Crea Archivo Plano DMS CUSTOMER\Source DMS-CUSTOMER.Connections[OleDbConnection]"
+                  connectionManagerID="{73E9BE98-144D-4887-A1CD-FCE6E4AB9CF5}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[STGPolaris]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Crea Archivo Plano DMS CUSTOMER\Source DMS-CUSTOMER.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Crea Archivo Plano DMS CUSTOMER\Source DMS-CUSTOMER.Outputs[OLE DB Source Output].Columns[UPLOAD.COMPANY]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Crea Archivo Plano DMS CUSTOMER\Source DMS-CUSTOMER.Outputs[OLE DB Source Output].ExternalColumns[UPLOAD.COMPANY]"
+                      length="9"
+                      lineageId="Package\Crea Archivo Plano DMS CUSTOMER\Source DMS-CUSTOMER.Outputs[OLE DB Source Output].Columns[UPLOAD.COMPANY]"
+                      name="UPLOAD.COMPANY"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Crea Archivo Plano DMS CUSTOMER\Source DMS-CUSTOMER.Outputs[OLE DB Source Output].Columns[CUSTOMER.CODE]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Crea Archivo Plano DMS CUSTOMER\Source DMS-CUSTOMER.Outputs[OLE DB Source Output].ExternalColumns[CUSTOMER.CODE]"
+                      length="10"
+                      lineageId="Package\Crea Archivo Plano DMS CUSTOMER\Source DMS-CUSTOMER.Outputs[OLE DB Source Output].Columns[CUSTOMER.CODE]"
+                      name="CUSTOMER.CODE"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Crea Archivo Plano DMS CUSTOMER\Source DMS-CUSTOMER.Outputs[OLE DB Source Output].Columns[MNEMONIC]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Crea Archivo Plano DMS CUSTOMER\Source DMS-CUSTOMER.Outputs[OLE DB Source Output].ExternalColumns[MNEMONIC]"
+                      length="10"
+                      lineageId="Package\Crea Archivo Plano DMS CUSTOMER\Source DMS-CUSTOMER.Outputs[OLE DB Source Output].Columns[MNEMONIC]"
+                      name="MNEMONIC"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Crea Archivo Plano DMS CUSTOMER\Source DMS-CUSTOMER.Outputs[OLE DB Source Output].Columns[SHORT.NAME]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Crea Archivo Plano DMS CUSTOMER\Source DMS-CUSTOMER.Outputs[OLE DB Source Output].ExternalColumns[SHORT.NAME]"
+                      length="70"
+                      lineageId="Package\Crea Archivo Plano DMS CUSTOMER\Source DMS-CUSTOMER.Outputs[OLE DB Source Output].Columns[SHORT.NAME]"
+                      name="SHORT.NAME"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Crea Archivo Plano DMS CUSTOMER\Source DMS-CUSTOMER.Outputs[OLE DB Source Output].Columns[NAME.1]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Crea Archivo Plano DMS CUSTOMER\Source DMS-CUSTOMER.Outputs[OLE DB Source Output].ExternalColumns[NAME.1]"
+                      length="70"
+                      lineageId="Package\Crea Archivo Plano DMS CUSTOMER\Source DMS-CUSTOMER.Outputs[OLE DB Source Output].Columns[NAME.1]"
+                      name="NAME.1"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Crea Archivo Plano DMS CUSTOMER\Source DMS-CUSTOMER.Outputs[OLE DB Source Output].Columns[NAME.2]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Crea Archivo Plano DMS CUSTOMER\Source DMS-CUSTOMER.Outputs[OLE DB Source Output].ExternalColumns[NAME.2]"
+                      length="70"
+                      lineageId="Package\Crea Archivo Plano DMS CUSTOMER\Source DMS-CUSTOMER.Outputs[OLE DB Source Output].Columns[NAME.2]"
+                      name="NAME.2"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Crea Archivo Plano DMS CUSTOMER\Source DMS-CUSTOMER.Outputs[OLE DB Source Output].Columns[STREET]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Crea Archivo Plano DMS CUSTOMER\Source DMS-CUSTOMER.Outputs[OLE DB Source Output].ExternalColumns[STREET]"
+                      length="70"
+                      lineageId="Package\Crea Archivo Plano DMS CUSTOMER\Source DMS-CUSTOMER.Outputs[OLE DB Source Output].Columns[STREET]"
+                      name="STREET"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Crea Archivo Plano DMS CUSTOMER\Source DMS-CUSTOMER.Outputs[OLE DB Source Output].Columns[COUNTRY]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Crea Archivo Plano DMS CUSTOMER\Source DMS-CUSTOMER.Outputs[OLE DB Source Output].ExternalColumns[COUNTRY]"
+                      length="2"
+                      lineageId="Package\Crea Archivo Plano DMS CUSTOMER\Source DMS-CUSTOMER.Outputs[OLE DB Source Output].Columns[COUNTRY]"
+                      name="COUNTRY"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Crea Archivo Plano DMS CUSTOMER\Source DMS-CUSTOMER.Outputs[OLE DB Source Output].Columns[SECTOR]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Crea Archivo Plano DMS CUSTOMER\Source DMS-CUSTOMER.Outputs[OLE DB Source Output].ExternalColumns[SECTOR]"
+                      length="10"
+                      lineageId="Package\Crea Archivo Plano DMS CUSTOMER\Source DMS-CUSTOMER.Outputs[OLE DB Source Output].Columns[SECTOR]"
+                      name="SECTOR"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Crea Archivo Plano DMS CUSTOMER\Source DMS-CUSTOMER.Outputs[OLE DB Source Output].Columns[ACCOUNT.OFFICER]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Crea Archivo Plano DMS CUSTOMER\Source DMS-CUSTOMER.Outputs[OLE DB Source Output].ExternalColumns[ACCOUNT.OFFICER]"
+                      length="10"
+                      lineageId="Package\Crea Archivo Plano DMS CUSTOMER\Source DMS-CUSTOMER.Outputs[OLE DB Source Output].Columns[ACCOUNT.OFFICER]"
+                      name="ACCOUNT.OFFICER"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Crea Archivo Plano DMS CUSTOMER\Source DMS-CUSTOMER.Outputs[OLE DB Source Output].Columns[OTHER.OFFICER]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Crea Archivo Plano DMS CUSTOMER\Source DMS-CUSTOMER.Outputs[OLE DB Source Output].ExternalColumns[OTHER.OFFICER]"
+                      length="4000"
+                      lineageId="Package\Crea Archivo Plano DMS CUSTOMER\Source DMS-CUSTOMER.Outputs[OLE DB Source Output].Columns[OTHER.OFFICER]"
+                      name="OTHER.OFFICER"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Crea Archivo Plano DMS CUSTOMER\Source DMS-CUSTOMER.Outputs[OLE DB Source Output].Columns[INDUSTRY]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Crea Archivo Plano DMS CUSTOMER\Source DMS-CUSTOMER.Outputs[OLE DB Source Output].ExternalColumns[INDUSTRY]"
+                      length="4"
+                      lineageId="Package\Crea Archivo Plano DMS CUSTOMER\Source DMS-CUSTOMER.Outputs[OLE DB Source Output].Columns[INDUSTRY]"
+                      name="INDUSTRY"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Crea Archivo Plano DMS CUSTOMER\Source DMS-CUSTOMER.Outputs[OLE DB Source Output].Columns[NATIONALITY]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Crea Archivo Plano DMS CUSTOMER\Source DMS-CUSTOMER.Outputs[OLE DB Source Output].ExternalColumns[NATIONALITY]"
+                      length="2"
+                      lineageId="Package\Crea Archivo Plano DMS CUSTOMER\Source DMS-CUSTOMER.Outputs[OLE DB Source Output].Columns[NATIONALITY]"
+                      name="NATIONALITY"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Crea Archivo Plano DMS CUSTOMER\Source DMS-CUSTOMER.Outputs[OLE DB Source Output].Columns[CUSTOMER.STATUS]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Crea Archivo Plano DMS CUSTOMER\Source DMS-CUSTOMER.Outputs[OLE DB Source Output].ExternalColumns[CUSTOMER.STATUS]"
+                      length="4"
+                      lineageId="Package\Crea Archivo Plano DMS CUSTOMER\Source DMS-CUSTOMER.Outputs[OLE DB Source Output].Columns[CUSTOMER.STATUS]"
+                      name="CUSTOMER.STATUS"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Crea Archivo Plano DMS CUSTOMER\Source DMS-CUSTOMER.Outputs[OLE DB Source Output].Columns[RESIDENCE]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Crea Archivo Plano DMS CUSTOMER\Source DMS-CUSTOMER.Outputs[OLE DB Source Output].ExternalColumns[RESIDENCE]"
+                      length="2"
+                      lineageId="Package\Crea Archivo Plano DMS CUSTOMER\Source DMS-CUSTOMER.Outputs[OLE DB Source Output].Columns[RESIDENCE]"
+                      name="RESIDENCE"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Crea Archivo Plano DMS CUSTOMER\Source DMS-CUSTOMER.Outputs[OLE DB Source Output].Columns[TEXT]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Crea Archivo Plano DMS CUSTOMER\Source DMS-CUSTOMER.Outputs[OLE DB Source Output].ExternalColumns[TEXT]"
+                      length="4000"
+                      lineageId="Package\Crea Archivo Plano DMS CUSTOMER\Source DMS-CUSTOMER.Outputs[OLE DB Source Output].Columns[TEXT]"
+                      name="TEXT"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Crea Archivo Plano DMS CUSTOMER\Source DMS-CUSTOMER.Outputs[OLE DB Source Output].Columns[LEGAL.ID]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Crea Archivo Plano DMS CUSTOMER\Source DMS-CUSTOMER.Outputs[OLE DB Source Output].ExternalColumns[LEGAL.ID]"
+                      length="4000"
+                      lineageId="Package\Crea Archivo Plano DMS CUSTOMER\Source DMS-CUSTOMER.Outputs[OLE DB Source Output].Columns[LEGAL.ID]"
+                      name="LEGAL.ID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Crea Archivo Plano DMS CUSTOMER\Source DMS-CUSTOMER.Outputs[OLE DB Source Output].Columns[LEGAL.DOC.NAME]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Crea Archivo Plano DMS CUSTOMER\Source DMS-CUSTOMER.Outputs[OLE DB Source Output].ExternalColumns[LEGAL.DOC.NAME]"
+                      length="4000"
+                      lineageId="Package\Crea Archivo Plano DMS CUSTOMER\Source DMS-CUSTOMER.Outputs[OLE DB Source Output].Columns[LEGAL.DOC.NAME]"
+                      name="LEGAL.DOC.NAME"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Crea Archivo Plano DMS CUSTOMER\Source DMS-CUSTOMER.Outputs[OLE DB Source Output].Columns[LEGAL.ISS.DATE]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Crea Archivo Plano DMS CUSTOMER\Source DMS-CUSTOMER.Outputs[OLE DB Source Output].ExternalColumns[LEGAL.ISS.DATE]"
+                      length="4000"
+                      lineageId="Package\Crea Archivo Plano DMS CUSTOMER\Source DMS-CUSTOMER.Outputs[OLE DB Source Output].Columns[LEGAL.ISS.DATE]"
+                      name="LEGAL.ISS.DATE"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Crea Archivo Plano DMS CUSTOMER\Source DMS-CUSTOMER.Outputs[OLE DB Source Output].Columns[LANGUAGE]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Crea Archivo Plano DMS CUSTOMER\Source DMS-CUSTOMER.Outputs[OLE DB Source Output].ExternalColumns[LANGUAGE]"
+                      length="2"
+                      lineageId="Package\Crea Archivo Plano DMS CUSTOMER\Source DMS-CUSTOMER.Outputs[OLE DB Source Output].Columns[LANGUAGE]"
+                      name="LANGUAGE"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Crea Archivo Plano DMS CUSTOMER\Source DMS-CUSTOMER.Outputs[OLE DB Source Output].Columns[EMAIL.1]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Crea Archivo Plano DMS CUSTOMER\Source DMS-CUSTOMER.Outputs[OLE DB Source Output].ExternalColumns[EMAIL.1]"
+                      length="4000"
+                      lineageId="Package\Crea Archivo Plano DMS CUSTOMER\Source DMS-CUSTOMER.Outputs[OLE DB Source Output].Columns[EMAIL.1]"
+                      name="EMAIL.1"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Crea Archivo Plano DMS CUSTOMER\Source DMS-CUSTOMER.Outputs[OLE DB Source Output].Columns[CUSTOMER.SINCE]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Crea Archivo Plano DMS CUSTOMER\Source DMS-CUSTOMER.Outputs[OLE DB Source Output].ExternalColumns[CUSTOMER.SINCE]"
+                      length="8"
+                      lineageId="Package\Crea Archivo Plano DMS CUSTOMER\Source DMS-CUSTOMER.Outputs[OLE DB Source Output].Columns[CUSTOMER.SINCE]"
+                      name="CUSTOMER.SINCE"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Crea Archivo Plano DMS CUSTOMER\Source DMS-CUSTOMER.Outputs[OLE DB Source Output].Columns[EXTERN.CUS.ID]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Crea Archivo Plano DMS CUSTOMER\Source DMS-CUSTOMER.Outputs[OLE DB Source Output].ExternalColumns[EXTERN.CUS.ID]"
+                      length="50"
+                      lineageId="Package\Crea Archivo Plano DMS CUSTOMER\Source DMS-CUSTOMER.Outputs[OLE DB Source Output].Columns[EXTERN.CUS.ID]"
+                      name="EXTERN.CUS.ID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Crea Archivo Plano DMS CUSTOMER\Source DMS-CUSTOMER.Outputs[OLE DB Source Output].Columns[LT.COD.BRK]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Crea Archivo Plano DMS CUSTOMER\Source DMS-CUSTOMER.Outputs[OLE DB Source Output].ExternalColumns[LT.COD.BRK]"
+                      length="10"
+                      lineageId="Package\Crea Archivo Plano DMS CUSTOMER\Source DMS-CUSTOMER.Outputs[OLE DB Source Output].Columns[LT.COD.BRK]"
+                      name="LT.COD.BRK"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Crea Archivo Plano DMS CUSTOMER\Source DMS-CUSTOMER.Outputs[OLE DB Source Output].Columns[LT.SEC.ECON]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Crea Archivo Plano DMS CUSTOMER\Source DMS-CUSTOMER.Outputs[OLE DB Source Output].ExternalColumns[LT.SEC.ECON]"
+                      length="3"
+                      lineageId="Package\Crea Archivo Plano DMS CUSTOMER\Source DMS-CUSTOMER.Outputs[OLE DB Source Output].Columns[LT.SEC.ECON]"
+                      name="LT.SEC.ECON"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Crea Archivo Plano DMS CUSTOMER\Source DMS-CUSTOMER.Outputs[OLE DB Source Output].Columns[LT.TP.ACCIONISTAS]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Crea Archivo Plano DMS CUSTOMER\Source DMS-CUSTOMER.Outputs[OLE DB Source Output].ExternalColumns[LT.TP.ACCIONISTAS]"
+                      length="10"
+                      lineageId="Package\Crea Archivo Plano DMS CUSTOMER\Source DMS-CUSTOMER.Outputs[OLE DB Source Output].Columns[LT.TP.ACCIONISTAS]"
+                      name="LT.TP.ACCIONISTAS"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Crea Archivo Plano DMS CUSTOMER\Source DMS-CUSTOMER.Outputs[OLE DB Source Output].Columns[LT.TIP.PERS]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Crea Archivo Plano DMS CUSTOMER\Source DMS-CUSTOMER.Outputs[OLE DB Source Output].ExternalColumns[LT.TIP.PERS]"
+                      length="1"
+                      lineageId="Package\Crea Archivo Plano DMS CUSTOMER\Source DMS-CUSTOMER.Outputs[OLE DB Source Output].Columns[LT.TIP.PERS]"
+                      name="LT.TIP.PERS"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Crea Archivo Plano DMS CUSTOMER\Source DMS-CUSTOMER.Outputs[OLE DB Source Output].Columns[LT.RISK.INT]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Crea Archivo Plano DMS CUSTOMER\Source DMS-CUSTOMER.Outputs[OLE DB Source Output].ExternalColumns[LT.RISK.INT]"
+                      length="4000"
+                      lineageId="Package\Crea Archivo Plano DMS CUSTOMER\Source DMS-CUSTOMER.Outputs[OLE DB Source Output].Columns[LT.RISK.INT]"
+                      name="LT.RISK.INT"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Crea Archivo Plano DMS CUSTOMER\Source DMS-CUSTOMER.Outputs[OLE DB Source Output].Columns[LT.CALF.RG.INTN]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Crea Archivo Plano DMS CUSTOMER\Source DMS-CUSTOMER.Outputs[OLE DB Source Output].ExternalColumns[LT.CALF.RG.INTN]"
+                      length="4000"
+                      lineageId="Package\Crea Archivo Plano DMS CUSTOMER\Source DMS-CUSTOMER.Outputs[OLE DB Source Output].Columns[LT.CALF.RG.INTN]"
+                      name="LT.CALF.RG.INTN"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Crea Archivo Plano DMS CUSTOMER\Source DMS-CUSTOMER.Outputs[OLE DB Source Output].Columns[TARGET]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Crea Archivo Plano DMS CUSTOMER\Source DMS-CUSTOMER.Outputs[OLE DB Source Output].ExternalColumns[TARGET]"
+                      length="4"
+                      lineageId="Package\Crea Archivo Plano DMS CUSTOMER\Source DMS-CUSTOMER.Outputs[OLE DB Source Output].Columns[TARGET]"
+                      name="TARGET"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Crea Archivo Plano DMS CUSTOMER\Source DMS-CUSTOMER.Outputs[OLE DB Source Output].ExternalColumns[UPLOAD.COMPANY]"
+                      dataType="wstr"
+                      length="9"
+                      name="UPLOAD.COMPANY" />
+                    <externalMetadataColumn
+                      refId="Package\Crea Archivo Plano DMS CUSTOMER\Source DMS-CUSTOMER.Outputs[OLE DB Source Output].ExternalColumns[CUSTOMER.CODE]"
+                      dataType="wstr"
+                      length="10"
+                      name="CUSTOMER.CODE" />
+                    <externalMetadataColumn
+                      refId="Package\Crea Archivo Plano DMS CUSTOMER\Source DMS-CUSTOMER.Outputs[OLE DB Source Output].ExternalColumns[MNEMONIC]"
+                      dataType="wstr"
+                      length="10"
+                      name="MNEMONIC" />
+                    <externalMetadataColumn
+                      refId="Package\Crea Archivo Plano DMS CUSTOMER\Source DMS-CUSTOMER.Outputs[OLE DB Source Output].ExternalColumns[SHORT.NAME]"
+                      dataType="wstr"
+                      length="70"
+                      name="SHORT.NAME" />
+                    <externalMetadataColumn
+                      refId="Package\Crea Archivo Plano DMS CUSTOMER\Source DMS-CUSTOMER.Outputs[OLE DB Source Output].ExternalColumns[NAME.1]"
+                      dataType="wstr"
+                      length="70"
+                      name="NAME.1" />
+                    <externalMetadataColumn
+                      refId="Package\Crea Archivo Plano DMS CUSTOMER\Source DMS-CUSTOMER.Outputs[OLE DB Source Output].ExternalColumns[NAME.2]"
+                      dataType="wstr"
+                      length="70"
+                      name="NAME.2" />
+                    <externalMetadataColumn
+                      refId="Package\Crea Archivo Plano DMS CUSTOMER\Source DMS-CUSTOMER.Outputs[OLE DB Source Output].ExternalColumns[STREET]"
+                      dataType="wstr"
+                      length="70"
+                      name="STREET" />
+                    <externalMetadataColumn
+                      refId="Package\Crea Archivo Plano DMS CUSTOMER\Source DMS-CUSTOMER.Outputs[OLE DB Source Output].ExternalColumns[COUNTRY]"
+                      dataType="wstr"
+                      length="2"
+                      name="COUNTRY" />
+                    <externalMetadataColumn
+                      refId="Package\Crea Archivo Plano DMS CUSTOMER\Source DMS-CUSTOMER.Outputs[OLE DB Source Output].ExternalColumns[SECTOR]"
+                      dataType="wstr"
+                      length="10"
+                      name="SECTOR" />
+                    <externalMetadataColumn
+                      refId="Package\Crea Archivo Plano DMS CUSTOMER\Source DMS-CUSTOMER.Outputs[OLE DB Source Output].ExternalColumns[ACCOUNT.OFFICER]"
+                      dataType="wstr"
+                      length="10"
+                      name="ACCOUNT.OFFICER" />
+                    <externalMetadataColumn
+                      refId="Package\Crea Archivo Plano DMS CUSTOMER\Source DMS-CUSTOMER.Outputs[OLE DB Source Output].ExternalColumns[OTHER.OFFICER]"
+                      dataType="wstr"
+                      length="4000"
+                      name="OTHER.OFFICER" />
+                    <externalMetadataColumn
+                      refId="Package\Crea Archivo Plano DMS CUSTOMER\Source DMS-CUSTOMER.Outputs[OLE DB Source Output].ExternalColumns[INDUSTRY]"
+                      dataType="wstr"
+                      length="4"
+                      name="INDUSTRY" />
+                    <externalMetadataColumn
+                      refId="Package\Crea Archivo Plano DMS CUSTOMER\Source DMS-CUSTOMER.Outputs[OLE DB Source Output].ExternalColumns[NATIONALITY]"
+                      dataType="wstr"
+                      length="2"
+                      name="NATIONALITY" />
+                    <externalMetadataColumn
+                      refId="Package\Crea Archivo Plano DMS CUSTOMER\Source DMS-CUSTOMER.Outputs[OLE DB Source Output].ExternalColumns[CUSTOMER.STATUS]"
+                      dataType="wstr"
+                      length="4"
+                      name="CUSTOMER.STATUS" />
+                    <externalMetadataColumn
+                      refId="Package\Crea Archivo Plano DMS CUSTOMER\Source DMS-CUSTOMER.Outputs[OLE DB Source Output].ExternalColumns[RESIDENCE]"
+                      dataType="wstr"
+                      length="2"
+                      name="RESIDENCE" />
+                    <externalMetadataColumn
+                      refId="Package\Crea Archivo Plano DMS CUSTOMER\Source DMS-CUSTOMER.Outputs[OLE DB Source Output].ExternalColumns[TEXT]"
+                      dataType="wstr"
+                      length="4000"
+                      name="TEXT" />
+                    <externalMetadataColumn
+                      refId="Package\Crea Archivo Plano DMS CUSTOMER\Source DMS-CUSTOMER.Outputs[OLE DB Source Output].ExternalColumns[LEGAL.ID]"
+                      dataType="wstr"
+                      length="4000"
+                      name="LEGAL.ID" />
+                    <externalMetadataColumn
+                      refId="Package\Crea Archivo Plano DMS CUSTOMER\Source DMS-CUSTOMER.Outputs[OLE DB Source Output].ExternalColumns[LEGAL.DOC.NAME]"
+                      dataType="wstr"
+                      length="4000"
+                      name="LEGAL.DOC.NAME" />
+                    <externalMetadataColumn
+                      refId="Package\Crea Archivo Plano DMS CUSTOMER\Source DMS-CUSTOMER.Outputs[OLE DB Source Output].ExternalColumns[LEGAL.ISS.DATE]"
+                      dataType="wstr"
+                      length="4000"
+                      name="LEGAL.ISS.DATE" />
+                    <externalMetadataColumn
+                      refId="Package\Crea Archivo Plano DMS CUSTOMER\Source DMS-CUSTOMER.Outputs[OLE DB Source Output].ExternalColumns[LANGUAGE]"
+                      dataType="wstr"
+                      length="2"
+                      name="LANGUAGE" />
+                    <externalMetadataColumn
+                      refId="Package\Crea Archivo Plano DMS CUSTOMER\Source DMS-CUSTOMER.Outputs[OLE DB Source Output].ExternalColumns[EMAIL.1]"
+                      dataType="wstr"
+                      length="4000"
+                      name="EMAIL.1" />
+                    <externalMetadataColumn
+                      refId="Package\Crea Archivo Plano DMS CUSTOMER\Source DMS-CUSTOMER.Outputs[OLE DB Source Output].ExternalColumns[CUSTOMER.SINCE]"
+                      dataType="wstr"
+                      length="8"
+                      name="CUSTOMER.SINCE" />
+                    <externalMetadataColumn
+                      refId="Package\Crea Archivo Plano DMS CUSTOMER\Source DMS-CUSTOMER.Outputs[OLE DB Source Output].ExternalColumns[EXTERN.CUS.ID]"
+                      dataType="wstr"
+                      length="50"
+                      name="EXTERN.CUS.ID" />
+                    <externalMetadataColumn
+                      refId="Package\Crea Archivo Plano DMS CUSTOMER\Source DMS-CUSTOMER.Outputs[OLE DB Source Output].ExternalColumns[LT.COD.BRK]"
+                      dataType="wstr"
+                      length="10"
+                      name="LT.COD.BRK" />
+                    <externalMetadataColumn
+                      refId="Package\Crea Archivo Plano DMS CUSTOMER\Source DMS-CUSTOMER.Outputs[OLE DB Source Output].ExternalColumns[LT.SEC.ECON]"
+                      dataType="wstr"
+                      length="3"
+                      name="LT.SEC.ECON" />
+                    <externalMetadataColumn
+                      refId="Package\Crea Archivo Plano DMS CUSTOMER\Source DMS-CUSTOMER.Outputs[OLE DB Source Output].ExternalColumns[LT.TP.ACCIONISTAS]"
+                      dataType="wstr"
+                      length="10"
+                      name="LT.TP.ACCIONISTAS" />
+                    <externalMetadataColumn
+                      refId="Package\Crea Archivo Plano DMS CUSTOMER\Source DMS-CUSTOMER.Outputs[OLE DB Source Output].ExternalColumns[LT.TIP.PERS]"
+                      dataType="wstr"
+                      length="1"
+                      name="LT.TIP.PERS" />
+                    <externalMetadataColumn
+                      refId="Package\Crea Archivo Plano DMS CUSTOMER\Source DMS-CUSTOMER.Outputs[OLE DB Source Output].ExternalColumns[LT.RISK.INT]"
+                      dataType="wstr"
+                      length="4000"
+                      name="LT.RISK.INT" />
+                    <externalMetadataColumn
+                      refId="Package\Crea Archivo Plano DMS CUSTOMER\Source DMS-CUSTOMER.Outputs[OLE DB Source Output].ExternalColumns[LT.CALF.RG.INTN]"
+                      dataType="wstr"
+                      length="4000"
+                      name="LT.CALF.RG.INTN" />
+                    <externalMetadataColumn
+                      refId="Package\Crea Archivo Plano DMS CUSTOMER\Source DMS-CUSTOMER.Outputs[OLE DB Source Output].ExternalColumns[TARGET]"
+                      dataType="wstr"
+                      length="4"
+                      name="TARGET" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Crea Archivo Plano DMS CUSTOMER\Source DMS-CUSTOMER.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Crea Archivo Plano DMS CUSTOMER\Source DMS-CUSTOMER.Outputs[OLE DB Source Error Output].Columns[UPLOAD.COMPANY]"
+                      dataType="wstr"
+                      length="9"
+                      lineageId="Package\Crea Archivo Plano DMS CUSTOMER\Source DMS-CUSTOMER.Outputs[OLE DB Source Error Output].Columns[UPLOAD.COMPANY]"
+                      name="UPLOAD.COMPANY" />
+                    <outputColumn
+                      refId="Package\Crea Archivo Plano DMS CUSTOMER\Source DMS-CUSTOMER.Outputs[OLE DB Source Error Output].Columns[CUSTOMER.CODE]"
+                      dataType="wstr"
+                      length="10"
+                      lineageId="Package\Crea Archivo Plano DMS CUSTOMER\Source DMS-CUSTOMER.Outputs[OLE DB Source Error Output].Columns[CUSTOMER.CODE]"
+                      name="CUSTOMER.CODE" />
+                    <outputColumn
+                      refId="Package\Crea Archivo Plano DMS CUSTOMER\Source DMS-CUSTOMER.Outputs[OLE DB Source Error Output].Columns[MNEMONIC]"
+                      dataType="wstr"
+                      length="10"
+                      lineageId="Package\Crea Archivo Plano DMS CUSTOMER\Source DMS-CUSTOMER.Outputs[OLE DB Source Error Output].Columns[MNEMONIC]"
+                      name="MNEMONIC" />
+                    <outputColumn
+                      refId="Package\Crea Archivo Plano DMS CUSTOMER\Source DMS-CUSTOMER.Outputs[OLE DB Source Error Output].Columns[SHORT.NAME]"
+                      dataType="wstr"
+                      length="70"
+                      lineageId="Package\Crea Archivo Plano DMS CUSTOMER\Source DMS-CUSTOMER.Outputs[OLE DB Source Error Output].Columns[SHORT.NAME]"
+                      name="SHORT.NAME" />
+                    <outputColumn
+                      refId="Package\Crea Archivo Plano DMS CUSTOMER\Source DMS-CUSTOMER.Outputs[OLE DB Source Error Output].Columns[NAME.1]"
+                      dataType="wstr"
+                      length="70"
+                      lineageId="Package\Crea Archivo Plano DMS CUSTOMER\Source DMS-CUSTOMER.Outputs[OLE DB Source Error Output].Columns[NAME.1]"
+                      name="NAME.1" />
+                    <outputColumn
+                      refId="Package\Crea Archivo Plano DMS CUSTOMER\Source DMS-CUSTOMER.Outputs[OLE DB Source Error Output].Columns[NAME.2]"
+                      dataType="wstr"
+                      length="70"
+                      lineageId="Package\Crea Archivo Plano DMS CUSTOMER\Source DMS-CUSTOMER.Outputs[OLE DB Source Error Output].Columns[NAME.2]"
+                      name="NAME.2" />
+                    <outputColumn
+                      refId="Package\Crea Archivo Plano DMS CUSTOMER\Source DMS-CUSTOMER.Outputs[OLE DB Source Error Output].Columns[STREET]"
+                      dataType="wstr"
+                      length="70"
+                      lineageId="Package\Crea Archivo Plano DMS CUSTOMER\Source DMS-CUSTOMER.Outputs[OLE DB Source Error Output].Columns[STREET]"
+                      name="STREET" />
+                    <outputColumn
+                      refId="Package\Crea Archivo Plano DMS CUSTOMER\Source DMS-CUSTOMER.Outputs[OLE DB Source Error Output].Columns[COUNTRY]"
+                      dataType="wstr"
+                      length="2"
+                      lineageId="Package\Crea Archivo Plano DMS CUSTOMER\Source DMS-CUSTOMER.Outputs[OLE DB Source Error Output].Columns[COUNTRY]"
+                      name="COUNTRY" />
+                    <outputColumn
+                      refId="Package\Crea Archivo Plano DMS CUSTOMER\Source DMS-CUSTOMER.Outputs[OLE DB Source Error Output].Columns[SECTOR]"
+                      dataType="wstr"
+                      length="10"
+                      lineageId="Package\Crea Archivo Plano DMS CUSTOMER\Source DMS-CUSTOMER.Outputs[OLE DB Source Error Output].Columns[SECTOR]"
+                      name="SECTOR" />
+                    <outputColumn
+                      refId="Package\Crea Archivo Plano DMS CUSTOMER\Source DMS-CUSTOMER.Outputs[OLE DB Source Error Output].Columns[ACCOUNT.OFFICER]"
+                      dataType="wstr"
+                      length="10"
+                      lineageId="Package\Crea Archivo Plano DMS CUSTOMER\Source DMS-CUSTOMER.Outputs[OLE DB Source Error Output].Columns[ACCOUNT.OFFICER]"
+                      name="ACCOUNT.OFFICER" />
+                    <outputColumn
+                      refId="Package\Crea Archivo Plano DMS CUSTOMER\Source DMS-CUSTOMER.Outputs[OLE DB Source Error Output].Columns[OTHER.OFFICER]"
+                      dataType="wstr"
+                      length="4000"
+                      lineageId="Package\Crea Archivo Plano DMS CUSTOMER\Source DMS-CUSTOMER.Outputs[OLE DB Source Error Output].Columns[OTHER.OFFICER]"
+                      name="OTHER.OFFICER" />
+                    <outputColumn
+                      refId="Package\Crea Archivo Plano DMS CUSTOMER\Source DMS-CUSTOMER.Outputs[OLE DB Source Error Output].Columns[INDUSTRY]"
+                      dataType="wstr"
+                      length="4"
+                      lineageId="Package\Crea Archivo Plano DMS CUSTOMER\Source DMS-CUSTOMER.Outputs[OLE DB Source Error Output].Columns[INDUSTRY]"
+                      name="INDUSTRY" />
+                    <outputColumn
+                      refId="Package\Crea Archivo Plano DMS CUSTOMER\Source DMS-CUSTOMER.Outputs[OLE DB Source Error Output].Columns[NATIONALITY]"
+                      dataType="wstr"
+                      length="2"
+                      lineageId="Package\Crea Archivo Plano DMS CUSTOMER\Source DMS-CUSTOMER.Outputs[OLE DB Source Error Output].Columns[NATIONALITY]"
+                      name="NATIONALITY" />
+                    <outputColumn
+                      refId="Package\Crea Archivo Plano DMS CUSTOMER\Source DMS-CUSTOMER.Outputs[OLE DB Source Error Output].Columns[CUSTOMER.STATUS]"
+                      dataType="wstr"
+                      length="4"
+                      lineageId="Package\Crea Archivo Plano DMS CUSTOMER\Source DMS-CUSTOMER.Outputs[OLE DB Source Error Output].Columns[CUSTOMER.STATUS]"
+                      name="CUSTOMER.STATUS" />
+                    <outputColumn
+                      refId="Package\Crea Archivo Plano DMS CUSTOMER\Source DMS-CUSTOMER.Outputs[OLE DB Source Error Output].Columns[RESIDENCE]"
+                      dataType="wstr"
+                      length="2"
+                      lineageId="Package\Crea Archivo Plano DMS CUSTOMER\Source DMS-CUSTOMER.Outputs[OLE DB Source Error Output].Columns[RESIDENCE]"
+                      name="RESIDENCE" />
+                    <outputColumn
+                      refId="Package\Crea Archivo Plano DMS CUSTOMER\Source DMS-CUSTOMER.Outputs[OLE DB Source Error Output].Columns[TEXT]"
+                      dataType="wstr"
+                      length="4000"
+                      lineageId="Package\Crea Archivo Plano DMS CUSTOMER\Source DMS-CUSTOMER.Outputs[OLE DB Source Error Output].Columns[TEXT]"
+                      name="TEXT" />
+                    <outputColumn
+                      refId="Package\Crea Archivo Plano DMS CUSTOMER\Source DMS-CUSTOMER.Outputs[OLE DB Source Error Output].Columns[LEGAL.ID]"
+                      dataType="wstr"
+                      length="4000"
+                      lineageId="Package\Crea Archivo Plano DMS CUSTOMER\Source DMS-CUSTOMER.Outputs[OLE DB Source Error Output].Columns[LEGAL.ID]"
+                      name="LEGAL.ID" />
+                    <outputColumn
+                      refId="Package\Crea Archivo Plano DMS CUSTOMER\Source DMS-CUSTOMER.Outputs[OLE DB Source Error Output].Columns[LEGAL.DOC.NAME]"
+                      dataType="wstr"
+                      length="4000"
+                      lineageId="Package\Crea Archivo Plano DMS CUSTOMER\Source DMS-CUSTOMER.Outputs[OLE DB Source Error Output].Columns[LEGAL.DOC.NAME]"
+                      name="LEGAL.DOC.NAME" />
+                    <outputColumn
+                      refId="Package\Crea Archivo Plano DMS CUSTOMER\Source DMS-CUSTOMER.Outputs[OLE DB Source Error Output].Columns[LEGAL.ISS.DATE]"
+                      dataType="wstr"
+                      length="4000"
+                      lineageId="Package\Crea Archivo Plano DMS CUSTOMER\Source DMS-CUSTOMER.Outputs[OLE DB Source Error Output].Columns[LEGAL.ISS.DATE]"
+                      name="LEGAL.ISS.DATE" />
+                    <outputColumn
+                      refId="Package\Crea Archivo Plano DMS CUSTOMER\Source DMS-CUSTOMER.Outputs[OLE DB Source Error Output].Columns[LANGUAGE]"
+                      dataType="wstr"
+                      length="2"
+                      lineageId="Package\Crea Archivo Plano DMS CUSTOMER\Source DMS-CUSTOMER.Outputs[OLE DB Source Error Output].Columns[LANGUAGE]"
+                      name="LANGUAGE" />
+                    <outputColumn
+                      refId="Package\Crea Archivo Plano DMS CUSTOMER\Source DMS-CUSTOMER.Outputs[OLE DB Source Error Output].Columns[EMAIL.1]"
+                      dataType="wstr"
+                      length="4000"
+                      lineageId="Package\Crea Archivo Plano DMS CUSTOMER\Source DMS-CUSTOMER.Outputs[OLE DB Source Error Output].Columns[EMAIL.1]"
+                      name="EMAIL.1" />
+                    <outputColumn
+                      refId="Package\Crea Archivo Plano DMS CUSTOMER\Source DMS-CUSTOMER.Outputs[OLE DB Source Error Output].Columns[CUSTOMER.SINCE]"
+                      dataType="wstr"
+                      length="8"
+                      lineageId="Package\Crea Archivo Plano DMS CUSTOMER\Source DMS-CUSTOMER.Outputs[OLE DB Source Error Output].Columns[CUSTOMER.SINCE]"
+                      name="CUSTOMER.SINCE" />
+                    <outputColumn
+                      refId="Package\Crea Archivo Plano DMS CUSTOMER\Source DMS-CUSTOMER.Outputs[OLE DB Source Error Output].Columns[EXTERN.CUS.ID]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\Crea Archivo Plano DMS CUSTOMER\Source DMS-CUSTOMER.Outputs[OLE DB Source Error Output].Columns[EXTERN.CUS.ID]"
+                      name="EXTERN.CUS.ID" />
+                    <outputColumn
+                      refId="Package\Crea Archivo Plano DMS CUSTOMER\Source DMS-CUSTOMER.Outputs[OLE DB Source Error Output].Columns[LT.COD.BRK]"
+                      dataType="wstr"
+                      length="10"
+                      lineageId="Package\Crea Archivo Plano DMS CUSTOMER\Source DMS-CUSTOMER.Outputs[OLE DB Source Error Output].Columns[LT.COD.BRK]"
+                      name="LT.COD.BRK" />
+                    <outputColumn
+                      refId="Package\Crea Archivo Plano DMS CUSTOMER\Source DMS-CUSTOMER.Outputs[OLE DB Source Error Output].Columns[LT.SEC.ECON]"
+                      dataType="wstr"
+                      length="3"
+                      lineageId="Package\Crea Archivo Plano DMS CUSTOMER\Source DMS-CUSTOMER.Outputs[OLE DB Source Error Output].Columns[LT.SEC.ECON]"
+                      name="LT.SEC.ECON" />
+                    <outputColumn
+                      refId="Package\Crea Archivo Plano DMS CUSTOMER\Source DMS-CUSTOMER.Outputs[OLE DB Source Error Output].Columns[LT.TP.ACCIONISTAS]"
+                      dataType="wstr"
+                      length="10"
+                      lineageId="Package\Crea Archivo Plano DMS CUSTOMER\Source DMS-CUSTOMER.Outputs[OLE DB Source Error Output].Columns[LT.TP.ACCIONISTAS]"
+                      name="LT.TP.ACCIONISTAS" />
+                    <outputColumn
+                      refId="Package\Crea Archivo Plano DMS CUSTOMER\Source DMS-CUSTOMER.Outputs[OLE DB Source Error Output].Columns[LT.TIP.PERS]"
+                      dataType="wstr"
+                      length="1"
+                      lineageId="Package\Crea Archivo Plano DMS CUSTOMER\Source DMS-CUSTOMER.Outputs[OLE DB Source Error Output].Columns[LT.TIP.PERS]"
+                      name="LT.TIP.PERS" />
+                    <outputColumn
+                      refId="Package\Crea Archivo Plano DMS CUSTOMER\Source DMS-CUSTOMER.Outputs[OLE DB Source Error Output].Columns[LT.RISK.INT]"
+                      dataType="wstr"
+                      length="4000"
+                      lineageId="Package\Crea Archivo Plano DMS CUSTOMER\Source DMS-CUSTOMER.Outputs[OLE DB Source Error Output].Columns[LT.RISK.INT]"
+                      name="LT.RISK.INT" />
+                    <outputColumn
+                      refId="Package\Crea Archivo Plano DMS CUSTOMER\Source DMS-CUSTOMER.Outputs[OLE DB Source Error Output].Columns[LT.CALF.RG.INTN]"
+                      dataType="wstr"
+                      length="4000"
+                      lineageId="Package\Crea Archivo Plano DMS CUSTOMER\Source DMS-CUSTOMER.Outputs[OLE DB Source Error Output].Columns[LT.CALF.RG.INTN]"
+                      name="LT.CALF.RG.INTN" />
+                    <outputColumn
+                      refId="Package\Crea Archivo Plano DMS CUSTOMER\Source DMS-CUSTOMER.Outputs[OLE DB Source Error Output].Columns[TARGET]"
+                      dataType="wstr"
+                      length="4"
+                      lineageId="Package\Crea Archivo Plano DMS CUSTOMER\Source DMS-CUSTOMER.Outputs[OLE DB Source Error Output].Columns[TARGET]"
+                      name="TARGET" />
+                    <outputColumn
+                      refId="Package\Crea Archivo Plano DMS CUSTOMER\Source DMS-CUSTOMER.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Crea Archivo Plano DMS CUSTOMER\Source DMS-CUSTOMER.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Crea Archivo Plano DMS CUSTOMER\Source DMS-CUSTOMER.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Crea Archivo Plano DMS CUSTOMER\Source DMS-CUSTOMER.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Crea Archivo Plano DMS CUSTOMER.Paths[OLE DB Source Output]"
+              endId="Package\Crea Archivo Plano DMS CUSTOMER\Flat File Destination DMS-CUSTOMER.Inputs[Flat File Destination Input]"
+              name="OLE DB Source Output"
+              startId="Package\Crea Archivo Plano DMS CUSTOMER\Source DMS-CUSTOMER.Outputs[OLE DB Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Inicializa parametros"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{5df4ab46-42db-474f-9ce4-cbd3f8e5463a}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Inicializa parametros"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{70000693-BDE1-4FE0-B772-11B7D4A7A452}"
+          SQLTask:SqlStatementSource="-- =============================================&#xA;-- Autor:  José A. Guillen &#xA;-- Fecha de creación: 05-09-2022&#xA;-- Descripción:  Inicializa parametros desde valores guardados en una base de datos SQL Server para la Solución Migracion-Polaris-ETL1-v1.0&#xA;--      &#xA;-- Archivos Origen:  &#xA;--   &#xA;--      &#xA;-- Historia:&#xA;-- José A. Guillén 05-09-2022 Codificación inicial&#xA;-- =============================================&#xA;--&#xA;-- &lt;Aquí se debe colocar el código SQL que lee los parámetros que se van a manejar desde tablas de parámetros&gt; &#xA;--&#xA;SELECT 1 &#xA;--" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{14B68051-2F4B-4081-AA61-5848CF619EB8}"
+      DTS:From="Package\Inicializa parametros"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\Crea Archivo Plano DMS CUSTOMER" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="249,42"
+          Id="Package\Crea Archivo Plano DMS CUSTOMER"
+          TopLeft="5.50000000000003,107.5" />
+        <NodeLayout
+          Size="176,42"
+          Id="Package\Inicializa parametros"
+          TopLeft="42,5.5" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="130,47.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Crea Archivo Plano DMS CUSTOMER">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="194,42"
+          Id="Package\Crea Archivo Plano DMS CUSTOMER\Source DMS-CUSTOMER"
+          TopLeft="35.5,5.5" />
+        <NodeLayout
+          Size="254,42"
+          Id="Package\Crea Archivo Plano DMS CUSTOMER\Flat File Destination DMS-CUSTOMER"
+          TopLeft="5.50000000000003,107.5" />
+        <EdgeLayout
+          Id="Package\Crea Archivo Plano DMS CUSTOMER.Paths[OLE DB Source Output]"
+          TopLeft="132.5,47.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Crea Archivo Plano DMS CUSTOMER\Source DMS-CUSTOMER">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

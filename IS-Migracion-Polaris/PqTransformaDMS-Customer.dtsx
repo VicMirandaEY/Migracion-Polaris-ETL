@@ -1,0 +1,336 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="5/25/2022 10:14:44 AM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="VENJJCR20"
+  DTS:CreatorName="CAF-CON\LS42731"
+  DTS:DTSID="{DF0096C9-7A3B-48FE-B702-FA3668EA550B}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="16.0.5685.0"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="PqTransformaDMS-Customer"
+  DTS:PackageType="5"
+  DTS:VersionBuild="101"
+  DTS:VersionGUID="{3ECE1B8B-9328-4C0D-9854-C17FC504E069}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Filtra Mandatorios"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:Disabled="True"
+      DTS:DTSID="{64A27B78-5181-4FE7-81C8-632E83F8A93A}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Filtra Mandatorios"
+      DTS:ThreadHint="1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{73E9BE98-144D-4887-A1CD-FCE6E4AB9CF5}"
+          SQLTask:SqlStatementSource="USE [STGPolaris]&#xA;GO&#xA;--&#xA;--&#xA;DECLARE @YYYY int --Año&#xA;       ,@MM   int --Mes&#xA;       ,@DD   int --Dia&#xA;&#x9;   ,@primerDiaMesMigracionINT int&#xA;&#x9;   ,@ultimoDiaMesMigracionINT int&#xA;       ,@feLineaTiempo datetime&#xA;&#x9;   ,@feUltimoDiaMesMigracion date&#xA;&#x9;   ,@feMigracion date&#xA;&#x9;   ,@feMigracionST nvarchar(8)&#xA;--&#xA;--&#xA;SET @feLineaTiempo = (SELECT MAX(fe_linea_tiempo)  FROM [STGLegados].[dbo].[linea_tiempo])&#xA;SET @feMigracion = DATEADD(DAY, 1, @feLineaTiempo) &#xA;SET @YYYY = YEAR(@feMigracion)  -- Año correspondiente a la fecha de migración&#xA;SET @MM = MONTH(@feMigracion)   -- Mes correspondiente a la fecha de migración&#xA;SET @DD = DAY(@feMigracion)     -- Dia correspondiente a la fecha de migración&#xA;SET @feUltimoDiaMesMigracion = DATEADD(dd,-1,DATEADD(mm, DATEDIFF(mm,0,@feMigracion)+1,0)) -- Fecha de último día del mes de la migración&#xA;SET @ultimoDiaMesMigracionINT = YEAR(@feUltimoDiaMesMigracion)*10000 + MONTH(@feUltimoDiaMesMigracion)*100 + DAY(@feUltimoDiaMesMigracion)&#xA;SET @primerDiaMesMigracionINT = YEAR(@feUltimoDiaMesMigracion)*10000 + MONTH(@feUltimoDiaMesMigracion)*100 + 1&#xA;SET @feMigracionST = Convert(nvarchar(8),@feMigracion,112)&#xA;--&#xA;--&#xA;TRUNCATE TABLE [STGPolaris].[dbo].[DMS-CUSTOMER]&#xA;INSERT INTO [STGPolaris].[dbo].[DMS-CUSTOMER]&#xA;SELECT [UPLOAD.COMPANY]&#xA;      ,[CUSTOMER.CODE]&#xA;      ,[MNEMONIC]&#xA;      ,[SHORT.NAME]&#xA;      ,[NAME.1]&#xA;      ,[NAME.2]&#xA;      ,Convert(nvarchar(70),ISNULL([STREET],'NOT DEFINED STREET')) as [STREET]&#xA;      ,[COUNTRY]&#xA;      ,[SECTOR]&#xA;      ,[ACCOUNT.OFFICER]&#xA;      ,[OTHER.OFFICER]&#xA;      ,[INDUSTRY]&#xA;      ,[NATIONALITY]&#xA;      ,[CUSTOMER.STATUS]&#xA;      ,Convert(nvarchar(2),ISNULL([RESIDENCE],'XX')) as [RESIDENCE]&#xA;      ,[TEXT]&#xA;      ,[LEGAL.ID]&#xA;      ,[LEGAL.DOC.NAME]&#xA;      ,[LEGAL.ISS.DATE]&#xA;      ,[LANGUAGE]&#xA;      ,[EMAIL.1]&#xA;      ,[CUSTOMER.SINCE]&#xA;      ,[EXTERN.CUS.ID]&#xA;      ,[LT.COD.BRK]&#xA;      ,[LT.SEC.ECON]&#xA;      ,[LT.TP.ACCIONISTAS]&#xA;      ,[LT.TIP.PERS]&#xA;&#x9;  ,[TARGET]&#xA;  FROM [STGPolaris].[dbo].[DMS-CUSTOMER-v1.4]&#xA;WHERE  [UPLOAD.COMPANY]&#x9;IS NOT NULL&#xA;  AND  [CUSTOMER.CODE]&#x9;IS NOT NULL&#xA;  AND  [MNEMONIC]&#x9;&#x9;IS NOT NULL&#xA;  AND  [SHORT.NAME]&#x9;&#x9;IS NOT NULL&#xA;  AND  [NAME.1]&#x9;&#x9;&#x9;IS NOT NULL&#xA;  AND  [STREET]&#x9;&#x9;&#x9;IS NOT NULL&#xA;  AND  [SECTOR]&#x9;&#x9;&#x9;IS NOT NULL&#xA;  AND  [ACCOUNT.OFFICER]IS NOT NULL&#xA;  AND  [INDUSTRY]&#x9;&#x9;IS NOT NULL&#xA;  AND  [TARGET]&#x9;&#x9;&#x9;IS NOT NULL&#xA;  AND  [NATIONALITY]&#x9;IS NOT NULL&#xA;  AND  [CUSTOMER.STATUS]IS NOT NULL&#xA;  AND  [RESIDENCE]&#x9;&#x9;IS NOT NULL&#xA;  AND  [LANGUAGE]&#x9;&#x9;IS NOT NULL&#xA;GO&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Filtros FIX"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:Disabled="True"
+      DTS:DTSID="{3F647B9F-9859-443D-B36D-424B3F97839B}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Filtros FIX"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{73E9BE98-144D-4887-A1CD-FCE6E4AB9CF5}"
+          SQLTask:SqlStatementSource="USE [STGPolaris]&#xA;GO&#xA;--&#xA;--&#xA;DECLARE @YYYY int --Año&#xA;       ,@MM   int --Mes&#xA;       ,@DD   int --Dia&#xA;&#x9;   ,@primerDiaMesMigracionINT int&#xA;&#x9;   ,@ultimoDiaMesMigracionINT int&#xA;       ,@feLineaTiempo datetime&#xA;&#x9;   ,@feUltimoDiaMesMigracion date&#xA;&#x9;   ,@feMigracion date&#xA;&#x9;   ,@feMigracionST nvarchar(8)&#xA;--&#xA;--&#xA;SET @feLineaTiempo = (SELECT MAX(fe_linea_tiempo)  FROM [STGLegados].[dbo].[linea_tiempo])&#xA;SET @feMigracion = DATEADD(DAY, 1, @feLineaTiempo) &#xA;SET @YYYY = YEAR(@feMigracion)  -- Año correspondiente a la fecha de migración&#xA;SET @MM = MONTH(@feMigracion)   -- Mes correspondiente a la fecha de migración&#xA;SET @DD = DAY(@feMigracion)     -- Dia correspondiente a la fecha de migración&#xA;SET @feUltimoDiaMesMigracion = DATEADD(dd,-1,DATEADD(mm, DATEDIFF(mm,0,@feMigracion)+1,0)) -- Fecha de último día del mes de la migración&#xA;SET @ultimoDiaMesMigracionINT = YEAR(@feUltimoDiaMesMigracion)*10000 + MONTH(@feUltimoDiaMesMigracion)*100 + DAY(@feUltimoDiaMesMigracion)&#xA;SET @primerDiaMesMigracionINT = YEAR(@feUltimoDiaMesMigracion)*10000 + MONTH(@feUltimoDiaMesMigracion)*100 + 1&#xA;SET @feMigracionST = Convert(nvarchar(8),@feMigracion,112)&#xA;--&#xA;--&#xA;TRUNCATE TABLE [STGPolaris].[dbo].[DMS-CUSTOMER]&#xA;INSERT INTO [STGPolaris].[dbo].[DMS-CUSTOMER]&#xA;SELECT [UPLOAD.COMPANY]&#xA;      ,[CUSTOMER.CODE]&#xA;      ,[MNEMONIC]&#xA;      ,[SHORT.NAME]&#xA;      ,[NAME.1]&#xA;      ,[NAME.2]&#xA;      ,Convert(nvarchar(70),ISNULL([STREET],'NOT DEFINED STREET')) as [STREET]&#xA;      ,[COUNTRY]&#xA;      ,[SECTOR]&#xA;      ,[ACCOUNT.OFFICER]&#xA;      ,[OTHER.OFFICER]&#xA;      ,[INDUSTRY]&#xA;      ,[NATIONALITY]&#xA;      ,[CUSTOMER.STATUS]&#xA;      ,Convert(nvarchar(2),ISNULL([RESIDENCE],[NATIONALITY])) as [RESIDENCE]&#xA;      ,[TEXT]&#xA;      ,[LEGAL.ID]&#xA;      ,[LEGAL.DOC.NAME]&#xA;      ,[LEGAL.ISS.DATE]&#xA;      ,[LANGUAGE]&#xA;      ,[EMAIL.1]&#xA;      ,[CUSTOMER.SINCE]&#xA;      ,[EXTERN.CUS.ID]&#xA;      ,[LT.COD.BRK]&#xA;      ,[LT.SEC.ECON]&#xA;      ,[LT.TP.ACCIONISTAS]&#xA;      ,[LT.TIP.PERS]&#xA;&#x9;  ,[TARGET]&#xA;  FROM [STGPolaris].[dbo].[DMS-CUSTOMER-v1.4]&#xA;WHERE  [UPLOAD.COMPANY]&#x9;IS NOT NULL&#xA;  AND  [CUSTOMER.CODE]&#x9;IS NOT NULL&#xA;  AND  [MNEMONIC]&#x9;&#x9;IS NOT NULL&#xA;  AND  [SHORT.NAME]&#x9;&#x9;IS NOT NULL&#xA;  AND  [NAME.1]&#x9;&#x9;&#x9;IS NOT NULL&#xA;--  AND  [STREET]&#x9;&#x9;&#x9;IS NOT NULL&#xA;  AND  [SECTOR]&#x9;&#x9;&#x9;IS NOT NULL&#xA;  AND  [ACCOUNT.OFFICER]IS NOT NULL&#xA;  AND  [INDUSTRY]&#x9;&#x9;IS NOT NULL&#xA;  AND  [TARGET]&#x9;&#x9;&#x9;IS NOT NULL&#xA;  AND  [NATIONALITY]&#x9;IS NOT NULL&#xA;  AND  [CUSTOMER.STATUS]IS NOT NULL&#xA;--  AND  [RESIDENCE]&#x9;&#x9;IS NOT NULL&#xA;  AND  [LANGUAGE]&#x9;&#x9;IS NOT NULL&#xA;--  AND  [CUSTOMER.CODE] IN&#xA;GO&#xA;--" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Filtros FIX2"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{CB85B715-EB87-4650-87C1-AE06270ADE25}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Filtros FIX2"
+      DTS:ThreadHint="2">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{73E9BE98-144D-4887-A1CD-FCE6E4AB9CF5}"
+          SQLTask:SqlStatementSource="USE [STGPolaris]&#xA;GO&#xA;&#xA;DECLARE @YYYY int --Año&#xA;       ,@MM   int --Mes&#xA;       ,@DD   int --Dia&#xA;&#x9;   ,@primerDiaMesMigracionINT int&#xA;&#x9;   ,@ultimoDiaMesMigracionINT int&#xA;       ,@feLineaTiempo datetime&#xA;&#x9;   ,@feUltimoDiaMesMigracion date&#xA;&#x9;   ,@feMigracion date&#xA;&#x9;   ,@feMigracionST nvarchar(8)&#xA;&#x9;   ,@defaultEmail nvarchar(128)&#xA;--&#xA;--&#xA;SET @feLineaTiempo = (SELECT MAX(fe_linea_tiempo)  FROM [STGLegados].[dbo].[linea_tiempo])&#xA;SET @feMigracion = DATEADD(DAY, 1, @feLineaTiempo) &#xA;SET @YYYY = YEAR(@feMigracion)  -- Año correspondiente a la fecha de migración&#xA;SET @MM = MONTH(@feMigracion)   -- Mes correspondiente a la fecha de migración&#xA;SET @DD = DAY(@feMigracion)     -- Dia correspondiente a la fecha de migración&#xA;SET @feUltimoDiaMesMigracion = DATEADD(dd,-1,DATEADD(mm, DATEDIFF(mm,0,@feMigracion)+1,0)) -- Fecha de último día del mes de la migración&#xA;SET @ultimoDiaMesMigracionINT = YEAR(@feUltimoDiaMesMigracion)*10000 + MONTH(@feUltimoDiaMesMigracion)*100 + DAY(@feUltimoDiaMesMigracion)&#xA;SET @primerDiaMesMigracionINT = YEAR(@feUltimoDiaMesMigracion)*10000 + MONTH(@feUltimoDiaMesMigracion)*100 + 1&#xA;SET @feMigracionST = Convert(nvarchar(8),@feMigracion,112)&#xA;SET @defaultEmail  = 'dco'+''''+'_'+''''+'unidad'+''''+'_'+''''+'cartera@caf.com'&#xA;--SELECT @defaultEmail&#xA;--&#xA;--&#xA;TRUNCATE TABLE [STGPolaris].[dbo].[DMS-CUSTOMER]&#xA;INSERT INTO [STGPolaris].[dbo].[DMS-CUSTOMER]&#xA;SELECT [UPLOAD.COMPANY]&#xA;      ,[CUSTOMER.CODE]&#xA;      ,[MNEMONIC]&#xA;      ,[SHORT.NAME]&#xA;      ,[NAME.1]&#xA;      ,[NAME.2]&#xA;      ,Convert(nvarchar(70),ISNULL([STREET],'NOT DEFINED STREET')) as [STREET]&#xA;      ,[COUNTRY]&#xA;      ,[SECTOR]&#xA;      ,[ACCOUNT.OFFICER]&#xA;      ,[OTHER.OFFICER]&#xA;      ,[INDUSTRY]&#xA;      ,[NATIONALITY]&#xA;      ,[CUSTOMER.STATUS]&#xA;      ,Convert(nvarchar(2),ISNULL([RESIDENCE],[NATIONALITY])) as [RESIDENCE]&#xA;      ,[TEXT]&#xA;      ,[LEGAL.ID]&#xA;      ,[LEGAL.DOC.NAME]&#xA;      ,[LEGAL.ISS.DATE]&#xA;      ,[LANGUAGE]&#xA;     ,Convert(nvarchar(4000),&#xA;&#x9;   CASE ([CUSTOMER.CODE])&#xA;&#x9;     WHEN '1015855' THEN 'cvu@cnd.org.uy::lpalma@cnd.org.uy'&#xA;&#x9;&#x9; WHEN '1016460' THEN @defaultEmail&#xA;&#x9;&#x9; WHEN '1016464' THEN @defaultEmail&#xA;&#x9;&#x9; WHEN '1016470'&#x9;THEN @defaultEmail&#xA;&#x9;&#x9; WHEN '1001140' THEN @defaultEmail&#xA;&#x9;&#x9; WHEN '1053570'&#x9;THEN 'cfalla@mivivienda.com::pedcavero@mivivienda.com.pe'&#xA;&#x9;&#x9; WHEN '1001412' THEN @defaultEmail&#xA;&#x9;&#x9; WHEN '1019878' THEN 'amolero@polinter.com.ve::gsanchez@polinter.com.ve::jtoyo@polinter.com.ve'&#xA;&#x9;&#x9; WHEN '1041879'&#x9;THEN 'ugp@camacari.ba.gov.br::mstarga@gmail.com'&#xA;&#x9;&#x9; ELSE [EMAIL.1]&#xA;       END) as [EMAIL.1]&#xA;      ,[CUSTOMER.SINCE]&#xA;      ,[EXTERN.CUS.ID]&#xA;      ,[LT.COD.BRK]&#xA;      ,[LT.SEC.ECON]&#xA;      ,[LT.TP.ACCIONISTAS]&#xA;      ,[LT.TIP.PERS]&#xA;      ,[LT.RISK.INT]&#xA;      ,[LT.CALF.RG.INTN]&#xA;      ,[TARGET]&#xA;  FROM [dbo].[DMS-CUSTOMER-v1.4]&#xA;WHERE  [UPLOAD.COMPANY]&#x9;IS NOT NULL&#xA;  AND  [CUSTOMER.CODE]&#x9;IS NOT NULL&#xA;  AND  [MNEMONIC]&#x9;&#x9;IS NOT NULL&#xA;  AND  [SHORT.NAME]&#x9;&#x9;IS NOT NULL&#xA;  AND  [NAME.1]&#x9;&#x9;&#x9;IS NOT NULL&#xA;--  AND  [STREET]&#x9;&#x9;&#x9;IS NOT NULL&#xA;  AND  [SECTOR]&#x9;&#x9;&#x9;IS NOT NULL&#xA;  AND  [ACCOUNT.OFFICER]IS NOT NULL&#xA;  AND  [INDUSTRY]&#x9;&#x9;IS NOT NULL&#xA;  AND  [TARGET]&#x9;&#x9;&#x9;IS NOT NULL&#xA;  AND  [NATIONALITY]&#x9;IS NOT NULL&#xA;  AND  [CUSTOMER.STATUS]IS NOT NULL&#xA;--  AND  [RESIDENCE]&#x9;&#x9;IS NOT NULL&#xA;  AND  [LANGUAGE]&#x9;&#x9;IS NOT NULL&#xA;GO&#xA;-- Fin&#xA;--" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Inicializa parametros"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{0d559b64-8704-4b46-964b-bc43fd644dfa}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Inicializa parametros"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{70000693-BDE1-4FE0-B772-11B7D4A7A452}"
+          SQLTask:SqlStatementSource="-- =============================================&#xA;-- Autor:  José A. Guillen &#xA;-- Fecha de creación: 05-09-2022&#xA;-- Descripción:  Inicializa parametros desde valores guardados en una base de datos SQL Server para la Solución Migracion-Polaris-ETL1-v1.0&#xA;--      &#xA;-- Archivos Origen:  &#xA;--   &#xA;--      &#xA;-- Historia:&#xA;-- José A. Guillén 05-09-2022 Codificación inicial&#xA;-- =============================================&#xA;--&#xA;-- &lt;Aquí se debe colocar el código SQL que lee los parámetros que se van a manejar desde tablas de parámetros&gt; &#xA;--&#xA;SELECT 1 &#xA;--" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Transforma Clientes"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{18A328E2-13F8-40B2-BAE8-EB2EF1192B03}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Transforma Clientes"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{73E9BE98-144D-4887-A1CD-FCE6E4AB9CF5}"
+          SQLTask:SqlStatementSource="USE [STGLegados]&#xA;GO&#xA;&#xA;DECLARE @RC int&#xA;&#xA;-- TODO: Set parameter values here.&#xA;&#xA;EXECUTE @RC = [dbo].[Transforma-DMS-CUSTOMER] &#xA;GO&#xA;&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Trunca DMS-CUSTOMER y DMS-CUSTOMER-MODIFIED"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{9D96B4A0-CBE0-420E-BEC5-7F7D0EDDFB0F}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Trunca DMS-CUSTOMER y DMS-CUSTOMER-MODIFIED"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{73E9BE98-144D-4887-A1CD-FCE6E4AB9CF5}"
+          SQLTask:SqlStatementSource="TRUNCATE TABLE [STGPolaris].[dbo].[DMS-CUSTOMER]&#xA;TRUNCATE TABLE [STGPolaris].[dbo].[DMS-CUSTOMER.MODIFIED]&#xA;TRUNCATE TABLE [STGPolaris].[dbo].[DMS-CUSTOMER-v1.4]" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{15FABC35-4210-4020-907D-F3520B4F59DA}"
+      DTS:From="Package\Inicializa parametros"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\Trunca DMS-CUSTOMER y DMS-CUSTOMER-MODIFIED" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 1]"
+      DTS:CreationName=""
+      DTS:DTSID="{8B197288-93C9-40D5-9941-43EA6DE7F300}"
+      DTS:From="Package\Trunca DMS-CUSTOMER y DMS-CUSTOMER-MODIFIED"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 1"
+      DTS:To="Package\Transforma Clientes" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 2]"
+      DTS:CreationName=""
+      DTS:DTSID="{BC268455-F3C5-46B4-98E2-E5AD5A251E4B}"
+      DTS:From="Package\Transforma Clientes"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 2"
+      DTS:To="Package\Filtra Mandatorios" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 3]"
+      DTS:CreationName=""
+      DTS:DTSID="{78D071AE-E3CF-4097-AB74-26303F1E288C}"
+      DTS:From="Package\Transforma Clientes"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 3"
+      DTS:To="Package\Filtros FIX2" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 4]"
+      DTS:CreationName=""
+      DTS:DTSID="{D4A4971B-4A30-485C-A6C7-97CAA83218CF}"
+      DTS:From="Package\Transforma Clientes"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 4"
+      DTS:To="Package\Filtros FIX" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="163,42"
+          Id="Package\Filtra Mandatorios"
+          TopLeft="5.50000000000006,311.5" />
+        <NodeLayout
+          Size="126,42"
+          Id="Package\Filtros FIX"
+          TopLeft="422,311.5" />
+        <NodeLayout
+          Size="132,42"
+          Id="Package\Filtros FIX2"
+          TopLeft="229,311.5" />
+        <NodeLayout
+          Size="176,42"
+          Id="Package\Inicializa parametros"
+          TopLeft="207,5.49999999999989" />
+        <NodeLayout
+          Size="178,42"
+          Id="Package\Transforma Clientes"
+          TopLeft="208.5,209.5" />
+        <NodeLayout
+          Size="339,42"
+          Id="Package\Trunca DMS-CUSTOMER y DMS-CUSTOMER-MODIFIED"
+          TopLeft="127.5,107.5" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="296,47.4999999999999">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60.0000000000001"
+              Start="0,0"
+              End="0,52.5000000000001">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5000000000001" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 1]"
+          TopLeft="297.25,149.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 2]"
+          TopLeft="255,251.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-168,60"
+              Start="0,0"
+              End="-168,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,16.590405904059" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,16.590405904059"
+                    Point2="0,20.590405904059"
+                    Point3="-4,20.590405904059" />
+                  <mssgle:LineSegment
+                    End="-164,20.590405904059" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-164,20.590405904059"
+                    Point2="-168,20.590405904059"
+                    Point3="-168,24.590405904059" />
+                  <mssgle:LineSegment
+                    End="-168,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 3]"
+          TopLeft="296.25,251.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 4]"
+          TopLeft="340,251.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="145,60"
+              Start="0,0"
+              End="145,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,16.590405904059" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,16.590405904059"
+                    Point2="0,20.590405904059"
+                    Point3="4,20.590405904059" />
+                  <mssgle:LineSegment
+                    End="141,20.590405904059" />
+                  <mssgle:CubicBezierSegment
+                    Point1="141,20.590405904059"
+                    Point2="145,20.590405904059"
+                    Point3="145,24.590405904059" />
+                  <mssgle:LineSegment
+                    End="145,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

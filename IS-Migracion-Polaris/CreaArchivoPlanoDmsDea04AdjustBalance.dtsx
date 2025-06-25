@@ -1,0 +1,826 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="1/17/2025 4:40:59 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="VENJJCR20"
+  DTS:CreatorName="CAF-CON\ls42731"
+  DTS:DTSID="{09F40D0C-3CD0-4E23-A8C5-293A05A2F77E}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="16.0.5270.0"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="CreaArchivoPlanoDmsDea04AdjustBalance"
+  DTS:PackageType="5"
+  DTS:VersionBuild="5"
+  DTS:VersionGUID="{333CBC4D-4BCC-4EC0-9F81-6874474754A4}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Flat File Connection DEA 04 AdjustBalance]"
+      DTS:CreationName="FLATFILE"
+      DTS:DTSID="{52F9ADC3-AAFF-417F-9B11-BECE5BF9C74C}"
+      DTS:ObjectName="Flat File Connection DEA 04 AdjustBalance">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="Delimited"
+          DTS:LocaleID="1033"
+          DTS:HeaderRowDelimiter="_x000D__x000A_"
+          DTS:RowDelimiter=""
+          DTS:TextQualifier="_x003C_none_x003E_"
+          DTS:CodePage="65001"
+          DTS:ConnectionString="D:\App\Migracion-Polaris-ETL1\Txt\DMS.DEA.04.ADJUST.BALANCE.txt">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="9"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="UPLOAD.COMPANY"
+              DTS:DTSID="{1591DE9B-09BE-43A6-8C0B-96A4550AA063}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="18"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="ID/ARR.SEQUENCE"
+              DTS:DTSID="{716FB041-0914-4B65-BBAE-461F64A7B32E}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="12"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="ARRANGEMENT"
+              DTS:DTSID="{3663BAC6-9ADB-4661-BA3C-35C59835F931}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="128"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="ACTIVITY"
+              DTS:DTSID="{5FB8ED34-650B-40A6-8A33-59964667382B}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="128"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="CUSTOMER"
+              DTS:DTSID="{87352314-2DDE-4BDB-B34E-C2316840D5F6}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="128"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="CUSTOMER.ROLE"
+              DTS:DTSID="{C586CE89-2E30-401F-9AF7-A7F55F8689E2}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="40"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="PRODUCT"
+              DTS:DTSID="{5E1300CD-924A-40D3-8EBC-774B511FE78B}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="3"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="CURRENCY"
+              DTS:DTSID="{FC7D4651-B1BD-4820-9C4A-E22EBBB02FFD}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="8"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="ORIG.CONTRACT.DATE"
+              DTS:DTSID="{476B8B9B-77FB-4996-B636-FC49BA844BFD}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="1024"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="PROPERTY"
+              DTS:DTSID="{88F456BE-C5E4-4AD3-8182-A2CB1DA4A07A}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="2048"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="FIELD.NAME"
+              DTS:DTSID="{C4547C19-B909-40DF-97CB-B6F06179F7CA}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000D__x000A_"
+              DTS:MaximumWidth="2048"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="FIELD.VALUE"
+              DTS:DTSID="{2047032E-A3AB-4EAC-95CD-CE963DEECA31}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Crea Archivo Plano DMS DEA 04 Adjust Balance"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{f235960e-dad6-4f6c-9262-cdf08005ba6c}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Crea Archivo Plano DMS DEA 04 Adjust Balance"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Crea Archivo Plano DMS DEA 04 Adjust Balance\Flat File Destination DMS DEA 04 ADJUSTBALANCE"
+              componentClassID="Microsoft.FlatFileDestination"
+              contactInfo="Flat File Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Flat File Destination"
+              localeId="1033"
+              name="Flat File Destination DMS DEA 04 ADJUSTBALANCE"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Specifies whether the data will overwrite or append to the destination file."
+                  name="Overwrite">true</property>
+                <property
+                  dataType="System.Null"
+                  description="Specifies the text to write to the destination file before any data is written."
+                  expressionType="Notify"
+                  name="Header" />
+                <property
+                  dataType="System.Boolean"
+                  description="When text qualifier is enabled, specifies whether the text qualifier in the data written to the destination file will be escaped or not."
+                  name="EscapeQualifier">false</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Crea Archivo Plano DMS DEA 04 Adjust Balance\Flat File Destination DMS DEA 04 ADJUSTBALANCE.Connections[FlatFileConnection]"
+                  connectionManagerID="Package.ConnectionManagers[Flat File Connection DEA 04 AdjustBalance]"
+                  connectionManagerRefId="Package.ConnectionManagers[Flat File Connection DEA 04 AdjustBalance]"
+                  name="FlatFileConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Crea Archivo Plano DMS DEA 04 Adjust Balance\Flat File Destination DMS DEA 04 ADJUSTBALANCE.Inputs[Flat File Destination Input]"
+                  hasSideEffects="true"
+                  name="Flat File Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Crea Archivo Plano DMS DEA 04 Adjust Balance\Flat File Destination DMS DEA 04 ADJUSTBALANCE.Inputs[Flat File Destination Input].Columns[UPLOAD.COMPANY]"
+                      cachedDataType="wstr"
+                      cachedLength="9"
+                      cachedName="UPLOAD.COMPANY"
+                      externalMetadataColumnId="Package\Crea Archivo Plano DMS DEA 04 Adjust Balance\Flat File Destination DMS DEA 04 ADJUSTBALANCE.Inputs[Flat File Destination Input].ExternalColumns[UPLOAD.COMPANY]"
+                      lineageId="Package\Crea Archivo Plano DMS DEA 04 Adjust Balance\Source DMS DEA 04 ADJUSTBALANCE.Outputs[OLE DB Source Output].Columns[UPLOAD.COMPANY]" />
+                    <inputColumn
+                      refId="Package\Crea Archivo Plano DMS DEA 04 Adjust Balance\Flat File Destination DMS DEA 04 ADJUSTBALANCE.Inputs[Flat File Destination Input].Columns[ID/ARR.SEQUENCE]"
+                      cachedDataType="wstr"
+                      cachedLength="18"
+                      cachedName="ID/ARR.SEQUENCE"
+                      externalMetadataColumnId="Package\Crea Archivo Plano DMS DEA 04 Adjust Balance\Flat File Destination DMS DEA 04 ADJUSTBALANCE.Inputs[Flat File Destination Input].ExternalColumns[ID/ARR.SEQUENCE]"
+                      lineageId="Package\Crea Archivo Plano DMS DEA 04 Adjust Balance\Source DMS DEA 04 ADJUSTBALANCE.Outputs[OLE DB Source Output].Columns[ID/ARR.SEQUENCE]" />
+                    <inputColumn
+                      refId="Package\Crea Archivo Plano DMS DEA 04 Adjust Balance\Flat File Destination DMS DEA 04 ADJUSTBALANCE.Inputs[Flat File Destination Input].Columns[ARRANGEMENT]"
+                      cachedDataType="wstr"
+                      cachedLength="12"
+                      cachedName="ARRANGEMENT"
+                      externalMetadataColumnId="Package\Crea Archivo Plano DMS DEA 04 Adjust Balance\Flat File Destination DMS DEA 04 ADJUSTBALANCE.Inputs[Flat File Destination Input].ExternalColumns[ARRANGEMENT]"
+                      lineageId="Package\Crea Archivo Plano DMS DEA 04 Adjust Balance\Source DMS DEA 04 ADJUSTBALANCE.Outputs[OLE DB Source Output].Columns[ARRANGEMENT]" />
+                    <inputColumn
+                      refId="Package\Crea Archivo Plano DMS DEA 04 Adjust Balance\Flat File Destination DMS DEA 04 ADJUSTBALANCE.Inputs[Flat File Destination Input].Columns[ACTIVITY]"
+                      cachedDataType="wstr"
+                      cachedLength="128"
+                      cachedName="ACTIVITY"
+                      externalMetadataColumnId="Package\Crea Archivo Plano DMS DEA 04 Adjust Balance\Flat File Destination DMS DEA 04 ADJUSTBALANCE.Inputs[Flat File Destination Input].ExternalColumns[ACTIVITY]"
+                      lineageId="Package\Crea Archivo Plano DMS DEA 04 Adjust Balance\Source DMS DEA 04 ADJUSTBALANCE.Outputs[OLE DB Source Output].Columns[ACTIVITY]" />
+                    <inputColumn
+                      refId="Package\Crea Archivo Plano DMS DEA 04 Adjust Balance\Flat File Destination DMS DEA 04 ADJUSTBALANCE.Inputs[Flat File Destination Input].Columns[CUSTOMER]"
+                      cachedDataType="wstr"
+                      cachedLength="128"
+                      cachedName="CUSTOMER"
+                      externalMetadataColumnId="Package\Crea Archivo Plano DMS DEA 04 Adjust Balance\Flat File Destination DMS DEA 04 ADJUSTBALANCE.Inputs[Flat File Destination Input].ExternalColumns[CUSTOMER]"
+                      lineageId="Package\Crea Archivo Plano DMS DEA 04 Adjust Balance\Source DMS DEA 04 ADJUSTBALANCE.Outputs[OLE DB Source Output].Columns[CUSTOMER]" />
+                    <inputColumn
+                      refId="Package\Crea Archivo Plano DMS DEA 04 Adjust Balance\Flat File Destination DMS DEA 04 ADJUSTBALANCE.Inputs[Flat File Destination Input].Columns[CUSTOMER.ROLE]"
+                      cachedDataType="wstr"
+                      cachedLength="128"
+                      cachedName="CUSTOMER.ROLE"
+                      externalMetadataColumnId="Package\Crea Archivo Plano DMS DEA 04 Adjust Balance\Flat File Destination DMS DEA 04 ADJUSTBALANCE.Inputs[Flat File Destination Input].ExternalColumns[CUSTOMER.ROLE]"
+                      lineageId="Package\Crea Archivo Plano DMS DEA 04 Adjust Balance\Source DMS DEA 04 ADJUSTBALANCE.Outputs[OLE DB Source Output].Columns[CUSTOMER.ROLE]" />
+                    <inputColumn
+                      refId="Package\Crea Archivo Plano DMS DEA 04 Adjust Balance\Flat File Destination DMS DEA 04 ADJUSTBALANCE.Inputs[Flat File Destination Input].Columns[PRODUCT]"
+                      cachedDataType="wstr"
+                      cachedLength="40"
+                      cachedName="PRODUCT"
+                      externalMetadataColumnId="Package\Crea Archivo Plano DMS DEA 04 Adjust Balance\Flat File Destination DMS DEA 04 ADJUSTBALANCE.Inputs[Flat File Destination Input].ExternalColumns[PRODUCT]"
+                      lineageId="Package\Crea Archivo Plano DMS DEA 04 Adjust Balance\Source DMS DEA 04 ADJUSTBALANCE.Outputs[OLE DB Source Output].Columns[PRODUCT]" />
+                    <inputColumn
+                      refId="Package\Crea Archivo Plano DMS DEA 04 Adjust Balance\Flat File Destination DMS DEA 04 ADJUSTBALANCE.Inputs[Flat File Destination Input].Columns[CURRENCY]"
+                      cachedDataType="wstr"
+                      cachedLength="3"
+                      cachedName="CURRENCY"
+                      externalMetadataColumnId="Package\Crea Archivo Plano DMS DEA 04 Adjust Balance\Flat File Destination DMS DEA 04 ADJUSTBALANCE.Inputs[Flat File Destination Input].ExternalColumns[CURRENCY]"
+                      lineageId="Package\Crea Archivo Plano DMS DEA 04 Adjust Balance\Source DMS DEA 04 ADJUSTBALANCE.Outputs[OLE DB Source Output].Columns[CURRENCY]" />
+                    <inputColumn
+                      refId="Package\Crea Archivo Plano DMS DEA 04 Adjust Balance\Flat File Destination DMS DEA 04 ADJUSTBALANCE.Inputs[Flat File Destination Input].Columns[ORIG.CONTRACT.DATE]"
+                      cachedDataType="wstr"
+                      cachedLength="8"
+                      cachedName="ORIG.CONTRACT.DATE"
+                      externalMetadataColumnId="Package\Crea Archivo Plano DMS DEA 04 Adjust Balance\Flat File Destination DMS DEA 04 ADJUSTBALANCE.Inputs[Flat File Destination Input].ExternalColumns[ORIG.CONTRACT.DATE]"
+                      lineageId="Package\Crea Archivo Plano DMS DEA 04 Adjust Balance\Source DMS DEA 04 ADJUSTBALANCE.Outputs[OLE DB Source Output].Columns[ORIG.CONTRACT.DATE]" />
+                    <inputColumn
+                      refId="Package\Crea Archivo Plano DMS DEA 04 Adjust Balance\Flat File Destination DMS DEA 04 ADJUSTBALANCE.Inputs[Flat File Destination Input].Columns[PROPERTY]"
+                      cachedDataType="wstr"
+                      cachedLength="1024"
+                      cachedName="PROPERTY"
+                      externalMetadataColumnId="Package\Crea Archivo Plano DMS DEA 04 Adjust Balance\Flat File Destination DMS DEA 04 ADJUSTBALANCE.Inputs[Flat File Destination Input].ExternalColumns[PROPERTY]"
+                      lineageId="Package\Crea Archivo Plano DMS DEA 04 Adjust Balance\Source DMS DEA 04 ADJUSTBALANCE.Outputs[OLE DB Source Output].Columns[PROPERTY]" />
+                    <inputColumn
+                      refId="Package\Crea Archivo Plano DMS DEA 04 Adjust Balance\Flat File Destination DMS DEA 04 ADJUSTBALANCE.Inputs[Flat File Destination Input].Columns[FIELD.NAME]"
+                      cachedDataType="wstr"
+                      cachedLength="2048"
+                      cachedName="FIELD.NAME"
+                      externalMetadataColumnId="Package\Crea Archivo Plano DMS DEA 04 Adjust Balance\Flat File Destination DMS DEA 04 ADJUSTBALANCE.Inputs[Flat File Destination Input].ExternalColumns[FIELD.NAME]"
+                      lineageId="Package\Crea Archivo Plano DMS DEA 04 Adjust Balance\Source DMS DEA 04 ADJUSTBALANCE.Outputs[OLE DB Source Output].Columns[FIELD.NAME]" />
+                    <inputColumn
+                      refId="Package\Crea Archivo Plano DMS DEA 04 Adjust Balance\Flat File Destination DMS DEA 04 ADJUSTBALANCE.Inputs[Flat File Destination Input].Columns[FIELD.VALUE]"
+                      cachedDataType="wstr"
+                      cachedLength="2048"
+                      cachedName="FIELD.VALUE"
+                      externalMetadataColumnId="Package\Crea Archivo Plano DMS DEA 04 Adjust Balance\Flat File Destination DMS DEA 04 ADJUSTBALANCE.Inputs[Flat File Destination Input].ExternalColumns[FIELD.VALUE]"
+                      lineageId="Package\Crea Archivo Plano DMS DEA 04 Adjust Balance\Source DMS DEA 04 ADJUSTBALANCE.Outputs[OLE DB Source Output].Columns[FIELD.VALUE]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Crea Archivo Plano DMS DEA 04 Adjust Balance\Flat File Destination DMS DEA 04 ADJUSTBALANCE.Inputs[Flat File Destination Input].ExternalColumns[UPLOAD.COMPANY]"
+                      dataType="wstr"
+                      length="9"
+                      name="UPLOAD.COMPANY" />
+                    <externalMetadataColumn
+                      refId="Package\Crea Archivo Plano DMS DEA 04 Adjust Balance\Flat File Destination DMS DEA 04 ADJUSTBALANCE.Inputs[Flat File Destination Input].ExternalColumns[ID/ARR.SEQUENCE]"
+                      dataType="wstr"
+                      length="18"
+                      name="ID/ARR.SEQUENCE" />
+                    <externalMetadataColumn
+                      refId="Package\Crea Archivo Plano DMS DEA 04 Adjust Balance\Flat File Destination DMS DEA 04 ADJUSTBALANCE.Inputs[Flat File Destination Input].ExternalColumns[ARRANGEMENT]"
+                      dataType="wstr"
+                      length="12"
+                      name="ARRANGEMENT" />
+                    <externalMetadataColumn
+                      refId="Package\Crea Archivo Plano DMS DEA 04 Adjust Balance\Flat File Destination DMS DEA 04 ADJUSTBALANCE.Inputs[Flat File Destination Input].ExternalColumns[ACTIVITY]"
+                      dataType="wstr"
+                      length="128"
+                      name="ACTIVITY" />
+                    <externalMetadataColumn
+                      refId="Package\Crea Archivo Plano DMS DEA 04 Adjust Balance\Flat File Destination DMS DEA 04 ADJUSTBALANCE.Inputs[Flat File Destination Input].ExternalColumns[CUSTOMER]"
+                      dataType="wstr"
+                      length="128"
+                      name="CUSTOMER" />
+                    <externalMetadataColumn
+                      refId="Package\Crea Archivo Plano DMS DEA 04 Adjust Balance\Flat File Destination DMS DEA 04 ADJUSTBALANCE.Inputs[Flat File Destination Input].ExternalColumns[CUSTOMER.ROLE]"
+                      dataType="wstr"
+                      length="128"
+                      name="CUSTOMER.ROLE" />
+                    <externalMetadataColumn
+                      refId="Package\Crea Archivo Plano DMS DEA 04 Adjust Balance\Flat File Destination DMS DEA 04 ADJUSTBALANCE.Inputs[Flat File Destination Input].ExternalColumns[PRODUCT]"
+                      dataType="wstr"
+                      length="40"
+                      name="PRODUCT" />
+                    <externalMetadataColumn
+                      refId="Package\Crea Archivo Plano DMS DEA 04 Adjust Balance\Flat File Destination DMS DEA 04 ADJUSTBALANCE.Inputs[Flat File Destination Input].ExternalColumns[CURRENCY]"
+                      dataType="wstr"
+                      length="3"
+                      name="CURRENCY" />
+                    <externalMetadataColumn
+                      refId="Package\Crea Archivo Plano DMS DEA 04 Adjust Balance\Flat File Destination DMS DEA 04 ADJUSTBALANCE.Inputs[Flat File Destination Input].ExternalColumns[ORIG.CONTRACT.DATE]"
+                      dataType="wstr"
+                      length="8"
+                      name="ORIG.CONTRACT.DATE" />
+                    <externalMetadataColumn
+                      refId="Package\Crea Archivo Plano DMS DEA 04 Adjust Balance\Flat File Destination DMS DEA 04 ADJUSTBALANCE.Inputs[Flat File Destination Input].ExternalColumns[PROPERTY]"
+                      dataType="wstr"
+                      length="1024"
+                      name="PROPERTY" />
+                    <externalMetadataColumn
+                      refId="Package\Crea Archivo Plano DMS DEA 04 Adjust Balance\Flat File Destination DMS DEA 04 ADJUSTBALANCE.Inputs[Flat File Destination Input].ExternalColumns[FIELD.NAME]"
+                      dataType="wstr"
+                      length="2048"
+                      name="FIELD.NAME" />
+                    <externalMetadataColumn
+                      refId="Package\Crea Archivo Plano DMS DEA 04 Adjust Balance\Flat File Destination DMS DEA 04 ADJUSTBALANCE.Inputs[Flat File Destination Input].ExternalColumns[FIELD.VALUE]"
+                      dataType="wstr"
+                      length="2048"
+                      name="FIELD.VALUE" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+            </component>
+            <component
+              refId="Package\Crea Archivo Plano DMS DEA 04 Adjust Balance\Source DMS DEA 04 ADJUSTBALANCE"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="Source DMS DEA 04 ADJUSTBALANCE"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[DMS.DEA.04.ADJUST.BALANCE]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=16.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Crea Archivo Plano DMS DEA 04 Adjust Balance\Source DMS DEA 04 ADJUSTBALANCE.Connections[OleDbConnection]"
+                  connectionManagerID="{73E9BE98-144D-4887-A1CD-FCE6E4AB9CF5}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[STGPolaris]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Crea Archivo Plano DMS DEA 04 Adjust Balance\Source DMS DEA 04 ADJUSTBALANCE.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Crea Archivo Plano DMS DEA 04 Adjust Balance\Source DMS DEA 04 ADJUSTBALANCE.Outputs[OLE DB Source Output].Columns[UPLOAD.COMPANY]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Crea Archivo Plano DMS DEA 04 Adjust Balance\Source DMS DEA 04 ADJUSTBALANCE.Outputs[OLE DB Source Output].ExternalColumns[UPLOAD.COMPANY]"
+                      length="9"
+                      lineageId="Package\Crea Archivo Plano DMS DEA 04 Adjust Balance\Source DMS DEA 04 ADJUSTBALANCE.Outputs[OLE DB Source Output].Columns[UPLOAD.COMPANY]"
+                      name="UPLOAD.COMPANY"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Crea Archivo Plano DMS DEA 04 Adjust Balance\Source DMS DEA 04 ADJUSTBALANCE.Outputs[OLE DB Source Output].Columns[ID/ARR.SEQUENCE]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Crea Archivo Plano DMS DEA 04 Adjust Balance\Source DMS DEA 04 ADJUSTBALANCE.Outputs[OLE DB Source Output].ExternalColumns[ID/ARR.SEQUENCE]"
+                      length="18"
+                      lineageId="Package\Crea Archivo Plano DMS DEA 04 Adjust Balance\Source DMS DEA 04 ADJUSTBALANCE.Outputs[OLE DB Source Output].Columns[ID/ARR.SEQUENCE]"
+                      name="ID/ARR.SEQUENCE"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Crea Archivo Plano DMS DEA 04 Adjust Balance\Source DMS DEA 04 ADJUSTBALANCE.Outputs[OLE DB Source Output].Columns[ARRANGEMENT]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Crea Archivo Plano DMS DEA 04 Adjust Balance\Source DMS DEA 04 ADJUSTBALANCE.Outputs[OLE DB Source Output].ExternalColumns[ARRANGEMENT]"
+                      length="12"
+                      lineageId="Package\Crea Archivo Plano DMS DEA 04 Adjust Balance\Source DMS DEA 04 ADJUSTBALANCE.Outputs[OLE DB Source Output].Columns[ARRANGEMENT]"
+                      name="ARRANGEMENT"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Crea Archivo Plano DMS DEA 04 Adjust Balance\Source DMS DEA 04 ADJUSTBALANCE.Outputs[OLE DB Source Output].Columns[ACTIVITY]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Crea Archivo Plano DMS DEA 04 Adjust Balance\Source DMS DEA 04 ADJUSTBALANCE.Outputs[OLE DB Source Output].ExternalColumns[ACTIVITY]"
+                      length="128"
+                      lineageId="Package\Crea Archivo Plano DMS DEA 04 Adjust Balance\Source DMS DEA 04 ADJUSTBALANCE.Outputs[OLE DB Source Output].Columns[ACTIVITY]"
+                      name="ACTIVITY"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Crea Archivo Plano DMS DEA 04 Adjust Balance\Source DMS DEA 04 ADJUSTBALANCE.Outputs[OLE DB Source Output].Columns[CUSTOMER]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Crea Archivo Plano DMS DEA 04 Adjust Balance\Source DMS DEA 04 ADJUSTBALANCE.Outputs[OLE DB Source Output].ExternalColumns[CUSTOMER]"
+                      length="128"
+                      lineageId="Package\Crea Archivo Plano DMS DEA 04 Adjust Balance\Source DMS DEA 04 ADJUSTBALANCE.Outputs[OLE DB Source Output].Columns[CUSTOMER]"
+                      name="CUSTOMER"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Crea Archivo Plano DMS DEA 04 Adjust Balance\Source DMS DEA 04 ADJUSTBALANCE.Outputs[OLE DB Source Output].Columns[CUSTOMER.ROLE]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Crea Archivo Plano DMS DEA 04 Adjust Balance\Source DMS DEA 04 ADJUSTBALANCE.Outputs[OLE DB Source Output].ExternalColumns[CUSTOMER.ROLE]"
+                      length="128"
+                      lineageId="Package\Crea Archivo Plano DMS DEA 04 Adjust Balance\Source DMS DEA 04 ADJUSTBALANCE.Outputs[OLE DB Source Output].Columns[CUSTOMER.ROLE]"
+                      name="CUSTOMER.ROLE"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Crea Archivo Plano DMS DEA 04 Adjust Balance\Source DMS DEA 04 ADJUSTBALANCE.Outputs[OLE DB Source Output].Columns[PRODUCT]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Crea Archivo Plano DMS DEA 04 Adjust Balance\Source DMS DEA 04 ADJUSTBALANCE.Outputs[OLE DB Source Output].ExternalColumns[PRODUCT]"
+                      length="40"
+                      lineageId="Package\Crea Archivo Plano DMS DEA 04 Adjust Balance\Source DMS DEA 04 ADJUSTBALANCE.Outputs[OLE DB Source Output].Columns[PRODUCT]"
+                      name="PRODUCT"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Crea Archivo Plano DMS DEA 04 Adjust Balance\Source DMS DEA 04 ADJUSTBALANCE.Outputs[OLE DB Source Output].Columns[CURRENCY]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Crea Archivo Plano DMS DEA 04 Adjust Balance\Source DMS DEA 04 ADJUSTBALANCE.Outputs[OLE DB Source Output].ExternalColumns[CURRENCY]"
+                      length="3"
+                      lineageId="Package\Crea Archivo Plano DMS DEA 04 Adjust Balance\Source DMS DEA 04 ADJUSTBALANCE.Outputs[OLE DB Source Output].Columns[CURRENCY]"
+                      name="CURRENCY"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Crea Archivo Plano DMS DEA 04 Adjust Balance\Source DMS DEA 04 ADJUSTBALANCE.Outputs[OLE DB Source Output].Columns[ORIG.CONTRACT.DATE]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Crea Archivo Plano DMS DEA 04 Adjust Balance\Source DMS DEA 04 ADJUSTBALANCE.Outputs[OLE DB Source Output].ExternalColumns[ORIG.CONTRACT.DATE]"
+                      length="8"
+                      lineageId="Package\Crea Archivo Plano DMS DEA 04 Adjust Balance\Source DMS DEA 04 ADJUSTBALANCE.Outputs[OLE DB Source Output].Columns[ORIG.CONTRACT.DATE]"
+                      name="ORIG.CONTRACT.DATE"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Crea Archivo Plano DMS DEA 04 Adjust Balance\Source DMS DEA 04 ADJUSTBALANCE.Outputs[OLE DB Source Output].Columns[PROPERTY]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Crea Archivo Plano DMS DEA 04 Adjust Balance\Source DMS DEA 04 ADJUSTBALANCE.Outputs[OLE DB Source Output].ExternalColumns[PROPERTY]"
+                      length="1024"
+                      lineageId="Package\Crea Archivo Plano DMS DEA 04 Adjust Balance\Source DMS DEA 04 ADJUSTBALANCE.Outputs[OLE DB Source Output].Columns[PROPERTY]"
+                      name="PROPERTY"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Crea Archivo Plano DMS DEA 04 Adjust Balance\Source DMS DEA 04 ADJUSTBALANCE.Outputs[OLE DB Source Output].Columns[FIELD.NAME]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Crea Archivo Plano DMS DEA 04 Adjust Balance\Source DMS DEA 04 ADJUSTBALANCE.Outputs[OLE DB Source Output].ExternalColumns[FIELD.NAME]"
+                      length="2048"
+                      lineageId="Package\Crea Archivo Plano DMS DEA 04 Adjust Balance\Source DMS DEA 04 ADJUSTBALANCE.Outputs[OLE DB Source Output].Columns[FIELD.NAME]"
+                      name="FIELD.NAME"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Crea Archivo Plano DMS DEA 04 Adjust Balance\Source DMS DEA 04 ADJUSTBALANCE.Outputs[OLE DB Source Output].Columns[FIELD.VALUE]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Crea Archivo Plano DMS DEA 04 Adjust Balance\Source DMS DEA 04 ADJUSTBALANCE.Outputs[OLE DB Source Output].ExternalColumns[FIELD.VALUE]"
+                      length="2048"
+                      lineageId="Package\Crea Archivo Plano DMS DEA 04 Adjust Balance\Source DMS DEA 04 ADJUSTBALANCE.Outputs[OLE DB Source Output].Columns[FIELD.VALUE]"
+                      name="FIELD.VALUE"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Crea Archivo Plano DMS DEA 04 Adjust Balance\Source DMS DEA 04 ADJUSTBALANCE.Outputs[OLE DB Source Output].ExternalColumns[UPLOAD.COMPANY]"
+                      dataType="wstr"
+                      length="9"
+                      name="UPLOAD.COMPANY" />
+                    <externalMetadataColumn
+                      refId="Package\Crea Archivo Plano DMS DEA 04 Adjust Balance\Source DMS DEA 04 ADJUSTBALANCE.Outputs[OLE DB Source Output].ExternalColumns[ID/ARR.SEQUENCE]"
+                      dataType="wstr"
+                      length="18"
+                      name="ID/ARR.SEQUENCE" />
+                    <externalMetadataColumn
+                      refId="Package\Crea Archivo Plano DMS DEA 04 Adjust Balance\Source DMS DEA 04 ADJUSTBALANCE.Outputs[OLE DB Source Output].ExternalColumns[ARRANGEMENT]"
+                      dataType="wstr"
+                      length="12"
+                      name="ARRANGEMENT" />
+                    <externalMetadataColumn
+                      refId="Package\Crea Archivo Plano DMS DEA 04 Adjust Balance\Source DMS DEA 04 ADJUSTBALANCE.Outputs[OLE DB Source Output].ExternalColumns[ACTIVITY]"
+                      dataType="wstr"
+                      length="128"
+                      name="ACTIVITY" />
+                    <externalMetadataColumn
+                      refId="Package\Crea Archivo Plano DMS DEA 04 Adjust Balance\Source DMS DEA 04 ADJUSTBALANCE.Outputs[OLE DB Source Output].ExternalColumns[CUSTOMER]"
+                      dataType="wstr"
+                      length="128"
+                      name="CUSTOMER" />
+                    <externalMetadataColumn
+                      refId="Package\Crea Archivo Plano DMS DEA 04 Adjust Balance\Source DMS DEA 04 ADJUSTBALANCE.Outputs[OLE DB Source Output].ExternalColumns[CUSTOMER.ROLE]"
+                      dataType="wstr"
+                      length="128"
+                      name="CUSTOMER.ROLE" />
+                    <externalMetadataColumn
+                      refId="Package\Crea Archivo Plano DMS DEA 04 Adjust Balance\Source DMS DEA 04 ADJUSTBALANCE.Outputs[OLE DB Source Output].ExternalColumns[PRODUCT]"
+                      dataType="wstr"
+                      length="40"
+                      name="PRODUCT" />
+                    <externalMetadataColumn
+                      refId="Package\Crea Archivo Plano DMS DEA 04 Adjust Balance\Source DMS DEA 04 ADJUSTBALANCE.Outputs[OLE DB Source Output].ExternalColumns[CURRENCY]"
+                      dataType="wstr"
+                      length="3"
+                      name="CURRENCY" />
+                    <externalMetadataColumn
+                      refId="Package\Crea Archivo Plano DMS DEA 04 Adjust Balance\Source DMS DEA 04 ADJUSTBALANCE.Outputs[OLE DB Source Output].ExternalColumns[ORIG.CONTRACT.DATE]"
+                      dataType="wstr"
+                      length="8"
+                      name="ORIG.CONTRACT.DATE" />
+                    <externalMetadataColumn
+                      refId="Package\Crea Archivo Plano DMS DEA 04 Adjust Balance\Source DMS DEA 04 ADJUSTBALANCE.Outputs[OLE DB Source Output].ExternalColumns[PROPERTY]"
+                      dataType="wstr"
+                      length="1024"
+                      name="PROPERTY" />
+                    <externalMetadataColumn
+                      refId="Package\Crea Archivo Plano DMS DEA 04 Adjust Balance\Source DMS DEA 04 ADJUSTBALANCE.Outputs[OLE DB Source Output].ExternalColumns[FIELD.NAME]"
+                      dataType="wstr"
+                      length="2048"
+                      name="FIELD.NAME" />
+                    <externalMetadataColumn
+                      refId="Package\Crea Archivo Plano DMS DEA 04 Adjust Balance\Source DMS DEA 04 ADJUSTBALANCE.Outputs[OLE DB Source Output].ExternalColumns[FIELD.VALUE]"
+                      dataType="wstr"
+                      length="2048"
+                      name="FIELD.VALUE" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Crea Archivo Plano DMS DEA 04 Adjust Balance\Source DMS DEA 04 ADJUSTBALANCE.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Crea Archivo Plano DMS DEA 04 Adjust Balance\Source DMS DEA 04 ADJUSTBALANCE.Outputs[OLE DB Source Error Output].Columns[UPLOAD.COMPANY]"
+                      dataType="wstr"
+                      length="9"
+                      lineageId="Package\Crea Archivo Plano DMS DEA 04 Adjust Balance\Source DMS DEA 04 ADJUSTBALANCE.Outputs[OLE DB Source Error Output].Columns[UPLOAD.COMPANY]"
+                      name="UPLOAD.COMPANY" />
+                    <outputColumn
+                      refId="Package\Crea Archivo Plano DMS DEA 04 Adjust Balance\Source DMS DEA 04 ADJUSTBALANCE.Outputs[OLE DB Source Error Output].Columns[ID/ARR.SEQUENCE]"
+                      dataType="wstr"
+                      length="18"
+                      lineageId="Package\Crea Archivo Plano DMS DEA 04 Adjust Balance\Source DMS DEA 04 ADJUSTBALANCE.Outputs[OLE DB Source Error Output].Columns[ID/ARR.SEQUENCE]"
+                      name="ID/ARR.SEQUENCE" />
+                    <outputColumn
+                      refId="Package\Crea Archivo Plano DMS DEA 04 Adjust Balance\Source DMS DEA 04 ADJUSTBALANCE.Outputs[OLE DB Source Error Output].Columns[ARRANGEMENT]"
+                      dataType="wstr"
+                      length="12"
+                      lineageId="Package\Crea Archivo Plano DMS DEA 04 Adjust Balance\Source DMS DEA 04 ADJUSTBALANCE.Outputs[OLE DB Source Error Output].Columns[ARRANGEMENT]"
+                      name="ARRANGEMENT" />
+                    <outputColumn
+                      refId="Package\Crea Archivo Plano DMS DEA 04 Adjust Balance\Source DMS DEA 04 ADJUSTBALANCE.Outputs[OLE DB Source Error Output].Columns[ACTIVITY]"
+                      dataType="wstr"
+                      length="128"
+                      lineageId="Package\Crea Archivo Plano DMS DEA 04 Adjust Balance\Source DMS DEA 04 ADJUSTBALANCE.Outputs[OLE DB Source Error Output].Columns[ACTIVITY]"
+                      name="ACTIVITY" />
+                    <outputColumn
+                      refId="Package\Crea Archivo Plano DMS DEA 04 Adjust Balance\Source DMS DEA 04 ADJUSTBALANCE.Outputs[OLE DB Source Error Output].Columns[CUSTOMER]"
+                      dataType="wstr"
+                      length="128"
+                      lineageId="Package\Crea Archivo Plano DMS DEA 04 Adjust Balance\Source DMS DEA 04 ADJUSTBALANCE.Outputs[OLE DB Source Error Output].Columns[CUSTOMER]"
+                      name="CUSTOMER" />
+                    <outputColumn
+                      refId="Package\Crea Archivo Plano DMS DEA 04 Adjust Balance\Source DMS DEA 04 ADJUSTBALANCE.Outputs[OLE DB Source Error Output].Columns[CUSTOMER.ROLE]"
+                      dataType="wstr"
+                      length="128"
+                      lineageId="Package\Crea Archivo Plano DMS DEA 04 Adjust Balance\Source DMS DEA 04 ADJUSTBALANCE.Outputs[OLE DB Source Error Output].Columns[CUSTOMER.ROLE]"
+                      name="CUSTOMER.ROLE" />
+                    <outputColumn
+                      refId="Package\Crea Archivo Plano DMS DEA 04 Adjust Balance\Source DMS DEA 04 ADJUSTBALANCE.Outputs[OLE DB Source Error Output].Columns[PRODUCT]"
+                      dataType="wstr"
+                      length="40"
+                      lineageId="Package\Crea Archivo Plano DMS DEA 04 Adjust Balance\Source DMS DEA 04 ADJUSTBALANCE.Outputs[OLE DB Source Error Output].Columns[PRODUCT]"
+                      name="PRODUCT" />
+                    <outputColumn
+                      refId="Package\Crea Archivo Plano DMS DEA 04 Adjust Balance\Source DMS DEA 04 ADJUSTBALANCE.Outputs[OLE DB Source Error Output].Columns[CURRENCY]"
+                      dataType="wstr"
+                      length="3"
+                      lineageId="Package\Crea Archivo Plano DMS DEA 04 Adjust Balance\Source DMS DEA 04 ADJUSTBALANCE.Outputs[OLE DB Source Error Output].Columns[CURRENCY]"
+                      name="CURRENCY" />
+                    <outputColumn
+                      refId="Package\Crea Archivo Plano DMS DEA 04 Adjust Balance\Source DMS DEA 04 ADJUSTBALANCE.Outputs[OLE DB Source Error Output].Columns[ORIG.CONTRACT.DATE]"
+                      dataType="wstr"
+                      length="8"
+                      lineageId="Package\Crea Archivo Plano DMS DEA 04 Adjust Balance\Source DMS DEA 04 ADJUSTBALANCE.Outputs[OLE DB Source Error Output].Columns[ORIG.CONTRACT.DATE]"
+                      name="ORIG.CONTRACT.DATE" />
+                    <outputColumn
+                      refId="Package\Crea Archivo Plano DMS DEA 04 Adjust Balance\Source DMS DEA 04 ADJUSTBALANCE.Outputs[OLE DB Source Error Output].Columns[PROPERTY]"
+                      dataType="wstr"
+                      length="1024"
+                      lineageId="Package\Crea Archivo Plano DMS DEA 04 Adjust Balance\Source DMS DEA 04 ADJUSTBALANCE.Outputs[OLE DB Source Error Output].Columns[PROPERTY]"
+                      name="PROPERTY" />
+                    <outputColumn
+                      refId="Package\Crea Archivo Plano DMS DEA 04 Adjust Balance\Source DMS DEA 04 ADJUSTBALANCE.Outputs[OLE DB Source Error Output].Columns[FIELD.NAME]"
+                      dataType="wstr"
+                      length="2048"
+                      lineageId="Package\Crea Archivo Plano DMS DEA 04 Adjust Balance\Source DMS DEA 04 ADJUSTBALANCE.Outputs[OLE DB Source Error Output].Columns[FIELD.NAME]"
+                      name="FIELD.NAME" />
+                    <outputColumn
+                      refId="Package\Crea Archivo Plano DMS DEA 04 Adjust Balance\Source DMS DEA 04 ADJUSTBALANCE.Outputs[OLE DB Source Error Output].Columns[FIELD.VALUE]"
+                      dataType="wstr"
+                      length="2048"
+                      lineageId="Package\Crea Archivo Plano DMS DEA 04 Adjust Balance\Source DMS DEA 04 ADJUSTBALANCE.Outputs[OLE DB Source Error Output].Columns[FIELD.VALUE]"
+                      name="FIELD.VALUE" />
+                    <outputColumn
+                      refId="Package\Crea Archivo Plano DMS DEA 04 Adjust Balance\Source DMS DEA 04 ADJUSTBALANCE.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Crea Archivo Plano DMS DEA 04 Adjust Balance\Source DMS DEA 04 ADJUSTBALANCE.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Crea Archivo Plano DMS DEA 04 Adjust Balance\Source DMS DEA 04 ADJUSTBALANCE.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Crea Archivo Plano DMS DEA 04 Adjust Balance\Source DMS DEA 04 ADJUSTBALANCE.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Crea Archivo Plano DMS DEA 04 Adjust Balance.Paths[OLE DB Source Output]"
+              endId="Package\Crea Archivo Plano DMS DEA 04 Adjust Balance\Flat File Destination DMS DEA 04 ADJUSTBALANCE.Inputs[Flat File Destination Input]"
+              name="OLE DB Source Output"
+              startId="Package\Crea Archivo Plano DMS DEA 04 Adjust Balance\Source DMS DEA 04 ADJUSTBALANCE.Outputs[OLE DB Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Inicializa parametros"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{350b097e-439f-408c-be7b-c217b3aab228}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Inicializa parametros"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{70000693-BDE1-4FE0-B772-11B7D4A7A452}"
+          SQLTask:SqlStatementSource="-- =============================================&#xA;-- Autor:  José A. Guillen &#xA;-- Fecha de creación: 05-09-2022&#xA;-- Descripción:  Inicializa parametros desde valores guardados en una base de datos SQL Server para la Solución Migracion-Polaris-ETL1-v1.0&#xA;--      &#xA;-- Archivos Origen:  &#xA;--   &#xA;--      &#xA;-- Historia:&#xA;-- José A. Guillén 05-09-2022 Codificación inicial&#xA;-- =============================================&#xA;--&#xA;-- &lt;Aquí se debe colocar el código SQL que lee los parámetros que se van a manejar desde tablas de parámetros&gt; &#xA;--&#xA;SELECT 1 &#xA;--" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{aa04d94c-104d-4f9a-9b53-6893e35f4544}"
+      DTS:From="Package\Inicializa parametros"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\Crea Archivo Plano DMS DEA 04 Adjust Balance" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="303,42"
+          Id="Package\Crea Archivo Plano DMS DEA 04 Adjust Balance"
+          TopLeft="5.50000000000003,107.5" />
+        <NodeLayout
+          Size="176,42"
+          Id="Package\Inicializa parametros"
+          TopLeft="69,5.5" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="157,47.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Crea Archivo Plano DMS DEA 04 Adjust Balance">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="258,42"
+          Id="Package\Crea Archivo Plano DMS DEA 04 Adjust Balance\Source DMS DEA 04 ADJUSTBALANCE"
+          TopLeft="36,5.5" />
+        <NodeLayout
+          Size="319,42"
+          Id="Package\Crea Archivo Plano DMS DEA 04 Adjust Balance\Flat File Destination DMS DEA 04 ADJUSTBALANCE"
+          TopLeft="5.50000000000003,107.5" />
+        <EdgeLayout
+          Id="Package\Crea Archivo Plano DMS DEA 04 Adjust Balance.Paths[OLE DB Source Output]"
+          TopLeft="165,47.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Crea Archivo Plano DMS DEA 04 Adjust Balance\Source DMS DEA 04 ADJUSTBALANCE">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

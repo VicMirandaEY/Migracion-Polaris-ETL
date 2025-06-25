@@ -1,0 +1,285 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="12/7/2022 5:42:05 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="VENJJCR20"
+  DTS:CreatorName="CAF-CON\ls42731"
+  DTS:DTSID="{FC5AFC16-9D46-4245-A9FA-BA3D17FBA5BB}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="16.0.5270.0"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="PqTransformaDMS-LimitValidation"
+  DTS:PackageType="5"
+  DTS:VersionBuild="55"
+  DTS:VersionGUID="{0E31BCFB-E5A3-4ECA-9F77-D09FB4FAE531}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Filtra Mandatorios"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:Disabled="True"
+      DTS:DTSID="{73CBE5FA-7C03-4099-97FB-F25C55A81FB4}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Filtra Mandatorios"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{73E9BE98-144D-4887-A1CD-FCE6E4AB9CF5}"
+          SQLTask:SqlStatementSource="USE [STGPolaris]&#xA;GO&#xA;&#xA;TRUNCATE TABLE [STGPolaris].[dbo].[DMS-LIMIT-VALIDATION]&#xA;INSERT INTO [STGPolaris].[dbo].[DMS-LIMIT-VALIDATION]&#xA;SELECT [UPLOAD.COMPANY]&#xA;      ,[CREDIT.LINE.NO]&#xA;      ,[LIMIT.CURRENCY]&#xA;      ,[EXPIRY.DATE]&#xA;      ,[NOTES]&#xA;      ,[INTERNAL.AMOUNT]&#xA;      ,[LIMIT.PRODUCT]&#xA;      ,[CUSTOMER.NUMBER]&#xA;&#x9;  ,[FIXED.VARIABLE]&#xA;--      ,[AVAILABLE.MARKER]&#xA;  FROM [STGPolaris].[dbo].[DMS-LIMIT-VALIDATION-v1.4]&#xA; WHERE [UPLOAD.COMPANY] IS NOT NULL&#xA;   AND [CREDIT.LINE.NO] IS NOT NULL&#xA;   AND [LIMIT.CURRENCY] IS NOT NULL&#xA;   AND [EXPIRY.DATE]  IS NOT NULL&#xA;   AND [NOTES]  IS NOT NULL&#xA;   AND [INTERNAL.AMOUNT]  IS NOT NULL&#xA;   AND [LIMIT.PRODUCT]  IS NOT NULL&#xA;   AND [CUSTOMER.NUMBER]  IS NOT NULL&#xA;   AND [FIXED.VARIABLE] IS NOT NULL&#xA;--   AND [AVAILABLE.MARKER]  IS NOT NULL&#xA;GO&#xA;-- Fin" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Fix"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{073700BB-804F-48E7-BF37-BF4A71752915}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Fix"
+      DTS:ThreadHint="1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{70000693-BDE1-4FE0-B772-11B7D4A7A452}"
+          SQLTask:SqlStatementSource="USE [STGPolaris]&#xA;GO&#xA;&#xA;TRUNCATE TABLE [STGPolaris].[dbo].[DMS-LIMIT-VALIDATION]&#xA;INSERT INTO [STGPolaris].[dbo].[DMS-LIMIT-VALIDATION]&#xA;SELECT [UPLOAD.COMPANY]&#xA;      ,[CREDIT.LINE.NO]&#xA;      ,[LIMIT.CURRENCY]&#xA;      ,[EXPIRY.DATE]&#xA;      ,[NOTES]&#xA;      ,[INTERNAL.AMOUNT]&#xA;      ,[LIMIT.PRODUCT]&#xA;      ,[CUSTOMER.NUMBER]&#xA;&#x9;  ,[FIXED.VARIABLE]&#xA;--      ,[AVAILABLE.MARKER]&#xA;  FROM [STGPolaris].[dbo].[DMS-LIMIT-VALIDATION-v1.4]&#xA; WHERE [UPLOAD.COMPANY] IS NOT NULL&#xA;   AND [CREDIT.LINE.NO] IS NOT NULL&#xA;   AND [LIMIT.CURRENCY] IS NOT NULL&#xA;   AND [EXPIRY.DATE]  IS NOT NULL&#xA;   AND [NOTES]  IS NOT NULL&#xA;   AND [INTERNAL.AMOUNT]  IS NOT NULL&#xA;   AND [LIMIT.PRODUCT]  IS NOT NULL&#xA;   AND [CUSTOMER.NUMBER]  IS NOT NULL&#xA;   AND [FIXED.VARIABLE] IS NOT NULL&#xA;--   AND [AVAILABLE.MARKER]  IS NOT NULL&#xA;   AND [CREDIT.LINE.NO] NOT IN &#xA;(&#xA; 'LI0428190661'&#xA;,'LI0428790256'&#xA;,'LI0505600761'&#xA;,'LI0517990733'&#xA;,'LI0617800858'&#xA;,'LI0620590600'&#xA;,'LI0622090620'&#xA;,'LI0629700927'&#xA;,'LI0635690954'&#xA;,'LI0701993432'&#xA;,'LI0710300997'&#xA;,'LI0715291003'&#xA;,'LI0716490270'&#xA;,'LI0719001017'&#xA;,'LI0719001020'&#xA;,'LI0719001022'&#xA;,'LI0719001097'&#xA;,'LI0724901034'&#xA;,'LI0733001069'&#xA;,'LI0733801082'&#xA;,'LI0734391068'&#xA;,'LI0802501106'&#xA;,'LI0803001105'&#xA;,'LI0817690412'&#xA;,'LI0819201149'&#xA;,'LI0819201153'&#xA;,'LI0823401224'&#xA;,'LI0832391139'&#xA;,'LI0834001199'&#xA;,'LI0835301200'&#xA;,'LI0907601216'&#xA;,'LI0923001243'&#xA;,'LI0923001244'&#xA;,'LI0926401254'&#xA;,'LI0931401283'&#xA;,'LI0932001925'&#xA;,'LI0933101278'&#xA;,'LI0934201297'&#xA;,'LI0935501303'&#xA;,'LI0936301304'&#xA;,'LI0936301305'&#xA;,'LI1001101309'&#xA;,'LI1004001313'&#xA;,'LI1006701332'&#xA;,'LI1009501339'&#xA;,'LI1017901363'&#xA;,'LI1019001374'&#xA;,'LI1019001382'&#xA;,'LI1019001383'&#xA;,'LI1019601373'&#xA;,'LI1021801440'&#xA;,'LI1022801403'&#xA;,'LI1022991301'&#xA;,'LI1024601418'&#xA;,'LI1027401430'&#xA;,'LI1027401431'&#xA;,'LI1028401434'&#xA;,'LI1028401465'&#xA;,'LI1028401470'&#xA;,'LI1028401534'&#xA;,'LI1030001091'&#xA;,'LI1031291366'&#xA;,'LI1033401459'&#xA;,'LI1033401462'&#xA;,'LI1035101475'&#xA;,'LI1035401474'&#xA;,'LI1035701473'&#xA;,'LI1101301484'&#xA;,'LI1107401513'&#xA;,'LI1107401562'&#xA;,'LI1113001520'&#xA;,'LI1113901552'&#xA;,'LI1117901543'&#xA;,'LI1117901545'&#xA;,'LI1117991541'&#xA;,'LI1130401588'&#xA;,'LI1132001604'&#xA;,'LI1133301597'&#xA;,'LI1133301598'&#xA;,'LI1133301599'&#xA;,'LI1133301600'&#xA;,'LI1133401634'&#xA;,'LI1133401671'&#xA;,'LI1135001655'&#xA;,'LI1135501618'&#xA;,'LI1135601616'&#xA;,'LI1206601654'&#xA;,'LI1206601676'&#xA;,'LI1206601677'&#xA;,'LI1216001694'&#xA;,'LI1218501705'&#xA;,'LI1218501709'&#xA;,'LI1218501710'&#xA;,'LI1218501726'&#xA;,'LI1221401754'&#xA;,'LI1231101791'&#xA;,'LI1231101793'&#xA;,'LI1233201788'&#xA;,'LI1233201789'&#xA;,'LI1233201792'&#xA;,'LI1233201794'&#xA;,'LI1233201796'&#xA;,'LI1235301832'&#xA;,'LI1235301843'&#xA;,'LI1235401827'&#xA;,'LI1235501821'&#xA;,'LI1303801909'&#xA;,'LI1306401858'&#xA;,'LI1306401864'&#xA;,'LI1314801894'&#xA;,'LI1318301908'&#xA;,'LI1318301910'&#xA;,'LI1318301913'&#xA;,'LI1321401936'&#xA;,'LI1321901926'&#xA;,'LI1323401929'&#xA;,'LI1324201951'&#xA;,'LI1326601966'&#xA;,'LI1326901980'&#xA;,'LI1328401983'&#xA;,'LI1330401988'&#xA;,'LI1330801986'&#xA;,'LI1330801990'&#xA;,'LI1330901989'&#xA;,'LI1333002008'&#xA;,'LI1333602032'&#xA;,'LI1333702020'&#xA;,'LI1333702021'&#xA;,'LI1333702031'&#xA;,'LI1333702035'&#xA;,'LI1333702045'&#xA;,'LI1333702047'&#xA;,'LI1333702083'&#xA;,'LI1334302025'&#xA;,'LI1334402067'&#xA;,'LI1334702059'&#xA;,'LI1335402048'&#xA;,'LI1335402052'&#xA;,'LI1335702074'&#xA;,'LI1335702075'&#xA;,'LI1335702082'&#xA;,'LI1335702085'&#xA;,'LI1336002081'&#xA;,'LI1403402120'&#xA;,'LI1403602121'&#xA;,'LI1403702122'&#xA;,'LI1407702139'&#xA;,'LI1407702141'&#xA;,'LI1412502176'&#xA;,'LI1418502192'&#xA;,'LI1419602196'&#xA;,'LI1419602203'&#xA;,'LI1419602204'&#xA;,'LI1419602205'&#xA;,'LI1423002216'&#xA;,'LI1425502223'&#xA;,'LI1425902226'&#xA;,'LI1430002248'&#xA;,'LI1431102262'&#xA;,'LI1432502266'&#xA;,'LI1433202286'&#xA;,'LI1433902290'&#xA;,'LI1433902296'&#xA;,'LI1434402287'&#xA;,'LI1435202288'&#xA;,'LI1435302279'&#xA;,'LI1435302285'&#xA;,'LI1435602275'&#xA;,'LI1435602282'&#xA;,'LI1435602292'&#xA;,'LI1435702281'&#xA;,'LI1500902313'&#xA;,'LI1506902325'&#xA;,'LI1506902326'&#xA;,'LI1508902990'&#xA;,'LI1509002335'&#xA;,'LI1509702348'&#xA;,'LI1519002361'&#xA;,'LI1519502364'&#xA;,'LI1519502369'&#xA;,'LI1519502378'&#xA;,'LI1519502381'&#xA;,'LI1519702370'&#xA;,'LI1521602412'&#xA;,'LI1521702382'&#xA;,'LI1521802473'&#xA;,'LI1527102393'&#xA;,'LI1527102399'&#xA;,'LI1527202391'&#xA;,'LI1527302397'&#xA;,'LI1527402400'&#xA;,'LI1528602406'&#xA;,'LI1529602409'&#xA;,'LI1530902416'&#xA;,'LI1531002417'&#xA;,'LI1533102421'&#xA;,'LI1533102422'&#xA;,'LI1533102424'&#xA;,'LI1533102425'&#xA;,'LI1533102426'&#xA;,'LI1533102427'&#xA;,'LI1534102438'&#xA;,'LI1535002449'&#xA;,'LI1535002464'&#xA;,'LI1535102456'&#xA;,'LI1535102465'&#xA;,'LI1535702501'&#xA;,'LI1602802474'&#xA;,'LI1607502495'&#xA;,'LI1607502499'&#xA;,'LI1609902507'&#xA;,'LI1613702519'&#xA;,'LI1614702522'&#xA;,'LI1614702523'&#xA;,'LI1615902528'&#xA;,'LI1618002530'&#xA;,'LI1618202535'&#xA;,'LI1620102545'&#xA;,'LI1620102546'&#xA;,'LI1620102547'&#xA;,'LI1620102548'&#xA;,'LI1620102549'&#xA;,'LI1620102550'&#xA;,'LI1620102551'&#xA;,'LI1620102552'&#xA;,'LI1626702586'&#xA;,'LI1626702589'&#xA;,'LI1629202599'&#xA;,'LI1630202607'&#xA;,'LI1633502621'&#xA;,'LI1634802629'&#xA;,'LI1634802634'&#xA;,'LI1634802637'&#xA;,'LI1634802641'&#xA;,'LI1635002647'&#xA;,'LI1635402645'&#xA;,'LI1635402646'&#xA;,'LI1635502643'&#xA;,'LI1635602659'&#xA;,'LI1636402654'&#xA;,'LI1700902656'&#xA;,'LI1701702663'&#xA;,'LI1704402670'&#xA;,'LI1707302692'&#xA;,'LI1718102710'&#xA;,'LI1718502711'&#xA;,'LI1718502712'&#xA;,'LI1718502713'&#xA;,'LI1718502715'&#xA;,'LI1718502717'&#xA;,'LI1722302730'&#xA;,'LI1724802734'&#xA;,'LI1725502735'&#xA;,'LI1730302742'&#xA;,'LI1730302743'&#xA;,'LI1732002752'&#xA;,'LI1732602753'&#xA;,'LI1732802756'&#xA;,'LI1733902760'&#xA;,'LI1733902761'&#xA;,'LI1733902762'&#xA;,'LI1733902765'&#xA;,'LI1733902766'&#xA;,'LI1733902767'&#xA;,'LI1733902771'&#xA;,'LI1734502788'&#xA;,'LI1734502789'&#xA;,'LI1734602774'&#xA;,'LI1734902797'&#xA;,'LI1735502786'&#xA;,'LI1735502796'&#xA;,'LI1735502886'&#xA;,'LI1736002795'&#xA;,'LI1736302802'&#xA;,'LI1805202810'&#xA;,'LI1807202813'&#xA;,'LI1809602814'&#xA;,'LI1816502821'&#xA;,'LI1816902823'&#xA;,'LI1819802830'&#xA;,'LI1819802831'&#xA;,'LI1819802832'&#xA;,'LI1819802833'&#xA;,'LI1819802834'&#xA;,'LI1819802835'&#xA;,'LI1819802838'&#xA;,'LI1820402840'&#xA;,'LI1823402854'&#xA;,'LI1825702871'&#xA;,'LI1826002955'&#xA;,'LI1829502883'&#xA;,'LI1829902884'&#xA;,'LI1831103119'&#xA;,'LI1833802895'&#xA;,'LI1833802896'&#xA;,'LI1833802898'&#xA;,'LI1833802909'&#xA;,'LI1833802926'&#xA;,'LI1833802933'&#xA;,'LI1833802934'&#xA;,'LI1834802904'&#xA;,'LI1835302912'&#xA;,'LI1835402923'&#xA;,'LI1835502918'&#xA;,'LI1835502927'&#xA;,'LI1836002919'&#xA;,'LI1836002925'&#xA;,'LI1836202940'&#xA;,'LI1903802951'&#xA;,'LI1907102962'&#xA;,'LI1907102963'&#xA;,'LI1907102967'&#xA;,'LI1907902966'&#xA;,'LI1909202969'&#xA;,'LI1910502974'&#xA;,'LI1910502975'&#xA;,'LI1912302994'&#xA;,'LI1915102997'&#xA;,'LI1919003008'&#xA;,'LI1919003009'&#xA;,'LI1919003010'&#xA;,'LI1921203020'&#xA;,'LI1925203033'&#xA;,'LI1925593029'&#xA;,'LI1926903036'&#xA;,'LI1932203058'&#xA;,'LI1933703067'&#xA;,'LI1933703068'&#xA;,'LI1933703072'&#xA;,'LI1933703094'&#xA;,'LI1933703096'&#xA;,'LI1933703097'&#xA;,'LI1933703098'&#xA;,'LI1933703870'&#xA;,'LI1933803095'&#xA;,'LI1935103109'&#xA;,'LI1935403087'&#xA;,'LI1935403115'&#xA;,'LI1935703085'&#xA;,'LI1935703090'&#xA;,'LI1936003086'&#xA;,'LI2001693117'&#xA;,'LI2002993118'&#xA;,'LI2004403120'&#xA;,'LI2005902478'&#xA;,'LI2006303122'&#xA;,'LI2006303123'&#xA;,'LI2007903134'&#xA;,'LI2008003124'&#xA;,'LI2008303135'&#xA;,'LI2008403128'&#xA;,'LI2009103132'&#xA;,'LI2009403143'&#xA;,'LI2009903141'&#xA;,'LI2010403147'&#xA;,'LI2011803156'&#xA;,'LI2011803159'&#xA;,'LI2011903160'&#xA;,'LI2011903161'&#xA;,'LI2016103180'&#xA;,'LI2017593193'&#xA;,'LI2017793185'&#xA;,'LI2017793191'&#xA;,'LI2018203195'&#xA;,'LI2018903196'&#xA;,'LI2018903198'&#xA;,'LI2018903199'&#xA;,'LI2018903200'&#xA;,'LI2021103209'&#xA;,'LI2021603210'&#xA;,'LI2022703212'&#xA;,'LI2025503218'&#xA;,'LI2029703230'&#xA;,'LI2032103242'&#xA;,'LI2033603247'&#xA;,'LI2033603248'&#xA;,'LI2033603254'&#xA;,'LI2033603257'&#xA;,'LI2033603261'&#xA;,'LI2034603262'&#xA;,'LI2034903276'&#xA;,'LI2035303246'&#xA;,'LI2035303269'&#xA;,'LI2035303270'&#xA;,'LI2035703268'&#xA;,'LI2103603285'&#xA;,'LI2104893287'&#xA;,'LI2106103289'&#xA;,'LI2106103290'&#xA;,'LI2106103291'&#xA;,'LI2107003294'&#xA;,'LI2108403298'&#xA;,'LI2114403305'&#xA;,'LI2117403314'&#xA;,'LI2118103315'&#xA;,'LI2118603330'&#xA;,'LI2118903316'&#xA;,'LI2118903317'&#xA;,'LI2118903318'&#xA;,'LI2118903319'&#xA;,'LI2118903320'&#xA;,'LI2119303324'&#xA;,'LI2120403321'&#xA;,'LI2120403328'&#xA;,'LI2121003329'&#xA;,'LI2121493331'&#xA;,'LI2124903336'&#xA;,'LI2131303355'&#xA;,'LI2131303356'&#xA;,'LI2132203358'&#xA;,'LI2132603362'&#xA;,'LI2132803359'&#xA;,'LI2133303364'&#xA;,'LI2133703396'&#xA;,'LI2134103372'&#xA;,'LI2134103373'&#xA;,'LI2134303374'&#xA;,'LI2134993406'&#xA;,'LI2135103390'&#xA;,'LI2135403385'&#xA;,'LI2135403386'&#xA;,'LI2135403387'&#xA;,'LI2135603388'&#xA;,'LI2135803391'&#xA;,'LI2135803393'&#xA;,'LI2135803394'&#xA;,'LI2135803395'&#xA;,'LI2136593403'&#xA;,'LI2202693410'&#xA;,'LI2202703408'&#xA;,'LI2206703413'&#xA;,'LI2206703422'&#xA;,'LI2206703423'&#xA;,'LI2206703424'&#xA;,'LI2206703425'&#xA;,'LI2207693426'&#xA;,'LI2207693428'&#xA;,'LI2208303433'&#xA;,'LI2209693438'&#xA;,'LI2210993441'&#xA;,'LI2211203439'&#xA;,'LI2213093443'&#xA;,'LI2213993445'&#xA;,'LI2214503451'&#xA;,'LI2216593476'&#xA;,'LI2216893472'&#xA;,'LI2217393469'&#xA;,'LI2217393474'&#xA;,'LI2217903473'&#xA;,'LI2218193651'&#xA;,'LI2218803478'&#xA;,'LI2218893483'&#xA;,'LI2218893493'&#xA;,'LI2219593525'&#xA;,'LI2220003487'&#xA;,'LI2220003488'&#xA;,'LI2220003489'&#xA;,'LI2220003491'&#xA;,'LI2220003496'&#xA;,'LI2220193492'&#xA;,'LI2221003494'&#xA;,'LI2221003495'&#xA;,'LI2221003497'&#xA;,'LI2221393529'&#xA;,'LI2221503498'&#xA;,'LI2221503499'&#xA;,'LI2222303502'&#xA;,'LI2222403440'&#xA;,'LI2223693530'&#xA;,'LI2223893533'&#xA;,'LI2224593527'&#xA;,'LI2224593531'&#xA;,'LI2225193621'&#xA;,'LI2225893543'&#xA;,'LI2225903538'&#xA;,'LI2230203552'&#xA;,'LI2230403554'&#xA;,'LI2232803568'&#xA;,'LI2233693619'&#xA;,'LI2234003575'&#xA;,'LI2234203578'&#xA;,'LI2234603579'&#xA;,'LI2235003586'&#xA;,'LI2235303585'&#xA;,'LI2235603598'&#xA;,'LI2236403602'&#xA;,'LI2236403603'&#xA;,'LI2236403604'&#xA;,'LI2236403605'&#xA;,'LI2236403606'&#xA;,'LI2236403609'&#xA;,'LI2236403610'&#xA;,'LI2236403611'&#xA;,'LI2236403612'&#xA;,'LI2302593622'&#xA;,'LI2303193624'&#xA;,'LI2306603627'&#xA;,'LI2306603628'&#xA;,'LI2306603629'&#xA;,'LI2307903635'&#xA;,'LI2307903636'&#xA;,'LI2311493641'&#xA;,'LI2312203644'&#xA;,'LI2312993645'&#xA;,'LI2312993647'&#xA;,'LI2312993649'&#xA;,'LI2314593683'&#xA;,'LI2314993691'&#xA;,'LI2315303657'&#xA;,'LI2317003658'&#xA;,'LI2317003660'&#xA;,'LI2317293659'&#xA;,'LI2318893665'&#xA;,'LI2319203661'&#xA;,'LI2319203662'&#xA;,'LI2319203677'&#xA;,'LI2321393686'&#xA;,'LI2325603708'&#xA;,'LI2325703699'&#xA;,'LI2325703700'&#xA;,'LI2325703701'&#xA;,'LI2328303713'&#xA;,'LI2330403721'&#xA;,'LI2331003729'&#xA;,'LI2333203732'&#xA;,'LI2333503737'&#xA;,'LI2333803741'&#xA;,'LI2333803752'&#xA;,'LI2334203736'&#xA;,'LI2334203738'&#xA;,'LI2334203739'&#xA;,'LI2334203742'&#xA;,'LI2334203743'&#xA;,'LI2334203750'&#xA;,'LI2334203753'&#xA;,'LI2334203754'&#xA;,'LI2334203755'&#xA;,'LI2334203758'&#xA;,'LI2334503749'&#xA;,'LI2334703744'&#xA;,'LI2334793787'&#xA;,'LI2335303759'&#xA;,'LI2335303761'&#xA;,'LI2335303765'&#xA;,'LI2335303766'&#xA;,'LI2335303767'&#xA;,'LI2335303772'&#xA;,'LI2335303773'&#xA;,'LI2335303774'&#xA;,'LI2335403760'&#xA;,'LI2336103775'&#xA;,'LI2336103776'&#xA;,'LI2336403781'&#xA;,'LI2402203790'&#xA;,'LI2405493793'&#xA;,'LI2406703800'&#xA;,'LI2406703801'&#xA;,'LI2406803798'&#xA;,'LI2409203807'&#xA;,'LI2409203808'&#xA;,'LI2410703819'&#xA;,'LI2413703831'&#xA;,'LI2417903841'&#xA;,'LI2420003845'&#xA;,'LI2420003849'&#xA;,'LI2420003850'&#xA;,'LI2420003851'&#xA;,'LI2420003852'&#xA;,'LI2420003853'&#xA;,'LI2420003855'&#xA;,'LI2420003856'&#xA;,'LI2420003857'&#xA;,'LI2420003858'&#xA;,'LI2421503873'&#xA;,'LI2426003890'&#xA;,'LI2426093894'&#xA;,'LI2426303882'&#xA;,'LI2426903893'&#xA;,'LI2427093892'&#xA;,'LI2427503897'&#xA;,'LI2427503898'&#xA;,'LI2428203899'&#xA;,'LI2431103917'&#xA;,'LI2431203909'&#xA;,'LI2432493916'&#xA;,'LI2432703905'&#xA;,'LI2432703918'&#xA;,'LI2434003923'&#xA;,'LI2434003924'&#xA;,'LI2434003925'&#xA;,'LI2434003926'&#xA;,'LI2434003928'&#xA;,'LI2434003929'&#xA;,'LI2434003932'&#xA;,'LI2434003942'&#xA;,'LI2434003953'&#xA;,'LI2434003955'&#xA;,'LI2434003957'&#xA;,'LI2434103944'&#xA;,'LI2434803954'&#xA;,'LI2434893935'&#xA;,'LI2435393939'&#xA;,'LI2435403950'&#xA;,'LI2435403956'&#xA;,'LI2435803951'&#xA;,'LI2435803952'&#xA;,'LI2435803958'&#xA;,'LI2435803959'&#xA;,'LI2435803962'&#xA;,'LI2435903960'&#xA;,'LI2435903963'&#xA;,'LI2435903964'&#xA;,'LI2436403965'&#xA;,'LI2436403966'&#xA;,'LI2436403967'&#xA;,'LI2436403970'&#xA;,'LI2436503971'&#xA;,'LI2436503973'&#xA;,'LI2436503974'&#xA;,'LI2500993975'&#xA;,'LI2501703976'&#xA;,'LI2503503980'&#xA;,'LI2503703979'&#xA;,'LI2505293992'&#xA;,'LI2505303981'&#xA;,'LI2505703982'&#xA;,'LI2505893983'&#xA;,'LI2506993989'&#xA;,'LI2507093985'&#xA;,'LI2507893990'&#xA;,'LI2508603994'&#xA;,'LI2508603995'&#xA;,'LI2508603996'&#xA;,'LI2508603997'&#xA;,'LI2508603998'&#xA;,'LI2508603999'&#xA;,'LI2508604000'&#xA;,'LI2508604001'&#xA;,'LI2508604002'&#xA;,'LI2509804005'&#xA;,'LI2510694003'&#xA;,'LI2511994007'&#xA;,'LI2512104006'&#xA;,'LI2512704008'&#xA;,'LI2513204BG7'&#xA;,'LI2513206HNL'&#xA;,'LI2513207K0Y'&#xA;,'LI2513209GCV'&#xA;,'LI251320H24X'&#xA;,'LI251320MPFT'&#xA;,'LI251320MQ1J'&#xA;,'LI251320V0RB'&#xA;,'LI251320X7WS'&#xA;,'LI2513216PR9'&#xA;,'LI2513218HC7'&#xA;,'LI251321DX4P'&#xA;,'LI251321HKP8'&#xA;,'LI251321MGR4'&#xA;,'LI251321QF9R'&#xA;,'LI251321SMG7'&#xA;,'LI251321X7YV'&#xA;,'LI2513220T93'&#xA;,'LI2513222S8D'&#xA;,'LI251322698H'&#xA;,'LI251322B9B1'&#xA;,'LI251322HNQC'&#xA;,'LI251322NS9M'&#xA;,'LI251322PDG7'&#xA;,'LI251322VZDC'&#xA;,'LI251322WLPD'&#xA;,'LI2513232QLN'&#xA;,'LI25132357LP'&#xA;,'LI2513236R71'&#xA;,'LI2513238MDK'&#xA;,'LI2513239R1J'&#xA;,'LI251323FVCL'&#xA;,'LI251323J712'&#xA;,'LI251323LC1C'&#xA;,'LI251323RWLJ'&#xA;,'LI251323TDZG'&#xA;,'LI251323WHB9'&#xA;,'LI2513240NGJ'&#xA;,'LI2513243XKZ'&#xA;,'LI25132478FF'&#xA;,'LI2513248YX4'&#xA;,'LI251324CHNB'&#xA;,'LI251324F6W0'&#xA;,'LI251324F77R'&#xA;,'LI251324HS58'&#xA;,'LI251324JX4S'&#xA;,'LI251324LZN1'&#xA;,'LI251324MDJ6'&#xA;,'LI251324TZLG'&#xA;,'LI251324V2SB'&#xA;,'LI251324WTZ8'&#xA;,'LI2513252Y18'&#xA;,'LI2513253NKG'&#xA;,'LI2513254GQ8'&#xA;,'LI2513258QJN'&#xA;,'LI2513258XB4'&#xA;,'LI2513259ZH1'&#xA;,'LI251325B5Z9'&#xA;,'LI251325BQR2'&#xA;,'LI251325HSZ0'&#xA;,'LI251325NQJ2'&#xA;,'LI251325PSZR'&#xA;,'LI251325QY9F'&#xA;,'LI251325YDCQ'&#xA;,'LI251325YG22'&#xA;,'LI2513263V1S'&#xA;,'LI251326Q4LF'&#xA;,'LI251326S65B'&#xA;,'LI251326SD9P'&#xA;,'LI251326SMDK'&#xA;,'LI251326TPGJ'&#xA;,'LI2513270VM0'&#xA;,'LI25132765ZR'&#xA;,'LI251327DHMX'&#xA;,'LI251327YGVX'&#xA;,'LI251327ZJCK'&#xA;,'LI2513283SCJ'&#xA;,'LI2513283WFX'&#xA;,'LI2513285GRH'&#xA;,'LI2513285HD0'&#xA;,'LI2513286JP6'&#xA;,'LI2513286VPP'&#xA;,'LI2513287X6Y'&#xA;,'LI251328KGS3'&#xA;,'LI251328R3SW'&#xA;,'LI251328TGJ3'&#xA;,'LI2513293HVY'&#xA;,'LI2513294FTB'&#xA;,'LI2513295DFJ'&#xA;,'LI25132980DB'&#xA;,'LI25132986MC'&#xA;,'LI2513299TKQ'&#xA;,'LI251329CNDT'&#xA;,'LI251329CVX1'&#xA;,'LI251329FNPV'&#xA;,'LI251329G2G0'&#xA;,'LI251329H39N'&#xA;,'LI251329NJRZ'&#xA;,'LI251329QJMR'&#xA;,'LI251329SXPY'&#xA;,'LI251329X8RV'&#xA;,'LI25132B0D0M'&#xA;,'LI25132B471T'&#xA;,'LI25132B4F72'&#xA;,'LI25132B94HX'&#xA;,'LI25132B9PZZ'&#xA;,'LI25132BCY7K'&#xA;,'LI25132BKMQW'&#xA;,'LI25132BSYRM'&#xA;,'LI25132BT13J'&#xA;,'LI25132BVCX0'&#xA;,'LI25132BZLRK'&#xA;,'LI25132C3551'&#xA;,'LI25132CC81M'&#xA;,'LI25132CDLGB'&#xA;,'LI25132CF39W'&#xA;,'LI25132CK36Q'&#xA;,'LI25132CPWGL'&#xA;,'LI25132CQ14Z'&#xA;,'LI25132CXVFZ'&#xA;,'LI25132CYK2N'&#xA;,'LI25132D1GLP'&#xA;,'LI25132D3CV6'&#xA;,'LI25132D8QY4'&#xA;,'LI25132D9KSJ'&#xA;,'LI25132DCJYB'&#xA;,'LI25132DD9NC'&#xA;,'LI25132DDHD2'&#xA;,'LI25132DSMPK'&#xA;,'LI25132DV3BS'&#xA;,'LI25132F1Y97'&#xA;,'LI25132FG1Y0'&#xA;,'LI25132FHZRH'&#xA;,'LI25132FJ5SB'&#xA;,'LI25132FN2JF'&#xA;,'LI25132FN2T3'&#xA;,'LI25132FP9K9'&#xA;,'LI25132FPDZ9'&#xA;,'LI25132FQLQX'&#xA;,'LI25132FTVRQ'&#xA;,'LI25132FVTFN'&#xA;,'LI25132FWZQC'&#xA;,'LI25132FYC0G'&#xA;,'LI25132G0NQV'&#xA;,'LI25132G0XXL'&#xA;,'LI25132G2Z0J'&#xA;,'LI25132GBQL1'&#xA;,'LI25132GDJYH'&#xA;,'LI25132GR7T5'&#xA;,'LI25132GRXFY'&#xA;,'LI25132GTHMC'&#xA;,'LI25132GVWH3'&#xA;,'LI25132GXJ1J'&#xA;,'LI25132H0818'&#xA;,'LI25132H4L52'&#xA;,'LI25132H4PHQ'&#xA;,'LI25132H5SJX'&#xA;,'LI25132H7YNF'&#xA;,'LI25132HBTCK'&#xA;,'LI25132HCC6Q'&#xA;,'LI25132HCWK8'&#xA;,'LI25132HFJRJ'&#xA;,'LI25132HG0SQ'&#xA;,'LI25132HHLYN'&#xA;,'LI25132HM4GW'&#xA;,'LI25132HPJBT'&#xA;,'LI25132HRJZ2'&#xA;,'LI25132HWP6S'&#xA;,'LI25132J2TMJ'&#xA;,'LI25132J4R3V'&#xA;,'LI25132J5F3G'&#xA;,'LI25132J6N5B'&#xA;,'LI25132J7FLS'&#xA;,'LI25132J80V2'&#xA;,'LI25132J9RWN'&#xA;,'LI25132J9Z0F'&#xA;,'LI25132JB5TT'&#xA;,'LI25132JCTSQ'&#xA;,'LI25132JCYW9'&#xA;,'LI25132JDXKD'&#xA;,'LI25132JF8VT'&#xA;,'LI25132JM7YL'&#xA;,'LI25132JMQTT'&#xA;,'LI25132JNVBP'&#xA;,'LI25132JPCT2'&#xA;,'LI25132JR4VX'&#xA;,'LI25132JWVNC'&#xA;,'LI25132JXHW4'&#xA;,'LI25132JYT7T'&#xA;,'LI25132JZVKQ'&#xA;,'LI25132KC216'&#xA;,'LI25132KH9PP'&#xA;,'LI25132KL22X'&#xA;,'LI25132KLCRC'&#xA;,'LI25132KNRB0'&#xA;,'LI25132KPHM3'&#xA;,'LI25132KXDZX'&#xA;,'LI25132KZ0YJ'&#xA;,'LI25132L1L6H'&#xA;,'LI25132L33MX'&#xA;,'LI25132LBC08'&#xA;,'LI25132LBP5N'&#xA;,'LI25132LFZ55'&#xA;,'LI25132LHDPN'&#xA;,'LI25132LJZ36'&#xA;,'LI25132LKM99'&#xA;,'LI25132LNMG3'&#xA;,'LI25132LRJ9S'&#xA;,'LI25132LWLF6'&#xA;,'LI25132M1FCP'&#xA;,'LI25132M8WL5'&#xA;,'LI25132MFZSF'&#xA;,'LI25132MGQK1'&#xA;,'LI25132MJSXR'&#xA;,'LI25132MKPWM'&#xA;,'LI25132MMD6S'&#xA;,'LI25132MNNRZ'&#xA;,'LI25132MP5XB'&#xA;,'LI25132N0ZJQ'&#xA;,'LI25132N5CSN'&#xA;,'LI25132N5W29'&#xA;,'LI25132N8LZ1'&#xA;,'LI25132NBWWQ'&#xA;,'LI25132NH7VN'&#xA;,'LI25132NHY2K'&#xA;,'LI25132NP9DN'&#xA;,'LI25132NQXV9'&#xA;,'LI25132NXP6N'&#xA;,'LI25132NZFT4'&#xA;,'LI25132P44WH'&#xA;,'LI25132P4Y3C'&#xA;,'LI25132P6L27'&#xA;,'LI25132PGTCV'&#xA;,'LI25132PJHX8'&#xA;,'LI25132PWMHV'&#xA;,'LI25132PYNZH'&#xA;,'LI25132Q0MVM'&#xA;,'LI25132Q5QB4'&#xA;,'LI25132Q6R01'&#xA;,'LI25132Q9B66'&#xA;,'LI25132QBVR9'&#xA;,'LI25132QCFVR'&#xA;,'LI25132QCZQT'&#xA;,'LI25132QL1P1'&#xA;,'LI25132QM6GW'&#xA;,'LI25132QM8L8'&#xA;,'LI25132QMDJL'&#xA;,'LI25132QRMRV'&#xA;,'LI25132QWC6B'&#xA;,'LI25132R02J5'&#xA;,'LI25132R03T7'&#xA;,'LI25132R0V0V'&#xA;,'LI25132R2XPB'&#xA;,'LI25132R31MZ'&#xA;,'LI25132R4PK5'&#xA;,'LI25132R7680'&#xA;,'LI25132RHK1H'&#xA;,'LI25132RL3X0'&#xA;,'LI25132RPMLP'&#xA;,'LI25132RW2YM'&#xA;,'LI25132RXG5F'&#xA;,'LI25132RXZLZ'&#xA;,'LI25132S1B83'&#xA;,'LI25132S2ZF5'&#xA;,'LI25132S5DN7'&#xA;,'LI25132SDQ3F'&#xA;,'LI25132SHV3Y'&#xA;,'LI25132SJ6X3'&#xA;,'LI25132SLGXG'&#xA;,'LI25132SMKZP'&#xA;,'LI25132SPPZM'&#xA;,'LI25132SSJ0T'&#xA;,'LI25132STXMZ'&#xA;,'LI25132SVL8S'&#xA;,'LI25132SVYLH'&#xA;,'LI25132SWL2L'&#xA;,'LI25132SY8CH'&#xA;,'LI25132SYHMV'&#xA;,'LI25132T0VQV'&#xA;,'LI25132T3BZL'&#xA;,'LI25132T8K30'&#xA;,'LI25132T9Y3G'&#xA;,'LI25132TG5VX'&#xA;,'LI25132TNPR2'&#xA;,'LI25132TS76B'&#xA;,'LI25132TY5KX'&#xA;,'LI25132V3M2W'&#xA;,'LI25132V67GL'&#xA;,'LI25132V7M77'&#xA;,'LI25132VH478'&#xA;,'LI25132VQBJH'&#xA;,'LI25132VSX7M'&#xA;,'LI25132VTL5G'&#xA;,'LI25132VX14Q'&#xA;,'LI25132VZ5MC'&#xA;,'LI25132W0V8W'&#xA;,'LI25132W296Y'&#xA;,'LI25132W43B3'&#xA;,'LI25132W5RM3'&#xA;,'LI25132W65X8'&#xA;,'LI25132WDL96'&#xA;,'LI25132WF1L9'&#xA;,'LI25132WQJ2Y'&#xA;,'LI25132WVLPD'&#xA;,'LI25132WWMYZ'&#xA;,'LI25132WXSTL'&#xA;,'LI25132WY2RC'&#xA;,'LI25132X00N2'&#xA;,'LI25132X11NP'&#xA;,'LI25132X3K03'&#xA;,'LI25132X4V8C'&#xA;,'LI25132XGCRY'&#xA;,'LI25132XL9S3'&#xA;,'LI25132XLJ79'&#xA;,'LI25132XMNRV'&#xA;,'LI25132XPHKB'&#xA;,'LI25132XR2PG'&#xA;,'LI25132XSXSJ'&#xA;,'LI25132XVGLL'&#xA;,'LI25132XZN9D'&#xA;,'LI25132Y2CX8'&#xA;,'LI25132Y5MFN'&#xA;,'LI25132Y9Y0T'&#xA;,'LI25132YB6QV'&#xA;,'LI25132YHB6P'&#xA;,'LI25132YMLTL'&#xA;,'LI25132YMTFB'&#xA;,'LI25132YNJ64'&#xA;,'LI25132YNM38'&#xA;,'LI25132YQQBJ'&#xA;,'LI25132YRJ6R'&#xA;,'LI25132YT6M1'&#xA;,'LI25132YY5DM'&#xA;,'LI25132YZB79'&#xA;,'LI25132YZFSQ'&#xA;,'LI25132Z2C1H'&#xA;,'LI25132Z8CCG'&#xA;,'LI25132ZF3ZF'&#xA;,'LI25132ZG8SN'&#xA;,'LI25132ZGYV2'&#xA;,'LI25132ZHVD6'&#xA;,'LI25132ZLYMY'&#xA;,'LI25132ZQZ7L'&#xA;,'LI25132ZS5HY'&#xA;,'LI9630690292'&#xA;,'LI9714403014'&#xA;)&#xA;GO" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Inicializa parametros"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{5e3ac627-0bf2-4733-b436-33a457568e59}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Inicializa parametros"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{70000693-BDE1-4FE0-B772-11B7D4A7A452}"
+          SQLTask:SqlStatementSource="-- =============================================&#xA;-- Autor:  José A. Guillen &#xA;-- Fecha de creación: 05-09-2022&#xA;-- Descripción:  Inicializa parametros desde valores guardados en una base de datos SQL Server para la Solución Migracion-Polaris-ETL1-v1.0&#xA;--      &#xA;-- Archivos Origen:  &#xA;--   &#xA;--      &#xA;-- Historia:&#xA;-- José A. Guillén 05-09-2022 Codificación inicial&#xA;-- =============================================&#xA;--&#xA;-- &lt;Aquí se debe colocar el código SQL que lee los parámetros que se van a manejar desde tablas de parámetros&gt; &#xA;--&#xA;SELECT 1 &#xA;--" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Transforma Limit-Validation"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{41CF8F31-EA1D-404F-8304-B10AA16AE6B3}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Transforma Limit-Validation"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{70000693-BDE1-4FE0-B772-11B7D4A7A452}"
+          SQLTask:SqlStatementSource="USE [STGLegados]&#xA;GO&#xA;&#xA;DECLARE @RC int&#xA;&#xA;-- TODO: Set parameter values here.&#xA;&#xA;EXECUTE @RC = [dbo].[Transforma-DMS-LIMIT-VALIDATION] &#xA;GO&#xA;&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Trunca DMS-LIMIT y DMS-LIMIT-MODIFIED"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{86E8CF44-AAA8-4A20-AD32-FE37A7F7343F}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Trunca DMS-LIMIT y DMS-LIMIT-MODIFIED"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{73E9BE98-144D-4887-A1CD-FCE6E4AB9CF5}"
+          SQLTask:SqlStatementSource="TRUNCATE TABLE [STGPolaris].[dbo].[DMS-LIMIT]&#x9;-- No se están usando momentaneamente&#xA;TRUNCATE TABLE [STGPolaris].[dbo].[DMS-LIMIT.MODIFIED]  -- No se están usando momentaneamente&#xA;TRUNCATE TABLE [STGPolaris].[dbo].[DMS-LIMIT-VALIDATION]  -- Este es el usado para generar archivo Plano a partir del DMS-LIMIT-VALIDATION-v1.4&#xA;TRUNCATE TABLE [STGPolaris].[dbo].[DMS-LIMIT-VALIDATION-v1.4]&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{6C0E05D9-E40F-4DF8-BD36-9816085C6037}"
+      DTS:From="Package\Inicializa parametros"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\Trunca DMS-LIMIT y DMS-LIMIT-MODIFIED" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 1]"
+      DTS:CreationName=""
+      DTS:DTSID="{C8228DDF-8F12-4335-ADA5-7978D3A67608}"
+      DTS:From="Package\Trunca DMS-LIMIT y DMS-LIMIT-MODIFIED"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 1"
+      DTS:To="Package\Transforma Limit-Validation" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 2]"
+      DTS:CreationName=""
+      DTS:DTSID="{AB437F29-B6E6-404B-BA76-E034EE9F2640}"
+      DTS:From="Package\Transforma Limit-Validation"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 2"
+      DTS:To="Package\Filtra Mandatorios" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 3]"
+      DTS:CreationName=""
+      DTS:DTSID="{E272689F-F9EC-4520-8487-E793DA3FA68B}"
+      DTS:From="Package\Transforma Limit-Validation"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 3"
+      DTS:To="Package\Fix" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="163,42"
+          Id="Package\Filtra Mandatorios"
+          TopLeft="5.50000000000006,311.5" />
+        <NodeLayout
+          Size="92,42"
+          Id="Package\Fix"
+          TopLeft="229,311.5" />
+        <NodeLayout
+          Size="176,42"
+          Id="Package\Inicializa parametros"
+          TopLeft="187,5.5" />
+        <NodeLayout
+          Size="209,42"
+          Id="Package\Transforma Limit-Validation"
+          TopLeft="170.5,209.5" />
+        <NodeLayout
+          Size="286,42"
+          Id="Package\Trunca DMS-LIMIT y DMS-LIMIT-MODIFIED"
+          TopLeft="132,107.5" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="275,47.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 1]"
+          TopLeft="275,149.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 2]"
+          TopLeft="241.5,251.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-154.5,60"
+              Start="0,0"
+              End="-154.5,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,20.2735042735043" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,20.2735042735043"
+                    Point2="0,24.2735042735043"
+                    Point3="-4,24.2735042735043" />
+                  <mssgle:LineSegment
+                    End="-150.5,24.2735042735043" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-150.5,24.2735042735043"
+                    Point2="-154.5,24.2735042735043"
+                    Point3="-154.5,28.2735042735043" />
+                  <mssgle:LineSegment
+                    End="-154.5,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 3]"
+          TopLeft="308.5,251.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-33.5,60"
+              Start="0,0"
+              End="-33.5,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,20.2735042735043" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,20.2735042735043"
+                    Point2="0,24.2735042735043"
+                    Point3="-4,24.2735042735043" />
+                  <mssgle:LineSegment
+                    End="-29.5,24.2735042735043" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-29.5,24.2735042735043"
+                    Point2="-33.5,24.2735042735043"
+                    Point3="-33.5,28.2735042735043" />
+                  <mssgle:LineSegment
+                    End="-33.5,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

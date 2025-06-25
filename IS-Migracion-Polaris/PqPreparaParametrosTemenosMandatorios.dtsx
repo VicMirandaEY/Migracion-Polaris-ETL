@@ -1,0 +1,1816 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="12/13/2022 9:40:45 AM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="VENJJCR20"
+  DTS:CreatorName="CAF-CON\ls42731"
+  DTS:DTSID="{17F925D3-ECC1-4DE5-A592-6D8B3E0C43D6}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="16.0.5270.0"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="PqPreparaParametrosTemenosMandatorios"
+  DTS:PackageType="5"
+  DTS:VersionBuild="33"
+  DTS:VersionGUID="{44F6243D-B693-4D43-834A-AA754CA0252D}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Flat File Connection Category]"
+      DTS:CreationName="FLATFILE"
+      DTS:DTSID="{39B84EC8-50EC-45C8-9121-87B475DB7E05}"
+      DTS:ObjectName="Flat File Connection Category">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="Delimited"
+          DTS:LocaleID="1033"
+          DTS:HeaderRowDelimiter="_x000D__x000A_"
+          DTS:ColumnNamesInFirstDataRow="True"
+          DTS:RowDelimiter=""
+          DTS:TextQualifier="_x003C_none_x003E_"
+          DTS:CodePage="65001"
+          DTS:ConnectionString="D:\App\Migracion-Polaris-ETL1\Csv\CATEGORY.csv">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="5"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Id"
+              DTS:DTSID="{2B8E8202-0DED-48F5-9101-AD743E8B81FB}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="100"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Description"
+              DTS:DTSID="{0E7DB43D-6B9E-4027-8CDB-D0C31DA24178}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="80"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Short Name"
+              DTS:DTSID="{5DC62F8E-16C7-47A0-A716-B9B68A4BD84C}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="4"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Product"
+              DTS:DTSID="{BCB0B2F0-8EF9-4133-93C4-256810A4B91F}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000D__x000A_"
+              DTS:DataType="2"
+              DTS:TextQualified="True"
+              DTS:ObjectName="CodCategoryCAF"
+              DTS:DTSID="{5B164163-6D68-4508-A8DE-CAEEF6B25E0B}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Flat File Connection CollateralCode]"
+      DTS:CreationName="FLATFILE"
+      DTS:DTSID="{675A6FB7-8D85-4675-B143-740F5C34B70C}"
+      DTS:ObjectName="Flat File Connection CollateralCode">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="Delimited"
+          DTS:LocaleID="1033"
+          DTS:HeaderRowDelimiter="_x002C_"
+          DTS:ColumnNamesInFirstDataRow="True"
+          DTS:RowDelimiter=""
+          DTS:TextQualifier="_x003C_none_x003E_"
+          DTS:CodePage="65001"
+          DTS:ConnectionString="D:\App\Migracion-Polaris-ETL1\Csv\MapeoCollateralCode.csv">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="3"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Id"
+              DTS:DTSID="{58BA075A-8116-45B0-8573-B0040B366517}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="40"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="ShortName"
+              DTS:DTSID="{B901E5E3-D7DD-4904-97A3-47F1F27E8AD6}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="4"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="CollateralType"
+              DTS:DTSID="{56F33C53-BDFA-4724-823C-C1E509A45957}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000D__x000A_"
+              DTS:MaximumWidth="100"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="CoTiColateralDatamart"
+              DTS:DTSID="{C2001042-2349-4C0D-8916-9502FAF03928}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Flat File Connection Industry]"
+      DTS:CreationName="FLATFILE"
+      DTS:DTSID="{6A9F0FFC-1A28-40DF-8025-667F8E09737F}"
+      DTS:ObjectName="Flat File Connection Industry">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="Delimited"
+          DTS:LocaleID="1033"
+          DTS:HeaderRowDelimiter="_x000D__x000A_"
+          DTS:ColumnNamesInFirstDataRow="True"
+          DTS:RowDelimiter=""
+          DTS:TextQualifier="_x003C_none_x003E_"
+          DTS:CodePage="65001"
+          DTS:ConnectionString="D:\App\Migracion-Polaris-ETL1\Csv\INDUSTRY.csv">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:DataType="20"
+              DTS:TextQualified="True"
+              DTS:ObjectName="CodSectorEconomico"
+              DTS:DTSID="{68046D6A-58F3-4C9B-B49E-055FC6FCC507}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000D__x000A_"
+              DTS:MaximumWidth="4"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Id"
+              DTS:DTSID="{9EA5936A-6E48-4137-AA4C-8C16E614AE12}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Inicializa parametros"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{7418be9e-4092-488a-8ef3-77cc4450f5eb}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Inicializa parametros"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{70000693-BDE1-4FE0-B772-11B7D4A7A452}"
+          SQLTask:SqlStatementSource="-- =============================================&#xA;-- Autor:  José A. Guillen &#xA;-- Fecha de creación: 05-09-2022&#xA;-- Descripción:  Inicializa parametros desde valores guardados en una base de datos SQL Server para la Solución Migracion-Polaris-ETL1-v1.0&#xA;--      &#xA;-- Archivos Origen:  &#xA;--   &#xA;--      &#xA;-- Historia:&#xA;-- José A. Guillén 05-09-2022 Codificación inicial&#xA;-- =============================================&#xA;--&#xA;-- &lt;Aquí se debe colocar el código SQL que lee los parámetros que se van a manejar desde tablas de parámetros&gt; &#xA;--&#xA;SELECT 1 &#xA;--" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Mapea a SECTOR"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{5311DE18-3F9F-49C2-8C9D-AAE04C90D9DA}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Mapea a SECTOR"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{73E9BE98-144D-4887-A1CD-FCE6E4AB9CF5}"
+          SQLTask:SqlStatementSource="--&#xA;-- Cambiado el 10-05-2025  se dejan los valores en co_ti_cliente y solo se actualiza los cup en prestatarios&#xA;-- Cambiado el 05-12-2024&#xA;--&#xA;USE [STGPolaris]&#xA;GO&#xA;&#xA;TRUNCATE TABLE [STGPolaris].[dbo].[SECTOR]&#xA;--&#xA;--&#xA;--INSERT INTO [STGPolaris].[dbo].[SECTOR]&#xA;--           ([Id]&#xA;--           ,[Description]&#xA;--           ,[CoTiCliente])&#xA;--     VALUES&#xA;--           ('9000'&#xA;--           ,'Other'&#xA;--           ,0) -- Se le asigna 0 cuando co_ti_cliente sea cualquier valor fuera del dominio de este campo&#xA;--GO&#xA;--&#xA;--&#xA;INSERT INTO [STGPolaris].[dbo].[SECTOR]&#xA;           ([Id]&#xA;           ,[Description]&#xA;           ,[CoTiCliente])&#xA;     VALUES&#xA;           ('1001'&#xA;           ,'Persona Natural'&#xA;           ,18) -- Persona Natural&#xA;GO&#xA;--&#xA;--&#xA;INSERT INTO [STGPolaris].[dbo].[SECTOR]&#xA;           ([Id]&#xA;           ,[Description]&#xA;           ,[CoTiCliente])&#xA;     VALUES&#xA;           ('3002'&#xA;           ,'Banco Comercial'&#xA;           ,19) -- Banco Comercial&#xA;GO&#xA;--&#xA;--&#xA;INSERT INTO [STGPolaris].[dbo].[SECTOR]&#xA;           ([Id]&#xA;           ,[Description]&#xA;           ,[CoTiCliente])&#xA;     VALUES&#xA;           ('2000'&#xA;           ,'***Corporate'&#xA;           ,20) -- Por Clasificar PJuridica&#xA;GO&#xA;--&#xA;--&#xA;INSERT INTO [STGPolaris].[dbo].[SECTOR]&#xA;           ([Id]&#xA;           ,[Description]&#xA;           ,[CoTiCliente])&#xA;     VALUES&#xA;           ('3501'&#xA;           ,'Financial Corporations'&#xA;           ,21) -- Corporativo&#xA;GO&#xA;--&#xA;--&#xA;INSERT INTO [STGPolaris].[dbo].[SECTOR]&#xA;           ([Id]&#xA;           ,[Description]&#xA;           ,[CoTiCliente])&#xA;     VALUES&#xA;           ('3004'&#xA;           ,'Banco de Desarrollo'&#xA;           ,22) -- Institución Fin. de Desarrollo&#xA;GO&#xA;--&#xA;--&#xA;INSERT INTO [STGPolaris].[dbo].[SECTOR]&#xA;           ([Id]&#xA;           ,[Description]&#xA;           ,[CoTiCliente])&#xA;     VALUES&#xA;           ('3900'&#xA;           ,'Other Financial Institutions'&#xA;           ,23) -- Otras Instituciones Financiera&#xA;GO&#xA;--&#xA;--&#xA;INSERT INTO [STGPolaris].[dbo].[SECTOR]&#xA;           ([Id]&#xA;           ,[Description]&#xA;           ,[CoTiCliente])&#xA;     VALUES&#xA;           ('3001'&#xA;           ,'Otras Instituciones Financieras'&#xA;           ,24) -- antes Gobierno&#xA;GO&#xA;--&#xA;--&#xA;INSERT INTO [STGPolaris].[dbo].[SECTOR]&#xA;           ([Id]&#xA;           ,[Description]&#xA;           ,[CoTiCliente])&#xA;     VALUES&#xA;           ('3003'&#x9;&#x9;&#x9;&#xA;           ,'Institucion Microfinanciera'&#xA;           ,25) -- Institución Microfinanciera&#xA;--&#xA;--&#xA;INSERT INTO [STGPolaris].[dbo].[SECTOR]&#xA;           ([Id]&#xA;           ,[Description]&#xA;           ,[CoTiCliente])&#xA;     VALUES&#xA;           ('3001'&#x9;-- Ojo está repetido&#xA;           ,'Otras Instituciones Financieras'&#xA;           ,26) -- Cooperación Técnica&#xA;--&#xA;--&#xA;INSERT INTO [STGPolaris].[dbo].[SECTOR]&#xA;           ([Id]&#xA;           ,[Description]&#xA;           ,[CoTiCliente])&#xA;     VALUES&#xA;           ('9999'&#xA;           ,'T24 Updates'&#xA;           ,27) -- Ejecutor &#xA;--&#xA;--&#xA;INSERT INTO [STGPolaris].[dbo].[SECTOR]&#xA;           ([Id]&#xA;           ,[Description]&#xA;           ,[CoTiCliente])&#xA;     VALUES&#xA;           ('3004'&#xA;           ,'Banco de Desarrollo'&#xA;           ,29) -- Banco de Desarrollo&#xA;--&#xA;--&#xA;USE [STGLegados]&#xA;GO&#xA;&#xA;USE [STGLegados]&#xA;GO&#xA;&#xA;--UPDATE [STGLegados].[dbo].[persona]&#xA;--   SET [STGLegados].[dbo].[persona].[co_ti_cliente] = 0&#xA;--FROM   [STGLegados].[dbo].[persona]&#xA;--GO&#xA;--&#xA;-- &#xA;UPDATE [STGLegados].[dbo].[persona] &#xA;   SET [STGLegados].[dbo].[persona].[co_ti_cliente] = TP.co_ti_cliente&#xA;FROM   [STGLegados].[dbo].[persona] as P&#xA;  INNER JOIN [STGLegados].[dbo].[prestatario] as TP ON&#xA;&#x9;TP.co_persona_prestatario = P.co_persona&#xA;--&#xA;--&#xA;GO" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Mapear CustomerStatus"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{B76CE17A-8FE1-407A-80E0-CFE3BB359CFE}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Mapear CustomerStatus"
+      DTS:ThreadHint="1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{73E9BE98-144D-4887-A1CD-FCE6E4AB9CF5}"
+          SQLTask:SqlStatementSource="-- Inicializa datos de prueba para CUSTOMER.STATUS&#xA;-- Actualizado 13-03-2024&#xA;--&#xA;TRUNCATE TABLE [STGPolaris].[dbo].[CUSTOMER.STATUS] &#xA;--&#xA;INSERT INTO [STGPolaris].[dbo].[CUSTOMER.STATUS]&#xA;           ([Id]&#xA;           ,[Description]&#xA;&#x9;&#x9;   ,[ShortName]&#xA;           ,[CodSectorInstitucional])&#xA;     VALUES&#xA;           ('9'&#xA;           ,'To be defined'&#xA;&#x9;&#x9;   ,'TBD'&#xA;           ,9)&#xA;GO&#xA;INSERT INTO [STGPolaris].[dbo].[CUSTOMER.STATUS]&#xA;           ([Id]&#xA;           ,[Description]&#xA;&#x9;&#x9;   ,[ShortName]&#xA;           ,[CodSectorInstitucional])&#xA;     VALUES&#xA;           ('11'&#xA;           ,'Public'&#xA;&#x9;&#x9;   ,'Public'&#xA;           ,11)&#xA;GO&#xA;INSERT INTO [STGPolaris].[dbo].[CUSTOMER.STATUS]&#xA;           ([Id]&#xA;           ,[Description]&#xA;&#x9;&#x9;   ,[ShortName]&#xA;           ,[CodSectorInstitucional])&#xA;     VALUES&#xA;           ('12'&#xA;           ,'Private'&#xA;&#x9;&#x9;   ,'Private'&#xA;           ,12)&#xA;GO&#xA;INSERT INTO [STGPolaris].[dbo].[CUSTOMER.STATUS]&#xA;           ([Id]&#xA;           ,[Description]&#xA;&#x9;&#x9;   ,[ShortName]&#xA;           ,[CodSectorInstitucional])&#xA;     VALUES&#xA;           ('13'&#xA;           ,'Mixed'&#xA;&#x9;&#x9;   ,'Mixed'&#xA;           ,13)&#xA;GO&#xA;INSERT INTO [STGPolaris].[dbo].[CUSTOMER.STATUS]&#xA;           ([Id]&#xA;           ,[Description]&#xA;&#x9;&#x9;   ,[ShortName]&#xA;           ,[CodSectorInstitucional])&#xA;     VALUES&#xA;           ('14'&#xA;           ,'Multilateral'&#xA;&#x9;&#x9;   ,'Multilateral'&#xA;           ,14)&#xA;GO&#xA;--&#xA;-- Fin" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Mapeo a INDUSTRY"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{30A2FE86-2ED6-4A23-B3E1-C0C1010D55AB}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Mapeo a INDUSTRY"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Mapeo a INDUSTRY\INDUSTRYcsv"
+              componentClassID="Microsoft.FlatFileSource"
+              contactInfo="Flat File Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Flat File Source"
+              localeId="1033"
+              name="INDUSTRYcsv"
+              usesDispositions="true"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Specifies whether zero-length columns are treated as null."
+                  name="RetainNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of an output column containing the file name. If no name is specified, no output column containing the file name will be generated."
+                  name="FileNameColumnName"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Mapeo a INDUSTRY\INDUSTRYcsv.Connections[FlatFileConnection]"
+                  connectionManagerID="Package.ConnectionManagers[Flat File Connection Industry]"
+                  connectionManagerRefId="Package.ConnectionManagers[Flat File Connection Industry]"
+                  name="FlatFileConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Mapeo a INDUSTRY\INDUSTRYcsv.Outputs[Flat File Source Output]"
+                  name="Flat File Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Mapeo a INDUSTRY\INDUSTRYcsv.Outputs[Flat File Source Output].Columns[CodSectorEconomico]"
+                      dataType="i8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Mapeo a INDUSTRY\INDUSTRYcsv.Outputs[Flat File Source Output].ExternalColumns[CodSectorEconomico]"
+                      lineageId="Package\Mapeo a INDUSTRY\INDUSTRYcsv.Outputs[Flat File Source Output].Columns[CodSectorEconomico]"
+                      name="CodSectorEconomico"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Mapeo a INDUSTRY\INDUSTRYcsv.Outputs[Flat File Source Output].Columns[Id]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Mapeo a INDUSTRY\INDUSTRYcsv.Outputs[Flat File Source Output].ExternalColumns[Id]"
+                      length="4"
+                      lineageId="Package\Mapeo a INDUSTRY\INDUSTRYcsv.Outputs[Flat File Source Output].Columns[Id]"
+                      name="Id"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Mapeo a INDUSTRY\INDUSTRYcsv.Outputs[Flat File Source Output].ExternalColumns[CodSectorEconomico]"
+                      dataType="i8"
+                      name="CodSectorEconomico" />
+                    <externalMetadataColumn
+                      refId="Package\Mapeo a INDUSTRY\INDUSTRYcsv.Outputs[Flat File Source Output].ExternalColumns[Id]"
+                      dataType="wstr"
+                      length="4"
+                      name="Id" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Mapeo a INDUSTRY\INDUSTRYcsv.Outputs[Flat File Source Error Output]"
+                  isErrorOut="true"
+                  name="Flat File Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Mapeo a INDUSTRY\INDUSTRYcsv.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                      codePage="65001"
+                      dataType="text"
+                      description="Flat File Source Error Output Column"
+                      lineageId="Package\Mapeo a INDUSTRY\INDUSTRYcsv.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                      name="Flat File Source Error Output Column" />
+                    <outputColumn
+                      refId="Package\Mapeo a INDUSTRY\INDUSTRYcsv.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Mapeo a INDUSTRY\INDUSTRYcsv.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Mapeo a INDUSTRY\INDUSTRYcsv.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Mapeo a INDUSTRY\INDUSTRYcsv.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Mapeo a INDUSTRY\OLE DB Destination"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="OLE DB Destination"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[INDUSTRY]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=16.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Mapeo a INDUSTRY\OLE DB Destination.Connections[OleDbConnection]"
+                  connectionManagerID="{73E9BE98-144D-4887-A1CD-FCE6E4AB9CF5}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[STGPolaris]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Mapeo a INDUSTRY\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Mapeo a INDUSTRY\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[CodSectorEconomico]"
+                      cachedDataType="i8"
+                      cachedName="CodSectorEconomico"
+                      externalMetadataColumnId="Package\Mapeo a INDUSTRY\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CodSectorEconomico]"
+                      lineageId="Package\Mapeo a INDUSTRY\INDUSTRYcsv.Outputs[Flat File Source Output].Columns[CodSectorEconomico]" />
+                    <inputColumn
+                      refId="Package\Mapeo a INDUSTRY\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Id]"
+                      cachedDataType="wstr"
+                      cachedLength="4"
+                      cachedName="Id"
+                      externalMetadataColumnId="Package\Mapeo a INDUSTRY\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Id]"
+                      lineageId="Package\Mapeo a INDUSTRY\INDUSTRYcsv.Outputs[Flat File Source Output].Columns[Id]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Mapeo a INDUSTRY\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Id]"
+                      dataType="wstr"
+                      length="4"
+                      name="Id" />
+                    <externalMetadataColumn
+                      refId="Package\Mapeo a INDUSTRY\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Description]"
+                      dataType="wstr"
+                      length="255"
+                      name="Description" />
+                    <externalMetadataColumn
+                      refId="Package\Mapeo a INDUSTRY\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CodSectorEconomico]"
+                      dataType="i4"
+                      name="CodSectorEconomico" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Mapeo a INDUSTRY\OLE DB Destination.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\Mapeo a INDUSTRY\OLE DB Destination.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Mapeo a INDUSTRY\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Mapeo a INDUSTRY\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Mapeo a INDUSTRY\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Mapeo a INDUSTRY\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Mapeo a INDUSTRY.Paths[Flat File Source Output]"
+              endId="Package\Mapeo a INDUSTRY\OLE DB Destination.Inputs[OLE DB Destination Input]"
+              name="Flat File Source Output"
+              startId="Package\Mapeo a INDUSTRY\INDUSTRYcsv.Outputs[Flat File Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Mapeo CafFuenteR"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{C16B7D92-B318-4FD1-84AE-41374A20052B}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Mapeo CafFuenteR"
+      DTS:ThreadHint="2">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{70000693-BDE1-4FE0-B772-11B7D4A7A452}"
+          SQLTask:SqlStatementSource="USE [STGLegados]&#xA;GO&#xA;-- Fecha 11-05-2024&#xA;&#xA;TRUNCATE TABLE [STGLegados].[dbo].[TmpCafFuenteR]&#xA;INSERT INTO [STGLegados].[dbo].[TmpCafFuenteR] ([coPersonaFuenteRecurso], [idCafFuenteRecurso], [deCafFuenteRecurso]) VALUES (1508, '7', 'Kreditanstalt fur Wiederaufba')&#x9;&#x9;&#x9;--&#x9;&#x9;&#xA;INSERT INTO [STGLegados].[dbo].[TmpCafFuenteR] ([coPersonaFuenteRecurso], [idCafFuenteRecurso], [deCafFuenteRecurso]) VALUES (1547, '1', 'Corporacion Andina de Fomento')&#x9;&#x9;&#x9;--&#xA;INSERT INTO [STGLegados].[dbo].[TmpCafFuenteR] ([coPersonaFuenteRecurso], [idCafFuenteRecurso], [deCafFuenteRecurso]) VALUES (33653, '14', 'AFD Agencia Francesa de Desarrollo')&#x9;--&#xA;GO&#xA;-- Fin" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Mapeo CATEGORY"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{AE67D078-7576-4CC1-B07A-EFF9B3489EAB}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Mapeo CATEGORY"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Mapeo CATEGORY\CATEGORY"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="CATEGORY"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[CATEGORY]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=16.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Mapeo CATEGORY\CATEGORY.Connections[OleDbConnection]"
+                  connectionManagerID="{73E9BE98-144D-4887-A1CD-FCE6E4AB9CF5}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[STGPolaris]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Mapeo CATEGORY\CATEGORY.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Mapeo CATEGORY\CATEGORY.Inputs[OLE DB Destination Input].Columns[Id]"
+                      cachedDataType="wstr"
+                      cachedLength="5"
+                      cachedName="Id"
+                      externalMetadataColumnId="Package\Mapeo CATEGORY\CATEGORY.Inputs[OLE DB Destination Input].ExternalColumns[Id]"
+                      lineageId="Package\Mapeo CATEGORY\CATEGORYcsv.Outputs[Flat File Source Output].Columns[Id]" />
+                    <inputColumn
+                      refId="Package\Mapeo CATEGORY\CATEGORY.Inputs[OLE DB Destination Input].Columns[Description]"
+                      cachedDataType="wstr"
+                      cachedLength="100"
+                      cachedName="Description"
+                      externalMetadataColumnId="Package\Mapeo CATEGORY\CATEGORY.Inputs[OLE DB Destination Input].ExternalColumns[Description]"
+                      lineageId="Package\Mapeo CATEGORY\CATEGORYcsv.Outputs[Flat File Source Output].Columns[Description]" />
+                    <inputColumn
+                      refId="Package\Mapeo CATEGORY\CATEGORY.Inputs[OLE DB Destination Input].Columns[Product]"
+                      cachedDataType="wstr"
+                      cachedLength="4"
+                      cachedName="Product"
+                      externalMetadataColumnId="Package\Mapeo CATEGORY\CATEGORY.Inputs[OLE DB Destination Input].ExternalColumns[Product]"
+                      lineageId="Package\Mapeo CATEGORY\CATEGORYcsv.Outputs[Flat File Source Output].Columns[Product]" />
+                    <inputColumn
+                      refId="Package\Mapeo CATEGORY\CATEGORY.Inputs[OLE DB Destination Input].Columns[CodCategoryCAF]"
+                      cachedDataType="i2"
+                      cachedName="CodCategoryCAF"
+                      externalMetadataColumnId="Package\Mapeo CATEGORY\CATEGORY.Inputs[OLE DB Destination Input].ExternalColumns[CodCategoryCAF]"
+                      lineageId="Package\Mapeo CATEGORY\CATEGORYcsv.Outputs[Flat File Source Output].Columns[CodCategoryCAF]" />
+                    <inputColumn
+                      refId="Package\Mapeo CATEGORY\CATEGORY.Inputs[OLE DB Destination Input].Columns[Short Name]"
+                      cachedDataType="wstr"
+                      cachedLength="80"
+                      cachedName="Short Name"
+                      externalMetadataColumnId="Package\Mapeo CATEGORY\CATEGORY.Inputs[OLE DB Destination Input].ExternalColumns[ShortName]"
+                      lineageId="Package\Mapeo CATEGORY\CATEGORYcsv.Outputs[Flat File Source Output].Columns[Short Name]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Mapeo CATEGORY\CATEGORY.Inputs[OLE DB Destination Input].ExternalColumns[Id]"
+                      dataType="wstr"
+                      length="5"
+                      name="Id" />
+                    <externalMetadataColumn
+                      refId="Package\Mapeo CATEGORY\CATEGORY.Inputs[OLE DB Destination Input].ExternalColumns[Description]"
+                      dataType="wstr"
+                      length="100"
+                      name="Description" />
+                    <externalMetadataColumn
+                      refId="Package\Mapeo CATEGORY\CATEGORY.Inputs[OLE DB Destination Input].ExternalColumns[ShortName]"
+                      dataType="wstr"
+                      length="80"
+                      name="ShortName" />
+                    <externalMetadataColumn
+                      refId="Package\Mapeo CATEGORY\CATEGORY.Inputs[OLE DB Destination Input].ExternalColumns[Product]"
+                      dataType="wstr"
+                      length="4"
+                      name="Product" />
+                    <externalMetadataColumn
+                      refId="Package\Mapeo CATEGORY\CATEGORY.Inputs[OLE DB Destination Input].ExternalColumns[CodCategoryCAF]"
+                      dataType="i4"
+                      name="CodCategoryCAF" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Mapeo CATEGORY\CATEGORY.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\Mapeo CATEGORY\CATEGORY.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Mapeo CATEGORY\CATEGORY.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Mapeo CATEGORY\CATEGORY.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Mapeo CATEGORY\CATEGORY.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Mapeo CATEGORY\CATEGORY.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Mapeo CATEGORY\CATEGORYcsv"
+              componentClassID="Microsoft.FlatFileSource"
+              contactInfo="Flat File Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Flat File Source"
+              localeId="1033"
+              name="CATEGORYcsv"
+              usesDispositions="true"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Specifies whether zero-length columns are treated as null."
+                  name="RetainNulls">true</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of an output column containing the file name. If no name is specified, no output column containing the file name will be generated."
+                  name="FileNameColumnName"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Mapeo CATEGORY\CATEGORYcsv.Connections[FlatFileConnection]"
+                  connectionManagerID="Package.ConnectionManagers[Flat File Connection Category]"
+                  connectionManagerRefId="Package.ConnectionManagers[Flat File Connection Category]"
+                  name="FlatFileConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Mapeo CATEGORY\CATEGORYcsv.Outputs[Flat File Source Output]"
+                  name="Flat File Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Mapeo CATEGORY\CATEGORYcsv.Outputs[Flat File Source Output].Columns[Id]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Mapeo CATEGORY\CATEGORYcsv.Outputs[Flat File Source Output].ExternalColumns[Id]"
+                      length="5"
+                      lineageId="Package\Mapeo CATEGORY\CATEGORYcsv.Outputs[Flat File Source Output].Columns[Id]"
+                      name="Id"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Mapeo CATEGORY\CATEGORYcsv.Outputs[Flat File Source Output].Columns[Description]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Mapeo CATEGORY\CATEGORYcsv.Outputs[Flat File Source Output].ExternalColumns[Description]"
+                      length="100"
+                      lineageId="Package\Mapeo CATEGORY\CATEGORYcsv.Outputs[Flat File Source Output].Columns[Description]"
+                      name="Description"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Mapeo CATEGORY\CATEGORYcsv.Outputs[Flat File Source Output].Columns[Short Name]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Mapeo CATEGORY\CATEGORYcsv.Outputs[Flat File Source Output].ExternalColumns[Short Name]"
+                      length="80"
+                      lineageId="Package\Mapeo CATEGORY\CATEGORYcsv.Outputs[Flat File Source Output].Columns[Short Name]"
+                      name="Short Name"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Mapeo CATEGORY\CATEGORYcsv.Outputs[Flat File Source Output].Columns[Product]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Mapeo CATEGORY\CATEGORYcsv.Outputs[Flat File Source Output].ExternalColumns[Product]"
+                      length="4"
+                      lineageId="Package\Mapeo CATEGORY\CATEGORYcsv.Outputs[Flat File Source Output].Columns[Product]"
+                      name="Product"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Mapeo CATEGORY\CATEGORYcsv.Outputs[Flat File Source Output].Columns[CodCategoryCAF]"
+                      dataType="i2"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Mapeo CATEGORY\CATEGORYcsv.Outputs[Flat File Source Output].ExternalColumns[CodCategoryCAF]"
+                      lineageId="Package\Mapeo CATEGORY\CATEGORYcsv.Outputs[Flat File Source Output].Columns[CodCategoryCAF]"
+                      name="CodCategoryCAF"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Mapeo CATEGORY\CATEGORYcsv.Outputs[Flat File Source Output].ExternalColumns[Id]"
+                      dataType="wstr"
+                      length="5"
+                      name="Id" />
+                    <externalMetadataColumn
+                      refId="Package\Mapeo CATEGORY\CATEGORYcsv.Outputs[Flat File Source Output].ExternalColumns[Description]"
+                      dataType="wstr"
+                      length="100"
+                      name="Description" />
+                    <externalMetadataColumn
+                      refId="Package\Mapeo CATEGORY\CATEGORYcsv.Outputs[Flat File Source Output].ExternalColumns[Short Name]"
+                      dataType="wstr"
+                      length="80"
+                      name="Short Name" />
+                    <externalMetadataColumn
+                      refId="Package\Mapeo CATEGORY\CATEGORYcsv.Outputs[Flat File Source Output].ExternalColumns[Product]"
+                      dataType="wstr"
+                      length="4"
+                      name="Product" />
+                    <externalMetadataColumn
+                      refId="Package\Mapeo CATEGORY\CATEGORYcsv.Outputs[Flat File Source Output].ExternalColumns[CodCategoryCAF]"
+                      dataType="i2"
+                      name="CodCategoryCAF" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Mapeo CATEGORY\CATEGORYcsv.Outputs[Flat File Source Error Output]"
+                  isErrorOut="true"
+                  name="Flat File Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Mapeo CATEGORY\CATEGORYcsv.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                      codePage="65001"
+                      dataType="text"
+                      description="Flat File Source Error Output Column"
+                      lineageId="Package\Mapeo CATEGORY\CATEGORYcsv.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                      name="Flat File Source Error Output Column" />
+                    <outputColumn
+                      refId="Package\Mapeo CATEGORY\CATEGORYcsv.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Mapeo CATEGORY\CATEGORYcsv.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Mapeo CATEGORY\CATEGORYcsv.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Mapeo CATEGORY\CATEGORYcsv.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Mapeo CATEGORY.Paths[Flat File Source Output]"
+              endId="Package\Mapeo CATEGORY\CATEGORY.Inputs[OLE DB Destination Input]"
+              name="Flat File Source Output"
+              startId="Package\Mapeo CATEGORY\CATEGORYcsv.Outputs[Flat File Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Mapeo CollateralCode"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{29020F58-F31B-4F11-BFC6-F43938947A6E}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Mapeo CollateralCode"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Mapeo CollateralCode\CollateralCode"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="CollateralCode"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[COLLATERAL.CODE]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=16.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Mapeo CollateralCode\CollateralCode.Connections[OleDbConnection]"
+                  connectionManagerID="{73E9BE98-144D-4887-A1CD-FCE6E4AB9CF5}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[STGPolaris]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Mapeo CollateralCode\CollateralCode.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Mapeo CollateralCode\CollateralCode.Inputs[OLE DB Destination Input].Columns[Id]"
+                      cachedDataType="wstr"
+                      cachedLength="3"
+                      cachedName="Id"
+                      externalMetadataColumnId="Package\Mapeo CollateralCode\CollateralCode.Inputs[OLE DB Destination Input].ExternalColumns[Id]"
+                      lineageId="Package\Mapeo CollateralCode\Flat File Source.Outputs[Flat File Source Output].Columns[Id]" />
+                    <inputColumn
+                      refId="Package\Mapeo CollateralCode\CollateralCode.Inputs[OLE DB Destination Input].Columns[ShortName]"
+                      cachedDataType="wstr"
+                      cachedLength="40"
+                      cachedName="ShortName"
+                      externalMetadataColumnId="Package\Mapeo CollateralCode\CollateralCode.Inputs[OLE DB Destination Input].ExternalColumns[ShortName]"
+                      lineageId="Package\Mapeo CollateralCode\Flat File Source.Outputs[Flat File Source Output].Columns[ShortName]" />
+                    <inputColumn
+                      refId="Package\Mapeo CollateralCode\CollateralCode.Inputs[OLE DB Destination Input].Columns[CollateralType]"
+                      cachedDataType="wstr"
+                      cachedLength="3"
+                      cachedName="CollateralType"
+                      externalMetadataColumnId="Package\Mapeo CollateralCode\CollateralCode.Inputs[OLE DB Destination Input].ExternalColumns[CollateralType]"
+                      lineageId="Package\Mapeo CollateralCode\Flat File Source.Outputs[Flat File Source Output].Columns[CollateralType]" />
+                    <inputColumn
+                      refId="Package\Mapeo CollateralCode\CollateralCode.Inputs[OLE DB Destination Input].Columns[CoTiColateralDatamart]"
+                      cachedDataType="wstr"
+                      cachedLength="100"
+                      cachedName="CoTiColateralDatamart"
+                      externalMetadataColumnId="Package\Mapeo CollateralCode\CollateralCode.Inputs[OLE DB Destination Input].ExternalColumns[CoTiColateralDatamart]"
+                      lineageId="Package\Mapeo CollateralCode\Flat File Source.Outputs[Flat File Source Output].Columns[CoTiColateralDatamart]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Mapeo CollateralCode\CollateralCode.Inputs[OLE DB Destination Input].ExternalColumns[Id]"
+                      dataType="wstr"
+                      length="3"
+                      name="Id" />
+                    <externalMetadataColumn
+                      refId="Package\Mapeo CollateralCode\CollateralCode.Inputs[OLE DB Destination Input].ExternalColumns[ShortName]"
+                      dataType="wstr"
+                      length="40"
+                      name="ShortName" />
+                    <externalMetadataColumn
+                      refId="Package\Mapeo CollateralCode\CollateralCode.Inputs[OLE DB Destination Input].ExternalColumns[CollateralType]"
+                      dataType="wstr"
+                      length="4"
+                      name="CollateralType" />
+                    <externalMetadataColumn
+                      refId="Package\Mapeo CollateralCode\CollateralCode.Inputs[OLE DB Destination Input].ExternalColumns[TypeDescription]"
+                      dataType="wstr"
+                      length="255"
+                      name="TypeDescription" />
+                    <externalMetadataColumn
+                      refId="Package\Mapeo CollateralCode\CollateralCode.Inputs[OLE DB Destination Input].ExternalColumns[PercentDateFqu]"
+                      dataType="wstr"
+                      length="8"
+                      name="PercentDateFqu" />
+                    <externalMetadataColumn
+                      refId="Package\Mapeo CollateralCode\CollateralCode.Inputs[OLE DB Destination Input].ExternalColumns[Fqu]"
+                      dataType="wstr"
+                      length="10"
+                      name="Fqu" />
+                    <externalMetadataColumn
+                      refId="Package\Mapeo CollateralCode\CollateralCode.Inputs[OLE DB Destination Input].ExternalColumns[ReviewFqu]"
+                      dataType="wstr"
+                      length="10"
+                      name="ReviewFqu" />
+                    <externalMetadataColumn
+                      refId="Package\Mapeo CollateralCode\CollateralCode.Inputs[OLE DB Destination Input].ExternalColumns[CoTiColateralDatamart]"
+                      dataType="wstr"
+                      length="100"
+                      name="CoTiColateralDatamart" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Mapeo CollateralCode\CollateralCode.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\Mapeo CollateralCode\CollateralCode.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Mapeo CollateralCode\CollateralCode.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Mapeo CollateralCode\CollateralCode.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Mapeo CollateralCode\CollateralCode.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Mapeo CollateralCode\CollateralCode.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Mapeo CollateralCode\Flat File Source"
+              componentClassID="Microsoft.FlatFileSource"
+              contactInfo="Flat File Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Flat File Source"
+              localeId="1033"
+              name="Flat File Source"
+              usesDispositions="true"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Specifies whether zero-length columns are treated as null."
+                  name="RetainNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of an output column containing the file name. If no name is specified, no output column containing the file name will be generated."
+                  name="FileNameColumnName"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Mapeo CollateralCode\Flat File Source.Connections[FlatFileConnection]"
+                  connectionManagerID="Package.ConnectionManagers[Flat File Connection CollateralCode]"
+                  connectionManagerRefId="Package.ConnectionManagers[Flat File Connection CollateralCode]"
+                  name="FlatFileConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Mapeo CollateralCode\Flat File Source.Outputs[Flat File Source Output]"
+                  name="Flat File Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Mapeo CollateralCode\Flat File Source.Outputs[Flat File Source Output].Columns[Id]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Mapeo CollateralCode\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Id]"
+                      length="3"
+                      lineageId="Package\Mapeo CollateralCode\Flat File Source.Outputs[Flat File Source Output].Columns[Id]"
+                      name="Id"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Mapeo CollateralCode\Flat File Source.Outputs[Flat File Source Output].Columns[ShortName]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Mapeo CollateralCode\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[ShortName]"
+                      length="40"
+                      lineageId="Package\Mapeo CollateralCode\Flat File Source.Outputs[Flat File Source Output].Columns[ShortName]"
+                      name="ShortName"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Mapeo CollateralCode\Flat File Source.Outputs[Flat File Source Output].Columns[CollateralType]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Mapeo CollateralCode\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[CollateralType]"
+                      length="3"
+                      lineageId="Package\Mapeo CollateralCode\Flat File Source.Outputs[Flat File Source Output].Columns[CollateralType]"
+                      name="CollateralType"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Mapeo CollateralCode\Flat File Source.Outputs[Flat File Source Output].Columns[CoTiColateralDatamart]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Mapeo CollateralCode\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[CoTiColateralDatamart]"
+                      length="100"
+                      lineageId="Package\Mapeo CollateralCode\Flat File Source.Outputs[Flat File Source Output].Columns[CoTiColateralDatamart]"
+                      name="CoTiColateralDatamart"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Mapeo CollateralCode\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Id]"
+                      dataType="wstr"
+                      length="3"
+                      name="Id" />
+                    <externalMetadataColumn
+                      refId="Package\Mapeo CollateralCode\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[ShortName]"
+                      dataType="wstr"
+                      length="40"
+                      name="ShortName" />
+                    <externalMetadataColumn
+                      refId="Package\Mapeo CollateralCode\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[CollateralType]"
+                      dataType="wstr"
+                      length="4"
+                      name="CollateralType" />
+                    <externalMetadataColumn
+                      refId="Package\Mapeo CollateralCode\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[CoTiColateralDatamart]"
+                      dataType="wstr"
+                      length="100"
+                      name="CoTiColateralDatamart" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Mapeo CollateralCode\Flat File Source.Outputs[Flat File Source Error Output]"
+                  isErrorOut="true"
+                  name="Flat File Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Mapeo CollateralCode\Flat File Source.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                      codePage="65001"
+                      dataType="text"
+                      description="Flat File Source Error Output Column"
+                      lineageId="Package\Mapeo CollateralCode\Flat File Source.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                      name="Flat File Source Error Output Column" />
+                    <outputColumn
+                      refId="Package\Mapeo CollateralCode\Flat File Source.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Mapeo CollateralCode\Flat File Source.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Mapeo CollateralCode\Flat File Source.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Mapeo CollateralCode\Flat File Source.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Mapeo CollateralCode.Paths[Flat File Source Output]"
+              endId="Package\Mapeo CollateralCode\CollateralCode.Inputs[OLE DB Destination Input]"
+              name="Flat File Source Output"
+              startId="Package\Mapeo CollateralCode\Flat File Source.Outputs[Flat File Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Mapeo LANGUAGUE"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{98337E35-1E0F-4C80-9C56-3FBB1D25CA41}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Mapeo LANGUAGUE"
+      DTS:ThreadHint="3">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{70000693-BDE1-4FE0-B772-11B7D4A7A452}"
+          SQLTask:SqlStatementSource="--&#xA;-- Inicializa datos de prueba para LANGUAGE&#xA;--&#xA;TRUNCATE TABLE [STGPolaris].[dbo].[LANGUAGE] &#xA;INSERT INTO [STGPolaris].[dbo].[LANGUAGE] (Id, Mnemonic, Description, CodLanguagePersona)&#xA;SELECT  Convert(nvarchar(2),&#xA;&#x9;    CASE &#xA;&#x9;      WHEN IDI.co_idioma = 10 THEN '2' --'ES'&#xA;&#x9;      WHEN IDI.co_idioma = 11 THEN '1' --'EN'&#xA;&#x9;      --WHEN IDI.co_idioma = 12 THEN 'FR'&#xA;&#x9;      --WHEN IDI.co_idioma = 13 THEN 'IT'&#xA;&#x9;      --WHEN IDI.co_idioma = 14 THEN 'JA'&#xA;&#x9;      WHEN IDI.co_idioma = 15 THEN '3' --'PT'&#xA;&#x9;      --WHEN IDI.co_idioma = 16 THEN 'DE'&#xA;&#x9;      --WHEN IDI.co_idioma = 17 THEN 'KO'&#xA;          ELSE Convert(nvarchar(2),NULL) &#xA;&#x9;    END) as Id&#xA;       ,Convert(nvarchar(3),&#xA;&#x9;    CASE &#xA;&#x9;      WHEN IDI.co_idioma = 10 THEN 'ES'&#xA;&#x9;&#x9;  WHEN IDI.co_idioma = 11 THEN 'GB' --'ENG'&#xA;&#x9;&#x9;  --WHEN IDI.co_idioma = 12 THEN 'FRA'&#xA;&#x9;&#x9;  --WHEN IDI.co_idioma = 13 THEN 'ITA'&#xA;&#x9;&#x9;  --WHEN IDI.co_idioma = 14 THEN 'JPN'&#xA;&#x9;&#x9;  WHEN IDI.co_idioma = 15 THEN 'POR'&#xA;&#x9;&#x9;  --WHEN IDI.co_idioma = 16 THEN 'DEU'&#xA;&#x9;&#x9;  --WHEN IDI.co_idioma = 17 THEN 'KOR'&#xA;&#x9;&#x9;  ELSE Convert(nvarchar(3),NULL)  &#xA;&#x9;    END) as Mnemonic&#xA;&#x9;   ,RTRIM(LTRIM(IDI.nb_idioma)) as Description&#xA;&#x9;   ,IDI.co_idioma as CodLanguagePersona&#xA;FROM [STGLegados].[dbo].[idioma] as IDI&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Trunca Parametros"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{08478019-8E9E-4F93-B1CC-7E3F05150962}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Trunca Parametros"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{73E9BE98-144D-4887-A1CD-FCE6E4AB9CF5}"
+          SQLTask:SqlStatementSource="-- =============================================&#xA;-- Autor:&#x9;&#x9;&#x9;&#x9;José A. Guillen &#xA;-- Fecha de creación:&#x9;01-12-2022&#xA;-- Descripción:&#x9;&#x9;Código para truncar las tablas que mapean a los Parametros de Transact utilizadas en el proceso ETL-1.&#xA;--&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#xA;-- Archivos Origen:&#x9;&#x9;&#xA;--&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#xA;-- Historia:&#xA;-- José A. Guillén&#x9;&#x9;01-12-2022&#x9;Codificación inicial&#xA;-- =============================================&#xA;--&#xA;TRUNCATE TABLE [STGPolaris].[dbo].[INDUSTRY]&#xA;TRUNCATE TABLE [STGPolaris].[dbo].[SECTOR]&#xA;TRUNCATE TABLE [STGPolaris].[dbo].[CUSTOMER.STATUS]&#xA;TRUNCATE TABLE [STGPolaris].[dbo].[COLLATERAL.CODE]&#x9;&#xA;TRUNCATE TABLE [STGPolaris].[dbo].[CATEGORY]&#xA;--&#xA;-- Fin" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{1B7737F0-5806-4657-AB94-ABF09791BB55}"
+      DTS:From="Package\Inicializa parametros"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\Trunca Parametros" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 1]"
+      DTS:CreationName=""
+      DTS:DTSID="{2A9E3775-07C2-4065-98E0-1EE3FDCB0B9E}"
+      DTS:From="Package\Trunca Parametros"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 1"
+      DTS:To="Package\Mapeo a INDUSTRY" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 2]"
+      DTS:CreationName=""
+      DTS:DTSID="{AE744C35-9239-4BB4-B273-4208A2541821}"
+      DTS:From="Package\Trunca Parametros"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 2"
+      DTS:To="Package\Mapea a SECTOR" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 3]"
+      DTS:CreationName=""
+      DTS:DTSID="{3AF983C6-57E9-4BC1-A1F4-A31A3281FE02}"
+      DTS:From="Package\Trunca Parametros"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 3"
+      DTS:To="Package\Mapear CustomerStatus" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 4]"
+      DTS:CreationName=""
+      DTS:DTSID="{139193C2-CCE0-4406-A88C-EFFC345B8C2C}"
+      DTS:From="Package\Trunca Parametros"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 4"
+      DTS:To="Package\Mapeo LANGUAGUE" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 5]"
+      DTS:CreationName=""
+      DTS:DTSID="{8E8CA821-4253-4B8B-809A-9DBBAD529D19}"
+      DTS:From="Package\Trunca Parametros"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 5"
+      DTS:To="Package\Mapeo CollateralCode" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 6]"
+      DTS:CreationName=""
+      DTS:DTSID="{54AC745D-70B9-4EA9-B8D8-9BE41C5D0E38}"
+      DTS:From="Package\Trunca Parametros"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 6"
+      DTS:To="Package\Mapeo CATEGORY" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 7]"
+      DTS:CreationName=""
+      DTS:DTSID="{93882992-14F2-44FD-86AE-9FBC50801A69}"
+      DTS:From="Package\Trunca Parametros"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 7"
+      DTS:To="Package\Mapeo CafFuenteR" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="176,42"
+          Id="Package\Inicializa parametros"
+          TopLeft="712,5.49999999999989" />
+        <NodeLayout
+          Size="161,42"
+          Id="Package\Mapea a SECTOR"
+          TopLeft="239.5,209.5" />
+        <NodeLayout
+          Size="191,42"
+          Id="Package\Mapear CustomerStatus"
+          TopLeft="461.5,209.5" />
+        <NodeLayout
+          Size="173,42"
+          Id="Package\Mapeo a INDUSTRY"
+          TopLeft="5.5,209.5" />
+        <NodeLayout
+          Size="168,42"
+          Id="Package\Mapeo CafFuenteR"
+          TopLeft="1416,209.5" />
+        <NodeLayout
+          Size="166,42"
+          Id="Package\Mapeo CATEGORY"
+          TopLeft="1189,209.5" />
+        <NodeLayout
+          Size="181,42"
+          Id="Package\Mapeo CollateralCode"
+          TopLeft="947.5,209.5" />
+        <NodeLayout
+          Size="173,42"
+          Id="Package\Mapeo LANGUAGUE"
+          TopLeft="713.5,209.5" />
+        <NodeLayout
+          Size="168,42"
+          Id="Package\Trunca Parametros"
+          TopLeft="716,107.5" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="800,47.4999999999999">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 1]"
+          TopLeft="740,149.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-648,60.0000000000001"
+              Start="0,0"
+              End="-648,52.5000000000001">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,9.33333333333336" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,9.33333333333336"
+                    Point2="0,13.3333333333334"
+                    Point3="-4,13.3333333333334" />
+                  <mssgle:LineSegment
+                    End="-644,13.3333333333334" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-644,13.3333333333334"
+                    Point2="-648,13.3333333333334"
+                    Point3="-648,17.3333333333334" />
+                  <mssgle:LineSegment
+                    End="-648,52.5000000000001" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 2]"
+          TopLeft="760,149.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-440,60"
+              Start="0,0"
+              End="-440,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,16.625" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,16.625"
+                    Point2="0,20.625"
+                    Point3="-4,20.625" />
+                  <mssgle:LineSegment
+                    End="-436,20.625" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-436,20.625"
+                    Point2="-440,20.625"
+                    Point3="-440,24.625" />
+                  <mssgle:LineSegment
+                    End="-440,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 3]"
+          TopLeft="780,149.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-223,60"
+              Start="0,0"
+              End="-223,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,21.9459459459459" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,21.9459459459459"
+                    Point2="0,25.9459459459459"
+                    Point3="-4,25.9459459459459" />
+                  <mssgle:LineSegment
+                    End="-219,25.9459459459459" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-219,25.9459459459459"
+                    Point2="-223,25.9459459459459"
+                    Point3="-223,29.9459459459459" />
+                  <mssgle:LineSegment
+                    End="-223,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 4]"
+          TopLeft="800,149.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 5]"
+          TopLeft="820,149.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="218,59.9999999999999"
+              Start="0,0"
+              End="218,52.4999999999999">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,21.9459459459459" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,21.9459459459459"
+                    Point2="0,25.9459459459459"
+                    Point3="4,25.9459459459459" />
+                  <mssgle:LineSegment
+                    End="214,25.9459459459459" />
+                  <mssgle:CubicBezierSegment
+                    Point1="214,25.9459459459459"
+                    Point2="218,25.9459459459459"
+                    Point3="218,29.9459459459459" />
+                  <mssgle:LineSegment
+                    End="218,52.4999999999999" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 6]"
+          TopLeft="840,149.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="432,59.9999999999999"
+              Start="0,0"
+              End="432,52.4999999999999">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,16.625" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,16.625"
+                    Point2="0,20.625"
+                    Point3="4,20.625" />
+                  <mssgle:LineSegment
+                    End="428,20.625" />
+                  <mssgle:CubicBezierSegment
+                    Point1="428,20.625"
+                    Point2="432,20.625"
+                    Point3="432,24.625" />
+                  <mssgle:LineSegment
+                    End="432,52.4999999999999" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 7]"
+          TopLeft="860,149.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="640,59.9999999999999"
+              Start="0,0"
+              End="640,52.4999999999999">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,9.33333333333331" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,9.33333333333331"
+                    Point2="0,13.3333333333333"
+                    Point3="4,13.3333333333333" />
+                  <mssgle:LineSegment
+                    End="636,13.3333333333333" />
+                  <mssgle:CubicBezierSegment
+                    Point1="636,13.3333333333333"
+                    Point2="640,13.3333333333333"
+                    Point3="640,17.3333333333333" />
+                  <mssgle:LineSegment
+                    End="640,52.4999999999999" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Mapeo a INDUSTRY">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="171,42"
+          Id="Package\Mapeo a INDUSTRY\OLE DB Destination"
+          TopLeft="5.50000000000001,107.5" />
+        <NodeLayout
+          Size="144,42"
+          Id="Package\Mapeo a INDUSTRY\INDUSTRYcsv"
+          TopLeft="19,5.5" />
+        <EdgeLayout
+          Id="Package\Mapeo a INDUSTRY.Paths[Flat File Source Output]"
+          TopLeft="91,47.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Mapeo a INDUSTRY\OLE DB Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\Mapeo CATEGORY">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="131,42"
+          Id="Package\Mapeo CATEGORY\CATEGORY"
+          TopLeft="13,107.5" />
+        <NodeLayout
+          Size="146,42"
+          Id="Package\Mapeo CATEGORY\CATEGORYcsv"
+          TopLeft="5.50000000000001,5.5" />
+        <EdgeLayout
+          Id="Package\Mapeo CATEGORY.Paths[Flat File Source Output]"
+          TopLeft="78.5,47.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Mapeo CATEGORY\CATEGORY">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\Mapeo CollateralCode">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="151,42"
+          Id="Package\Mapeo CollateralCode\Flat File Source"
+          TopLeft="5.50000000000001,5.5" />
+        <NodeLayout
+          Size="146,42"
+          Id="Package\Mapeo CollateralCode\CollateralCode"
+          TopLeft="8.00000000000001,107.5" />
+        <EdgeLayout
+          Id="Package\Mapeo CollateralCode.Paths[Flat File Source Output]"
+          TopLeft="81,47.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Mapeo CollateralCode\CollateralCode">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>
