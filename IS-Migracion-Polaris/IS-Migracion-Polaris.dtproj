@@ -26,7 +26,7 @@
           <SSIS:Property SSIS:Name="CreatorComputerName">VENJJCR20</SSIS:Property>
           <SSIS:Property SSIS:Name="Description">
           </SSIS:Property>
-          <SSIS:Property SSIS:Name="PasswordVerifier" SSIS:Sensitive="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAA9URSsG3Q802RUEAZCXZ9CgAAAAACAAAAAAADZgAAwAAAABAAAABANRf/22AauWwTO8DpjLyXAAAAAASAAACgAAAAEAAAAB9pYqpZkn4oLNUpIv3xvv2IAAAAOQFkqhG80Kr5cdB9PEGKKB0yBveNOIiniC5y4J+lsUKWqyI6EWhfGU43xxO3JTMi2rx47se1Rc+pYkuVT7kvQ3qEm1yq0YX8rYlUq4Aw3Z+Gu31L7FeNeMlhZbED12qHdgGUXXzQiUenMJULh6xvkET8QTe0tCkPB+iycvE7BGf3aZjHkqbY5hQAAACzAy6AJM1B+IXXHxREG/ExenSZcA==</SSIS:Property>
+          <SSIS:Property SSIS:Name="PasswordVerifier" SSIS:Sensitive="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAeOEh6d+n5E67wH7YEXCwVgAAAAACAAAAAAAQZgAAAAEAACAAAAChi3RONuBUIE0NQIT895SVpfJnkIm8cTSLWLl5zZWumAAAAAAOgAAAAAIAACAAAADORKkXht5UZyYNOSq6HUuyYHQrCgT27jleBwR7IdH1SpAAAAAX3Qhi1zrJ5PwVX3z66EEN50ORdGjqY7fUJdjdBESkE4+3wseJ5KnL3paa2vuZg44hHs6U46hgKXaMtDICXlk8LY8lyntyXlVDgN1QP80Gmqd7U1gc0VUAXp9X3FxgZNXjCk/oQlQoafDG9cXfyhHIFdWAZn/C+gWHXpDu+zqYeyzwDF0OCUsEG800JpTkH/9AAAAA2l1rM9elyFZrXgq78B6WnUSC9UTpSW9gQnI2AZDxe4BeqayDQzkDS5FWsMBwt0qa5AZPy9+C33fqzORh+c4erw==</SSIS:Property>
           <SSIS:Property SSIS:Name="FormatVersion">1</SSIS:Property>
         </SSIS:Properties>
         <SSIS:Packages>
@@ -133,7 +133,7 @@
           <SSIS:Package SSIS:Name="PqTransformaDMS-Dra03CaptureBill.dtsx" SSIS:EntryPoint="1" />
           <SSIS:Package SSIS:Name="CreaArchivoPlanoDmsDra03CaptureBill.dtsx" SSIS:EntryPoint="1" />
           <SSIS:Package SSIS:Name="Package5.dtsx" SSIS:EntryPoint="1" />
-          <SSIS:Package SSIS:Name="Package6.dtsx" SSIS:EntryPoint="1" />
+          <SSIS:Package SSIS:Name="PqCreateCustomer.dtsx" SSIS:EntryPoint="1" />
         </SSIS:Packages>
         <SSIS:ConnectionManagers>
           <SSIS:ConnectionManager SSIS:Name="STGLegados.conmgr" />
@@ -18989,16 +18989,16 @@
               </SSIS:Properties>
               <SSIS:Parameters />
             </SSIS:PackageMetaData>
-            <SSIS:PackageMetaData SSIS:Name="Package6.dtsx">
+            <SSIS:PackageMetaData SSIS:Name="PqCreateCustomer.dtsx">
               <SSIS:Properties>
-                <SSIS:Property SSIS:Name="ID">{8CC3E714-C532-42F4-9625-EB0B3EFA37E9}</SSIS:Property>
-                <SSIS:Property SSIS:Name="Name">PqTransformaDMS-Customer -001</SSIS:Property>
+                <SSIS:Property SSIS:Name="ID">{C862E7B4-0E63-46EE-9D58-C3BA81F6F166}</SSIS:Property>
+                <SSIS:Property SSIS:Name="Name">PqCreateCustomer</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionMajor">1</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionMinor">0</SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionBuild">9</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionBuild">96</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionComments">
                 </SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionGUID">{C1672C5A-774D-440B-9318-4020E6FA3359}</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionGUID">{A12A1C6D-717D-4524-8B7A-36AF05CF30C1}</SSIS:Property>
                 <SSIS:Property SSIS:Name="PackageFormatVersion">8</SSIS:Property>
                 <SSIS:Property SSIS:Name="Description">
                 </SSIS:Property>
