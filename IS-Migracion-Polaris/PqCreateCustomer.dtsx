@@ -11,8 +11,8 @@
   DTS:LocaleID="3082"
   DTS:ObjectName="PqCreateCustomer"
   DTS:PackageType="5"
-  DTS:VersionBuild="97"
-  DTS:VersionGUID="{A5C34FD9-B9BD-4518-B2C2-610A3F84394C}">
+  DTS:VersionBuild="98"
+  DTS:VersionGUID="{B78077EB-726E-4AD7-BAD6-3E0D251DBED2}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -188,48 +188,48 @@
               </outputs>
             </component>
             <component
-              refId="Package\Tarea Flujo de datos\Columna derivada 1"
+              refId="Package\Tarea Flujo de datos\Columna derivada 001"
               componentClassID="Microsoft.DerivedColumn"
               contactInfo="Columna derivada;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;0"
               description="Crea nuevos valores de columna aplicando expresiones a las columnas de entrada de la transformación. Crea nuevas columnas o sobrescribe las columnas existentes. Por ejemplo, se concatenan los valores de las columnas 'nombre' y 'apellidos' para crear una columna 'nombre completo'."
-              name="Columna derivada 1"
+              name="Columna derivada 001"
               usesDispositions="true">
               <inputs>
                 <input
-                  refId="Package\Tarea Flujo de datos\Columna derivada 1.Inputs[Entrada de columna derivada]"
+                  refId="Package\Tarea Flujo de datos\Columna derivada 001.Inputs[Entrada de columna derivada]"
                   description="Entrada en la transformación Columna derivada"
                   name="Entrada de columna derivada">
                   <inputColumns>
                     <inputColumn
-                      refId="Package\Tarea Flujo de datos\Columna derivada 1.Inputs[Entrada de columna derivada].Columns[co_ti_cliente]"
+                      refId="Package\Tarea Flujo de datos\Columna derivada 001.Inputs[Entrada de columna derivada].Columns[co_ti_cliente]"
                       cachedDataType="i2"
                       cachedName="co_ti_cliente"
                       lineageId="Package\Tarea Flujo de datos\Premium ADO NET Source Persona.Outputs[Default Output].Columns[co_ti_cliente]" />
                     <inputColumn
-                      refId="Package\Tarea Flujo de datos\Columna derivada 1.Inputs[Entrada de columna derivada].Columns[nb_largo_persona]"
+                      refId="Package\Tarea Flujo de datos\Columna derivada 001.Inputs[Entrada de columna derivada].Columns[nb_largo_persona]"
                       cachedCodepage="1252"
                       cachedDataType="str"
                       cachedLength="80"
                       cachedName="nb_largo_persona"
                       lineageId="Package\Tarea Flujo de datos\Premium ADO NET Source Persona.Outputs[Default Output].Columns[nb_largo_persona]" />
                     <inputColumn
-                      refId="Package\Tarea Flujo de datos\Columna derivada 1.Inputs[Entrada de columna derivada].Columns[ti_persona]"
+                      refId="Package\Tarea Flujo de datos\Columna derivada 001.Inputs[Entrada de columna derivada].Columns[ti_persona]"
                       cachedDataType="wstr"
                       cachedLength="1"
                       cachedName="ti_persona"
                       lineageId="Package\Tarea Flujo de datos\Premium ADO NET Source Persona.Outputs[Default Output].Columns[ti_persona]" />
                     <inputColumn
-                      refId="Package\Tarea Flujo de datos\Columna derivada 1.Inputs[Entrada de columna derivada].Columns[co_persona]"
+                      refId="Package\Tarea Flujo de datos\Columna derivada 001.Inputs[Entrada de columna derivada].Columns[co_persona]"
                       cachedDataType="i4"
                       cachedName="co_persona"
                       lineageId="Package\Tarea Flujo de datos\Premium ADO NET Source Persona.Outputs[Default Output].Columns[co_persona]" />
                     <inputColumn
-                      refId="Package\Tarea Flujo de datos\Columna derivada 1.Inputs[Entrada de columna derivada].Columns[CUSTOMER_STATUS]"
+                      refId="Package\Tarea Flujo de datos\Columna derivada 001.Inputs[Entrada de columna derivada].Columns[CUSTOMER_STATUS]"
                       cachedDataType="i4"
                       cachedName="CUSTOMER_STATUS"
                       lineageId="Package\Tarea Flujo de datos\PSL SECTOR_INST.Outputs[Default Ouptut].Columns[CUSTOMER_STATUS]" />
                     <inputColumn
-                      refId="Package\Tarea Flujo de datos\Columna derivada 1.Inputs[Entrada de columna derivada].Columns[fe_registro_persona]"
+                      refId="Package\Tarea Flujo de datos\Columna derivada 001.Inputs[Entrada de columna derivada].Columns[fe_registro_persona]"
                       cachedCodepage="1252"
                       cachedDataType="text"
                       cachedName="fe_registro_persona"
@@ -240,19 +240,19 @@
               </inputs>
               <outputs>
                 <output
-                  refId="Package\Tarea Flujo de datos\Columna derivada 1.Outputs[Salida de columna derivada]"
+                  refId="Package\Tarea Flujo de datos\Columna derivada 001.Outputs[Salida de columna derivada]"
                   description="Salida predeterminada de la transformación Columna derivada"
                   exclusionGroup="1"
                   name="Salida de columna derivada"
-                  synchronousInputId="Package\Tarea Flujo de datos\Columna derivada 1.Inputs[Entrada de columna derivada]">
+                  synchronousInputId="Package\Tarea Flujo de datos\Columna derivada 001.Inputs[Entrada de columna derivada]">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\Tarea Flujo de datos\Columna derivada 1.Outputs[Salida de columna derivada].Columns[SECTOR]"
+                      refId="Package\Tarea Flujo de datos\Columna derivada 001.Outputs[Salida de columna derivada].Columns[SECTOR]"
                       dataType="wstr"
                       errorOrTruncationOperation="Cálculo"
                       errorRowDisposition="FailComponent"
                       length="10"
-                      lineageId="Package\Tarea Flujo de datos\Columna derivada 1.Outputs[Salida de columna derivada].Columns[SECTOR]"
+                      lineageId="Package\Tarea Flujo de datos\Columna derivada 001.Outputs[Salida de columna derivada].Columns[SECTOR]"
                       name="SECTOR"
                       truncationRowDisposition="FailComponent">
                       <properties>
@@ -270,12 +270,12 @@
                       </properties>
                     </outputColumn>
                     <outputColumn
-                      refId="Package\Tarea Flujo de datos\Columna derivada 1.Outputs[Salida de columna derivada].Columns[fe_registro_persona02]"
+                      refId="Package\Tarea Flujo de datos\Columna derivada 001.Outputs[Salida de columna derivada].Columns[fe_registro_persona02]"
                       codePage="1252"
                       dataType="text"
                       errorOrTruncationOperation="Cálculo"
                       errorRowDisposition="FailComponent"
-                      lineageId="Package\Tarea Flujo de datos\Columna derivada 1.Outputs[Salida de columna derivada].Columns[fe_registro_persona02]"
+                      lineageId="Package\Tarea Flujo de datos\Columna derivada 001.Outputs[Salida de columna derivada].Columns[fe_registro_persona02]"
                       name="fe_registro_persona02"
                       truncationRowDisposition="FailComponent">
                       <properties>
@@ -296,23 +296,23 @@
                   <externalMetadataColumns />
                 </output>
                 <output
-                  refId="Package\Tarea Flujo de datos\Columna derivada 1.Outputs[Salida de error de columna derivada]"
+                  refId="Package\Tarea Flujo de datos\Columna derivada 001.Outputs[Salida de error de columna derivada]"
                   description="Salida de error de la transformación Columna derivada"
                   exclusionGroup="1"
                   isErrorOut="true"
                   name="Salida de error de columna derivada"
-                  synchronousInputId="Package\Tarea Flujo de datos\Columna derivada 1.Inputs[Entrada de columna derivada]">
+                  synchronousInputId="Package\Tarea Flujo de datos\Columna derivada 001.Inputs[Entrada de columna derivada]">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\Tarea Flujo de datos\Columna derivada 1.Outputs[Salida de error de columna derivada].Columns[ErrorCode]"
+                      refId="Package\Tarea Flujo de datos\Columna derivada 001.Outputs[Salida de error de columna derivada].Columns[ErrorCode]"
                       dataType="i4"
-                      lineageId="Package\Tarea Flujo de datos\Columna derivada 1.Outputs[Salida de error de columna derivada].Columns[ErrorCode]"
+                      lineageId="Package\Tarea Flujo de datos\Columna derivada 001.Outputs[Salida de error de columna derivada].Columns[ErrorCode]"
                       name="ErrorCode"
                       specialFlags="1" />
                     <outputColumn
-                      refId="Package\Tarea Flujo de datos\Columna derivada 1.Outputs[Salida de error de columna derivada].Columns[ErrorColumn]"
+                      refId="Package\Tarea Flujo de datos\Columna derivada 001.Outputs[Salida de error de columna derivada].Columns[ErrorColumn]"
                       dataType="i4"
-                      lineageId="Package\Tarea Flujo de datos\Columna derivada 1.Outputs[Salida de error de columna derivada].Columns[ErrorColumn]"
+                      lineageId="Package\Tarea Flujo de datos\Columna derivada 001.Outputs[Salida de error de columna derivada].Columns[ErrorColumn]"
                       name="ErrorColumn"
                       specialFlags="2" />
                   </outputColumns>
@@ -1755,7 +1755,7 @@ WHERE C.co_persona IN (53880, 53881, 37550, 53536, 66,224,248,253,292,339,844,10
                       cachedLength="10"
                       cachedName="SECTOR"
                       externalMetadataColumnId="Package\Tarea Flujo de datos\Premium Flat File Destination.Inputs[Primary Input].ExternalColumns[Column9]"
-                      lineageId="Package\Tarea Flujo de datos\Columna derivada 1.Outputs[Salida de columna derivada].Columns[SECTOR]" />
+                      lineageId="Package\Tarea Flujo de datos\Columna derivada 001.Outputs[Salida de columna derivada].Columns[SECTOR]" />
                     <inputColumn
                       refId="Package\Tarea Flujo de datos\Premium Flat File Destination.Inputs[Primary Input].Columns[de_contacto]"
                       cachedCodepage="1252"
@@ -1837,7 +1837,7 @@ WHERE C.co_persona IN (53880, 53881, 37550, 53536, 66,224,248,253,292,339,844,10
                       cachedDataType="text"
                       cachedName="fe_registro_persona02"
                       externalMetadataColumnId="Package\Tarea Flujo de datos\Premium Flat File Destination.Inputs[Primary Input].ExternalColumns[Column22]"
-                      lineageId="Package\Tarea Flujo de datos\Columna derivada 1.Outputs[Salida de columna derivada].Columns[fe_registro_persona02]" />
+                      lineageId="Package\Tarea Flujo de datos\Columna derivada 001.Outputs[Salida de columna derivada].Columns[fe_registro_persona02]" />
                     <inputColumn
                       refId="Package\Tarea Flujo de datos\Premium Flat File Destination.Inputs[Primary Input].Columns[Email_persona]"
                       cachedCodepage="1252"
@@ -6398,74 +6398,74 @@ WHERE
               startId="Package\Tarea Flujo de datos\División condicional.Outputs[Case 1]" />
             <path
               refId="Package\Tarea Flujo de datos.Paths[Default Ouptut13]"
-              endId="Package\Tarea Flujo de datos\PSL LT_TP_ACCIONISTAS.Inputs[Primary Input]"
+              endId="Package\Tarea Flujo de datos\PSL  LANGUAGE.Inputs[Primary Input]"
               name="Default Ouptut"
-              startId="Package\Tarea Flujo de datos\PSL LT_SEC_ECON.Outputs[Default Ouptut]" />
+              startId="Package\Tarea Flujo de datos\PSL  LEGAL_ISS_DATE.Outputs[Default Ouptut]" />
             <path
               refId="Package\Tarea Flujo de datos.Paths[Default Ouptut12]"
-              endId="Package\Tarea Flujo de datos\PSL SECTOR.Inputs[Primary Input]"
-              name="Default Ouptut"
-              startId="Package\Tarea Flujo de datos\PSL COUNTRY.Outputs[Default Ouptut]" />
-            <path
-              refId="Package\Tarea Flujo de datos.Paths[Default Ouptut11]"
-              endId="Package\Tarea Flujo de datos\PSL COUNTRY.Inputs[Primary Input]"
-              name="Default Ouptut"
-              startId="Package\Tarea Flujo de datos\PSL COMPANY.Outputs[Default Ouptut]" />
-            <path
-              refId="Package\Tarea Flujo de datos.Paths[Default Ouptut10]"
-              endId="Package\Tarea Flujo de datos\PSL ACC_OFFICER.Inputs[Primary Input]"
-              name="Default Ouptut"
-              startId="Package\Tarea Flujo de datos\PSL SECTOR.Outputs[Default Ouptut]" />
-            <path
-              refId="Package\Tarea Flujo de datos.Paths[Default Ouptut9]"
-              endId="Package\Tarea Flujo de datos\PSL Tmp_Clientes.Inputs[Primary Input]"
-              name="Default Ouptut"
-              startId="Package\Tarea Flujo de datos\PSL ACC_OFFICER.Outputs[Default Ouptut]" />
-            <path
-              refId="Package\Tarea Flujo de datos.Paths[Default Ouptut7]"
-              endId="Package\Tarea Flujo de datos\Columna derivada 1.Inputs[Entrada de columna derivada]"
-              name="Default Ouptut"
-              startId="Package\Tarea Flujo de datos\PSL LT_TP_ACCIONISTAS.Outputs[Default Ouptut]" />
-            <path
-              refId="Package\Tarea Flujo de datos.Paths[Default Ouptut8]"
-              endId="Package\Tarea Flujo de datos\PSL INDUSTRY.Inputs[Primary Input]"
-              name="Default Ouptut"
-              startId="Package\Tarea Flujo de datos\PSL Tmp_Clientes.Outputs[Default Ouptut]" />
-            <path
-              refId="Package\Tarea Flujo de datos.Paths[Default Ouptut5]"
-              endId="Package\Tarea Flujo de datos\PSL LT_SEC_ECON.Inputs[Primary Input]"
-              name="Default Ouptut"
-              startId="Package\Tarea Flujo de datos\PSL  LANGUAGE.Outputs[Default Ouptut]" />
-            <path
-              refId="Package\Tarea Flujo de datos.Paths[Default Ouptut4]"
-              endId="Package\Tarea Flujo de datos\PSL  CO_PAIS_NACIO.Inputs[Primary Input]"
-              name="Default Ouptut"
-              startId="Package\Tarea Flujo de datos\PSL SECTOR_INST.Outputs[Default Ouptut]" />
-            <path
-              refId="Package\Tarea Flujo de datos.Paths[Default Ouptut3]"
-              endId="Package\Tarea Flujo de datos\PSL  LEGAL_ISS_DATE.Inputs[Primary Input]"
-              name="Default Ouptut"
-              startId="Package\Tarea Flujo de datos\PSL  CO_PAIS_BASE.Outputs[Default Ouptut]" />
-            <path
-              refId="Package\Tarea Flujo de datos.Paths[Default Ouptut2]"
-              endId="Package\Tarea Flujo de datos\PSL  CO_PAIS_BASE.Inputs[Primary Input]"
-              name="Default Ouptut"
-              startId="Package\Tarea Flujo de datos\PSL  CO_PAIS_NACIO.Outputs[Default Ouptut]" />
-            <path
-              refId="Package\Tarea Flujo de datos.Paths[Default Ouptut1]"
-              endId="Package\Tarea Flujo de datos\PSL  PER_JURIDICA.Inputs[Primary Input]"
-              name="Default Ouptut"
-              startId="Package\Tarea Flujo de datos\PSL INDUSTRY.Outputs[Default Ouptut]" />
-            <path
-              refId="Package\Tarea Flujo de datos.Paths[Default Ouptut]"
               endId="Package\Tarea Flujo de datos\PSL SECTOR_INST.Inputs[Primary Input]"
               name="Default Ouptut"
               startId="Package\Tarea Flujo de datos\PSL  PER_JURIDICA.Outputs[Default Ouptut]" />
             <path
-              refId="Package\Tarea Flujo de datos.Paths[Default Ouptut6]"
-              endId="Package\Tarea Flujo de datos\PSL  LANGUAGE.Inputs[Primary Input]"
+              refId="Package\Tarea Flujo de datos.Paths[Default Ouptut11]"
+              endId="Package\Tarea Flujo de datos\PSL  PER_JURIDICA.Inputs[Primary Input]"
               name="Default Ouptut"
-              startId="Package\Tarea Flujo de datos\PSL  LEGAL_ISS_DATE.Outputs[Default Ouptut]" />
+              startId="Package\Tarea Flujo de datos\PSL INDUSTRY.Outputs[Default Ouptut]" />
+            <path
+              refId="Package\Tarea Flujo de datos.Paths[Default Ouptut10]"
+              endId="Package\Tarea Flujo de datos\PSL  CO_PAIS_BASE.Inputs[Primary Input]"
+              name="Default Ouptut"
+              startId="Package\Tarea Flujo de datos\PSL  CO_PAIS_NACIO.Outputs[Default Ouptut]" />
+            <path
+              refId="Package\Tarea Flujo de datos.Paths[Default Ouptut9]"
+              endId="Package\Tarea Flujo de datos\PSL  LEGAL_ISS_DATE.Inputs[Primary Input]"
+              name="Default Ouptut"
+              startId="Package\Tarea Flujo de datos\PSL  CO_PAIS_BASE.Outputs[Default Ouptut]" />
+            <path
+              refId="Package\Tarea Flujo de datos.Paths[Default Ouptut7]"
+              endId="Package\Tarea Flujo de datos\PSL LT_SEC_ECON.Inputs[Primary Input]"
+              name="Default Ouptut"
+              startId="Package\Tarea Flujo de datos\PSL  LANGUAGE.Outputs[Default Ouptut]" />
+            <path
+              refId="Package\Tarea Flujo de datos.Paths[Default Ouptut8]"
+              endId="Package\Tarea Flujo de datos\PSL  CO_PAIS_NACIO.Inputs[Primary Input]"
+              name="Default Ouptut"
+              startId="Package\Tarea Flujo de datos\PSL SECTOR_INST.Outputs[Default Ouptut]" />
+            <path
+              refId="Package\Tarea Flujo de datos.Paths[Default Ouptut5]"
+              endId="Package\Tarea Flujo de datos\Columna derivada 001.Inputs[Entrada de columna derivada]"
+              name="Default Ouptut"
+              startId="Package\Tarea Flujo de datos\PSL LT_TP_ACCIONISTAS.Outputs[Default Ouptut]" />
+            <path
+              refId="Package\Tarea Flujo de datos.Paths[Default Ouptut4]"
+              endId="Package\Tarea Flujo de datos\PSL Tmp_Clientes.Inputs[Primary Input]"
+              name="Default Ouptut"
+              startId="Package\Tarea Flujo de datos\PSL ACC_OFFICER.Outputs[Default Ouptut]" />
+            <path
+              refId="Package\Tarea Flujo de datos.Paths[Default Ouptut3]"
+              endId="Package\Tarea Flujo de datos\PSL ACC_OFFICER.Inputs[Primary Input]"
+              name="Default Ouptut"
+              startId="Package\Tarea Flujo de datos\PSL SECTOR.Outputs[Default Ouptut]" />
+            <path
+              refId="Package\Tarea Flujo de datos.Paths[Default Ouptut2]"
+              endId="Package\Tarea Flujo de datos\PSL COUNTRY.Inputs[Primary Input]"
+              name="Default Ouptut"
+              startId="Package\Tarea Flujo de datos\PSL COMPANY.Outputs[Default Ouptut]" />
+            <path
+              refId="Package\Tarea Flujo de datos.Paths[Default Ouptut1]"
+              endId="Package\Tarea Flujo de datos\PSL SECTOR.Inputs[Primary Input]"
+              name="Default Ouptut"
+              startId="Package\Tarea Flujo de datos\PSL COUNTRY.Outputs[Default Ouptut]" />
+            <path
+              refId="Package\Tarea Flujo de datos.Paths[Default Ouptut]"
+              endId="Package\Tarea Flujo de datos\PSL LT_TP_ACCIONISTAS.Inputs[Primary Input]"
+              name="Default Ouptut"
+              startId="Package\Tarea Flujo de datos\PSL LT_SEC_ECON.Outputs[Default Ouptut]" />
+            <path
+              refId="Package\Tarea Flujo de datos.Paths[Default Ouptut6]"
+              endId="Package\Tarea Flujo de datos\PSL INDUSTRY.Inputs[Primary Input]"
+              name="Default Ouptut"
+              startId="Package\Tarea Flujo de datos\PSL Tmp_Clientes.Outputs[Default Ouptut]" />
             <path
               refId="Package\Tarea Flujo de datos.Paths[Default Output]"
               endId="Package\Tarea Flujo de datos\Columna derivada.Inputs[Entrada de columna derivada]"
@@ -6473,14 +6473,14 @@ WHERE
               startId="Package\Tarea Flujo de datos\Premium ADO NET Source Persona.Outputs[Default Output]" />
             <path
               refId="Package\Tarea Flujo de datos.Paths[Salida de columna derivada1]"
-              endId="Package\Tarea Flujo de datos\División condicional.Inputs[Entrada de división condicional]"
-              name="Salida de columna derivada"
-              startId="Package\Tarea Flujo de datos\Columna derivada 1.Outputs[Salida de columna derivada]" />
-            <path
-              refId="Package\Tarea Flujo de datos.Paths[Salida de columna derivada]"
               endId="Package\Tarea Flujo de datos\PSL COMPANY.Inputs[Primary Input]"
               name="Salida de columna derivada"
               startId="Package\Tarea Flujo de datos\Columna derivada.Outputs[Salida de columna derivada]" />
+            <path
+              refId="Package\Tarea Flujo de datos.Paths[Salida de columna derivada]"
+              endId="Package\Tarea Flujo de datos\División condicional.Inputs[Entrada de división condicional]"
+              name="Salida de columna derivada"
+              startId="Package\Tarea Flujo de datos\Columna derivada 001.Outputs[Salida de columna derivada]" />
             <path
               refId="Package\Tarea Flujo de datos.Paths[Salida predeterminada de división condicional]"
               endId="Package\Tarea Flujo de datos\Premium Flat File Destination.Inputs[Primary Input]"
@@ -6556,8 +6556,8 @@ WHERE
           Id="Package\Tarea Flujo de datos\PSL LT_TP_ACCIONISTAS"
           TopLeft="234,199" />
         <NodeLayout
-          Size="145,43"
-          Id="Package\Tarea Flujo de datos\Columna derivada 1"
+          Size="190,42"
+          Id="Package\Tarea Flujo de datos\Columna derivada 001"
           TopLeft="543.99995216727,198.842101191385" />
         <NodeLayout
           Size="189,42"
@@ -6621,28 +6621,6 @@ WHERE
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Tarea Flujo de datos.Paths[Salida de columna derivada1]"
-          TopLeft="688.99995216727,224.171050595693">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="59.00004783273,0"
-              Start="0,0"
-              End="51.50004783273,0">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="51.50004783273,0" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Tarea Flujo de datos.Paths[Salida de columna derivada]"
           TopLeft="421.750002067536,49.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -6655,6 +6633,40 @@ WHERE
                   Capacity="5">
                   <mssgle:LineSegment
                     End="17.3750003632159,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Tarea Flujo de datos.Paths[Salida de columna derivada]"
+          TopLeft="638.99995216727,198.842101191385">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="197.00004783273,8.15789880861499"
+              Start="0,0"
+              End="197.00004783273,0.657898808614988">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,-18.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,-18.5"
+                    Point2="0,-22.5"
+                    Point3="4,-22.5" />
+                  <mssgle:LineSegment
+                    End="193.00004783273,-22.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="193.00004783273,-22.5"
+                    Point2="197.00004783273,-22.5"
+                    Point3="197.00004783273,-18.5" />
+                  <mssgle:LineSegment
+                    End="197.00004783273,0.657898808614988" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -6687,160 +6699,6 @@ WHERE
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Tarea Flujo de datos.Paths[Default Ouptut13]"
-          TopLeft="193.125000307336,218.789472989304">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="40.8749996926636,0"
-              Start="0,0"
-              End="33.3749996926636,0">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="33.3749996926636,0" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Tarea Flujo de datos.Paths[Default Ouptut12]"
-          TopLeft="794.249973569066,48.7894734175168">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="34.124992260711,0"
-              Start="0,0"
-              End="26.624992260711,0">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="26.624992260711,0" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Tarea Flujo de datos.Paths[Default Ouptut11]"
-          TopLeft="604.625002430752,49.4078945978609">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="25.6249711383141,0"
-              Start="0,0"
-              End="18.1249711383141,0">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="18.1249711383141,0" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Tarea Flujo de datos.Paths[Default Ouptut10]"
-          TopLeft="982.374965829777,48.5131576393119">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="33.374992204833,0"
-              Start="0,0"
-              End="25.874992204833,0">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="25.874992204833,0" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Tarea Flujo de datos.Paths[Default Ouptut9]"
-          TopLeft="1195.74995803461,48.8157891957218">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="38.49999050051,0"
-              Start="0,0"
-              End="30.99999050051,0">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="30.99999050051,0" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Tarea Flujo de datos.Paths[Default Ouptut8]"
-          TopLeft="1405.24994853512,48.6491248128539">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="39.2500093318499,0"
-              Start="0,0"
-              End="31.7500093318499,0">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="31.7500093318499,0" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Tarea Flujo de datos.Paths[Default Ouptut7]"
-          TopLeft="450,220.171050595693">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="93.99995216727,0"
-              Start="0,0"
-              End="86.49995216727,0">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="86.49995216727,0" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Tarea Flujo de datos.Paths[Default Ouptut6]"
           TopLeft="230.125000307336,145.078945978609">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -6862,19 +6720,19 @@ WHERE
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\Tarea Flujo de datos.Paths[Default Ouptut5]"
-          TopLeft="99.3750003073364,167.578945978609">
+          Id="Package\Tarea Flujo de datos.Paths[Default Ouptut12]"
+          TopLeft="1431.12500030734,143.789472989304">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,29"
+              EndConnector="-305.125000307336,0"
               Start="0,0"
-              End="0,21.5">
+              End="-297.625000307336,0">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,21.5" />
+                    End="-297.625000307336,0" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -6884,73 +6742,7 @@ WHERE
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\Tarea Flujo de datos.Paths[Default Ouptut4]"
-          TopLeft="946,143.289472989304">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-69.8749996926636,0"
-              Start="0,0"
-              End="-62.3749996926636,0">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="-62.3749996926636,0" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Tarea Flujo de datos.Paths[Default Ouptut3]"
-          TopLeft="458,143.789472989304">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-27.874999692664,0"
-              Start="0,0"
-              End="-20.374999692664,0">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="-20.374999692664,0" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Tarea Flujo de datos.Paths[Default Ouptut2]"
-          TopLeft="682.125000307336,142.789472989304">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-35.1250003073364,0"
-              Start="0,0"
-              End="-27.6250003073364,0">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="-27.6250003073364,0" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Tarea Flujo de datos.Paths[Default Ouptut1]"
+          Id="Package\Tarea Flujo de datos.Paths[Default Ouptut11]"
           TopLeft="1523.81247908715,69.929828873576">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -6972,19 +6764,239 @@ WHERE
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\Tarea Flujo de datos.Paths[Default Ouptut]"
-          TopLeft="1431.12500030734,143.789472989304">
+          Id="Package\Tarea Flujo de datos.Paths[Default Ouptut10]"
+          TopLeft="682.125000307336,142.789472989304">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-305.125000307336,0"
+              EndConnector="-35.1250003073364,0"
               Start="0,0"
-              End="-297.625000307336,0">
+              End="-27.6250003073364,0">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="-297.625000307336,0" />
+                    End="-27.6250003073364,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Tarea Flujo de datos.Paths[Default Ouptut9]"
+          TopLeft="458,143.789472989304">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-27.874999692664,0"
+              Start="0,0"
+              End="-20.374999692664,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="-20.374999692664,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Tarea Flujo de datos.Paths[Default Ouptut8]"
+          TopLeft="946,143.289472989304">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-69.8749996926636,0"
+              Start="0,0"
+              End="-62.3749996926636,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="-62.3749996926636,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Tarea Flujo de datos.Paths[Default Ouptut7]"
+          TopLeft="99.3750003073364,167.578945978609">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,29"
+              Start="0,0"
+              End="0,21.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,21.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Tarea Flujo de datos.Paths[Default Ouptut6]"
+          TopLeft="1405.24994853512,48.6491248128539">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="39.2500093318499,0"
+              Start="0,0"
+              End="31.7500093318499,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="31.7500093318499,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Tarea Flujo de datos.Paths[Default Ouptut5]"
+          TopLeft="450,219.921050595693">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="93.99995216727,0"
+              Start="0,0"
+              End="86.49995216727,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="86.49995216727,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Tarea Flujo de datos.Paths[Default Ouptut4]"
+          TopLeft="1195.74995803461,48.8157891957218">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="38.49999050051,0"
+              Start="0,0"
+              End="30.99999050051,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="30.99999050051,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Tarea Flujo de datos.Paths[Default Ouptut3]"
+          TopLeft="982.374965829777,48.5131576393119">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="33.374992204833,0"
+              Start="0,0"
+              End="25.874992204833,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="25.874992204833,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Tarea Flujo de datos.Paths[Default Ouptut2]"
+          TopLeft="604.625002430752,49.4078945978609">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="25.6249711383141,0"
+              Start="0,0"
+              End="18.1249711383141,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="18.1249711383141,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Tarea Flujo de datos.Paths[Default Ouptut1]"
+          TopLeft="794.249973569066,48.7894734175168">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="34.124992260711,0"
+              Start="0,0"
+              End="26.624992260711,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="26.624992260711,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Tarea Flujo de datos.Paths[Default Ouptut]"
+          TopLeft="193.125000307336,218.789472989304">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="40.8749996926636,0"
+              Start="0,0"
+              End="33.3749996926636,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="33.3749996926636,0" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
