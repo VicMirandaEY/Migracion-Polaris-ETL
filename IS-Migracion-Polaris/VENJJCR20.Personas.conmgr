@@ -1,0 +1,10 @@
+﻿<?xml version="1.0"?>
+<DTS:ConnectionManager xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:ObjectName="VENJJCR20.Personas"
+  DTS:DTSID="{3AE57806-75BF-435D-B855-2C58B38BCCF6}"
+  DTS:CreationName="ADO.NET:System.Data.SqlClient.SqlConnection, System.Data, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+  <DTS:ObjectData>
+    <DTS:ConnectionManager
+      DTS:ConnectionString="Data Source=VENJJCR20;Initial Catalog=Personas;Integrated Security=True;Application Name=SSIS-IS-Migracion-Polaris-{3AE57806-75BF-435D-B855-2C58B38BCCF6}VENJJCR20.Personas;" />
+  </DTS:ObjectData>
+</DTS:ConnectionManager>

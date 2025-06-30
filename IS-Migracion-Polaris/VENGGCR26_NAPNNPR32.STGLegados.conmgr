@@ -1,0 +1,10 @@
+﻿<?xml version="1.0"?>
+<DTS:ConnectionManager xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:ObjectName="VENGGCR26_NAPNNPR32.STGLegados"
+  DTS:DTSID="{4B52D8E2-8781-4975-B2F1-2D7DAC276C1F}"
+  DTS:CreationName="ADO.NET:System.Data.SqlClient.SqlConnection, System.Data, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+  <DTS:ObjectData>
+    <DTS:ConnectionManager
+      DTS:ConnectionString="Data Source=VENGGCR26\NAPNNPR32;Initial Catalog=STGLegados;Integrated Security=True;Application Name=SSIS-IS-Migracion-Polaris-{4B52D8E2-8781-4975-B2F1-2D7DAC276C1F}VENGGCR26\NAPNNPR32.STGLegados;" />
+  </DTS:ObjectData>
+</DTS:ConnectionManager>
