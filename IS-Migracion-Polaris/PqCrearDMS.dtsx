@@ -11,20 +11,158 @@
   DTS:LocaleID="3082"
   DTS:ObjectName="PqCrearDMS-Dea01Takeover"
   DTS:PackageType="5"
-  DTS:VersionBuild="3"
-  DTS:VersionGUID="{58B6C9C0-FFDB-49D4-B590-6B388ECCC9CD}">
+  DTS:VersionBuild="27"
+  DTS:VersionGUID="{21657550-7FCE-4D90-80A2-590BE1F8C932}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Flat File Connection DMS DEA 01 TAKEOVER]"
+      DTS:CreationName="FLATFILE"
+      DTS:DTSID="{FD6AD9B2-135B-4486-BBFC-591AA13F6E06}"
+      DTS:ObjectName="Flat File Connection DMS DEA 01 TAKEOVER">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="Delimited"
+          DTS:LocaleID="1033"
+          DTS:HeaderRowDelimiter="_x007C_"
+          DTS:RowDelimiter=""
+          DTS:TextQualifier="_x003C_none_x003E_"
+          DTS:CodePage="65001"
+          DTS:ConnectionString="D:\App\Migracion-Polaris-ETL1\Txt\DMS.DEA.01.TAKEOVER.txt">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="9"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="UPLOAD.COMPANY"
+              DTS:DTSID="{F685A34F-8C3D-4672-B039-F137D14BC2DE}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="18"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="ID/ARR.SEQUENCE"
+              DTS:DTSID="{CE5A3B56-354F-4E1D-8E9D-1C694D8B7D40}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="12"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="ARRANGEMENT"
+              DTS:DTSID="{A6DF9420-9BF0-402D-87D7-0E591026CD34}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="29"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="ACTIVITY"
+              DTS:DTSID="{1FFD1E45-05A0-400E-81B8-99F56416BEBF}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="128"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="CUSTOMER"
+              DTS:DTSID="{D5DAE589-1CFA-44E3-AE66-2A94B1981B32}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="128"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="CUSTOMER.ROLE"
+              DTS:DTSID="{8945A6E5-4D6B-4248-B2EB-DFDEC8A13CF8}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="40"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="PRODUCT"
+              DTS:DTSID="{B86FB3E0-C1CE-4E28-8CEF-AC8F674250D8}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="3"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="CURRENCY"
+              DTS:DTSID="{F2A8F755-7773-4F7B-A4D3-7D7DA61C35F8}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="8"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="ORIG.CONTRACT.DATE"
+              DTS:DTSID="{338E16BC-771C-47E0-975E-80788B15BA89}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="1048"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="PROPERTY"
+              DTS:DTSID="{354C0A9E-B295-4A8B-A8FD-78E9B33380D7}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="2048"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="FIELD.NAME"
+              DTS:DTSID="{36BA4B23-A6F6-4387-A4FF-F47349AB10AE}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="2048"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="FIELD.VALUE"
+              DTS:DTSID="{C8E068F1-F0B7-43B1-AD44-057596E5F2BC}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000D__x000A_"
+              DTS:MaximumWidth="150"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="REASON"
+              DTS:DTSID="{87CE15CA-BE39-476B-9066-A3B4EACD5D2F}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
   <DTS:Variables />
   <DTS:Executables>
     <DTS:Executable
-      DTS:refId="Package\DMS-Dea01Takeover"
+      DTS:refId="Package\DMS-Dea01Takeover 1"
       DTS:CreationName="Microsoft.Pipeline"
       DTS:Description="Tarea Flujo de datos"
-      DTS:DTSID="{89002F7F-6A60-4C57-AC52-A4D95264FC84}"
+      DTS:DTSID="{a6c6cc9b-6442-48d5-b507-66582eaf1fd1}"
       DTS:ExecutableType="Microsoft.Pipeline"
       DTS:LocaleID="-1"
-      DTS:ObjectName="DMS-Dea01Takeover"
+      DTS:ObjectName="DMS-Dea01Takeover 1"
       DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
       <DTS:Variables />
       <DTS:ObjectData>
@@ -32,7 +170,7 @@
           version="1">
           <components>
             <component
-              refId="Package\DMS-Dea01Takeover\Premium ADO NET Source"
+              refId="Package\DMS-Dea01Takeover 1\Premium ADO NET Source"
               componentClassID="Microsoft.ManagedComponentHost"
               contactInfo="KingswaySoft Inc.; http://www.kingswaysoft.com; support@kingswaysoft.com; Copyright (c) 2011-2025 KingswaySoft Inc."
               description="Read data from an ADO.NET connection."
@@ -56,7 +194,8 @@
        ,@feUltimoDiaMesMigracion date
        ,@feMigracion date
        ,@feMigracionST nvarchar(8)
-
+--
+--
 SET @feLineaTiempo = (SELECT MAX(fe_linea_tiempo)  FROM [STGLegados].[dbo].[linea_tiempo])
 SET @feMigracion = DATEADD(DAY, 1, @feLineaTiempo) 
 SET @YYYY = YEAR(@feMigracion)  -- Año correspondiente a la fecha de migración
@@ -68,7 +207,1322 @@ SET @primerDiaMesMigracionINT = YEAR(@feUltimoDiaMesMigracion)*10000 + MONTH(@fe
 SET @feMigracionST = Convert(nvarchar(8),@feMigracion,112)
 --
 --
+--TRUNCATE TABLE [STGPolaris].[dbo].[DMS.DEA.01.TAKEOVER-v0.5]
+--TRUNCATE TABLE [STGPolaris].[dbo].[DMS.DEA.01.TAKEOVER]
+--INSERT INTO [STGPolaris].[dbo].[DMS.DEA.01.TAKEOVER-v0.5]
 
+SELECT  -- DISTINCT -- APROBACIONES ACTIVAS CON COMPROMISOS Y DRAWING
+        APROB.coCompaniaAprobacionActivaTransact as [UPLOAD.COMPANY]
+       ,APROB.coTakeoverAprobacionActivaTransact as [ID/ARR.SEQUENCE] -- Algoritmo Aprobacion DEA.01: AAACT+X+YYY+ZZZZ X=1 Takeover, X=2 Capture Balance, X=3 Adjust Balance
+       ,APROB.coAprobacionActivaTransact as [ARRANGEMENT] -- AA+Julian Date (5)+ ...
+       ,Convert(nvarchar(29),'FACILITY-TAKEOVER-ARRANGEMENT') as [ACTIVITY]
+       --
+       -- Las excepciones a los clientes (ver nota abajo) se aplicaron en la tabla de relacionados con Deals
+       ,Convert(nvarchar(128),
+          CASE
+            WHEN CR.customerCode IS NOT NULL THEN LTRIM(RTRIM(CR.customerCode))
+            ELSE APROB.coClienteAprobacionActivaTransact    -- Regla que impide enviar ejecutor y cliente con el mismo CUP. 17-01-2025. Ver vorreo de Liz
+          END) as [CUSTOMER]  -- Se incorporan los códigos de los clientes, ejecutores y garantes  12-05-2024. Revisar excepciones comentadas abajo
+       ,Convert(nvarchar(128),
+          CASE
+            WHEN CR.customerRole IS NOT NULL THEN LTRIM(RTRIM(CR.customerRole))
+            ELSE 'OWNER'
+          END) as [CUSTOMER.ROLE]
+       ,Convert(nvarchar(40),'CAF.APROBACION.ACTIVA.') as [PRODUCT]
+       ,APROB.coMonedaAprobacionActivaTransact as [CURRENCY]
+       ,APROB.feContratoOriginalAprobacionActivaTransact as [ORIG.CONTRACT.DATE]
+       ,Convert(nvarchar(1024),'ACCOUNT::DACOMMITMENT::LIMIT::OFFICERS') as [PROPERTY] -- Se toman todas las properties de la pestaña takeover marcadas para migrar
+       ,Convert(nvarchar(2048),'ALT.ID!!SHORT.TITLE::AMOUNT!!CAF.APROB!!CAF.FFC.APRO!!CAF.FFC.TAS!!CAF.RES!!CAF.TIP.APR!!CAF.TIP.PLZ!!CAF.TIP.RISK!!CAF.VENC.ORIG!!MATURITY.DATE::VALIDATION.LIMIT::OFFICER.ROLE!!OTHER.OFFICER!!PRIMARY.OFFICER') as [FIELD.NAME] 
+       ,Convert(nvarchar(2048),
+                             -- ACCOUNT
+                              Convert(nvarchar(15),[STGPolaris].[dbo].[fn_udfTrim] (APROB.coAprobacionActiva))+'!!' -- ALT.ID
+                             +[STGPolaris].[dbo].[fn_udfTrim] (APROB.deAprobacionActiva)+'::'                       -- SHORT.TITLE
+                             -- DACOMMITMENT
+                             +Convert(nvarchar(28),CASE WHEN APROB.coMonedaAprobacionActivaTransact IN ('JPY','PYG') THEN Convert(numeric(21,0),APROB.moAprobadoMonedaAprobacionActiva) ELSE APROB.moAprobadoMonedaAprobacionActiva END)+'!!'    -- AMOUNT  -- La tabla TmpAprobacionCompromisoOperacionActiva maneja la regla de que el monto aprobado cubra el nivel facility, esto es, SUM(aprobados facility) a menos que sea mayor que esta suma.
+                             +APROB.feContratoOriginalAprobacionActivaTransact+'!!' -- CAF.APROB  -- Se está enviando esta fecha porque fe_aprobado practicamente está en NULL en todas las aprobaciones. Revisar si se puede enviar en blanco. 
+                             +APROB.cafFfcAprobacionActiva+'!!' -- CAF.FFC.APRO   -- Correo del 10-07-2024
+                             +APROB.cafFfcTas+'!!'          -- CAF.FFC.TAS    -- Sólo acepta 2 decimales. Se envía blanco cuando la tasa es NULL (regla)
+                             +APROB.cafResAprobacionActiva+'!!'             -- CAF.RES
+                             +Convert(nvarchar(30),APROB.cafTipAprob)+'!!'  -- CAF.TIP.APR
+                             +APROB.cafTipPlzAprobacionActiva+'!!'          -- CAF.TIP.PLZ
+                             +APROB.cafTipRiskAprobacionActiva+'!!'         -- CAF.TIP.RISK
+                             +CASE WHEN SUBSTRING(APROB.coAprobacionActiva,1,4) = 'CFSD' THEN APROB.feVencimientoAprobacionActivaTransact ELSE ISNULL(Convert(nvarchar(8),PRY.fe_vencimiento_proyecto,112),CVO.[CAF.VENC.ORIG]) END+'!!'  -- CAF.VENC.ORIG
+                             +APROB.feVencimientoAprobacionActivaTransact+'::'  -- MATURITY.DATE
+                             -- LIMIT
+                             +APROB.coLimiteDeValidacionActivaTransact+'::' -- VALIDATION.LIMIT
+                             -- OFFICERS
+                             +'EJN!!'
+                             +APROB.otherOfficerAprobacionActiva+'!!'       -- OTHER.OFFICER
+                             +APROB.primaryOfficerAprobacionActiva          -- PRIMARY.OFFICER
+                             ) as [FIELD.VALUE]
+       ,Convert(nvarchar(150),APROB.deAprobacionActiva) as [REASON]
+       --------*** Quitar o comentar. Solo para debugging ***----
+       --,APROB.coAprobacionActiva as [ALT.ID]
+       --,APROB.moAprobadoMonedaAprobacionActiva as [AMOUNT] 
+       --,APROB.feContratoOriginalAprobacionActivaTransact as [CAF.APROB]
+       --,APROB.cafFfcAprobacionActiva as [CAF.FFC.APRO]
+       --,APROB.cafFfcTas as [CAF.FFC.TAS]
+       --,APROB.cafResAprobacionActiva as [CAF.RES]   -- Confirmar si se habilitarán los caracteres especiales en el campo para quitar normalización o filtrado **** OJO
+       --,Convert(nvarchar(30),APROB.cafTipAprob) as [CAF.TIP.APR]
+       --,APROB.cafTipPlzAprobacionActiva as [CAF.TIP.PLZ]
+       --,APROB.cafTipRiskAprobacionActiva as [CAF.TIP.RISK]
+       --,APROB.feVencimientoAprobacionActivaTransact as [MATURITY.DATE]
+       --,Convert(nvarchar(5),NULL) as [TERM]
+       --,APROB.coLimiteDeValidacionActivaTransact as [VALIDATION.LIMIT]
+       --,APROB.otherOfficerAprobacionActiva as [OTHER.OFFICER]   -- Regla incorporada por Liz en ejecución Trial 4 15/08/2024
+       --,APROB.primaryOfficerAprobacionActiva as [PRIMARY.OFFICER]
+       --------*** Fin de campos para debugging  *** ----------------------
+--INTO [STGPolaris].[dbo].[DMS.DEA.01.TAKEOVER-v0.5]
+FROM (SELECT DISTINCT   
+             coCompaniaAprobacionActivaTransact
+            ,coTakeoverAprobacionActivaTransact
+            ,coAprobacionActivaTransact
+            ,coLimiteDeValidacionActivaTransact
+            ,coMonedaAprobacionActivaTransact
+            ,feVencimientoAprobacionActivaTransact
+            ,feContratoOriginalAprobacionActivaTransact
+            ,coAprobacionActiva
+            ,moAprobadoMonedaAprobacionActiva
+            ,coClienteAprobacionActivaTransact
+            ,cafFfcAprobacionActiva
+            ,cafFfcTas
+            ,cafResAprobacionActiva
+            ,cafTipAprob
+            ,cafTipPlzAprobacionActiva
+            ,cafTipRiskAprobacionActiva
+            ,primaryOfficerAprobacionActiva
+            ,otherOfficerAprobacionActiva
+            ,deAprobacionActiva
+      FROM   [STGLegados].[dbo].[TmpAprobacionCompromisoOperacionActiva]
+     WHERE   coAprobacionActiva NOT IN (SELECT coAprobacionActiva FROM [STGLegados].[dbo].[TmpAprobacionCompromisoOperacionActivaParticipante] WHERE coAprobacionActiva IS NOT NULL)
+       AND   coAprobacionActiva IS NOT NULL) as APROB
+  LEFT OUTER JOIN [STGLegados].[dbo].[TmpCustomerRelacionadosDeal] as CR ON
+    CR.coAprobacionPhx = APROB.coAprobacionActiva
+  LEFT OUTER JOIN [STGLegados].[dbo].[TmpParametroCafVencOrig] as CVO ON -- Esta tabla se procesa en el paquete PqPreparaTablasTemporales
+    CVO.co_proyecto = APROB.coAprobacionActiva
+  LEFT OUTER JOIN [STGLegados].[dbo].[TmpProyecto] as PRY ON
+    PRY.co_proyecto = APROB.coAprobacionActiva
+WHERE  Substring(LTRIM(RTRIM(APROB.coAprobacionActiva)),1,3) IN ('CFS','FDS','GFS') -- Se excluye FIS
+UNION
+SELECT  -- DISTINCT -- APROBACIONES ACTIVAS CON COMPROMISOS
+        APROB.coCompaniaAprobacionActivaTransact as [UPLOAD.COMPANY]
+       ,APROB.coTakeoverAprobacionActivaTransact as [ID/ARR.SEQUENCE] -- Algoritmo Aprobacion DEA.01: AAACT+X+YYY+ZZZZ X=1 Takeover, X=2 Capture Balance, X=3 Adjust Balance
+       ,APROB.coAprobacionActivaTransact as [ARRANGEMENT] -- AA+Julian Date (5)+ ...
+       ,Convert(nvarchar(29),'FACILITY-TAKEOVER-ARRANGEMENT') as [ACTIVITY]
+       --
+       -- Las excepciones a los clientes (ver nota abajo) se aplicaron en la tabla de relacionados con Deals
+       ,Convert(nvarchar(128),
+          CASE
+            WHEN CR.customerCode IS NOT NULL THEN LTRIM(RTRIM(CR.customerCode))
+            ELSE APROB.coClienteAprobacionActivaTransact    -- Regla que impide enviar ejecutor y cliente con el mismo CUP. 17-01-2025. Ver vorreo de Liz
+          END) as [CUSTOMER]  -- Se incorporan los códigos de los clientes, ejecutores y garantes  12-05-2024. Revisar excepciones comentadas abajo
+       ,Convert(nvarchar(128),
+          CASE
+            WHEN CR.customerRole IS NOT NULL THEN LTRIM(RTRIM(CR.customerRole))
+            ELSE 'OWNER'
+          END) as [CUSTOMER.ROLE]
+       ,Convert(nvarchar(40),'CAF.APROBACION.ACTIVA.') as [PRODUCT] -- Validar que realmente tenga punto al final.
+       ,APROB.coMonedaAprobacionActivaTransact as [CURRENCY]
+       ,APROB.feContratoOriginalAprobacionActivaTransact as [ORIG.CONTRACT.DATE]
+       ,Convert(nvarchar(1024),'ACCOUNT::DACOMMITMENT::LIMIT::OFFICERS') as [PROPERTY] -- Se toman todas las properties de la pestaña takeover marcadas para migrar
+       ,Convert(nvarchar(2048),'ALT.ID!!SHORT.TITLE::AMOUNT!!CAF.APROB!!CAF.FFC.APRO!!CAF.FFC.TAS!!CAF.RES!!CAF.TIP.APR!!CAF.TIP.PLZ!!CAF.TIP.RISK!!CAF.VENC.ORIG!!MATURITY.DATE::VALIDATION.LIMIT::OFFICER.ROLE!!OTHER.OFFICER!!PRIMARY.OFFICER') as [FIELD.NAME] 
+       ,Convert(nvarchar(2048),
+                             -- ACCOUNT
+                             Convert(nvarchar(15),[STGPolaris].[dbo].[fn_udfTrim] (APROB.coAprobacionActiva))+'!!' -- ALT.ID
+                             +[STGPolaris].[dbo].[fn_udfTrim] (APROB.deAprobacionActiva)+'::'                       -- SHORT.TITLE
+                             -- DACOMMITMENT
+                             +Convert(nvarchar(28),CASE WHEN APROB.coMonedaAprobacionActivaTransact IN ('JPY','PYG') THEN Convert(numeric(21,0),APROB.moAprobadoMonedaAprobacionActiva) ELSE APROB.moAprobadoMonedaAprobacionActiva END)+'!!'    -- AMOUNT  -- La tabla TmpAprobacionCompromisoOperacionActiva maneja la regla de que el monto aprobado cubra el nivel facility, esto es, SUM(aprobados facility) a menos que sea mayor que esta suma.
+                             +APROB.feContratoOriginalAprobacionActivaTransact+'!!' -- CAF.APROB  -- Se está enviando esta fecha porque fe_aprobado practicamente está en NULL en todas las aprobaciones. Revisar si se puede enviar en blanco. 
+                             +APROB.cafFfcAprobacionActiva+'!!' -- CAF.FFC.APRO   -- Correo del 10-07-2024
+                             +APROB.cafFfcTas+'!!'          -- CAF.FFC.TAS    -- Sólo acepta 2 decimales. Se envía blanco cuando la tasa es NULL (regla)
+                             +APROB.cafResAprobacionActiva+'!!'             -- CAF.RES
+                             +Convert(nvarchar(30),APROB.cafTipAprob)+'!!'  -- CAF.TIP.APR
+                             +APROB.cafTipPlzAprobacionActiva+'!!'          -- CAF.TIP.PLZ
+                             +APROB.cafTipRiskAprobacionActiva+'!!'         -- CAF.TIP.RISK
+                             +CASE WHEN SUBSTRING(APROB.coAprobacionActiva,1,4) = 'CFSD' THEN APROB.feVencimientoAprobacionActivaTransact ELSE ISNULL(Convert(nvarchar(8),PRY.fe_vencimiento_proyecto,112),CVO.[CAF.VENC.ORIG]) END+'!!'  -- CAF.VENC.ORIG
+                             +APROB.feVencimientoAprobacionActivaTransact+'::'  -- MATURITY.DATE
+                             -- LIMIT
+                             +APROB.coLimiteDeValidacionActivaTransact+'::' -- VALIDATION.LIMIT
+                             -- OFFICERS
+                             +'EJN!!'
+                             +APROB.otherOfficerAprobacionActiva+'!!'       -- OTHER.OFFICER
+                             +APROB.primaryOfficerAprobacionActiva          -- PRIMARY.OFFICER
+                             ) as [FIELD.VALUE]
+       ,Convert(nvarchar(150),APROB.deAprobacionActiva) as [REASON]
+       --------*** Quitar o comentar. Solo para debugging ***----
+       --,APROB.coAprobacionActiva as [ALT.ID]
+       --,APROB.moAprobadoMonedaAprobacionActiva as [AMOUNT] 
+       --,APROB.feContratoOriginalAprobacionActivaTransact as [CAF.APROB]
+       --,APROB.cafFfcAprobacionActiva as [CAF.FFC.APRO]
+       --,APROB.cafFfcTas as [CAF.FFC.TAS]
+       --,APROB.cafResAprobacionActiva as [CAF.RES]   -- Confirmar si se habilitarán los caracteres especiales en el campo para quitar normalización o filtrado **** OJO
+       --,Convert(nvarchar(30),APROB.cafTipAprob) as [CAF.TIP.APR]
+       --,APROB.cafTipPlzAprobacionActiva as [CAF.TIP.PLZ]
+       --,APROB.cafTipRiskAprobacionActiva as [CAF.TIP.RISK]
+       --,APROB.feVencimientoAprobacionActivaTransact as [MATURITY.DATE]
+       --,Convert(nvarchar(5),NULL) as [TERM]
+       --,APROB.coLimiteDeValidacionActivaTransact as [VALIDATION.LIMIT]
+       --,APROB.otherOfficerAprobacionActiva as [OTHER.OFFICER]   -- Regla incorporada por Liz en ejecución Trial 4 15/08/2024
+       --,APROB.primaryOfficerAprobacionActiva as [PRIMARY.OFFICER]
+       --------*** Fin de campos para debugging  *** ----------------------
+--INTO [STGPolaris].[dbo].[DMS.DEA.01.TAKEOVER-v0.5]
+FROM (SELECT DISTINCT 
+             coCompaniaAprobacionActivaTransact
+            ,coTakeoverAprobacionActivaTransact
+            ,coAprobacionActivaTransact
+            ,coLimiteDeValidacionActivaTransact
+            ,coMonedaAprobacionActivaTransact
+            ,feVencimientoAprobacionActivaTransact
+            ,feContratoOriginalAprobacionActivaTransact
+            ,coAprobacionActiva
+            ,moAprobadoMonedaAprobacionActiva
+            ,coClienteAprobacionActivaTransact
+            ,cafFfcAprobacionActiva
+            ,cafFfcTas
+            ,cafResAprobacionActiva
+            ,cafTipAprob
+            ,cafTipPlzAprobacionActiva
+            ,cafTipRiskAprobacionActiva
+            ,primaryOfficerAprobacionActiva
+            ,otherOfficerAprobacionActiva
+            ,deAprobacionActiva
+      FROM   [STGLegados].[dbo].[TmpAprobacionCompromisoActiva]
+      WHERE  coAprobacionActiva NOT IN (SELECT coAprobacionActiva FROM [STGLegados].[dbo].[TmpAprobacionCompromisoOperacionActiva] WHERE coAprobacionActiva IS NOT NULL)
+        AND  coAprobacionActiva NOT IN (SELECT coAprobacionActiva FROM [STGLegados].[dbo].[TmpAprobacionCompromisoOperacionActivaParticipante] WHERE coAprobacionActiva IS NOT NULL)
+        AND  coAprobacionActiva IS NOT NULL) as APROB
+  LEFT OUTER JOIN [STGLegados].[dbo].[TmpCustomerRelacionadosDeal] as CR ON
+    CR.coAprobacionPhx = APROB.coAprobacionActiva
+  LEFT OUTER JOIN [STGLegados].[dbo].[TmpParametroCafVencOrig] as CVO ON -- Esta tabla se procesa en el paquete PqPreparaTablasTemporales
+    CVO.co_proyecto = APROB.coAprobacionActiva
+  LEFT OUTER JOIN [STGLegados].[dbo].[TmpProyecto] as PRY ON
+    PRY.co_proyecto = APROB.coAprobacionActiva
+WHERE  Substring(LTRIM(RTRIM(APROB.coAprobacionActiva)),1,3) IN ('CFS','FDS','GFS') -- Se excluye FIS
+UNION  -- Aprobaciones sin Facility y Sin Drawing
+SELECT  -- DISTINCT
+        APROB.coCompaniaAprobacionActivaTransact as [UPLOAD.COMPANY]
+       ,APROB.coTakeoverAprobacionActivaTransact as [ID/ARR.SEQUENCE] -- Algoritmo Aprobacion DEA.01: AAACT+X+YYY+ZZZZ X=1 Takeover, X=2 Capture Balance, X=3 Adjust Balance
+       ,APROB.coAprobacionActivaTransact as [ARRANGEMENT] -- AA+Julian Date (5)+ ...
+       ,Convert(nvarchar(29),'FACILITY-TAKEOVER-ARRANGEMENT') as [ACTIVITY]
+       --
+       -- Las excepciones a los clientes (ver nota abajo) se aplicaron en la tabla de relacionados con Deals
+       ,Convert(nvarchar(128),
+          CASE
+            WHEN CR.customerCode IS NOT NULL THEN LTRIM(RTRIM(CR.customerCode))
+            ELSE APROB.coClienteAprobacionActivaTransact    -- Regla que impide enviar ejecutor y cliente con el mismo CUP. 17-01-2025. Ver vorreo de Liz
+          END) as [CUSTOMER]  -- Se incorporan los códigos de los clientes, ejecutores y garantes  12-05-2024. Revisar excepciones comentadas abajo
+       ,Convert(nvarchar(128),
+          CASE
+            WHEN CR.customerRole IS NOT NULL THEN LTRIM(RTRIM(CR.customerRole))
+            ELSE 'OWNER'
+          END) as [CUSTOMER.ROLE]
+       ,Convert(nvarchar(40),'CAF.APROBACION.ACTIVA.') as [PRODUCT] -- Validar que realmente tenga punto al final.
+       ,APROB.coMonedaAprobacionActivaTransact as [CURRENCY]
+       ,APROB.feContratoOriginalAprobacionActivaTransact as [ORIG.CONTRACT.DATE]
+       ,Convert(nvarchar(1024),'ACCOUNT::DACOMMITMENT::LIMIT::OFFICERS') as [PROPERTY] -- Se toman todas las properties de la pestaña takeover marcadas para migrar
+       ,Convert(nvarchar(2048),'ALT.ID!!SHORT.TITLE::AMOUNT!!CAF.APROB!!CAF.FFC.APRO!!CAF.FFC.TAS!!CAF.RES!!CAF.TIP.APR!!CAF.TIP.PLZ!!CAF.TIP.RISK!!CAF.VENC.ORIG!!MATURITY.DATE::VALIDATION.LIMIT::OFFICER.ROLE!!OTHER.OFFICER!!PRIMARY.OFFICER') as [FIELD.NAME] 
+       ,Convert(nvarchar(2048),
+                             -- ACCOUNT
+                             Convert(nvarchar(15),[STGPolaris].[dbo].[fn_udfTrim] (APROB.coAprobacionActiva))+'!!' -- ALT.ID
+                             +[STGPolaris].[dbo].[fn_udfTrim] (APROB.deAprobacionActiva)+'::'                       -- SHORT.TITLE
+                             -- DACOMMITMENT
+                             +Convert(nvarchar(28),CASE WHEN APROB.coMonedaAprobacionActivaTransact IN ('JPY','PYG') THEN Convert(numeric(21,0),APROB.moAprobadoMonedaAprobacionActiva) ELSE APROB.moAprobadoMonedaAprobacionActiva END)+'!!'    -- AMOUNT  -- La tabla TmpAprobacionCompromisoOperacionActiva maneja la regla de que el monto aprobado cubra el nivel facility, esto es, SUM(aprobados facility) a menos que sea mayor que esta suma.
+                             +APROB.feContratoOriginalAprobacionActivaTransact+'!!' -- CAF.APROB  -- Se está enviando esta fecha porque fe_aprobado practicamente está en NULL en todas las aprobaciones. Revisar si se puede enviar en blanco. 
+                             +APROB.cafFfcAprobacionActiva+'!!' -- CAF.FFC.APRO   -- Correo del 10-07-2024
+                             +APROB.cafFfcTas+'!!'          -- CAF.FFC.TAS    -- Sólo acepta 2 decimales. Se envía blanco cuando la tasa es NULL (regla)
+                             +APROB.cafResAprobacionActiva+'!!'             -- CAF.RES
+                             +Convert(nvarchar(30),APROB.cafTipAprob)+'!!'  -- CAF.TIP.APR
+                             +APROB.cafTipPlzAprobacionActiva+'!!'          -- CAF.TIP.PLZ
+                             +APROB.cafTipRiskAprobacionActiva+'!!'         -- CAF.TIP.RISK
+                             +CASE WHEN SUBSTRING(APROB.coAprobacionActiva,1,4) = 'CFSD' THEN APROB.feVencimientoAprobacionActivaTransact ELSE ISNULL(Convert(nvarchar(8),PRY.fe_vencimiento_proyecto,112),CVO.[CAF.VENC.ORIG]) END+'!!'  -- CAF.VENC.ORIG
+                             +APROB.feVencimientoAprobacionActivaTransact+'::'  -- MATURITY.DATE
+                             -- LIMIT
+                             +APROB.coLimiteDeValidacionActivaTransact+'::' -- VALIDATION.LIMIT
+                             -- OFFICERS
+                             +'EJN!!'
+                             +APROB.otherOfficerAprobacionActiva+'!!'       -- OTHER.OFFICER
+                             +APROB.primaryOfficerAprobacionActiva          -- PRIMARY.OFFICER
+                             ) as [FIELD.VALUE]
+       ,Convert(nvarchar(150),APROB.deAprobacionActiva) as [REASON]
+       --------*** Quitar o comentar. Solo para debugging ***----
+       --,APROB.coAprobacionActiva as [ALT.ID]
+       --,APROB.moAprobadoMonedaAprobacionActiva as [AMOUNT] 
+       --,APROB.feContratoOriginalAprobacionActivaTransact as [CAF.APROB]
+       --,APROB.cafFfcAprobacionActiva as [CAF.FFC.APRO]
+       --,APROB.cafFfcTas as [CAF.FFC.TAS]
+       --,APROB.cafResAprobacionActiva as [CAF.RES]   -- Confirmar si se habilitarán los caracteres especiales en el campo para quitar normalización o filtrado **** OJO
+       --,Convert(nvarchar(30),APROB.cafTipAprob) as [CAF.TIP.APR]
+       --,APROB.cafTipPlzAprobacionActiva as [CAF.TIP.PLZ]
+       --,APROB.cafTipRiskAprobacionActiva as [CAF.TIP.RISK]
+       --,APROB.feVencimientoAprobacionActivaTransact as [MATURITY.DATE]
+       --,Convert(nvarchar(5),NULL) as [TERM]
+       --,APROB.coLimiteDeValidacionActivaTransact as [VALIDATION.LIMIT]
+       --,APROB.otherOfficerAprobacionActiva as [OTHER.OFFICER]   -- Regla incorporada por Liz en ejecución Trial 4 15/08/2024
+       --,APROB.primaryOfficerAprobacionActiva as [PRIMARY.OFFICER]
+       --------*** Fin de campos para debugging  *** ----------------------
+--INTO [STGPolaris].[dbo].[DMS.DEA.01.TAKEOVER-v0.5]
+FROM (SELECT DISTINCT 
+             coCompaniaAprobacionActivaTransact
+            ,coTakeoverAprobacionActivaTransact
+            ,coAprobacionActivaTransact
+            ,coLimiteDeValidacionActivaTransact
+            ,coMonedaAprobacionActivaTransact
+            ,feVencimientoAprobacionActivaTransact
+            ,feContratoOriginalAprobacionActivaTransact
+            ,coAprobacionActiva
+            ,moAprobadoMonedaAprobacionActiva
+            ,coClienteAprobacionActivaTransact
+            ,cafFfcAprobacionActiva
+            ,cafFfcTas
+            ,cafResAprobacionActiva
+            ,cafTipAprob
+            ,cafTipPlzAprobacionActiva
+            ,cafTipRiskAprobacionActiva
+            ,primaryOfficerAprobacionActiva
+            ,otherOfficerAprobacionActiva
+            ,deAprobacionActiva
+      FROM   [STGLegados].[dbo].[TmpAprobacionActivaSinFSinD]  -- Esta tabla se genera previamente en
+      WHERE  coAprobacionActiva NOT IN (SELECT coAprobacionActiva FROM [STGLegados].[dbo].[TmpAprobacionCompromisoOperacionActiva] WHERE coAprobacionActiva IS NOT NULL)
+        AND  coAprobacionActiva NOT IN (SELECT coAprobacionActiva FROM [STGLegados].[dbo].[TmpAprobacionCompromisoActiva] WHERE coAprobacionActiva IS NOT NULL)
+        AND  coAprobacionActiva NOT IN (SELECT coAprobacionActiva FROM [STGLegados].[dbo].[TmpAprobacionCompromisoOperacionActivaParticipante] WHERE coAprobacionActiva IS NOT NULL)
+        AND  coAprobacionActiva IS NOT NULL) as APROB
+  LEFT OUTER JOIN [STGLegados].[dbo].[TmpCustomerRelacionadosDeal] as CR ON
+    CR.coAprobacionPhx = APROB.coAprobacionActiva
+  LEFT OUTER JOIN [STGLegados].[dbo].[TmpParametroCafVencOrig] as CVO ON  -- Esta tabla se procesa en el paquete PqPreparaTablasTemporales -&gt; Prepara TmpParametrosDeal
+    CVO.co_proyecto = APROB.coAprobacionActiva
+  LEFT OUTER JOIN [STGLegados].[dbo].[TmpProyecto] as PRY ON
+    PRY.co_proyecto = APROB.coAprobacionActiva
+WHERE  Substring(LTRIM(RTRIM(APROB.coAprobacionActiva)),1,3) IN ('CFS','FDS','GFS') -- Se excluye FIS</property>
+                <property
+                  dataType="System.Int32"
+                  expressionType="Notify"
+                  name="CommandTimeout">120</property>
+                <property
+                  dataType="System.Boolean"
+                  expressionType="Notify"
+                  name="ParameterizeCommand">true</property>
+                <property
+                  dataType="System.String"
+                  expressionType="Notify"
+                  name="PreCommand"></property>
+                <property
+                  dataType="System.String"
+                  expressionType="Notify"
+                  name="SuccessPostCommand"></property>
+                <property
+                  dataType="System.String"
+                  expressionType="Notify"
+                  name="ErrorPostCommand"></property>
+                <property
+                  dataType="System.String"
+                  name="UserComponentTypeName">KingswaySoft.IntegrationToolkit.ProductivityPack.AdoDotNetSourceComponent</property>
+                <property
+                  dataType="System.Int32"
+                  description="TransactionType"
+                  expressionType="Notify"
+                  name="TransactionType"
+                  typeConverter="KingswaySoft.IntegrationToolkit.ProductivityPack.PremiumAdoDotNetTransactionType">0</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DMS-Dea01Takeover 1\Premium ADO NET Source.Connections[ADO NET]"
+                  connectionManagerID="{4B52D8E2-8781-4975-B2F1-2D7DAC276C1F}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[VENGGCR26_NAPNNPR32.STGLegados]"
+                  description="ADO.NET"
+                  name="ADO NET" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\DMS-Dea01Takeover 1\Premium ADO NET Source.Outputs[Default Output]"
+                  name="Default Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DMS-Dea01Takeover 1\Premium ADO NET Source.Outputs[Default Output].Columns[ACTIVITY]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DMS-Dea01Takeover 1\Premium ADO NET Source.Outputs[Default Output].ExternalColumns[ACTIVITY]"
+                      length="29"
+                      lineageId="Package\DMS-Dea01Takeover 1\Premium ADO NET Source.Outputs[Default Output].Columns[ACTIVITY]"
+                      name="ACTIVITY"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DMS-Dea01Takeover 1\Premium ADO NET Source.Outputs[Default Output].Columns[ARRANGEMENT]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DMS-Dea01Takeover 1\Premium ADO NET Source.Outputs[Default Output].ExternalColumns[ARRANGEMENT]"
+                      length="12"
+                      lineageId="Package\DMS-Dea01Takeover 1\Premium ADO NET Source.Outputs[Default Output].Columns[ARRANGEMENT]"
+                      name="ARRANGEMENT"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DMS-Dea01Takeover 1\Premium ADO NET Source.Outputs[Default Output].Columns[CURRENCY]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DMS-Dea01Takeover 1\Premium ADO NET Source.Outputs[Default Output].ExternalColumns[CURRENCY]"
+                      length="3"
+                      lineageId="Package\DMS-Dea01Takeover 1\Premium ADO NET Source.Outputs[Default Output].Columns[CURRENCY]"
+                      name="CURRENCY"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DMS-Dea01Takeover 1\Premium ADO NET Source.Outputs[Default Output].Columns[CUSTOMER]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DMS-Dea01Takeover 1\Premium ADO NET Source.Outputs[Default Output].ExternalColumns[CUSTOMER]"
+                      length="128"
+                      lineageId="Package\DMS-Dea01Takeover 1\Premium ADO NET Source.Outputs[Default Output].Columns[CUSTOMER]"
+                      name="CUSTOMER"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DMS-Dea01Takeover 1\Premium ADO NET Source.Outputs[Default Output].Columns[CUSTOMER.ROLE]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DMS-Dea01Takeover 1\Premium ADO NET Source.Outputs[Default Output].ExternalColumns[CUSTOMER.ROLE]"
+                      length="128"
+                      lineageId="Package\DMS-Dea01Takeover 1\Premium ADO NET Source.Outputs[Default Output].Columns[CUSTOMER.ROLE]"
+                      name="CUSTOMER.ROLE"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DMS-Dea01Takeover 1\Premium ADO NET Source.Outputs[Default Output].Columns[FIELD.NAME]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DMS-Dea01Takeover 1\Premium ADO NET Source.Outputs[Default Output].ExternalColumns[FIELD.NAME]"
+                      length="2048"
+                      lineageId="Package\DMS-Dea01Takeover 1\Premium ADO NET Source.Outputs[Default Output].Columns[FIELD.NAME]"
+                      name="FIELD.NAME"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DMS-Dea01Takeover 1\Premium ADO NET Source.Outputs[Default Output].Columns[FIELD.VALUE]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DMS-Dea01Takeover 1\Premium ADO NET Source.Outputs[Default Output].ExternalColumns[FIELD.VALUE]"
+                      length="2048"
+                      lineageId="Package\DMS-Dea01Takeover 1\Premium ADO NET Source.Outputs[Default Output].Columns[FIELD.VALUE]"
+                      name="FIELD.VALUE"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DMS-Dea01Takeover 1\Premium ADO NET Source.Outputs[Default Output].Columns[ID/ARR.SEQUENCE]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DMS-Dea01Takeover 1\Premium ADO NET Source.Outputs[Default Output].ExternalColumns[ID/ARR.SEQUENCE]"
+                      length="18"
+                      lineageId="Package\DMS-Dea01Takeover 1\Premium ADO NET Source.Outputs[Default Output].Columns[ID/ARR.SEQUENCE]"
+                      name="ID/ARR.SEQUENCE"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DMS-Dea01Takeover 1\Premium ADO NET Source.Outputs[Default Output].Columns[ORIG.CONTRACT.DATE]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DMS-Dea01Takeover 1\Premium ADO NET Source.Outputs[Default Output].ExternalColumns[ORIG.CONTRACT.DATE]"
+                      length="8"
+                      lineageId="Package\DMS-Dea01Takeover 1\Premium ADO NET Source.Outputs[Default Output].Columns[ORIG.CONTRACT.DATE]"
+                      name="ORIG.CONTRACT.DATE"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DMS-Dea01Takeover 1\Premium ADO NET Source.Outputs[Default Output].Columns[PRODUCT]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DMS-Dea01Takeover 1\Premium ADO NET Source.Outputs[Default Output].ExternalColumns[PRODUCT]"
+                      length="40"
+                      lineageId="Package\DMS-Dea01Takeover 1\Premium ADO NET Source.Outputs[Default Output].Columns[PRODUCT]"
+                      name="PRODUCT"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DMS-Dea01Takeover 1\Premium ADO NET Source.Outputs[Default Output].Columns[PROPERTY]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DMS-Dea01Takeover 1\Premium ADO NET Source.Outputs[Default Output].ExternalColumns[PROPERTY]"
+                      length="1024"
+                      lineageId="Package\DMS-Dea01Takeover 1\Premium ADO NET Source.Outputs[Default Output].Columns[PROPERTY]"
+                      name="PROPERTY"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DMS-Dea01Takeover 1\Premium ADO NET Source.Outputs[Default Output].Columns[REASON]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DMS-Dea01Takeover 1\Premium ADO NET Source.Outputs[Default Output].ExternalColumns[REASON]"
+                      length="150"
+                      lineageId="Package\DMS-Dea01Takeover 1\Premium ADO NET Source.Outputs[Default Output].Columns[REASON]"
+                      name="REASON"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DMS-Dea01Takeover 1\Premium ADO NET Source.Outputs[Default Output].Columns[UPLOAD.COMPANY]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DMS-Dea01Takeover 1\Premium ADO NET Source.Outputs[Default Output].ExternalColumns[UPLOAD.COMPANY]"
+                      length="9"
+                      lineageId="Package\DMS-Dea01Takeover 1\Premium ADO NET Source.Outputs[Default Output].Columns[UPLOAD.COMPANY]"
+                      name="UPLOAD.COMPANY"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DMS-Dea01Takeover 1\Premium ADO NET Source.Outputs[Default Output].ExternalColumns[ACTIVITY]"
+                      dataType="wstr"
+                      length="29"
+                      name="ACTIVITY" />
+                    <externalMetadataColumn
+                      refId="Package\DMS-Dea01Takeover 1\Premium ADO NET Source.Outputs[Default Output].ExternalColumns[ARRANGEMENT]"
+                      dataType="wstr"
+                      length="12"
+                      name="ARRANGEMENT" />
+                    <externalMetadataColumn
+                      refId="Package\DMS-Dea01Takeover 1\Premium ADO NET Source.Outputs[Default Output].ExternalColumns[CURRENCY]"
+                      dataType="wstr"
+                      length="3"
+                      name="CURRENCY" />
+                    <externalMetadataColumn
+                      refId="Package\DMS-Dea01Takeover 1\Premium ADO NET Source.Outputs[Default Output].ExternalColumns[CUSTOMER]"
+                      dataType="wstr"
+                      length="128"
+                      name="CUSTOMER" />
+                    <externalMetadataColumn
+                      refId="Package\DMS-Dea01Takeover 1\Premium ADO NET Source.Outputs[Default Output].ExternalColumns[CUSTOMER.ROLE]"
+                      dataType="wstr"
+                      length="128"
+                      name="CUSTOMER.ROLE" />
+                    <externalMetadataColumn
+                      refId="Package\DMS-Dea01Takeover 1\Premium ADO NET Source.Outputs[Default Output].ExternalColumns[FIELD.NAME]"
+                      dataType="wstr"
+                      length="2048"
+                      name="FIELD.NAME" />
+                    <externalMetadataColumn
+                      refId="Package\DMS-Dea01Takeover 1\Premium ADO NET Source.Outputs[Default Output].ExternalColumns[FIELD.VALUE]"
+                      dataType="wstr"
+                      length="2048"
+                      name="FIELD.VALUE" />
+                    <externalMetadataColumn
+                      refId="Package\DMS-Dea01Takeover 1\Premium ADO NET Source.Outputs[Default Output].ExternalColumns[ID/ARR.SEQUENCE]"
+                      dataType="wstr"
+                      length="18"
+                      name="ID/ARR.SEQUENCE" />
+                    <externalMetadataColumn
+                      refId="Package\DMS-Dea01Takeover 1\Premium ADO NET Source.Outputs[Default Output].ExternalColumns[ORIG.CONTRACT.DATE]"
+                      dataType="wstr"
+                      length="8"
+                      name="ORIG.CONTRACT.DATE" />
+                    <externalMetadataColumn
+                      refId="Package\DMS-Dea01Takeover 1\Premium ADO NET Source.Outputs[Default Output].ExternalColumns[PRODUCT]"
+                      dataType="wstr"
+                      length="40"
+                      name="PRODUCT" />
+                    <externalMetadataColumn
+                      refId="Package\DMS-Dea01Takeover 1\Premium ADO NET Source.Outputs[Default Output].ExternalColumns[PROPERTY]"
+                      dataType="wstr"
+                      length="1024"
+                      name="PROPERTY" />
+                    <externalMetadataColumn
+                      refId="Package\DMS-Dea01Takeover 1\Premium ADO NET Source.Outputs[Default Output].ExternalColumns[REASON]"
+                      dataType="wstr"
+                      length="150"
+                      name="REASON" />
+                    <externalMetadataColumn
+                      refId="Package\DMS-Dea01Takeover 1\Premium ADO NET Source.Outputs[Default Output].ExternalColumns[UPLOAD.COMPANY]"
+                      dataType="wstr"
+                      length="9"
+                      name="UPLOAD.COMPANY" />
+                  </externalMetadataColumns>
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DMS-Dea01Takeover 1\Premium Flat File Destination DMS DEA 01 TAKEOVER"
+              componentClassID="Microsoft.ManagedComponentHost"
+              contactInfo="KingswaySoft Inc.; http://www.kingswaysoft.com; support@kingswaysoft.com; Copyright (c) 2011-2025 KingswaySoft Inc."
+              description="Write data to a flat file managed by a supported Premium File Pack connection."
+              name="Premium Flat File Destination DMS DEA 01 TAKEOVER"
+              usesDispositions="true"
+              version="3">
+              <properties>
+                <property
+                  dataType="System.String"
+                  expressionType="Notify"
+                  name="Locale">es-ES</property>
+                <property
+                  dataType="System.Int32"
+                  expressionType="Notify"
+                  name="CodePage">65001</property>
+                <property
+                  dataType="System.Boolean"
+                  expressionType="Notify"
+                  name="CompressFile">false</property>
+                <property
+                  dataType="System.Int32"
+                  expressionType="Notify"
+                  name="CompressionType"
+                  typeConverter="KingswaySoft.IntegrationToolkit.PremiumFilePack.Shared.CompressionType">0</property>
+                <property
+                  dataType="System.Boolean"
+                  expressionType="Notify"
+                  name="FirstRowHasHeader">false</property>
+                <property
+                  dataType="System.Int32"
+                  expressionType="Notify"
+                  name="FileFormat"
+                  typeConverter="KingswaySoft.IntegrationToolkit.PremiumFilePack.Shared.FileFormat">0</property>
+                <property
+                  dataType="System.String"
+                  expressionType="Notify"
+                  name="RowDelimiter">Newline DOS or Unix</property>
+                <property
+                  dataType="System.String"
+                  expressionType="Notify"
+                  name="ColumnDelimiter">Vertical Bar ( | )</property>
+                <property
+                  dataType="System.String"
+                  expressionType="Notify"
+                  name="TextQualifier">Double-Quote ( " )</property>
+                <property
+                  dataType="System.String"
+                  expressionType="Notify"
+                  name="PaddingCharacter">Space (   )</property>
+                <property
+                  dataType="System.String"
+                  expressionType="Notify"
+                  name="DestinationFilePath">C:\App\DMS DEA 01 TAKEOVER.txt</property>
+                <property
+                  dataType="System.Boolean"
+                  expressionType="Notify"
+                  name="AppendToFile">false</property>
+                <property
+                  dataType="System.Boolean"
+                  expressionType="Notify"
+                  name="SkipWriteOnNoRows">false</property>
+                <property
+                  dataType="System.Int32"
+                  expressionType="Notify"
+                  name="TextAlignment"
+                  typeConverter="KingswaySoft.IntegrationToolkit.PremiumFilePack.Shared.TextAlignment">0</property>
+                <property
+                  dataType="System.Int32"
+                  expressionType="Notify"
+                  name="ValueOverflowHandling"
+                  typeConverter="KingswaySoft.IntegrationToolkit.PremiumFilePack.Shared.ValueOverflowHandling">0</property>
+                <property
+                  dataType="System.Int32"
+                  expressionType="Notify"
+                  name="Dividers"
+                  typeConverter="KingswaySoft.IntegrationToolkit.PremiumFilePack.Shared.Dividers">0</property>
+                <property
+                  dataType="System.String"
+                  expressionType="Notify"
+                  name="VerticalDivider">Vertical Bar ( | )</property>
+                <property
+                  dataType="System.String"
+                  expressionType="Notify"
+                  name="HorizontalDivider">Hyphen ( - )</property>
+                <property
+                  dataType="System.String"
+                  name="UserComponentTypeName">KingswaySoft.IntegrationToolkit.PremiumFilePack.Shared.PremiumFlatFileDestinationComponent</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\DMS-Dea01Takeover 1\Premium Flat File Destination DMS DEA 01 TAKEOVER.Inputs[Primary Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Primary Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DMS-Dea01Takeover 1\Premium Flat File Destination DMS DEA 01 TAKEOVER.Inputs[Primary Input].Columns[UPLOAD.COMPANY]"
+                      cachedDataType="wstr"
+                      cachedLength="9"
+                      cachedName="UPLOAD.COMPANY"
+                      externalMetadataColumnId="Package\DMS-Dea01Takeover 1\Premium Flat File Destination DMS DEA 01 TAKEOVER.Inputs[Primary Input].ExternalColumns[Column1]"
+                      lineageId="Package\DMS-Dea01Takeover 1\Premium ADO NET Source.Outputs[Default Output].Columns[UPLOAD.COMPANY]" />
+                    <inputColumn
+                      refId="Package\DMS-Dea01Takeover 1\Premium Flat File Destination DMS DEA 01 TAKEOVER.Inputs[Primary Input].Columns[ID/ARR.SEQUENCE]"
+                      cachedDataType="wstr"
+                      cachedLength="18"
+                      cachedName="ID/ARR.SEQUENCE"
+                      externalMetadataColumnId="Package\DMS-Dea01Takeover 1\Premium Flat File Destination DMS DEA 01 TAKEOVER.Inputs[Primary Input].ExternalColumns[Column2]"
+                      lineageId="Package\DMS-Dea01Takeover 1\Premium ADO NET Source.Outputs[Default Output].Columns[ID/ARR.SEQUENCE]" />
+                    <inputColumn
+                      refId="Package\DMS-Dea01Takeover 1\Premium Flat File Destination DMS DEA 01 TAKEOVER.Inputs[Primary Input].Columns[ARRANGEMENT]"
+                      cachedDataType="wstr"
+                      cachedLength="12"
+                      cachedName="ARRANGEMENT"
+                      externalMetadataColumnId="Package\DMS-Dea01Takeover 1\Premium Flat File Destination DMS DEA 01 TAKEOVER.Inputs[Primary Input].ExternalColumns[Column3]"
+                      lineageId="Package\DMS-Dea01Takeover 1\Premium ADO NET Source.Outputs[Default Output].Columns[ARRANGEMENT]" />
+                    <inputColumn
+                      refId="Package\DMS-Dea01Takeover 1\Premium Flat File Destination DMS DEA 01 TAKEOVER.Inputs[Primary Input].Columns[ACTIVITY]"
+                      cachedDataType="wstr"
+                      cachedLength="29"
+                      cachedName="ACTIVITY"
+                      externalMetadataColumnId="Package\DMS-Dea01Takeover 1\Premium Flat File Destination DMS DEA 01 TAKEOVER.Inputs[Primary Input].ExternalColumns[Column4]"
+                      lineageId="Package\DMS-Dea01Takeover 1\Premium ADO NET Source.Outputs[Default Output].Columns[ACTIVITY]" />
+                    <inputColumn
+                      refId="Package\DMS-Dea01Takeover 1\Premium Flat File Destination DMS DEA 01 TAKEOVER.Inputs[Primary Input].Columns[CUSTOMER]"
+                      cachedDataType="wstr"
+                      cachedLength="128"
+                      cachedName="CUSTOMER"
+                      externalMetadataColumnId="Package\DMS-Dea01Takeover 1\Premium Flat File Destination DMS DEA 01 TAKEOVER.Inputs[Primary Input].ExternalColumns[Column5]"
+                      lineageId="Package\DMS-Dea01Takeover 1\Premium ADO NET Source.Outputs[Default Output].Columns[CUSTOMER]" />
+                    <inputColumn
+                      refId="Package\DMS-Dea01Takeover 1\Premium Flat File Destination DMS DEA 01 TAKEOVER.Inputs[Primary Input].Columns[CUSTOMER.ROLE]"
+                      cachedDataType="wstr"
+                      cachedLength="128"
+                      cachedName="CUSTOMER.ROLE"
+                      externalMetadataColumnId="Package\DMS-Dea01Takeover 1\Premium Flat File Destination DMS DEA 01 TAKEOVER.Inputs[Primary Input].ExternalColumns[Column6]"
+                      lineageId="Package\DMS-Dea01Takeover 1\Premium ADO NET Source.Outputs[Default Output].Columns[CUSTOMER.ROLE]" />
+                    <inputColumn
+                      refId="Package\DMS-Dea01Takeover 1\Premium Flat File Destination DMS DEA 01 TAKEOVER.Inputs[Primary Input].Columns[PRODUCT]"
+                      cachedDataType="wstr"
+                      cachedLength="40"
+                      cachedName="PRODUCT"
+                      externalMetadataColumnId="Package\DMS-Dea01Takeover 1\Premium Flat File Destination DMS DEA 01 TAKEOVER.Inputs[Primary Input].ExternalColumns[Column7]"
+                      lineageId="Package\DMS-Dea01Takeover 1\Premium ADO NET Source.Outputs[Default Output].Columns[PRODUCT]" />
+                    <inputColumn
+                      refId="Package\DMS-Dea01Takeover 1\Premium Flat File Destination DMS DEA 01 TAKEOVER.Inputs[Primary Input].Columns[CURRENCY]"
+                      cachedDataType="wstr"
+                      cachedLength="3"
+                      cachedName="CURRENCY"
+                      externalMetadataColumnId="Package\DMS-Dea01Takeover 1\Premium Flat File Destination DMS DEA 01 TAKEOVER.Inputs[Primary Input].ExternalColumns[Column8]"
+                      lineageId="Package\DMS-Dea01Takeover 1\Premium ADO NET Source.Outputs[Default Output].Columns[CURRENCY]" />
+                    <inputColumn
+                      refId="Package\DMS-Dea01Takeover 1\Premium Flat File Destination DMS DEA 01 TAKEOVER.Inputs[Primary Input].Columns[ORIG.CONTRACT.DATE]"
+                      cachedDataType="wstr"
+                      cachedLength="8"
+                      cachedName="ORIG.CONTRACT.DATE"
+                      externalMetadataColumnId="Package\DMS-Dea01Takeover 1\Premium Flat File Destination DMS DEA 01 TAKEOVER.Inputs[Primary Input].ExternalColumns[Column9]"
+                      lineageId="Package\DMS-Dea01Takeover 1\Premium ADO NET Source.Outputs[Default Output].Columns[ORIG.CONTRACT.DATE]" />
+                    <inputColumn
+                      refId="Package\DMS-Dea01Takeover 1\Premium Flat File Destination DMS DEA 01 TAKEOVER.Inputs[Primary Input].Columns[PROPERTY]"
+                      cachedDataType="wstr"
+                      cachedLength="1024"
+                      cachedName="PROPERTY"
+                      externalMetadataColumnId="Package\DMS-Dea01Takeover 1\Premium Flat File Destination DMS DEA 01 TAKEOVER.Inputs[Primary Input].ExternalColumns[Column10]"
+                      lineageId="Package\DMS-Dea01Takeover 1\Premium ADO NET Source.Outputs[Default Output].Columns[PROPERTY]" />
+                    <inputColumn
+                      refId="Package\DMS-Dea01Takeover 1\Premium Flat File Destination DMS DEA 01 TAKEOVER.Inputs[Primary Input].Columns[FIELD.NAME]"
+                      cachedDataType="wstr"
+                      cachedLength="2048"
+                      cachedName="FIELD.NAME"
+                      externalMetadataColumnId="Package\DMS-Dea01Takeover 1\Premium Flat File Destination DMS DEA 01 TAKEOVER.Inputs[Primary Input].ExternalColumns[Column11]"
+                      lineageId="Package\DMS-Dea01Takeover 1\Premium ADO NET Source.Outputs[Default Output].Columns[FIELD.NAME]" />
+                    <inputColumn
+                      refId="Package\DMS-Dea01Takeover 1\Premium Flat File Destination DMS DEA 01 TAKEOVER.Inputs[Primary Input].Columns[FIELD.VALUE]"
+                      cachedDataType="wstr"
+                      cachedLength="2048"
+                      cachedName="FIELD.VALUE"
+                      externalMetadataColumnId="Package\DMS-Dea01Takeover 1\Premium Flat File Destination DMS DEA 01 TAKEOVER.Inputs[Primary Input].ExternalColumns[Column12]"
+                      lineageId="Package\DMS-Dea01Takeover 1\Premium ADO NET Source.Outputs[Default Output].Columns[FIELD.VALUE]" />
+                    <inputColumn
+                      refId="Package\DMS-Dea01Takeover 1\Premium Flat File Destination DMS DEA 01 TAKEOVER.Inputs[Primary Input].Columns[REASON]"
+                      cachedDataType="wstr"
+                      cachedLength="150"
+                      cachedName="REASON"
+                      externalMetadataColumnId="Package\DMS-Dea01Takeover 1\Premium Flat File Destination DMS DEA 01 TAKEOVER.Inputs[Primary Input].ExternalColumns[Column13]"
+                      lineageId="Package\DMS-Dea01Takeover 1\Premium ADO NET Source.Outputs[Default Output].Columns[REASON]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DMS-Dea01Takeover 1\Premium Flat File Destination DMS DEA 01 TAKEOVER.Inputs[Primary Input].ExternalColumns[Column1]"
+                      codePage="65001"
+                      dataType="str"
+                      length="255"
+                      name="Column1">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          name="Width">255</property>
+                        <property
+                          dataType="System.Null"
+                          name="FormatString" />
+                        <property
+                          dataType="System.Int32"
+                          name="TextQualifier"
+                          typeConverter="KingswaySoft.IntegrationToolkit.PremiumFilePack.Shared.TextQualifier">2</property>
+                        <property
+                          dataType="System.Null"
+                          name="TextAlignment" />
+                        <property
+                          dataType="System.Null"
+                          name="ValueOverflowHandling" />
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\DMS-Dea01Takeover 1\Premium Flat File Destination DMS DEA 01 TAKEOVER.Inputs[Primary Input].ExternalColumns[Column2]"
+                      codePage="65001"
+                      dataType="str"
+                      length="255"
+                      name="Column2">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          name="Width">255</property>
+                        <property
+                          dataType="System.Null"
+                          name="FormatString" />
+                        <property
+                          dataType="System.Int32"
+                          name="TextQualifier"
+                          typeConverter="KingswaySoft.IntegrationToolkit.PremiumFilePack.Shared.TextQualifier">2</property>
+                        <property
+                          dataType="System.Null"
+                          name="TextAlignment" />
+                        <property
+                          dataType="System.Null"
+                          name="ValueOverflowHandling" />
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\DMS-Dea01Takeover 1\Premium Flat File Destination DMS DEA 01 TAKEOVER.Inputs[Primary Input].ExternalColumns[Column3]"
+                      codePage="65001"
+                      dataType="str"
+                      length="255"
+                      name="Column3">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          name="Width">255</property>
+                        <property
+                          dataType="System.Null"
+                          name="FormatString" />
+                        <property
+                          dataType="System.Int32"
+                          name="TextQualifier"
+                          typeConverter="KingswaySoft.IntegrationToolkit.PremiumFilePack.Shared.TextQualifier">2</property>
+                        <property
+                          dataType="System.Null"
+                          name="TextAlignment" />
+                        <property
+                          dataType="System.Null"
+                          name="ValueOverflowHandling" />
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\DMS-Dea01Takeover 1\Premium Flat File Destination DMS DEA 01 TAKEOVER.Inputs[Primary Input].ExternalColumns[Column4]"
+                      codePage="65001"
+                      dataType="str"
+                      length="255"
+                      name="Column4">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          name="Width">255</property>
+                        <property
+                          dataType="System.Null"
+                          name="FormatString" />
+                        <property
+                          dataType="System.Int32"
+                          name="TextQualifier"
+                          typeConverter="KingswaySoft.IntegrationToolkit.PremiumFilePack.Shared.TextQualifier">2</property>
+                        <property
+                          dataType="System.Null"
+                          name="TextAlignment" />
+                        <property
+                          dataType="System.Null"
+                          name="ValueOverflowHandling" />
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\DMS-Dea01Takeover 1\Premium Flat File Destination DMS DEA 01 TAKEOVER.Inputs[Primary Input].ExternalColumns[Column5]"
+                      codePage="65001"
+                      dataType="str"
+                      length="255"
+                      name="Column5">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          name="Width">255</property>
+                        <property
+                          dataType="System.Null"
+                          name="FormatString" />
+                        <property
+                          dataType="System.Int32"
+                          name="TextQualifier"
+                          typeConverter="KingswaySoft.IntegrationToolkit.PremiumFilePack.Shared.TextQualifier">2</property>
+                        <property
+                          dataType="System.Null"
+                          name="TextAlignment" />
+                        <property
+                          dataType="System.Null"
+                          name="ValueOverflowHandling" />
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\DMS-Dea01Takeover 1\Premium Flat File Destination DMS DEA 01 TAKEOVER.Inputs[Primary Input].ExternalColumns[Column6]"
+                      codePage="65001"
+                      dataType="str"
+                      length="255"
+                      name="Column6">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          name="Width">255</property>
+                        <property
+                          dataType="System.Null"
+                          name="FormatString" />
+                        <property
+                          dataType="System.Int32"
+                          name="TextQualifier"
+                          typeConverter="KingswaySoft.IntegrationToolkit.PremiumFilePack.Shared.TextQualifier">2</property>
+                        <property
+                          dataType="System.Null"
+                          name="TextAlignment" />
+                        <property
+                          dataType="System.Null"
+                          name="ValueOverflowHandling" />
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\DMS-Dea01Takeover 1\Premium Flat File Destination DMS DEA 01 TAKEOVER.Inputs[Primary Input].ExternalColumns[Column7]"
+                      codePage="65001"
+                      dataType="str"
+                      length="255"
+                      name="Column7">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          name="Width">255</property>
+                        <property
+                          dataType="System.Null"
+                          name="FormatString" />
+                        <property
+                          dataType="System.Int32"
+                          name="TextQualifier"
+                          typeConverter="KingswaySoft.IntegrationToolkit.PremiumFilePack.Shared.TextQualifier">2</property>
+                        <property
+                          dataType="System.Null"
+                          name="TextAlignment" />
+                        <property
+                          dataType="System.Null"
+                          name="ValueOverflowHandling" />
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\DMS-Dea01Takeover 1\Premium Flat File Destination DMS DEA 01 TAKEOVER.Inputs[Primary Input].ExternalColumns[Column8]"
+                      codePage="65001"
+                      dataType="str"
+                      length="255"
+                      name="Column8">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          name="Width">255</property>
+                        <property
+                          dataType="System.Null"
+                          name="FormatString" />
+                        <property
+                          dataType="System.Int32"
+                          name="TextQualifier"
+                          typeConverter="KingswaySoft.IntegrationToolkit.PremiumFilePack.Shared.TextQualifier">2</property>
+                        <property
+                          dataType="System.Null"
+                          name="TextAlignment" />
+                        <property
+                          dataType="System.Null"
+                          name="ValueOverflowHandling" />
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\DMS-Dea01Takeover 1\Premium Flat File Destination DMS DEA 01 TAKEOVER.Inputs[Primary Input].ExternalColumns[Column9]"
+                      codePage="65001"
+                      dataType="str"
+                      length="255"
+                      name="Column9">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          name="Width">255</property>
+                        <property
+                          dataType="System.Null"
+                          name="FormatString" />
+                        <property
+                          dataType="System.Int32"
+                          name="TextQualifier"
+                          typeConverter="KingswaySoft.IntegrationToolkit.PremiumFilePack.Shared.TextQualifier">2</property>
+                        <property
+                          dataType="System.Null"
+                          name="TextAlignment" />
+                        <property
+                          dataType="System.Null"
+                          name="ValueOverflowHandling" />
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\DMS-Dea01Takeover 1\Premium Flat File Destination DMS DEA 01 TAKEOVER.Inputs[Primary Input].ExternalColumns[Column10]"
+                      codePage="65001"
+                      dataType="str"
+                      length="255"
+                      name="Column10">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          name="Width">255</property>
+                        <property
+                          dataType="System.Null"
+                          name="FormatString" />
+                        <property
+                          dataType="System.Int32"
+                          name="TextQualifier"
+                          typeConverter="KingswaySoft.IntegrationToolkit.PremiumFilePack.Shared.TextQualifier">2</property>
+                        <property
+                          dataType="System.Null"
+                          name="TextAlignment" />
+                        <property
+                          dataType="System.Null"
+                          name="ValueOverflowHandling" />
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\DMS-Dea01Takeover 1\Premium Flat File Destination DMS DEA 01 TAKEOVER.Inputs[Primary Input].ExternalColumns[Column11]"
+                      codePage="65001"
+                      dataType="str"
+                      length="255"
+                      name="Column11">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          name="Width">255</property>
+                        <property
+                          dataType="System.Null"
+                          name="FormatString" />
+                        <property
+                          dataType="System.Int32"
+                          name="TextQualifier"
+                          typeConverter="KingswaySoft.IntegrationToolkit.PremiumFilePack.Shared.TextQualifier">2</property>
+                        <property
+                          dataType="System.Null"
+                          name="TextAlignment" />
+                        <property
+                          dataType="System.Null"
+                          name="ValueOverflowHandling" />
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\DMS-Dea01Takeover 1\Premium Flat File Destination DMS DEA 01 TAKEOVER.Inputs[Primary Input].ExternalColumns[Column12]"
+                      codePage="65001"
+                      dataType="str"
+                      length="255"
+                      name="Column12">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          name="Width">255</property>
+                        <property
+                          dataType="System.Null"
+                          name="FormatString" />
+                        <property
+                          dataType="System.Int32"
+                          name="TextQualifier"
+                          typeConverter="KingswaySoft.IntegrationToolkit.PremiumFilePack.Shared.TextQualifier">2</property>
+                        <property
+                          dataType="System.Null"
+                          name="TextAlignment" />
+                        <property
+                          dataType="System.Null"
+                          name="ValueOverflowHandling" />
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\DMS-Dea01Takeover 1\Premium Flat File Destination DMS DEA 01 TAKEOVER.Inputs[Primary Input].ExternalColumns[Column13]"
+                      codePage="65001"
+                      dataType="str"
+                      length="255"
+                      name="Column13">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          name="Width">255</property>
+                        <property
+                          dataType="System.Null"
+                          name="FormatString" />
+                        <property
+                          dataType="System.Int32"
+                          name="TextQualifier"
+                          typeConverter="KingswaySoft.IntegrationToolkit.PremiumFilePack.Shared.TextQualifier">2</property>
+                        <property
+                          dataType="System.Null"
+                          name="TextAlignment" />
+                        <property
+                          dataType="System.Null"
+                          name="ValueOverflowHandling" />
+                      </properties>
+                    </externalMetadataColumn>
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DMS-Dea01Takeover 1\Premium Flat File Destination DMS DEA 01 TAKEOVER.Outputs[Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Error Output"
+                  synchronousInputId="Package\DMS-Dea01Takeover 1\Premium Flat File Destination DMS DEA 01 TAKEOVER.Inputs[Primary Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DMS-Dea01Takeover 1\Premium Flat File Destination DMS DEA 01 TAKEOVER.Outputs[Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DMS-Dea01Takeover 1\Premium Flat File Destination DMS DEA 01 TAKEOVER.Outputs[Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DMS-Dea01Takeover 1\Premium Flat File Destination DMS DEA 01 TAKEOVER.Outputs[Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DMS-Dea01Takeover 1\Premium Flat File Destination DMS DEA 01 TAKEOVER.Outputs[Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                    <outputColumn
+                      refId="Package\DMS-Dea01Takeover 1\Premium Flat File Destination DMS DEA 01 TAKEOVER.Outputs[Error Output].Columns[ErrorMessage]"
+                      dataType="wstr"
+                      length="2048"
+                      lineageId="Package\DMS-Dea01Takeover 1\Premium Flat File Destination DMS DEA 01 TAKEOVER.Outputs[Error Output].Columns[ErrorMessage]"
+                      name="ErrorMessage" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DMS-Dea01Takeover 1\Premium Flat File Destination DMS DEA 01 TAKEOVER.Outputs[Default Output]"
+                  exclusionGroup="1"
+                  name="Default Output"
+                  synchronousInputId="Package\DMS-Dea01Takeover 1\Premium Flat File Destination DMS DEA 01 TAKEOVER.Inputs[Primary Input]">
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\DMS-Dea01Takeover 1.Paths[Default Output]"
+              endId="Package\DMS-Dea01Takeover 1\Premium Flat File Destination DMS DEA 01 TAKEOVER.Inputs[Primary Input]"
+              name="Default Output"
+              startId="Package\DMS-Dea01Takeover 1\Premium ADO NET Source.Outputs[Default Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\DMS-DER01Takeover"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Tarea Flujo de datos"
+      DTS:DTSID="{89002F7F-6A60-4C57-AC52-A4D95264FC84}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="DMS-DER01Takeover"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\DMS-DER01Takeover\División condicional"
+              componentClassID="Microsoft.ConditionalSplit"
+              contactInfo="División condicional;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;0"
+              description="Enruta filas de datos a diferentes salidas según el contenido de los datos. Se usan condiciones (expresiones de SSIS) para especificar las filas que se van a enrutar. Por ejemplo, se usa para separar los registros que deben limpiarse de los registros listos para ser cargados o para enrutar solamente un subconjunto de registros."
+              name="División condicional"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\DMS-DER01Takeover\División condicional.Inputs[Entrada de división condicional]"
+                  description="Entrada en la transformación División condicional"
+                  name="Entrada de división condicional">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DMS-DER01Takeover\División condicional.Inputs[Entrada de división condicional].Columns[ACTIVITY]"
+                      cachedDataType="wstr"
+                      cachedLength="29"
+                      cachedName="ACTIVITY"
+                      lineageId="Package\DMS-DER01Takeover\Premium ADO NET Source.Outputs[Default Output].Columns[ACTIVITY]" />
+                    <inputColumn
+                      refId="Package\DMS-DER01Takeover\División condicional.Inputs[Entrada de división condicional].Columns[ARRANGEMENT]"
+                      cachedDataType="wstr"
+                      cachedLength="12"
+                      cachedName="ARRANGEMENT"
+                      lineageId="Package\DMS-DER01Takeover\Premium ADO NET Source.Outputs[Default Output].Columns[ARRANGEMENT]" />
+                    <inputColumn
+                      refId="Package\DMS-DER01Takeover\División condicional.Inputs[Entrada de división condicional].Columns[CURRENCY]"
+                      cachedDataType="wstr"
+                      cachedLength="3"
+                      cachedName="CURRENCY"
+                      lineageId="Package\DMS-DER01Takeover\Premium ADO NET Source.Outputs[Default Output].Columns[CURRENCY]" />
+                    <inputColumn
+                      refId="Package\DMS-DER01Takeover\División condicional.Inputs[Entrada de división condicional].Columns[CUSTOMER]"
+                      cachedDataType="wstr"
+                      cachedLength="128"
+                      cachedName="CUSTOMER"
+                      lineageId="Package\DMS-DER01Takeover\Premium ADO NET Source.Outputs[Default Output].Columns[CUSTOMER]" />
+                    <inputColumn
+                      refId="Package\DMS-DER01Takeover\División condicional.Inputs[Entrada de división condicional].Columns[CUSTOMER.ROLE]"
+                      cachedDataType="wstr"
+                      cachedLength="128"
+                      cachedName="CUSTOMER.ROLE"
+                      lineageId="Package\DMS-DER01Takeover\Premium ADO NET Source.Outputs[Default Output].Columns[CUSTOMER.ROLE]" />
+                    <inputColumn
+                      refId="Package\DMS-DER01Takeover\División condicional.Inputs[Entrada de división condicional].Columns[FIELD.NAME]"
+                      cachedCodepage="1252"
+                      cachedDataType="text"
+                      cachedName="FIELD.NAME"
+                      lineageId="Package\DMS-DER01Takeover\Premium ADO NET Source.Outputs[Default Output].Columns[FIELD.NAME]" />
+                    <inputColumn
+                      refId="Package\DMS-DER01Takeover\División condicional.Inputs[Entrada de división condicional].Columns[FIELD.VALUE]"
+                      cachedCodepage="1252"
+                      cachedDataType="text"
+                      cachedName="FIELD.VALUE"
+                      lineageId="Package\DMS-DER01Takeover\Premium ADO NET Source.Outputs[Default Output].Columns[FIELD.VALUE]" />
+                    <inputColumn
+                      refId="Package\DMS-DER01Takeover\División condicional.Inputs[Entrada de división condicional].Columns[ID/ARR.SEQUENCE]"
+                      cachedDataType="wstr"
+                      cachedLength="18"
+                      cachedName="ID/ARR.SEQUENCE"
+                      lineageId="Package\DMS-DER01Takeover\Premium ADO NET Source.Outputs[Default Output].Columns[ID/ARR.SEQUENCE]" />
+                    <inputColumn
+                      refId="Package\DMS-DER01Takeover\División condicional.Inputs[Entrada de división condicional].Columns[ORIG.CONTRACT.DATE]"
+                      cachedDataType="wstr"
+                      cachedLength="8"
+                      cachedName="ORIG.CONTRACT.DATE"
+                      lineageId="Package\DMS-DER01Takeover\Premium ADO NET Source.Outputs[Default Output].Columns[ORIG.CONTRACT.DATE]" />
+                    <inputColumn
+                      refId="Package\DMS-DER01Takeover\División condicional.Inputs[Entrada de división condicional].Columns[PRODUCT]"
+                      cachedDataType="wstr"
+                      cachedLength="64"
+                      cachedName="PRODUCT"
+                      lineageId="Package\DMS-DER01Takeover\Premium ADO NET Source.Outputs[Default Output].Columns[PRODUCT]" />
+                    <inputColumn
+                      refId="Package\DMS-DER01Takeover\División condicional.Inputs[Entrada de división condicional].Columns[PROPERTY]"
+                      cachedDataType="wstr"
+                      cachedLength="1024"
+                      cachedName="PROPERTY"
+                      lineageId="Package\DMS-DER01Takeover\Premium ADO NET Source.Outputs[Default Output].Columns[PROPERTY]" />
+                    <inputColumn
+                      refId="Package\DMS-DER01Takeover\División condicional.Inputs[Entrada de división condicional].Columns[REASON]"
+                      cachedDataType="wstr"
+                      cachedLength="150"
+                      cachedName="REASON"
+                      lineageId="Package\DMS-DER01Takeover\Premium ADO NET Source.Outputs[Default Output].Columns[REASON]" />
+                    <inputColumn
+                      refId="Package\DMS-DER01Takeover\División condicional.Inputs[Entrada de división condicional].Columns[MASTER.ARRANGEMENT]"
+                      cachedDataType="wstr"
+                      cachedLength="12"
+                      cachedName="MASTER.ARRANGEMENT"
+                      lineageId="Package\DMS-DER01Takeover\Premium ADO NET Source.Outputs[Default Output].Columns[MASTER.ARRANGEMENT]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DMS-DER01Takeover\División condicional.Outputs[!ISNULL]"
+                  description="Salida 1 de la transformación División condicional"
+                  errorOrTruncationOperation="Cálculo"
+                  errorRowDisposition="FailComponent"
+                  exclusionGroup="1"
+                  name="!ISNULL"
+                  synchronousInputId="Package\DMS-DER01Takeover\División condicional.Inputs[Entrada de división condicional]"
+                  truncationRowDisposition="FailComponent">
+                  <properties>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Especifica la expresión. Esta versión de expresión usa identificadores de linaje en lugar de nombres de columna."
+                      name="Expression">![ISNULL](#{Package\DMS-DER01Takeover\Premium ADO NET Source.Outputs[Default Output].Columns[ID/ARR.SEQUENCE]}) &amp;&amp; ![ISNULL](#{Package\DMS-DER01Takeover\Premium ADO NET Source.Outputs[Default Output].Columns[ARRANGEMENT]}) &amp;&amp; ![ISNULL](#{Package\DMS-DER01Takeover\Premium ADO NET Source.Outputs[Default Output].Columns[ACTIVITY]}) &amp;&amp; ![ISNULL](#{Package\DMS-DER01Takeover\Premium ADO NET Source.Outputs[Default Output].Columns[CUSTOMER]}) &amp;&amp; ![ISNULL](#{Package\DMS-DER01Takeover\Premium ADO NET Source.Outputs[Default Output].Columns[CUSTOMER.ROLE]}) &amp;&amp; ![ISNULL](#{Package\DMS-DER01Takeover\Premium ADO NET Source.Outputs[Default Output].Columns[MASTER.ARRANGEMENT]}) &amp;&amp; ![ISNULL](#{Package\DMS-DER01Takeover\Premium ADO NET Source.Outputs[Default Output].Columns[PRODUCT]}) &amp;&amp; ![ISNULL](#{Package\DMS-DER01Takeover\Premium ADO NET Source.Outputs[Default Output].Columns[CURRENCY]}) &amp;&amp; ![ISNULL](#{Package\DMS-DER01Takeover\Premium ADO NET Source.Outputs[Default Output].Columns[ORIG.CONTRACT.DATE]}) &amp;&amp; ![ISNULL](#{Package\DMS-DER01Takeover\Premium ADO NET Source.Outputs[Default Output].Columns[PROPERTY]}) &amp;&amp; ![ISNULL](#{Package\DMS-DER01Takeover\Premium ADO NET Source.Outputs[Default Output].Columns[FIELD.NAME]}) &amp;&amp; ![ISNULL](#{Package\DMS-DER01Takeover\Premium ADO NET Source.Outputs[Default Output].Columns[FIELD.VALUE]}) &amp;&amp; ![ISNULL](#{Package\DMS-DER01Takeover\Premium ADO NET Source.Outputs[Default Output].Columns[REASON]})</property>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Especifica la versión descriptiva de la expresión. Esta versión de expresión usa nombres de columna."
+                      expressionType="Notify"
+                      name="FriendlyExpression">!ISNULL([ID/ARR.SEQUENCE]) &amp;&amp; !ISNULL(ARRANGEMENT) &amp;&amp; !ISNULL(ACTIVITY) &amp;&amp; !ISNULL(CUSTOMER) &amp;&amp; !ISNULL([CUSTOMER.ROLE]) &amp;&amp; !ISNULL([MASTER.ARRANGEMENT]) &amp;&amp; !ISNULL(PRODUCT) &amp;&amp; !ISNULL(CURRENCY) &amp;&amp; !ISNULL([ORIG.CONTRACT.DATE]) &amp;&amp; !ISNULL(PROPERTY) &amp;&amp; !ISNULL([FIELD.NAME]) &amp;&amp; !ISNULL([FIELD.VALUE]) &amp;&amp; !ISNULL(REASON)</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Especifica la posición de la condición en la lista de condiciones que evalúa la transformación. El orden de evaluación es del menor al mayor valor."
+                      name="EvaluationOrder">0</property>
+                  </properties>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DMS-DER01Takeover\División condicional.Outputs[Salida predeterminada de división condicional]"
+                  description="Salida predeterminada de la transformación División condicional"
+                  exclusionGroup="1"
+                  name="Salida predeterminada de división condicional"
+                  synchronousInputId="Package\DMS-DER01Takeover\División condicional.Inputs[Entrada de división condicional]">
+                  <properties>
+                    <property
+                      dataType="System.Boolean"
+                      name="IsDefaultOut">true</property>
+                  </properties>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DMS-DER01Takeover\División condicional.Outputs[Salida de error de división condicional]"
+                  description="Salida de error de la transformación División condicional"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Salida de error de división condicional"
+                  synchronousInputId="Package\DMS-DER01Takeover\División condicional.Inputs[Entrada de división condicional]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DMS-DER01Takeover\División condicional.Outputs[Salida de error de división condicional].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DMS-DER01Takeover\División condicional.Outputs[Salida de error de división condicional].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DMS-DER01Takeover\División condicional.Outputs[Salida de error de división condicional].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DMS-DER01Takeover\División condicional.Outputs[Salida de error de división condicional].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DMS-DER01Takeover\Premium ADO NET Source"
+              componentClassID="Microsoft.ManagedComponentHost"
+              contactInfo="KingswaySoft Inc.; http://www.kingswaysoft.com; support@kingswaysoft.com; Copyright (c) 2011-2025 KingswaySoft Inc."
+              description="Read data from an ADO.NET connection."
+              name="Premium ADO NET Source"
+              usesDispositions="true"
+              version="2">
+              <properties>
+                <property
+                  dataType="System.String"
+                  expressionType="Notify"
+                  name="DataSource">&lt;&lt;Custom Command&gt;&gt;</property>
+                <property
+                  dataType="System.String"
+                  expressionType="Notify"
+                  name="Command">DECLARE @YYYY int --Año
+       ,@MM   int --Mes
+       ,@DD   int --Dia
+       ,@primerDiaMesMigracionINT int
+       ,@ultimoDiaMesMigracionINT int
+       ,@feLineaTiempo datetime
+       ,@feUltimoDiaMesMigracion date
+       ,@feMigracion date
+       ,@feMigracionST nvarchar(8)
+--
+--
+SET @feLineaTiempo = (SELECT MAX(fe_linea_tiempo)  FROM [STGLegados].[dbo].[linea_tiempo])
+SET @feMigracion = DATEADD(DAY, 1, @feLineaTiempo) 
+SET @YYYY = YEAR(@feMigracion)  -- Año correspondiente a la fecha de migración
+SET @MM = MONTH(@feMigracion)   -- Mes correspondiente a la fecha de migración
+SET @DD = DAY(@feMigracion)     -- Dia correspondiente a la fecha de migración
+SET @feUltimoDiaMesMigracion = DATEADD(dd,-1,DATEADD(mm, DATEDIFF(mm,0,@feMigracion)+1,0)) -- Fecha de último día del mes de la migración
+SET @ultimoDiaMesMigracionINT = YEAR(@feUltimoDiaMesMigracion)*10000 + MONTH(@feUltimoDiaMesMigracion)*100 + DAY(@feUltimoDiaMesMigracion)
+SET @primerDiaMesMigracionINT = YEAR(@feUltimoDiaMesMigracion)*10000 + MONTH(@feUltimoDiaMesMigracion)*100 + 1
+SET @feMigracionST = Convert(nvarchar(8),@feMigracion,112)
+--
+--
+--TRUNCATE TABLE [STGPolaris].[dbo].[DMS.DRA.01.TAKEOVER]
+--TRUNCATE TABLE [STGPolaris].[dbo].[DMS.DRA.01.TAKEOVER-v0.5]
+--INSERT INTO [STGPolaris].[dbo].[DMS.DRA.01.TAKEOVER-v0.5]
 SELECT  DISTINCT
         OPER.coCompaniaOperacionActivaTransact as [UPLOAD.COMPANY]
        ,OPER.coTakeoverOperacionActivaTransact as [ID/ARR.SEQUENCE] -- Algoritmo Drawing DRA.01: AAACT+X+YYY+ZZZZ X=1 Takeover, X=2 Capture Balance, X=3 Adjust Balance, X=4 Capture Bill
@@ -729,7 +2183,7 @@ WHERE SUBSTRING([STGPolaris].[dbo].[fn_udfTrim] (OPER.coOperacionActiva),1,3) IN
               </properties>
               <connections>
                 <connection
-                  refId="Package\DMS-Dea01Takeover\Premium ADO NET Source.Connections[ADO NET]"
+                  refId="Package\DMS-DER01Takeover\Premium ADO NET Source.Connections[ADO NET]"
                   connectionManagerID="{4B52D8E2-8781-4975-B2F1-2D7DAC276C1F}:external"
                   connectionManagerRefId="Project.ConnectionManagers[VENGGCR26_NAPNNPR32.STGLegados]"
                   description="ADO.NET"
@@ -737,227 +2191,1106 @@ WHERE SUBSTRING([STGPolaris].[dbo].[fn_udfTrim] (OPER.coOperacionActiva),1,3) IN
               </connections>
               <outputs>
                 <output
-                  refId="Package\DMS-Dea01Takeover\Premium ADO NET Source.Outputs[Default Output]"
+                  refId="Package\DMS-DER01Takeover\Premium ADO NET Source.Outputs[Default Output]"
                   name="Default Output">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\DMS-Dea01Takeover\Premium ADO NET Source.Outputs[Default Output].Columns[ACTIVITY]"
+                      refId="Package\DMS-DER01Takeover\Premium ADO NET Source.Outputs[Default Output].Columns[ACTIVITY]"
                       dataType="wstr"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\DMS-Dea01Takeover\Premium ADO NET Source.Outputs[Default Output].ExternalColumns[ACTIVITY]"
+                      externalMetadataColumnId="Package\DMS-DER01Takeover\Premium ADO NET Source.Outputs[Default Output].ExternalColumns[ACTIVITY]"
                       length="29"
-                      lineageId="Package\DMS-Dea01Takeover\Premium ADO NET Source.Outputs[Default Output].Columns[ACTIVITY]"
+                      lineageId="Package\DMS-DER01Takeover\Premium ADO NET Source.Outputs[Default Output].Columns[ACTIVITY]"
                       name="ACTIVITY"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\DMS-Dea01Takeover\Premium ADO NET Source.Outputs[Default Output].Columns[ARRANGEMENT]"
+                      refId="Package\DMS-DER01Takeover\Premium ADO NET Source.Outputs[Default Output].Columns[ARRANGEMENT]"
                       dataType="wstr"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\DMS-Dea01Takeover\Premium ADO NET Source.Outputs[Default Output].ExternalColumns[ARRANGEMENT]"
+                      externalMetadataColumnId="Package\DMS-DER01Takeover\Premium ADO NET Source.Outputs[Default Output].ExternalColumns[ARRANGEMENT]"
                       length="12"
-                      lineageId="Package\DMS-Dea01Takeover\Premium ADO NET Source.Outputs[Default Output].Columns[ARRANGEMENT]"
+                      lineageId="Package\DMS-DER01Takeover\Premium ADO NET Source.Outputs[Default Output].Columns[ARRANGEMENT]"
                       name="ARRANGEMENT"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\DMS-Dea01Takeover\Premium ADO NET Source.Outputs[Default Output].Columns[CURRENCY]"
+                      refId="Package\DMS-DER01Takeover\Premium ADO NET Source.Outputs[Default Output].Columns[CURRENCY]"
                       dataType="wstr"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\DMS-Dea01Takeover\Premium ADO NET Source.Outputs[Default Output].ExternalColumns[CURRENCY]"
+                      externalMetadataColumnId="Package\DMS-DER01Takeover\Premium ADO NET Source.Outputs[Default Output].ExternalColumns[CURRENCY]"
                       length="3"
-                      lineageId="Package\DMS-Dea01Takeover\Premium ADO NET Source.Outputs[Default Output].Columns[CURRENCY]"
+                      lineageId="Package\DMS-DER01Takeover\Premium ADO NET Source.Outputs[Default Output].Columns[CURRENCY]"
                       name="CURRENCY"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\DMS-Dea01Takeover\Premium ADO NET Source.Outputs[Default Output].Columns[CUSTOMER]"
+                      refId="Package\DMS-DER01Takeover\Premium ADO NET Source.Outputs[Default Output].Columns[CUSTOMER]"
                       dataType="wstr"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\DMS-Dea01Takeover\Premium ADO NET Source.Outputs[Default Output].ExternalColumns[CUSTOMER]"
+                      externalMetadataColumnId="Package\DMS-DER01Takeover\Premium ADO NET Source.Outputs[Default Output].ExternalColumns[CUSTOMER]"
                       length="128"
-                      lineageId="Package\DMS-Dea01Takeover\Premium ADO NET Source.Outputs[Default Output].Columns[CUSTOMER]"
+                      lineageId="Package\DMS-DER01Takeover\Premium ADO NET Source.Outputs[Default Output].Columns[CUSTOMER]"
                       name="CUSTOMER"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\DMS-Dea01Takeover\Premium ADO NET Source.Outputs[Default Output].Columns[CUSTOMER.ROLE]"
+                      refId="Package\DMS-DER01Takeover\Premium ADO NET Source.Outputs[Default Output].Columns[CUSTOMER.ROLE]"
                       dataType="wstr"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\DMS-Dea01Takeover\Premium ADO NET Source.Outputs[Default Output].ExternalColumns[CUSTOMER.ROLE]"
+                      externalMetadataColumnId="Package\DMS-DER01Takeover\Premium ADO NET Source.Outputs[Default Output].ExternalColumns[CUSTOMER.ROLE]"
                       length="128"
-                      lineageId="Package\DMS-Dea01Takeover\Premium ADO NET Source.Outputs[Default Output].Columns[CUSTOMER.ROLE]"
+                      lineageId="Package\DMS-DER01Takeover\Premium ADO NET Source.Outputs[Default Output].Columns[CUSTOMER.ROLE]"
                       name="CUSTOMER.ROLE"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\DMS-Dea01Takeover\Premium ADO NET Source.Outputs[Default Output].Columns[FIELD.NAME]"
+                      refId="Package\DMS-DER01Takeover\Premium ADO NET Source.Outputs[Default Output].Columns[FIELD.NAME]"
                       codePage="1252"
                       dataType="text"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\DMS-Dea01Takeover\Premium ADO NET Source.Outputs[Default Output].ExternalColumns[FIELD.NAME]"
-                      lineageId="Package\DMS-Dea01Takeover\Premium ADO NET Source.Outputs[Default Output].Columns[FIELD.NAME]"
+                      externalMetadataColumnId="Package\DMS-DER01Takeover\Premium ADO NET Source.Outputs[Default Output].ExternalColumns[FIELD.NAME]"
+                      lineageId="Package\DMS-DER01Takeover\Premium ADO NET Source.Outputs[Default Output].Columns[FIELD.NAME]"
                       name="FIELD.NAME"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\DMS-Dea01Takeover\Premium ADO NET Source.Outputs[Default Output].Columns[FIELD.VALUE]"
+                      refId="Package\DMS-DER01Takeover\Premium ADO NET Source.Outputs[Default Output].Columns[FIELD.VALUE]"
                       codePage="1252"
                       dataType="text"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\DMS-Dea01Takeover\Premium ADO NET Source.Outputs[Default Output].ExternalColumns[FIELD.VALUE]"
-                      lineageId="Package\DMS-Dea01Takeover\Premium ADO NET Source.Outputs[Default Output].Columns[FIELD.VALUE]"
+                      externalMetadataColumnId="Package\DMS-DER01Takeover\Premium ADO NET Source.Outputs[Default Output].ExternalColumns[FIELD.VALUE]"
+                      lineageId="Package\DMS-DER01Takeover\Premium ADO NET Source.Outputs[Default Output].Columns[FIELD.VALUE]"
                       name="FIELD.VALUE"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\DMS-Dea01Takeover\Premium ADO NET Source.Outputs[Default Output].Columns[ID/ARR.SEQUENCE]"
+                      refId="Package\DMS-DER01Takeover\Premium ADO NET Source.Outputs[Default Output].Columns[ID/ARR.SEQUENCE]"
                       dataType="wstr"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\DMS-Dea01Takeover\Premium ADO NET Source.Outputs[Default Output].ExternalColumns[ID/ARR.SEQUENCE]"
+                      externalMetadataColumnId="Package\DMS-DER01Takeover\Premium ADO NET Source.Outputs[Default Output].ExternalColumns[ID/ARR.SEQUENCE]"
                       length="18"
-                      lineageId="Package\DMS-Dea01Takeover\Premium ADO NET Source.Outputs[Default Output].Columns[ID/ARR.SEQUENCE]"
+                      lineageId="Package\DMS-DER01Takeover\Premium ADO NET Source.Outputs[Default Output].Columns[ID/ARR.SEQUENCE]"
                       name="ID/ARR.SEQUENCE"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\DMS-Dea01Takeover\Premium ADO NET Source.Outputs[Default Output].Columns[MASTER.ARRANGEMENT]"
+                      refId="Package\DMS-DER01Takeover\Premium ADO NET Source.Outputs[Default Output].Columns[ORIG.CONTRACT.DATE]"
                       dataType="wstr"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\DMS-Dea01Takeover\Premium ADO NET Source.Outputs[Default Output].ExternalColumns[MASTER.ARRANGEMENT]"
-                      length="12"
-                      lineageId="Package\DMS-Dea01Takeover\Premium ADO NET Source.Outputs[Default Output].Columns[MASTER.ARRANGEMENT]"
-                      name="MASTER.ARRANGEMENT"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\DMS-Dea01Takeover\Premium ADO NET Source.Outputs[Default Output].Columns[ORIG.CONTRACT.DATE]"
-                      dataType="wstr"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\DMS-Dea01Takeover\Premium ADO NET Source.Outputs[Default Output].ExternalColumns[ORIG.CONTRACT.DATE]"
+                      externalMetadataColumnId="Package\DMS-DER01Takeover\Premium ADO NET Source.Outputs[Default Output].ExternalColumns[ORIG.CONTRACT.DATE]"
                       length="8"
-                      lineageId="Package\DMS-Dea01Takeover\Premium ADO NET Source.Outputs[Default Output].Columns[ORIG.CONTRACT.DATE]"
+                      lineageId="Package\DMS-DER01Takeover\Premium ADO NET Source.Outputs[Default Output].Columns[ORIG.CONTRACT.DATE]"
                       name="ORIG.CONTRACT.DATE"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\DMS-Dea01Takeover\Premium ADO NET Source.Outputs[Default Output].Columns[PRODUCT]"
+                      refId="Package\DMS-DER01Takeover\Premium ADO NET Source.Outputs[Default Output].Columns[PRODUCT]"
                       dataType="wstr"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\DMS-Dea01Takeover\Premium ADO NET Source.Outputs[Default Output].ExternalColumns[PRODUCT]"
+                      externalMetadataColumnId="Package\DMS-DER01Takeover\Premium ADO NET Source.Outputs[Default Output].ExternalColumns[PRODUCT]"
                       length="64"
-                      lineageId="Package\DMS-Dea01Takeover\Premium ADO NET Source.Outputs[Default Output].Columns[PRODUCT]"
+                      lineageId="Package\DMS-DER01Takeover\Premium ADO NET Source.Outputs[Default Output].Columns[PRODUCT]"
                       name="PRODUCT"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\DMS-Dea01Takeover\Premium ADO NET Source.Outputs[Default Output].Columns[PROPERTY]"
+                      refId="Package\DMS-DER01Takeover\Premium ADO NET Source.Outputs[Default Output].Columns[PROPERTY]"
                       dataType="wstr"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\DMS-Dea01Takeover\Premium ADO NET Source.Outputs[Default Output].ExternalColumns[PROPERTY]"
+                      externalMetadataColumnId="Package\DMS-DER01Takeover\Premium ADO NET Source.Outputs[Default Output].ExternalColumns[PROPERTY]"
                       length="1024"
-                      lineageId="Package\DMS-Dea01Takeover\Premium ADO NET Source.Outputs[Default Output].Columns[PROPERTY]"
+                      lineageId="Package\DMS-DER01Takeover\Premium ADO NET Source.Outputs[Default Output].Columns[PROPERTY]"
                       name="PROPERTY"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\DMS-Dea01Takeover\Premium ADO NET Source.Outputs[Default Output].Columns[REASON]"
+                      refId="Package\DMS-DER01Takeover\Premium ADO NET Source.Outputs[Default Output].Columns[REASON]"
                       dataType="wstr"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\DMS-Dea01Takeover\Premium ADO NET Source.Outputs[Default Output].ExternalColumns[REASON]"
+                      externalMetadataColumnId="Package\DMS-DER01Takeover\Premium ADO NET Source.Outputs[Default Output].ExternalColumns[REASON]"
                       length="150"
-                      lineageId="Package\DMS-Dea01Takeover\Premium ADO NET Source.Outputs[Default Output].Columns[REASON]"
+                      lineageId="Package\DMS-DER01Takeover\Premium ADO NET Source.Outputs[Default Output].Columns[REASON]"
                       name="REASON"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\DMS-Dea01Takeover\Premium ADO NET Source.Outputs[Default Output].Columns[UPLOAD.COMPANY]"
+                      refId="Package\DMS-DER01Takeover\Premium ADO NET Source.Outputs[Default Output].Columns[UPLOAD.COMPANY]"
                       dataType="wstr"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\DMS-Dea01Takeover\Premium ADO NET Source.Outputs[Default Output].ExternalColumns[UPLOAD.COMPANY]"
+                      externalMetadataColumnId="Package\DMS-DER01Takeover\Premium ADO NET Source.Outputs[Default Output].ExternalColumns[UPLOAD.COMPANY]"
                       length="9"
-                      lineageId="Package\DMS-Dea01Takeover\Premium ADO NET Source.Outputs[Default Output].Columns[UPLOAD.COMPANY]"
+                      lineageId="Package\DMS-DER01Takeover\Premium ADO NET Source.Outputs[Default Output].Columns[UPLOAD.COMPANY]"
                       name="UPLOAD.COMPANY"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DMS-DER01Takeover\Premium ADO NET Source.Outputs[Default Output].Columns[MASTER.ARRANGEMENT]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DMS-DER01Takeover\Premium ADO NET Source.Outputs[Default Output].ExternalColumns[MASTER.ARRANGEMENT]"
+                      length="12"
+                      lineageId="Package\DMS-DER01Takeover\Premium ADO NET Source.Outputs[Default Output].Columns[MASTER.ARRANGEMENT]"
+                      name="MASTER.ARRANGEMENT"
                       truncationRowDisposition="FailComponent" />
                   </outputColumns>
                   <externalMetadataColumns
                     isUsed="True">
                     <externalMetadataColumn
-                      refId="Package\DMS-Dea01Takeover\Premium ADO NET Source.Outputs[Default Output].ExternalColumns[ACTIVITY]"
+                      refId="Package\DMS-DER01Takeover\Premium ADO NET Source.Outputs[Default Output].ExternalColumns[ACTIVITY]"
                       dataType="wstr"
                       length="29"
                       name="ACTIVITY" />
                     <externalMetadataColumn
-                      refId="Package\DMS-Dea01Takeover\Premium ADO NET Source.Outputs[Default Output].ExternalColumns[ARRANGEMENT]"
+                      refId="Package\DMS-DER01Takeover\Premium ADO NET Source.Outputs[Default Output].ExternalColumns[ARRANGEMENT]"
                       dataType="wstr"
                       length="12"
                       name="ARRANGEMENT" />
                     <externalMetadataColumn
-                      refId="Package\DMS-Dea01Takeover\Premium ADO NET Source.Outputs[Default Output].ExternalColumns[CURRENCY]"
+                      refId="Package\DMS-DER01Takeover\Premium ADO NET Source.Outputs[Default Output].ExternalColumns[CURRENCY]"
                       dataType="wstr"
                       length="3"
                       name="CURRENCY" />
                     <externalMetadataColumn
-                      refId="Package\DMS-Dea01Takeover\Premium ADO NET Source.Outputs[Default Output].ExternalColumns[CUSTOMER]"
+                      refId="Package\DMS-DER01Takeover\Premium ADO NET Source.Outputs[Default Output].ExternalColumns[CUSTOMER]"
                       dataType="wstr"
                       length="128"
                       name="CUSTOMER" />
                     <externalMetadataColumn
-                      refId="Package\DMS-Dea01Takeover\Premium ADO NET Source.Outputs[Default Output].ExternalColumns[CUSTOMER.ROLE]"
+                      refId="Package\DMS-DER01Takeover\Premium ADO NET Source.Outputs[Default Output].ExternalColumns[CUSTOMER.ROLE]"
                       dataType="wstr"
                       length="128"
                       name="CUSTOMER.ROLE" />
                     <externalMetadataColumn
-                      refId="Package\DMS-Dea01Takeover\Premium ADO NET Source.Outputs[Default Output].ExternalColumns[FIELD.NAME]"
+                      refId="Package\DMS-DER01Takeover\Premium ADO NET Source.Outputs[Default Output].ExternalColumns[FIELD.NAME]"
                       codePage="1252"
                       dataType="text"
                       name="FIELD.NAME" />
                     <externalMetadataColumn
-                      refId="Package\DMS-Dea01Takeover\Premium ADO NET Source.Outputs[Default Output].ExternalColumns[FIELD.VALUE]"
+                      refId="Package\DMS-DER01Takeover\Premium ADO NET Source.Outputs[Default Output].ExternalColumns[FIELD.VALUE]"
                       codePage="1252"
                       dataType="text"
                       name="FIELD.VALUE" />
                     <externalMetadataColumn
-                      refId="Package\DMS-Dea01Takeover\Premium ADO NET Source.Outputs[Default Output].ExternalColumns[ID/ARR.SEQUENCE]"
+                      refId="Package\DMS-DER01Takeover\Premium ADO NET Source.Outputs[Default Output].ExternalColumns[ID/ARR.SEQUENCE]"
                       dataType="wstr"
                       length="18"
                       name="ID/ARR.SEQUENCE" />
                     <externalMetadataColumn
-                      refId="Package\DMS-Dea01Takeover\Premium ADO NET Source.Outputs[Default Output].ExternalColumns[MASTER.ARRANGEMENT]"
-                      dataType="wstr"
-                      length="12"
-                      name="MASTER.ARRANGEMENT" />
-                    <externalMetadataColumn
-                      refId="Package\DMS-Dea01Takeover\Premium ADO NET Source.Outputs[Default Output].ExternalColumns[ORIG.CONTRACT.DATE]"
+                      refId="Package\DMS-DER01Takeover\Premium ADO NET Source.Outputs[Default Output].ExternalColumns[ORIG.CONTRACT.DATE]"
                       dataType="wstr"
                       length="8"
                       name="ORIG.CONTRACT.DATE" />
                     <externalMetadataColumn
-                      refId="Package\DMS-Dea01Takeover\Premium ADO NET Source.Outputs[Default Output].ExternalColumns[PRODUCT]"
+                      refId="Package\DMS-DER01Takeover\Premium ADO NET Source.Outputs[Default Output].ExternalColumns[PRODUCT]"
                       dataType="wstr"
                       length="64"
                       name="PRODUCT" />
                     <externalMetadataColumn
-                      refId="Package\DMS-Dea01Takeover\Premium ADO NET Source.Outputs[Default Output].ExternalColumns[PROPERTY]"
+                      refId="Package\DMS-DER01Takeover\Premium ADO NET Source.Outputs[Default Output].ExternalColumns[PROPERTY]"
                       dataType="wstr"
                       length="1024"
                       name="PROPERTY" />
                     <externalMetadataColumn
-                      refId="Package\DMS-Dea01Takeover\Premium ADO NET Source.Outputs[Default Output].ExternalColumns[REASON]"
+                      refId="Package\DMS-DER01Takeover\Premium ADO NET Source.Outputs[Default Output].ExternalColumns[REASON]"
                       dataType="wstr"
                       length="150"
                       name="REASON" />
                     <externalMetadataColumn
-                      refId="Package\DMS-Dea01Takeover\Premium ADO NET Source.Outputs[Default Output].ExternalColumns[UPLOAD.COMPANY]"
+                      refId="Package\DMS-DER01Takeover\Premium ADO NET Source.Outputs[Default Output].ExternalColumns[UPLOAD.COMPANY]"
                       dataType="wstr"
                       length="9"
                       name="UPLOAD.COMPANY" />
+                    <externalMetadataColumn
+                      refId="Package\DMS-DER01Takeover\Premium ADO NET Source.Outputs[Default Output].ExternalColumns[MASTER.ARRANGEMENT]"
+                      dataType="wstr"
+                      length="12"
+                      name="MASTER.ARRANGEMENT" />
                   </externalMetadataColumns>
                 </output>
               </outputs>
             </component>
+            <component
+              refId="Package\DMS-DER01Takeover\Premium Excel Destination"
+              componentClassID="Microsoft.ManagedComponentHost"
+              contactInfo="KingswaySoft Inc.; http://www.kingswaysoft.com; support@kingswaysoft.com; Copyright (c) 2011-2025 KingswaySoft Inc."
+              description="Populate data into Excel."
+              name="Premium Excel Destination"
+              usesDispositions="true">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="The name of Worksheet selected in Excel file."
+                  expressionType="Notify"
+                  name="WorkSheetName">Sheet1</property>
+                <property
+                  dataType="System.String"
+                  description="Full path to the destination file."
+                  expressionType="Notify"
+                  name="DestinationFilePath">C:\App\Log Errores.xlsx</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specify the write mode."
+                  expressionType="Notify"
+                  name="WriteMode"
+                  typeConverter="KingswaySoft.IntegrationToolkit.ProductivityPack.Excel.DestinationWriteMode">1</property>
+                <property
+                  dataType="System.Int32"
+                  description="The starting row from which to write to the Excel file."
+                  expressionType="Notify"
+                  name="StartRow">1</property>
+                <property
+                  dataType="System.String"
+                  description="Password used to modify the Excel file."
+                  expressionType="Notify"
+                  name="ModifyPassword"></property>
+                <property
+                  dataType="System.Boolean"
+                  description="SkipWritingOnNoRows"
+                  expressionType="Notify"
+                  name="SkipWritingOnNoRows">false</property>
+                <property
+                  dataType="System.String"
+                  name="UserComponentTypeName">KingswaySoft.IntegrationToolkit.ProductivityPack.ExcelDestinationComponent</property>
+                <property
+                  dataType="System.String"
+                  description="Column Name Option"
+                  expressionType="Notify"
+                  name="ColumnNamesLocation"
+                  typeConverter="KingswaySoft.IntegrationToolkit.ProductivityPack.Excel.ColumnNames"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Column Name Row Number"
+                  expressionType="Notify"
+                  name="ColumnNameRow">1</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\DMS-DER01Takeover\Premium Excel Destination.Inputs[Primary Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Primary Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DMS-DER01Takeover\Premium Excel Destination.Inputs[Primary Input].Columns[ACTIVITY]"
+                      cachedDataType="wstr"
+                      cachedLength="29"
+                      cachedName="ACTIVITY"
+                      externalMetadataColumnId="Package\DMS-DER01Takeover\Premium Excel Destination.Inputs[Primary Input].ExternalColumns[New Field]"
+                      lineageId="Package\DMS-DER01Takeover\Premium ADO NET Source.Outputs[Default Output].Columns[ACTIVITY]" />
+                    <inputColumn
+                      refId="Package\DMS-DER01Takeover\Premium Excel Destination.Inputs[Primary Input].Columns[ARRANGEMENT]"
+                      cachedDataType="wstr"
+                      cachedLength="12"
+                      cachedName="ARRANGEMENT"
+                      externalMetadataColumnId="Package\DMS-DER01Takeover\Premium Excel Destination.Inputs[Primary Input].ExternalColumns[New Field2]"
+                      lineageId="Package\DMS-DER01Takeover\Premium ADO NET Source.Outputs[Default Output].Columns[ARRANGEMENT]" />
+                    <inputColumn
+                      refId="Package\DMS-DER01Takeover\Premium Excel Destination.Inputs[Primary Input].Columns[CURRENCY]"
+                      cachedDataType="wstr"
+                      cachedLength="3"
+                      cachedName="CURRENCY"
+                      externalMetadataColumnId="Package\DMS-DER01Takeover\Premium Excel Destination.Inputs[Primary Input].ExternalColumns[New Field3]"
+                      lineageId="Package\DMS-DER01Takeover\Premium ADO NET Source.Outputs[Default Output].Columns[CURRENCY]" />
+                    <inputColumn
+                      refId="Package\DMS-DER01Takeover\Premium Excel Destination.Inputs[Primary Input].Columns[CUSTOMER]"
+                      cachedDataType="wstr"
+                      cachedLength="128"
+                      cachedName="CUSTOMER"
+                      externalMetadataColumnId="Package\DMS-DER01Takeover\Premium Excel Destination.Inputs[Primary Input].ExternalColumns[New Field4]"
+                      lineageId="Package\DMS-DER01Takeover\Premium ADO NET Source.Outputs[Default Output].Columns[CUSTOMER]" />
+                    <inputColumn
+                      refId="Package\DMS-DER01Takeover\Premium Excel Destination.Inputs[Primary Input].Columns[CUSTOMER.ROLE]"
+                      cachedDataType="wstr"
+                      cachedLength="128"
+                      cachedName="CUSTOMER.ROLE"
+                      externalMetadataColumnId="Package\DMS-DER01Takeover\Premium Excel Destination.Inputs[Primary Input].ExternalColumns[New Field5]"
+                      lineageId="Package\DMS-DER01Takeover\Premium ADO NET Source.Outputs[Default Output].Columns[CUSTOMER.ROLE]" />
+                    <inputColumn
+                      refId="Package\DMS-DER01Takeover\Premium Excel Destination.Inputs[Primary Input].Columns[FIELD.NAME]"
+                      cachedCodepage="1252"
+                      cachedDataType="text"
+                      cachedName="FIELD.NAME"
+                      externalMetadataColumnId="Package\DMS-DER01Takeover\Premium Excel Destination.Inputs[Primary Input].ExternalColumns[New Field6]"
+                      lineageId="Package\DMS-DER01Takeover\Premium ADO NET Source.Outputs[Default Output].Columns[FIELD.NAME]" />
+                    <inputColumn
+                      refId="Package\DMS-DER01Takeover\Premium Excel Destination.Inputs[Primary Input].Columns[FIELD.VALUE]"
+                      cachedCodepage="1252"
+                      cachedDataType="text"
+                      cachedName="FIELD.VALUE"
+                      externalMetadataColumnId="Package\DMS-DER01Takeover\Premium Excel Destination.Inputs[Primary Input].ExternalColumns[New Field7]"
+                      lineageId="Package\DMS-DER01Takeover\Premium ADO NET Source.Outputs[Default Output].Columns[FIELD.VALUE]" />
+                    <inputColumn
+                      refId="Package\DMS-DER01Takeover\Premium Excel Destination.Inputs[Primary Input].Columns[ID/ARR.SEQUENCE]"
+                      cachedDataType="wstr"
+                      cachedLength="18"
+                      cachedName="ID/ARR.SEQUENCE"
+                      externalMetadataColumnId="Package\DMS-DER01Takeover\Premium Excel Destination.Inputs[Primary Input].ExternalColumns[New Field8]"
+                      lineageId="Package\DMS-DER01Takeover\Premium ADO NET Source.Outputs[Default Output].Columns[ID/ARR.SEQUENCE]" />
+                    <inputColumn
+                      refId="Package\DMS-DER01Takeover\Premium Excel Destination.Inputs[Primary Input].Columns[ORIG.CONTRACT.DATE]"
+                      cachedDataType="wstr"
+                      cachedLength="8"
+                      cachedName="ORIG.CONTRACT.DATE"
+                      externalMetadataColumnId="Package\DMS-DER01Takeover\Premium Excel Destination.Inputs[Primary Input].ExternalColumns[New Field9]"
+                      lineageId="Package\DMS-DER01Takeover\Premium ADO NET Source.Outputs[Default Output].Columns[ORIG.CONTRACT.DATE]" />
+                    <inputColumn
+                      refId="Package\DMS-DER01Takeover\Premium Excel Destination.Inputs[Primary Input].Columns[PRODUCT]"
+                      cachedDataType="wstr"
+                      cachedLength="64"
+                      cachedName="PRODUCT"
+                      externalMetadataColumnId="Package\DMS-DER01Takeover\Premium Excel Destination.Inputs[Primary Input].ExternalColumns[New Field10]"
+                      lineageId="Package\DMS-DER01Takeover\Premium ADO NET Source.Outputs[Default Output].Columns[PRODUCT]" />
+                    <inputColumn
+                      refId="Package\DMS-DER01Takeover\Premium Excel Destination.Inputs[Primary Input].Columns[PROPERTY]"
+                      cachedDataType="wstr"
+                      cachedLength="1024"
+                      cachedName="PROPERTY"
+                      externalMetadataColumnId="Package\DMS-DER01Takeover\Premium Excel Destination.Inputs[Primary Input].ExternalColumns[New Field11]"
+                      lineageId="Package\DMS-DER01Takeover\Premium ADO NET Source.Outputs[Default Output].Columns[PROPERTY]" />
+                    <inputColumn
+                      refId="Package\DMS-DER01Takeover\Premium Excel Destination.Inputs[Primary Input].Columns[REASON]"
+                      cachedDataType="wstr"
+                      cachedLength="150"
+                      cachedName="REASON"
+                      externalMetadataColumnId="Package\DMS-DER01Takeover\Premium Excel Destination.Inputs[Primary Input].ExternalColumns[New Field12]"
+                      lineageId="Package\DMS-DER01Takeover\Premium ADO NET Source.Outputs[Default Output].Columns[REASON]" />
+                    <inputColumn
+                      refId="Package\DMS-DER01Takeover\Premium Excel Destination.Inputs[Primary Input].Columns[UPLOAD.COMPANY]"
+                      cachedDataType="wstr"
+                      cachedLength="9"
+                      cachedName="UPLOAD.COMPANY"
+                      externalMetadataColumnId="Package\DMS-DER01Takeover\Premium Excel Destination.Inputs[Primary Input].ExternalColumns[New Field13]"
+                      lineageId="Package\DMS-DER01Takeover\Premium ADO NET Source.Outputs[Default Output].Columns[UPLOAD.COMPANY]" />
+                    <inputColumn
+                      refId="Package\DMS-DER01Takeover\Premium Excel Destination.Inputs[Primary Input].Columns[MASTER.ARRANGEMENT]"
+                      cachedDataType="wstr"
+                      cachedLength="12"
+                      cachedName="MASTER.ARRANGEMENT"
+                      externalMetadataColumnId="Package\DMS-DER01Takeover\Premium Excel Destination.Inputs[Primary Input].ExternalColumns[New Field14]"
+                      lineageId="Package\DMS-DER01Takeover\Premium ADO NET Source.Outputs[Default Output].Columns[MASTER.ARRANGEMENT]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DMS-DER01Takeover\Premium Excel Destination.Inputs[Primary Input].ExternalColumns[New Field]"
+                      dataType="wstr"
+                      length="255"
+                      name="New Field" />
+                    <externalMetadataColumn
+                      refId="Package\DMS-DER01Takeover\Premium Excel Destination.Inputs[Primary Input].ExternalColumns[New Field2]"
+                      dataType="wstr"
+                      length="255"
+                      name="New Field2" />
+                    <externalMetadataColumn
+                      refId="Package\DMS-DER01Takeover\Premium Excel Destination.Inputs[Primary Input].ExternalColumns[New Field3]"
+                      dataType="wstr"
+                      length="255"
+                      name="New Field3" />
+                    <externalMetadataColumn
+                      refId="Package\DMS-DER01Takeover\Premium Excel Destination.Inputs[Primary Input].ExternalColumns[New Field4]"
+                      dataType="wstr"
+                      length="255"
+                      name="New Field4" />
+                    <externalMetadataColumn
+                      refId="Package\DMS-DER01Takeover\Premium Excel Destination.Inputs[Primary Input].ExternalColumns[New Field5]"
+                      dataType="wstr"
+                      length="255"
+                      name="New Field5" />
+                    <externalMetadataColumn
+                      refId="Package\DMS-DER01Takeover\Premium Excel Destination.Inputs[Primary Input].ExternalColumns[New Field6]"
+                      dataType="wstr"
+                      length="255"
+                      name="New Field6" />
+                    <externalMetadataColumn
+                      refId="Package\DMS-DER01Takeover\Premium Excel Destination.Inputs[Primary Input].ExternalColumns[New Field7]"
+                      dataType="wstr"
+                      length="255"
+                      name="New Field7" />
+                    <externalMetadataColumn
+                      refId="Package\DMS-DER01Takeover\Premium Excel Destination.Inputs[Primary Input].ExternalColumns[New Field8]"
+                      dataType="wstr"
+                      length="255"
+                      name="New Field8" />
+                    <externalMetadataColumn
+                      refId="Package\DMS-DER01Takeover\Premium Excel Destination.Inputs[Primary Input].ExternalColumns[New Field9]"
+                      dataType="wstr"
+                      length="255"
+                      name="New Field9" />
+                    <externalMetadataColumn
+                      refId="Package\DMS-DER01Takeover\Premium Excel Destination.Inputs[Primary Input].ExternalColumns[New Field10]"
+                      dataType="wstr"
+                      length="255"
+                      name="New Field10" />
+                    <externalMetadataColumn
+                      refId="Package\DMS-DER01Takeover\Premium Excel Destination.Inputs[Primary Input].ExternalColumns[New Field11]"
+                      dataType="wstr"
+                      length="255"
+                      name="New Field11" />
+                    <externalMetadataColumn
+                      refId="Package\DMS-DER01Takeover\Premium Excel Destination.Inputs[Primary Input].ExternalColumns[New Field12]"
+                      dataType="wstr"
+                      length="255"
+                      name="New Field12" />
+                    <externalMetadataColumn
+                      refId="Package\DMS-DER01Takeover\Premium Excel Destination.Inputs[Primary Input].ExternalColumns[New Field13]"
+                      dataType="wstr"
+                      length="255"
+                      name="New Field13" />
+                    <externalMetadataColumn
+                      refId="Package\DMS-DER01Takeover\Premium Excel Destination.Inputs[Primary Input].ExternalColumns[New Field14]"
+                      dataType="wstr"
+                      length="255"
+                      name="New Field14" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DMS-DER01Takeover\Premium Excel Destination.Outputs[Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Error Output"
+                  synchronousInputId="Package\DMS-DER01Takeover\Premium Excel Destination.Inputs[Primary Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DMS-DER01Takeover\Premium Excel Destination.Outputs[Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DMS-DER01Takeover\Premium Excel Destination.Outputs[Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DMS-DER01Takeover\Premium Excel Destination.Outputs[Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DMS-DER01Takeover\Premium Excel Destination.Outputs[Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                    <outputColumn
+                      refId="Package\DMS-DER01Takeover\Premium Excel Destination.Outputs[Error Output].Columns[ErrorMessage]"
+                      dataType="wstr"
+                      length="2048"
+                      lineageId="Package\DMS-DER01Takeover\Premium Excel Destination.Outputs[Error Output].Columns[ErrorMessage]"
+                      name="ErrorMessage" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DMS-DER01Takeover\Premium Excel Destination.Outputs[Default Output]"
+                  exclusionGroup="1"
+                  name="Default Output"
+                  synchronousInputId="Package\DMS-DER01Takeover\Premium Excel Destination.Inputs[Primary Input]">
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DMS-DER01Takeover\Premium Flat File Destination DMS DRA 01 TAKEOVER"
+              componentClassID="Microsoft.ManagedComponentHost"
+              contactInfo="KingswaySoft Inc.; http://www.kingswaysoft.com; support@kingswaysoft.com; Copyright (c) 2011-2025 KingswaySoft Inc."
+              description="Write data to a flat file managed by a supported Premium File Pack connection."
+              name="Premium Flat File Destination DMS DRA 01 TAKEOVER"
+              usesDispositions="true"
+              version="3">
+              <properties>
+                <property
+                  dataType="System.String"
+                  expressionType="Notify"
+                  name="Locale">es-ES</property>
+                <property
+                  dataType="System.Int32"
+                  expressionType="Notify"
+                  name="CodePage">65001</property>
+                <property
+                  dataType="System.Boolean"
+                  expressionType="Notify"
+                  name="CompressFile">false</property>
+                <property
+                  dataType="System.Int32"
+                  expressionType="Notify"
+                  name="CompressionType"
+                  typeConverter="KingswaySoft.IntegrationToolkit.PremiumFilePack.Shared.CompressionType">0</property>
+                <property
+                  dataType="System.Boolean"
+                  expressionType="Notify"
+                  name="FirstRowHasHeader">false</property>
+                <property
+                  dataType="System.Int32"
+                  expressionType="Notify"
+                  name="FileFormat"
+                  typeConverter="KingswaySoft.IntegrationToolkit.PremiumFilePack.Shared.FileFormat">0</property>
+                <property
+                  dataType="System.String"
+                  expressionType="Notify"
+                  name="RowDelimiter">Newline DOS or Unix</property>
+                <property
+                  dataType="System.String"
+                  expressionType="Notify"
+                  name="ColumnDelimiter">Vertical Bar ( | )</property>
+                <property
+                  dataType="System.String"
+                  expressionType="Notify"
+                  name="TextQualifier">Double-Quote ( " )</property>
+                <property
+                  dataType="System.String"
+                  expressionType="Notify"
+                  name="PaddingCharacter">Space (   )</property>
+                <property
+                  dataType="System.String"
+                  expressionType="Notify"
+                  name="DestinationFilePath">C:\App\DMS DRA 01 TAKEOVER.txt</property>
+                <property
+                  dataType="System.Boolean"
+                  expressionType="Notify"
+                  name="AppendToFile">false</property>
+                <property
+                  dataType="System.Boolean"
+                  expressionType="Notify"
+                  name="SkipWriteOnNoRows">false</property>
+                <property
+                  dataType="System.Int32"
+                  expressionType="Notify"
+                  name="TextAlignment"
+                  typeConverter="KingswaySoft.IntegrationToolkit.PremiumFilePack.Shared.TextAlignment">0</property>
+                <property
+                  dataType="System.Int32"
+                  expressionType="Notify"
+                  name="ValueOverflowHandling"
+                  typeConverter="KingswaySoft.IntegrationToolkit.PremiumFilePack.Shared.ValueOverflowHandling">0</property>
+                <property
+                  dataType="System.Int32"
+                  expressionType="Notify"
+                  name="Dividers"
+                  typeConverter="KingswaySoft.IntegrationToolkit.PremiumFilePack.Shared.Dividers">0</property>
+                <property
+                  dataType="System.String"
+                  expressionType="Notify"
+                  name="VerticalDivider">Vertical Bar ( | )</property>
+                <property
+                  dataType="System.String"
+                  expressionType="Notify"
+                  name="HorizontalDivider">Hyphen ( - )</property>
+                <property
+                  dataType="System.String"
+                  name="UserComponentTypeName">KingswaySoft.IntegrationToolkit.PremiumFilePack.Shared.PremiumFlatFileDestinationComponent</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\DMS-DER01Takeover\Premium Flat File Destination DMS DRA 01 TAKEOVER.Inputs[Primary Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Primary Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DMS-DER01Takeover\Premium Flat File Destination DMS DRA 01 TAKEOVER.Inputs[Primary Input].Columns[UPLOAD.COMPANY]"
+                      cachedDataType="wstr"
+                      cachedLength="9"
+                      cachedName="UPLOAD.COMPANY"
+                      externalMetadataColumnId="Package\DMS-DER01Takeover\Premium Flat File Destination DMS DRA 01 TAKEOVER.Inputs[Primary Input].ExternalColumns[Column1]"
+                      lineageId="Package\DMS-DER01Takeover\Premium ADO NET Source.Outputs[Default Output].Columns[UPLOAD.COMPANY]" />
+                    <inputColumn
+                      refId="Package\DMS-DER01Takeover\Premium Flat File Destination DMS DRA 01 TAKEOVER.Inputs[Primary Input].Columns[ID/ARR.SEQUENCE]"
+                      cachedDataType="wstr"
+                      cachedLength="18"
+                      cachedName="ID/ARR.SEQUENCE"
+                      externalMetadataColumnId="Package\DMS-DER01Takeover\Premium Flat File Destination DMS DRA 01 TAKEOVER.Inputs[Primary Input].ExternalColumns[Column2]"
+                      lineageId="Package\DMS-DER01Takeover\Premium ADO NET Source.Outputs[Default Output].Columns[ID/ARR.SEQUENCE]" />
+                    <inputColumn
+                      refId="Package\DMS-DER01Takeover\Premium Flat File Destination DMS DRA 01 TAKEOVER.Inputs[Primary Input].Columns[ARRANGEMENT]"
+                      cachedDataType="wstr"
+                      cachedLength="12"
+                      cachedName="ARRANGEMENT"
+                      externalMetadataColumnId="Package\DMS-DER01Takeover\Premium Flat File Destination DMS DRA 01 TAKEOVER.Inputs[Primary Input].ExternalColumns[Column3]"
+                      lineageId="Package\DMS-DER01Takeover\Premium ADO NET Source.Outputs[Default Output].Columns[ARRANGEMENT]" />
+                    <inputColumn
+                      refId="Package\DMS-DER01Takeover\Premium Flat File Destination DMS DRA 01 TAKEOVER.Inputs[Primary Input].Columns[ACTIVITY]"
+                      cachedDataType="wstr"
+                      cachedLength="29"
+                      cachedName="ACTIVITY"
+                      externalMetadataColumnId="Package\DMS-DER01Takeover\Premium Flat File Destination DMS DRA 01 TAKEOVER.Inputs[Primary Input].ExternalColumns[Column4]"
+                      lineageId="Package\DMS-DER01Takeover\Premium ADO NET Source.Outputs[Default Output].Columns[ACTIVITY]" />
+                    <inputColumn
+                      refId="Package\DMS-DER01Takeover\Premium Flat File Destination DMS DRA 01 TAKEOVER.Inputs[Primary Input].Columns[CUSTOMER]"
+                      cachedDataType="wstr"
+                      cachedLength="128"
+                      cachedName="CUSTOMER"
+                      externalMetadataColumnId="Package\DMS-DER01Takeover\Premium Flat File Destination DMS DRA 01 TAKEOVER.Inputs[Primary Input].ExternalColumns[Column5]"
+                      lineageId="Package\DMS-DER01Takeover\Premium ADO NET Source.Outputs[Default Output].Columns[CUSTOMER]" />
+                    <inputColumn
+                      refId="Package\DMS-DER01Takeover\Premium Flat File Destination DMS DRA 01 TAKEOVER.Inputs[Primary Input].Columns[CUSTOMER.ROLE]"
+                      cachedDataType="wstr"
+                      cachedLength="128"
+                      cachedName="CUSTOMER.ROLE"
+                      externalMetadataColumnId="Package\DMS-DER01Takeover\Premium Flat File Destination DMS DRA 01 TAKEOVER.Inputs[Primary Input].ExternalColumns[Column6]"
+                      lineageId="Package\DMS-DER01Takeover\Premium ADO NET Source.Outputs[Default Output].Columns[CUSTOMER.ROLE]" />
+                    <inputColumn
+                      refId="Package\DMS-DER01Takeover\Premium Flat File Destination DMS DRA 01 TAKEOVER.Inputs[Primary Input].Columns[MASTER.ARRANGEMENT]"
+                      cachedDataType="wstr"
+                      cachedLength="12"
+                      cachedName="MASTER.ARRANGEMENT"
+                      externalMetadataColumnId="Package\DMS-DER01Takeover\Premium Flat File Destination DMS DRA 01 TAKEOVER.Inputs[Primary Input].ExternalColumns[Column7]"
+                      lineageId="Package\DMS-DER01Takeover\Premium ADO NET Source.Outputs[Default Output].Columns[MASTER.ARRANGEMENT]" />
+                    <inputColumn
+                      refId="Package\DMS-DER01Takeover\Premium Flat File Destination DMS DRA 01 TAKEOVER.Inputs[Primary Input].Columns[PRODUCT]"
+                      cachedDataType="wstr"
+                      cachedLength="64"
+                      cachedName="PRODUCT"
+                      externalMetadataColumnId="Package\DMS-DER01Takeover\Premium Flat File Destination DMS DRA 01 TAKEOVER.Inputs[Primary Input].ExternalColumns[Column8]"
+                      lineageId="Package\DMS-DER01Takeover\Premium ADO NET Source.Outputs[Default Output].Columns[PRODUCT]" />
+                    <inputColumn
+                      refId="Package\DMS-DER01Takeover\Premium Flat File Destination DMS DRA 01 TAKEOVER.Inputs[Primary Input].Columns[CURRENCY]"
+                      cachedDataType="wstr"
+                      cachedLength="3"
+                      cachedName="CURRENCY"
+                      externalMetadataColumnId="Package\DMS-DER01Takeover\Premium Flat File Destination DMS DRA 01 TAKEOVER.Inputs[Primary Input].ExternalColumns[Column9]"
+                      lineageId="Package\DMS-DER01Takeover\Premium ADO NET Source.Outputs[Default Output].Columns[CURRENCY]" />
+                    <inputColumn
+                      refId="Package\DMS-DER01Takeover\Premium Flat File Destination DMS DRA 01 TAKEOVER.Inputs[Primary Input].Columns[ORIG.CONTRACT.DATE]"
+                      cachedDataType="wstr"
+                      cachedLength="8"
+                      cachedName="ORIG.CONTRACT.DATE"
+                      externalMetadataColumnId="Package\DMS-DER01Takeover\Premium Flat File Destination DMS DRA 01 TAKEOVER.Inputs[Primary Input].ExternalColumns[Column10]"
+                      lineageId="Package\DMS-DER01Takeover\Premium ADO NET Source.Outputs[Default Output].Columns[ORIG.CONTRACT.DATE]" />
+                    <inputColumn
+                      refId="Package\DMS-DER01Takeover\Premium Flat File Destination DMS DRA 01 TAKEOVER.Inputs[Primary Input].Columns[PROPERTY]"
+                      cachedDataType="wstr"
+                      cachedLength="1024"
+                      cachedName="PROPERTY"
+                      externalMetadataColumnId="Package\DMS-DER01Takeover\Premium Flat File Destination DMS DRA 01 TAKEOVER.Inputs[Primary Input].ExternalColumns[Column11]"
+                      lineageId="Package\DMS-DER01Takeover\Premium ADO NET Source.Outputs[Default Output].Columns[PROPERTY]" />
+                    <inputColumn
+                      refId="Package\DMS-DER01Takeover\Premium Flat File Destination DMS DRA 01 TAKEOVER.Inputs[Primary Input].Columns[FIELD.NAME]"
+                      cachedCodepage="1252"
+                      cachedDataType="text"
+                      cachedName="FIELD.NAME"
+                      externalMetadataColumnId="Package\DMS-DER01Takeover\Premium Flat File Destination DMS DRA 01 TAKEOVER.Inputs[Primary Input].ExternalColumns[Column12]"
+                      lineageId="Package\DMS-DER01Takeover\Premium ADO NET Source.Outputs[Default Output].Columns[FIELD.NAME]" />
+                    <inputColumn
+                      refId="Package\DMS-DER01Takeover\Premium Flat File Destination DMS DRA 01 TAKEOVER.Inputs[Primary Input].Columns[FIELD.VALUE]"
+                      cachedCodepage="1252"
+                      cachedDataType="text"
+                      cachedName="FIELD.VALUE"
+                      externalMetadataColumnId="Package\DMS-DER01Takeover\Premium Flat File Destination DMS DRA 01 TAKEOVER.Inputs[Primary Input].ExternalColumns[Column13]"
+                      lineageId="Package\DMS-DER01Takeover\Premium ADO NET Source.Outputs[Default Output].Columns[FIELD.VALUE]" />
+                    <inputColumn
+                      refId="Package\DMS-DER01Takeover\Premium Flat File Destination DMS DRA 01 TAKEOVER.Inputs[Primary Input].Columns[REASON]"
+                      cachedDataType="wstr"
+                      cachedLength="150"
+                      cachedName="REASON"
+                      externalMetadataColumnId="Package\DMS-DER01Takeover\Premium Flat File Destination DMS DRA 01 TAKEOVER.Inputs[Primary Input].ExternalColumns[Column14]"
+                      lineageId="Package\DMS-DER01Takeover\Premium ADO NET Source.Outputs[Default Output].Columns[REASON]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DMS-DER01Takeover\Premium Flat File Destination DMS DRA 01 TAKEOVER.Inputs[Primary Input].ExternalColumns[Column1]"
+                      codePage="65001"
+                      dataType="str"
+                      length="255"
+                      name="Column1">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          name="Width">255</property>
+                        <property
+                          dataType="System.Null"
+                          name="FormatString" />
+                        <property
+                          dataType="System.Int32"
+                          name="TextQualifier"
+                          typeConverter="KingswaySoft.IntegrationToolkit.PremiumFilePack.Shared.TextQualifier">2</property>
+                        <property
+                          dataType="System.Null"
+                          name="TextAlignment" />
+                        <property
+                          dataType="System.Null"
+                          name="ValueOverflowHandling" />
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\DMS-DER01Takeover\Premium Flat File Destination DMS DRA 01 TAKEOVER.Inputs[Primary Input].ExternalColumns[Column2]"
+                      codePage="65001"
+                      dataType="str"
+                      length="255"
+                      name="Column2">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          name="Width">255</property>
+                        <property
+                          dataType="System.Null"
+                          name="FormatString" />
+                        <property
+                          dataType="System.Int32"
+                          name="TextQualifier"
+                          typeConverter="KingswaySoft.IntegrationToolkit.PremiumFilePack.Shared.TextQualifier">2</property>
+                        <property
+                          dataType="System.Null"
+                          name="TextAlignment" />
+                        <property
+                          dataType="System.Null"
+                          name="ValueOverflowHandling" />
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\DMS-DER01Takeover\Premium Flat File Destination DMS DRA 01 TAKEOVER.Inputs[Primary Input].ExternalColumns[Column3]"
+                      codePage="65001"
+                      dataType="str"
+                      length="255"
+                      name="Column3">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          name="Width">255</property>
+                        <property
+                          dataType="System.Null"
+                          name="FormatString" />
+                        <property
+                          dataType="System.Int32"
+                          name="TextQualifier"
+                          typeConverter="KingswaySoft.IntegrationToolkit.PremiumFilePack.Shared.TextQualifier">2</property>
+                        <property
+                          dataType="System.Null"
+                          name="TextAlignment" />
+                        <property
+                          dataType="System.Null"
+                          name="ValueOverflowHandling" />
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\DMS-DER01Takeover\Premium Flat File Destination DMS DRA 01 TAKEOVER.Inputs[Primary Input].ExternalColumns[Column4]"
+                      codePage="65001"
+                      dataType="str"
+                      length="255"
+                      name="Column4">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          name="Width">255</property>
+                        <property
+                          dataType="System.Null"
+                          name="FormatString" />
+                        <property
+                          dataType="System.Int32"
+                          name="TextQualifier"
+                          typeConverter="KingswaySoft.IntegrationToolkit.PremiumFilePack.Shared.TextQualifier">2</property>
+                        <property
+                          dataType="System.Null"
+                          name="TextAlignment" />
+                        <property
+                          dataType="System.Null"
+                          name="ValueOverflowHandling" />
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\DMS-DER01Takeover\Premium Flat File Destination DMS DRA 01 TAKEOVER.Inputs[Primary Input].ExternalColumns[Column5]"
+                      codePage="65001"
+                      dataType="str"
+                      length="255"
+                      name="Column5">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          name="Width">255</property>
+                        <property
+                          dataType="System.Null"
+                          name="FormatString" />
+                        <property
+                          dataType="System.Int32"
+                          name="TextQualifier"
+                          typeConverter="KingswaySoft.IntegrationToolkit.PremiumFilePack.Shared.TextQualifier">2</property>
+                        <property
+                          dataType="System.Null"
+                          name="TextAlignment" />
+                        <property
+                          dataType="System.Null"
+                          name="ValueOverflowHandling" />
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\DMS-DER01Takeover\Premium Flat File Destination DMS DRA 01 TAKEOVER.Inputs[Primary Input].ExternalColumns[Column6]"
+                      codePage="65001"
+                      dataType="str"
+                      length="255"
+                      name="Column6">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          name="Width">255</property>
+                        <property
+                          dataType="System.Null"
+                          name="FormatString" />
+                        <property
+                          dataType="System.Int32"
+                          name="TextQualifier"
+                          typeConverter="KingswaySoft.IntegrationToolkit.PremiumFilePack.Shared.TextQualifier">2</property>
+                        <property
+                          dataType="System.Null"
+                          name="TextAlignment" />
+                        <property
+                          dataType="System.Null"
+                          name="ValueOverflowHandling" />
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\DMS-DER01Takeover\Premium Flat File Destination DMS DRA 01 TAKEOVER.Inputs[Primary Input].ExternalColumns[Column7]"
+                      codePage="65001"
+                      dataType="str"
+                      length="255"
+                      name="Column7">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          name="Width">255</property>
+                        <property
+                          dataType="System.Null"
+                          name="FormatString" />
+                        <property
+                          dataType="System.Int32"
+                          name="TextQualifier"
+                          typeConverter="KingswaySoft.IntegrationToolkit.PremiumFilePack.Shared.TextQualifier">2</property>
+                        <property
+                          dataType="System.Null"
+                          name="TextAlignment" />
+                        <property
+                          dataType="System.Null"
+                          name="ValueOverflowHandling" />
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\DMS-DER01Takeover\Premium Flat File Destination DMS DRA 01 TAKEOVER.Inputs[Primary Input].ExternalColumns[Column8]"
+                      codePage="65001"
+                      dataType="str"
+                      length="255"
+                      name="Column8">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          name="Width">255</property>
+                        <property
+                          dataType="System.Null"
+                          name="FormatString" />
+                        <property
+                          dataType="System.Int32"
+                          name="TextQualifier"
+                          typeConverter="KingswaySoft.IntegrationToolkit.PremiumFilePack.Shared.TextQualifier">2</property>
+                        <property
+                          dataType="System.Null"
+                          name="TextAlignment" />
+                        <property
+                          dataType="System.Null"
+                          name="ValueOverflowHandling" />
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\DMS-DER01Takeover\Premium Flat File Destination DMS DRA 01 TAKEOVER.Inputs[Primary Input].ExternalColumns[Column9]"
+                      codePage="65001"
+                      dataType="str"
+                      length="255"
+                      name="Column9">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          name="Width">255</property>
+                        <property
+                          dataType="System.Null"
+                          name="FormatString" />
+                        <property
+                          dataType="System.Int32"
+                          name="TextQualifier"
+                          typeConverter="KingswaySoft.IntegrationToolkit.PremiumFilePack.Shared.TextQualifier">2</property>
+                        <property
+                          dataType="System.Null"
+                          name="TextAlignment" />
+                        <property
+                          dataType="System.Null"
+                          name="ValueOverflowHandling" />
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\DMS-DER01Takeover\Premium Flat File Destination DMS DRA 01 TAKEOVER.Inputs[Primary Input].ExternalColumns[Column10]"
+                      codePage="65001"
+                      dataType="str"
+                      length="255"
+                      name="Column10">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          name="Width">255</property>
+                        <property
+                          dataType="System.Null"
+                          name="FormatString" />
+                        <property
+                          dataType="System.Int32"
+                          name="TextQualifier"
+                          typeConverter="KingswaySoft.IntegrationToolkit.PremiumFilePack.Shared.TextQualifier">2</property>
+                        <property
+                          dataType="System.Null"
+                          name="TextAlignment" />
+                        <property
+                          dataType="System.Null"
+                          name="ValueOverflowHandling" />
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\DMS-DER01Takeover\Premium Flat File Destination DMS DRA 01 TAKEOVER.Inputs[Primary Input].ExternalColumns[Column11]"
+                      codePage="65001"
+                      dataType="str"
+                      length="255"
+                      name="Column11">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          name="Width">255</property>
+                        <property
+                          dataType="System.Null"
+                          name="FormatString" />
+                        <property
+                          dataType="System.Int32"
+                          name="TextQualifier"
+                          typeConverter="KingswaySoft.IntegrationToolkit.PremiumFilePack.Shared.TextQualifier">2</property>
+                        <property
+                          dataType="System.Null"
+                          name="TextAlignment" />
+                        <property
+                          dataType="System.Null"
+                          name="ValueOverflowHandling" />
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\DMS-DER01Takeover\Premium Flat File Destination DMS DRA 01 TAKEOVER.Inputs[Primary Input].ExternalColumns[Column12]"
+                      dataType="wstr"
+                      length="1024"
+                      name="Column12">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          name="Width">255</property>
+                        <property
+                          dataType="System.Null"
+                          name="FormatString" />
+                        <property
+                          dataType="System.Int32"
+                          name="TextQualifier"
+                          typeConverter="KingswaySoft.IntegrationToolkit.PremiumFilePack.Shared.TextQualifier">2</property>
+                        <property
+                          dataType="System.Null"
+                          name="TextAlignment" />
+                        <property
+                          dataType="System.Null"
+                          name="ValueOverflowHandling" />
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\DMS-DER01Takeover\Premium Flat File Destination DMS DRA 01 TAKEOVER.Inputs[Primary Input].ExternalColumns[Column13]"
+                      dataType="wstr"
+                      length="1024"
+                      name="Column13">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          name="Width">255</property>
+                        <property
+                          dataType="System.Null"
+                          name="FormatString" />
+                        <property
+                          dataType="System.Int32"
+                          name="TextQualifier"
+                          typeConverter="KingswaySoft.IntegrationToolkit.PremiumFilePack.Shared.TextQualifier">2</property>
+                        <property
+                          dataType="System.Null"
+                          name="TextAlignment" />
+                        <property
+                          dataType="System.Null"
+                          name="ValueOverflowHandling" />
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\DMS-DER01Takeover\Premium Flat File Destination DMS DRA 01 TAKEOVER.Inputs[Primary Input].ExternalColumns[Column14]"
+                      codePage="65001"
+                      dataType="str"
+                      length="255"
+                      name="Column14">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          name="Width">255</property>
+                        <property
+                          dataType="System.Null"
+                          name="FormatString" />
+                        <property
+                          dataType="System.Int32"
+                          name="TextQualifier"
+                          typeConverter="KingswaySoft.IntegrationToolkit.PremiumFilePack.Shared.TextQualifier">2</property>
+                        <property
+                          dataType="System.Null"
+                          name="TextAlignment" />
+                        <property
+                          dataType="System.Null"
+                          name="ValueOverflowHandling" />
+                      </properties>
+                    </externalMetadataColumn>
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DMS-DER01Takeover\Premium Flat File Destination DMS DRA 01 TAKEOVER.Outputs[Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Error Output"
+                  synchronousInputId="Package\DMS-DER01Takeover\Premium Flat File Destination DMS DRA 01 TAKEOVER.Inputs[Primary Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DMS-DER01Takeover\Premium Flat File Destination DMS DRA 01 TAKEOVER.Outputs[Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DMS-DER01Takeover\Premium Flat File Destination DMS DRA 01 TAKEOVER.Outputs[Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DMS-DER01Takeover\Premium Flat File Destination DMS DRA 01 TAKEOVER.Outputs[Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DMS-DER01Takeover\Premium Flat File Destination DMS DRA 01 TAKEOVER.Outputs[Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                    <outputColumn
+                      refId="Package\DMS-DER01Takeover\Premium Flat File Destination DMS DRA 01 TAKEOVER.Outputs[Error Output].Columns[ErrorMessage]"
+                      dataType="wstr"
+                      length="2048"
+                      lineageId="Package\DMS-DER01Takeover\Premium Flat File Destination DMS DRA 01 TAKEOVER.Outputs[Error Output].Columns[ErrorMessage]"
+                      name="ErrorMessage" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DMS-DER01Takeover\Premium Flat File Destination DMS DRA 01 TAKEOVER.Outputs[Default Output]"
+                  exclusionGroup="1"
+                  name="Default Output"
+                  synchronousInputId="Package\DMS-DER01Takeover\Premium Flat File Destination DMS DRA 01 TAKEOVER.Inputs[Primary Input]">
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
           </components>
+          <paths>
+            <path
+              refId="Package\DMS-DER01Takeover.Paths[!ISNULL]"
+              endId="Package\DMS-DER01Takeover\Premium Flat File Destination DMS DRA 01 TAKEOVER.Inputs[Primary Input]"
+              name="!ISNULL"
+              startId="Package\DMS-DER01Takeover\División condicional.Outputs[!ISNULL]" />
+            <path
+              refId="Package\DMS-DER01Takeover.Paths[Default Output]"
+              endId="Package\DMS-DER01Takeover\División condicional.Inputs[Entrada de división condicional]"
+              name="Default Output"
+              startId="Package\DMS-DER01Takeover\Premium ADO NET Source.Outputs[Default Output]" />
+            <path
+              refId="Package\DMS-DER01Takeover.Paths[Salida predeterminada de división condicional]"
+              endId="Package\DMS-DER01Takeover\Premium Excel Destination.Inputs[Primary Input]"
+              name="Salida predeterminada de división condicional"
+              startId="Package\DMS-DER01Takeover\División condicional.Outputs[Salida predeterminada de división condicional]" />
+          </paths>
         </pipeline>
       </DTS:ObjectData>
     </DTS:Executable>
@@ -975,21 +3308,193 @@ WHERE SUBSTRING([STGPolaris].[dbo].[fn_udfTrim] (OPER.coOperacionActiva),1,3) IN
       <GraphLayout
         Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
         <NodeLayout
-          Size="185,42"
-          Id="Package\DMS-Dea01Takeover"
+          Size="188,42"
+          Id="Package\DMS-DER01Takeover"
           TopLeft="47,34" />
+        <NodeLayout
+          Size="185,42"
+          Id="Package\DMS-Dea01Takeover 1"
+          TopLeft="263,35" />
       </GraphLayout>
     </LayoutInfo>
   </Package>
   <TaskHost
-    design-time-name="Package\DMS-Dea01Takeover">
+    design-time-name="Package\DMS-DER01Takeover">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="213,42"
-          Id="Package\DMS-Dea01Takeover\Premium ADO NET Source"
+          Id="Package\DMS-DER01Takeover\Premium ADO NET Source"
+          TopLeft="146,47" />
+        <NodeLayout
+          Size="355,42"
+          Id="Package\DMS-DER01Takeover\Premium Flat File Destination DMS DRA 01 TAKEOVER"
+          TopLeft="95,390" />
+        <NodeLayout
+          Size="176,42"
+          Id="Package\DMS-DER01Takeover\División condicional"
+          TopLeft="201,159" />
+        <NodeLayout
+          Size="211,42"
+          Id="Package\DMS-DER01Takeover\Premium Excel Destination"
+          TopLeft="496,224" />
+        <EdgeLayout
+          Id="Package\DMS-DER01Takeover.Paths[Default Output]"
+          TopLeft="252.5,89">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="36.5,70"
+              Start="0,0"
+              End="36.5,62.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,31" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,31"
+                    Point2="0,35"
+                    Point3="4,35" />
+                  <mssgle:LineSegment
+                    End="32.5,35" />
+                  <mssgle:CubicBezierSegment
+                    Point1="32.5,35"
+                    Point2="36.5,35"
+                    Point3="36.5,39" />
+                  <mssgle:LineSegment
+                    End="36.5,62.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DMS-DER01Takeover.Paths[!ISNULL]"
+          TopLeft="289,201">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-16.5,189"
+              Start="0,0"
+              End="-16.5,181.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,90.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,90.5"
+                    Point2="0,94.5"
+                    Point3="-4,94.5" />
+                  <mssgle:LineSegment
+                    End="-12.5,94.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-12.5,94.5"
+                    Point2="-16.5,94.5"
+                    Point3="-16.5,98.5" />
+                  <mssgle:LineSegment
+                    End="-16.5,181.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-26.5839453125,99.5,36.667890625,9.5537109375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DMS-DER01Takeover.Paths[Salida predeterminada de división condicional]"
+          TopLeft="317,201">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="284.5,23"
+              Start="0,0"
+              End="284.5,15.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,5.32432432432432" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,5.32432432432432"
+                    Point2="0,9.32432432432432"
+                    Point3="4,9.32432432432432" />
+                  <mssgle:LineSegment
+                    End="280.5,9.32432432432432" />
+                  <mssgle:CubicBezierSegment
+                    Point1="280.5,9.32432432432432"
+                    Point2="284.5,9.32432432432432"
+                    Point3="284.5,13.3243243243243" />
+                  <mssgle:LineSegment
+                    End="284.5,15.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="41.32720703125,14.3243243243243,201.8455859375,12.1953125"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <TaskHost
+    design-time-name="Package\DMS-Dea01Takeover 1">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="213,42"
+          Id="Package\DMS-Dea01Takeover 1\Premium ADO NET Source"
           TopLeft="82,36" />
+        <NodeLayout
+          Size="354,42"
+          Id="Package\DMS-Dea01Takeover 1\Premium Flat File Destination DMS DEA 01 TAKEOVER"
+          TopLeft="52,166" />
+        <EdgeLayout
+          Id="Package\DMS-Dea01Takeover 1.Paths[Default Output]"
+          TopLeft="188.5,78">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="40.5,88"
+              Start="0,0"
+              End="40.5,80.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,40" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,40"
+                    Point2="0,44"
+                    Point3="4,44" />
+                  <mssgle:LineSegment
+                    End="36.5,44" />
+                  <mssgle:CubicBezierSegment
+                    Point1="36.5,44"
+                    Point2="40.5,44"
+                    Point3="40.5,48" />
+                  <mssgle:LineSegment
+                    End="40.5,80.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
