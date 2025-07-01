@@ -11,20 +11,20 @@
   DTS:LocaleID="3082"
   DTS:ObjectName="PqCrearDMS-Dea01Takeover"
   DTS:PackageType="5"
-  DTS:VersionBuild="2"
-  DTS:VersionGUID="{2F7D157C-2924-4E5A-A0B1-F8A14B5B5977}">
+  DTS:VersionBuild="3"
+  DTS:VersionGUID="{58B6C9C0-FFDB-49D4-B590-6B388ECCC9CD}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables />
   <DTS:Executables>
     <DTS:Executable
-      DTS:refId="Package\Tarea Flujo de datos"
+      DTS:refId="Package\DMS-Dea01Takeover"
       DTS:CreationName="Microsoft.Pipeline"
       DTS:Description="Tarea Flujo de datos"
       DTS:DTSID="{89002F7F-6A60-4C57-AC52-A4D95264FC84}"
       DTS:ExecutableType="Microsoft.Pipeline"
       DTS:LocaleID="-1"
-      DTS:ObjectName="Tarea Flujo de datos"
+      DTS:ObjectName="DMS-Dea01Takeover"
       DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
       <DTS:Variables />
       <DTS:ObjectData>
@@ -32,7 +32,7 @@
           version="1">
           <components>
             <component
-              refId="Package\Tarea Flujo de datos\Premium ADO NET Source"
+              refId="Package\DMS-Dea01Takeover\Premium ADO NET Source"
               componentClassID="Microsoft.ManagedComponentHost"
               contactInfo="KingswaySoft Inc.; http://www.kingswaysoft.com; support@kingswaysoft.com; Copyright (c) 2011-2025 KingswaySoft Inc."
               description="Read data from an ADO.NET connection."
@@ -729,7 +729,7 @@ WHERE SUBSTRING([STGPolaris].[dbo].[fn_udfTrim] (OPER.coOperacionActiva),1,3) IN
               </properties>
               <connections>
                 <connection
-                  refId="Package\Tarea Flujo de datos\Premium ADO NET Source.Connections[ADO NET]"
+                  refId="Package\DMS-Dea01Takeover\Premium ADO NET Source.Connections[ADO NET]"
                   connectionManagerID="{4B52D8E2-8781-4975-B2F1-2D7DAC276C1F}:external"
                   connectionManagerRefId="Project.ConnectionManagers[VENGGCR26_NAPNNPR32.STGLegados]"
                   description="ADO.NET"
@@ -737,219 +737,219 @@ WHERE SUBSTRING([STGPolaris].[dbo].[fn_udfTrim] (OPER.coOperacionActiva),1,3) IN
               </connections>
               <outputs>
                 <output
-                  refId="Package\Tarea Flujo de datos\Premium ADO NET Source.Outputs[Default Output]"
+                  refId="Package\DMS-Dea01Takeover\Premium ADO NET Source.Outputs[Default Output]"
                   name="Default Output">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\Tarea Flujo de datos\Premium ADO NET Source.Outputs[Default Output].Columns[ACTIVITY]"
+                      refId="Package\DMS-Dea01Takeover\Premium ADO NET Source.Outputs[Default Output].Columns[ACTIVITY]"
                       dataType="wstr"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Tarea Flujo de datos\Premium ADO NET Source.Outputs[Default Output].ExternalColumns[ACTIVITY]"
+                      externalMetadataColumnId="Package\DMS-Dea01Takeover\Premium ADO NET Source.Outputs[Default Output].ExternalColumns[ACTIVITY]"
                       length="29"
-                      lineageId="Package\Tarea Flujo de datos\Premium ADO NET Source.Outputs[Default Output].Columns[ACTIVITY]"
+                      lineageId="Package\DMS-Dea01Takeover\Premium ADO NET Source.Outputs[Default Output].Columns[ACTIVITY]"
                       name="ACTIVITY"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\Tarea Flujo de datos\Premium ADO NET Source.Outputs[Default Output].Columns[ARRANGEMENT]"
+                      refId="Package\DMS-Dea01Takeover\Premium ADO NET Source.Outputs[Default Output].Columns[ARRANGEMENT]"
                       dataType="wstr"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Tarea Flujo de datos\Premium ADO NET Source.Outputs[Default Output].ExternalColumns[ARRANGEMENT]"
+                      externalMetadataColumnId="Package\DMS-Dea01Takeover\Premium ADO NET Source.Outputs[Default Output].ExternalColumns[ARRANGEMENT]"
                       length="12"
-                      lineageId="Package\Tarea Flujo de datos\Premium ADO NET Source.Outputs[Default Output].Columns[ARRANGEMENT]"
+                      lineageId="Package\DMS-Dea01Takeover\Premium ADO NET Source.Outputs[Default Output].Columns[ARRANGEMENT]"
                       name="ARRANGEMENT"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\Tarea Flujo de datos\Premium ADO NET Source.Outputs[Default Output].Columns[CURRENCY]"
+                      refId="Package\DMS-Dea01Takeover\Premium ADO NET Source.Outputs[Default Output].Columns[CURRENCY]"
                       dataType="wstr"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Tarea Flujo de datos\Premium ADO NET Source.Outputs[Default Output].ExternalColumns[CURRENCY]"
+                      externalMetadataColumnId="Package\DMS-Dea01Takeover\Premium ADO NET Source.Outputs[Default Output].ExternalColumns[CURRENCY]"
                       length="3"
-                      lineageId="Package\Tarea Flujo de datos\Premium ADO NET Source.Outputs[Default Output].Columns[CURRENCY]"
+                      lineageId="Package\DMS-Dea01Takeover\Premium ADO NET Source.Outputs[Default Output].Columns[CURRENCY]"
                       name="CURRENCY"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\Tarea Flujo de datos\Premium ADO NET Source.Outputs[Default Output].Columns[CUSTOMER]"
+                      refId="Package\DMS-Dea01Takeover\Premium ADO NET Source.Outputs[Default Output].Columns[CUSTOMER]"
                       dataType="wstr"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Tarea Flujo de datos\Premium ADO NET Source.Outputs[Default Output].ExternalColumns[CUSTOMER]"
+                      externalMetadataColumnId="Package\DMS-Dea01Takeover\Premium ADO NET Source.Outputs[Default Output].ExternalColumns[CUSTOMER]"
                       length="128"
-                      lineageId="Package\Tarea Flujo de datos\Premium ADO NET Source.Outputs[Default Output].Columns[CUSTOMER]"
+                      lineageId="Package\DMS-Dea01Takeover\Premium ADO NET Source.Outputs[Default Output].Columns[CUSTOMER]"
                       name="CUSTOMER"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\Tarea Flujo de datos\Premium ADO NET Source.Outputs[Default Output].Columns[CUSTOMER.ROLE]"
+                      refId="Package\DMS-Dea01Takeover\Premium ADO NET Source.Outputs[Default Output].Columns[CUSTOMER.ROLE]"
                       dataType="wstr"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Tarea Flujo de datos\Premium ADO NET Source.Outputs[Default Output].ExternalColumns[CUSTOMER.ROLE]"
+                      externalMetadataColumnId="Package\DMS-Dea01Takeover\Premium ADO NET Source.Outputs[Default Output].ExternalColumns[CUSTOMER.ROLE]"
                       length="128"
-                      lineageId="Package\Tarea Flujo de datos\Premium ADO NET Source.Outputs[Default Output].Columns[CUSTOMER.ROLE]"
+                      lineageId="Package\DMS-Dea01Takeover\Premium ADO NET Source.Outputs[Default Output].Columns[CUSTOMER.ROLE]"
                       name="CUSTOMER.ROLE"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\Tarea Flujo de datos\Premium ADO NET Source.Outputs[Default Output].Columns[FIELD.NAME]"
+                      refId="Package\DMS-Dea01Takeover\Premium ADO NET Source.Outputs[Default Output].Columns[FIELD.NAME]"
                       codePage="1252"
                       dataType="text"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Tarea Flujo de datos\Premium ADO NET Source.Outputs[Default Output].ExternalColumns[FIELD.NAME]"
-                      lineageId="Package\Tarea Flujo de datos\Premium ADO NET Source.Outputs[Default Output].Columns[FIELD.NAME]"
+                      externalMetadataColumnId="Package\DMS-Dea01Takeover\Premium ADO NET Source.Outputs[Default Output].ExternalColumns[FIELD.NAME]"
+                      lineageId="Package\DMS-Dea01Takeover\Premium ADO NET Source.Outputs[Default Output].Columns[FIELD.NAME]"
                       name="FIELD.NAME"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\Tarea Flujo de datos\Premium ADO NET Source.Outputs[Default Output].Columns[FIELD.VALUE]"
+                      refId="Package\DMS-Dea01Takeover\Premium ADO NET Source.Outputs[Default Output].Columns[FIELD.VALUE]"
                       codePage="1252"
                       dataType="text"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Tarea Flujo de datos\Premium ADO NET Source.Outputs[Default Output].ExternalColumns[FIELD.VALUE]"
-                      lineageId="Package\Tarea Flujo de datos\Premium ADO NET Source.Outputs[Default Output].Columns[FIELD.VALUE]"
+                      externalMetadataColumnId="Package\DMS-Dea01Takeover\Premium ADO NET Source.Outputs[Default Output].ExternalColumns[FIELD.VALUE]"
+                      lineageId="Package\DMS-Dea01Takeover\Premium ADO NET Source.Outputs[Default Output].Columns[FIELD.VALUE]"
                       name="FIELD.VALUE"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\Tarea Flujo de datos\Premium ADO NET Source.Outputs[Default Output].Columns[ID/ARR.SEQUENCE]"
+                      refId="Package\DMS-Dea01Takeover\Premium ADO NET Source.Outputs[Default Output].Columns[ID/ARR.SEQUENCE]"
                       dataType="wstr"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Tarea Flujo de datos\Premium ADO NET Source.Outputs[Default Output].ExternalColumns[ID/ARR.SEQUENCE]"
+                      externalMetadataColumnId="Package\DMS-Dea01Takeover\Premium ADO NET Source.Outputs[Default Output].ExternalColumns[ID/ARR.SEQUENCE]"
                       length="18"
-                      lineageId="Package\Tarea Flujo de datos\Premium ADO NET Source.Outputs[Default Output].Columns[ID/ARR.SEQUENCE]"
+                      lineageId="Package\DMS-Dea01Takeover\Premium ADO NET Source.Outputs[Default Output].Columns[ID/ARR.SEQUENCE]"
                       name="ID/ARR.SEQUENCE"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\Tarea Flujo de datos\Premium ADO NET Source.Outputs[Default Output].Columns[MASTER.ARRANGEMENT]"
+                      refId="Package\DMS-Dea01Takeover\Premium ADO NET Source.Outputs[Default Output].Columns[MASTER.ARRANGEMENT]"
                       dataType="wstr"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Tarea Flujo de datos\Premium ADO NET Source.Outputs[Default Output].ExternalColumns[MASTER.ARRANGEMENT]"
+                      externalMetadataColumnId="Package\DMS-Dea01Takeover\Premium ADO NET Source.Outputs[Default Output].ExternalColumns[MASTER.ARRANGEMENT]"
                       length="12"
-                      lineageId="Package\Tarea Flujo de datos\Premium ADO NET Source.Outputs[Default Output].Columns[MASTER.ARRANGEMENT]"
+                      lineageId="Package\DMS-Dea01Takeover\Premium ADO NET Source.Outputs[Default Output].Columns[MASTER.ARRANGEMENT]"
                       name="MASTER.ARRANGEMENT"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\Tarea Flujo de datos\Premium ADO NET Source.Outputs[Default Output].Columns[ORIG.CONTRACT.DATE]"
+                      refId="Package\DMS-Dea01Takeover\Premium ADO NET Source.Outputs[Default Output].Columns[ORIG.CONTRACT.DATE]"
                       dataType="wstr"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Tarea Flujo de datos\Premium ADO NET Source.Outputs[Default Output].ExternalColumns[ORIG.CONTRACT.DATE]"
+                      externalMetadataColumnId="Package\DMS-Dea01Takeover\Premium ADO NET Source.Outputs[Default Output].ExternalColumns[ORIG.CONTRACT.DATE]"
                       length="8"
-                      lineageId="Package\Tarea Flujo de datos\Premium ADO NET Source.Outputs[Default Output].Columns[ORIG.CONTRACT.DATE]"
+                      lineageId="Package\DMS-Dea01Takeover\Premium ADO NET Source.Outputs[Default Output].Columns[ORIG.CONTRACT.DATE]"
                       name="ORIG.CONTRACT.DATE"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\Tarea Flujo de datos\Premium ADO NET Source.Outputs[Default Output].Columns[PRODUCT]"
+                      refId="Package\DMS-Dea01Takeover\Premium ADO NET Source.Outputs[Default Output].Columns[PRODUCT]"
                       dataType="wstr"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Tarea Flujo de datos\Premium ADO NET Source.Outputs[Default Output].ExternalColumns[PRODUCT]"
+                      externalMetadataColumnId="Package\DMS-Dea01Takeover\Premium ADO NET Source.Outputs[Default Output].ExternalColumns[PRODUCT]"
                       length="64"
-                      lineageId="Package\Tarea Flujo de datos\Premium ADO NET Source.Outputs[Default Output].Columns[PRODUCT]"
+                      lineageId="Package\DMS-Dea01Takeover\Premium ADO NET Source.Outputs[Default Output].Columns[PRODUCT]"
                       name="PRODUCT"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\Tarea Flujo de datos\Premium ADO NET Source.Outputs[Default Output].Columns[PROPERTY]"
+                      refId="Package\DMS-Dea01Takeover\Premium ADO NET Source.Outputs[Default Output].Columns[PROPERTY]"
                       dataType="wstr"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Tarea Flujo de datos\Premium ADO NET Source.Outputs[Default Output].ExternalColumns[PROPERTY]"
+                      externalMetadataColumnId="Package\DMS-Dea01Takeover\Premium ADO NET Source.Outputs[Default Output].ExternalColumns[PROPERTY]"
                       length="1024"
-                      lineageId="Package\Tarea Flujo de datos\Premium ADO NET Source.Outputs[Default Output].Columns[PROPERTY]"
+                      lineageId="Package\DMS-Dea01Takeover\Premium ADO NET Source.Outputs[Default Output].Columns[PROPERTY]"
                       name="PROPERTY"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\Tarea Flujo de datos\Premium ADO NET Source.Outputs[Default Output].Columns[REASON]"
+                      refId="Package\DMS-Dea01Takeover\Premium ADO NET Source.Outputs[Default Output].Columns[REASON]"
                       dataType="wstr"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Tarea Flujo de datos\Premium ADO NET Source.Outputs[Default Output].ExternalColumns[REASON]"
+                      externalMetadataColumnId="Package\DMS-Dea01Takeover\Premium ADO NET Source.Outputs[Default Output].ExternalColumns[REASON]"
                       length="150"
-                      lineageId="Package\Tarea Flujo de datos\Premium ADO NET Source.Outputs[Default Output].Columns[REASON]"
+                      lineageId="Package\DMS-Dea01Takeover\Premium ADO NET Source.Outputs[Default Output].Columns[REASON]"
                       name="REASON"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\Tarea Flujo de datos\Premium ADO NET Source.Outputs[Default Output].Columns[UPLOAD.COMPANY]"
+                      refId="Package\DMS-Dea01Takeover\Premium ADO NET Source.Outputs[Default Output].Columns[UPLOAD.COMPANY]"
                       dataType="wstr"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Tarea Flujo de datos\Premium ADO NET Source.Outputs[Default Output].ExternalColumns[UPLOAD.COMPANY]"
+                      externalMetadataColumnId="Package\DMS-Dea01Takeover\Premium ADO NET Source.Outputs[Default Output].ExternalColumns[UPLOAD.COMPANY]"
                       length="9"
-                      lineageId="Package\Tarea Flujo de datos\Premium ADO NET Source.Outputs[Default Output].Columns[UPLOAD.COMPANY]"
+                      lineageId="Package\DMS-Dea01Takeover\Premium ADO NET Source.Outputs[Default Output].Columns[UPLOAD.COMPANY]"
                       name="UPLOAD.COMPANY"
                       truncationRowDisposition="FailComponent" />
                   </outputColumns>
                   <externalMetadataColumns
                     isUsed="True">
                     <externalMetadataColumn
-                      refId="Package\Tarea Flujo de datos\Premium ADO NET Source.Outputs[Default Output].ExternalColumns[ACTIVITY]"
+                      refId="Package\DMS-Dea01Takeover\Premium ADO NET Source.Outputs[Default Output].ExternalColumns[ACTIVITY]"
                       dataType="wstr"
                       length="29"
                       name="ACTIVITY" />
                     <externalMetadataColumn
-                      refId="Package\Tarea Flujo de datos\Premium ADO NET Source.Outputs[Default Output].ExternalColumns[ARRANGEMENT]"
+                      refId="Package\DMS-Dea01Takeover\Premium ADO NET Source.Outputs[Default Output].ExternalColumns[ARRANGEMENT]"
                       dataType="wstr"
                       length="12"
                       name="ARRANGEMENT" />
                     <externalMetadataColumn
-                      refId="Package\Tarea Flujo de datos\Premium ADO NET Source.Outputs[Default Output].ExternalColumns[CURRENCY]"
+                      refId="Package\DMS-Dea01Takeover\Premium ADO NET Source.Outputs[Default Output].ExternalColumns[CURRENCY]"
                       dataType="wstr"
                       length="3"
                       name="CURRENCY" />
                     <externalMetadataColumn
-                      refId="Package\Tarea Flujo de datos\Premium ADO NET Source.Outputs[Default Output].ExternalColumns[CUSTOMER]"
+                      refId="Package\DMS-Dea01Takeover\Premium ADO NET Source.Outputs[Default Output].ExternalColumns[CUSTOMER]"
                       dataType="wstr"
                       length="128"
                       name="CUSTOMER" />
                     <externalMetadataColumn
-                      refId="Package\Tarea Flujo de datos\Premium ADO NET Source.Outputs[Default Output].ExternalColumns[CUSTOMER.ROLE]"
+                      refId="Package\DMS-Dea01Takeover\Premium ADO NET Source.Outputs[Default Output].ExternalColumns[CUSTOMER.ROLE]"
                       dataType="wstr"
                       length="128"
                       name="CUSTOMER.ROLE" />
                     <externalMetadataColumn
-                      refId="Package\Tarea Flujo de datos\Premium ADO NET Source.Outputs[Default Output].ExternalColumns[FIELD.NAME]"
+                      refId="Package\DMS-Dea01Takeover\Premium ADO NET Source.Outputs[Default Output].ExternalColumns[FIELD.NAME]"
                       codePage="1252"
                       dataType="text"
                       name="FIELD.NAME" />
                     <externalMetadataColumn
-                      refId="Package\Tarea Flujo de datos\Premium ADO NET Source.Outputs[Default Output].ExternalColumns[FIELD.VALUE]"
+                      refId="Package\DMS-Dea01Takeover\Premium ADO NET Source.Outputs[Default Output].ExternalColumns[FIELD.VALUE]"
                       codePage="1252"
                       dataType="text"
                       name="FIELD.VALUE" />
                     <externalMetadataColumn
-                      refId="Package\Tarea Flujo de datos\Premium ADO NET Source.Outputs[Default Output].ExternalColumns[ID/ARR.SEQUENCE]"
+                      refId="Package\DMS-Dea01Takeover\Premium ADO NET Source.Outputs[Default Output].ExternalColumns[ID/ARR.SEQUENCE]"
                       dataType="wstr"
                       length="18"
                       name="ID/ARR.SEQUENCE" />
                     <externalMetadataColumn
-                      refId="Package\Tarea Flujo de datos\Premium ADO NET Source.Outputs[Default Output].ExternalColumns[MASTER.ARRANGEMENT]"
+                      refId="Package\DMS-Dea01Takeover\Premium ADO NET Source.Outputs[Default Output].ExternalColumns[MASTER.ARRANGEMENT]"
                       dataType="wstr"
                       length="12"
                       name="MASTER.ARRANGEMENT" />
                     <externalMetadataColumn
-                      refId="Package\Tarea Flujo de datos\Premium ADO NET Source.Outputs[Default Output].ExternalColumns[ORIG.CONTRACT.DATE]"
+                      refId="Package\DMS-Dea01Takeover\Premium ADO NET Source.Outputs[Default Output].ExternalColumns[ORIG.CONTRACT.DATE]"
                       dataType="wstr"
                       length="8"
                       name="ORIG.CONTRACT.DATE" />
                     <externalMetadataColumn
-                      refId="Package\Tarea Flujo de datos\Premium ADO NET Source.Outputs[Default Output].ExternalColumns[PRODUCT]"
+                      refId="Package\DMS-Dea01Takeover\Premium ADO NET Source.Outputs[Default Output].ExternalColumns[PRODUCT]"
                       dataType="wstr"
                       length="64"
                       name="PRODUCT" />
                     <externalMetadataColumn
-                      refId="Package\Tarea Flujo de datos\Premium ADO NET Source.Outputs[Default Output].ExternalColumns[PROPERTY]"
+                      refId="Package\DMS-Dea01Takeover\Premium ADO NET Source.Outputs[Default Output].ExternalColumns[PROPERTY]"
                       dataType="wstr"
                       length="1024"
                       name="PROPERTY" />
                     <externalMetadataColumn
-                      refId="Package\Tarea Flujo de datos\Premium ADO NET Source.Outputs[Default Output].ExternalColumns[REASON]"
+                      refId="Package\DMS-Dea01Takeover\Premium ADO NET Source.Outputs[Default Output].ExternalColumns[REASON]"
                       dataType="wstr"
                       length="150"
                       name="REASON" />
                     <externalMetadataColumn
-                      refId="Package\Tarea Flujo de datos\Premium ADO NET Source.Outputs[Default Output].ExternalColumns[UPLOAD.COMPANY]"
+                      refId="Package\DMS-Dea01Takeover\Premium ADO NET Source.Outputs[Default Output].ExternalColumns[UPLOAD.COMPANY]"
                       dataType="wstr"
                       length="9"
                       name="UPLOAD.COMPANY" />
@@ -975,20 +975,20 @@ WHERE SUBSTRING([STGPolaris].[dbo].[fn_udfTrim] (OPER.coOperacionActiva),1,3) IN
       <GraphLayout
         Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
         <NodeLayout
-          Size="180,42"
-          Id="Package\Tarea Flujo de datos"
-          TopLeft="133,71" />
+          Size="185,42"
+          Id="Package\DMS-Dea01Takeover"
+          TopLeft="47,34" />
       </GraphLayout>
     </LayoutInfo>
   </Package>
   <TaskHost
-    design-time-name="Package\Tarea Flujo de datos">
+    design-time-name="Package\DMS-Dea01Takeover">
     <LayoutInfo>
       <GraphLayout
         Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
         <NodeLayout
           Size="213,42"
-          Id="Package\Tarea Flujo de datos\Premium ADO NET Source"
+          Id="Package\DMS-Dea01Takeover\Premium ADO NET Source"
           TopLeft="82,36" />
       </GraphLayout>
     </LayoutInfo>
