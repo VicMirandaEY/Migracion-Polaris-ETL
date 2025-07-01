@@ -1,0 +1,997 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="7/1/2025 10:52:41 AM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="dt-cld-04"
+  DTS:CreatorName="CAF-CON\vmiranda"
+  DTS:DTSID="{49D220F6-81E6-404A-8707-26D3D464EDC1}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="16.0.5685.0"
+  DTS:LocaleID="3082"
+  DTS:ObjectName="PqCrearDMS-Dea01Takeover"
+  DTS:PackageType="5"
+  DTS:VersionBuild="2"
+  DTS:VersionGUID="{2F7D157C-2924-4E5A-A0B1-F8A14B5B5977}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Tarea Flujo de datos"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Tarea Flujo de datos"
+      DTS:DTSID="{89002F7F-6A60-4C57-AC52-A4D95264FC84}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Tarea Flujo de datos"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Tarea Flujo de datos\Premium ADO NET Source"
+              componentClassID="Microsoft.ManagedComponentHost"
+              contactInfo="KingswaySoft Inc.; http://www.kingswaysoft.com; support@kingswaysoft.com; Copyright (c) 2011-2025 KingswaySoft Inc."
+              description="Read data from an ADO.NET connection."
+              name="Premium ADO NET Source"
+              usesDispositions="true"
+              version="2">
+              <properties>
+                <property
+                  dataType="System.String"
+                  expressionType="Notify"
+                  name="DataSource">&lt;&lt;Custom Command&gt;&gt;</property>
+                <property
+                  dataType="System.String"
+                  expressionType="Notify"
+                  name="Command">DECLARE @YYYY int --Año
+       ,@MM   int --Mes
+       ,@DD   int --Dia
+       ,@primerDiaMesMigracionINT int
+       ,@ultimoDiaMesMigracionINT int
+       ,@feLineaTiempo datetime
+       ,@feUltimoDiaMesMigracion date
+       ,@feMigracion date
+       ,@feMigracionST nvarchar(8)
+
+SET @feLineaTiempo = (SELECT MAX(fe_linea_tiempo)  FROM [STGLegados].[dbo].[linea_tiempo])
+SET @feMigracion = DATEADD(DAY, 1, @feLineaTiempo) 
+SET @YYYY = YEAR(@feMigracion)  -- Año correspondiente a la fecha de migración
+SET @MM = MONTH(@feMigracion)   -- Mes correspondiente a la fecha de migración
+SET @DD = DAY(@feMigracion)     -- Dia correspondiente a la fecha de migración
+SET @feUltimoDiaMesMigracion = DATEADD(dd,-1,DATEADD(mm, DATEDIFF(mm,0,@feMigracion)+1,0)) -- Fecha de último día del mes de la migración
+SET @ultimoDiaMesMigracionINT = YEAR(@feUltimoDiaMesMigracion)*10000 + MONTH(@feUltimoDiaMesMigracion)*100 + DAY(@feUltimoDiaMesMigracion)
+SET @primerDiaMesMigracionINT = YEAR(@feUltimoDiaMesMigracion)*10000 + MONTH(@feUltimoDiaMesMigracion)*100 + 1
+SET @feMigracionST = Convert(nvarchar(8),@feMigracion,112)
+--
+--
+
+SELECT  DISTINCT
+        OPER.coCompaniaOperacionActivaTransact as [UPLOAD.COMPANY]
+       ,OPER.coTakeoverOperacionActivaTransact as [ID/ARR.SEQUENCE] -- Algoritmo Drawing DRA.01: AAACT+X+YYY+ZZZZ X=1 Takeover, X=2 Capture Balance, X=3 Adjust Balance, X=4 Capture Bill
+       ,OPER.coOperacionActivaTransact as [ARRANGEMENT] -- AA+Julian Date (5)+ ...
+       ,Convert(nvarchar(29),'LENDING-TAKEOVER-ARRANGEMENT') as [ACTIVITY]   -- SELECT LEN('LENDING-TAKEOVER-ARRANGEMENT')
+       ,Convert(nvarchar(128),
+          CASE
+            WHEN CR.customerCode IS NOT NULL THEN LTRIM(RTRIM(CR.customerCode))
+            ELSE OPER.coClienteOperacionActivaTransact                          -- Regla que impide enviar ejecutor y cliente con el mismo CUP. 17-01-2025. Ver vorreo de Liz
+          END) as [CUSTOMER]                                                    -- Se incorporan los códigos de los clientes, ejecutores y garantes  12-05-2024. Revisar excepciones comentadas abajo
+       ,Convert(nvarchar(128),
+          CASE
+            WHEN CR.customerRole IS NOT NULL THEN LTRIM(RTRIM(CR.customerRole))
+            ELSE 'OWNER'
+          END) as [CUSTOMER.ROLE]
+       ,CASE
+          WHEN SUBSTRING([STGPolaris].[dbo].[fn_udfTrim] (OPER.coCompromisoActiva),1,3) IN ('CFQ','CFX','CFL') THEN OPER.coCompromisoActivaTransact
+          ELSE ''
+        END as [MASTER.ARRANGEMENT] -- Se incluyen los padres (Compromisos lineas de credito y Compromisos en Proyecto)
+       ,Convert(nvarchar(64),
+        CASE
+          WHEN  PE.coOperacionActiva IS NOT NULL    THEN PE.nbProducto  -- Productos otorgados bajo excepción. A partir del TRIAL 7 se generaron excepciones.
+          --WHEN  OPER.coOperacionActiva = 'CFA008756' THEN 'PREST.PROYECT.ACT.RISK.PROPIO'  --  TRIAL 7: EXCEPCION --&gt; EL CFA008756 a pesar que es co_producto_operacion = 11 (PRESTAMO.PROYECTOS.ACTIVA) pasa a ser préstamo Tramo A --&gt; PREST.PROYECT.ACT.RISK.PROPIO
+          WHEN  OPER.coProductoOperacionActiva = 11 THEN 'PRESTAMO.PROYECTOS.ACTIVA'
+          WHEN  OPER.coProductoOperacionActiva = 13 THEN 'PRESTAMO.PROGRAMAS.ACTIVA'
+          WHEN  OPER.coProductoOperacionActiva = 40 THEN 'PRESTAMO.CORPORATIVOS.ACTIVA'
+          WHEN  OPER.coProductoOperacionActiva = 60 THEN 'PRESTAMO.PBL.ACTIVA'
+          WHEN  OPER.coProductoOperacionActiva = 61 THEN 'PRESTAMO.SWAPS.ACTIVA'
+          WHEN  OPER.coProductoOperacionActiva = 14 THEN 'PRESTAMO.COMERCIO.ACTIVA'
+          WHEN  OPER.coProductoOperacionActiva = 15 THEN 'PRESTAMO.CAP.TRABAJO.ACTIVA'
+          WHEN  OPER.coProductoOperacionActiva = 63 THEN 'PRESTAMO.INVER.TIT.ACTIVA'        -- Se agregó el 63 el 03/02/2025
+        END) as [PRODUCT] 
+       ,OPER.coMonedaOperacionActivaTransact as [CURRENCY]
+       ,OPER.feContratoOriginalOperacionActivaTransact as [ORIG.CONTRACT.DATE]  -- Validar que los productos cumplan: Trade date should not be lesser than product available date
+       --
+       -- PROPERTY *****************************************************************************
+       ,Convert(nvarchar(1024),
+       -- ACCOUNT   COMFIN  COSTORIGINA DWCOMMITMENT    INTERESTFFC INTERESTKWF INTVENCIDO  OFFICERS    PENALINT    PRINCIPALINT    SCHEDULE    SETTLEMENT  XINTFUND.MARGIN
+       -- Se incorporó para UAT3 las properties PENALINT y SETTLEMENT 
+          'ACCOUNT::'
+         +CASE WHEN COMFIN.fixedAmount IS NOT NULL THEN 'COMFIN::' ELSE '' END
+         +CASE WHEN COSTORIGINA.fixedAmount IS NOT NULL THEN 'COSTORIGINA::' ELSE '' END
+         --+CASE WHEN EML.eMail IS NOT NULL THEN 'CUSTOMER::' ELSE '' END       -- Se quita momentaneamente Property CUSTOMER
+         +'DWCOMMITMENT::'
+         +CASE WHEN ABS(ISNULL(Convert(numeric(9,4),OFFC.taFFC),0.0000)) &gt; 0.0001 AND ISNULL(OFFC.fe_vencimiento_ffc,@feMigracion) &gt; @feMigracion  THEN 'INTERESTFFC::' ELSE '' END
+         +CASE WHEN ABS(ISNULL(OKFW.taKFW,0.0000)) &gt; 0.0001 AND ISNULL(OKFW.fe_vencimiento_kfw,@feMigracion) &gt; @feMigracion                        THEN 'INTERESTKWF::' ELSE '' END
+         +'INTVENCIDO::'
+         +'OFFICERS::'
+         +'PENALINT::'
+         +CASE WHEN PP.coOperacionActiva IS NOT NULL OR TD.coOperacionActiva IS NOT NULL THEN 'PRINCIPALINT::' ELSE '' END
+         +CASE WHEN PDS.coOperacionActiva IS NOT NULL AND (ABS(PDS.suCapitalMonedaOrigen) &gt; 0.01 OR ABS(PDS.suInteresMonedaOrigen) &gt; 0.01) THEN 'SCHEDULE::' ELSE '' END
+         +'SETTLEMENT'
+         +CASE WHEN (PX.coOperacionActiva IS NOT NULL AND LTRIM(RTRIM(PX.fieldName)) &lt;&gt; '' AND ((ABS(ISNULL(Convert(numeric(9,4),OFFC.taFFC),0.0000)) &gt; 0.0001 AND ISNULL(OFFC.fe_vencimiento_ffc,@feMigracion) &gt; @feMigracion) OR (ABS(ISNULL(OKFW.taKFW,0.0000)) &gt; 0.0001 AND ISNULL(OKFW.fe_vencimiento_kfw,@feMigracion) &gt; @feMigracion)))  THEN '::XINTFUND.MARGIN' ELSE '' END
+         ) as [PROPERTY]
+       --
+       -- FIELD.NAME *********************************************************************************************************************************************************************************
+       ,LTRIM(RTRIM(Convert(varchar(8000),
+          --
+          -- ACCOUNT Property
+          --ALT.ID  DATE.CONVENTION L.ELIGIBLE  L.MAX.DAYS.STMT SHORT.TITLE
+          'ALT.ID!!'
+         +'DATE.CONVENTION!!'
+         +'L.ELIGIBLE!!'
+         +'L.MAX.DAYS.STMT!!'
+         +'SHORT.TITLE::'   -- Fin de ACCOUNT Property
+          --
+          -- CONFIN Property
+          -- FIXED.AMOUNT
+         +CASE WHEN COMFIN.fixedAmount IS NOT NULL AND ABS(COMFIN.fixedAmount) &gt; 0.0 THEN 'FIXED.AMOUNT::'  ELSE '' END -- Fin de COMFIN Property
+          --
+          -- COSTORIGINA Property
+          -- FIXED.AMOUNT
+         +CASE WHEN COSTORIGINA.fixedAmount IS NOT NULL AND ABS(COSTORIGINA.fixedAmount) &gt; 0.0 THEN 'FIXED.AMOUNT::' ELSE '' END -- Fin de COSTORIGINA
+          --
+          -- DWCOMMITMENT Property
+          -- AMOUNT CAF.AM.PASIVA   CAF.CONCESIONAL CAF.PAIS.CR CAF.REL.PASIVA  CAF.SCCV.ADLIB  CAF.SCCV.CONTRA CAF.SCCV.FIRMAS CAF.SCCV.GARANT MATURITY.DATE
+         +'AMOUNT!!'
+          -- CAF.AM.PASIVA
+         --+CASE 
+         --   WHEN OA.mo_financiamiento_tercero IS NOT NULL THEN
+            --  LTRIM(RTRIM([STGLegados].[dbo].[ReemplazarConOrdenFieldNameProperty] (OA.mo_financiamiento_tercero,'CAF.AM.PASIVA',';',':1:'))) -- Es un Multivalor. Esta función termina en !! 
+            --ELSE '' -- No se envía FIELDNAME ni FIELDVALUE 
+         -- END  -- CAF.AM.PASIVA
+         +CASE 
+            WHEN OA.mo_financiamiento_tercero IS NOT NULL THEN
+              LTRIM(RTRIM([STGLegados].[dbo].[PreparaCafAmPasivaOperacionActivaFieldName2] (OA.co_operacion_pasiva_relacionada,';','!!') )) -- Es un Multivalor. Esta función termina en !! 
+            ELSE '' -- No se envía FIELDNAME ni FIELDVALUE 
+          END  -- CAF.AM.PASIVA
+         +'CAF.CONCESIONAL!!CAF.PAIS.CR!!'
+         --+CASE 
+         --   WHEN OA.co_operacion_pasiva_relacionada IS NOT NULL THEN
+            --  LTRIM(RTRIM([STGLegados].[dbo].[ReemplazarConOrdenFieldNameProperty] (OA.co_operacion_pasiva_relacionada,'CAF.REL.PASIVA',';',':1:')))  -- Es un Multivalor. Esta función termina en !!
+            --ELSE '' -- No se envía FIELDNAME ni FIELDVALUE
+         -- END -- 'CAF.REL.PASIVA!!'
+         +CASE 
+            WHEN OA.co_operacion_pasiva_relacionada IS NOT NULL THEN
+              LTRIM(RTRIM([STGLegados].[dbo].[PreparaCafRelPasivaOperacionActivaFieldName2] (OA.co_operacion_pasiva_relacionada,';','!!'))) -- Es un Multivalor -- La tabla TmpArrangementPasiva debe ser cargada previamente, o buscar una alternativa a traves de un algoritmo que no tenga que esperar por la carga de las operaciones pasivas
+            ELSE ''
+          END
+         +'CAF.SCCV.ADLIB!!CAF.SCCV.CONTRA!!CAF.SCCV.FIRMAS!!CAF.SCCV.GARANT!!MATURITY.DATE::' -- Fin de DWCOMMITMENT
+         -- 
+         -- INTERESTFFC Property
+         -- DAY.BASIS   FIXED.RATE
+         +CASE WHEN ABS(ISNULL(Convert(numeric(9,4),OFFC.taFFC),0.0000)) &gt; 0.0001 AND ISNULL(OFFC.fe_vencimiento_ffc,@feMigracion) &gt; @feMigracion  THEN 'DAY.BASIS!!' ELSE '' END -- DAY.BASIS
+         +CASE WHEN ABS(ISNULL(Convert(numeric(9,4),OFFC.taFFC),0.0000)) &gt; 0.0001 AND ISNULL(OFFC.fe_vencimiento_ffc,@feMigracion) &gt; @feMigracion   THEN 'FIXED.RATE::' ELSE '' END -- FIX.RATE
+         -- 
+         -- INTERESTKWF Property
+         -- DAY.BASIS   FIXED.RATE
+         +CASE WHEN ABS(ISNULL(OKFW.taKFW,0.0000)) &gt; 0.0001 AND ISNULL(OKFW.fe_vencimiento_kfw,@feMigracion) &gt; @feMigracion   THEN 'DAY.BASIS!!' ELSE '' END -- DAY.BASIS
+         +CASE WHEN ABS(ISNULL(OKFW.taKFW,0.0000)) &gt; 0.0001 AND ISNULL(OKFW.fe_vencimiento_kfw,@feMigracion) &gt; @feMigracion   THEN 'FIXED.RATE::' ELSE '' END -- FIX.RATE
+         -- 
+         -- INTVENCIDO Property
+         -- DAY.BASIS   FIXED.RATE  MARGIN.OPER MARGIN.RATE MARGIN.TYPE PERIODIC.INDEX  PERIODIC.RATE
+         +'DAY.BASIS!!FIXED.RATE!!MARGIN.OPER!!MARGIN.RATE!!MARGIN.TYPE!!PERIODIC.INDEX!!PERIODIC.RATE::'   -- INTVENCIDO
+         --
+         -- OFFICERS Property
+         -- OFFICER.ROLE.1  OFFICER.ROLE.1  OTHER.OFFICER.1 OTHER.OFFICER.2 PRIMARY.OFFICER
+         -- OFFICER.ROLE.1  OFFICER.ROLE.1
+         +'OFFICER.ROLE:1!!'  -- OFFICER.ROLE.1
+         +CASE WHEN Convert(nvarchar(6),(SELECT cup FROM [STGLegados].[dbo].[TmpResponsableDCO] WHERE nbResponsableDCO = OA.nb_responsable_dco)) IS NOT NULL THEN 'OFFICER.ROLE:2!!' ELSE '' END  -- OFFICER.ROLE.2
+         -- OTHER.OFFICER.1 OTHER.OFFICER.2
+         +'OTHER.OFFICER:1!!'  -- OTHER.OFFICER.1
+         +CASE WHEN Convert(nvarchar(6),(SELECT cup FROM [STGLegados].[dbo].[TmpResponsableDCO] WHERE nbResponsableDCO = OA.nb_responsable_dco)) IS NOT NULL THEN 'OTHER.OFFICER:2!!' ELSE '' END -- OTHER.OFFICER.2
+         --PRIMARY.OFFICER
+         +'PRIMARY.OFFICER::'   -- PRIMARY.OFFICER  -- Fin de la property OFFICERS  
+         --
+         -- PENALINT Property
+         -- DAY.BASIS
+         +'DAY.BASIS::' -- Fin de la property PENALINT
+         --
+         -- PRINCIPALINT Property
+         -- DAY.BASIS   FIXED.RATE  L.MARGIN    L.PERIOD.INDEX  MARGIN.OPER MARGIN.RATE MARGIN.TYPE PERIODIC.INDEX  RATE.TIER.TYPE  TIER.AMOUNT
+         +CASE
+           WHEN PP.coOperacionActiva IS NOT NULL THEN
+             'DAY.BASIS!!'                                          -- DAY.BASIS
+            +PP.fixedRateFieldName                                                              -- FIXED.RATE   
+            +'L.MARGIN!!'                                           -- L.MARGIN 
+            +'L.PERIOD.INDEX!!'                                     -- L.PERIOD.INDEX
+            +PP.marginOperFieldName                                                         -- MARGIN.OPER  
+            +PP.marginRateFieldName                                                         -- MARGIN.RATE  
+            +PP.marginTypeFieldName                                                         -- MARGIN.TYPE  
+            --+'PERIODIC.INDEX!!'                                       -- PERIODIC.INDEX   
+            +'RATE.TIER.TYPE!!'                                     -- RATE.TIER.TYPE
+            +SUBSTRING(PP.tierAmountFieldName,1,LEN(PP.tierAmountFieldName)-2)              -- TIER.AMOUNT
+            +'::' -- Fin de Property PRINCIPALINT
+           WHEN TD.coOperacionActiva IS NOT NULL THEN
+             'DAY.BASIS!!'                                                                      -- DAY.BASIS
+            +CASE
+               WHEN (ABS(ISNULL(TD.ta_cmpnscion,0.0000)) &gt; 0.0001 AND ISNULL(TD.feVencimientoFFC,@feMigracion) &gt; @feMigracion) AND (ABS(ISNULL(OKFW.taKFW,0.0000)) &lt; 0.0001 OR ISNULL(OKFW.fe_vencimiento_kfw,@feMigracion) &lt;= @feMigracion) THEN 'FIXED.RATE:1:1!!'   --FFC
+               WHEN (ABS(ISNULL(TD.ta_cmpnscion,0.0000)) &gt; 0.0001 AND ISNULL(TD.feVencimientoFFC,@feMigracion) &gt; @feMigracion) AND (ABS(ISNULL(OKFW.taKFW,0.0000)) &gt; 0.0001 AND ISNULL(OKFW.fe_vencimiento_kfw,@feMigracion) &gt; @feMigracion) THEN 'FIXED.RATE:1:1!!FIXED.RATE:2:1!!'  -- FFC y KFW
+               WHEN (ABS(ISNULL(TD.ta_cmpnscion,0.0000)) &lt; 0.0001 OR TD.feVencimientoFFC &lt;= @feMigracion) AND (ABS(ISNULL(OKFW.taKFW,0.0000)) &gt; 0.0001 AND ISNULL(OKFW.fe_vencimiento_kfw,@feMigracion) &gt; @feMigracion) THEN 'FIXED.RATE:1:1!!' -- KFW
+               --WHEN OA.ti_tasa IN ('Floating','Flotante') AND OA.de_indice_tasa_base_interes &lt;&gt; 'Fija' THEN 'FIXED.RATE:1:1!!FIXED.RATE:2:1!!' 
+               ELSE 'FIXED.RATE:1:1!!'
+             END --'FIXED.RATE
+            +'L.MARGIN!!'                                           -- L.MARGIN 
+            +'L.PERIOD.INDEX!!'                                     -- L.PERIOD.INDEX
+            +CASE
+               WHEN (ABS(ISNULL(TD.ta_cmpnscion,0.0000)) &gt; 0.0001 AND ISNULL(TD.feVencimientoFFC,@feMigracion) &gt; @feMigracion) AND (ABS(ISNULL(OKFW.taKFW,0.0000)) &lt; 0.0001 OR ISNULL(OKFW.fe_vencimiento_kfw,@feMigracion) &lt;= @feMigracion) THEN 'MARGIN.OPER:1:1!!MARGIN.OPER:1:2!!'  --'ADD!!SUB!!VACIO!!'   --FFC
+               WHEN (ABS(ISNULL(TD.ta_cmpnscion,0.0000)) &gt; 0.0001 AND ISNULL(TD.feVencimientoFFC,@feMigracion) &gt; @feMigracion) AND (ABS(ISNULL(OKFW.taKFW,0.0000)) &gt; 0.0001 AND ISNULL(OKFW.fe_vencimiento_kfw,@feMigracion) &gt; @feMigracion) THEN 'MARGIN.OPER:1:1!!MARGIN.OPER:1:2!!MARGIN.OPER:2:1!!MARGIN.OPER:2:2!!'  --ADD!!SUB!!ADD!!SUB!!VACIO  --FFC y KFW
+               WHEN (ABS(ISNULL(TD.ta_cmpnscion,0.0000)) &lt; 0.0001 OR TD.feVencimientoFFC &lt;= @feMigracion) AND (ABS(ISNULL(OKFW.taKFW,0.0000)) &gt; 0.0001 AND ISNULL(OKFW.fe_vencimiento_kfw,@feMigracion) &gt; @feMigracion) THEN 'MARGIN.OPER:1:1!!MARGIN.OPER:1:2!!'  --'ADD!!SUB!!VACIO!!'  -- KFW
+               --WHEN OA.ti_tasa IN ('Floating','Flotante') AND OA.de_indice_tasa_base_interes &lt;&gt; 'Fija' THEN 'MARGIN.OPER:1:1!!MARGIN.OPER:2:1!!' --'ADD!!VACIO!!' 
+               ELSE 'MARGIN.OPER:1:1!!'  -- 'ADD!!VACIO!!
+             END    -- MARGIN.OPER  
+            +CASE
+               WHEN (ABS(ISNULL(TD.ta_cmpnscion,0.0000)) &gt; 0.0001 AND ISNULL(TD.feVencimientoFFC,@feMigracion) &gt; @feMigracion) AND (ABS(ISNULL(OKFW.taKFW,0.0000)) &lt; 0.0001 OR ISNULL(OKFW.fe_vencimiento_kfw,@feMigracion) &lt;= @feMigracion) THEN 'MARGIN.RATE:1:1!!MARGIN.RATE:1:2!!'   -- margin!!ta_cmpnscion!!VACIO!! --FFC
+               WHEN (ABS(ISNULL(TD.ta_cmpnscion,0.0000)) &gt; 0.0001 AND ISNULL(TD.feVencimientoFFC,@feMigracion) &gt; @feMigracion) AND (ABS(ISNULL(OKFW.taKFW,0.0000)) &gt; 0.0001 AND ISNULL(OKFW.fe_vencimiento_kfw,@feMigracion) &gt; @feMigracion) THEN 'MARGIN.RATE:1:1!!MARGIN.RATE:1:2!!MARGIN.RATE:2:1!!MARGIN.RATE:2:2!!'  --'margin!!ta_cmpnscion!!margin!!ta_kfw!!VACIO!!'  --FFC y KFW
+               WHEN (ABS(ISNULL(TD.ta_cmpnscion,0.0000)) &lt; 0.0001 OR TD.feVencimientoFFC &lt;= @feMigracion) AND (ABS(ISNULL(OKFW.taKFW,0.0000)) &gt; 0.0001 AND ISNULL(OKFW.fe_vencimiento_kfw,@feMigracion) &gt; @feMigracion) THEN 'MARGIN.RATE:1:1!!MARGIN.RATE:1:2!!' --'margin!!ta_kfw!!VACIO!!'  -- KFW
+               --WHEN OA.ti_tasa IN ('Floating','Flotante') AND OA.de_indice_tasa_base_interes &lt;&gt; 'Fija' THEN 'MARGIN.RATE:1:1!!MARGIN.RATE:2:1!!' --'margin!!VACIO!!' 
+               ELSE 'MARGIN.RATE:1:1!!' -- margin!!VACIO!!
+             END   -- MARGIN.RATE   
+            +CASE
+               WHEN (ABS(ISNULL(TD.ta_cmpnscion,0.0000)) &gt; 0.0001 AND ISNULL(TD.feVencimientoFFC,@feMigracion) &gt; @feMigracion) AND (ABS(ISNULL(OKFW.taKFW,0.0000)) &lt; 0.0001 OR ISNULL(OKFW.fe_vencimiento_kfw,@feMigracion) &lt;= @feMigracion) THEN 'MARGIN.TYPE:1:1!!MARGIN.TYPE:1:2!!'   --'SINGLE!!FFC!!VACIO!!'   --FFC
+               WHEN (ABS(ISNULL(TD.ta_cmpnscion,0.0000)) &gt; 0.0001 AND ISNULL(TD.feVencimientoFFC,@feMigracion) &gt; @feMigracion) AND (ABS(ISNULL(OKFW.taKFW,0.0000)) &gt; 0.0001 AND ISNULL(OKFW.fe_vencimiento_kfw,@feMigracion) &gt; @feMigracion) THEN 'MARGIN.TYPE:1:1!!MARGIN.TYPE:1:2!!MARGIN.TYPE:2:1!!MARGIN.TYPE:2:2!!'  --'SINGLE!!FFC!!SINGLE!!KWF!!VACIO!!'  --FFC y KFW
+               WHEN (ABS(ISNULL(TD.ta_cmpnscion,0.0000)) &lt; 0.0001 OR TD.feVencimientoFFC &lt;= @feMigracion) AND (ABS(ISNULL(OKFW.taKFW,0.0000)) &gt; 0.0001 AND ISNULL(OKFW.fe_vencimiento_kfw,@feMigracion) &gt; @feMigracion) THEN 'MARGIN.TYPE:1:1!!MARGIN.TYPE:1:2!!'   --'SINGLE!!KWF!!VACIO!!'  -- KFW
+               --WHEN OA.ti_tasa IN ('Floating','Flotante') AND OA.de_indice_tasa_base_interes &lt;&gt; 'Fija' THEN 'MARGIN.TYPE:1:1!!MARGIN.TYPE:2:1!!' --'ADD!!!!' 
+               ELSE 'MARGIN.TYPE:1:1!!'  -- 'SINGLE!!VACIO!!
+             END    -- MARGIN.TYPE  
+            --+'PERIODIC.INDEX!!'                                       -- PERIODIC.INDEX   
+            +'RATE.TIER.TYPE!!'                                     -- RATE.TIER.TYPE
+            +CASE
+               WHEN (ABS(ISNULL(TD.ta_cmpnscion,0.0000)) &gt; 0.0001 AND ISNULL(TD.feVencimientoFFC,@feMigracion) &gt; @feMigracion) AND (ABS(ISNULL(OKFW.taKFW,0.0000)) &lt; 0.0001 OR ISNULL(OKFW.fe_vencimiento_kfw,@feMigracion) &lt;= @feMigracion) THEN 'TIER.AMOUNT:1:1'   --FFC
+               WHEN (ABS(ISNULL(TD.ta_cmpnscion,0.0000)) &gt; 0.0001 AND ISNULL(TD.feVencimientoFFC,@feMigracion) &gt; @feMigracion) AND (ABS(ISNULL(OKFW.taKFW,0.0000)) &gt; 0.0001 AND ISNULL(OKFW.fe_vencimiento_kfw,@feMigracion) &gt; @feMigracion) THEN 'TIER.AMOUNT:1:1!!TIER.AMOUNT:2:1'  -- FFC y KFW
+               WHEN (ABS(ISNULL(TD.ta_cmpnscion,0.0000)) &lt; 0.0001 OR TD.feVencimientoFFC &lt;= @feMigracion) AND (ABS(ISNULL(OKFW.taKFW,0.0000)) &gt; 0.0001 AND ISNULL(OKFW.fe_vencimiento_kfw,@feMigracion) &gt; @feMigracion) THEN 'TIER.AMOUNT:1:1' -- KFW
+               --WHEN OA.ti_tasa IN ('Floating','Flotante') AND OA.de_indice_tasa_base_interes &lt;&gt; 'Fija' THEN 'TIER.AMOUNT:1:1!!TIER.AMOUNT:2:1' 
+               ELSE 'TIER.AMOUNT:1:1'
+             END -- TIER.AMOUNT
+            +'::' -- Fin de Property PRINCIPALINT
+           ELSE -- la condicion TD.coOperacionActiva IS NOT NULL
+            ''
+         END
+         --
+         -- Property  SCHEDULE
+         -- ACTUAL.AMT  BILL.TYPE   PAYMENT.METHOD  PAYMENT.TYPE    PROPERTY    START.DATE
+         +CASE
+            WHEN PDS.coOperacionActiva IS NOT NULL AND (ABS(PDS.suCapitalMonedaOrigen) &gt; 0.01 OR ABS(PDS.suInteresMonedaOrigen) &gt; 0.01) THEN
+              PDS.actualAmtFieldName
+             +PDS.fieldNameSCHEDULE
+             +PDS.startDateNameSCHEDULE
+            ELSE
+              ''
+          END
+         --
+         -- Property SETTLEMENT
+         +'PAYIN.ACCOUNT!!PAYIN.SETTLEMENT'
+         --
+         --Property  XINTFUND.MARGIN
+         --DATE.TO  INTFUND MARGIN  SUBLIM.AMT  
+         +CASE
+           WHEN (PX.coOperacionActiva IS NOT NULL AND LTRIM(RTRIM(PX.fieldName)) &lt;&gt; '' AND ((ABS(ISNULL(Convert(numeric(9,4),OFFC.taFFC),0.0000)) &gt; 0.0001 AND ISNULL(OFFC.fe_vencimiento_ffc,@feMigracion) &gt; @feMigracion) OR (ABS(ISNULL(OKFW.taKFW,0.0000)) &gt; 0.0001 AND ISNULL(OKFW.fe_vencimiento_kfw,@feMigracion) &gt; @feMigracion)))  THEN
+             '::'+PX.fieldName
+          ELSE ''
+          END
+        ))) as [FIELD.NAME]
+       
+        --Valores FIELD.VALUE ***********************************************************************************************************************************************************
+       ,LTRIM(RTRIM(Convert(varchar(8000),
+          -- Property ACCOUNT
+          -- ALT.ID DATE.CONVENTION L.ELIGIBLE  L.MAX.DAYS.STMT     SHORT.TITLE
+          Convert(nvarchar(15),[STGPolaris].[dbo].[fn_udfTrim] (OPER.coOperacionActiva))+'!!' -- ALT.ID
+         +Convert(nvarchar(7),'FORWARD')+'!!' -- DATE.CONVENTION
+         +Convert(nvarchar(2),
+            CASE
+              WHEN UPPER([STGPolaris].[dbo].[fn_udfTrim](OA.in_elegible_desembolsar)) = 'SI' THEN 'S'  -- OA.in_elegible_desembolsar
+              ELSE 'N'
+            END)+'!!'  -- L.ELIGIBLE
+         +'45!!' -- L.MAX.DAYS.STMT
+         +[STGPolaris].[dbo].[fn_udfTrim](OPER.deOperacionActiva)+'::' -- SHORT.TITLE   -- Fin de Property ACCOUNT
+         --
+         -- Property COMFIN
+         +CASE WHEN COMFIN.fixedAmount IS NOT NULL AND ABS(COMFIN.fixedAmount) &gt; 0.0 THEN Convert(nvarchar(24),Convert(numeric(21,2),COMFIN.fixedAmount))+'::' ELSE '' END -- 'FIXED.AMOUNT'  -- Fin de property COMFIN
+         --
+         -- Property COSTORIGINA
+         +CASE WHEN COSTORIGINA.fixedAmount IS NOT NULL AND ABS(COSTORIGINA.fixedAmount) &gt; 0.0 THEN Convert(nvarchar(24),Convert(numeric(21,2),-COSTORIGINA.fixedAmount))+'::' ELSE '' END -- 'FIXED.AMOUNT'  -- Fin de property COSTORIGINA
+         --
+         -- Property DWCOMMITMENT
+         -- AMOUNT  CAF.AM.PASIVA   CAF.CONCESIONAL CAF.PAIS.CR CAF.REL.PASIVA  CAF.SCCV.ADLIB  CAF.SCCV.CONTRA CAF.SCCV.FIRMAS CAF.SCCV.GARANT MATURITY.DATE
+         +Convert(nvarchar(24),
+            CASE
+              WHEN OKFW.coOperacionActiva IS NOT NULL AND ISNULL(OKFW.fe_vencimiento_kfw,@feMigracion) &gt; @feMigracion THEN Convert(nvarchar(24),Convert(numeric(21,2),ISNULL(OKFW.moAprobadoMonedaOrigen,0)))
+              WHEN OA.mo_total_desembolsado_origen &gt; OA.mo_aprobado_moneda_origen THEN  (CASE WHEN OPER.coMonedaOperacionActivaTransact IN ('JPY','PYG') THEN Convert(nvarchar(24),Convert(numeric(21,0),OA.mo_total_desembolsado_origen)) ELSE Convert(nvarchar(24),Convert(numeric(21,2),OA.mo_total_desembolsado_origen)) END)
+              ELSE  (CASE WHEN OPER.coMonedaOperacionActivaTransact IN ('JPY','PYG') THEN Convert(nvarchar(24),Convert(numeric(21,0),OA.mo_aprobado_moneda_origen)) ELSE Convert(nvarchar(24),Convert(numeric(21,2),OA.mo_aprobado_moneda_origen)) END)
+            END)+'!!'   -- 'AMOUNT'
+         +CASE 
+            WHEN OA.mo_financiamiento_tercero IS NOT NULL THEN
+              [STGLegados].[dbo].[PreparaCafAmPasivaOperacionActivaFieldValue2] (OA.co_operacion_pasiva_relacionada,OA.mo_financiamiento_tercero,';','!!')  -- Es un Multivalor. Hay que validar el caso de las monedas JPY y PYG
+            ELSE ''
+          END  -- CAF.AM.PASIVA  
+         +Convert(nvarchar(2),
+            CASE
+              WHEN UPPER([STGPolaris].[dbo].[fn_udfTrim](OA.in_concesional)) = 'SI' THEN 'SI'   -- OA.in_concesional
+              ELSE 'NO'
+            END)+'!!'  -- CAF.CONCESIONAL
+         +OPER.coPaisBaseOperacionActivaTransact+'!!'  -- CAF.PAIS.CR
+         +CASE 
+            WHEN OA.co_operacion_pasiva_relacionada IS NOT NULL THEN
+              LTRIM(RTRIM([STGLegados].[dbo].[PreparaCafRelPasivaOperacionActivaFieldValue2] (OA.co_operacion_pasiva_relacionada,';','!!')))    -- Es un Multivalor -- La tabla TmpArrangementPasiva debe ser cargada previamente, o buscar una alternativa a traves de un algoritmo que no tenga que esperar por la carga de las operaciones pasivas
+            ELSE ''
+          END  -- CAF.REL.PASIVA  -- Debe estar en concordancia con el FieldName CAF.AM.PASIVA 
+         +Convert(nvarchar(50),ISNULL([STGPolaris].[dbo].[fn_udfTrim](OA.co_sccv_adenda_libor),''))+'!!' -- CAF.SCCV.ADLIB
+         +Convert(nvarchar(50),ISNULL([STGPolaris].[dbo].[fn_udfTrim](OA.co_sccv_contrato),''))+'!!'     -- CAF.SCCV.CONTRA
+         +Convert(nvarchar(50),ISNULL([STGPolaris].[dbo].[fn_udfTrim](OA.co_sccv_firmas),''))+'!!'       -- CAF.SCCV.FIRMAS
+         +Convert(nvarchar(50),ISNULL([STGPolaris].[dbo].[fn_udfTrim](OA.co_sccv_garantias),''))+'!!'    -- CAF.SCCV.GARANT
+         +OPER.feVencimientoOperacionActivaTransact+'::'  -- MATURITY.DATE  -- Fin de la property DWCOMMITMENT
+         --
+         -- INTERESTFFC
+         -- DAY.BASIS   FIX.RATE
+         +CASE WHEN ABS(ISNULL(Convert(numeric(9,4),OFFC.taFFC),0.0000)) &gt; 0.0001 AND ISNULL(OFFC.fe_vencimiento_ffc,@feMigracion) &gt; @feMigracion  THEN DBO.dayBasis+'!!' ELSE '' END -- DAY.BASIS
+         +CASE WHEN ABS(ISNULL(Convert(numeric(9,4),OFFC.taFFC),0.0000)) &gt; 0.0001 AND ISNULL(OFFC.fe_vencimiento_ffc,@feMigracion) &gt; @feMigracion  THEN Convert(nvarchar(14),Convert(numeric(9,4),OFFC.taFFC))+'::' ELSE '' END -- FIX.RATE
+         --
+         -- INTERESTKWF
+         +CASE WHEN (ABS(ISNULL(OKFW.taKFW,0.0000)) &gt; 0.0001 AND ISNULL(OKFW.fe_vencimiento_kfw,@feMigracion) &gt; @feMigracion) THEN DBO.dayBasis+'!!' ELSE '' END -- DAY.BASIS
+         +CASE WHEN (ABS(ISNULL(OKFW.taKFW,0.0000)) &gt; 0.0001 AND ISNULL(OKFW.fe_vencimiento_kfw,@feMigracion) &gt; @feMigracion) THEN Convert(nvarchar(14),Convert(numeric(9,4),OKFW.taKFW))+'::' ELSE '' END -- FIX.RATE
+         -- Property INTVENCIDO
+         -- DAY.BASIS   FIXED.RATE  MARGIN.OPER MARGIN.RATE MARGIN.TYPE PERIODIC.INDEX  PERIODIC.RATE
+         +DBO.dayBasis+'!!' -- DAY.BASIS
+         -- FIXED.RATE: Valor con 4 decimales: Acepta valor cero (0.0000)
+         --**********************************************
+         --Caso 1: Si de_indice_tasa_base_interes = 'Fija' AND ti_tasa = 'Fixed' Entonces: ta_efectiva_total_interes
+         --Caso 2: Si de_indice_tasa_base_interes &lt;&gt; 'Fija' AND ti_tasa = 'Fixed' Entonces: ta_efectiva_total_interes
+         --Caso 3: Si de_indice_tasa_base_interes &lt;&gt; 'Fija' AND ti_tasa = 'Floating' Entonces: No migra para este caso (en blanco)    -- Estaba esto -&gt; '... Floating' Entonces: ta_base_interes
+         --Caso 4: Si de_indice_tasa_base_interes = 'Fija' AND ti_tasa = 'Floating' Entonces: ta_efectiva_total_interes
+         --Sino ALERTAR
+         +CASE
+            WHEN OA.ti_tasa IN ('Floating','Flotante') AND OA.de_indice_tasa_base_interes &lt;&gt; 'Fija' THEN '' -- Caso 3   -- Antes se enviaba Convert(numeric(9,4),OA.ta_base_interes)
+            ELSE
+            (
+             CASE
+               WHEN OA.ti_tasa IN ('Fixed','Fijo')  THEN Convert(nvarchar(21),Convert(numeric(9,4),OA.ta_efectiva_total_interes))  -- Caso 1 y 2
+               WHEN OA.ti_tasa IN ('Floating','Flotante') AND OA.de_indice_tasa_base_interes  = 'Fija' THEN Convert(nvarchar(21),Convert(numeric(9,4),OA.ta_efectiva_total_interes)) -- Caso 4
+               ELSE NULL  -- Si NULL, Debe ser reportado
+             END
+            )
+          END+'!!'  -- FIXED.RATE
+        --MARGIN.OPER
+        --Caso 1: Si de_indice_tasa_base_interes = 'Fija' AND ti_tasa = 'Fixed' Entonces: No migra para este caso (en blanco)
+        --Caso 2: Si de_indice_tasa_base_interes &lt;&gt; 'Fija' AND ti_tasa = 'Fixed' Entonces: No migra para este caso (en blanco)
+        --Caso 3: Si de_indice_tasa_base_interes &lt;&gt; 'Fija' AND ti_tasa = 'Floating' Entonces: ADD
+        --Caso 4: Si de_indice_tasa_base_interes = 'Fija' AND ti_tasa = 'Floating' Entonces: No migra para este caso (en blanco)
+         +Convert(nvarchar(10),
+          CASE 
+            WHEN OA.ti_tasa IN ('Fixed','Fijo') THEN '' -- Caso 1 y 2
+            WHEN OA.ti_tasa IN ('Floating','Flotante') AND OA.de_indice_tasa_base_interes &lt;&gt; 'Fija' THEN 'ADD' -- Caso 3
+            WHEN OA.ti_tasa IN ('Floating','Flotante') AND OA.de_indice_tasa_base_interes  = 'Fija' THEN '' -- Caso 4
+            ELSE NULL  -- Si NULL, Debe ser reportado
+          END)+'!!'  -- MARGIN.OPER
+        -- MARGIN.RATE
+        --Valor con 4 decimales: Acepta valor cero (0.0000)
+        --**********************************************
+        --Caso 1: Si de_indice_tasa_base_interes = 'Fija' AND ti_tasa = 'Fixed' Entonces: No migra para este caso (en blanco)
+        --Caso 2: Si de_indice_tasa_base_interes &lt;&gt; 'Fija' AND ti_tasa = 'Fixed' Entonces: No migra para este caso (en blanco)
+        --Caso 3: Si de_indice_tasa_base_interes &lt;&gt; 'Fija' AND ti_tasa = 'Floating' Entonces: ta_spread
+        --Caso 4: Si de_indice_tasa_base_interes = 'Fija' AND ti_tasa = 'Floating' Entonces: No migra para este caso (en blanco)
+         +ISNULL(Convert(nvarchar(21),
+          CASE 
+            WHEN OA.ti_tasa IN ('Fixed','Fijo') THEN '' -- Caso 1 y 2
+            WHEN OA.ti_tasa IN ('Floating','Flotante') AND OA.de_indice_tasa_base_interes &lt;&gt; 'Fija' THEN Convert(nvarchar(21),Convert(numeric(9,4),TD.ta_spread)) -- Caso 3
+            WHEN OA.ti_tasa IN ('Floating','Flotante') AND OA.de_indice_tasa_base_interes  = 'Fija' THEN '' -- Caso 4
+            ELSE NULL  -- Si NULL, se envía en blanco
+          END),'')+'!!'  -- MARGIN.RATE
+        -- MARGIN.TYPE  
+        --Caso 1: Si de_indice_tasa_base_interes = 'Fija' AND ti_tasa = 'Fixed' Entonces: No migra para este caso (en blanco)
+        --Caso 2: Si de_indice_tasa_base_interes &lt;&gt; 'Fija' AND ti_tasa = 'Fixed' Entonces: No migra para este caso  (en blanco)
+        --Caso 3: Si de_indice_tasa_base_interes &lt;&gt; 'Fija' AND ti_tasa = 'Floating' Entonces: SINGLE
+        --Caso 4: Si de_indice_tasa_base_interes = 'Fija' AND ti_tasa = 'Floating' Entonces: No migra para este caso  (en blanco)
+         +Convert(nvarchar(16),
+          CASE 
+            WHEN OA.ti_tasa IN ('Fixed','Fijo') THEN '' -- Caso 1 y 2
+            WHEN OA.ti_tasa IN ('Floating','Flotante') AND OA.de_indice_tasa_base_interes &lt;&gt; 'Fija' THEN 'SINGLE'   -- Caso 3
+            WHEN OA.ti_tasa IN ('Floating','Flotante') AND OA.de_indice_tasa_base_interes  = 'Fija' THEN '' -- Caso 4
+            ELSE NULL  -- Si NULL, Debe ser reportado
+          END)+'!!'  -- MARGIN.TYPE  
+        --
+        -- PERIODIC.INDEX
+        --Caso 1: Si de_indice_tasa_base_interes = 'Fija' AND ti_tasa = 'Fixed' Entonces: No migra para este caso (en blanco)
+        --Caso 2: Si de_indice_tasa_base_interes &lt;&gt; 'Fija' AND ti_tasa = 'Fixed' Entonces: No migra para este caso (en blanco)
+        --Caso 3: Si de_indice_tasa_base_interes &lt;&gt; 'Fija' AND ti_tasa = 'Floating' Entonces: /*********************************************/
+        --REVISAR: LA TABLA DE EQUIVALENCIA
+        --/*********************************************/
+        --En base al campo de_indice_tasa_base_interes, colocar respectiva equivalencia correspondiente al campo "id"
+        --Caso 4: Si de_indice_tasa_base_interes = 'Fija' AND ti_tasa = 'Floating' Entonces: No migra para este caso (en blanco)
+        --Sino ALERTAR
+         +CASE 
+            WHEN OA.ti_tasa IN ('Fixed','Fijo') THEN '' -- Caso 1 y 2
+            WHEN OA.ti_tasa IN ('Floating','Flotante') AND OA.de_indice_tasa_base_interes &lt;&gt; 'Fija' THEN ISNULL(Convert(nvarchar(3),LPRDI.id),'') -- Caso 3 
+            WHEN OA.ti_tasa IN ('Floating','Flotante') AND OA.de_indice_tasa_base_interes  = 'Fija' THEN '' -- Caso 4
+            ELSE NULL  -- Si NULL, Debe ser reportado
+          END+'!!'  -- PERIODIC.INDEX -- Revisar los Id duplicados
+        -- PERIODIC.RATE
+        --"Valor con 4 decimales: Acepta valor cero (0.0000)
+        --**********************************************
+        --Caso 1: Si de_indice_tasa_base_interes = 'Fija' AND ti_tasa = 'Fixed' Entonces: No migra para este caso (en blanco)
+        --Caso 2: Si de_indice_tasa_base_interes &lt;&gt; 'Fija' AND ti_tasa = 'Fixed' Entonces: No migra para este caso (en blanco)
+        --Caso 3: Si de_indice_tasa_base_interes &lt;&gt; 'Fija' AND ti_tasa = 'Floating' Entonces: ta_base_interes
+        --Caso 4: Si de_indice_tasa_base_interes = 'Fija' AND ti_tasa = 'Floating' Entonces:  No migra para este caso (en blanco)
+        --Sino ALERTAR"
+         +CASE 
+            WHEN OA.ti_tasa IN ('Fixed','Fijo') THEN '' -- Caso 1 y 2
+            WHEN OA.ti_tasa IN ('Floating','Flotante') AND OA.de_indice_tasa_base_interes &lt;&gt; 'Fija' THEN ISNULL(Convert(nvarchar(21),Convert(numeric(9,4),OA.ta_base_interes)),'') -- Caso 3 
+            WHEN OA.ti_tasa IN ('Floating','Flotante') AND OA.de_indice_tasa_base_interes  = 'Fija' THEN '' -- Caso 4
+            ELSE NULL  -- Si NULL, Debe ser reportado
+          END+'::'  -- PERIODIC.RATE    -- Fin de la property INTVENCIDO
+         --
+         -- OFFICERS Property
+         -- OFFICER.ROLE.1  OFFICER.ROLE.1  OTHER.OFFICER.1 OTHER.OFFICER.2 PRIMARY.OFFICER
+         -- OFFICER.ROLE.1  OFFICER.ROLE.1
+         +'EJN!!'
+         +CASE WHEN Convert(nvarchar(6),(SELECT cup FROM [STGLegados].[dbo].[TmpResponsableDCO] WHERE nbResponsableDCO = OA.nb_responsable_dco)) IS NOT NULL THEN 'DCO!!' ELSE '' END  -- OFFICER.ROLE.2
+         -- OTHER.OFFICER.1 OTHER.OFFICER.2
+         +OPER.otherOfficerOperacionActiva+'!!'
+         +CASE WHEN Convert(nvarchar(6),(SELECT cup FROM [STGLegados].[dbo].[TmpResponsableDCO] WHERE nbResponsableDCO = OA.nb_responsable_dco)) IS NOT NULL THEN Convert(nvarchar(6),(SELECT cup FROM [STGLegados].[dbo].[TmpResponsableDCO] WHERE nbResponsableDCO = OA.nb_responsable_dco))+'!!' ELSE '' END
+         --PRIMARY.OFFICER
+         +OPER.primaryOfficerOperacionActiva+'::'   -- PRIMARY.OFFICER  -- Fin de la property OFFICERS 
+         --
+         -- PENALINT Property
+         -- DAY.BASIS
+         +DBO.dayBasis+'::' -- DAY.BASIS  -- Fin de la property PENALINT
+         -- 
+         --
+         -- PRINCIPALINT Property
+         -- DAY.BASIS   FIXED.RATE  L.MARGIN    L.PERIOD.INDEX  MARGIN.OPER MARGIN.RATE MARGIN.TYPE PERIODIC.INDEX  RATE.TIER.TYPE  TIER.AMOUNT
+         +CASE
+           --
+           -- Cuando hay desembolsos
+           WHEN PP.coOperacionActiva IS NOT NULL THEN
+             DBO.dayBasis+'!!'                                                                  -- DAY.BASIS
+            +PP.fixedRateFieldValue                                                             -- FIXED.RATE   
+            +Convert(nvarchar(14),Convert(numeric(9,4),ISNULL(TD.ta_spread,0.0000)))+'!!'   -- L.MARGIN      
+            +ISNULL(Convert(nvarchar(3),LPRDI.id),'')+'!!'                                      -- L.PERIOD.INDEX
+            +PP.marginOperFieldValue                                                            -- MARGIN.OPER  
+            +PP.marginRateFieldValue                                                            -- MARGIN.RATE  
+            +PP.marginTypeFieldValue                                                            -- MARGIN.TYPE  
+            --+ISNULL(Convert(nvarchar(3),LPRDI.id),'')+'!!'                                        -- PERIODIC.INDEX   
+            +'BAND!!'                                                                           -- RATE.TIER.TYPE
+            +PP.tierAmountFieldValue                -- TIER.AMOUNT
+            +'::' -- Fin de Property PRINCIPALINT
+           --
+           -- Cuando no hay desembolsos (cambio solicitado el 30-05-2025, ver correo de Liz, Adriana Temenos). Se quita la la última banda que se agregaba.
+           WHEN TD.coOperacionActiva IS NOT NULL THEN
+             DBO.dayBasis+'!!'                                                                  -- DAY.BASIS
+            +CASE
+               WHEN (ABS(ISNULL(TD.ta_cmpnscion,0.0000)) &gt; 0.0001 AND ISNULL(TD.feVencimientoFFC,@feMigracion) &gt; @feMigracion) AND (ABS(ISNULL(OKFW.taKFW,0.0000)) &lt; 0.0001 OR ISNULL(OKFW.fe_vencimiento_kfw,@feMigracion) &lt;= @feMigracion) THEN Convert(nvarchar(14),Convert(numeric(9,4),TD.new_rate-TD.marginSinFFC+TD.ta_cmpnscion))+'!!'    --FFC
+               WHEN (ABS(ISNULL(TD.ta_cmpnscion,0.0000)) &gt; 0.0001 AND ISNULL(TD.feVencimientoFFC,@feMigracion) &gt; @feMigracion) AND (ABS(ISNULL(OKFW.taKFW,0.0000)) &gt; 0.0001 AND ISNULL(OKFW.fe_vencimiento_kfw,@feMigracion) &gt; @feMigracion) THEN Convert(nvarchar(14),Convert(numeric(9,4),TD.new_rate - TD.marginSinFFC + TD.ta_cmpnscion))+'!!'+Convert(nvarchar(14),Convert(numeric(9,4),TD.new_rate - TD.marginSinFFC + OKFW.taKFW))+'!!' --'FIXED.RATE:1:1!!FIXED.RATE:2:1!!FIXED.RATE:3:1'  -- FFC y KFW
+               WHEN (ABS(ISNULL(TD.ta_cmpnscion,0.0000)) &lt; 0.0001 OR TD.feVencimientoFFC &lt;= @feMigracion) AND (ABS(ISNULL(OKFW.taKFW,0.0000)) &gt; 0.0001 AND ISNULL(OKFW.fe_vencimiento_kfw,@feMigracion) &gt; @feMigracion) THEN  Convert(nvarchar(14),Convert(numeric(9,4),TD.new_rate-TD.marginSinFFC+OKFW.taKFW))+'!!' --'FIXED.RATE:1:1!!FIXED.RATE:2:1!!' -- KFW
+               --WHEN OA.ti_tasa IN ('Floating','Flotante') AND OA.de_indice_tasa_base_interes &lt;&gt; 'Fija' THEN 'FIXED.RATE:1:1!!FIXED.RATE:2:1' 
+               ELSE Convert(nvarchar(14),Convert(numeric(9,4),TD.new_rate-TD.marginSinFFC))+'!!'   --'FIXED.RATE:1:1!!FIXED.RATE:2:1!!' -- Cambio especificado en plena UAT3
+             END --'FIXED.RATE
+            +Convert(nvarchar(14),Convert(numeric(9,4),ISNULL(TD.ta_spread,0.0000)))+'!!'   -- L.MARGIN     -- Se acordó en UAT3
+            +ISNULL(Convert(nvarchar(3),LPRDI.id),'')+'!!'                                      -- L.PERIOD.INDEX
+            +CASE
+               WHEN (ABS(ISNULL(TD.ta_cmpnscion,0.0000)) &gt; 0.0001 AND ISNULL(TD.feVencimientoFFC,@feMigracion) &gt; @feMigracion) AND (ABS(ISNULL(OKFW.taKFW,0.0000)) &lt; 0.0001 OR ISNULL(OKFW.fe_vencimiento_kfw,@feMigracion) &lt;= @feMigracion) THEN 'ADD!!SUB!!' --'MARGIN.OPER:1:1!!MARGIN.OPER:1:2!!MARGIN.OPER:2:1!!'  --'ADD!!SUB!!VACIO!!'   --FFC -- Se quito el VACIO
+               WHEN (ABS(ISNULL(TD.ta_cmpnscion,0.0000)) &gt; 0.0001 AND ISNULL(TD.feVencimientoFFC,@feMigracion) &gt; @feMigracion) AND (ABS(ISNULL(OKFW.taKFW,0.0000)) &gt; 0.0001 AND ISNULL(OKFW.fe_vencimiento_kfw,@feMigracion) &gt; @feMigracion) THEN 'ADD!!SUB!!ADD!!SUB!!' --'MARGIN.OPER:1:1!!MARGIN.OPER:1:2!!MARGIN.OPER:2:1!!MARGIN.OPER:2:2!!MARGIN.OPER:3:1!!'  --ADD!!SUB!!ADD!!SUB!!VACIO  --FFC y KFW
+               WHEN (ABS(ISNULL(TD.ta_cmpnscion,0.0000)) &lt; 0.0001 OR TD.feVencimientoFFC &lt;= @feMigracion) AND (ABS(ISNULL(OKFW.taKFW,0.0000)) &gt; 0.0001 AND ISNULL(OKFW.fe_vencimiento_kfw,@feMigracion) &gt; @feMigracion) THEN 'ADD!!SUB!!' --'MARGIN.OPER:1:1!!MARGIN.OPER:1:2!!MARGIN.OPER:2:1!!'  --'ADD!!SUB!!VACIO!!'  -- KFW
+               --WHEN OA.ti_tasa IN ('Floating','Flotante') AND OA.de_indice_tasa_base_interes &lt;&gt; 'Fija' THEN 'MARGIN.OPER:1:1!!MARGIN.OPER:2:1!!' --'ADD!!VACIO!!' 
+               ELSE 'ADD!!' --'MARGIN.OPER:1:1!!MARGIN.OPER:2:1!!'  -- 'ADD!!VACIO!!
+             END    -- MARGIN.OPER  
+            +CASE
+               WHEN (ABS(ISNULL(TD.ta_cmpnscion,0.0000)) &gt; 0.0001 AND ISNULL(TD.feVencimientoFFC,@feMigracion) &gt; @feMigracion) AND (ABS(ISNULL(OKFW.taKFW,0.0000)) &lt; 0.0001 OR ISNULL(OKFW.fe_vencimiento_kfw,@feMigracion) &lt;= @feMigracion) THEN Convert(nvarchar(14),Convert(numeric(9,4),TD.marginSinFFC))+'!!'+Convert(nvarchar(14),Convert(numeric(9,4),TD.ta_cmpnscion))+'!!' --'MARGIN.RATE:1:1!!MARGIN.RATE:1:2!!MARGIN.RATE:2:1!!'   -- margin!!ta_cmpnscion!!VACIO!! --FFC
+               WHEN (ABS(ISNULL(TD.ta_cmpnscion,0.0000)) &gt; 0.0001 AND ISNULL(TD.feVencimientoFFC,@feMigracion) &gt; @feMigracion) AND (ABS(ISNULL(OKFW.taKFW,0.0000)) &gt; 0.0001 AND ISNULL(OKFW.fe_vencimiento_kfw,@feMigracion) &gt; @feMigracion) THEN Convert(nvarchar(14),Convert(numeric(9,4),TD.marginSinFFC))+'!!'+Convert(nvarchar(14),Convert(numeric(9,4),TD.ta_cmpnscion))+'!!'+Convert(nvarchar(14),Convert(numeric(9,4),TD.marginSinFFC))+'!!'+Convert(nvarchar(14),Convert(numeric(9,4),OKFW.taKFW))+'!!'--'MARGIN.RATE:1:1!!MARGIN.RATE:1:2!!MARGIN.RATE:2:1!!MARGIN.RATE:2:2!!MARGIN.RATE:3:1!!'  --'margin!!ta_cmpnscion!!margin!!ta_kfw!!VACIO!!'  --FFC y KFW
+               WHEN (ABS(ISNULL(TD.ta_cmpnscion,0.0000)) &lt; 0.0001 OR TD.feVencimientoFFC &lt;= @feMigracion) AND (ABS(ISNULL(OKFW.taKFW,0.0000)) &gt; 0.0001 AND ISNULL(OKFW.fe_vencimiento_kfw,@feMigracion) &gt; @feMigracion) THEN Convert(nvarchar(14),Convert(numeric(9,4),TD.marginSinFFC))+'!!'+Convert(nvarchar(14),Convert(numeric(9,4),OKFW.taKFW))+'!!' --'MARGIN.RATE:1:1!!MARGIN.RATE:1:2!!MARGIN.RATE:2:1!!' --'margin!!ta_kfw!!VACIO!!'  -- KFW
+               --WHEN OA.ti_tasa IN ('Floating','Flotante') AND OA.de_indice_tasa_base_interes &lt;&gt; 'Fija' THEN 'MARGIN.RATE:1:1!!MARGIN.RATE:2:1!!' --'margin!!VACIO!!' 
+               ELSE Convert(nvarchar(14),Convert(numeric(9,4),TD.marginSinFFC))+'!!' --'MARGIN.RATE:1:1!!MARGIN.RATE:2:1!!' -- margin!!VACIO!!
+             END   -- MARGIN.RATE   
+            +CASE
+               WHEN (ABS(ISNULL(TD.ta_cmpnscion,0.0000)) &gt; 0.0001 AND ISNULL(TD.feVencimientoFFC,@feMigracion) &gt; @feMigracion) AND (ABS(ISNULL(OKFW.taKFW,0.0000)) &lt; 0.0001 OR ISNULL(OKFW.fe_vencimiento_kfw,@feMigracion) &lt;= @feMigracion) THEN 'SINGLE!!FFC!!' --'MARGIN.TYPE:1:1!!MARGIN.TYPE:1:2!!MARGIN.TYPE:2:1!!'   --'SINGLE!!FFC!!VACIO!!'   --FFC
+               WHEN (ABS(ISNULL(TD.ta_cmpnscion,0.0000)) &gt; 0.0001 AND ISNULL(TD.feVencimientoFFC,@feMigracion) &gt; @feMigracion) AND (ABS(ISNULL(OKFW.taKFW,0.0000)) &gt; 0.0001 AND ISNULL(OKFW.fe_vencimiento_kfw,@feMigracion) &gt; @feMigracion) THEN 'SINGLE!!FFC!!SINGLE!!KWF!!' --'MARGIN.TYPE:1:1!!MARGIN.TYPE:1:2!!MARGIN.TYPE:2:1!!MARGIN.TYPE:2:2!!MARGIN.TYPE:3:1!!'  --'SINGLE!!FFC!!SINGLE!!KWF!!VACIO!!'  --FFC y KFW
+               WHEN (ABS(ISNULL(TD.ta_cmpnscion,0.0000)) &lt; 0.0001 OR TD.feVencimientoFFC &lt;= @feMigracion) AND (ABS(ISNULL(OKFW.taKFW,0.0000)) &gt; 0.0001 AND ISNULL(OKFW.fe_vencimiento_kfw,@feMigracion) &gt; @feMigracion) THEN 'SINGLE!!KWF!!' --'MARGIN.TYPE:1:1!!MARGIN.TYPE:1:2!!MARGIN.TYPE:2:1!!'   --'SINGLE!!KWF!!VACIO!!'  -- KFW
+               --WHEN OA.ti_tasa IN ('Floating','Flotante') AND OA.de_indice_tasa_base_interes &lt;&gt; 'Fija' THEN 'MARGIN.TYPE:1:1!!MARGIN.TYPE:2:1!!' --'SINGLE!!!!' 
+               ELSE 'SINGLE!!' -- 'MARGIN.TYPE:1:1!!MARGIN.TYPE:2:1!!'  -- 'SINGLE!!VACIO!!
+             END    -- MARGIN.TYPE  
+            --+ISNULL(Convert(nvarchar(3),LPRDI.id),'')+'!!'                                        -- PERIODIC.INDEX   
+            +'SINGLE!!'                                                                         -- RATE.TIER.TYPE
+          --  +CASE
+             --  WHEN (ABS(ISNULL(TD.ta_cmpnscion,0.0000)) &gt; 0.0001 AND ISNULL(TD.feVencimientoFFC,@feMigracion) &gt; @feMigracion) AND (ABS(ISNULL(OKFW.taKFW,0.0000)) &lt; 0.0001 OR ISNULL(OKFW.fe_vencimiento_kfw,@feMigracion) &lt;= @feMigracion) THEN (CASE WHEN OA.co_moneda_origen_operacion IN (85,123) THEN '' ELSE '' END) --'TIER.AMOUNT:1:1!!TIER.AMOUNT:2:1'   --FFC
+             --  WHEN (ABS(ISNULL(TD.ta_cmpnscion,0.0000)) &gt; 0.0001 AND ISNULL(TD.feVencimientoFFC,@feMigracion) &gt; @feMigracion) AND (ABS(ISNULL(OKFW.taKFW,0.0000)) &gt; 0.0001 AND ISNULL(OKFW.fe_vencimiento_kfw,@feMigracion) &gt; @feMigracion) THEN (CASE WHEN OA.co_moneda_origen_operacion IN (85,123) THEN '!!0' ELSE '!!0.00' END) --'TIER.AMOUNT:1:1!!TIER.AMOUNT:2:1!!TIER.AMOUNT:3:1'  -- FFC y KFW
+             --  WHEN (ABS(ISNULL(TD.ta_cmpnscion,0.0000)) &lt; 0.0001 OR TD.feVencimientoFFC &lt;= @feMigracion) AND (ABS(ISNULL(OKFW.taKFW,0.0000)) &gt; 0.0001 AND ISNULL(OKFW.fe_vencimiento_kfw,@feMigracion) &gt; @feMigracion) THEN (CASE WHEN OA.co_moneda_origen_operacion IN (85,123) THEN '!!0' ELSE '!!0.00' END) --'TIER.AMOUNT:1:1!!TIER.AMOUNT:2:1' -- KFW
+             --  --WHEN OA.ti_tasa IN ('Floating','Flotante') AND OA.de_indice_tasa_base_interes &lt;&gt; 'Fija' THEN 'TIER.AMOUNT:1:1!!TIER.AMOUNT:2:1' 
+             --  ELSE (CASE WHEN OA.co_moneda_origen_operacion IN (85,123) THEN '!!0' ELSE '!!0.00' END) --'TIER.AMOUNT:1:1!!TIER.AMOUNT:2:1!!'  -- VACIO!!0.00!!
+             --END -- TIER.AMOUNT -- Se envia en blaco cuando no hay desembolsos
+            +'::' -- Fin de Property PRINCIPALINT
+           ELSE -- la condicion TD.coOperacionActiva IS NOT NULL
+            ''
+         END
+        --
+        --  Property  SCHEDULE 
+        +CASE
+          WHEN PDS.coOperacionActiva IS NOT NULL AND (ABS(PDS.suCapitalMonedaOrigen) &gt; 0.01 OR ABS(PDS.suInteresMonedaOrigen) &gt; 0.01) THEN
+             PDS.actualAmtFieldValue
+            +PDS.fieldValueSCHEDULE
+            +PDS.startDateValueSCHEDULE
+          ELSE ''
+         END
+         --
+         -- 'SETTLEMENT'
+        +CASE WHEN OPER.coOperacionActiva IN (SELECT co_operacion_activa FROM [STGLegados].[dbo].[TmpAbaratamientoCaso2SoloFFC]) AND (ABS(ISNULL(TD.ta_cmpnscion,0.0000)) &gt; 0.0001 AND ISNULL(TD.feVencimientoFFC,@feMigracion) &gt; @feMigracion) THEN '10001331!!YES' ELSE '!!' END
+         --
+         -- Property  XINTFUND.MARGIN
+         +CASE 
+            WHEN (PX.coOperacionActiva IS NOT NULL AND LTRIM(RTRIM(PX.fieldName)) &lt;&gt; '' AND ((ABS(ISNULL(Convert(numeric(9,4),OFFC.taFFC),0.0000)) &gt; 0.0001 AND ISNULL(OFFC.fe_vencimiento_ffc,@feMigracion) &gt; @feMigracion) OR (ABS(ISNULL(OKFW.taKFW,0.0000)) &gt; 0.0001 AND ISNULL(OKFW.fe_vencimiento_kfw,@feMigracion) &gt; @feMigracion)))  THEN
+             +'::'+PX.fieldValue
+            ELSE ''
+          END
+        ))) as [FIELD.VALUE]
+       ,OPER.deOperacionActiva as [REASON]
+       --
+       --
+       -- *********************************************   Campos de Debug ****************************************************************************
+       --
+       --   ------------------------------------ Fin de campos para debugging
+       --   
+       --,PP.fixedRateFieldName
+       --,PP.fixedRateFieldValue
+       --,PDS.actualAmtFieldName
+       --,PDS.actualAmtFieldValue
+       --,PX.fieldName
+       --,PX.fieldValue
+--INTO [STGPolaris].[dbo].[DMS.DRA.01.TAKEOVER-v0.5]
+FROM   [STGLegados].[dbo].[TmpAprobacionCompromisoOperacionActiva] as OPER
+  LEFT OUTER JOIN [STGLegados].[dbo].[TmpCustomerRelacionadosDrawing] as CR ON
+         CR.coOperacionActivaPhx = OPER.coOperacionActiva
+  LEFT OUTER JOIN [STGLegados].[dbo].[TmpOperacionActivaDia] as OA ON
+    OA.co_operacion_activa = OPER.coOperacionActiva
+ -- LEFT OUTER JOIN [STGPolaris].[dbo].[COMPANY] as COM ON
+ --   COM.CodCompaniaPersona = OA.co_compania
+ -- LEFT OUTER JOIN [STGPolaris].[dbo].[CURRENCY] as CUR ON
+    --CUR.CoMonedaDatamart = OA.co_moneda_origen_operacion
+ -- LEFT OUTER JOIN [STGPolaris].[dbo].[COUNTRY] as COU ON
+    --COU.CodPaisPersona = OA.co_pais_base_operacion
+  LEFT OUTER JOIN [STGLegados].[dbo].[TmpEmailPersona] as EML ON
+    EML.Cup = OPER.cupClienteOperacionActiva
+  --LEFT OUTER JOIN [STGLegados].[dbo].[operacion] as OP ON
+  --  OP.co_operacion = OA.co_ruo
+  --LEFT OUTER JOIN [STGLegados].[dbo].[TmpCentroCosto] as CC ON
+  --  CC.coUnidadOrganizacionalResponsable = OA.co_unidad_responsable_dependiente   -- Validar si se cambiara por unida resposable dependiente
+  LEFT OUTER JOIN [STGLegados].[dbo].[TmpCOMFIN] as COMFIN ON -- Se carga desde paquete PqCargaCOMFIN que toma el archivo plano desde D:\App\Migracion-Polaris-ETL1\Csv. Debe ser agrupado en un paquete que cargue datos mapeados fijos
+        COMFIN.coOperacionActiva = OPER.coOperacionActiva
+    AND ABS(COMFIN.fixedAmount) &gt; 0.0 
+  LEFT OUTER JOIN [STGLegados].[dbo].[TmpCOSTORIGINA] as    COSTORIGINA ON -- Se carga desde el paquete PqCargaCOSTORIGINA que toma el archivo plano desde D:\App\Migracion-Polaris-ETL1\Csv. Debe ser agrupado en un paquete que cargue datos mapeados fijos
+    COSTORIGINA.coOperacionActiva = OPER.coOperacionActiva  
+    AND ABS(COSTORIGINA.fixedAmount) &gt; 0.0
+  LEFT OUTER JOIN [STGLegados].[dbo].[TmpResponsableDCO] as RDCO ON
+    RDCO.nbResponsableDco = OA.nb_responsable_dco
+  LEFT OUTER JOIN [STGLegados].[dbo].[TmpLPeriodicIndex] as LPRDI ON
+        LPRDI.deIndiceTasaBaseInteres = OA.de_indice_tasa_base_interes
+    AND LPRDI.deIndiceTasaBaseInteres &lt;&gt; ''
+ -- LEFT OUTER JOIN (SELECT coOperacionActiva, MAX(feVencimientoAprobacionCalidad) as feVencimientoAprobacion, MAX(tiPlazoOperacionActiva) as tiPlazoProyecto, MAX(tiRiesgoOperacionActiva) as tiRiesgoProyecto FROM [STGLegados].[dbo].[TmpAprobacionCompromisoOperacionActiva] WHERE coOperacionActiva IS NOT NULL GROUP BY coOperacionActiva) as COMP ON
+ --   COMP.coOperacionActiva = OA.co_operacion_activa
+  LEFT OUTER JOIN [STGlegados].[dbo].[TmpParametrosDrawing] as PD ON  -- Se actualiza en el paquete PqCalidadEnriquecimiento
+    PD.coOperacionActiva = OPER.coOperacionActiva
+  LEFT OUTER JOIN [STGLegados].[dbo].[TmpParametrosDrawingSCHEDULE] as PDS ON -- Se actualiza en el paquete PqCalidadEnriquecimiento
+    PDS.coOperacionActiva = OPER.coOperacionActiva
+  LEFT OUTER JOIN [STGLegados].[dbo].[TmpOperacionesConKFW] as ROKFW ON
+    ROKFW.coOperacionActiva = OPER.coOperacionActiva
+  LEFT OUTER JOIN [STGLegados].[dbo].[TmpPrestamosEstructurados] as PE ON -- Se carga desde paquete PqCargaTmpPrestamosEstructurados que toma el archivo plano desde D:\App\Migracion-Polaris-ETL1\Csv. Debe ser agrupado en un paquete que cargue datos mapeados fijos
+    PE.coOperacionActiva = OPER.coOperacionActiva
+  LEFT OUTER JOIN [STGLegados].[dbo].[TmpTasasDrawing] as TD ON
+    TD.coOperacionActiva = OPER.coOperacionActiva
+  LEFT OUTER JOIN (SELECT Convert(nvarchar(15),T.acct_type+T.acct_no) as coOperacionActiva
+                         ,CASE
+                            WHEN T.accr_basis = '30/360' THEN 'A2'
+                            WHEN T.accr_basis = 'ACT/360' THEN 'B'
+                            WHEN T.accr_basis = 'ACT/365' THEN 'E'
+                            ELSE ''
+                          END as dayBasis
+                     FROM [STGLegados].[dbo].[ln_acct_int_opt] as T) DBO ON
+    DBO.coOperacionActiva = OPER.coOperacionActiva
+  LEFT OUTER JOIN (
+                       SELECT T.coOperacionActiva
+                             ,MAX(T.ta_kfw) as taKFW
+                             ,SUM(T.mo_aprobado_moneda_origen) as moAprobadoMonedaOrigen
+                             ,MAX(ISNULL(T.fe_vencimiento_kfw,@feMigracion)) as fe_vencimiento_kfw
+                       FROM (
+                                SELECT CASE WHEN T3.co_condicion = 'Original' THEN T3.co_operacion_activa ELSE T3.co_operacion_original END as coOperacionActiva
+                                        ,ISNULL(T3.ta_kfw,0) as ta_kfw
+                                        ,ISNULL(T3.mo_aprobado_moneda_origen,0) as mo_aprobado_moneda_origen
+                                        ,ISNULL(T3.fe_vencimiento_kfw,@feMigracion) as fe_vencimiento_kfw
+                                    FROM [STGLegados].[dbo].[TmpAbaratamientoCaso3SoloKFW] as T3
+                            ) as T
+                       GROUP BY T.coOperacionActiva
+                       UNION
+                       SELECT T.coOperacionActiva
+                             ,MAX(T.ta_kfw) as taKFW
+                             ,SUM(T.mo_aprobado_moneda_origen) as moAprobadoMonedaOrigen
+                             ,MAX(ISNULL(T.fe_vencimiento_kfw,@feMigracion)) as fe_vencimiento_kfw
+                       FROM (
+                                SELECT CASE WHEN T4.co_condicion = 'Original' THEN T4.co_operacion_activa ELSE T4.co_operacion_original END as coOperacionActiva
+                                        ,ISNULL(T4.ta_kfw,0) as ta_kfw
+                                        ,ISNULL(T4.mo_aprobado_moneda_origen,0) as mo_aprobado_moneda_origen
+                                        ,ISNULL(T4.fe_vencimiento_kfw,@feMigracion) as fe_vencimiento_kfw
+                                    FROM [STGLegados].[dbo].[TmpAbaratamientoCaso4FfcKfw] as T4
+                            ) as T
+                       GROUP BY T.coOperacionActiva
+                       UNION
+                       SELECT T.coOperacionActiva
+                             ,MAX(T.ta_kfw) as taKFW
+                             ,SUM(T.mo_aprobado_moneda_origen) as moAprobadoMonedaOrigen
+                             ,MAX(ISNULL(T.fe_vencimiento_kfw,@feMigracion)) as fe_vencimiento_kfw
+                       FROM (
+                                    SELECT CASE WHEN T5.co_condicion = 'FFC/KFW' THEN T5.co_operacion_activa ELSE T5.co_operacion_original END as coOperacionActiva
+                                        ,ISNULL(T5.ta_kfw,0) as ta_kfw
+                                        ,ISNULL(T5.mo_aprobado_moneda_origen,0) as mo_aprobado_moneda_origen
+                                        ,ISNULL(T5.fe_vencimiento_kfw,@feMigracion) as fe_vencimiento_kfw
+                                    FROM [STGLegados].[dbo].[TmpAbaratamientoCaso5FfcFfcKfw] as T5
+                            ) as T
+                      GROUP BY T.coOperacionActiva
+                  ) as OKFW ON
+    Convert(nvarchar(15),OKFW.coOperacionActiva) = OPER.coOperacionActiva
+--
+  LEFT OUTER JOIN (    
+                       SELECT T.co_operacion_activa as coOperacionActiva
+                             ,Y.ta_cmpnscion as taFFC
+                             ,Z.mo_aprobado_moneda_origen as moAprobadoMonedaOrigen
+                             ,Y.feVencimientoFFC as fe_vencimiento_ffc
+                       FROM [STGLegados].[dbo].[TmpAbaratamientoCaso2SoloFFC] as T
+                         LEFT OUTER JOIN [STGLegados].[dbo].[TmpTasasDrawing] as Y ON
+                           Y.coOperacionActiva = T.co_operacion_activa
+                         LEFT OUTER JOIN [STGLegados].[dbo].[TmpOperacionActiva] as Z ON
+                           Z.co_operacion_activa = T.co_operacion_activa
+                       UNION
+                       SELECT T.coOperacionActiva
+                             ,MAX(T.ta_cmpnscion) as taFFC
+                             ,SUM(T.mo_aprobado_moneda_origen) as moAprobadoMonedaOrigen
+                             ,MAX(ISNULL(T.fe_vencimiento_ffc,@feMigracion)) as fe_vencimiento_ffc
+                       FROM (
+                                SELECT CASE WHEN T4.co_condicion = 'Original' THEN T4.co_operacion_activa ELSE T4.co_operacion_original END as coOperacionActiva
+                                        ,ISNULL(T4.ta_cmpnscion,0) as ta_cmpnscion
+                                        ,ISNULL(T4.mo_aprobado_moneda_origen,0) as mo_aprobado_moneda_origen
+                                        ,ISNULL(T4.fe_vencimiento_ffc,@feMigracion) as fe_vencimiento_ffc
+                                    FROM [STGLegados].[dbo].[TmpAbaratamientoCaso4FfcKfw] as T4
+                            ) as T
+                       GROUP BY T.coOperacionActiva
+                       UNION
+                       SELECT T.coOperacionActiva
+                             ,MAX(T.ta_cmpnscion) as taFFC
+                             ,SUM(T.mo_aprobado_moneda_origen) as moAprobadoMonedaOrigen
+                             ,MAX(ISNULL(T.fe_vencimiento_ffc,@feMigracion)) as fe_vencimiento_ffc
+                       FROM (
+                                    SELECT T5.co_operacion_activa as coOperacionActiva
+                                        ,ISNULL(T5.ta_cmpnscion,0) as ta_cmpnscion
+                                        ,ISNULL(T5.mo_aprobado_moneda_origen,0) as mo_aprobado_moneda_origen
+                                        ,ISNULL(T5.fe_vencimiento_ffc,@feMigracion) as fe_vencimiento_ffc
+                                    FROM [STGLegados].[dbo].[TmpAbaratamientoCaso5FfcFfcKfw] as T5
+                            ) as T
+                      GROUP BY T.coOperacionActiva
+                  ) as OFFC ON
+    Convert(nvarchar(15),OFFC.coOperacionActiva) = OPER.coOperacionActiva
+--
+  LEFT OUTER JOIN [STGLegados].[dbo].[TmpPropertyPRINCIPALINT] as PP ON
+    Convert(nvarchar(15),PP.coOperacionActiva) = Convert(nvarchar(15),OPER.coOperacionActiva)
+  LEFT OUTER JOIN [STGLegados].[dbo].[TmpParametrosDrawingSCHEDULE] as PSC ON
+    Convert(nvarchar(15),PSC.coOperacionActiva) = Convert(nvarchar(15),OPER.coOperacionActiva)
+  LEFT OUTER JOIN [STGLegados].[dbo].[TmpParametrosDrawingXintfundMargin] as PX ON
+    Convert(nvarchar(15),PX.coOperacionActiva) = Convert(nvarchar(15),OPER.coOperacionActiva)
+--
+WHERE SUBSTRING([STGPolaris].[dbo].[fn_udfTrim] (OPER.coOperacionActiva),1,3) IN ('CFA','GFA','FDA','FIA')
+  AND OPER.coProductoOperacionActiva IN (11,13,14,15,40,60,61,63)  -- Se agregó el 63 el 03/02/2025
+  AND OA.co_fuente_dato = 11  -- Phoenix
+  AND OPER.coStatusOperacionActiva NOT IN (12)   -- Por modificación del mapeo se incluyeron las operaciones estatus 15.  -- 12: Concluida  15: NAI
+  AND OA.co_operacion_activa NOT IN (SELECT co_operacion_activa FROM [STGLegados].[dbo].[TmpOperacionActivaParticipanteDia])
+  AND OPER.coOperacionActiva NOT IN (SELECT T.co_operacion_activa FROM [STGLegados].[dbo].[TmpAbaratamientoCaso3SoloKFW] as T WHERE T.co_condicion = 'KFW'
+                                     UNION
+                                     SELECT T.co_operacion_activa FROM [STGLegados].[dbo].[TmpAbaratamientoCaso4FfcKfw] as T WHERE T.co_condicion = 'KFW')
+
+  --AND PDS.coOperacionActiva IS  NULL
+--  AND OA.co_proyecto IN (SELECT DISTINCT codCompromisoOperacionActiva as coProyecto FROM [STGLegados].[dbo].[TmpAprobacionCompromisoOperacionActiva] WHERE codCompromisoOperacionActiva IS NOT NULL UNION SELECT co_proyecto as coProyecto FROM [STGLegados].[dbo].[TmpProyectoDia] WHERE co_fuente_dato = 11)
+--  AND OPER.coOperacionActiva IN 
+--(
+--)
+-- Fin Procedure</property>
+                <property
+                  dataType="System.Int32"
+                  expressionType="Notify"
+                  name="CommandTimeout">120</property>
+                <property
+                  dataType="System.Boolean"
+                  expressionType="Notify"
+                  name="ParameterizeCommand">true</property>
+                <property
+                  dataType="System.String"
+                  expressionType="Notify"
+                  name="PreCommand"></property>
+                <property
+                  dataType="System.String"
+                  expressionType="Notify"
+                  name="SuccessPostCommand"></property>
+                <property
+                  dataType="System.String"
+                  expressionType="Notify"
+                  name="ErrorPostCommand"></property>
+                <property
+                  dataType="System.String"
+                  name="UserComponentTypeName">KingswaySoft.IntegrationToolkit.ProductivityPack.AdoDotNetSourceComponent</property>
+                <property
+                  dataType="System.Int32"
+                  description="TransactionType"
+                  expressionType="Notify"
+                  name="TransactionType"
+                  typeConverter="KingswaySoft.IntegrationToolkit.ProductivityPack.PremiumAdoDotNetTransactionType">0</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Tarea Flujo de datos\Premium ADO NET Source.Connections[ADO NET]"
+                  connectionManagerID="{4B52D8E2-8781-4975-B2F1-2D7DAC276C1F}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[VENGGCR26_NAPNNPR32.STGLegados]"
+                  description="ADO.NET"
+                  name="ADO NET" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Tarea Flujo de datos\Premium ADO NET Source.Outputs[Default Output]"
+                  name="Default Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Premium ADO NET Source.Outputs[Default Output].Columns[ACTIVITY]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Premium ADO NET Source.Outputs[Default Output].ExternalColumns[ACTIVITY]"
+                      length="29"
+                      lineageId="Package\Tarea Flujo de datos\Premium ADO NET Source.Outputs[Default Output].Columns[ACTIVITY]"
+                      name="ACTIVITY"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Premium ADO NET Source.Outputs[Default Output].Columns[ARRANGEMENT]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Premium ADO NET Source.Outputs[Default Output].ExternalColumns[ARRANGEMENT]"
+                      length="12"
+                      lineageId="Package\Tarea Flujo de datos\Premium ADO NET Source.Outputs[Default Output].Columns[ARRANGEMENT]"
+                      name="ARRANGEMENT"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Premium ADO NET Source.Outputs[Default Output].Columns[CURRENCY]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Premium ADO NET Source.Outputs[Default Output].ExternalColumns[CURRENCY]"
+                      length="3"
+                      lineageId="Package\Tarea Flujo de datos\Premium ADO NET Source.Outputs[Default Output].Columns[CURRENCY]"
+                      name="CURRENCY"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Premium ADO NET Source.Outputs[Default Output].Columns[CUSTOMER]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Premium ADO NET Source.Outputs[Default Output].ExternalColumns[CUSTOMER]"
+                      length="128"
+                      lineageId="Package\Tarea Flujo de datos\Premium ADO NET Source.Outputs[Default Output].Columns[CUSTOMER]"
+                      name="CUSTOMER"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Premium ADO NET Source.Outputs[Default Output].Columns[CUSTOMER.ROLE]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Premium ADO NET Source.Outputs[Default Output].ExternalColumns[CUSTOMER.ROLE]"
+                      length="128"
+                      lineageId="Package\Tarea Flujo de datos\Premium ADO NET Source.Outputs[Default Output].Columns[CUSTOMER.ROLE]"
+                      name="CUSTOMER.ROLE"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Premium ADO NET Source.Outputs[Default Output].Columns[FIELD.NAME]"
+                      codePage="1252"
+                      dataType="text"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Premium ADO NET Source.Outputs[Default Output].ExternalColumns[FIELD.NAME]"
+                      lineageId="Package\Tarea Flujo de datos\Premium ADO NET Source.Outputs[Default Output].Columns[FIELD.NAME]"
+                      name="FIELD.NAME"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Premium ADO NET Source.Outputs[Default Output].Columns[FIELD.VALUE]"
+                      codePage="1252"
+                      dataType="text"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Premium ADO NET Source.Outputs[Default Output].ExternalColumns[FIELD.VALUE]"
+                      lineageId="Package\Tarea Flujo de datos\Premium ADO NET Source.Outputs[Default Output].Columns[FIELD.VALUE]"
+                      name="FIELD.VALUE"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Premium ADO NET Source.Outputs[Default Output].Columns[ID/ARR.SEQUENCE]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Premium ADO NET Source.Outputs[Default Output].ExternalColumns[ID/ARR.SEQUENCE]"
+                      length="18"
+                      lineageId="Package\Tarea Flujo de datos\Premium ADO NET Source.Outputs[Default Output].Columns[ID/ARR.SEQUENCE]"
+                      name="ID/ARR.SEQUENCE"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Premium ADO NET Source.Outputs[Default Output].Columns[MASTER.ARRANGEMENT]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Premium ADO NET Source.Outputs[Default Output].ExternalColumns[MASTER.ARRANGEMENT]"
+                      length="12"
+                      lineageId="Package\Tarea Flujo de datos\Premium ADO NET Source.Outputs[Default Output].Columns[MASTER.ARRANGEMENT]"
+                      name="MASTER.ARRANGEMENT"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Premium ADO NET Source.Outputs[Default Output].Columns[ORIG.CONTRACT.DATE]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Premium ADO NET Source.Outputs[Default Output].ExternalColumns[ORIG.CONTRACT.DATE]"
+                      length="8"
+                      lineageId="Package\Tarea Flujo de datos\Premium ADO NET Source.Outputs[Default Output].Columns[ORIG.CONTRACT.DATE]"
+                      name="ORIG.CONTRACT.DATE"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Premium ADO NET Source.Outputs[Default Output].Columns[PRODUCT]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Premium ADO NET Source.Outputs[Default Output].ExternalColumns[PRODUCT]"
+                      length="64"
+                      lineageId="Package\Tarea Flujo de datos\Premium ADO NET Source.Outputs[Default Output].Columns[PRODUCT]"
+                      name="PRODUCT"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Premium ADO NET Source.Outputs[Default Output].Columns[PROPERTY]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Premium ADO NET Source.Outputs[Default Output].ExternalColumns[PROPERTY]"
+                      length="1024"
+                      lineageId="Package\Tarea Flujo de datos\Premium ADO NET Source.Outputs[Default Output].Columns[PROPERTY]"
+                      name="PROPERTY"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Premium ADO NET Source.Outputs[Default Output].Columns[REASON]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Premium ADO NET Source.Outputs[Default Output].ExternalColumns[REASON]"
+                      length="150"
+                      lineageId="Package\Tarea Flujo de datos\Premium ADO NET Source.Outputs[Default Output].Columns[REASON]"
+                      name="REASON"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Premium ADO NET Source.Outputs[Default Output].Columns[UPLOAD.COMPANY]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Premium ADO NET Source.Outputs[Default Output].ExternalColumns[UPLOAD.COMPANY]"
+                      length="9"
+                      lineageId="Package\Tarea Flujo de datos\Premium ADO NET Source.Outputs[Default Output].Columns[UPLOAD.COMPANY]"
+                      name="UPLOAD.COMPANY"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Premium ADO NET Source.Outputs[Default Output].ExternalColumns[ACTIVITY]"
+                      dataType="wstr"
+                      length="29"
+                      name="ACTIVITY" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Premium ADO NET Source.Outputs[Default Output].ExternalColumns[ARRANGEMENT]"
+                      dataType="wstr"
+                      length="12"
+                      name="ARRANGEMENT" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Premium ADO NET Source.Outputs[Default Output].ExternalColumns[CURRENCY]"
+                      dataType="wstr"
+                      length="3"
+                      name="CURRENCY" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Premium ADO NET Source.Outputs[Default Output].ExternalColumns[CUSTOMER]"
+                      dataType="wstr"
+                      length="128"
+                      name="CUSTOMER" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Premium ADO NET Source.Outputs[Default Output].ExternalColumns[CUSTOMER.ROLE]"
+                      dataType="wstr"
+                      length="128"
+                      name="CUSTOMER.ROLE" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Premium ADO NET Source.Outputs[Default Output].ExternalColumns[FIELD.NAME]"
+                      codePage="1252"
+                      dataType="text"
+                      name="FIELD.NAME" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Premium ADO NET Source.Outputs[Default Output].ExternalColumns[FIELD.VALUE]"
+                      codePage="1252"
+                      dataType="text"
+                      name="FIELD.VALUE" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Premium ADO NET Source.Outputs[Default Output].ExternalColumns[ID/ARR.SEQUENCE]"
+                      dataType="wstr"
+                      length="18"
+                      name="ID/ARR.SEQUENCE" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Premium ADO NET Source.Outputs[Default Output].ExternalColumns[MASTER.ARRANGEMENT]"
+                      dataType="wstr"
+                      length="12"
+                      name="MASTER.ARRANGEMENT" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Premium ADO NET Source.Outputs[Default Output].ExternalColumns[ORIG.CONTRACT.DATE]"
+                      dataType="wstr"
+                      length="8"
+                      name="ORIG.CONTRACT.DATE" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Premium ADO NET Source.Outputs[Default Output].ExternalColumns[PRODUCT]"
+                      dataType="wstr"
+                      length="64"
+                      name="PRODUCT" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Premium ADO NET Source.Outputs[Default Output].ExternalColumns[PROPERTY]"
+                      dataType="wstr"
+                      length="1024"
+                      name="PROPERTY" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Premium ADO NET Source.Outputs[Default Output].ExternalColumns[REASON]"
+                      dataType="wstr"
+                      length="150"
+                      name="REASON" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Premium ADO NET Source.Outputs[Default Output].ExternalColumns[UPLOAD.COMPANY]"
+                      dataType="wstr"
+                      length="9"
+                      name="UPLOAD.COMPANY" />
+                  </externalMetadataColumns>
+                </output>
+              </outputs>
+            </component>
+          </components>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="180,42"
+          Id="Package\Tarea Flujo de datos"
+          TopLeft="133,71" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Tarea Flujo de datos">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="213,42"
+          Id="Package\Tarea Flujo de datos\Premium ADO NET Source"
+          TopLeft="82,36" />
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>
