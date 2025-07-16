@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="PqTransformaDMS-Dra01Takeover"
   DTS:PackageType="5"
-  DTS:VersionBuild="41"
-  DTS:VersionGUID="{FF1F2D70-B51B-41E1-8F31-342AA76094A0}">
+DTS:VersionBuild="42"
+  DTS:VersionGUID="{1EF3555A-84F2-4A65-B36D-7F5089F8C528}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables />
@@ -21,6 +21,7 @@
       DTS:refId="Package\4 casos DRA01"
       DTS:CreationName="Microsoft.ExecuteSQLTask"
       DTS:Description="Execute SQL Task"
+      DTS:Disabled="True"
       DTS:DTSID="{77B82FAF-172B-4BA8-8FB1-24FC576209CC}"
       DTS:ExecutableType="Microsoft.ExecuteSQLTask"
       DTS:LocaleID="-1"
