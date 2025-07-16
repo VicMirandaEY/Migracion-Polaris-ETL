@@ -1,17 +1,34 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.32428.217
+# Visual Studio Version 17
+VisualStudioVersion = 17.14.36212.18 d17.14
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{159641D6-6404-4A2A-AE62-294DE0FE8301}") = "IS-Migracion-Polaris", "IS-Migracion-Polaris\IS-Migracion-Polaris.dtproj", "{9DDE9F9D-4F86-4430-9CE9-B49649D683C8}"
+Project("{C9674DCB-5085-4A16-B785-4C70DD1589BD}") = "IS-Migracion-Polaris", "IS-Migracion-Polaris\IS-Migracion-Polaris.dtproj", "{9DDE9F9D-4F86-4430-9CE9-B49649D683C8}"
+EndProject
+Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "StoresProcedures", "StoresProcedures\StoresProcedures.sqlproj", "{CD35489B-D715-4148-9528-62DDC88FE65E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
-		Development|Default = Development|Default
+		Debug|Any CPU = Debug|Any CPU
+		Development|Any CPU = Development|Any CPU
+		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{9DDE9F9D-4F86-4430-9CE9-B49649D683C8}.Development|Default.ActiveCfg = Development
-		{9DDE9F9D-4F86-4430-9CE9-B49649D683C8}.Development|Default.Build.0 = Development
+		{9DDE9F9D-4F86-4430-9CE9-B49649D683C8}.Debug|Any CPU.ActiveCfg = Development
+		{9DDE9F9D-4F86-4430-9CE9-B49649D683C8}.Debug|Any CPU.Build.0 = Development
+		{9DDE9F9D-4F86-4430-9CE9-B49649D683C8}.Development|Any CPU.ActiveCfg = Development
+		{9DDE9F9D-4F86-4430-9CE9-B49649D683C8}.Development|Any CPU.Build.0 = Development
+		{9DDE9F9D-4F86-4430-9CE9-B49649D683C8}.Release|Any CPU.ActiveCfg = Development
+		{9DDE9F9D-4F86-4430-9CE9-B49649D683C8}.Release|Any CPU.Build.0 = Development
+		{CD35489B-D715-4148-9528-62DDC88FE65E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CD35489B-D715-4148-9528-62DDC88FE65E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CD35489B-D715-4148-9528-62DDC88FE65E}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{CD35489B-D715-4148-9528-62DDC88FE65E}.Development|Any CPU.ActiveCfg = Release|Any CPU
+		{CD35489B-D715-4148-9528-62DDC88FE65E}.Development|Any CPU.Build.0 = Release|Any CPU
+		{CD35489B-D715-4148-9528-62DDC88FE65E}.Development|Any CPU.Deploy.0 = Release|Any CPU
+		{CD35489B-D715-4148-9528-62DDC88FE65E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CD35489B-D715-4148-9528-62DDC88FE65E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CD35489B-D715-4148-9528-62DDC88FE65E}.Release|Any CPU.Deploy.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -12,7 +12,7 @@
   DTS:ObjectName="PqCreateCustomer"
   DTS:PackageType="5"
   DTS:VersionBuild="100"
-  DTS:VersionGUID="{CAEAF28B-4C6A-402C-8390-00D999A3FB25}">
+DTS:VersionGUID="{CAEAF28B-4C6A-402C-8390-00D999A3FB25}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -495,8 +495,7 @@
                 <property
                   dataType="System.String"
                   expressionType="Notify"
-                  name="Command">
-SELECT DISTINCT
+                  name="Command">SELECT DISTINCT
         'CAF' Company--UPLOAD.COMPANY
         ,C.co_persona --CUSTOMER.CODE
         ,'' MNemonic --MNEMONIC
@@ -6522,7 +6521,7 @@ WHERE
         <NodeLayout
           Size="176,42"
           Id="Package\Tarea Flujo de datos\División condicional"
-          TopLeft="748,207" />
+          TopLeft="780,201" />
         <NodeLayout
           Size="164,43"
           Id="Package\Tarea Flujo de datos\PSL COUNTRY"
@@ -6597,25 +6596,25 @@ WHERE
           TopLeft="1015.74995803461,28.2631576393119" />
         <EdgeLayout
           Id="Package\Tarea Flujo de datos.Paths[Salida predeterminada de división condicional]"
-          TopLeft="924,228.289472989304">
+          TopLeft="956,225.289472989304">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="110.75000385568,0"
+              EndConnector="78.75000385568,0"
               Start="0,0"
-              End="103.25000385568,0">
+              End="71.25000385568,0">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="103.25000385568,0" />
+                    End="71.25000385568,0" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-49.29779104091,5,201.8455859375,12.1953125"
+              BoundingBox="-65.29779104091,5,201.8455859375,12.1953125"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -6655,7 +6654,7 @@ WHERE
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Tarea Flujo de datos.Paths[Salida de columna derivada]"
-          TopLeft="421.750002067536,49.5">
+ TopLeft="421.750002067536,49.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -6666,7 +6665,7 @@ WHERE
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="17.3750003632159,0" />
+End="17.3750003632159,0" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -7007,25 +7006,37 @@ WHERE
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Tarea Flujo de datos.Paths[Case 1]"
-          TopLeft="833.75,249">
+          TopLeft="868,243">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,129"
+              EndConnector="-36.5,135"
               Start="0,0"
-              End="0,121.5">
+              End="-36.5,127.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,121.5" />
+                    End="0,63.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,63.5"
+                    Point2="0,67.5"
+                    Point3="-4,67.5" />
+                  <mssgle:LineSegment
+                    End="-32.5,67.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-32.5,67.5"
+                    Point2="-36.5,67.5"
+                    Point3="-36.5,71.5" />
+                  <mssgle:LineSegment
+                    End="-36.5,127.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-15.2180859375,55.97314453125,30.436171875,9.5537109375"
+              BoundingBox="-33.4680859375,72.5,30.436171875,9.5537109375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
