@@ -11,8 +11,8 @@
   DTS:LocaleID="3082"
   DTS:ObjectName="PqCrearDMS-Dea01Takeover"
   DTS:PackageType="5"
-  DTS:VersionBuild="154"
-  DTS:VersionGUID="{752F5806-270A-4120-B23F-43F1F4CC4C8E}">
+  DTS:VersionBuild="155"
+  DTS:VersionGUID="{34593D79-9E50-427D-9ED7-455E488D02C6}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -2210,7 +2210,7 @@
                       refId="Package\DMS-DER01-TAKEOVER\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[PRINCIPALINT.TIER.AMOUNT]"
                       codePage="1252"
                       dataType="str"
-                      length="154"
+                      length="106"
                       lineageId="Package\DMS-DER01-TAKEOVER\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[PRINCIPALINT.TIER.AMOUNT]"
                       name="PRINCIPALINT.TIER.AMOUNT">
                       <properties>
@@ -2270,7 +2270,7 @@
                       refId="Package\DMS-DER01-TAKEOVER\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[SCHEDULE.PAYMENT.TYPE]"
                       codePage="1252"
                       dataType="str"
-                      length="47"
+                      length="44"
                       lineageId="Package\DMS-DER01-TAKEOVER\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[SCHEDULE.PAYMENT.TYPE]"
                       name="SCHEDULE.PAYMENT.TYPE">
                       <properties>
@@ -2299,7 +2299,7 @@
                       refId="Package\DMS-DER01-TAKEOVER\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[SCHEDULE.ACTUAL.AMT]"
                       codePage="1252"
                       dataType="str"
-                      length="154"
+                      length="206"
                       lineageId="Package\DMS-DER01-TAKEOVER\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[SCHEDULE.ACTUAL.AMT]"
                       name="SCHEDULE.ACTUAL.AMT">
                       <properties>
@@ -7086,14 +7086,14 @@
                       refId="Package\DMS-DER01-TAKEOVER\PDC_003.Inputs[Primary Input].Columns[PRINCIPALINT.TIER.AMOUNT]"
                       cachedCodepage="1252"
                       cachedDataType="str"
-                      cachedLength="154"
+                      cachedLength="106"
                       cachedName="PRINCIPALINT.TIER.AMOUNT"
                       lineageId="Package\DMS-DER01-TAKEOVER\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[PRINCIPALINT.TIER.AMOUNT]" />
                     <inputColumn
                       refId="Package\DMS-DER01-TAKEOVER\PDC_003.Inputs[Primary Input].Columns[SCHEDULE.ACTUAL.AMT]"
                       cachedCodepage="1252"
                       cachedDataType="str"
-                      cachedLength="154"
+                      cachedLength="206"
                       cachedName="SCHEDULE.ACTUAL.AMT"
                       lineageId="Package\DMS-DER01-TAKEOVER\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[SCHEDULE.ACTUAL.AMT]" />
                     <inputColumn
@@ -7113,7 +7113,7 @@
                       refId="Package\DMS-DER01-TAKEOVER\PDC_003.Inputs[Primary Input].Columns[SCHEDULE.PAYMENT.TYPE]"
                       cachedCodepage="1252"
                       cachedDataType="str"
-                      cachedLength="47"
+                      cachedLength="44"
                       cachedName="SCHEDULE.PAYMENT.TYPE"
                       lineageId="Package\DMS-DER01-TAKEOVER\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[SCHEDULE.PAYMENT.TYPE]" />
                     <inputColumn
@@ -8979,8 +8979,18 @@ SELECT
             + CASE WHEN EXISTS (SELECT 1 FROM NUMERADOS N2 WHERE N2.FACILITY = A.FACILITY AND N2.HIJO_NUM = 2) THEN '!!' + 'FUND.BILL' ELSE '!!' END
         ELSE 'FUND.BILL'
         END
+    
   
     ) AS [SCHEDULE.BILL.TYPE],
+    
+    (
+    SELECT 
+    CASE WHEN A.HIJO_NUM = 1 THEN 'BILL.TYPE:1:1' + CASE WHEN EXISTS (SELECT 1 FROM NUMERADOS N2 WHERE N2.FACILITY = A.FACILITY AND N2.HIJO_NUM = 2) THEN '!!BILL.TYPE:2:1' ELSE '!!' END
+         + CASE WHEN EXISTS (SELECT 1 FROM NUMERADOS N3 WHERE N3.FACILITY = A.FACILITY AND N3.HIJO_NUM = 3) THEN '!!BILL.TYPE:3:1' ELSE '!!' END
+            ELSE 'BILL.TYPE:1:1!!'
+        END
+        ) AS [FNQ.SCHEDULE.BILL.TYPE],
+
     
     ------------------------------ [XINTFUND.MARGIN.INTFUND]
     (
@@ -8989,8 +8999,21 @@ SELECT
         FROM NUMERADOS N2
         WHERE N2.CO_OPERACION_ACTIVA = A.CO_OPERACION_ACTIVA
         ) AS [XINTFUND.MARGIN.INTFUND],
+    (
+        SELECT 
+            CASE WHEN A.FE_VENCIMIENTO_KFW &gt; '2026-01-01' THEN 'INTFUND' ELSE '' END
+        FROM NUMERADOS N2
+        WHERE N2.CO_OPERACION_ACTIVA = A.CO_OPERACION_ACTIVA
+    ) AS [FNQ.XINTFUND.MARGIN.INTFUND],
+        
+        
+    ----------------------------- XINTFUND.MARGIN.TERM
         
     DATEDIFF(DAY, A.FE_CONTRATO, A.FE_VENCIMIENTO) AS [XINTFUND.MARGIN.TERM],
+    
+    
+    'TERM' AS [FNQ.XINTFUND.MARGIN.TERM],
+     
     
     ------------------------------ [XINTFUND.MARGIN.DATE.FROM]
     (
@@ -9000,6 +9023,8 @@ SELECT
                 ELSE ''
             END
     ) AS [XINTFUND.MARGIN.DATE.FROM],
+    
+    'DATE.FROM' AS [FNQ.XINTFUND.MARGIN.DATE.FROM],
     
     ------------------------------ [XINTFUND.MARGIN.DATE.TO]
     (
@@ -9747,6 +9772,50 @@ ORDER BY A.PADRE_SUPERIOR ASC, A.FACILITY ASC, A.HIJO_NUM ASC;
                       lineageId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1.Outputs[Default Output].Columns[FNQ.SCHEDULE.ACTAUL.AMT]"
                       name="FNQ.SCHEDULE.ACTAUL.AMT"
                       truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1.Outputs[Default Output].Columns[FNQ.SCHEDULE.BILL.TYPE]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1.Outputs[Default Output].ExternalColumns[FNQ.SCHEDULE.BILL.TYPE]"
+                      length="43"
+                      lineageId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1.Outputs[Default Output].Columns[FNQ.SCHEDULE.BILL.TYPE]"
+                      name="FNQ.SCHEDULE.BILL.TYPE"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1.Outputs[Default Output].Columns[FNQ.XINTFUND.MARGIN.DATE.FROM]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1.Outputs[Default Output].ExternalColumns[FNQ.XINTFUND.MARGIN.DATE.FROM]"
+                      length="9"
+                      lineageId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1.Outputs[Default Output].Columns[FNQ.XINTFUND.MARGIN.DATE.FROM]"
+                      name="FNQ.XINTFUND.MARGIN.DATE.FROM"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1.Outputs[Default Output].Columns[FNQ.XINTFUND.MARGIN.INTFUND]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1.Outputs[Default Output].ExternalColumns[FNQ.XINTFUND.MARGIN.INTFUND]"
+                      length="7"
+                      lineageId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1.Outputs[Default Output].Columns[FNQ.XINTFUND.MARGIN.INTFUND]"
+                      name="FNQ.XINTFUND.MARGIN.INTFUND"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1.Outputs[Default Output].Columns[FNQ.XINTFUND.MARGIN.TERM]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1.Outputs[Default Output].ExternalColumns[FNQ.XINTFUND.MARGIN.TERM]"
+                      length="4"
+                      lineageId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1.Outputs[Default Output].Columns[FNQ.XINTFUND.MARGIN.TERM]"
+                      name="FNQ.XINTFUND.MARGIN.TERM"
+                      truncationRowDisposition="FailComponent" />
                   </outputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -10086,6 +10155,30 @@ ORDER BY A.PADRE_SUPERIOR ASC, A.FACILITY ASC, A.HIJO_NUM ASC;
                       dataType="str"
                       length="62"
                       name="FNQ.SCHEDULE.ACTAUL.AMT" />
+                    <externalMetadataColumn
+                      refId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1.Outputs[Default Output].ExternalColumns[FNQ.SCHEDULE.BILL.TYPE]"
+                      codePage="1252"
+                      dataType="str"
+                      length="43"
+                      name="FNQ.SCHEDULE.BILL.TYPE" />
+                    <externalMetadataColumn
+                      refId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1.Outputs[Default Output].ExternalColumns[FNQ.XINTFUND.MARGIN.DATE.FROM]"
+                      codePage="1252"
+                      dataType="str"
+                      length="9"
+                      name="FNQ.XINTFUND.MARGIN.DATE.FROM" />
+                    <externalMetadataColumn
+                      refId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1.Outputs[Default Output].ExternalColumns[FNQ.XINTFUND.MARGIN.INTFUND]"
+                      codePage="1252"
+                      dataType="str"
+                      length="7"
+                      name="FNQ.XINTFUND.MARGIN.INTFUND" />
+                    <externalMetadataColumn
+                      refId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1.Outputs[Default Output].ExternalColumns[FNQ.XINTFUND.MARGIN.TERM]"
+                      codePage="1252"
+                      dataType="str"
+                      length="4"
+                      name="FNQ.XINTFUND.MARGIN.TERM" />
                   </externalMetadataColumns>
                 </output>
               </outputs>
@@ -10322,7 +10415,7 @@ ORDER BY A.PADRE_SUPERIOR ASC, A.FACILITY ASC, A.HIJO_NUM ASC;
                       refId="Package\DMS-DER01-TAKEOVER\Premium Excel Destination.Inputs[Primary Input].Columns[PRINCIPALINT.TIER.AMOUNT]"
                       cachedCodepage="1252"
                       cachedDataType="str"
-                      cachedLength="154"
+                      cachedLength="106"
                       cachedName="PRINCIPALINT.TIER.AMOUNT"
                       externalMetadataColumnId="Package\DMS-DER01-TAKEOVER\Premium Excel Destination.Inputs[Primary Input].ExternalColumns[PRINCIPALINT TIER.AMOUNT]"
                       lineageId="Package\DMS-DER01-TAKEOVER\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[PRINCIPALINT.TIER.AMOUNT]" />
@@ -10345,7 +10438,7 @@ ORDER BY A.PADRE_SUPERIOR ASC, A.FACILITY ASC, A.HIJO_NUM ASC;
                       refId="Package\DMS-DER01-TAKEOVER\Premium Excel Destination.Inputs[Primary Input].Columns[SCHEDULE.PAYMENT.TYPE]"
                       cachedCodepage="1252"
                       cachedDataType="str"
-                      cachedLength="47"
+                      cachedLength="44"
                       cachedName="SCHEDULE.PAYMENT.TYPE"
                       externalMetadataColumnId="Package\DMS-DER01-TAKEOVER\Premium Excel Destination.Inputs[Primary Input].ExternalColumns[SCHEDULE PAYMENT.TYPE]"
                       lineageId="Package\DMS-DER01-TAKEOVER\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[SCHEDULE.PAYMENT.TYPE]" />
@@ -10367,7 +10460,7 @@ ORDER BY A.PADRE_SUPERIOR ASC, A.FACILITY ASC, A.HIJO_NUM ASC;
                       refId="Package\DMS-DER01-TAKEOVER\Premium Excel Destination.Inputs[Primary Input].Columns[SCHEDULE.ACTUAL.AMT]"
                       cachedCodepage="1252"
                       cachedDataType="str"
-                      cachedLength="154"
+                      cachedLength="206"
                       cachedName="SCHEDULE.ACTUAL.AMT"
                       externalMetadataColumnId="Package\DMS-DER01-TAKEOVER\Premium Excel Destination.Inputs[Primary Input].ExternalColumns[SCHEDULE ACTUAL.AMT]"
                       lineageId="Package\DMS-DER01-TAKEOVER\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[SCHEDULE.ACTUAL.AMT]" />
@@ -12208,84 +12301,84 @@ ORDER BY A.PADRE_SUPERIOR ASC, A.FACILITY ASC, A.HIJO_NUM ASC;
                       cachedLength="9"
                       cachedName="UPLOAD.COMPANY"
                       externalMetadataColumnId="Package\DMS-DER01-TAKEOVER 1\Premium Flat File Destination DMS DRA 01 TAKEOVER.Inputs[Primary Input].ExternalColumns[Column1]"
-                      lineageId="Package\DMS-DER01-TAKEOVER 1\1572:invalid" />
+                      lineageId="Package\DMS-DER01-TAKEOVER 1\1586:invalid" />
                     <inputColumn
                       refId="Package\DMS-DER01-TAKEOVER 1\Premium Flat File Destination DMS DRA 01 TAKEOVER.Inputs[Primary Input].Columns[ID/ARR.SEQUENCE]"
                       cachedDataType="wstr"
                       cachedLength="18"
                       cachedName="ID/ARR.SEQUENCE"
                       externalMetadataColumnId="Package\DMS-DER01-TAKEOVER 1\Premium Flat File Destination DMS DRA 01 TAKEOVER.Inputs[Primary Input].ExternalColumns[Column2]"
-                      lineageId="Package\DMS-DER01-TAKEOVER 1\1573:invalid" />
+                      lineageId="Package\DMS-DER01-TAKEOVER 1\1587:invalid" />
                     <inputColumn
                       refId="Package\DMS-DER01-TAKEOVER 1\Premium Flat File Destination DMS DRA 01 TAKEOVER.Inputs[Primary Input].Columns[ARRANGEMENT]"
                       cachedDataType="wstr"
                       cachedLength="12"
                       cachedName="ARRANGEMENT"
                       externalMetadataColumnId="Package\DMS-DER01-TAKEOVER 1\Premium Flat File Destination DMS DRA 01 TAKEOVER.Inputs[Primary Input].ExternalColumns[Column3]"
-                      lineageId="Package\DMS-DER01-TAKEOVER 1\1574:invalid" />
+                      lineageId="Package\DMS-DER01-TAKEOVER 1\1588:invalid" />
                     <inputColumn
                       refId="Package\DMS-DER01-TAKEOVER 1\Premium Flat File Destination DMS DRA 01 TAKEOVER.Inputs[Primary Input].Columns[ACTIVITY]"
                       cachedDataType="wstr"
                       cachedLength="29"
                       cachedName="ACTIVITY"
                       externalMetadataColumnId="Package\DMS-DER01-TAKEOVER 1\Premium Flat File Destination DMS DRA 01 TAKEOVER.Inputs[Primary Input].ExternalColumns[Column4]"
-                      lineageId="Package\DMS-DER01-TAKEOVER 1\1575:invalid" />
+                      lineageId="Package\DMS-DER01-TAKEOVER 1\1589:invalid" />
                     <inputColumn
                       refId="Package\DMS-DER01-TAKEOVER 1\Premium Flat File Destination DMS DRA 01 TAKEOVER.Inputs[Primary Input].Columns[CUSTOMER]"
                       cachedDataType="wstr"
                       cachedLength="128"
                       cachedName="CUSTOMER"
                       externalMetadataColumnId="Package\DMS-DER01-TAKEOVER 1\Premium Flat File Destination DMS DRA 01 TAKEOVER.Inputs[Primary Input].ExternalColumns[Column5]"
-                      lineageId="Package\DMS-DER01-TAKEOVER 1\1576:invalid" />
+                      lineageId="Package\DMS-DER01-TAKEOVER 1\1590:invalid" />
                     <inputColumn
                       refId="Package\DMS-DER01-TAKEOVER 1\Premium Flat File Destination DMS DRA 01 TAKEOVER.Inputs[Primary Input].Columns[CUSTOMER.ROLE]"
                       cachedDataType="wstr"
                       cachedLength="128"
                       cachedName="CUSTOMER.ROLE"
                       externalMetadataColumnId="Package\DMS-DER01-TAKEOVER 1\Premium Flat File Destination DMS DRA 01 TAKEOVER.Inputs[Primary Input].ExternalColumns[Column6]"
-                      lineageId="Package\DMS-DER01-TAKEOVER 1\1577:invalid" />
+                      lineageId="Package\DMS-DER01-TAKEOVER 1\1591:invalid" />
                     <inputColumn
                       refId="Package\DMS-DER01-TAKEOVER 1\Premium Flat File Destination DMS DRA 01 TAKEOVER.Inputs[Primary Input].Columns[MASTER.ARRANGEMENT]"
                       cachedDataType="wstr"
                       cachedLength="12"
                       cachedName="MASTER.ARRANGEMENT"
                       externalMetadataColumnId="Package\DMS-DER01-TAKEOVER 1\Premium Flat File Destination DMS DRA 01 TAKEOVER.Inputs[Primary Input].ExternalColumns[Column7]"
-                      lineageId="Package\DMS-DER01-TAKEOVER 1\1578:invalid" />
+                      lineageId="Package\DMS-DER01-TAKEOVER 1\1592:invalid" />
                     <inputColumn
                       refId="Package\DMS-DER01-TAKEOVER 1\Premium Flat File Destination DMS DRA 01 TAKEOVER.Inputs[Primary Input].Columns[PRODUCT]"
                       cachedDataType="wstr"
                       cachedLength="64"
                       cachedName="PRODUCT"
                       externalMetadataColumnId="Package\DMS-DER01-TAKEOVER 1\Premium Flat File Destination DMS DRA 01 TAKEOVER.Inputs[Primary Input].ExternalColumns[Column8]"
-                      lineageId="Package\DMS-DER01-TAKEOVER 1\1579:invalid" />
+                      lineageId="Package\DMS-DER01-TAKEOVER 1\1593:invalid" />
                     <inputColumn
                       refId="Package\DMS-DER01-TAKEOVER 1\Premium Flat File Destination DMS DRA 01 TAKEOVER.Inputs[Primary Input].Columns[CURRENCY]"
                       cachedDataType="wstr"
                       cachedLength="3"
                       cachedName="CURRENCY"
                       externalMetadataColumnId="Package\DMS-DER01-TAKEOVER 1\Premium Flat File Destination DMS DRA 01 TAKEOVER.Inputs[Primary Input].ExternalColumns[Column9]"
-                      lineageId="Package\DMS-DER01-TAKEOVER 1\1580:invalid" />
+                      lineageId="Package\DMS-DER01-TAKEOVER 1\1594:invalid" />
                     <inputColumn
                       refId="Package\DMS-DER01-TAKEOVER 1\Premium Flat File Destination DMS DRA 01 TAKEOVER.Inputs[Primary Input].Columns[ORIG.CONTRACT.DATE]"
                       cachedDataType="wstr"
                       cachedLength="8"
                       cachedName="ORIG.CONTRACT.DATE"
                       externalMetadataColumnId="Package\DMS-DER01-TAKEOVER 1\Premium Flat File Destination DMS DRA 01 TAKEOVER.Inputs[Primary Input].ExternalColumns[Column10]"
-                      lineageId="Package\DMS-DER01-TAKEOVER 1\1581:invalid" />
+                      lineageId="Package\DMS-DER01-TAKEOVER 1\1595:invalid" />
                     <inputColumn
                       refId="Package\DMS-DER01-TAKEOVER 1\Premium Flat File Destination DMS DRA 01 TAKEOVER.Inputs[Primary Input].Columns[PROPERTY]"
                       cachedDataType="wstr"
                       cachedLength="1024"
                       cachedName="PROPERTY"
                       externalMetadataColumnId="Package\DMS-DER01-TAKEOVER 1\Premium Flat File Destination DMS DRA 01 TAKEOVER.Inputs[Primary Input].ExternalColumns[Column11]"
-                      lineageId="Package\DMS-DER01-TAKEOVER 1\1582:invalid" />
+                      lineageId="Package\DMS-DER01-TAKEOVER 1\1596:invalid" />
                     <inputColumn
                       refId="Package\DMS-DER01-TAKEOVER 1\Premium Flat File Destination DMS DRA 01 TAKEOVER.Inputs[Primary Input].Columns[REASON]"
                       cachedDataType="wstr"
                       cachedLength="150"
                       cachedName="REASON"
                       externalMetadataColumnId="Package\DMS-DER01-TAKEOVER 1\Premium Flat File Destination DMS DRA 01 TAKEOVER.Inputs[Primary Input].ExternalColumns[Column14]"
-                      lineageId="Package\DMS-DER01-TAKEOVER 1\1583:invalid" />
+                      lineageId="Package\DMS-DER01-TAKEOVER 1\1597:invalid" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -12762,7 +12855,7 @@ ORDER BY A.PADRE_SUPERIOR ASC, A.FACILITY ASC, A.HIJO_NUM ASC;
                       cachedLength="18"
                       cachedName="ID/ARR.SEQUENCE"
                       externalMetadataColumnId="Package\DMS-DER01-TAKEOVER 1\Premium Service Lookup.Inputs[Primary Input].ExternalColumns[ID/ARR.SEQUENCE]"
-                      lineageId="Package\DMS-DER01-TAKEOVER 1\1573:invalid" />
+                      lineageId="Package\DMS-DER01-TAKEOVER 1\1587:invalid" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -15591,6 +15684,10 @@ WHERE SUBSTRING([STGPolaris].[dbo].[fn_udfTrim] (OPER.coOperacionActiva),1,3) IN
       <GraphLayout
         Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
+          Size="152,42"
+          Id="Package\DMS-DER01-TAKEOVER\PSL AccrBasis"
+          TopLeft="696,53" />
+        <NodeLayout
           Size="127,42"
           Id="Package\DMS-DER01-TAKEOVER\PDC_003"
           TopLeft="1193,58" />
@@ -15627,13 +15724,75 @@ WHERE SUBSTRING([STGPolaris].[dbo].[fn_udfTrim] (OPER.coOperacionActiva),1,3) IN
           Id="Package\DMS-DER01-TAKEOVER\PDC_002"
           TopLeft="1038,55" />
         <NodeLayout
-          Size="152,42"
-          Id="Package\DMS-DER01-TAKEOVER\PSL AccrBasis"
-          TopLeft="696,53" />
-        <NodeLayout
           Size="196,42"
           Id="Package\DMS-DER01-TAKEOVER\Combinación de mezcla"
           TopLeft="455,45" />
+        <EdgeLayout
+          Id="Package\DMS-DER01-TAKEOVER.Paths[Default Output2]"
+          TopLeft="1007,76.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="31,0"
+              Start="0,0"
+              End="23.5,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="23.5,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DMS-DER01-TAKEOVER.Paths[Default Output1]"
+          TopLeft="236,95.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="26,0"
+              Start="0,0"
+              End="18.5,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="18.5,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DMS-DER01-TAKEOVER.Paths[Default Output]"
+          TopLeft="231,42.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="35,0"
+              Start="0,0"
+              End="27.5,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="27.5,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
         <EdgeLayout
           Id="Package\DMS-DER01-TAKEOVER.Paths[Default Ouptut]"
           TopLeft="848,75.5">
@@ -15832,72 +15991,6 @@ WHERE SUBSTRING([STGPolaris].[dbo].[fn_udfTrim] (OPER.coOperacionActiva),1,3) IN
                   Capacity="5">
                   <mssgle:LineSegment
                     End="20.5,0" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\DMS-DER01-TAKEOVER.Paths[Default Output2]"
-          TopLeft="1007,76.5">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="31,0"
-              Start="0,0"
-              End="23.5,0">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="23.5,0" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\DMS-DER01-TAKEOVER.Paths[Default Output1]"
-          TopLeft="236,95.5">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="26,0"
-              Start="0,0"
-              End="18.5,0">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="18.5,0" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\DMS-DER01-TAKEOVER.Paths[Default Output]"
-          TopLeft="231,42.5">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="35,0"
-              Start="0,0"
-              End="27.5,0">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="27.5,0" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
