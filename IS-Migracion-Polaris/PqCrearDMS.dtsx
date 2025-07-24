@@ -11,8 +11,8 @@
   DTS:LocaleID="3082"
   DTS:ObjectName="PqCrearDMS-Dea01Takeover"
   DTS:PackageType="5"
-  DTS:VersionBuild="211"
-  DTS:VersionGUID="{370756C7-64DF-4E87-85A4-3D033B0EF5C6}">
+  DTS:VersionBuild="219"
+  DTS:VersionGUID="{C9509DA4-7FF8-4674-A1D9-4314285C4029}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -322,13 +322,6 @@
                       cachedScale="6"
                       lineageId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1.Outputs[Default Output].Columns[MO_APROBADO_MONEDA_ORIGEN]" />
                     <inputColumn
-                      refId="Package\DMS-DER01-TAKEOVER\PDC_001.Inputs[Primary Input].Columns[TA_KFW]"
-                      cachedDataType="numeric"
-                      cachedName="TA_KFW"
-                      cachedPrecision="10"
-                      cachedScale="4"
-                      lineageId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1.Outputs[Default Output].Columns[TA_KFW]" />
-                    <inputColumn
                       refId="Package\DMS-DER01-TAKEOVER\PDC_001.Inputs[Primary Input].Columns[FV_PRINCIPALINT_RATE_TIER_TYPE]"
                       cachedCodepage="1252"
                       cachedDataType="str"
@@ -533,28 +526,6 @@
                       </properties>
                     </outputColumn>
                     <outputColumn
-                      refId="Package\DMS-DER01-TAKEOVER\PDC_001.Outputs[Default Output].Columns[FV.INTERESTKFW.FIXED.RATE]"
-                      dataType="numeric"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      lineageId="Package\DMS-DER01-TAKEOVER\PDC_001.Outputs[Default Output].Columns[FV.INTERESTKFW.FIXED.RATE]"
-                      name="FV.INTERESTKFW.FIXED.RATE"
-                      precision="10"
-                      scale="4"
-                      truncationRowDisposition="FailComponent">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.String"
-                          description="Derived Column Expression"
-                          name="Expression">#{Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1.Outputs[Default Output].Columns[TA_KFW]}</property>
-                        <property
-                          dataType="System.String"
-                          description="Derived Column Friendly Expression"
-                          name="FriendlyExpression">[TA_KFW]</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
                       refId="Package\DMS-DER01-TAKEOVER\PDC_001.Outputs[Default Output].Columns[FNQ.PRINCIPALINT.RATE.TIER.TYPE]"
                       dataType="wstr"
                       errorOrTruncationOperation="Conversion"
@@ -645,9 +616,9 @@
                       refId="Package\DMS-DER01-TAKEOVER\PDC_003.Inputs[Primary Input].Columns[FV.INTERESTKFW.FIXED.RATE]"
                       cachedDataType="numeric"
                       cachedName="FV.INTERESTKFW.FIXED.RATE"
-                      cachedPrecision="10"
+                      cachedPrecision="38"
                       cachedScale="4"
-                      lineageId="Package\DMS-DER01-TAKEOVER\PDC_001.Outputs[Default Output].Columns[FV.INTERESTKFW.FIXED.RATE]" />
+                      lineageId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1.Outputs[Default Output].Columns[FV.INTERESTKFW.FIXED.RATE]" />
                     <inputColumn
                       refId="Package\DMS-DER01-TAKEOVER\PDC_003.Inputs[Primary Input].Columns[FV.INTERESTKWF.DAY.BASIS]"
                       cachedDataType="wstr"
@@ -780,7 +751,7 @@
                           containsID="true"
                           dataType="System.String"
                           description="Derived Column Expression"
-                          name="Expression">ISNULL(#{Package\DMS-DER01-TAKEOVER\PDC_001.Outputs[Default Output].Columns[FV.INTERESTKFW.FIXED.RATE]}) || #{Package\DMS-DER01-TAKEOVER\PDC_001.Outputs[Default Output].Columns[FV.INTERESTKFW.FIXED.RATE]} == 0 ? "" : "FIXE.RATE"</property>
+                          name="Expression">ISNULL(#{Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1.Outputs[Default Output].Columns[FV.INTERESTKFW.FIXED.RATE]}) || #{Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1.Outputs[Default Output].Columns[FV.INTERESTKFW.FIXED.RATE]} == 0 ? "" : "FIXE.RATE"</property>
                         <property
                           dataType="System.String"
                           description="Derived Column Friendly Expression"
@@ -961,24 +932,14 @@
                     <inputColumn
                       refId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Destination.Inputs[Primary Input].Columns[PRINCIPALINT.MARGIN.OPER]"
                       cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="13"
+                      cachedDataType="text"
                       cachedName="PRINCIPALINT.MARGIN.OPER"
                       externalMetadataColumnId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Destination.Inputs[Primary Input].ExternalColumns[FV_PRINCIPALINT_MARGIN_OPER]"
                       lineageId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1.Outputs[Default Output].Columns[PRINCIPALINT.MARGIN.OPER]" />
                     <inputColumn
-                      refId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Destination.Inputs[Primary Input].Columns[PRINCIPALINT.MARGIN.RATE]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="154"
-                      cachedName="PRINCIPALINT.MARGIN.RATE"
-                      externalMetadataColumnId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Destination.Inputs[Primary Input].ExternalColumns[FV_PRINCIPALINT_MARGIN_RATE]"
-                      lineageId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1.Outputs[Default Output].Columns[PRINCIPALINT.MARGIN.RATE]" />
-                    <inputColumn
                       refId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Destination.Inputs[Primary Input].Columns[PRINCIPALINT.MARGIN.TYPE]"
                       cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="16"
+                      cachedDataType="text"
                       cachedName="PRINCIPALINT.MARGIN.TYPE"
                       externalMetadataColumnId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Destination.Inputs[Primary Input].ExternalColumns[FV_PRINCIPALINT_MARGIN_TYPE]"
                       lineageId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1.Outputs[Default Output].Columns[PRINCIPALINT.MARGIN.TYPE]" />
@@ -1075,24 +1036,21 @@
                     <inputColumn
                       refId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Destination.Inputs[Primary Input].Columns[FNQ.PRINCIPALINT.MARGIN.OPER]"
                       cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="49"
+                      cachedDataType="text"
                       cachedName="FNQ.PRINCIPALINT.MARGIN.OPER"
                       externalMetadataColumnId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Destination.Inputs[Primary Input].ExternalColumns[FN_PRINCIPALINT_MARGIN_OPER]"
                       lineageId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1.Outputs[Default Output].Columns[FNQ.PRINCIPALINT.MARGIN.OPER]" />
                     <inputColumn
                       refId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Destination.Inputs[Primary Input].Columns[FNQ.PRINCIPALINT.MARGIN.RATE]"
                       cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="49"
+                      cachedDataType="text"
                       cachedName="FNQ.PRINCIPALINT.MARGIN.RATE"
                       externalMetadataColumnId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Destination.Inputs[Primary Input].ExternalColumns[FN_PRINCIPALINT_MARGIN_RATE]"
                       lineageId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1.Outputs[Default Output].Columns[FNQ.PRINCIPALINT.MARGIN.RATE]" />
                     <inputColumn
                       refId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Destination.Inputs[Primary Input].Columns[FNQ.PRINCIPALINT.MARGIN.TYPE]"
                       cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="51"
+                      cachedDataType="text"
                       cachedName="FNQ.PRINCIPALINT.MARGIN.TYPE"
                       externalMetadataColumnId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Destination.Inputs[Primary Input].ExternalColumns[FN_PRINCIPALINT_MARGIN_TYPE]"
                       lineageId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1.Outputs[Default Output].Columns[FNQ.PRINCIPALINT.MARGIN.TYPE]" />
@@ -1224,10 +1182,10 @@
                       refId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Destination.Inputs[Primary Input].Columns[FV.INTERESTKFW.FIXED.RATE]"
                       cachedDataType="numeric"
                       cachedName="FV.INTERESTKFW.FIXED.RATE"
-                      cachedPrecision="10"
+                      cachedPrecision="38"
                       cachedScale="4"
                       externalMetadataColumnId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Destination.Inputs[Primary Input].ExternalColumns[FV_INTERESTKFW_FIXED_RATE]"
-                      lineageId="Package\DMS-DER01-TAKEOVER\PDC_001.Outputs[Default Output].Columns[FV.INTERESTKFW.FIXED.RATE]" />
+                      lineageId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1.Outputs[Default Output].Columns[FV.INTERESTKFW.FIXED.RATE]" />
                     <inputColumn
                       refId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Destination.Inputs[Primary Input].Columns[FV_PRINCIPALINT_RATE_TIER_TYPE]"
                       cachedCodepage="1252"
@@ -1338,6 +1296,13 @@
                       cachedScale="4"
                       externalMetadataColumnId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Destination.Inputs[Primary Input].ExternalColumns[FV_INTERESTFFC_FIXED_RATE]"
                       lineageId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1.Outputs[Default Output].Columns[FV_INTERESTFFC_FIXED_RATE]" />
+                    <inputColumn
+                      refId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Destination.Inputs[Primary Input].Columns[FV.PRINCIPALINT.MARGIN.RATE]"
+                      cachedCodepage="1252"
+                      cachedDataType="text"
+                      cachedName="FV.PRINCIPALINT.MARGIN.RATE"
+                      externalMetadataColumnId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Destination.Inputs[Primary Input].ExternalColumns[FV_PRINCIPALINT_MARGIN_RATE]"
+                      lineageId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1.Outputs[Default Output].Columns[FV.PRINCIPALINT.MARGIN.RATE]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -2862,13 +2827,13 @@ NUMERADOS AS (
     FROM BASE BA
 )
 SELECT
-    --A.PADRE_SUPERIOR,
-    --A.FACILITY AS 'CO_PROYECTO',
+    A.PADRE_SUPERIOR,
+    A.FACILITY AS 'CO_PROYECTO',
     A.CO_OPERACION_ACTIVA,   
     --A.CO_PERSONA_FUENTE_RECURSO,
     --A.NB_PERSONA_FUENTE_RECURSO,
     --A.DE_STATUS_OPERACION,
-    --A.HIJO_NUM,
+    A.HIJO_NUM,
     A.CO_CONDICION,
     CASE WHEN A.HIJO_NUM = 1 THEN NULL ELSE PADRE.CO_OPERACION_ACTIVA END AS CO_OPERACION_ORIGINAL,
     A.FE_CONTRATO,
@@ -2880,8 +2845,8 @@ SELECT
     A.[TOTAL_MARGEN],           
     A.[MARGEN FFC] AS 'MARGEN_PHOENIX_KFW',
     ABS(PADRE.[TOTAL_MARGEN] - A.[TOTAL_MARGEN]) AS 'TA_KFW',
-    -- A.[ESTADO FFC],
-    --A.[TASA FFC],
+    A.[ESTADO FFC],
+    A.[TASA FFC],
     A.[FE_VENCIMIENTO_FFC],
     A.MO_APROBADO_MONEDA_ORIGEN,
     --A.[TOTAL DESEMBOLSADO] AS 'MO_TOTAL_DESEMBOLSADO_ORIGEN',
@@ -2902,6 +2867,7 @@ SELECT
     A.[ACCR BASIS ALT], 
     A.NEW_RATE_PHOENIX,
     A.MARGIN_PHOENIX,
+    A.CUR_BAL_PHOENIX,
 
      --- DWCOMMITMENT.AMOUNT
     (
@@ -2924,8 +2890,18 @@ SELECT
     ------------------------------ [FNQ.INTERESTFFC.FIXED.RATE]
     (
         CASE 
-            WHEN A.TA_CMPNSCION IS NOT NULL AND A.TA_CMPNSCION &lt;&gt; 0 THEN A.TA_CMPNSCION ELSE 0 END
+            WHEN A.TA_CMPNSCION IS NOT NULL AND A.TA_CMPNSCION &lt;&gt; 0 AND A.FE_VENCIMIENTO_FFC &gt; '2025-05-11' THEN A.TA_CMPNSCION ELSE 0 END
     ) AS [FV_INTERESTFFC_FIXED_RATE],
+
+    ------------------------------ [FV.INTERESTKFW.FIXED.RATE]
+    (
+       CASE
+        WHEN A.CO_CONDICION = 'ORIGINAL' THEN ISNULL((SELECT SUM(ABS(PADRE2.TOTAL_MARGEN - N2.TOTAL_MARGEN))
+            FROM NUMERADOS N2 LEFT JOIN NUMERADOS PADRE2 ON N2.FACILITY = PADRE2.FACILITY AND N2.CO_PROYECTO = PADRE2.CO_PROYECTO AND PADRE2.HIJO_NUM = 1      
+            WHERE  A.TOTAL_HIJOS &gt;= 2 AND N2.GRUPO_TIENE_1508 = 1 AND N2.FACILITY = A.FACILITY AND N2.FE_VENCIMIENTO_KFW &gt; '2025-05-11'), 0)
+        ELSE 0
+    END 
+    ) AS [FV.INTERESTKFW.FIXED.RATE],
     
     ------------------------------ [FNQ.PRINCIPALINT.FIXED.RATE]
     (
@@ -2951,66 +2927,95 @@ SELECT
     
     
     ------------------------------ [PRINCIPALINT.MARGIN.TYPE]
-    (   
-        SELECT 
-            CASE WHEN A.HIJO_NUM = 1 THEN 'SINGLE' 
-            + CASE WHEN EXISTS (SELECT 1 FROM NUMERADOS N2 WHERE N2.FACILITY = A.FACILITY AND N2.HIJO_NUM = 2) THEN '!!' + 'KWF' ELSE '' END
-            + CASE WHEN EXISTS (SELECT 1 FROM NUMERADOS N3 WHERE N3.FACILITY = A.FACILITY AND N3.HIJO_NUM = 3) THEN '!!' + 'FFC' ELSE '' END
-            ELSE 'SINGLE'
+   (
+        CASE 
+            WHEN A.CO_CONDICION = 'ORIGINAL' THEN 'SINGLE' + ISNULL((SELECT STRING_AGG('!!SINGLE!!' +
+                        CASE 
+                            WHEN N2.CO_CONDICION = 'KFW' THEN 'KWF'
+                            WHEN N2.CO_CONDICION = 'FFC' THEN 'FFC'
+                            ELSE ''
+                        END, '')
+                    FROM NUMERADOS N2
+                    WHERE N2.FACILITY = A.FACILITY AND N2.HIJO_NUM &gt; 1 AND N2.CO_CONDICION IN ('KFW', 'FFC')), '') + '!!!!'
+            ELSE 
+                -- Si es hijo individual
+                'SINGLE!!' + 
+                CASE 
+                    WHEN A.CO_CONDICION = 'KFW' THEN 'KWF'
+                    WHEN A.CO_CONDICION = 'FFC' THEN 'FFC'
+                    ELSE 'UNKNOWN'
+                END
         END
-    ) AS [PRINCIPALINT.MARGIN.TYPE],
-    
-    (   
-        SELECT 
-            CASE WHEN A.HIJO_NUM = 1 THEN 'MARGIN.TYPE:1:1' 
-            + CASE WHEN EXISTS (SELECT 1 FROM NUMERADOS N2 WHERE N2.FACILITY = A.FACILITY AND N2.HIJO_NUM = 2) THEN '!!' + 'MARGIN.TYPE:1:2:' ELSE '' END
-            + CASE WHEN EXISTS (SELECT 1 FROM NUMERADOS N3 WHERE N3.FACILITY = A.FACILITY AND N3.HIJO_NUM = 3) THEN '!!' + 'MARGIN.TYPE:1:3:' ELSE '' END
-            ELSE 'MARGIN.TYPE:1:1'
-        END
-        ) AS [FNQ.PRINCIPALINT.MARGIN.TYPE],
+    ) AS [PRINCIPALINT.MARGIN.TYPE],    
+    (
+          CASE WHEN A.CO_CONDICION = 'ORIGINAL' THEN 'MARGIN.TYPE:1:1' + ISNULL((SELECT STRING_AGG('!!MARGIN.TYPE:' + CONVERT(VARCHAR(5), RN.Position + 1) + ':1' + '!!MARGIN.TYPE:' + CONVERT(VARCHAR(5), RN.Position + 1) + ':2', '')
+                FROM (SELECT ROW_NUMBER() OVER (ORDER BY N2.HIJO_NUM) AS Position FROM NUMERADOS N2 WHERE N2.FACILITY = A.FACILITY AND N2.HIJO_NUM &gt; 1 AND N2.CO_CONDICION IN ('KFW', 'FFC')) RN), '') +
+              ISNULL((SELECT TOP 1 '!!MARGIN.TYPE:' + CONVERT(VARCHAR(5), MAX(Position) + 2) + ':1' + '!!MARGIN.TYPE:' + CONVERT(VARCHAR(5), MAX(Position) + 2) + ':2' FROM ( SELECT ROW_NUMBER() OVER (ORDER BY N2.HIJO_NUM) AS Position
+                  FROM NUMERADOS N2 WHERE N2.FACILITY = A.FACILITY AND N2.HIJO_NUM &gt; 1 AND N2.CO_CONDICION IN ('KFW', 'FFC')) POS), '!!MARGIN.TYPE:2:1!!MARGIN.TYPE:2:2')  -- fallback si no hay hijos
+            ELSE 
+              -- Hijo individual: solo su campo
+              'MARGIN.TYPE:' + CONVERT(VARCHAR(5), A.HIJO_NUM) + ':2'
+          END
+    ) AS [FNQ.PRINCIPALINT.MARGIN.TYPE],
     
     ------------------------------ [PRINCIPALINT.MARGIN.OPER]
-    (
-        SELECT 
-            CASE WHEN A.HIJO_NUM = 1 THEN 'ADD' 
-            + CASE WHEN EXISTS (SELECT 1 FROM NUMERADOS N2 WHERE N2.FACILITY = A.FACILITY AND N2.HIJO_NUM = 2) THEN '!!' + 'SUB' ELSE '' END
-            + CASE WHEN EXISTS (SELECT 1 FROM NUMERADOS N3 WHERE N3.FACILITY = A.FACILITY AND N3.HIJO_NUM = 3) THEN '!!' + 'SUB' ELSE '' END
-        ELSE 'SUB!!'
+   (
+        CASE WHEN A.CO_CONDICION = 'ORIGINAL' THEN 'ADD' + -- Banda del padre
+            -- Por cada hijo: !!ADD!!SUB
+            ISNULL((SELECT STRING_AGG('!!ADD!!SUB', '') FROM NUMERADOS N2 WHERE N2.FACILITY = A.FACILITY AND N2.HIJO_NUM &gt; 1), '') + '!!ADD!!SUB' + -- Banda adicional del sistema: !!ADD!!SUB 
+            '!!!!'-- Banda vacía final
+        ELSE 
+            -- Si es hijo individual
+            'ADD'
         END
-  
     ) AS [PRINCIPALINT.MARGIN.OPER],
     
     (
-        SELECT 
-            CASE WHEN A.HIJO_NUM = 1 THEN 'MARGIN.OPER:1:1' 
-            + CASE WHEN EXISTS (SELECT 1 FROM NUMERADOS N2 WHERE N2.FACILITY = A.FACILITY AND N2.HIJO_NUM = 2) THEN '!!' + 'MARGIN.OPER:1:2' ELSE '' END
-            + CASE WHEN EXISTS (SELECT 1 FROM NUMERADOS N3 WHERE N3.FACILITY = A.FACILITY AND N3.HIJO_NUM = 3) THEN '!!' + 'MARGIN.OPER:1:3' ELSE '' END
-        ELSE 'MARGIN.OPER:1:1'
+        CASE WHEN A.CO_CONDICION = 'ORIGINAL' THEN 'MARGIN.OPER:1:1' + -- Banda inicial (ORIGINAL): 1:1
+                -- Por cada hijo, agregar: !!N:1!!N:2
+                ISNULL((SELECT STRING_AGG('!!MARGIN.OPER:' + CONVERT(VARCHAR(5), RN.Position + 1) + ':1!!MARGIN.OPER:' + CONVERT(VARCHAR(5), RN.Position + 1) + ':2', '')
+                    FROM (SELECT ROW_NUMBER() OVER (ORDER BY N2.HIJO_NUM) AS Position FROM NUMERADOS N2 WHERE N2.FACILITY = A.FACILITY AND N2.HIJO_NUM &gt; 1) RN), '') +
+                -- Banda final adicional: N+1:1 y N+1:2
+                (SELECT '!!MARGIN.OPER:' + CONVERT(VARCHAR(5), COUNT(*) + 1) + ':1!!MARGIN.OPER:' + CONVERT(VARCHAR(5), COUNT(*) + 1) + ':2' FROM NUMERADOS N2 WHERE N2.FACILITY = A.FACILITY)
+            ELSE 
+                -- Si no es el padre, es un hijo suelto
+                'MARGIN.OPER:' + CONVERT(VARCHAR(5), A.HIJO_NUM) + ':2'
         END
-  
     ) AS [FNQ.PRINCIPALINT.MARGIN.OPER],
     
     ------------------------------ [PRINCIPALINT.MARGIN.RATE]
    (
-        SELECT 
-                CASE WHEN A.HIJO_NUM = 1 THEN CONVERT(VARCHAR(50), A.TA_CMPNSCION) +
-                    ISNULL('!!' + (SELECT CONVERT(VARCHAR(50), N2.TA_CMPNSCION) FROM NUMERADOS N2 WHERE N2.FACILITY = A.FACILITY AND N2.HIJO_NUM = 2), '') +
-                    ISNULL('!!' + (SELECT CONVERT(VARCHAR(50), N3.TA_CMPNSCION) FROM NUMERADOS N3 WHERE N3.FACILITY = A.FACILITY AND N3.HIJO_NUM = 3), '')
-                ELSE CONVERT(VARCHAR(50), A.TA_CMPNSCION)
-            END
-    ) AS [PRINCIPALINT.MARGIN.RATE],
+        CASE WHEN A.CO_CONDICION = 'ORIGINAL' THEN -- Banda del padre: Phoenix Margin y ta_cmpnscion
+                CONVERT(VARCHAR(50), ISNULL(A.MARGIN_PHOENIX, 0)) + '!!' + CONVERT(VARCHAR(50), ISNULL(A.TA_CMPNSCION, 0)) + -- Por cada hijo, construir valores en una subconsulta precalculada
+                ISNULL((SELECT STRING_AGG('!!' + CONVERT(VARCHAR(50), ISNULL(NX.TOTAL_MARGEN, 0)) + '!!' + CONVERT(VARCHAR(50), ISNULL(NX.TA_KFW, 0)), '')
+                    FROM (SELECT N2.TOTAL_MARGEN, TA_KFW = ABS(ISNULL(PADRE2.TOTAL_MARGEN, 0) - ISNULL(N2.TOTAL_MARGEN, 0))
+                    FROM NUMERADOS N2 LEFT JOIN NUMERADOS PADRE2 ON N2.FACILITY = PADRE2.FACILITY AND N2.CO_PROYECTO = PADRE2.CO_PROYECTO AND PADRE2.HIJO_NUM = 1
+                    WHERE N2.FACILITY = A.FACILITY  AND N2.CO_CONDICION IN ('KFW', 'FFC') AND N2.HIJO_NUM &gt; 1 AND N2.FE_VENCIMIENTO_KFW &gt; '2025-05-11' AND N2.GRUPO_TIENE_1508 = 1) NX), '') +  -- Banda vacía adicional
+                '!!' + '' + '!!' + ''
+            ELSE 
+                -- Si es hijo individual
+                CONVERT(VARCHAR(50), ISNULL(A.TOTAL_MARGEN, 0)) + '!!' + 
+                CONVERT(VARCHAR(50), ISNULL(ABS(ISNULL((SELECT SUM(ABS(PADRE2.TOTAL_MARGEN - N2.TOTAL_MARGEN))
+                FROM NUMERADOS N2 LEFT JOIN NUMERADOS PADRE2 ON N2.FACILITY = PADRE2.FACILITY AND N2.CO_PROYECTO = PADRE2.CO_PROYECTO AND PADRE2.HIJO_NUM = 1      
+                WHERE  A.TOTAL_HIJOS &gt;= 2 AND N2.GRUPO_TIENE_1508 = 1 AND N2.FACILITY = A.FACILITY AND N2.FE_VENCIMIENTO_KFW &gt; '2025-05-11'), 0)), 0))
+        END
+    ) AS [FV.PRINCIPALINT.MARGIN.RATE],
     
     (
-        SELECT 
-        CASE WHEN A.HIJO_NUM = 1 THEN 'MARGIN.RATE:1:1' 
-            + CASE WHEN EXISTS (SELECT 1 FROM NUMERADOS N2 WHERE N2.FACILITY = A.FACILITY AND N2.HIJO_NUM = 2) THEN '!!' + 'MARGIN.RATE:1:2' ELSE '' END
-            + CASE WHEN EXISTS (SELECT 1 FROM NUMERADOS N3 WHERE N3.FACILITY = A.FACILITY AND N3.HIJO_NUM = 3) THEN '!!' + 'MARGIN.RATE:1:3' ELSE '' END
-        ELSE 'MARGIN.RATE:1:1'
+        CASE WHEN A.CO_CONDICION = 'ORIGINAL' THEN 'MARGIN.RATE:1:1' + -- Banda inicial (ORIGINAL): 1:1
+                -- Por cada hijo, agregar: !!N:1!!N:2
+                ISNULL((SELECT STRING_AGG('!!MARGIN.RATE:' + CONVERT(VARCHAR(5), RN.Position + 1) + ':1!!MARGIN.RATE:' + CONVERT(VARCHAR(5), RN.Position + 1) + ':2', '')
+                    FROM (SELECT ROW_NUMBER() OVER (ORDER BY N2.HIJO_NUM) AS Position FROM NUMERADOS N2 WHERE N2.FACILITY = A.FACILITY AND N2.HIJO_NUM &gt; 1) RN), '') +
+                -- Banda final adicional: N+1:1 y N+1:2
+                (SELECT '!!MARGIN.RATE:' + CONVERT(VARCHAR(5), COUNT(*) + 1) + ':1!!MARGIN.RATE:' + CONVERT(VARCHAR(5), COUNT(*) + 1) + ':2' FROM NUMERADOS N2 WHERE N2.FACILITY = A.FACILITY)
+            ELSE 
+                -- Si no es el padre, es un hijo suelto
+                'MARGIN.RATE:' + CONVERT(VARCHAR(5), A.HIJO_NUM) + ':2'
         END
   
     ) AS [FNQ.PRINCIPALINT.MARGIN.RATE],
     
-    ------------------------------ [PRINCIPALINT.TIER.AMOUNT]
+    ------------------------------ [PRINCIPALINT.TIER.AMOUNT]- Hacer sumatoria de los anteriores
     (
         SELECT 
                 CASE
@@ -3251,7 +3256,7 @@ LEFT JOIN NUMERADOS PADRE
  AND A.CO_PROYECTO = PADRE.CO_PROYECTO
  AND PADRE.HIJO_NUM = 1
 WHERE A.TOTAL_HIJOS &gt;= 2
-  AND A.GRUPO_TIENE_1508 = 1
+  AND A.GRUPO_TIENE_1508 = 1-- AND A.co_operacion_activa IN ('CFA008949')
 ORDER BY A.PADRE_SUPERIOR ASC, A.FACILITY ASC, A.HIJO_NUM ASC;
 
 
@@ -3310,35 +3315,22 @@ CFA012508*/</property>
                     <outputColumn
                       refId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1.Outputs[Default Output].Columns[PRINCIPALINT.MARGIN.TYPE]"
                       codePage="1252"
-                      dataType="str"
+                      dataType="text"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
                       externalMetadataColumnId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1.Outputs[Default Output].ExternalColumns[PRINCIPALINT.MARGIN.TYPE]"
-                      length="16"
                       lineageId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1.Outputs[Default Output].Columns[PRINCIPALINT.MARGIN.TYPE]"
                       name="PRINCIPALINT.MARGIN.TYPE"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
                       refId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1.Outputs[Default Output].Columns[PRINCIPALINT.MARGIN.OPER]"
                       codePage="1252"
-                      dataType="str"
+                      dataType="text"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
                       externalMetadataColumnId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1.Outputs[Default Output].ExternalColumns[PRINCIPALINT.MARGIN.OPER]"
-                      length="13"
                       lineageId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1.Outputs[Default Output].Columns[PRINCIPALINT.MARGIN.OPER]"
                       name="PRINCIPALINT.MARGIN.OPER"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1.Outputs[Default Output].Columns[PRINCIPALINT.MARGIN.RATE]"
-                      codePage="1252"
-                      dataType="str"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1.Outputs[Default Output].ExternalColumns[PRINCIPALINT.MARGIN.RATE]"
-                      length="154"
-                      lineageId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1.Outputs[Default Output].Columns[PRINCIPALINT.MARGIN.RATE]"
-                      name="PRINCIPALINT.MARGIN.RATE"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
                       refId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1.Outputs[Default Output].Columns[PRINCIPALINT.TIER.AMOUNT]"
@@ -3468,33 +3460,30 @@ CFA012508*/</property>
                     <outputColumn
                       refId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1.Outputs[Default Output].Columns[FNQ.PRINCIPALINT.MARGIN.OPER]"
                       codePage="1252"
-                      dataType="str"
+                      dataType="text"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
                       externalMetadataColumnId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1.Outputs[Default Output].ExternalColumns[FNQ.PRINCIPALINT.MARGIN.OPER]"
-                      length="49"
                       lineageId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1.Outputs[Default Output].Columns[FNQ.PRINCIPALINT.MARGIN.OPER]"
                       name="FNQ.PRINCIPALINT.MARGIN.OPER"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
                       refId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1.Outputs[Default Output].Columns[FNQ.PRINCIPALINT.MARGIN.RATE]"
                       codePage="1252"
-                      dataType="str"
+                      dataType="text"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
                       externalMetadataColumnId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1.Outputs[Default Output].ExternalColumns[FNQ.PRINCIPALINT.MARGIN.RATE]"
-                      length="49"
                       lineageId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1.Outputs[Default Output].Columns[FNQ.PRINCIPALINT.MARGIN.RATE]"
                       name="FNQ.PRINCIPALINT.MARGIN.RATE"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
                       refId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1.Outputs[Default Output].Columns[FNQ.PRINCIPALINT.MARGIN.TYPE]"
                       codePage="1252"
-                      dataType="str"
+                      dataType="text"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
                       externalMetadataColumnId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1.Outputs[Default Output].ExternalColumns[FNQ.PRINCIPALINT.MARGIN.TYPE]"
-                      length="51"
                       lineageId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1.Outputs[Default Output].Columns[FNQ.PRINCIPALINT.MARGIN.TYPE]"
                       name="FNQ.PRINCIPALINT.MARGIN.TYPE"
                       truncationRowDisposition="FailComponent" />
@@ -3923,27 +3912,103 @@ CFA012508*/</property>
                       precision="9"
                       scale="4"
                       truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1.Outputs[Default Output].Columns[CO_PROYECTO]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1.Outputs[Default Output].ExternalColumns[CO_PROYECTO]"
+                      length="30"
+                      lineageId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1.Outputs[Default Output].Columns[CO_PROYECTO]"
+                      name="CO_PROYECTO"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1.Outputs[Default Output].Columns[ESTADO FFC]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1.Outputs[Default Output].ExternalColumns[ESTADO FFC]"
+                      length="8"
+                      lineageId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1.Outputs[Default Output].Columns[ESTADO FFC]"
+                      name="ESTADO FFC"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1.Outputs[Default Output].Columns[HIJO_NUM]"
+                      dataType="i8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1.Outputs[Default Output].ExternalColumns[HIJO_NUM]"
+                      lineageId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1.Outputs[Default Output].Columns[HIJO_NUM]"
+                      name="HIJO_NUM"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1.Outputs[Default Output].Columns[PADRE_SUPERIOR]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1.Outputs[Default Output].ExternalColumns[PADRE_SUPERIOR]"
+                      length="15"
+                      lineageId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1.Outputs[Default Output].Columns[PADRE_SUPERIOR]"
+                      name="PADRE_SUPERIOR"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1.Outputs[Default Output].Columns[TASA FFC]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1.Outputs[Default Output].ExternalColumns[TASA FFC]"
+                      lineageId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1.Outputs[Default Output].Columns[TASA FFC]"
+                      name="TASA FFC"
+                      precision="9"
+                      scale="4"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1.Outputs[Default Output].Columns[CUR_BAL_PHOENIX]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1.Outputs[Default Output].ExternalColumns[CUR_BAL_PHOENIX]"
+                      lineageId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1.Outputs[Default Output].Columns[CUR_BAL_PHOENIX]"
+                      name="CUR_BAL_PHOENIX"
+                      precision="21"
+                      scale="6"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1.Outputs[Default Output].Columns[FV.INTERESTKFW.FIXED.RATE]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1.Outputs[Default Output].ExternalColumns[FV.INTERESTKFW.FIXED.RATE]"
+                      lineageId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1.Outputs[Default Output].Columns[FV.INTERESTKFW.FIXED.RATE]"
+                      name="FV.INTERESTKFW.FIXED.RATE"
+                      precision="38"
+                      scale="4"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1.Outputs[Default Output].Columns[FV.PRINCIPALINT.MARGIN.RATE]"
+                      codePage="1252"
+                      dataType="text"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1.Outputs[Default Output].ExternalColumns[FV.PRINCIPALINT.MARGIN.RATE]"
+                      lineageId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1.Outputs[Default Output].Columns[FV.PRINCIPALINT.MARGIN.RATE]"
+                      name="FV.PRINCIPALINT.MARGIN.RATE"
+                      truncationRowDisposition="FailComponent" />
                   </outputColumns>
                   <externalMetadataColumns
                     isUsed="True">
                     <externalMetadataColumn
                       refId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1.Outputs[Default Output].ExternalColumns[PRINCIPALINT.MARGIN.TYPE]"
                       codePage="1252"
-                      dataType="str"
-                      length="16"
+                      dataType="text"
                       name="PRINCIPALINT.MARGIN.TYPE" />
                     <externalMetadataColumn
                       refId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1.Outputs[Default Output].ExternalColumns[PRINCIPALINT.MARGIN.OPER]"
                       codePage="1252"
-                      dataType="str"
-                      length="13"
+                      dataType="text"
                       name="PRINCIPALINT.MARGIN.OPER" />
-                    <externalMetadataColumn
-                      refId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1.Outputs[Default Output].ExternalColumns[PRINCIPALINT.MARGIN.RATE]"
-                      codePage="1252"
-                      dataType="str"
-                      length="154"
-                      name="PRINCIPALINT.MARGIN.RATE" />
                     <externalMetadataColumn
                       refId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1.Outputs[Default Output].ExternalColumns[PRINCIPALINT.TIER.AMOUNT]"
                       codePage="1252"
@@ -4012,20 +4077,17 @@ CFA012508*/</property>
                     <externalMetadataColumn
                       refId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1.Outputs[Default Output].ExternalColumns[FNQ.PRINCIPALINT.MARGIN.OPER]"
                       codePage="1252"
-                      dataType="str"
-                      length="49"
+                      dataType="text"
                       name="FNQ.PRINCIPALINT.MARGIN.OPER" />
                     <externalMetadataColumn
                       refId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1.Outputs[Default Output].ExternalColumns[FNQ.PRINCIPALINT.MARGIN.RATE]"
                       codePage="1252"
-                      dataType="str"
-                      length="49"
+                      dataType="text"
                       name="FNQ.PRINCIPALINT.MARGIN.RATE" />
                     <externalMetadataColumn
                       refId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1.Outputs[Default Output].ExternalColumns[FNQ.PRINCIPALINT.MARGIN.TYPE]"
                       codePage="1252"
-                      dataType="str"
-                      length="51"
+                      dataType="text"
                       name="FNQ.PRINCIPALINT.MARGIN.TYPE" />
                     <externalMetadataColumn
                       refId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1.Outputs[Default Output].ExternalColumns[FNQ.PRINCIPALINT.TIER.AMOUNT]"
@@ -4252,6 +4314,50 @@ CFA012508*/</property>
                       name="NEW_RATE_PHOENIX"
                       precision="9"
                       scale="4" />
+                    <externalMetadataColumn
+                      refId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1.Outputs[Default Output].ExternalColumns[CO_PROYECTO]"
+                      codePage="1252"
+                      dataType="str"
+                      length="30"
+                      name="CO_PROYECTO" />
+                    <externalMetadataColumn
+                      refId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1.Outputs[Default Output].ExternalColumns[ESTADO FFC]"
+                      dataType="wstr"
+                      length="8"
+                      name="ESTADO FFC" />
+                    <externalMetadataColumn
+                      refId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1.Outputs[Default Output].ExternalColumns[HIJO_NUM]"
+                      dataType="i8"
+                      name="HIJO_NUM" />
+                    <externalMetadataColumn
+                      refId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1.Outputs[Default Output].ExternalColumns[PADRE_SUPERIOR]"
+                      codePage="1252"
+                      dataType="str"
+                      length="15"
+                      name="PADRE_SUPERIOR" />
+                    <externalMetadataColumn
+                      refId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1.Outputs[Default Output].ExternalColumns[TASA FFC]"
+                      dataType="numeric"
+                      name="TASA FFC"
+                      precision="9"
+                      scale="4" />
+                    <externalMetadataColumn
+                      refId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1.Outputs[Default Output].ExternalColumns[CUR_BAL_PHOENIX]"
+                      dataType="numeric"
+                      name="CUR_BAL_PHOENIX"
+                      precision="21"
+                      scale="6" />
+                    <externalMetadataColumn
+                      refId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1.Outputs[Default Output].ExternalColumns[FV.INTERESTKFW.FIXED.RATE]"
+                      dataType="numeric"
+                      name="FV.INTERESTKFW.FIXED.RATE"
+                      precision="38"
+                      scale="4" />
+                    <externalMetadataColumn
+                      refId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1.Outputs[Default Output].ExternalColumns[FV.PRINCIPALINT.MARGIN.RATE]"
+                      codePage="1252"
+                      dataType="text"
+                      name="FV.PRINCIPALINT.MARGIN.RATE" />
                   </externalMetadataColumns>
                 </output>
               </outputs>
@@ -6843,28 +6949,28 @@ WHERE SUBSTRING([STGPolaris].[dbo].[fn_udfTrim] (OPER.coOperacionActiva),1,3) IN
         <NodeLayout
           Size="176,42"
           Id="Package\DMS-DER01-TAKEOVER\División condicional"
-          TopLeft="1244,328" />
+          TopLeft="1244,303" />
         <EdgeLayout
           Id="Package\DMS-DER01-TAKEOVER.Paths[ORIGINAL]"
-          TopLeft="1328.75,370">
+          TopLeft="1328.75,345">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,24"
+              EndConnector="0,49"
               Start="0,0"
-              End="0,16.5">
+              End="0,41.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,16.5" />
+                    End="0,41.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-23.359453125,3.46337890625,46.71890625,9.5732421875"
+              BoundingBox="-23.359453125,15.96337890625,46.71890625,9.5732421875"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -6874,26 +6980,26 @@ WHERE SUBSTRING([STGPolaris].[dbo].[fn_udfTrim] (OPER.coOperacionActiva),1,3) IN
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="262.5,264"
+              EndConnector="262.5,239"
               Start="0,0"
-              End="262.5,256.5">
+              End="262.5,231.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,128" />
+                    End="0,115.5" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,128"
-                    Point2="0,132"
-                    Point3="4,132" />
+                    Point1="0,115.5"
+                    Point2="0,119.5"
+                    Point3="4,119.5" />
                   <mssgle:LineSegment
-                    End="258.5,132" />
+                    End="258.5,119.5" />
                   <mssgle:CubicBezierSegment
-                    Point1="258.5,132"
-                    Point2="262.5,132"
-                    Point3="262.5,136" />
+                    Point1="258.5,119.5"
+                    Point2="262.5,119.5"
+                    Point3="262.5,123.5" />
                   <mssgle:LineSegment
-                    End="262.5,256.5" />
+                    End="262.5,231.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
