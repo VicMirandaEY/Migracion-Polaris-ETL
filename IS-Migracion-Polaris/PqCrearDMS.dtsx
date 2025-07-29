@@ -11,8 +11,8 @@
   DTS:LocaleID="3082"
   DTS:ObjectName="PqCrearDMS-Dea01Takeover"
   DTS:PackageType="5"
-  DTS:VersionBuild="219"
-  DTS:VersionGUID="{C9509DA4-7FF8-4674-A1D9-4314285C4029}">
+  DTS:VersionBuild="247"
+  DTS:VersionGUID="{41D58398-E1E2-4B54-A6C9-91EB776DEDA9}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -223,6 +223,34 @@
                   <externalMetadataColumns />
                 </output>
                 <output
+                  refId="Package\DMS-DER01-TAKEOVER\División condicional.Outputs[Case 2]"
+                  description="Salida 2 de la transformación División condicional"
+                  errorOrTruncationOperation="Cálculo"
+                  errorRowDisposition="FailComponent"
+                  exclusionGroup="1"
+                  name="Case 2"
+                  synchronousInputId="Package\DMS-DER01-TAKEOVER\División condicional.Inputs[Entrada de división condicional]"
+                  truncationRowDisposition="FailComponent">
+                  <properties>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Especifica la expresión. Esta versión de expresión usa identificadores de linaje en lugar de nombres de columna."
+                      name="Expression">#{Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1.Outputs[Default Output].Columns[CO_CONDICION]} != "ORIGINAL"</property>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Especifica la versión descriptiva de la expresión. Esta versión de expresión usa nombres de columna."
+                      expressionType="Notify"
+                      name="FriendlyExpression">CO_CONDICION != "ORIGINAL"</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Especifica la posición de la condición en la lista de condiciones que evalúa la transformación. El orden de evaluación es del menor al mayor valor."
+                      name="EvaluationOrder">1</property>
+                  </properties>
+                  <externalMetadataColumns />
+                </output>
+                <output
                   refId="Package\DMS-DER01-TAKEOVER\División condicional.Outputs[Salida predeterminada de división condicional]"
                   description="Salida predeterminada de la transformación División condicional"
                   exclusionGroup="1"
@@ -301,26 +329,12 @@
                       cachedScale="4"
                       lineageId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1.Outputs[Default Output].Columns[TOTAL_MARGEN]" />
                     <inputColumn
-                      refId="Package\DMS-DER01-TAKEOVER\PDC_001.Inputs[Primary Input].Columns[CO_CONDICION]"
+                      refId="Package\DMS-DER01-TAKEOVER\PDC_001.Inputs[Primary Input].Columns[SCHEDULE.PAYMENT.TYPE]"
                       cachedCodepage="1252"
                       cachedDataType="str"
-                      cachedLength="8"
-                      cachedName="CO_CONDICION"
-                      lineageId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1.Outputs[Default Output].Columns[CO_CONDICION]" />
-                    <inputColumn
-                      refId="Package\DMS-DER01-TAKEOVER\PDC_001.Inputs[Primary Input].Columns[MO_X_DESEMBOLSAR_ORIGEN]"
-                      cachedDataType="numeric"
-                      cachedName="MO_X_DESEMBOLSAR_ORIGEN"
-                      cachedPrecision="21"
-                      cachedScale="6"
-                      lineageId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1.Outputs[Default Output].Columns[MO_X_DESEMBOLSAR_ORIGEN]" />
-                    <inputColumn
-                      refId="Package\DMS-DER01-TAKEOVER\PDC_001.Inputs[Primary Input].Columns[MO_APROBADO_MONEDA_ORIGEN]"
-                      cachedDataType="numeric"
-                      cachedName="MO_APROBADO_MONEDA_ORIGEN"
-                      cachedPrecision="21"
-                      cachedScale="6"
-                      lineageId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1.Outputs[Default Output].Columns[MO_APROBADO_MONEDA_ORIGEN]" />
+                      cachedLength="59"
+                      cachedName="SCHEDULE.PAYMENT.TYPE"
+                      lineageId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1.Outputs[Default Output].Columns[SCHEDULE.PAYMENT.TYPE]" />
                     <inputColumn
                       refId="Package\DMS-DER01-TAKEOVER\PDC_001.Inputs[Primary Input].Columns[FV_PRINCIPALINT_RATE_TIER_TYPE]"
                       cachedCodepage="1252"
@@ -329,11 +343,25 @@
                       cachedName="FV_PRINCIPALINT_RATE_TIER_TYPE"
                       lineageId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1.Outputs[Default Output].Columns[FV_PRINCIPALINT_RATE_TIER_TYPE]" />
                     <inputColumn
+                      refId="Package\DMS-DER01-TAKEOVER\PDC_001.Inputs[Primary Input].Columns[FV_INTERESTFFC_FIXED_RATE]"
+                      cachedDataType="numeric"
+                      cachedName="FV_INTERESTFFC_FIXED_RATE"
+                      cachedPrecision="9"
+                      cachedScale="4"
+                      lineageId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1.Outputs[Default Output].Columns[FV_INTERESTFFC_FIXED_RATE]" />
+                    <inputColumn
                       refId="Package\DMS-DER01-TAKEOVER\PDC_001.Inputs[Primary Input].Columns[FV.DWCOMMITMENT.AMOUNT]"
                       cachedDataType="numeric"
                       cachedName="FV.DWCOMMITMENT.AMOUNT"
                       cachedPrecision="38"
                       lineageId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1.Outputs[Default Output].Columns[FV.DWCOMMITMENT.AMOUNT]" />
+                    <inputColumn
+                      refId="Package\DMS-DER01-TAKEOVER\PDC_001.Inputs[Primary Input].Columns[FV.INTERESTKFW.FIXED.RATE]"
+                      cachedDataType="numeric"
+                      cachedName="FV.INTERESTKFW.FIXED.RATE"
+                      cachedPrecision="38"
+                      cachedScale="4"
+                      lineageId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1.Outputs[Default Output].Columns[FV.INTERESTKFW.FIXED.RATE]" />
                   </inputColumns>
                   <externalMetadataColumns />
                 </input>
@@ -378,7 +406,7 @@
                       dataType="wstr"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      length="7"
+                      length="20"
                       lineageId="Package\DMS-DER01-TAKEOVER\PDC_001.Outputs[Default Output].Columns[FV.PRINCIPALINT.DAY.BASIS]"
                       name="FV.PRINCIPALINT.DAY.BASIS"
                       truncationRowDisposition="FailComponent">
@@ -387,11 +415,15 @@
                           containsID="true"
                           dataType="System.String"
                           description="Derived Column Expression"
-                          name="Expression">#{Package\DMS-DER01-TAKEOVER\PSL AccrBasis.Outputs[Default Ouptut].Columns[PRINCIPALINT.DAY.BASIS]}</property>
+                          name="Expression">ISNULL(#{Package\DMS-DER01-TAKEOVER\PSL AccrBasis.Outputs[Default Ouptut].Columns[PRINCIPALINT.DAY.BASIS]}) || #{Package\DMS-DER01-TAKEOVER\PSL AccrBasis.Outputs[Default Ouptut].Columns[PRINCIPALINT.DAY.BASIS]} == 0 ? "" : (DT_WSTR,20)#{Package\DMS-DER01-TAKEOVER\PSL AccrBasis.Outputs[Default Ouptut].Columns[PRINCIPALINT.DAY.BASIS]}
+
+</property>
                         <property
                           dataType="System.String"
                           description="Derived Column Friendly Expression"
-                          name="FriendlyExpression">[PRINCIPALINT.DAY.BASIS]</property>
+                          name="FriendlyExpression">ISNULL([PRINCIPALINT.DAY.BASIS]) || [PRINCIPALINT.DAY.BASIS] == 0 ? "" : (DT_WSTR,20)[PRINCIPALINT.DAY.BASIS]
+
+</property>
                       </properties>
                     </outputColumn>
                     <outputColumn
@@ -460,10 +492,11 @@
                     </outputColumn>
                     <outputColumn
                       refId="Package\DMS-DER01-TAKEOVER\PDC_001.Outputs[Default Output].Columns[FV.SCHEDULE.PAYMENT.TYPE]"
-                      dataType="wstr"
+                      codePage="1252"
+                      dataType="str"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      length="20"
+                      length="59"
                       lineageId="Package\DMS-DER01-TAKEOVER\PDC_001.Outputs[Default Output].Columns[FV.SCHEDULE.PAYMENT.TYPE]"
                       name="FV.SCHEDULE.PAYMENT.TYPE"
                       truncationRowDisposition="FailComponent">
@@ -472,13 +505,11 @@
                           containsID="true"
                           dataType="System.String"
                           description="Derived Column Expression"
-                          name="Expression">(DT_WSTR,20)(#{Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1.Outputs[Default Output].Columns[CO_CONDICION]} == "KFW" ? "FUND.PAYMT" :(#{Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1.Outputs[Default Output].Columns[MO_X_DESEMBOLSAR_ORIGEN]} == 0 ? "SPECIAL" :(#{Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1.Outputs[Default Output].Columns[MO_APROBADO_MONEDA_ORIGEN]} &gt; #{Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1.Outputs[Default Output].Columns[MO_X_DESEMBOLSAR_ORIGEN]} &amp;&amp; #{Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1.Outputs[Default Output].Columns[MO_X_DESEMBOLSAR_ORIGEN]} &gt; 0 ? "LINEAR" :
-(#{Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1.Outputs[Default Output].Columns[MO_APROBADO_MONEDA_ORIGEN]} == #{Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1.Outputs[Default Output].Columns[MO_X_DESEMBOLSAR_ORIGEN]} ? "LINEAR" : ""))))</property>
+                          name="Expression">#{Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1.Outputs[Default Output].Columns[SCHEDULE.PAYMENT.TYPE]}</property>
                         <property
                           dataType="System.String"
                           description="Derived Column Friendly Expression"
-                          name="FriendlyExpression">(DT_WSTR,20)([CO_CONDICION] == "KFW" ? "FUND.PAYMT" :([MO_X_DESEMBOLSAR_ORIGEN] == 0 ? "SPECIAL" :([MO_APROBADO_MONEDA_ORIGEN] &gt; [MO_X_DESEMBOLSAR_ORIGEN] &amp;&amp; [MO_X_DESEMBOLSAR_ORIGEN] &gt; 0 ? "LINEAR" :
-([MO_APROBADO_MONEDA_ORIGEN] == [MO_X_DESEMBOLSAR_ORIGEN] ? "LINEAR" : ""))))</property>
+                          name="FriendlyExpression">[SCHEDULE.PAYMENT.TYPE]</property>
                       </properties>
                     </outputColumn>
                     <outputColumn
@@ -495,11 +526,11 @@
                           containsID="true"
                           dataType="System.String"
                           description="Derived Column Expression"
-                          name="Expression">#{Package\DMS-DER01-TAKEOVER\PSL AccrBasis.Outputs[Default Ouptut].Columns[PRINCIPALINT.DAY.BASIS]}</property>
+                          name="Expression">ISNULL(#{Package\DMS-DER01-TAKEOVER\PSL AccrBasis.Outputs[Default Ouptut].Columns[PRINCIPALINT.DAY.BASIS]}) || #{Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1.Outputs[Default Output].Columns[FV_PRINCIPALINT_RATE_TIER_TYPE]} == 0 ? "" : #{Package\DMS-DER01-TAKEOVER\PSL AccrBasis.Outputs[Default Ouptut].Columns[PRINCIPALINT.DAY.BASIS]}</property>
                         <property
                           dataType="System.String"
                           description="Derived Column Friendly Expression"
-                          name="FriendlyExpression">[PRINCIPALINT.DAY.BASIS]</property>
+                          name="FriendlyExpression">ISNULL([PRINCIPALINT.DAY.BASIS]) || [FV_PRINCIPALINT_RATE_TIER_TYPE] == 0 ? "" : [PRINCIPALINT.DAY.BASIS]</property>
                       </properties>
                     </outputColumn>
                     <outputColumn
@@ -516,12 +547,14 @@
                           containsID="true"
                           dataType="System.String"
                           description="Derived Column Expression"
-                          name="Expression">"FIXE.RATE"
+                          name="Expression">ISNULL(#{Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1.Outputs[Default Output].Columns[FV_INTERESTFFC_FIXED_RATE]}) || #{Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1.Outputs[Default Output].Columns[FV_INTERESTFFC_FIXED_RATE]} == 0 ? "" : "FIXE.RATE"
+
 </property>
                         <property
                           dataType="System.String"
                           description="Derived Column Friendly Expression"
-                          name="FriendlyExpression">"FIXE.RATE"
+                          name="FriendlyExpression">ISNULL([FV_INTERESTFFC_FIXED_RATE]) || [FV_INTERESTFFC_FIXED_RATE] == 0 ? "" : "FIXE.RATE"
+
 </property>
                       </properties>
                     </outputColumn>
@@ -565,6 +598,73 @@
                           dataType="System.String"
                           description="Derived Column Friendly Expression"
                           name="FriendlyExpression">ISNULL([FV.DWCOMMITMENT.AMOUNT]) || [FV.DWCOMMITMENT.AMOUNT] == 0 ? "" : "AMOUNT"</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DMS-DER01-TAKEOVER\PDC_001.Outputs[Default Output].Columns[FV.SCHEDULE.BILLS.COMBINED]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="2"
+                      lineageId="Package\DMS-DER01-TAKEOVER\PDC_001.Outputs[Default Output].Columns[FV.SCHEDULE.BILLS.COMBINED]"
+                      name="FV.SCHEDULE.BILLS.COMBINED"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">"NO"</property>
+                        <property
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          name="FriendlyExpression">"NO"</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DMS-DER01-TAKEOVER\PDC_001.Outputs[Default Output].Columns[FV_INTERESTKFW_FIXED_RATE]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="20"
+                      lineageId="Package\DMS-DER01-TAKEOVER\PDC_001.Outputs[Default Output].Columns[FV_INTERESTKFW_FIXED_RATE]"
+                      name="FV_INTERESTKFW_FIXED_RATE"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">ISNULL(#{Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1.Outputs[Default Output].Columns[FV.INTERESTKFW.FIXED.RATE]}) || #{Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1.Outputs[Default Output].Columns[FV.INTERESTKFW.FIXED.RATE]} == 0 ? "" : (DT_WSTR,20)#{Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1.Outputs[Default Output].Columns[FV.INTERESTKFW.FIXED.RATE]}
+</property>
+                        <property
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          name="FriendlyExpression">ISNULL([FV.INTERESTKFW.FIXED.RATE]) || [FV.INTERESTKFW.FIXED.RATE] == 0 ? "" : (DT_WSTR,20)[FV.INTERESTKFW.FIXED.RATE]
+</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DMS-DER01-TAKEOVER\PDC_001.Outputs[Default Output].Columns[FV.INTERESTFFC_FIXED_RATE]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="20"
+                      lineageId="Package\DMS-DER01-TAKEOVER\PDC_001.Outputs[Default Output].Columns[FV.INTERESTFFC_FIXED_RATE]"
+                      name="FV.INTERESTFFC_FIXED_RATE"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">ISNULL(#{Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1.Outputs[Default Output].Columns[FV_INTERESTFFC_FIXED_RATE]}) || #{Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1.Outputs[Default Output].Columns[FV_INTERESTFFC_FIXED_RATE]} == 0 ? "" : (DT_WSTR, 20)#{Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1.Outputs[Default Output].Columns[FV_INTERESTFFC_FIXED_RATE]}
+</property>
+                        <property
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          name="FriendlyExpression">ISNULL([FV_INTERESTFFC_FIXED_RATE]) || [FV_INTERESTFFC_FIXED_RATE] == 0 ? "" : (DT_WSTR, 20)[FV_INTERESTFFC_FIXED_RATE]
+</property>
                       </properties>
                     </outputColumn>
                   </outputColumns>
@@ -628,7 +728,7 @@
                     <inputColumn
                       refId="Package\DMS-DER01-TAKEOVER\PDC_003.Inputs[Primary Input].Columns[FV.PRINCIPALINT.DAY.BASIS]"
                       cachedDataType="wstr"
-                      cachedLength="7"
+                      cachedLength="20"
                       cachedName="FV.PRINCIPALINT.DAY.BASIS"
                       lineageId="Package\DMS-DER01-TAKEOVER\PDC_001.Outputs[Default Output].Columns[FV.PRINCIPALINT.DAY.BASIS]" />
                   </inputColumns>
@@ -772,11 +872,15 @@
                           containsID="true"
                           dataType="System.String"
                           description="Derived Column Expression"
-                          name="Expression">ISNULL(#{Package\DMS-DER01-TAKEOVER\PDC_001.Outputs[Default Output].Columns[FV.INTERESTKWF.DAY.BASIS]}) ? "" : "DAY.BASIS"</property>
+                          name="Expression">ISNULL(#{Package\DMS-DER01-TAKEOVER\PDC_001.Outputs[Default Output].Columns[FV.INTERESTKWF.DAY.BASIS]}) || TRIM(#{Package\DMS-DER01-TAKEOVER\PDC_001.Outputs[Default Output].Columns[FV.INTERESTKWF.DAY.BASIS]}) == "" ? "" : "DAY.BASIS"
+
+</property>
                         <property
                           dataType="System.String"
                           description="Derived Column Friendly Expression"
-                          name="FriendlyExpression">ISNULL([FV.INTERESTKWF.DAY.BASIS]) ? "" : "DAY.BASIS"</property>
+                          name="FriendlyExpression">ISNULL([FV.INTERESTKWF.DAY.BASIS]) || TRIM([FV.INTERESTKWF.DAY.BASIS]) == "" ? "" : "DAY.BASIS"
+
+</property>
                       </properties>
                     </outputColumn>
                     <outputColumn
@@ -793,11 +897,13 @@
                           containsID="true"
                           dataType="System.String"
                           description="Derived Column Expression"
-                          name="Expression">ISNULL(#{Package\DMS-DER01-TAKEOVER\PDC_001.Outputs[Default Output].Columns[FV.PRINCIPALINT.DAY.BASIS]}) ? "" : "DAY.BASIS"</property>
+                          name="Expression">ISNULL(#{Package\DMS-DER01-TAKEOVER\PDC_001.Outputs[Default Output].Columns[FV.PRINCIPALINT.DAY.BASIS]}) || TRIM(#{Package\DMS-DER01-TAKEOVER\PDC_001.Outputs[Default Output].Columns[FV.PRINCIPALINT.DAY.BASIS]}) == "" ? "" : "DAY.BASIS"
+</property>
                         <property
                           dataType="System.String"
                           description="Derived Column Friendly Expression"
-                          name="FriendlyExpression">ISNULL([FV.PRINCIPALINT.DAY.BASIS]) ? "" : "DAY.BASIS"</property>
+                          name="FriendlyExpression">ISNULL([FV.PRINCIPALINT.DAY.BASIS]) || TRIM([FV.PRINCIPALINT.DAY.BASIS]) == "" ? "" : "DAY.BASIS"
+</property>
                       </properties>
                     </outputColumn>
                   </outputColumns>
@@ -918,14 +1024,16 @@
                       lineageId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1.Outputs[Default Output].Columns[CO_OPERACION_ACTIVA]" />
                     <inputColumn
                       refId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Destination.Inputs[Primary Input].Columns[XINTFUND.MARGIN.TERM]"
-                      cachedDataType="i4"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="31"
                       cachedName="XINTFUND.MARGIN.TERM"
                       externalMetadataColumnId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Destination.Inputs[Primary Input].ExternalColumns[FV_XINTFUND_MARGIN_TERM]"
                       lineageId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1.Outputs[Default Output].Columns[XINTFUND.MARGIN.TERM]" />
                     <inputColumn
                       refId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Destination.Inputs[Primary Input].Columns[FV.PRINCIPALINT.DAY.BASIS]"
                       cachedDataType="wstr"
-                      cachedLength="7"
+                      cachedLength="20"
                       cachedName="FV.PRINCIPALINT.DAY.BASIS"
                       externalMetadataColumnId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Destination.Inputs[Primary Input].ExternalColumns[FV_PRINCIPALINT_DAY_BASIS]"
                       lineageId="Package\DMS-DER01-TAKEOVER\PDC_001.Outputs[Default Output].Columns[FV.PRINCIPALINT.DAY.BASIS]" />
@@ -945,17 +1053,15 @@
                       lineageId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1.Outputs[Default Output].Columns[PRINCIPALINT.MARGIN.TYPE]" />
                     <inputColumn
                       refId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Destination.Inputs[Primary Input].Columns[PRINCIPALINT.TIER.AMOUNT]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="106"
+                      cachedDataType="wstr"
+                      cachedLength="4000"
                       cachedName="PRINCIPALINT.TIER.AMOUNT"
                       externalMetadataColumnId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Destination.Inputs[Primary Input].ExternalColumns[FV_PRINCIPALINT_TIER_AMOUNT]"
                       lineageId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1.Outputs[Default Output].Columns[PRINCIPALINT.TIER.AMOUNT]" />
                     <inputColumn
                       refId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Destination.Inputs[Primary Input].Columns[SCHEDULE.ACTUAL.AMT]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="206"
+                      cachedDataType="wstr"
+                      cachedLength="4000"
                       cachedName="SCHEDULE.ACTUAL.AMT"
                       externalMetadataColumnId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Destination.Inputs[Primary Input].ExternalColumns[FV_SCHEDULE_ACTUAL_AMT]"
                       lineageId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1.Outputs[Default Output].Columns[SCHEDULE.ACTUAL.AMT]" />
@@ -963,7 +1069,7 @@
                       refId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Destination.Inputs[Primary Input].Columns[SCHEDULE.BILL.TYPE]"
                       cachedCodepage="1252"
                       cachedDataType="str"
-                      cachedLength="20"
+                      cachedLength="46"
                       cachedName="SCHEDULE.BILL.TYPE"
                       externalMetadataColumnId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Destination.Inputs[Primary Input].ExternalColumns[FV_SCHEDULE_BILL_TYPE]"
                       lineageId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1.Outputs[Default Output].Columns[SCHEDULE.BILL.TYPE]" />
@@ -971,7 +1077,7 @@
                       refId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Destination.Inputs[Primary Input].Columns[FV.SCHEDULE.PAYMENT.METHOD]"
                       cachedCodepage="1252"
                       cachedDataType="str"
-                      cachedLength="13"
+                      cachedLength="18"
                       cachedName="FV.SCHEDULE.PAYMENT.METHOD"
                       externalMetadataColumnId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Destination.Inputs[Primary Input].ExternalColumns[FV_SCHEDULE_PAYMENT_METHOD]"
                       lineageId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1.Outputs[Default Output].Columns[FV.SCHEDULE.PAYMENT.METHOD]" />
@@ -984,15 +1090,17 @@
                       lineageId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1.Outputs[Default Output].Columns[SCHEDULE.START.DATE]" />
                     <inputColumn
                       refId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Destination.Inputs[Primary Input].Columns[XINTFUND.MARGIN.DATE.FROM]"
-                      cachedDataType="wstr"
-                      cachedLength="4000"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="8"
                       cachedName="XINTFUND.MARGIN.DATE.FROM"
                       externalMetadataColumnId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Destination.Inputs[Primary Input].ExternalColumns[FV_XINTFUND_MARGIN_DATE_FROM]"
                       lineageId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1.Outputs[Default Output].Columns[XINTFUND.MARGIN.DATE.FROM]" />
                     <inputColumn
                       refId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Destination.Inputs[Primary Input].Columns[XINTFUND.MARGIN.DATE.TO]"
-                      cachedDataType="wstr"
-                      cachedLength="4000"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="8"
                       cachedName="XINTFUND.MARGIN.DATE.TO"
                       externalMetadataColumnId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Destination.Inputs[Primary Input].ExternalColumns[FV_XINTFUND_MARGIN_DATE_TO]"
                       lineageId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1.Outputs[Default Output].Columns[XINTFUND.MARGIN.DATE.TO]" />
@@ -1000,7 +1108,7 @@
                       refId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Destination.Inputs[Primary Input].Columns[XINTFUND.MARGIN.INTFUND]"
                       cachedCodepage="1252"
                       cachedDataType="str"
-                      cachedLength="3"
+                      cachedLength="6"
                       cachedName="XINTFUND.MARGIN.INTFUND"
                       externalMetadataColumnId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Destination.Inputs[Primary Input].ExternalColumns[FV_XINTFUND_MARGIN_INTFUND]"
                       lineageId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1.Outputs[Default Output].Columns[XINTFUND.MARGIN.INTFUND]" />
@@ -1014,8 +1122,9 @@
                       lineageId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1.Outputs[Default Output].Columns[XINTFUND.MARGIN.MARGIN]" />
                     <inputColumn
                       refId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Destination.Inputs[Primary Input].Columns[XINTFUND.MARGIN.SUBLIM.AMT]"
-                      cachedDataType="wstr"
-                      cachedLength="4000"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="1"
                       cachedName="XINTFUND.MARGIN.SUBLIM.AMT"
                       externalMetadataColumnId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Destination.Inputs[Primary Input].ExternalColumns[FV_XINTFUND_MARGIN_SUBLIM_AMT]"
                       lineageId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1.Outputs[Default Output].Columns[XINTFUND.MARGIN.SUBLIM.AMT]" />
@@ -1057,40 +1166,28 @@
                     <inputColumn
                       refId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Destination.Inputs[Primary Input].Columns[FNQ.PRINCIPALINT.TIER.AMOUNT]"
                       cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="49"
+                      cachedDataType="text"
                       cachedName="FNQ.PRINCIPALINT.TIER.AMOUNT"
                       externalMetadataColumnId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Destination.Inputs[Primary Input].ExternalColumns[FN_PRINCIPALINT_TIER_AMOUNT]"
                       lineageId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1.Outputs[Default Output].Columns[FNQ.PRINCIPALINT.TIER.AMOUNT]" />
                     <inputColumn
-                      refId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Destination.Inputs[Primary Input].Columns[FNQ.SCHEDULE.ACTAUL.AMT]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="62"
-                      cachedName="FNQ.SCHEDULE.ACTAUL.AMT"
-                      externalMetadataColumnId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Destination.Inputs[Primary Input].ExternalColumns[FN_SCHEDULE_ACTUAL_AMT]"
-                      lineageId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1.Outputs[Default Output].Columns[FNQ.SCHEDULE.ACTAUL.AMT]" />
-                    <inputColumn
                       refId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Destination.Inputs[Primary Input].Columns[FNQ.SCHEDULE.BILL.TYPE]"
                       cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="43"
+                      cachedDataType="text"
                       cachedName="FNQ.SCHEDULE.BILL.TYPE"
                       externalMetadataColumnId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Destination.Inputs[Primary Input].ExternalColumns[FN_SCHEDULE_BILL_TYPE]"
                       lineageId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1.Outputs[Default Output].Columns[FNQ.SCHEDULE.BILL.TYPE]" />
                     <inputColumn
                       refId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Destination.Inputs[Primary Input].Columns[FNQ.SCHEDULE.PAYMENT.TYPE]"
                       cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="52"
+                      cachedDataType="text"
                       cachedName="FNQ.SCHEDULE.PAYMENT.TYPE"
                       externalMetadataColumnId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Destination.Inputs[Primary Input].ExternalColumns[FN_SCHEDULE_PAYMENT_TYPE]"
                       lineageId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1.Outputs[Default Output].Columns[FNQ.SCHEDULE.PAYMENT.TYPE]" />
                     <inputColumn
                       refId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Destination.Inputs[Primary Input].Columns[FNQ.SCHEDULE.START.DATE]"
                       cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="46"
+                      cachedDataType="text"
                       cachedName="FNQ.SCHEDULE.START.DATE"
                       externalMetadataColumnId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Destination.Inputs[Primary Input].ExternalColumns[FN_SCHEDULE_START_DATE]"
                       lineageId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1.Outputs[Default Output].Columns[FNQ.SCHEDULE.START.DATE]" />
@@ -1098,7 +1195,7 @@
                       refId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Destination.Inputs[Primary Input].Columns[FNQ.XINTFUND.MARGIN.DATE.FROM]"
                       cachedCodepage="1252"
                       cachedDataType="str"
-                      cachedLength="9"
+                      cachedLength="13"
                       cachedName="FNQ.XINTFUND.MARGIN.DATE.FROM"
                       externalMetadataColumnId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Destination.Inputs[Primary Input].ExternalColumns[FN_XINTFUND_MARGIN_DATE_FROM]"
                       lineageId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1.Outputs[Default Output].Columns[FNQ.XINTFUND.MARGIN.DATE.FROM]" />
@@ -1106,15 +1203,14 @@
                       refId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Destination.Inputs[Primary Input].Columns[FNQ.XINTFUND.MARGIN.DATE.TO]"
                       cachedCodepage="1252"
                       cachedDataType="str"
-                      cachedLength="9"
+                      cachedLength="11"
                       cachedName="FNQ.XINTFUND.MARGIN.DATE.TO"
                       externalMetadataColumnId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Destination.Inputs[Primary Input].ExternalColumns[FN_XINTFUND_MARGIN_DATE_TO]"
                       lineageId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1.Outputs[Default Output].Columns[FNQ.XINTFUND.MARGIN.DATE.TO]" />
                     <inputColumn
                       refId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Destination.Inputs[Primary Input].Columns[FNQ.XINTFUND.MARGIN.INTFUND]"
                       cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="7"
+                      cachedDataType="text"
                       cachedName="FNQ.XINTFUND.MARGIN.INTFUND"
                       externalMetadataColumnId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Destination.Inputs[Primary Input].ExternalColumns[FN_XINTFUND_MARGIN_INTFUND]"
                       lineageId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1.Outputs[Default Output].Columns[FNQ.XINTFUND.MARGIN.INTFUND]" />
@@ -1122,7 +1218,7 @@
                       refId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Destination.Inputs[Primary Input].Columns[FNQ.XINTFUND.MARGIN.MARGIN]"
                       cachedCodepage="1252"
                       cachedDataType="str"
-                      cachedLength="6"
+                      cachedLength="10"
                       cachedName="FNQ.XINTFUND.MARGIN.MARGIN"
                       externalMetadataColumnId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Destination.Inputs[Primary Input].ExternalColumns[FN_XINTFUND_MARGIN_MARGIN]"
                       lineageId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1.Outputs[Default Output].Columns[FNQ.XINTFUND.MARGIN.MARGIN]" />
@@ -1130,7 +1226,7 @@
                       refId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Destination.Inputs[Primary Input].Columns[FNQ.XINTFUND.MARGIN.SUBLIM.AMT]"
                       cachedCodepage="1252"
                       cachedDataType="str"
-                      cachedLength="10"
+                      cachedLength="1"
                       cachedName="FNQ.XINTFUND.MARGIN.SUBLIM.AMT"
                       externalMetadataColumnId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Destination.Inputs[Primary Input].ExternalColumns[FN_XINTFUND_MARGIN_SUBLIM_AMT]"
                       lineageId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1.Outputs[Default Output].Columns[FNQ.XINTFUND.MARGIN.SUBLIM.AMT]" />
@@ -1138,7 +1234,7 @@
                       refId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Destination.Inputs[Primary Input].Columns[FNQ.XINTFUND.MARGIN.TERM]"
                       cachedCodepage="1252"
                       cachedDataType="str"
-                      cachedLength="4"
+                      cachedLength="8"
                       cachedName="FNQ.XINTFUND.MARGIN.TERM"
                       externalMetadataColumnId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Destination.Inputs[Primary Input].ExternalColumns[FN_XINTFUND_MARGIN_TERM]"
                       lineageId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1.Outputs[Default Output].Columns[FNQ.XINTFUND.MARGIN.TERM]" />
@@ -1159,8 +1255,9 @@
                       lineageId="Package\DMS-DER01-TAKEOVER\PDC_001.Outputs[Default Output].Columns[FV.PRINCIPALTINT.L.PERIOD.INDEX]" />
                     <inputColumn
                       refId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Destination.Inputs[Primary Input].Columns[FV.SCHEDULE.PAYMENT.TYPE]"
-                      cachedDataType="wstr"
-                      cachedLength="20"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="59"
                       cachedName="FV.SCHEDULE.PAYMENT.TYPE"
                       externalMetadataColumnId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Destination.Inputs[Primary Input].ExternalColumns[FV_SCHEDULE_PAYMENT_TYPE]"
                       lineageId="Package\DMS-DER01-TAKEOVER\PDC_001.Outputs[Default Output].Columns[FV.SCHEDULE.PAYMENT.TYPE]" />
@@ -1178,14 +1275,6 @@
                       cachedName="FNQ.INTERESTKFW.FIXED.RATE"
                       externalMetadataColumnId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Destination.Inputs[Primary Input].ExternalColumns[FN_INTERESTKFW_FIXED_RATE]"
                       lineageId="Package\DMS-DER01-TAKEOVER\PDC_003.Outputs[Default Output].Columns[FNQ.INTERESTKFW.FIXED.RATE]" />
-                    <inputColumn
-                      refId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Destination.Inputs[Primary Input].Columns[FV.INTERESTKFW.FIXED.RATE]"
-                      cachedDataType="numeric"
-                      cachedName="FV.INTERESTKFW.FIXED.RATE"
-                      cachedPrecision="38"
-                      cachedScale="4"
-                      externalMetadataColumnId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Destination.Inputs[Primary Input].ExternalColumns[FV_INTERESTKFW_FIXED_RATE]"
-                      lineageId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1.Outputs[Default Output].Columns[FV.INTERESTKFW.FIXED.RATE]" />
                     <inputColumn
                       refId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Destination.Inputs[Primary Input].Columns[FV_PRINCIPALINT_RATE_TIER_TYPE]"
                       cachedCodepage="1252"
@@ -1232,8 +1321,7 @@
                     <inputColumn
                       refId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Destination.Inputs[Primary Input].Columns[FNQ.SCHEDULE.PROPERTY]"
                       cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="40"
+                      cachedDataType="text"
                       cachedName="FNQ.SCHEDULE.PROPERTY"
                       externalMetadataColumnId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Destination.Inputs[Primary Input].ExternalColumns[FN_SCHEDULE_PROPERTY]"
                       lineageId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1.Outputs[Default Output].Columns[FNQ.SCHEDULE.PROPERTY]" />
@@ -1241,15 +1329,14 @@
                       refId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Destination.Inputs[Primary Input].Columns[FV_SCHEDULE_PROPERTY]"
                       cachedCodepage="1252"
                       cachedDataType="str"
-                      cachedLength="33"
+                      cachedLength="47"
                       cachedName="FV_SCHEDULE_PROPERTY"
                       externalMetadataColumnId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Destination.Inputs[Primary Input].ExternalColumns[FV_SCHEDULE_PROPERTY]"
                       lineageId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1.Outputs[Default Output].Columns[FV_SCHEDULE_PROPERTY]" />
                     <inputColumn
                       refId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Destination.Inputs[Primary Input].Columns[FNQ.SCHEDULE.PAYMENT.METHOD]"
                       cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="58"
+                      cachedDataType="text"
                       cachedName="FNQ.SCHEDULE.PAYMENT.METHOD"
                       externalMetadataColumnId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Destination.Inputs[Primary Input].ExternalColumns[FN_SCHEDULE_PAYMENT_METHOD]"
                       lineageId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1.Outputs[Default Output].Columns[FNQ.SCHEDULE.PAYMENT.METHOD]" />
@@ -1289,20 +1376,40 @@
                       externalMetadataColumnId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Destination.Inputs[Primary Input].ExternalColumns[FN_INTERESTFFC_FIXED_RATE]"
                       lineageId="Package\DMS-DER01-TAKEOVER\PDC_001.Outputs[Default Output].Columns[FNQ_INTERESTFFC_FIXED_RATE]" />
                     <inputColumn
-                      refId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Destination.Inputs[Primary Input].Columns[FV_INTERESTFFC_FIXED_RATE]"
-                      cachedDataType="numeric"
-                      cachedName="FV_INTERESTFFC_FIXED_RATE"
-                      cachedPrecision="9"
-                      cachedScale="4"
-                      externalMetadataColumnId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Destination.Inputs[Primary Input].ExternalColumns[FV_INTERESTFFC_FIXED_RATE]"
-                      lineageId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1.Outputs[Default Output].Columns[FV_INTERESTFFC_FIXED_RATE]" />
-                    <inputColumn
                       refId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Destination.Inputs[Primary Input].Columns[FV.PRINCIPALINT.MARGIN.RATE]"
                       cachedCodepage="1252"
                       cachedDataType="text"
                       cachedName="FV.PRINCIPALINT.MARGIN.RATE"
                       externalMetadataColumnId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Destination.Inputs[Primary Input].ExternalColumns[FV_PRINCIPALINT_MARGIN_RATE]"
                       lineageId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1.Outputs[Default Output].Columns[FV.PRINCIPALINT.MARGIN.RATE]" />
+                    <inputColumn
+                      refId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Destination.Inputs[Primary Input].Columns[FV.SCHEDULE.BILLS.COMBINED]"
+                      cachedDataType="wstr"
+                      cachedLength="2"
+                      cachedName="FV.SCHEDULE.BILLS.COMBINED"
+                      externalMetadataColumnId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Destination.Inputs[Primary Input].ExternalColumns[FV_SCHEDULE_BILLS_COMBINEDN]"
+                      lineageId="Package\DMS-DER01-TAKEOVER\PDC_001.Outputs[Default Output].Columns[FV.SCHEDULE.BILLS.COMBINED]" />
+                    <inputColumn
+                      refId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Destination.Inputs[Primary Input].Columns[FV_INTERESTKFW_FIXED_RATE]"
+                      cachedDataType="wstr"
+                      cachedLength="20"
+                      cachedName="FV_INTERESTKFW_FIXED_RATE"
+                      externalMetadataColumnId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Destination.Inputs[Primary Input].ExternalColumns[FV_INTERESTKFW_FIXED_RATE]"
+                      lineageId="Package\DMS-DER01-TAKEOVER\PDC_001.Outputs[Default Output].Columns[FV_INTERESTKFW_FIXED_RATE]" />
+                    <inputColumn
+                      refId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Destination.Inputs[Primary Input].Columns[FV.INTERESTFFC_FIXED_RATE]"
+                      cachedDataType="wstr"
+                      cachedLength="20"
+                      cachedName="FV.INTERESTFFC_FIXED_RATE"
+                      externalMetadataColumnId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Destination.Inputs[Primary Input].ExternalColumns[FV_INTERESTFFC_FIXED_RATE]"
+                      lineageId="Package\DMS-DER01-TAKEOVER\PDC_001.Outputs[Default Output].Columns[FV.INTERESTFFC_FIXED_RATE]" />
+                    <inputColumn
+                      refId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Destination.Inputs[Primary Input].Columns[FNQ.SCHEDULE.ACTUAL.AMT]"
+                      cachedCodepage="1252"
+                      cachedDataType="text"
+                      cachedName="FNQ.SCHEDULE.ACTUAL.AMT"
+                      externalMetadataColumnId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Destination.Inputs[Primary Input].ExternalColumns[FN_SCHEDULE_ACTUAL_AMT]"
+                      lineageId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1.Outputs[Default Output].Columns[FNQ.SCHEDULE.ACTUAL.AMT]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -2402,6 +2509,9 @@
                         <property
                           dataType="System.Null"
                           name="Tags" />
+                        <property
+                          dataType="System.String"
+                          name="Lookup"></property>
                       </properties>
                     </externalMetadataColumn>
                     <externalMetadataColumn
@@ -2727,6 +2837,1417 @@
               </outputs>
             </component>
             <component
+              refId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Destination 1"
+              componentClassID="Microsoft.ManagedComponentHost"
+              contactInfo="KingswaySoft Inc.; http://www.kingswaysoft.com; support@kingswaysoft.com; Copyright (c) 2011-2025 KingswaySoft Inc."
+              description="Insert, Update, Upsert, and Delete data over an ADO.NET connection."
+              name="Premium ADO NET Destination 1"
+              usesDispositions="true"
+              version="6">
+              <properties>
+                <property
+                  dataType="System.String"
+                  expressionType="Notify"
+                  name="DestinationTable">dbo.DMS.DRA.01.TAKEOVER.002</property>
+                <property
+                  dataType="System.Int32"
+                  expressionType="Notify"
+                  name="Action"
+                  typeConverter="KingswaySoft.IntegrationToolkit.ProductivityPack.PremiumAdoDotNetDestinationAction">2</property>
+                <property
+                  dataType="System.Int32"
+                  expressionType="Notify"
+                  name="WriteMode"
+                  typeConverter="KingswaySoft.IntegrationToolkit.ProductivityPack.PremiumAdoDotNetDestinationWriteMode">0</property>
+                <property
+                  dataType="System.Int32"
+                  expressionType="Notify"
+                  name="CommandTimeout">120</property>
+                <property
+                  dataType="System.Int32"
+                  description="BatchSize"
+                  expressionType="Notify"
+                  name="BatchSize">1</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies how to handle duplicates in the temp table before merging. Only applies to non INSERT bulk operations."
+                  expressionType="Notify"
+                  name="DuplicateHandling"
+                  typeConverter="KingswaySoft.IntegrationToolkit.ProductivityPack.PremiumAdoDotNetDestinationDuplicateHandling">0</property>
+                <property
+                  dataType="System.Boolean"
+                  expressionType="Notify"
+                  name="FirstMatchOnly">true</property>
+                <property
+                  dataType="System.Boolean"
+                  expressionType="Notify"
+                  name="FailOnNoAffectedRows">true</property>
+                <property
+                  dataType="System.Boolean"
+                  description="When enabled, will not overwrite existing values with NULL values during update/upsert operations."
+                  expressionType="Notify"
+                  name="PreventNullOverwrites">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="When checked, will configure the current session to skip foreign key checks, allowing invalid keys to be inserted."
+                  expressionType="Notify"
+                  name="DisableForeignKeyChecks">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="When enabled, unique constraints (including primary key constraints) will be ignored. This will insert non-unique values into a unique column and put the constraint into an unusable state."
+                  expressionType="Notify"
+                  name="IgnoreUniqueConstraints">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="TransactionType"
+                  expressionType="Notify"
+                  name="TransactionType"
+                  typeConverter="KingswaySoft.IntegrationToolkit.ProductivityPack.PremiumAdoDotNetTransactionType">0</property>
+                <property
+                  dataType="System.Int32"
+                  expressionType="Notify"
+                  name="TransactionIsolationLevel"
+                  typeConverter="KingswaySoft.IntegrationToolkit.ProductivityPack.PremiumAdoDotNetTransactionIsolationLevel">0</property>
+                <property
+                  dataType="System.String"
+                  expressionType="Notify"
+                  name="PreCommand"></property>
+                <property
+                  dataType="System.String"
+                  expressionType="Notify"
+                  name="SuccessPostCommand"></property>
+                <property
+                  dataType="System.String"
+                  expressionType="Notify"
+                  name="ErrorPostCommand"></property>
+                <property
+                  dataType="System.String"
+                  name="UserComponentTypeName">KingswaySoft.IntegrationToolkit.ProductivityPack.AdoDotNetDestinationComponent</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Destination 1.Connections[ADO NET]"
+                  connectionManagerID="{70D002B2-2810-4A0C-AFC9-A0396787FD0D}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[VENGGCR26_NAPNNPR32.STGPolaris]"
+                  description="ADO.NET"
+                  name="ADO NET" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Destination 1.Inputs[Primary Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Primary Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Destination 1.Inputs[Primary Input].Columns[CO_OPERACION_ACTIVA]"
+                      cachedDataType="wstr"
+                      cachedLength="15"
+                      cachedName="CO_OPERACION_ACTIVA"
+                      externalMetadataColumnId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Destination 1.Inputs[Primary Input].ExternalColumns[CO_OPERACION_ACTIVA]"
+                      lineageId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1.Outputs[Default Output].Columns[CO_OPERACION_ACTIVA]" />
+                    <inputColumn
+                      refId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Destination 1.Inputs[Primary Input].Columns[FV_INTERESTFFC_FIXED_RATE]"
+                      cachedDataType="numeric"
+                      cachedName="FV_INTERESTFFC_FIXED_RATE"
+                      cachedPrecision="9"
+                      cachedScale="4"
+                      externalMetadataColumnId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Destination 1.Inputs[Primary Input].ExternalColumns[FV_INTERESTFFC_FIXED_RATE]"
+                      lineageId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1.Outputs[Default Output].Columns[FV_INTERESTFFC_FIXED_RATE]" />
+                    <inputColumn
+                      refId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Destination 1.Inputs[Primary Input].Columns[FV_PRINCIPALINT_FIXED_RATE]"
+                      cachedCodepage="1252"
+                      cachedDataType="text"
+                      cachedName="FV_PRINCIPALINT_FIXED_RATE"
+                      externalMetadataColumnId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Destination 1.Inputs[Primary Input].ExternalColumns[FV_PRINCIPALINT_FIXED_RATE]"
+                      lineageId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1.Outputs[Default Output].Columns[FV_PRINCIPALINT_FIXED_RATE]" />
+                    <inputColumn
+                      refId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Destination 1.Inputs[Primary Input].Columns[FV_PRINCIPALINT_PERIODIC_INDEX]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="20"
+                      cachedName="FV_PRINCIPALINT_PERIODIC_INDEX"
+                      externalMetadataColumnId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Destination 1.Inputs[Primary Input].ExternalColumns[FV_PRINCIPALINT_PERIODIC_INDEX]"
+                      lineageId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1.Outputs[Default Output].Columns[FV_PRINCIPALINT_PERIODIC_INDEX]" />
+                    <inputColumn
+                      refId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Destination 1.Inputs[Primary Input].Columns[FV_PRINCIPALINT_RATE_TIER_TYPE]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="4"
+                      cachedName="FV_PRINCIPALINT_RATE_TIER_TYPE"
+                      externalMetadataColumnId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Destination 1.Inputs[Primary Input].ExternalColumns[FV_PRINCIPALINT_RATE_TIER_TYPE]"
+                      lineageId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1.Outputs[Default Output].Columns[FV_PRINCIPALINT_RATE_TIER_TYPE]" />
+                    <inputColumn
+                      refId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Destination 1.Inputs[Primary Input].Columns[FV_SCHEDULE_PROPERTY]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="47"
+                      cachedName="FV_SCHEDULE_PROPERTY"
+                      externalMetadataColumnId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Destination 1.Inputs[Primary Input].ExternalColumns[FV_SCHEDULE_PROPERTY]"
+                      lineageId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1.Outputs[Default Output].Columns[FV_SCHEDULE_PROPERTY]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Destination 1.Inputs[Primary Input].ExternalColumns[CO_OPERACION_ACTIVA]"
+                      dataType="wstr"
+                      length="10"
+                      name="CO_OPERACION_ACTIVA">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          name="IsConditionalField">true</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="IsIdentityField"
+                          name="IsIdentityField">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          name="CanBeConditionalField">true</property>
+                        <property
+                          dataType="System.Null"
+                          name="Tags" />
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Destination 1.Inputs[Primary Input].ExternalColumns[FN_DWCOMMITMENT_AMOUNT]"
+                      dataType="wstr"
+                      length="100"
+                      name="FN_DWCOMMITMENT_AMOUNT">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          name="IsConditionalField">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="IsIdentityField"
+                          name="IsIdentityField">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          name="CanBeConditionalField">true</property>
+                        <property
+                          dataType="System.Null"
+                          name="Tags" />
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Destination 1.Inputs[Primary Input].ExternalColumns[FN_INTERESTFFC_FIXED_RATE]"
+                      dataType="wstr"
+                      length="100"
+                      name="FN_INTERESTFFC_FIXED_RATE">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          name="IsConditionalField">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="IsIdentityField"
+                          name="IsIdentityField">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          name="CanBeConditionalField">true</property>
+                        <property
+                          dataType="System.Null"
+                          name="Tags" />
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Destination 1.Inputs[Primary Input].ExternalColumns[FN_INTERESTKFW_DAY_BASIS]"
+                      dataType="wstr"
+                      length="100"
+                      name="FN_INTERESTKFW_DAY_BASIS">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          name="IsConditionalField">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="IsIdentityField"
+                          name="IsIdentityField">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          name="CanBeConditionalField">true</property>
+                        <property
+                          dataType="System.Null"
+                          name="Tags" />
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Destination 1.Inputs[Primary Input].ExternalColumns[FN_INTERESTKFW_FIXED_RATE]"
+                      dataType="wstr"
+                      length="100"
+                      name="FN_INTERESTKFW_FIXED_RATE">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          name="IsConditionalField">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="IsIdentityField"
+                          name="IsIdentityField">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          name="CanBeConditionalField">true</property>
+                        <property
+                          dataType="System.Null"
+                          name="Tags" />
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Destination 1.Inputs[Primary Input].ExternalColumns[FN_PRINCIPALINT_DAY_BASIS]"
+                      dataType="wstr"
+                      length="100"
+                      name="FN_PRINCIPALINT_DAY_BASIS">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          name="IsConditionalField">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="IsIdentityField"
+                          name="IsIdentityField">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          name="CanBeConditionalField">true</property>
+                        <property
+                          dataType="System.Null"
+                          name="Tags" />
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Destination 1.Inputs[Primary Input].ExternalColumns[FN_PRINCIPALINT_FIXED_RATE]"
+                      dataType="wstr"
+                      length="100"
+                      name="FN_PRINCIPALINT_FIXED_RATE">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          name="IsConditionalField">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="IsIdentityField"
+                          name="IsIdentityField">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          name="CanBeConditionalField">true</property>
+                        <property
+                          dataType="System.Null"
+                          name="Tags" />
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Destination 1.Inputs[Primary Input].ExternalColumns[FN_PRINCIPALINT_L_MARGIN]"
+                      dataType="wstr"
+                      length="100"
+                      name="FN_PRINCIPALINT_L_MARGIN">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          name="IsConditionalField">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="IsIdentityField"
+                          name="IsIdentityField">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          name="CanBeConditionalField">true</property>
+                        <property
+                          dataType="System.Null"
+                          name="Tags" />
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Destination 1.Inputs[Primary Input].ExternalColumns[FN_PRINCIPALINT_L_PERIOD_INDEX]"
+                      dataType="wstr"
+                      length="100"
+                      name="FN_PRINCIPALINT_L_PERIOD_INDEX">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          name="IsConditionalField">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="IsIdentityField"
+                          name="IsIdentityField">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          name="CanBeConditionalField">true</property>
+                        <property
+                          dataType="System.Null"
+                          name="Tags" />
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Destination 1.Inputs[Primary Input].ExternalColumns[FN_PRINCIPALINT_MARGIN_OPER]"
+                      dataType="wstr"
+                      length="1000"
+                      name="FN_PRINCIPALINT_MARGIN_OPER">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          name="IsConditionalField">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="IsIdentityField"
+                          name="IsIdentityField">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          name="CanBeConditionalField">true</property>
+                        <property
+                          dataType="System.Null"
+                          name="Tags" />
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Destination 1.Inputs[Primary Input].ExternalColumns[FN_PRINCIPALINT_MARGIN_RATE]"
+                      dataType="wstr"
+                      length="1000"
+                      name="FN_PRINCIPALINT_MARGIN_RATE">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          name="IsConditionalField">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="IsIdentityField"
+                          name="IsIdentityField">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          name="CanBeConditionalField">true</property>
+                        <property
+                          dataType="System.Null"
+                          name="Tags" />
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Destination 1.Inputs[Primary Input].ExternalColumns[FN_PRINCIPALINT_MARGIN_TYPE]"
+                      dataType="wstr"
+                      length="1000"
+                      name="FN_PRINCIPALINT_MARGIN_TYPE">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          name="IsConditionalField">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="IsIdentityField"
+                          name="IsIdentityField">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          name="CanBeConditionalField">true</property>
+                        <property
+                          dataType="System.Null"
+                          name="Tags" />
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Destination 1.Inputs[Primary Input].ExternalColumns[FN_PRINCIPALINT_PERIODIC_INDEX]"
+                      dataType="wstr"
+                      length="100"
+                      name="FN_PRINCIPALINT_PERIODIC_INDEX">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          name="IsConditionalField">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="IsIdentityField"
+                          name="IsIdentityField">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          name="CanBeConditionalField">true</property>
+                        <property
+                          dataType="System.Null"
+                          name="Tags" />
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Destination 1.Inputs[Primary Input].ExternalColumns[FN_PRINCIPALINT_RATE_TIER_TYPE]"
+                      dataType="wstr"
+                      length="100"
+                      name="FN_PRINCIPALINT_RATE_TIER_TYPE">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          name="IsConditionalField">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="IsIdentityField"
+                          name="IsIdentityField">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          name="CanBeConditionalField">true</property>
+                        <property
+                          dataType="System.Null"
+                          name="Tags" />
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Destination 1.Inputs[Primary Input].ExternalColumns[FN_PRINCIPALINT_TIER_AMOUNT]"
+                      dataType="wstr"
+                      length="100"
+                      name="FN_PRINCIPALINT_TIER_AMOUNT">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          name="IsConditionalField">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="IsIdentityField"
+                          name="IsIdentityField">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          name="CanBeConditionalField">true</property>
+                        <property
+                          dataType="System.Null"
+                          name="Tags" />
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Destination 1.Inputs[Primary Input].ExternalColumns[FN_SCHEDULE_ACTUAL_AMT]"
+                      dataType="wstr"
+                      length="100"
+                      name="FN_SCHEDULE_ACTUAL_AMT">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          name="IsConditionalField">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="IsIdentityField"
+                          name="IsIdentityField">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          name="CanBeConditionalField">true</property>
+                        <property
+                          dataType="System.Null"
+                          name="Tags" />
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Destination 1.Inputs[Primary Input].ExternalColumns[FN_SCHEDULE_BILL_TYPE]"
+                      dataType="wstr"
+                      length="100"
+                      name="FN_SCHEDULE_BILL_TYPE">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          name="IsConditionalField">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="IsIdentityField"
+                          name="IsIdentityField">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          name="CanBeConditionalField">true</property>
+                        <property
+                          dataType="System.Null"
+                          name="Tags" />
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Destination 1.Inputs[Primary Input].ExternalColumns[FN_SCHEDULE_BILLS_COMBINED]"
+                      dataType="wstr"
+                      length="100"
+                      name="FN_SCHEDULE_BILLS_COMBINED">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          name="IsConditionalField">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="IsIdentityField"
+                          name="IsIdentityField">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          name="CanBeConditionalField">true</property>
+                        <property
+                          dataType="System.Null"
+                          name="Tags" />
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Destination 1.Inputs[Primary Input].ExternalColumns[FN_SCHEDULE_PAYMENT_METHOD]"
+                      dataType="wstr"
+                      length="100"
+                      name="FN_SCHEDULE_PAYMENT_METHOD">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          name="IsConditionalField">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="IsIdentityField"
+                          name="IsIdentityField">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          name="CanBeConditionalField">true</property>
+                        <property
+                          dataType="System.Null"
+                          name="Tags" />
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Destination 1.Inputs[Primary Input].ExternalColumns[FN_SCHEDULE_PAYMENT_TYPE]"
+                      dataType="wstr"
+                      length="100"
+                      name="FN_SCHEDULE_PAYMENT_TYPE">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          name="IsConditionalField">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="IsIdentityField"
+                          name="IsIdentityField">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          name="CanBeConditionalField">true</property>
+                        <property
+                          dataType="System.Null"
+                          name="Tags" />
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Destination 1.Inputs[Primary Input].ExternalColumns[FN_SCHEDULE_PROPERTY]"
+                      dataType="wstr"
+                      length="100"
+                      name="FN_SCHEDULE_PROPERTY">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          name="IsConditionalField">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="IsIdentityField"
+                          name="IsIdentityField">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          name="CanBeConditionalField">true</property>
+                        <property
+                          dataType="System.Null"
+                          name="Tags" />
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Destination 1.Inputs[Primary Input].ExternalColumns[FN_SCHEDULE_START_DATE]"
+                      dataType="wstr"
+                      length="2000"
+                      name="FN_SCHEDULE_START_DATE">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          name="IsConditionalField">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="IsIdentityField"
+                          name="IsIdentityField">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          name="CanBeConditionalField">true</property>
+                        <property
+                          dataType="System.Null"
+                          name="Tags" />
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Destination 1.Inputs[Primary Input].ExternalColumns[FN_XINTFUND_MARGIN_DATE_FROM]"
+                      dataType="wstr"
+                      length="100"
+                      name="FN_XINTFUND_MARGIN_DATE_FROM">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          name="IsConditionalField">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="IsIdentityField"
+                          name="IsIdentityField">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          name="CanBeConditionalField">true</property>
+                        <property
+                          dataType="System.Null"
+                          name="Tags" />
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Destination 1.Inputs[Primary Input].ExternalColumns[FN_XINTFUND_MARGIN_DATE_TO]"
+                      dataType="wstr"
+                      length="100"
+                      name="FN_XINTFUND_MARGIN_DATE_TO">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          name="IsConditionalField">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="IsIdentityField"
+                          name="IsIdentityField">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          name="CanBeConditionalField">true</property>
+                        <property
+                          dataType="System.Null"
+                          name="Tags" />
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Destination 1.Inputs[Primary Input].ExternalColumns[FN_XINTFUND_MARGIN_DISB_AMOUNT]"
+                      dataType="wstr"
+                      length="100"
+                      name="FN_XINTFUND_MARGIN_DISB_AMOUNT">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          name="IsConditionalField">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="IsIdentityField"
+                          name="IsIdentityField">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          name="CanBeConditionalField">true</property>
+                        <property
+                          dataType="System.Null"
+                          name="Tags" />
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Destination 1.Inputs[Primary Input].ExternalColumns[FN_XINTFUND_MARGIN_INTFUND]"
+                      dataType="wstr"
+                      length="100"
+                      name="FN_XINTFUND_MARGIN_INTFUND">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          name="IsConditionalField">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="IsIdentityField"
+                          name="IsIdentityField">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          name="CanBeConditionalField">true</property>
+                        <property
+                          dataType="System.Null"
+                          name="Tags" />
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Destination 1.Inputs[Primary Input].ExternalColumns[FN_XINTFUND_MARGIN_MARGIN]"
+                      dataType="wstr"
+                      length="100"
+                      name="FN_XINTFUND_MARGIN_MARGIN">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          name="IsConditionalField">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="IsIdentityField"
+                          name="IsIdentityField">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          name="CanBeConditionalField">true</property>
+                        <property
+                          dataType="System.Null"
+                          name="Tags" />
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Destination 1.Inputs[Primary Input].ExternalColumns[FN_XINTFUND_MARGIN_SUBLIM_AMT]"
+                      dataType="wstr"
+                      length="100"
+                      name="FN_XINTFUND_MARGIN_SUBLIM_AMT">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          name="IsConditionalField">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="IsIdentityField"
+                          name="IsIdentityField">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          name="CanBeConditionalField">true</property>
+                        <property
+                          dataType="System.Null"
+                          name="Tags" />
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Destination 1.Inputs[Primary Input].ExternalColumns[FN_XINTFUND_MARGIN_TERM]"
+                      dataType="wstr"
+                      length="100"
+                      name="FN_XINTFUND_MARGIN_TERM">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          name="IsConditionalField">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="IsIdentityField"
+                          name="IsIdentityField">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          name="CanBeConditionalField">true</property>
+                        <property
+                          dataType="System.Null"
+                          name="Tags" />
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Destination 1.Inputs[Primary Input].ExternalColumns[FV_DWCOMMITMENT_AMOUNT]"
+                      dataType="wstr"
+                      length="100"
+                      name="FV_DWCOMMITMENT_AMOUNT">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          name="IsConditionalField">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="IsIdentityField"
+                          name="IsIdentityField">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          name="CanBeConditionalField">true</property>
+                        <property
+                          dataType="System.Null"
+                          name="Tags" />
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Destination 1.Inputs[Primary Input].ExternalColumns[FV_INTERESTFFC_FIXED_RATE]"
+                      dataType="wstr"
+                      length="100"
+                      name="FV_INTERESTFFC_FIXED_RATE">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          name="IsConditionalField">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="IsIdentityField"
+                          name="IsIdentityField">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          name="CanBeConditionalField">true</property>
+                        <property
+                          dataType="System.Null"
+                          name="Tags" />
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Destination 1.Inputs[Primary Input].ExternalColumns[FV_INTERESTKFW_DAY_BASIS]"
+                      dataType="wstr"
+                      length="100"
+                      name="FV_INTERESTKFW_DAY_BASIS">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          name="IsConditionalField">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="IsIdentityField"
+                          name="IsIdentityField">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          name="CanBeConditionalField">true</property>
+                        <property
+                          dataType="System.Null"
+                          name="Tags" />
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Destination 1.Inputs[Primary Input].ExternalColumns[FV_INTERESTKFW_FIXED_RATE]"
+                      dataType="wstr"
+                      length="100"
+                      name="FV_INTERESTKFW_FIXED_RATE">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          name="IsConditionalField">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="IsIdentityField"
+                          name="IsIdentityField">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          name="CanBeConditionalField">true</property>
+                        <property
+                          dataType="System.Null"
+                          name="Tags" />
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Destination 1.Inputs[Primary Input].ExternalColumns[FV_PRINCIPALINT_DAY_BASIS]"
+                      dataType="wstr"
+                      length="100"
+                      name="FV_PRINCIPALINT_DAY_BASIS">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          name="IsConditionalField">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="IsIdentityField"
+                          name="IsIdentityField">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          name="CanBeConditionalField">true</property>
+                        <property
+                          dataType="System.Null"
+                          name="Tags" />
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Destination 1.Inputs[Primary Input].ExternalColumns[FV_PRINCIPALINT_FIXED_RATE]"
+                      dataType="wstr"
+                      length="100"
+                      name="FV_PRINCIPALINT_FIXED_RATE">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          name="IsConditionalField">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="IsIdentityField"
+                          name="IsIdentityField">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          name="CanBeConditionalField">true</property>
+                        <property
+                          dataType="System.Null"
+                          name="Tags" />
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Destination 1.Inputs[Primary Input].ExternalColumns[FV_PRINCIPALINT_L_MARGIN]"
+                      dataType="wstr"
+                      length="100"
+                      name="FV_PRINCIPALINT_L_MARGIN">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          name="IsConditionalField">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="IsIdentityField"
+                          name="IsIdentityField">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          name="CanBeConditionalField">true</property>
+                        <property
+                          dataType="System.Null"
+                          name="Tags" />
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Destination 1.Inputs[Primary Input].ExternalColumns[FV_PRINCIPALINT_L_PERIOD_INDEX]"
+                      dataType="wstr"
+                      length="100"
+                      name="FV_PRINCIPALINT_L_PERIOD_INDEX">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          name="IsConditionalField">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="IsIdentityField"
+                          name="IsIdentityField">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          name="CanBeConditionalField">true</property>
+                        <property
+                          dataType="System.Null"
+                          name="Tags" />
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Destination 1.Inputs[Primary Input].ExternalColumns[FV_PRINCIPALINT_MARGIN_OPER]"
+                      dataType="wstr"
+                      length="100"
+                      name="FV_PRINCIPALINT_MARGIN_OPER">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          name="IsConditionalField">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="IsIdentityField"
+                          name="IsIdentityField">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          name="CanBeConditionalField">true</property>
+                        <property
+                          dataType="System.Null"
+                          name="Tags" />
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Destination 1.Inputs[Primary Input].ExternalColumns[FV_PRINCIPALINT_MARGIN_RATE]"
+                      dataType="wstr"
+                      length="100"
+                      name="FV_PRINCIPALINT_MARGIN_RATE">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          name="IsConditionalField">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="IsIdentityField"
+                          name="IsIdentityField">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          name="CanBeConditionalField">true</property>
+                        <property
+                          dataType="System.Null"
+                          name="Tags" />
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Destination 1.Inputs[Primary Input].ExternalColumns[FV_PRINCIPALINT_MARGIN_TYPE]"
+                      dataType="wstr"
+                      length="100"
+                      name="FV_PRINCIPALINT_MARGIN_TYPE">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          name="IsConditionalField">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="IsIdentityField"
+                          name="IsIdentityField">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          name="CanBeConditionalField">true</property>
+                        <property
+                          dataType="System.Null"
+                          name="Tags" />
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Destination 1.Inputs[Primary Input].ExternalColumns[FV_PRINCIPALINT_PERIODIC_INDEX]"
+                      dataType="wstr"
+                      length="100"
+                      name="FV_PRINCIPALINT_PERIODIC_INDEX">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          name="IsConditionalField">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="IsIdentityField"
+                          name="IsIdentityField">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          name="CanBeConditionalField">true</property>
+                        <property
+                          dataType="System.Null"
+                          name="Tags" />
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Destination 1.Inputs[Primary Input].ExternalColumns[FV_PRINCIPALINT_RATE_TIER_TYPE]"
+                      dataType="wstr"
+                      length="100"
+                      name="FV_PRINCIPALINT_RATE_TIER_TYPE">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          name="IsConditionalField">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="IsIdentityField"
+                          name="IsIdentityField">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          name="CanBeConditionalField">true</property>
+                        <property
+                          dataType="System.Null"
+                          name="Tags" />
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Destination 1.Inputs[Primary Input].ExternalColumns[FV_PRINCIPALINT_TIER_AMOUNT]"
+                      dataType="wstr"
+                      length="100"
+                      name="FV_PRINCIPALINT_TIER_AMOUNT">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          name="IsConditionalField">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="IsIdentityField"
+                          name="IsIdentityField">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          name="CanBeConditionalField">true</property>
+                        <property
+                          dataType="System.Null"
+                          name="Tags" />
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Destination 1.Inputs[Primary Input].ExternalColumns[FV_SCHEDULE_ACTUAL_AMT]"
+                      dataType="wstr"
+                      length="100"
+                      name="FV_SCHEDULE_ACTUAL_AMT">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          name="IsConditionalField">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="IsIdentityField"
+                          name="IsIdentityField">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          name="CanBeConditionalField">true</property>
+                        <property
+                          dataType="System.Null"
+                          name="Tags" />
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Destination 1.Inputs[Primary Input].ExternalColumns[FV_SCHEDULE_BILL_TYPE]"
+                      dataType="wstr"
+                      length="100"
+                      name="FV_SCHEDULE_BILL_TYPE">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          name="IsConditionalField">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="IsIdentityField"
+                          name="IsIdentityField">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          name="CanBeConditionalField">true</property>
+                        <property
+                          dataType="System.Null"
+                          name="Tags" />
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Destination 1.Inputs[Primary Input].ExternalColumns[FV_SCHEDULE_BILLS_COMBINEDN]"
+                      dataType="wstr"
+                      length="100"
+                      name="FV_SCHEDULE_BILLS_COMBINEDN">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          name="IsConditionalField">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="IsIdentityField"
+                          name="IsIdentityField">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          name="CanBeConditionalField">true</property>
+                        <property
+                          dataType="System.Null"
+                          name="Tags" />
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Destination 1.Inputs[Primary Input].ExternalColumns[FV_SCHEDULE_PAYMENT_METHOD]"
+                      dataType="wstr"
+                      length="100"
+                      name="FV_SCHEDULE_PAYMENT_METHOD">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          name="IsConditionalField">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="IsIdentityField"
+                          name="IsIdentityField">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          name="CanBeConditionalField">true</property>
+                        <property
+                          dataType="System.Null"
+                          name="Tags" />
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Destination 1.Inputs[Primary Input].ExternalColumns[FV_SCHEDULE_PAYMENT_TYPE]"
+                      dataType="wstr"
+                      length="100"
+                      name="FV_SCHEDULE_PAYMENT_TYPE">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          name="IsConditionalField">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="IsIdentityField"
+                          name="IsIdentityField">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          name="CanBeConditionalField">true</property>
+                        <property
+                          dataType="System.Null"
+                          name="Tags" />
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Destination 1.Inputs[Primary Input].ExternalColumns[FV_SCHEDULE_PROPERTY]"
+                      dataType="wstr"
+                      length="100"
+                      name="FV_SCHEDULE_PROPERTY">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          name="IsConditionalField">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="IsIdentityField"
+                          name="IsIdentityField">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          name="CanBeConditionalField">true</property>
+                        <property
+                          dataType="System.Null"
+                          name="Tags" />
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Destination 1.Inputs[Primary Input].ExternalColumns[FV_SCHEDULE_START_DATE]"
+                      dataType="wstr"
+                      length="2000"
+                      name="FV_SCHEDULE_START_DATE">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          name="IsConditionalField">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="IsIdentityField"
+                          name="IsIdentityField">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          name="CanBeConditionalField">true</property>
+                        <property
+                          dataType="System.Null"
+                          name="Tags" />
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Destination 1.Inputs[Primary Input].ExternalColumns[FV_XINTFUND_MARGIN_DATE_FROM]"
+                      dataType="wstr"
+                      length="100"
+                      name="FV_XINTFUND_MARGIN_DATE_FROM">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          name="IsConditionalField">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="IsIdentityField"
+                          name="IsIdentityField">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          name="CanBeConditionalField">true</property>
+                        <property
+                          dataType="System.Null"
+                          name="Tags" />
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Destination 1.Inputs[Primary Input].ExternalColumns[FV_XINTFUND_MARGIN_DATE_TO]"
+                      dataType="wstr"
+                      length="100"
+                      name="FV_XINTFUND_MARGIN_DATE_TO">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          name="IsConditionalField">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="IsIdentityField"
+                          name="IsIdentityField">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          name="CanBeConditionalField">true</property>
+                        <property
+                          dataType="System.Null"
+                          name="Tags" />
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Destination 1.Inputs[Primary Input].ExternalColumns[FV_XINTFUND_MARGIN_DISB_AMOUNT]"
+                      dataType="wstr"
+                      length="100"
+                      name="FV_XINTFUND_MARGIN_DISB_AMOUNT">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          name="IsConditionalField">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="IsIdentityField"
+                          name="IsIdentityField">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          name="CanBeConditionalField">true</property>
+                        <property
+                          dataType="System.Null"
+                          name="Tags" />
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Destination 1.Inputs[Primary Input].ExternalColumns[FV_XINTFUND_MARGIN_INTFUND]"
+                      dataType="wstr"
+                      length="100"
+                      name="FV_XINTFUND_MARGIN_INTFUND">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          name="IsConditionalField">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="IsIdentityField"
+                          name="IsIdentityField">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          name="CanBeConditionalField">true</property>
+                        <property
+                          dataType="System.Null"
+                          name="Tags" />
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Destination 1.Inputs[Primary Input].ExternalColumns[FV_XINTFUND_MARGIN_MARGIN]"
+                      dataType="wstr"
+                      length="100"
+                      name="FV_XINTFUND_MARGIN_MARGIN">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          name="IsConditionalField">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="IsIdentityField"
+                          name="IsIdentityField">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          name="CanBeConditionalField">true</property>
+                        <property
+                          dataType="System.Null"
+                          name="Tags" />
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Destination 1.Inputs[Primary Input].ExternalColumns[FV_XINTFUND_MARGIN_SUBLIM_AMT]"
+                      dataType="wstr"
+                      length="100"
+                      name="FV_XINTFUND_MARGIN_SUBLIM_AMT">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          name="IsConditionalField">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="IsIdentityField"
+                          name="IsIdentityField">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          name="CanBeConditionalField">true</property>
+                        <property
+                          dataType="System.Null"
+                          name="Tags" />
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Destination 1.Inputs[Primary Input].ExternalColumns[FV_XINTFUND_MARGIN_TERM]"
+                      dataType="wstr"
+                      length="100"
+                      name="FV_XINTFUND_MARGIN_TERM">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          name="IsConditionalField">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="IsIdentityField"
+                          name="IsIdentityField">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          name="CanBeConditionalField">true</property>
+                        <property
+                          dataType="System.Null"
+                          name="Tags" />
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Destination 1.Inputs[Primary Input].ExternalColumns[PROPERTY]"
+                      dataType="nText"
+                      name="PROPERTY">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          name="IsConditionalField">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="IsIdentityField"
+                          name="IsIdentityField">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          name="CanBeConditionalField">true</property>
+                        <property
+                          dataType="System.Null"
+                          name="Tags" />
+                      </properties>
+                    </externalMetadataColumn>
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Destination 1.Outputs[Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Error Output"
+                  synchronousInputId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Destination 1.Inputs[Primary Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Destination 1.Outputs[Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Destination 1.Outputs[Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Destination 1.Outputs[Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Destination 1.Outputs[Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                    <outputColumn
+                      refId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Destination 1.Outputs[Error Output].Columns[ErrorMessage]"
+                      dataType="wstr"
+                      length="2048"
+                      lineageId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Destination 1.Outputs[Error Output].Columns[ErrorMessage]"
+                      name="ErrorMessage" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Destination 1.Outputs[Default Output]"
+                  exclusionGroup="1"
+                  name="Default Output"
+                  synchronousInputId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Destination 1.Inputs[Primary Input]">
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
               refId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1"
               componentClassID="Microsoft.ManagedComponentHost"
               contactInfo="KingswaySoft Inc.; http://www.kingswaysoft.com; support@kingswaysoft.com; Copyright (c) 2011-2025 KingswaySoft Inc."
@@ -2742,7 +4263,9 @@
                 <property
                   dataType="System.String"
                   expressionType="Notify"
-                  name="Command">WITH BASE AS (
+                  name="Command">DECLARE @FE_MIGRACION DATE = '2025-07-03';
+
+WITH BASE AS (
     SELECT *,
         COALESCE(
             NULLIF(CAST(CO_LINEA_CREDITO_ACTIVA AS VARCHAR), ''), 
@@ -2751,7 +4274,7 @@
         ) AS FACILITY
     FROM OPERACION_ACTIVA
     WHERE 
-        FE_LINEA_TIEMPO = '2025-07-03'
+        FE_LINEA_TIEMPO = @FE_MIGRACION
         AND CO_PERSONA_FUENTE_RECURSO IS NOT NULL
 ),
 NUMERADOS AS (
@@ -2759,14 +4282,14 @@ NUMERADOS AS (
         (SELECT PR.CO_APROBACION_CFS 
          FROM PROYECTO PR 
          WHERE PR.CO_PROYECTO = FACILITY 
-         AND PR.FE_LINEA_TIEMPO = '2025-07-03') AS PADRE_SUPERIOR,
+         AND PR.FE_LINEA_TIEMPO = @FE_MIGRACION) AS PADRE_SUPERIOR,
         FACILITY,
         CO_PROYECTO,        
         CO_OPERACION_ACTIVA,
         CO_PERSONA_FUENTE_RECURSO,
         NB_PERSONA_FUENTE_RECURSO,
         DE_STATUS_OPERACION,
-        DE_INDICE_TASA_BASE_INTERES,        
+        DE_INDICE_TASA_BASE_INTERES, 
         ROW_NUMBER() OVER (
             PARTITION BY CO_PROYECTO, FACILITY
             ORDER BY CO_OPERACION_ACTIVA
@@ -2869,6 +4392,8 @@ SELECT
     A.MARGIN_PHOENIX,
     A.CUR_BAL_PHOENIX,
 
+    ---------- 
+
      --- DWCOMMITMENT.AMOUNT
     (
         SELECT 
@@ -2890,7 +4415,7 @@ SELECT
     ------------------------------ [FNQ.INTERESTFFC.FIXED.RATE]
     (
         CASE 
-            WHEN A.TA_CMPNSCION IS NOT NULL AND A.TA_CMPNSCION &lt;&gt; 0 AND A.FE_VENCIMIENTO_FFC &gt; '2025-05-11' THEN A.TA_CMPNSCION ELSE 0 END
+            WHEN A.TA_CMPNSCION IS NOT NULL AND A.TA_CMPNSCION &lt;&gt; 0 AND A.FE_VENCIMIENTO_FFC &gt; @FE_MIGRACION THEN A.TA_CMPNSCION ELSE 0 END
     ) AS [FV_INTERESTFFC_FIXED_RATE],
 
     ------------------------------ [FV.INTERESTKFW.FIXED.RATE]
@@ -2898,7 +4423,7 @@ SELECT
        CASE
         WHEN A.CO_CONDICION = 'ORIGINAL' THEN ISNULL((SELECT SUM(ABS(PADRE2.TOTAL_MARGEN - N2.TOTAL_MARGEN))
             FROM NUMERADOS N2 LEFT JOIN NUMERADOS PADRE2 ON N2.FACILITY = PADRE2.FACILITY AND N2.CO_PROYECTO = PADRE2.CO_PROYECTO AND PADRE2.HIJO_NUM = 1      
-            WHERE  A.TOTAL_HIJOS &gt;= 2 AND N2.GRUPO_TIENE_1508 = 1 AND N2.FACILITY = A.FACILITY AND N2.FE_VENCIMIENTO_KFW &gt; '2025-05-11'), 0)
+            WHERE  A.TOTAL_HIJOS &gt;= 2 AND N2.GRUPO_TIENE_1508 = 1 AND N2.FACILITY = A.FACILITY AND N2.FE_VENCIMIENTO_KFW &gt; @FE_MIGRACION), 0)
         ELSE 0
     END 
     ) AS [FV.INTERESTKFW.FIXED.RATE],
@@ -2929,41 +4454,30 @@ SELECT
     ------------------------------ [PRINCIPALINT.MARGIN.TYPE]
    (
         CASE 
-            WHEN A.CO_CONDICION = 'ORIGINAL' THEN 'SINGLE' + ISNULL((SELECT STRING_AGG('!!SINGLE!!' +
-                        CASE 
-                            WHEN N2.CO_CONDICION = 'KFW' THEN 'KWF'
-                            WHEN N2.CO_CONDICION = 'FFC' THEN 'FFC'
-                            ELSE ''
-                        END, '')
-                    FROM NUMERADOS N2
-                    WHERE N2.FACILITY = A.FACILITY AND N2.HIJO_NUM &gt; 1 AND N2.CO_CONDICION IN ('KFW', 'FFC')), '') + '!!!!'
-            ELSE 
-                -- Si es hijo individual
-                'SINGLE!!' + 
-                CASE 
-                    WHEN A.CO_CONDICION = 'KFW' THEN 'KWF'
-                    WHEN A.CO_CONDICION = 'FFC' THEN 'FFC'
-                    ELSE 'UNKNOWN'
-                END
+            WHEN A.CO_CONDICION = 'ORIGINAL' THEN 
+                -- Inicia con SINGLE
+                'SINGLE' + ISNULL((SELECT STRING_AGG(CASE WHEN N2.CO_CONDICION = 'KFW' AND N2.FE_VENCIMIENTO_KFW &gt; @FE_MIGRACION THEN '!!SINGLE!!KWF' WHEN N2.CO_CONDICION = 'FFC' AND N2.FE_VENCIMIENTO_FFC &gt; @FE_MIGRACION THEN 'SINGLE!!FFC'
+                            ELSE '' END, '')
+                    FROM NUMERADOS N2 WHERE N2.FACILITY = A.FACILITY AND N2.HIJO_NUM &gt; 1 AND N2.CO_CONDICION IN ('KFW') ), '') 
+                    + CASE WHEN A.FE_VENCIMIENTO_FFC &gt; @FE_MIGRACION THEN '!!SINGLE!!FFC' ELSE '' END + '!!!!'
+            ELSE '' 
+                    + CASE WHEN A.CO_CONDICION = 'KFW' AND A.FE_VENCIMIENTO_KFW &gt; @FE_MIGRACION THEN 'KWF' WHEN A.FE_VENCIMIENTO_FFC &gt; @FE_MIGRACION THEN 'FFC' ELSE '' END
         END
     ) AS [PRINCIPALINT.MARGIN.TYPE],    
     (
-          CASE WHEN A.CO_CONDICION = 'ORIGINAL' THEN 'MARGIN.TYPE:1:1' + ISNULL((SELECT STRING_AGG('!!MARGIN.TYPE:' + CONVERT(VARCHAR(5), RN.Position + 1) + ':1' + '!!MARGIN.TYPE:' + CONVERT(VARCHAR(5), RN.Position + 1) + ':2', '')
-                FROM (SELECT ROW_NUMBER() OVER (ORDER BY N2.HIJO_NUM) AS Position FROM NUMERADOS N2 WHERE N2.FACILITY = A.FACILITY AND N2.HIJO_NUM &gt; 1 AND N2.CO_CONDICION IN ('KFW', 'FFC')) RN), '') +
-              ISNULL((SELECT TOP 1 '!!MARGIN.TYPE:' + CONVERT(VARCHAR(5), MAX(Position) + 2) + ':1' + '!!MARGIN.TYPE:' + CONVERT(VARCHAR(5), MAX(Position) + 2) + ':2' FROM ( SELECT ROW_NUMBER() OVER (ORDER BY N2.HIJO_NUM) AS Position
-                  FROM NUMERADOS N2 WHERE N2.FACILITY = A.FACILITY AND N2.HIJO_NUM &gt; 1 AND N2.CO_CONDICION IN ('KFW', 'FFC')) POS), '!!MARGIN.TYPE:2:1!!MARGIN.TYPE:2:2')  -- fallback si no hay hijos
-            ELSE 
-              -- Hijo individual: solo su campo
-              'MARGIN.TYPE:' + CONVERT(VARCHAR(5), A.HIJO_NUM) + ':2'
-          END
+        CASE 
+            WHEN A.CO_CONDICION = 'ORIGINAL' THEN 'MARGIN.TYPE:1:1' + -- Banda del padre
+                ISNULL((SELECT STRING_AGG('!!MARGIN.TYPE:' + CAST(B.Posicion AS VARCHAR) + ':1!!MARGIN.TYPE:' + CAST(B.Posicion AS VARCHAR) + ':2', '') 
+                        FROM (SELECT ROW_NUMBER() OVER (ORDER BY N2.HIJO_NUM) + 1 AS Posicion FROM NUMERADOS N2 WHERE N2.FACILITY = A.FACILITY 
+                        AND ((N2.CO_CONDICION = 'KFW' AND N2.FE_VENCIMIENTO_KFW &gt; @FE_MIGRACION) OR (N2.FE_VENCIMIENTO_FFC &gt; @FE_MIGRACION))) AS B), '') + '!!!!' -- Banda final vacía
+            ELSE   '' END
     ) AS [FNQ.PRINCIPALINT.MARGIN.TYPE],
     
     ------------------------------ [PRINCIPALINT.MARGIN.OPER]
    (
         CASE WHEN A.CO_CONDICION = 'ORIGINAL' THEN 'ADD' + -- Banda del padre
             -- Por cada hijo: !!ADD!!SUB
-            ISNULL((SELECT STRING_AGG('!!ADD!!SUB', '') FROM NUMERADOS N2 WHERE N2.FACILITY = A.FACILITY AND N2.HIJO_NUM &gt; 1), '') + '!!ADD!!SUB' + -- Banda adicional del sistema: !!ADD!!SUB 
-            '!!!!'-- Banda vacía final
+            ISNULL((SELECT STRING_AGG('!!ADD!!SUB', '') FROM NUMERADOS N2 WHERE N2.FACILITY = A.FACILITY AND N2.HIJO_NUM &gt; 1), '') + '!!!!'-- Banda vacía final
         ELSE 
             -- Si es hijo individual
             'ADD'
@@ -2990,14 +4504,14 @@ SELECT
                 ISNULL((SELECT STRING_AGG('!!' + CONVERT(VARCHAR(50), ISNULL(NX.TOTAL_MARGEN, 0)) + '!!' + CONVERT(VARCHAR(50), ISNULL(NX.TA_KFW, 0)), '')
                     FROM (SELECT N2.TOTAL_MARGEN, TA_KFW = ABS(ISNULL(PADRE2.TOTAL_MARGEN, 0) - ISNULL(N2.TOTAL_MARGEN, 0))
                     FROM NUMERADOS N2 LEFT JOIN NUMERADOS PADRE2 ON N2.FACILITY = PADRE2.FACILITY AND N2.CO_PROYECTO = PADRE2.CO_PROYECTO AND PADRE2.HIJO_NUM = 1
-                    WHERE N2.FACILITY = A.FACILITY  AND N2.CO_CONDICION IN ('KFW', 'FFC') AND N2.HIJO_NUM &gt; 1 AND N2.FE_VENCIMIENTO_KFW &gt; '2025-05-11' AND N2.GRUPO_TIENE_1508 = 1) NX), '') +  -- Banda vacía adicional
+                    WHERE N2.FACILITY = A.FACILITY  AND N2.CO_CONDICION IN ('KFW', 'FFC') AND N2.HIJO_NUM &gt; 1 AND N2.FE_VENCIMIENTO_KFW &gt; @FE_MIGRACION AND N2.GRUPO_TIENE_1508 = 1) NX), '') +  -- Banda vacía adicional
                 '!!' + '' + '!!' + ''
             ELSE 
                 -- Si es hijo individual
                 CONVERT(VARCHAR(50), ISNULL(A.TOTAL_MARGEN, 0)) + '!!' + 
                 CONVERT(VARCHAR(50), ISNULL(ABS(ISNULL((SELECT SUM(ABS(PADRE2.TOTAL_MARGEN - N2.TOTAL_MARGEN))
                 FROM NUMERADOS N2 LEFT JOIN NUMERADOS PADRE2 ON N2.FACILITY = PADRE2.FACILITY AND N2.CO_PROYECTO = PADRE2.CO_PROYECTO AND PADRE2.HIJO_NUM = 1      
-                WHERE  A.TOTAL_HIJOS &gt;= 2 AND N2.GRUPO_TIENE_1508 = 1 AND N2.FACILITY = A.FACILITY AND N2.FE_VENCIMIENTO_KFW &gt; '2025-05-11'), 0)), 0))
+                WHERE  A.TOTAL_HIJOS &gt;= 2 AND N2.GRUPO_TIENE_1508 = 1 AND N2.FACILITY = A.FACILITY AND N2.FE_VENCIMIENTO_KFW &gt; @FE_MIGRACION), 0)), 0))
         END
     ) AS [FV.PRINCIPALINT.MARGIN.RATE],
     
@@ -3015,237 +4529,232 @@ SELECT
   
     ) AS [FNQ.PRINCIPALINT.MARGIN.RATE],
     
-    ------------------------------ [PRINCIPALINT.TIER.AMOUNT]- Hacer sumatoria de los anteriores
-    (
-        SELECT 
-                CASE
-                WHEN A.HIJO_NUM = 3 THEN CONVERT(VARCHAR(50), ROUND(CONVERT(DECIMAL(18, 2),(SELECT SUM(ISNULL(N2.CUR_BAL_PHOENIX, 0)) FROM NUMERADOS N2 WHERE N2.FACILITY = A.FACILITY AND N2.HIJO_NUM = 1)), 2)) + '!!' + -- SUMA del Hijo 1
-                CONVERT(VARCHAR(50), ROUND(CONVERT(DECIMAL(18, 2),(SELECT SUM(ISNULL(N2.CUR_BAL_PHOENIX, 0)) FROM NUMERADOS N2 WHERE N2.FACILITY = A.FACILITY AND N2.HIJO_NUM IN (1, 2))), 2)) + '!!!!' WHEN A.HIJO_NUM IN (1, 2) THEN 
-                    -- SUMA del Hijo 1 + Hijo 2
-                    CONVERT(VARCHAR(50), ROUND(CONVERT(DECIMAL(18, 2),(SELECT SUM(ISNULL(N2.CUR_BAL_PHOENIX, 0)) FROM NUMERADOS N2 WHERE N2.FACILITY = A.FACILITY AND N2.HIJO_NUM IN (1, 2))), 2)) + '!!!!'
-                ELSE '0.00!!!!'
-            END
-     ) AS [PRINCIPALINT.TIER.AMOUNT],
-     (
-     SELECT 
-        CASE WHEN A.HIJO_NUM = 1 THEN 'TIER.AMOUNT:1:1' 
-            + CASE WHEN EXISTS (SELECT 1 FROM NUMERADOS N2 WHERE N2.FACILITY = A.FACILITY AND N2.HIJO_NUM = 2) THEN '!!' + 'TIER.AMOUNT:1:2' ELSE '' END
-            + CASE WHEN EXISTS (SELECT 1 FROM NUMERADOS N3 WHERE N3.FACILITY = A.FACILITY AND N3.HIJO_NUM = 3) THEN '!!' + 'TIER.AMOUNT:1:3' ELSE '' END
-        ELSE 'TIER.AMOUNT:1:1'
-        END   
+     ------------------------------ [PRINCIPALINT.TIER.AMOUNT]- Hacer sumatoria de los anteriores
+    (CASE WHEN A.CO_CONDICION = 'ORIGINAL' THEN (SELECT STRING_AGG(REPLACE(FORMAT(SumaAcumulada, 'N2'), ',', ''), '!!') + '!!0.00' FROM (SELECT SUM(CUR_BAL_PHOENIX) OVER (PARTITION BY FACILITY ORDER BY (SELECT NULL) ROWS BETWEEN UNBOUNDED PRECEDING AND CURRENT ROW) AS SumaAcumulada
+        FROM NUMERADOS N2 WHERE N2.FACILITY = A.FACILITY) AS Acumulado) 
+    ELSE '' END
+    ) AS [PRINCIPALINT.TIER.AMOUNT],
+
+    (CASE WHEN A.CO_CONDICION = 'ORIGINAL' THEN (SELECT STRING_AGG('TIER.AMOUNT:' + CAST(Num AS VARCHAR) + ':1', '!!') FROM (SELECT ROW_NUMBER() OVER (ORDER BY (SELECT NULL)) AS Num 
+            FROM (SELECT 1 AS Val
+                    UNION ALL SELECT 1 FROM NUMERADOS N2 WHERE N2.FACILITY = A.FACILITY AND N2.HIJO_NUM &gt; 1
+                    UNION ALL SELECT 1) AS Conteo) AS Numerados) ELSE ''END
     ) AS [FNQ.PRINCIPALINT.TIER.AMOUNT],
 
-     ------------------------------ [SCHEDULE.PROPERTY]
+    ------------------------------ [SCHEDULE.PROPERTY]
    (
         SELECT 
             CASE WHEN A.CO_CONDICION = 'ORIGINAL' THEN 'ACCOUNT'
-            + CASE WHEN EXISTS (SELECT 1 FROM NUMERADOS N2 WHERE N2.FACILITY = A.FACILITY AND N2.CO_CONDICION = 'FFC') THEN '!!' + 'INTERESTFFC' ELSE '' END
-            + CASE WHEN EXISTS (SELECT 1 FROM NUMERADOS N2 WHERE N2.FACILITY = A.FACILITY AND N2.CO_CONDICION = 'KFW') THEN '!!' + 'INTERESTKWF' ELSE '' END               
-             ELSE 'ACCOUNT'
-            END
+                + CASE WHEN EXISTS (SELECT 1 FROM NUMERADOS N2 WHERE N2.FACILITY = A.FACILITY AND N2.CO_CONDICION = 'FFC') THEN '!!INTERESTFFC' ELSE '' END
+                + CASE WHEN EXISTS (SELECT 1 FROM (SELECT SUM(N2.MO_INTERES_USD) AS Suma FROM NUMERADOS N2 WHERE N2.FACILITY = A.FACILITY) AS Sub WHERE Sub.Suma &gt; 0) THEN '!!PRINCIPALINT' ELSE '' END
+                + CASE WHEN EXISTS (SELECT 1 FROM NUMERADOS N2 WHERE N2.FACILITY = A.FACILITY AND N2.CO_CONDICION = 'KFW') THEN '!!INTERESTKWF' ELSE '' END
+            ELSE 'ACCOUNT'
+        END
     ) AS FV_SCHEDULE_PROPERTY,
     
     (
-        SELECT 
-            CASE WHEN A.CO_CONDICION = 'ORIGINAL' THEN 'PROPERTY:1:1'
-            + CASE WHEN EXISTS (SELECT 1 FROM NUMERADOS N2 WHERE N2.FACILITY = A.FACILITY AND N2.CO_CONDICION = 'FFC') THEN '!!' + 'PROPERTY:3:1' ELSE '' END
-            + CASE WHEN EXISTS (SELECT 1 FROM NUMERADOS N2 WHERE N2.FACILITY = A.FACILITY AND N2.CO_CONDICION = 'KFW') THEN '!!' + 'PROPERTY:4:1' ELSE '' END               
-             ELSE 'PROPERTY:1:1'
-            END
-  
+        SELECT STRING_AGG('PROPERTY:' + CAST(Num AS VARCHAR) + ':1', '!!')
+        FROM (SELECT ROW_NUMBER() OVER (ORDER BY (SELECT NULL)) AS Num FROM (
+                SELECT 1 AS Orden FROM NUMERADOS N2 WHERE A.CO_CONDICION = 'ORIGINAL' AND N2.FACILITY = A.FACILITY AND N2.HIJO_NUM = 1
+                UNION ALL
+                SELECT 1 FROM NUMERADOS N2 WHERE A.CO_CONDICION = 'ORIGINAL' AND N2.FACILITY = A.FACILITY AND N2.CO_CONDICION = 'FFC'
+                UNION ALL
+                SELECT 1 FROM (SELECT SUM(N2.MO_INTERES_USD) AS Suma FROM NUMERADOS N2 WHERE N2.FACILITY = A.FACILITY) AS Sub WHERE Sub.Suma &gt; 0
+                UNION ALL
+                SELECT 1 FROM NUMERADOS N2 WHERE A.CO_CONDICION = 'ORIGINAL' AND N2.FACILITY = A.FACILITY AND N2.CO_CONDICION = 'KFW' GROUP BY N2.CO_CONDICION              
+            ) AS CondicionesCumplidas
+        ) AS Numerados
     ) AS [FNQ.SCHEDULE.PROPERTY],
 
-      ------------------------------ [PAYMENT.METHOD]
-   (
-        SELECT 
-        CASE WHEN A.CO_CONDICION = 'ORIGINAL' AND (SELECT SUM(N2.MO_CAPITAL_MONEDA_ORIGEN) FROM NUMERADOS N2 WHERE N2.FACILITY = A.FACILITY AND N2.CO_CONDICION = 'ORIGINAL') &gt; 0 THEN 'DUE'
-            + CASE WHEN EXISTS (SELECT 1 FROM NUMERADOS N2 WHERE N2.FACILITY = A.FACILITY AND N2.CO_CONDICION = 'FFC') THEN '!!' + 'DUE' ELSE '' END
-            + CASE WHEN EXISTS (SELECT 1 FROM NUMERADOS N2 WHERE N2.FACILITY = A.FACILITY AND N2.CO_CONDICION = 'KFW') THEN '!!' + 'DUE' ELSE '' END               
-             ELSE 'ACCOUNT'
-            END
-         ) AS [FV.SCHEDULE.PAYMENT.METHOD],
+     ------------------------------ [SCHEDULE.PAYMENT.METHOD]
+    (   SELECT CASE WHEN A.HIJO_NUM = 1 AND A.CO_CONDICION = 'ORIGINAL' THEN 'DUE' 
+            + CASE WHEN EXISTS (SELECT 1 FROM (SELECT COUNT(*) AS Total, COUNT(DISTINCT N2.MO_INTERES_USD) AS Distintos FROM NUMERADOS N2 WHERE N2.FACILITY = A.FACILITY AND N2.HIJO_NUM &gt; 1 AND N2.MO_APROBADO_MONEDA_ORIGEN = N2.MO_X_DESEMBOLSAR_ORIGEN
+            ) AS Conteos WHERE Total = Distintos) THEN '!!DUE' ELSE '' END 
+            + CASE WHEN EXISTS (SELECT 1 FROM NUMERADOS N2 WHERE N2.FACILITY = A.FACILITY AND N2.HIJO_NUM &gt; 1 AND N2.CO_CONDICION = 'FFC') THEN '!!DUE' ELSE '' END 
+            + CASE WHEN EXISTS (SELECT 1 FROM NUMERADOS N2  WHERE A.CO_CONDICION = 'ORIGINAL' AND N2.FACILITY = A.FACILITY AND N2.CO_CONDICION = 'KFW' GROUP BY N2.CO_CONDICION) THEN '!!DUE' ELSE '' END           
+        ELSE '' 
+        END 
+    ) AS [FV.SCHEDULE.PAYMENT.METHOD],
     
-    (
-        SELECT 
-            CASE WHEN A.CO_CONDICION = 'ORIGINAL' AND (SELECT SUM(N2.MO_CAPITAL_MONEDA_ORIGEN) FROM NUMERADOS N2 WHERE N2.FACILITY = A.FACILITY AND N2.CO_CONDICION = 'ORIGINAL') &gt; 0 THEN 'PAYMENT.METHOD.1.1'
-            + CASE WHEN EXISTS (SELECT 1 FROM NUMERADOS N2 WHERE N2.FACILITY = A.FACILITY AND N2.CO_CONDICION = 'FFC') THEN '!!' + 'PAYMENT.METHOD:1:3' ELSE '' END
-            + CASE WHEN EXISTS (SELECT 1 FROM NUMERADOS N2 WHERE N2.FACILITY = A.FACILITY AND N2.CO_CONDICION = 'KFW') THEN '!!' + 'PAYMENT.METHOD:1:4' ELSE '' END               
-             ELSE 'PAYMENT.METHOD.1.1'
-            END
-  
+    (CASE WHEN A.CO_CONDICION = 'ORIGINAL' THEN (SELECT STRING_AGG('PAYMENT.METHOD:' + CAST(Num AS VARCHAR) + ':1', '!!')
+        FROM (SELECT ROW_NUMBER() OVER (ORDER BY (SELECT NULL)) AS Num FROM (
+                SELECT 1 AS Resultado FROM (SELECT SUM(N2.MO_CAPITAL_MONEDA_ORIGEN) AS Suma FROM NUMERADOS N2 WHERE N2.FACILITY = A.FACILITY) AS Sub WHERE Sub.Suma &gt; 0 
+                UNION ALL               
+                SELECT 1 AS Resultado FROM (SELECT COUNT(*) AS Total, COUNT(DISTINCT N2.MO_INTERES_USD) AS Distintos FROM NUMERADOS N2 WHERE N2.FACILITY = A.FACILITY AND N2.HIJO_NUM &gt; 1 AND N2.MO_APROBADO_MONEDA_ORIGEN = N2.MO_X_DESEMBOLSAR_ORIGEN AND N2.CO_CONDICION &lt;&gt; 'KFW') AS Conteos WHERE Total = Distintos
+                UNION ALL
+                SELECT 1 AS Resultado FROM NUMERADOS N2 WHERE A.CO_CONDICION = 'ORIGINAL' AND N2.FACILITY = A.FACILITY AND N2.CO_CONDICION = 'FFC'
+                UNION ALL                
+                SELECT 1 AS Resultado FROM NUMERADOS N2 WHERE A.CO_CONDICION = 'ORIGINAL' AND N2.FACILITY = A.FACILITY AND N2.CO_CONDICION = 'KFW' GROUP BY N2.CO_CONDICION              
+            ) AS CondicionesCumplidas
+        ) AS Numerados
+        ) ELSE '' END  
     ) AS [FNQ.SCHEDULE.PAYMENT.METHOD],
     
-    ------------------------------ [SCHEDULE.PAYMENT.TYPE]
+     ------------------------------ [SCHEDULE.PAYMENT.TYPE]
     (
         SELECT
         CASE 
-        WHEN A.HIJO_NUM = 1 AND A.CO_CONDICION = 'KFW' THEN 'SPECIAL' 
+        WHEN A.HIJO_NUM = 1 AND A.CO_CONDICION = 'ORIGINAL' THEN 'SPECIAL' 
             + CASE WHEN EXISTS (SELECT 1 FROM NUMERADOS N2 WHERE N2.FACILITY = A.FACILITY AND N2.HIJO_NUM &gt; 1 AND N2.MO_X_DESEMBOLSAR_ORIGEN = 0 AND N2.CO_CONDICION &lt;&gt; 'KFW') THEN '!!SPECIAL' ELSE '' END 
+            + CASE WHEN EXISTS (SELECT 1 FROM (SELECT COUNT(*) AS Total, COUNT(DISTINCT N2.MO_INTERES_USD) AS Distintos FROM NUMERADOS N2 WHERE N2.FACILITY = A.FACILITY AND N2.HIJO_NUM &gt; 1 
+                AND N2.MO_APROBADO_MONEDA_ORIGEN = N2.MO_X_DESEMBOLSAR_ORIGEN) AS Conteos WHERE Total = Distintos) THEN '!!INTEREST.ONLY' ELSE '' END 
             + CASE WHEN EXISTS (SELECT 1 FROM NUMERADOS N2 WHERE N2.FACILITY = A.FACILITY AND N2.HIJO_NUM &gt; 1 AND N2.MO_APROBADO_MONEDA_ORIGEN &gt; N2.MO_X_DESEMBOLSAR_ORIGEN AND N2.MO_X_DESEMBOLSAR_ORIGEN &gt; 0 AND N2.CO_CONDICION &lt;&gt; 'KFW') THEN '!!LINEAR' ELSE '' END 
             + CASE WHEN EXISTS (SELECT 1 FROM NUMERADOS N2 WHERE N2.FACILITY = A.FACILITY AND N2.HIJO_NUM &gt; 1 AND N2.MO_APROBADO_MONEDA_ORIGEN = N2.MO_X_DESEMBOLSAR_ORIGEN AND N2.CO_CONDICION &lt;&gt; 'KFW') THEN '!!LINEAR' ELSE '' END 
             + CASE WHEN EXISTS (SELECT 1 FROM NUMERADOS N2 WHERE N2.FACILITY = A.FACILITY AND N2.HIJO_NUM = 2 AND N2.CO_CONDICION = 'KFW') THEN '!!FUND.PAYMT' ELSE '' END 
         ELSE 'FUND.PAYMT' 
         END 
     ) AS [SCHEDULE.PAYMENT.TYPE],
-    (
-        SELECT 
-                CASE WHEN A.HIJO_NUM = 1 THEN 'PAYMENT.TYPE:1:1' 
-                + CASE WHEN EXISTS (SELECT 1 FROM NUMERADOS N2 WHERE N2.FACILITY = A.FACILITY AND N2.HIJO_NUM &gt; 1 AND N2.CO_CONDICION = 'KFW') THEN '!!' + 'PAYMENT.TYPE:4:1' ELSE '' END
-                + CASE WHEN EXISTS (SELECT 1 FROM NUMERADOS N3 WHERE N3.FACILITY = A.FACILITY AND N3.HIJO_NUM &gt; 1 AND N3.CO_CONDICION = 'FFC') THEN '!!' + 'PAYMENT.TYPE:3:1' ELSE '' END
-                    ELSE 'TIER.AMOUNT:1:1!!'
-                    END   
+
+     (  SELECT STRING_AGG('PAYMENT.TYPE:' + CAST(Num AS VARCHAR) + ':1', '!!')
+        FROM (SELECT ROW_NUMBER() OVER (ORDER BY (SELECT NULL)) AS Num FROM (   
+        -- Banda 1: Si es el padre original
+            SELECT 1 AS Orden FROM NUMERADOS N2 WHERE A.CO_CONDICION = 'ORIGINAL' AND N2.FACILITY = A.FACILITY AND N2.HIJO_NUM = 1
+            UNION ALL           -- Banda 2: Si todos los montos son diferentes
+            SELECT 1 FROM (SELECT COUNT(*) AS Total, COUNT(DISTINCT N2.MO_INTERES_USD) AS Distintos FROM NUMERADOS N2 WHERE N2.FACILITY = A.FACILITY AND N2.HIJO_NUM &gt; 1 AND N2.MO_APROBADO_MONEDA_ORIGEN = N2.MO_X_DESEMBOLSAR_ORIGEN
+            ) AS Conteos WHERE Total = Distintos
+            UNION ALL           -- Banda 3: Aprobado &gt; Desembolsado y no es KFW
+            SELECT 1 FROM NUMERADOS N2 WHERE N2.FACILITY = A.FACILITY AND N2.HIJO_NUM &gt; 1 AND N2.MO_APROBADO_MONEDA_ORIGEN &gt; N2.MO_X_DESEMBOLSAR_ORIGEN AND N2.MO_X_DESEMBOLSAR_ORIGEN &gt; 0 AND N2.CO_CONDICION &lt;&gt; 'KFW'
+            UNION ALL           -- Banda 4: Aprobado = Desembolsado y no es KFW
+            SELECT 1 FROM NUMERADOS N2 WHERE N2.FACILITY = A.FACILITY AND N2.HIJO_NUM &gt; 1 AND N2.MO_APROBADO_MONEDA_ORIGEN = N2.MO_X_DESEMBOLSAR_ORIGEN AND N2.CO_CONDICION &lt;&gt; 'KFW'
+            UNION ALL           -- Banda 5: KFW presente
+            SELECT 1 FROM NUMERADOS N2  WHERE A.CO_CONDICION = 'ORIGINAL' AND N2.FACILITY = A.FACILITY AND N2.CO_CONDICION = 'KFW' GROUP BY N2.CO_CONDICION
+        ) AS CondicionesCumplidas
+        ) AS Numerados
     ) AS [FNQ.SCHEDULE.PAYMENT.TYPE],
     
     ------------------------------ [SCHEDULE.START.DATE]
-    (
-        SELECT 
-                CASE WHEN A.HIJO_NUM = 1 THEN FORMAT(CONVERT(date, A.FE_PROXIMO_COBRO_CAPITAL, 103), 'yyyyMMdd')
-                + CASE WHEN EXISTS (SELECT 1 FROM NUMERADOS N2 WHERE N2.FACILITY = A.FACILITY AND N2.HIJO_NUM = 2) THEN '!!' + FORMAT(CONVERT(date, A.FE_PROXIMO_COBRO_INTERES, 103), 'yyyyMMdd')
-                ELSE '!!' 
-                  END
-            ELSE FORMAT(CONVERT(date, A.FE_PROXIMO_COBRO_INTERES, 103), 'yyyyMMdd')
-        END
-    ) AS [SCHEDULE.START.DATE],
-    (
-        SELECT 
-                CASE WHEN A.HIJO_NUM = 1 THEN 'START.DATE:1:1' 
-                + CASE WHEN EXISTS (SELECT 1 FROM NUMERADOS N2 WHERE N2.FACILITY = A.FACILITY AND N2.HIJO_NUM &gt; 1 AND N2.CO_CONDICION = 'KFW') THEN '!!' + 'START.DATE:4:1' ELSE '' END
-                + CASE WHEN EXISTS (SELECT 1 FROM NUMERADOS N3 WHERE N3.FACILITY = A.FACILITY AND N3.HIJO_NUM &gt; 1 AND N3.CO_CONDICION = 'FFC') THEN '!!' + 'START.DATE:3:1' ELSE '' END
-                    ELSE 'START.DATE:1:1!!'
-               END   
-    ) AS [FNQ.SCHEDULE.START.DATE],
+   (CASE WHEN A.CO_CONDICION = 'ORIGINAL' THEN (SELECT STRING_AGG(FORMAT(CONVERT(date, fe_vencimiento_cuota, 103), 'yyyyMMdd'), '!!') FROM [datamart].[dbo].[amortizacion_plan_activa] APA 
+                                                WHERE EXISTS (SELECT 1 FROM NUMERADOS N2 WHERE N2.FACILITY = A.FACILITY AND N2.CO_OPERACION_ACTIVA = APA.co_operacion_activa) AND fe_vencimiento_cuota &gt; @FE_MIGRACION)
+        ELSE '' END) AS [SCHEDULE.START.DATE],
     
-    ------------------------------ [SCHEDULE.ACTUAL.AMT]
-    (
-    SELECT 
-        CASE WHEN A.HIJO_NUM = 1 THEN CONVERT(VARCHAR(50), ROUND(CONVERT(DECIMAL(18, 2), A.MO_CAPITAL_MONEDA_ORIGEN), 2))
-            + ISNULL('!!' + (SELECT CONVERT(VARCHAR(50), ROUND(CONVERT(DECIMAL(18, 2), N2.MO_CAPITAL_MONEDA_ORIGEN), 2)) FROM NUMERADOS N2 WHERE N2.FACILITY = A.FACILITY AND N2.HIJO_NUM = 2), '!!')
-            + ISNULL('!!' + (SELECT CONVERT(VARCHAR(50), ROUND(CONVERT(DECIMAL(18, 2), N3.MO_CAPITAL_MONEDA_ORIGEN), 2)) FROM NUMERADOS N3 WHERE N3.FACILITY = A.FACILITY AND N3.HIJO_NUM = 3), '!!')
-            + ISNULL('!!' + (SELECT CONVERT(VARCHAR(50), ROUND(CONVERT(DECIMAL(18, 2), N3.MO_CAPITAL_MONEDA_ORIGEN), 2)) FROM NUMERADOS N3 WHERE N3.FACILITY = A.FACILITY AND N3.HIJO_NUM = 4), '!!')
-            ELSE -- Solo el valor de A si no es Hijo 1
-                CONVERT(VARCHAR(50), ROUND(CONVERT(DECIMAL(18, 2), A.MO_CAPITAL_MONEDA_ORIGEN), 2))
-        END
+    
+    (CASE WHEN A.CO_CONDICION = 'ORIGINAL' THEN (SELECT STRING_AGG('START.DATE:' + CAST(OperacionNum AS VARCHAR) + ':' + CAST(FechaNum AS VARCHAR), '!!') 
+    FROM (SELECT DENSE_RANK() OVER (PARTITION BY N2.FACILITY ORDER BY N2.CO_OPERACION_ACTIVA) AS OperacionNum, ROW_NUMBER() OVER (PARTITION BY N2.CO_OPERACION_ACTIVA ORDER BY APA.fe_vencimiento_cuota) AS FechaNum
+    FROM NUMERADOS N2 JOIN [datamart].[dbo].[amortizacion_plan_activa] APA ON APA.co_operacion_activa = N2.CO_OPERACION_ACTIVA WHERE N2.FACILITY = A.FACILITY AND APA.fe_vencimiento_cuota &gt; @FE_MIGRACION) AS FechasNumeradas) 
+    ELSE '' END) AS [FNQ.SCHEDULE.START.DATE],
+    
+   ------------------------------ [SCHEDULE.ACTUAL.AMT]
+    (CASE WHEN A.CO_CONDICION = 'ORIGINAL' THEN
+    (SELECT STRING_AGG(FORMAT(N2.MO_CAPITAL_MONEDA_ORIGEN, '0.00'), '!!')
+    FROM NUMERADOS N2  WHERE N2.FACILITY = A.FACILITY) ELSE '' END
     ) AS [SCHEDULE.ACTUAL.AMT],
     
-    (
-        SELECT 
-        CASE WHEN A.HIJO_NUM = 1 THEN 'ACTUAL.AMT:1:1' 
-                + CASE WHEN EXISTS (SELECT 1 FROM NUMERADOS N2 WHERE N2.FACILITY = A.FACILITY AND N2.HIJO_NUM = 2) THEN '!!' + 'ACTUAL.AMT:1:2' ELSE '' END
-                + CASE WHEN EXISTS (SELECT 1 FROM NUMERADOS N3 WHERE N3.FACILITY = A.FACILITY AND N3.HIJO_NUM = 3) THEN '!!' + 'ACTUAL.AMT:1:3' ELSE '' END
-                + CASE WHEN EXISTS (SELECT 1 FROM NUMERADOS N3 WHERE N3.FACILITY = A.FACILITY AND N3.HIJO_NUM = 4) THEN '!!' + 'ACTUAL.AMT:1:4' ELSE '' END
-                    ELSE 'ACTUAL.AMT:1:1!!'
-               END   
-                ) AS [FNQ.SCHEDULE.ACTAUL.AMT],
+    (CASE WHEN A.CO_CONDICION = 'ORIGINAL' THEN (SELECT STRING_AGG('ACTUAL.AMT:1:' + CAST(Num AS VARCHAR), '!!') FROM (SELECT ROW_NUMBER() OVER (ORDER BY (SELECT NULL)) AS Num FROM NUMERADOS N2
+        WHERE N2.FACILITY = A.FACILITY AND N2.HIJO_NUM IS NOT NULL) AS Numerados) ELSE '' END
+    ) AS [FNQ.SCHEDULE.ACTUAL.AMT],
     
     ------------------------------ [SCHEDULE.BILL.TYPE]
-    (
+     (
         SELECT 
-            CASE WHEN A.HIJO_NUM = 1 THEN 'FUND.BILL' 
-            + CASE WHEN EXISTS (SELECT 1 FROM NUMERADOS N2 WHERE N2.FACILITY = A.FACILITY AND N2.HIJO_NUM = 2) THEN '!!' + 'FUND.BILL' ELSE '' END
-        ELSE 'FUND.BILL'
-        END
-    
-  
+            CASE WHEN A.HIJO_NUM = 1 THEN 'INSTALLMENT' 
+            + CASE WHEN EXISTS (SELECT 1 FROM (SELECT COUNT(*) AS Total, COUNT(DISTINCT N2.MO_INTERES_USD) AS Distintos FROM NUMERADOS N2 WHERE N2.FACILITY = A.FACILITY AND N2.HIJO_NUM &gt; 1 
+                AND N2.MO_APROBADO_MONEDA_ORIGEN = N2.MO_X_DESEMBOLSAR_ORIGEN) AS Conteos WHERE Total = Distintos) THEN '!!INSTALLMENT' ELSE '' END 
+            + CASE WHEN EXISTS (SELECT 1 FROM NUMERADOS N2 WHERE N2.FACILITY = A.FACILITY AND N2.HIJO_NUM &gt; 1 AND N2.CO_CONDICION = 'FFC') THEN '!!FUND.BILL' ELSE '' END 
+            + CASE WHEN EXISTS (SELECT 1 FROM NUMERADOS N2  WHERE A.CO_CONDICION = 'ORIGINAL' AND N2.FACILITY = A.FACILITY AND N2.CO_CONDICION = 'KFW' GROUP BY N2.CO_CONDICION) THEN '!!FUND.BILL' ELSE '' END 
+        ELSE '' END 
     ) AS [SCHEDULE.BILL.TYPE],
     
-    (
-    SELECT 
-    CASE WHEN A.HIJO_NUM = 1 THEN 'BILL.TYPE:1:1' + CASE WHEN EXISTS (SELECT 1 FROM NUMERADOS N2 WHERE N2.FACILITY = A.FACILITY AND N2.HIJO_NUM = 2) THEN '!!BILL.TYPE:2:1' ELSE '' END
-         + CASE WHEN EXISTS (SELECT 1 FROM NUMERADOS N3 WHERE N3.FACILITY = A.FACILITY AND N3.HIJO_NUM = 3) THEN '!!BILL.TYPE:3:1' ELSE '!!' END
-            ELSE 'BILL.TYPE:1:1!!'
-        END
-        ) AS [FNQ.SCHEDULE.BILL.TYPE],
+    (CASE WHEN A.CO_CONDICION = 'ORIGINAL' THEN (SELECT STRING_AGG('BILL.TYPE:' + CAST(Num AS VARCHAR) + ':1', '!!')
+        FROM (SELECT ROW_NUMBER() OVER (ORDER BY (SELECT NULL)) AS Num FROM (
+                SELECT 1 AS Resultado FROM (SELECT SUM(N2.MO_CAPITAL_MONEDA_ORIGEN) AS Suma FROM NUMERADOS N2 WHERE N2.FACILITY = A.FACILITY) AS Sub WHERE Sub.Suma &gt; 0 
+                UNION ALL               
+                SELECT 1 AS Resultado FROM (SELECT COUNT(*) AS Total, COUNT(DISTINCT N2.MO_INTERES_USD) AS Distintos FROM NUMERADOS N2 WHERE N2.FACILITY = A.FACILITY AND N2.HIJO_NUM &gt; 1 AND N2.MO_APROBADO_MONEDA_ORIGEN = N2.MO_X_DESEMBOLSAR_ORIGEN AND N2.CO_CONDICION &lt;&gt; 'KFW') AS Conteos WHERE Total = Distintos
+                UNION ALL
+                SELECT 1 AS Resultado FROM NUMERADOS N2 WHERE A.CO_CONDICION = 'ORIGINAL' AND N2.FACILITY = A.FACILITY AND N2.CO_CONDICION = 'FFC'
+                UNION ALL                
+                SELECT 1 AS Resultado FROM NUMERADOS N2 WHERE A.CO_CONDICION = 'ORIGINAL' AND N2.FACILITY = A.FACILITY AND N2.CO_CONDICION = 'KFW' GROUP BY N2.CO_CONDICION              
+            ) AS CondicionesCumplidas
+        ) AS Numerados
+        ) ELSE '' END  
+    ) AS [FNQ.SCHEDULE.BILL.TYPE],
 
     
     ------------------------------ [XINTFUND.MARGIN.INTFUND]
-    (
+     (
         SELECT 
-            CASE WHEN A.FE_VENCIMIENTO_KFW &gt; '2026-01-01' THEN 'KWF' ELSE '' END
-        FROM NUMERADOS N2
-        WHERE N2.CO_OPERACION_ACTIVA = A.CO_OPERACION_ACTIVA
-        ) AS [XINTFUND.MARGIN.INTFUND],
-    (
-        SELECT 
-            CASE WHEN A.FE_VENCIMIENTO_KFW &gt; '2026-01-01' THEN 'INTFUND' ELSE '' END
-        FROM NUMERADOS N2
-        WHERE N2.CO_OPERACION_ACTIVA = A.CO_OPERACION_ACTIVA
+            CASE WHEN A.HIJO_NUM = 1 THEN (
+             CASE WHEN EXISTS (SELECT 1 FROM NUMERADOS N2 WHERE N2.FACILITY = A.FACILITY AND N2.HIJO_NUM &gt; 1 AND N2.CO_CONDICION = 'FFC') THEN 'FFC' ELSE '' END 
+            + CASE WHEN EXISTS (SELECT 1 FROM NUMERADOS N2  WHERE A.CO_CONDICION = 'ORIGINAL' AND N2.FACILITY = A.FACILITY AND N2.CO_CONDICION = 'KFW' GROUP BY N2.CO_CONDICION) THEN 'KFW' ELSE '' END 
+        )
+        ELSE '' END 
+    ) AS [XINTFUND.MARGIN.INTFUND],
+
+    (CASE WHEN A.CO_CONDICION = 'ORIGINAL' THEN (SELECT STRING_AGG('INTFUND:' + CAST(OperacionNum AS VARCHAR) + ':1', '!!')FROM (SELECT ROW_NUMBER() OVER (ORDER BY CO_CONDICION) AS OperacionNum
+                FROM (SELECT DISTINCT N2.CO_CONDICION FROM NUMERADOS N2 WHERE N2.FACILITY = A.FACILITY AND N2.CO_CONDICION IN ('KFW', 'FFC')) AS CondicionesUnicas
+            ) AS Enumeradas) ELSE '' END
     ) AS [FNQ.XINTFUND.MARGIN.INTFUND],
         
         
     ----------------------------- XINTFUND.MARGIN.TERM
-        
-    DATEDIFF(DAY, A.FE_CONTRATO, A.FE_VENCIMIENTO) AS [XINTFUND.MARGIN.TERM],
+    (CASE 
+        WHEN A.CO_CONDICION = 'ORIGINAL' THEN CONVERT(VARCHAR, DATEDIFF(DAY, @FE_MIGRACION, A.FE_VENCIMIENTO)) + 'D'
+        WHEN A.CO_CONDICION = 'KFW' THEN CONVERT(VARCHAR, DATEDIFF(DAY, @FE_MIGRACION, A.FE_VENCIMIENTO)) + 'D'
+        WHEN A.CO_CONDICION = 'FFC' THEN CONVERT(VARCHAR, DATEDIFF(DAY, @FE_MIGRACION, A.FE_VENCIMIENTO_FFC)) + 'D'
+        ELSE '' END) AS [XINTFUND.MARGIN.TERM],
+
     
     
-    'TERM' AS [FNQ.XINTFUND.MARGIN.TERM],
+    'TERM:1:1' AS [FNQ.XINTFUND.MARGIN.TERM],
      
     
     ------------------------------ [XINTFUND.MARGIN.DATE.FROM]
-    (
-        SELECT 
-            CASE WHEN A.CO_CONDICION = 'KFW' AND A.FE_VENCIMIENTO_KFW &lt; '2025-05-11' THEN FORMAT(CONVERT(date, A.FE_CONTRATO, 103), 'yyyyMMdd')
-                WHEN A.CO_CONDICION = 'FFC' AND A.FE_VENCIMIENTO_PASIVA &gt; '2025-05-11' THEN FORMAT(CONVERT(date, A.FE_CONTRATO, 103), 'yyyyMMdd')
-                ELSE ''
-            END
-    ) AS [XINTFUND.MARGIN.DATE.FROM],
+    --(SELECT 
+    --CASE WHEN A.CO_CONDICION = 'KFW' AND A.FE_VENCIMIENTO_KFW &lt; @FE_MIGRACION THEN FORMAT(CONVERT(date, A.FE_CONTRATO, 103), 'yyyyMMdd')
+    --WHEN A.CO_CONDICION = 'FFC' AND A.FE_VENCIMIENTO_PASIVA &gt; @FE_MIGRACION THEN FORMAT(CONVERT(date, A.FE_CONTRATO, 103), 'yyyyMMdd')
+    --ELSE ''
+    --END) 
+    '20250511' AS [XINTFUND.MARGIN.DATE.FROM],
 
-     (
-        SELECT 
-            CASE WHEN A.CO_CONDICION = 'KFW' AND A.FE_VENCIMIENTO_KFW &lt; '2025-05-11' THEN 'DATE.FROM'
-                WHEN A.CO_CONDICION = 'FFC' AND A.FE_VENCIMIENTO_PASIVA &gt; '2025-05-11' THEN 'DATE.FROM'
-                ELSE ''
-            END
-    ) AS [FNQ.XINTFUND.MARGIN.DATE.FROM],
+    --(SELECT 
+    --CASE WHEN A.CO_CONDICION = 'KFW' AND A.FE_VENCIMIENTO_KFW &lt; @FE_MIGRACION THEN 'DATE.FROM'
+    --WHEN A.CO_CONDICION = 'FFC' AND A.FE_VENCIMIENTO_PASIVA &gt; @FE_MIGRACION THEN 'DATE.FROM'
+    --ELSE ''
+    --END) 
+    'DATE.FROM:1:1' AS [FNQ.XINTFUND.MARGIN.DATE.FROM],
     
     ------------------------------ [XINTFUND.MARGIN.DATE.TO]
-    (
-        SELECT 
-            CASE WHEN A.CO_CONDICION = 'KFW' AND A.FE_VENCIMIENTO_KFW &lt; '2025-05-11' THEN FORMAT(CONVERT(date, A.FE_VENCIMIENTO_KFW, 103), 'yyyyMMdd')
-                WHEN A.CO_CONDICION = 'FFC' AND A.FE_VENCIMIENTO_PASIVA &gt; '2025-05-11' THEN FORMAT(CONVERT(date, A.FE_VENCIMIENTO_PASIVA, 103), 'yyyyMMdd')
-                ELSE ''
-            END
-    ) AS [XINTFUND.MARGIN.DATE.TO],
+    --(
+    --SELECT 
+    --CASE WHEN A.CO_CONDICION = 'KFW' AND A.FE_VENCIMIENTO_KFW &lt; @FE_MIGRACION THEN FORMAT(CONVERT(date, A.FE_VENCIMIENTO_KFW, 103), 'yyyyMMdd')
+    --WHEN A.CO_CONDICION = 'FFC' AND A.FE_VENCIMIENTO_PASIVA &gt; @FE_MIGRACION THEN FORMAT(CONVERT(date, A.FE_VENCIMIENTO_PASIVA, 103), 'yyyyMMdd')
+    --ELSE ''
+            --END) 
+    '20261230' AS [XINTFUND.MARGIN.DATE.TO],
 
-    (
-        SELECT 
-            CASE WHEN A.CO_CONDICION = 'KFW' AND A.FE_VENCIMIENTO_KFW &lt; '2025-05-11' THEN 'DATE.FROM'
-                WHEN A.CO_CONDICION = 'FFC' AND A.FE_VENCIMIENTO_PASIVA &gt; '2025-05-11' THEN 'DATE.FROM'
-                ELSE ''
-            END
-    ) AS [FNQ.XINTFUND.MARGIN.DATE.TO],
+    --(
+    --    SELECT 
+    --CASE WHEN A.CO_CONDICION = 'KFW' AND A.FE_VENCIMIENTO_KFW &lt; @FE_MIGRACION THEN 'DATE.FROM'
+    --WHEN A.CO_CONDICION = 'FFC' AND A.FE_VENCIMIENTO_PASIVA &gt; @FE_MIGRACION THEN 'DATE.FROM'
+    --ELSE ''
+    --END)
+    'DATE.TO:1:1' AS [FNQ.XINTFUND.MARGIN.DATE.TO],
     
     ------------------------------ [XINTFUND.MARGIN.SUBLIM.AMT]
-    (
-        SELECT 
-            CASE WHEN A.CO_CONDICION = 'KFW' AND A.FE_VENCIMIENTO_KFW &lt; '2025-05-11' THEN FORMAT(CONVERT(date, A.FE_VENCIMIENTO_KFW, 103), 'yyyyMMdd')
-                WHEN A.CO_CONDICION = 'FFC' AND A.FE_VENCIMIENTO_PASIVA &gt; '2025-05-11' THEN FORMAT(CONVERT(date, A.FE_VENCIMIENTO_PASIVA, 103), 'yyyyMMdd')
-                ELSE ''
-            END
-    ) AS [XINTFUND.MARGIN.SUBLIM.AMT],
+     (CASE 
+        WHEN A.CO_CONDICION IN ('ORIGINAL') THEN ''
+        WHEN A.CO_CONDICION IN ('FFC/KFW') THEN ''
+        WHEN A.CO_CONDICION = 'KFW' THEN ''
+        WHEN A.CO_CONDICION = 'FFC' THEN ''
+        ELSE '' END) AS [XINTFUND.MARGIN.SUBLIM.AMT],
     
-    (
-        SELECT 
-            CASE WHEN A.CO_CONDICION = 'KFW' AND A.FE_VENCIMIENTO_KFW &lt; '2025-05-11' THEN 'SUBLIM.AMT'
-                WHEN A.CO_CONDICION = 'FFC' AND A.FE_VENCIMIENTO_PASIVA &gt; '2025-05-11' THEN 'SUBLIM.AMT'
-            END
-    ) AS [FNQ.XINTFUND.MARGIN.SUBLIM.AMT],
+     (CASE 
+        WHEN A.CO_CONDICION IN ('ORIGINAL') THEN ''
+        WHEN A.CO_CONDICION IN ('FFC/KFW') THEN ''
+        WHEN A.CO_CONDICION = 'KFW' THEN ''
+        WHEN A.CO_CONDICION = 'FFC' THEN ''
+        ELSE '' END) AS [FNQ.XINTFUND.MARGIN.SUBLIM.AMT],
     
     ------------------------------ [XINTFUND.MARGIN.MARGIN]ta_cmpnscion
-    (
-        SELECT 
-            CASE WHEN A.CO_CONDICION = 'KFW' AND A.FE_VENCIMIENTO_KFW &lt; '2025-05-11' THEN CONVERT(VARCHAR, ABS(PADRE.[TOTAL_MARGEN] - A.[TOTAL_MARGEN]))
-                WHEN A.CO_CONDICION = 'FFC' AND A.FE_VENCIMIENTO_PASIVA &gt; '2025-05-11' THEN CONVERT(VARCHAR, ABS(A.ta_cmpnscion))
-                ELSE ''
-            END
-    )AS [XINTFUND.MARGIN.MARGIN],
+    (CASE 
+        WHEN A.CO_CONDICION IN ('ORIGINAL') THEN CONVERT(VARCHAR, ABS(A.TA_CMPNSCION))
+        WHEN A.CO_CONDICION IN ('FFC/KFW') THEN CONVERT(VARCHAR, ABS(A.TA_CMPNSCION))
+        WHEN A.CO_CONDICION = 'KFW' THEN CONVERT(VARCHAR, ABS(PADRE.[TOTAL_MARGEN] - A.[TOTAL_MARGEN]))
+        WHEN A.CO_CONDICION = 'FFC' THEN CONVERT(VARCHAR, ABS(A.TA_CMPNSCION))
+        ELSE '0.00'
+    END) AS [XINTFUND.MARGIN.MARGIN],
     
-    (
-        SELECT 
-            CASE WHEN A.CO_CONDICION = 'KFW' AND A.FE_VENCIMIENTO_KFW &lt; '2025-05-11' THEN 'MARGIN'
-                WHEN A.CO_CONDICION = 'FFC' AND A.FE_VENCIMIENTO_PASIVA &gt; '2025-05-11' THEN 'MARGIN'
-                ELSE ''
-            END
-    )AS  [FNQ.XINTFUND.MARGIN.MARGIN]
+    --(SELECT CASE WHEN A.CO_CONDICION = 'KFW' AND A.FE_VENCIMIENTO_KFW &lt; @FE_MIGRACION THEN 'MARGIN' WHEN A.CO_CONDICION = 'FFC' AND A.FE_VENCIMIENTO_PASIVA &gt; @FE_MIGRACION THEN 'MARGIN' ELSE '' END)
+    'MARGIN:1:1' AS  [FNQ.XINTFUND.MARGIN.MARGIN]
 
 FROM NUMERADOS A
 LEFT JOIN NUMERADOS B
@@ -3256,7 +4765,7 @@ LEFT JOIN NUMERADOS PADRE
  AND A.CO_PROYECTO = PADRE.CO_PROYECTO
  AND PADRE.HIJO_NUM = 1
 WHERE A.TOTAL_HIJOS &gt;= 2
-  AND A.GRUPO_TIENE_1508 = 1-- AND A.co_operacion_activa IN ('CFA008949')
+  AND A.GRUPO_TIENE_1508 = 1 AND A.[ESTADO FFC] = 'Active  '-- AND A.co_operacion_activa IN ('CFA008949')
 ORDER BY A.PADRE_SUPERIOR ASC, A.FACILITY ASC, A.HIJO_NUM ASC;
 
 
@@ -3334,12 +4843,11 @@ CFA012508*/</property>
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
                       refId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1.Outputs[Default Output].Columns[PRINCIPALINT.TIER.AMOUNT]"
-                      codePage="1252"
-                      dataType="str"
+                      dataType="wstr"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
                       externalMetadataColumnId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1.Outputs[Default Output].ExternalColumns[PRINCIPALINT.TIER.AMOUNT]"
-                      length="106"
+                      length="4000"
                       lineageId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1.Outputs[Default Output].Columns[PRINCIPALINT.TIER.AMOUNT]"
                       name="PRINCIPALINT.TIER.AMOUNT"
                       truncationRowDisposition="FailComponent" />
@@ -3350,7 +4858,7 @@ CFA012508*/</property>
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
                       externalMetadataColumnId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1.Outputs[Default Output].ExternalColumns[SCHEDULE.PAYMENT.TYPE]"
-                      length="44"
+                      length="59"
                       lineageId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1.Outputs[Default Output].Columns[SCHEDULE.PAYMENT.TYPE]"
                       name="SCHEDULE.PAYMENT.TYPE"
                       truncationRowDisposition="FailComponent" />
@@ -3366,12 +4874,11 @@ CFA012508*/</property>
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
                       refId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1.Outputs[Default Output].Columns[SCHEDULE.ACTUAL.AMT]"
-                      codePage="1252"
-                      dataType="str"
+                      dataType="wstr"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
                       externalMetadataColumnId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1.Outputs[Default Output].ExternalColumns[SCHEDULE.ACTUAL.AMT]"
-                      length="206"
+                      length="4000"
                       lineageId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1.Outputs[Default Output].Columns[SCHEDULE.ACTUAL.AMT]"
                       name="SCHEDULE.ACTUAL.AMT"
                       truncationRowDisposition="FailComponent" />
@@ -3382,7 +4889,7 @@ CFA012508*/</property>
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
                       externalMetadataColumnId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1.Outputs[Default Output].ExternalColumns[SCHEDULE.BILL.TYPE]"
-                      length="20"
+                      length="46"
                       lineageId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1.Outputs[Default Output].Columns[SCHEDULE.BILL.TYPE]"
                       name="SCHEDULE.BILL.TYPE"
                       truncationRowDisposition="FailComponent" />
@@ -3393,46 +4900,51 @@ CFA012508*/</property>
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
                       externalMetadataColumnId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1.Outputs[Default Output].ExternalColumns[XINTFUND.MARGIN.INTFUND]"
-                      length="3"
+                      length="6"
                       lineageId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1.Outputs[Default Output].Columns[XINTFUND.MARGIN.INTFUND]"
                       name="XINTFUND.MARGIN.INTFUND"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
                       refId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1.Outputs[Default Output].Columns[XINTFUND.MARGIN.TERM]"
-                      dataType="i4"
+                      codePage="1252"
+                      dataType="str"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
                       externalMetadataColumnId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1.Outputs[Default Output].ExternalColumns[XINTFUND.MARGIN.TERM]"
+                      length="31"
                       lineageId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1.Outputs[Default Output].Columns[XINTFUND.MARGIN.TERM]"
                       name="XINTFUND.MARGIN.TERM"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
                       refId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1.Outputs[Default Output].Columns[XINTFUND.MARGIN.DATE.FROM]"
-                      dataType="wstr"
+                      codePage="1252"
+                      dataType="str"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
                       externalMetadataColumnId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1.Outputs[Default Output].ExternalColumns[XINTFUND.MARGIN.DATE.FROM]"
-                      length="4000"
+                      length="8"
                       lineageId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1.Outputs[Default Output].Columns[XINTFUND.MARGIN.DATE.FROM]"
                       name="XINTFUND.MARGIN.DATE.FROM"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
                       refId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1.Outputs[Default Output].Columns[XINTFUND.MARGIN.DATE.TO]"
-                      dataType="wstr"
+                      codePage="1252"
+                      dataType="str"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
                       externalMetadataColumnId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1.Outputs[Default Output].ExternalColumns[XINTFUND.MARGIN.DATE.TO]"
-                      length="4000"
+                      length="8"
                       lineageId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1.Outputs[Default Output].Columns[XINTFUND.MARGIN.DATE.TO]"
                       name="XINTFUND.MARGIN.DATE.TO"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
                       refId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1.Outputs[Default Output].Columns[XINTFUND.MARGIN.SUBLIM.AMT]"
-                      dataType="wstr"
+                      codePage="1252"
+                      dataType="str"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
                       externalMetadataColumnId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1.Outputs[Default Output].ExternalColumns[XINTFUND.MARGIN.SUBLIM.AMT]"
-                      length="4000"
+                      length="1"
                       lineageId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1.Outputs[Default Output].Columns[XINTFUND.MARGIN.SUBLIM.AMT]"
                       name="XINTFUND.MARGIN.SUBLIM.AMT"
                       truncationRowDisposition="FailComponent" />
@@ -3490,55 +5002,40 @@ CFA012508*/</property>
                     <outputColumn
                       refId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1.Outputs[Default Output].Columns[FNQ.PRINCIPALINT.TIER.AMOUNT]"
                       codePage="1252"
-                      dataType="str"
+                      dataType="text"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
                       externalMetadataColumnId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1.Outputs[Default Output].ExternalColumns[FNQ.PRINCIPALINT.TIER.AMOUNT]"
-                      length="49"
                       lineageId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1.Outputs[Default Output].Columns[FNQ.PRINCIPALINT.TIER.AMOUNT]"
                       name="FNQ.PRINCIPALINT.TIER.AMOUNT"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
                       refId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1.Outputs[Default Output].Columns[FNQ.SCHEDULE.PAYMENT.TYPE]"
                       codePage="1252"
-                      dataType="str"
+                      dataType="text"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
                       externalMetadataColumnId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1.Outputs[Default Output].ExternalColumns[FNQ.SCHEDULE.PAYMENT.TYPE]"
-                      length="52"
                       lineageId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1.Outputs[Default Output].Columns[FNQ.SCHEDULE.PAYMENT.TYPE]"
                       name="FNQ.SCHEDULE.PAYMENT.TYPE"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
                       refId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1.Outputs[Default Output].Columns[FNQ.SCHEDULE.START.DATE]"
                       codePage="1252"
-                      dataType="str"
+                      dataType="text"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
                       externalMetadataColumnId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1.Outputs[Default Output].ExternalColumns[FNQ.SCHEDULE.START.DATE]"
-                      length="46"
                       lineageId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1.Outputs[Default Output].Columns[FNQ.SCHEDULE.START.DATE]"
                       name="FNQ.SCHEDULE.START.DATE"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1.Outputs[Default Output].Columns[FNQ.SCHEDULE.ACTAUL.AMT]"
-                      codePage="1252"
-                      dataType="str"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1.Outputs[Default Output].ExternalColumns[FNQ.SCHEDULE.ACTAUL.AMT]"
-                      length="62"
-                      lineageId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1.Outputs[Default Output].Columns[FNQ.SCHEDULE.ACTAUL.AMT]"
-                      name="FNQ.SCHEDULE.ACTAUL.AMT"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
                       refId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1.Outputs[Default Output].Columns[FNQ.SCHEDULE.BILL.TYPE]"
                       codePage="1252"
-                      dataType="str"
+                      dataType="text"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
                       externalMetadataColumnId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1.Outputs[Default Output].ExternalColumns[FNQ.SCHEDULE.BILL.TYPE]"
-                      length="43"
                       lineageId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1.Outputs[Default Output].Columns[FNQ.SCHEDULE.BILL.TYPE]"
                       name="FNQ.SCHEDULE.BILL.TYPE"
                       truncationRowDisposition="FailComponent" />
@@ -3549,18 +5046,17 @@ CFA012508*/</property>
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
                       externalMetadataColumnId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1.Outputs[Default Output].ExternalColumns[FNQ.XINTFUND.MARGIN.DATE.FROM]"
-                      length="9"
+                      length="13"
                       lineageId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1.Outputs[Default Output].Columns[FNQ.XINTFUND.MARGIN.DATE.FROM]"
                       name="FNQ.XINTFUND.MARGIN.DATE.FROM"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
                       refId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1.Outputs[Default Output].Columns[FNQ.XINTFUND.MARGIN.INTFUND]"
                       codePage="1252"
-                      dataType="str"
+                      dataType="text"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
                       externalMetadataColumnId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1.Outputs[Default Output].ExternalColumns[FNQ.XINTFUND.MARGIN.INTFUND]"
-                      length="7"
                       lineageId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1.Outputs[Default Output].Columns[FNQ.XINTFUND.MARGIN.INTFUND]"
                       name="FNQ.XINTFUND.MARGIN.INTFUND"
                       truncationRowDisposition="FailComponent" />
@@ -3571,7 +5067,7 @@ CFA012508*/</property>
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
                       externalMetadataColumnId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1.Outputs[Default Output].ExternalColumns[FNQ.XINTFUND.MARGIN.TERM]"
-                      length="4"
+                      length="8"
                       lineageId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1.Outputs[Default Output].Columns[FNQ.XINTFUND.MARGIN.TERM]"
                       name="FNQ.XINTFUND.MARGIN.TERM"
                       truncationRowDisposition="FailComponent" />
@@ -3582,7 +5078,7 @@ CFA012508*/</property>
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
                       externalMetadataColumnId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1.Outputs[Default Output].ExternalColumns[FNQ.XINTFUND.MARGIN.DATE.TO]"
-                      length="9"
+                      length="11"
                       lineageId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1.Outputs[Default Output].Columns[FNQ.XINTFUND.MARGIN.DATE.TO]"
                       name="FNQ.XINTFUND.MARGIN.DATE.TO"
                       truncationRowDisposition="FailComponent" />
@@ -3593,7 +5089,7 @@ CFA012508*/</property>
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
                       externalMetadataColumnId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1.Outputs[Default Output].ExternalColumns[FNQ.XINTFUND.MARGIN.MARGIN]"
-                      length="6"
+                      length="10"
                       lineageId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1.Outputs[Default Output].Columns[FNQ.XINTFUND.MARGIN.MARGIN]"
                       name="FNQ.XINTFUND.MARGIN.MARGIN"
                       truncationRowDisposition="FailComponent" />
@@ -3604,7 +5100,7 @@ CFA012508*/</property>
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
                       externalMetadataColumnId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1.Outputs[Default Output].ExternalColumns[FNQ.XINTFUND.MARGIN.SUBLIM.AMT]"
-                      length="10"
+                      length="1"
                       lineageId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1.Outputs[Default Output].Columns[FNQ.XINTFUND.MARGIN.SUBLIM.AMT]"
                       name="FNQ.XINTFUND.MARGIN.SUBLIM.AMT"
                       truncationRowDisposition="FailComponent" />
@@ -3839,11 +5335,10 @@ CFA012508*/</property>
                     <outputColumn
                       refId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1.Outputs[Default Output].Columns[FNQ.SCHEDULE.PROPERTY]"
                       codePage="1252"
-                      dataType="str"
+                      dataType="text"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
                       externalMetadataColumnId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1.Outputs[Default Output].ExternalColumns[FNQ.SCHEDULE.PROPERTY]"
-                      length="40"
                       lineageId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1.Outputs[Default Output].Columns[FNQ.SCHEDULE.PROPERTY]"
                       name="FNQ.SCHEDULE.PROPERTY"
                       truncationRowDisposition="FailComponent" />
@@ -3854,18 +5349,17 @@ CFA012508*/</property>
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
                       externalMetadataColumnId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1.Outputs[Default Output].ExternalColumns[FV_SCHEDULE_PROPERTY]"
-                      length="33"
+                      length="47"
                       lineageId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1.Outputs[Default Output].Columns[FV_SCHEDULE_PROPERTY]"
                       name="FV_SCHEDULE_PROPERTY"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
                       refId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1.Outputs[Default Output].Columns[FNQ.SCHEDULE.PAYMENT.METHOD]"
                       codePage="1252"
-                      dataType="str"
+                      dataType="text"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
                       externalMetadataColumnId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1.Outputs[Default Output].ExternalColumns[FNQ.SCHEDULE.PAYMENT.METHOD]"
-                      length="58"
                       lineageId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1.Outputs[Default Output].Columns[FNQ.SCHEDULE.PAYMENT.METHOD]"
                       name="FNQ.SCHEDULE.PAYMENT.METHOD"
                       truncationRowDisposition="FailComponent" />
@@ -3876,7 +5370,7 @@ CFA012508*/</property>
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
                       externalMetadataColumnId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1.Outputs[Default Output].ExternalColumns[FV.SCHEDULE.PAYMENT.METHOD]"
-                      length="13"
+                      length="18"
                       lineageId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1.Outputs[Default Output].Columns[FV.SCHEDULE.PAYMENT.METHOD]"
                       name="FV.SCHEDULE.PAYMENT.METHOD"
                       truncationRowDisposition="FailComponent" />
@@ -3996,6 +5490,16 @@ CFA012508*/</property>
                       lineageId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1.Outputs[Default Output].Columns[FV.PRINCIPALINT.MARGIN.RATE]"
                       name="FV.PRINCIPALINT.MARGIN.RATE"
                       truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1.Outputs[Default Output].Columns[FNQ.SCHEDULE.ACTUAL.AMT]"
+                      codePage="1252"
+                      dataType="text"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1.Outputs[Default Output].ExternalColumns[FNQ.SCHEDULE.ACTUAL.AMT]"
+                      lineageId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1.Outputs[Default Output].Columns[FNQ.SCHEDULE.ACTUAL.AMT]"
+                      name="FNQ.SCHEDULE.ACTUAL.AMT"
+                      truncationRowDisposition="FailComponent" />
                   </outputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -4011,15 +5515,14 @@ CFA012508*/</property>
                       name="PRINCIPALINT.MARGIN.OPER" />
                     <externalMetadataColumn
                       refId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1.Outputs[Default Output].ExternalColumns[PRINCIPALINT.TIER.AMOUNT]"
-                      codePage="1252"
-                      dataType="str"
-                      length="106"
+                      dataType="wstr"
+                      length="4000"
                       name="PRINCIPALINT.TIER.AMOUNT" />
                     <externalMetadataColumn
                       refId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1.Outputs[Default Output].ExternalColumns[SCHEDULE.PAYMENT.TYPE]"
                       codePage="1252"
                       dataType="str"
-                      length="44"
+                      length="59"
                       name="SCHEDULE.PAYMENT.TYPE" />
                     <externalMetadataColumn
                       refId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1.Outputs[Default Output].ExternalColumns[SCHEDULE.START.DATE]"
@@ -4028,40 +5531,44 @@ CFA012508*/</property>
                       name="SCHEDULE.START.DATE" />
                     <externalMetadataColumn
                       refId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1.Outputs[Default Output].ExternalColumns[SCHEDULE.ACTUAL.AMT]"
-                      codePage="1252"
-                      dataType="str"
-                      length="206"
+                      dataType="wstr"
+                      length="4000"
                       name="SCHEDULE.ACTUAL.AMT" />
                     <externalMetadataColumn
                       refId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1.Outputs[Default Output].ExternalColumns[SCHEDULE.BILL.TYPE]"
                       codePage="1252"
                       dataType="str"
-                      length="20"
+                      length="46"
                       name="SCHEDULE.BILL.TYPE" />
                     <externalMetadataColumn
                       refId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1.Outputs[Default Output].ExternalColumns[XINTFUND.MARGIN.INTFUND]"
                       codePage="1252"
                       dataType="str"
-                      length="3"
+                      length="6"
                       name="XINTFUND.MARGIN.INTFUND" />
                     <externalMetadataColumn
                       refId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1.Outputs[Default Output].ExternalColumns[XINTFUND.MARGIN.TERM]"
-                      dataType="i4"
+                      codePage="1252"
+                      dataType="str"
+                      length="31"
                       name="XINTFUND.MARGIN.TERM" />
                     <externalMetadataColumn
                       refId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1.Outputs[Default Output].ExternalColumns[XINTFUND.MARGIN.DATE.FROM]"
-                      dataType="wstr"
-                      length="4000"
+                      codePage="1252"
+                      dataType="str"
+                      length="8"
                       name="XINTFUND.MARGIN.DATE.FROM" />
                     <externalMetadataColumn
                       refId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1.Outputs[Default Output].ExternalColumns[XINTFUND.MARGIN.DATE.TO]"
-                      dataType="wstr"
-                      length="4000"
+                      codePage="1252"
+                      dataType="str"
+                      length="8"
                       name="XINTFUND.MARGIN.DATE.TO" />
                     <externalMetadataColumn
                       refId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1.Outputs[Default Output].ExternalColumns[XINTFUND.MARGIN.SUBLIM.AMT]"
-                      dataType="wstr"
-                      length="4000"
+                      codePage="1252"
+                      dataType="str"
+                      length="1"
                       name="XINTFUND.MARGIN.SUBLIM.AMT" />
                     <externalMetadataColumn
                       refId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1.Outputs[Default Output].ExternalColumns[XINTFUND.MARGIN.MARGIN]"
@@ -4092,68 +5599,57 @@ CFA012508*/</property>
                     <externalMetadataColumn
                       refId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1.Outputs[Default Output].ExternalColumns[FNQ.PRINCIPALINT.TIER.AMOUNT]"
                       codePage="1252"
-                      dataType="str"
-                      length="49"
+                      dataType="text"
                       name="FNQ.PRINCIPALINT.TIER.AMOUNT" />
                     <externalMetadataColumn
                       refId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1.Outputs[Default Output].ExternalColumns[FNQ.SCHEDULE.PAYMENT.TYPE]"
                       codePage="1252"
-                      dataType="str"
-                      length="52"
+                      dataType="text"
                       name="FNQ.SCHEDULE.PAYMENT.TYPE" />
                     <externalMetadataColumn
                       refId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1.Outputs[Default Output].ExternalColumns[FNQ.SCHEDULE.START.DATE]"
                       codePage="1252"
-                      dataType="str"
-                      length="46"
+                      dataType="text"
                       name="FNQ.SCHEDULE.START.DATE" />
-                    <externalMetadataColumn
-                      refId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1.Outputs[Default Output].ExternalColumns[FNQ.SCHEDULE.ACTAUL.AMT]"
-                      codePage="1252"
-                      dataType="str"
-                      length="62"
-                      name="FNQ.SCHEDULE.ACTAUL.AMT" />
                     <externalMetadataColumn
                       refId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1.Outputs[Default Output].ExternalColumns[FNQ.SCHEDULE.BILL.TYPE]"
                       codePage="1252"
-                      dataType="str"
-                      length="43"
+                      dataType="text"
                       name="FNQ.SCHEDULE.BILL.TYPE" />
                     <externalMetadataColumn
                       refId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1.Outputs[Default Output].ExternalColumns[FNQ.XINTFUND.MARGIN.DATE.FROM]"
                       codePage="1252"
                       dataType="str"
-                      length="9"
+                      length="13"
                       name="FNQ.XINTFUND.MARGIN.DATE.FROM" />
                     <externalMetadataColumn
                       refId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1.Outputs[Default Output].ExternalColumns[FNQ.XINTFUND.MARGIN.INTFUND]"
                       codePage="1252"
-                      dataType="str"
-                      length="7"
+                      dataType="text"
                       name="FNQ.XINTFUND.MARGIN.INTFUND" />
                     <externalMetadataColumn
                       refId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1.Outputs[Default Output].ExternalColumns[FNQ.XINTFUND.MARGIN.TERM]"
                       codePage="1252"
                       dataType="str"
-                      length="4"
+                      length="8"
                       name="FNQ.XINTFUND.MARGIN.TERM" />
                     <externalMetadataColumn
                       refId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1.Outputs[Default Output].ExternalColumns[FNQ.XINTFUND.MARGIN.DATE.TO]"
                       codePage="1252"
                       dataType="str"
-                      length="9"
+                      length="11"
                       name="FNQ.XINTFUND.MARGIN.DATE.TO" />
                     <externalMetadataColumn
                       refId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1.Outputs[Default Output].ExternalColumns[FNQ.XINTFUND.MARGIN.MARGIN]"
                       codePage="1252"
                       dataType="str"
-                      length="6"
+                      length="10"
                       name="FNQ.XINTFUND.MARGIN.MARGIN" />
                     <externalMetadataColumn
                       refId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1.Outputs[Default Output].ExternalColumns[FNQ.XINTFUND.MARGIN.SUBLIM.AMT]"
                       codePage="1252"
                       dataType="str"
-                      length="10"
+                      length="1"
                       name="FNQ.XINTFUND.MARGIN.SUBLIM.AMT" />
                     <externalMetadataColumn
                       refId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1.Outputs[Default Output].ExternalColumns[FV_PRINCIPALINT_FIXED_RATE]"
@@ -4276,26 +5772,24 @@ CFA012508*/</property>
                     <externalMetadataColumn
                       refId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1.Outputs[Default Output].ExternalColumns[FNQ.SCHEDULE.PROPERTY]"
                       codePage="1252"
-                      dataType="str"
-                      length="40"
+                      dataType="text"
                       name="FNQ.SCHEDULE.PROPERTY" />
                     <externalMetadataColumn
                       refId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1.Outputs[Default Output].ExternalColumns[FV_SCHEDULE_PROPERTY]"
                       codePage="1252"
                       dataType="str"
-                      length="33"
+                      length="47"
                       name="FV_SCHEDULE_PROPERTY" />
                     <externalMetadataColumn
                       refId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1.Outputs[Default Output].ExternalColumns[FNQ.SCHEDULE.PAYMENT.METHOD]"
                       codePage="1252"
-                      dataType="str"
-                      length="58"
+                      dataType="text"
                       name="FNQ.SCHEDULE.PAYMENT.METHOD" />
                     <externalMetadataColumn
                       refId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1.Outputs[Default Output].ExternalColumns[FV.SCHEDULE.PAYMENT.METHOD]"
                       codePage="1252"
                       dataType="str"
-                      length="13"
+                      length="18"
                       name="FV.SCHEDULE.PAYMENT.METHOD" />
                     <externalMetadataColumn
                       refId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1.Outputs[Default Output].ExternalColumns[FV.DWCOMMITMENT.AMOUNT]"
@@ -4358,6 +5852,11 @@ CFA012508*/</property>
                       codePage="1252"
                       dataType="text"
                       name="FV.PRINCIPALINT.MARGIN.RATE" />
+                    <externalMetadataColumn
+                      refId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1.Outputs[Default Output].ExternalColumns[FNQ.SCHEDULE.ACTUAL.AMT]"
+                      codePage="1252"
+                      dataType="text"
+                      name="FNQ.SCHEDULE.ACTUAL.AMT" />
                   </externalMetadataColumns>
                 </output>
               </outputs>
@@ -4739,6 +6238,11 @@ CFA012508*/</property>
             </component>
           </components>
           <paths>
+            <path
+              refId="Package\DMS-DER01-TAKEOVER.Paths[Case 2]"
+              endId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Destination 1.Inputs[Primary Input]"
+              name="Case 2"
+              startId="Package\DMS-DER01-TAKEOVER\División condicional.Outputs[Case 2]" />
             <path
               refId="Package\DMS-DER01-TAKEOVER.Paths[Default Ouptut]"
               endId="Package\DMS-DER01-TAKEOVER\PSL FV_PRINCIPALINT_PERIODIC_INDEX.Inputs[Primary Input]"
@@ -6923,13 +8427,21 @@ WHERE SUBSTRING([STGPolaris].[dbo].[fn_udfTrim] (OPER.coOperacionActiva),1,3) IN
       <GraphLayout
         Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
+          Size="233,42"
+          Id="Package\DMS-DER01-TAKEOVER\Premium ADO NET Destination 1"
+          TopLeft="779,300" />
+        <NodeLayout
+          Size="222,42"
+          Id="Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1"
+          TopLeft="16,26" />
+        <NodeLayout
+          Size="176,42"
+          Id="Package\DMS-DER01-TAKEOVER\División condicional"
+          TopLeft="1244,303" />
+        <NodeLayout
           Size="298,42"
           Id="Package\DMS-DER01-TAKEOVER\PSL FV_PRINCIPALINT_PERIODIC_INDEX"
           TopLeft="463,27" />
-        <NodeLayout
-          Size="127,42"
-          Id="Package\DMS-DER01-TAKEOVER\PDC_001"
-          TopLeft="792,28" />
         <NodeLayout
           Size="152,42"
           Id="Package\DMS-DER01-TAKEOVER\PSL AccrBasis"
@@ -6939,17 +8451,37 @@ WHERE SUBSTRING([STGPolaris].[dbo].[fn_udfTrim] (OPER.coOperacionActiva),1,3) IN
           Id="Package\DMS-DER01-TAKEOVER\PDC_003"
           TopLeft="1006,22" />
         <NodeLayout
+          Size="127,42"
+          Id="Package\DMS-DER01-TAKEOVER\PDC_001"
+          TopLeft="792,28" />
+        <NodeLayout
           Size="233,42"
           Id="Package\DMS-DER01-TAKEOVER\Premium ADO NET Destination"
           TopLeft="1209,394" />
-        <NodeLayout
-          Size="222,42"
-          Id="Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1"
-          TopLeft="16,26" />
-        <NodeLayout
-          Size="176,42"
-          Id="Package\DMS-DER01-TAKEOVER\División condicional"
-          TopLeft="1244,303" />
+        <EdgeLayout
+          Id="Package\DMS-DER01-TAKEOVER.Paths[Case 2]"
+          TopLeft="1244,322.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-232,0"
+              Start="0,0"
+              End="-224.5,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="-224.5,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-127.6536328125,5,30.807265625,9.5732421875"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
         <EdgeLayout
           Id="Package\DMS-DER01-TAKEOVER.Paths[ORIGINAL]"
           TopLeft="1328.75,345">
