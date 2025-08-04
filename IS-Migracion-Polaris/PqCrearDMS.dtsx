@@ -11,8 +11,8 @@
   DTS:LocaleID="3082"
   DTS:ObjectName="PqCrearDMS-Dea01Takeover"
   DTS:PackageType="5"
-  DTS:VersionBuild="287"
-  DTS:VersionGUID="{D027DF13-F539-4A39-B6BF-B3297E5FB317}">
+  DTS:VersionBuild="298"
+  DTS:VersionGUID="{2F7FB838-B439-4204-B82E-036DD37BCAEF}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -289,6 +289,639 @@
               </outputs>
             </component>
             <component
+              refId="Package\DMS-DER01-TAKEOVER\DRA01_ABARATAMIENTO_TAKEOVER"
+              componentClassID="Microsoft.ManagedComponentHost"
+              contactInfo="KingswaySoft Inc.; http://www.kingswaysoft.com; support@kingswaysoft.com; Copyright (c) 2011-2025 KingswaySoft Inc."
+              description="Insert, Update, Upsert, and Delete data over an ADO.NET connection."
+              name="DRA01_ABARATAMIENTO_TAKEOVER"
+              usesDispositions="true"
+              version="6">
+              <properties>
+                <property
+                  dataType="System.String"
+                  expressionType="Notify"
+                  name="DestinationTable">dbo.DRA.01.ABARATAMIENTO.TAKEOVER</property>
+                <property
+                  dataType="System.Int32"
+                  expressionType="Notify"
+                  name="Action"
+                  typeConverter="KingswaySoft.IntegrationToolkit.ProductivityPack.PremiumAdoDotNetDestinationAction">2</property>
+                <property
+                  dataType="System.Int32"
+                  expressionType="Notify"
+                  name="WriteMode"
+                  typeConverter="KingswaySoft.IntegrationToolkit.ProductivityPack.PremiumAdoDotNetDestinationWriteMode">0</property>
+                <property
+                  dataType="System.Int32"
+                  expressionType="Notify"
+                  name="CommandTimeout">120</property>
+                <property
+                  dataType="System.Int32"
+                  description="BatchSize"
+                  expressionType="Notify"
+                  name="BatchSize">1</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies how to handle duplicates in the temp table before merging. Only applies to non INSERT bulk operations."
+                  expressionType="Notify"
+                  name="DuplicateHandling"
+                  typeConverter="KingswaySoft.IntegrationToolkit.ProductivityPack.PremiumAdoDotNetDestinationDuplicateHandling">0</property>
+                <property
+                  dataType="System.Boolean"
+                  expressionType="Notify"
+                  name="FirstMatchOnly">true</property>
+                <property
+                  dataType="System.Boolean"
+                  expressionType="Notify"
+                  name="FailOnNoAffectedRows">true</property>
+                <property
+                  dataType="System.Boolean"
+                  description="When enabled, will not overwrite existing values with NULL values during update/upsert operations."
+                  expressionType="Notify"
+                  name="PreventNullOverwrites">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="When checked, will configure the current session to skip foreign key checks, allowing invalid keys to be inserted."
+                  expressionType="Notify"
+                  name="DisableForeignKeyChecks">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="When enabled, unique constraints (including primary key constraints) will be ignored. This will insert non-unique values into a unique column and put the constraint into an unusable state."
+                  expressionType="Notify"
+                  name="IgnoreUniqueConstraints">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="TransactionType"
+                  expressionType="Notify"
+                  name="TransactionType"
+                  typeConverter="KingswaySoft.IntegrationToolkit.ProductivityPack.PremiumAdoDotNetTransactionType">0</property>
+                <property
+                  dataType="System.Int32"
+                  expressionType="Notify"
+                  name="TransactionIsolationLevel"
+                  typeConverter="KingswaySoft.IntegrationToolkit.ProductivityPack.PremiumAdoDotNetTransactionIsolationLevel">0</property>
+                <property
+                  dataType="System.String"
+                  expressionType="Notify"
+                  name="PreCommand"></property>
+                <property
+                  dataType="System.String"
+                  expressionType="Notify"
+                  name="SuccessPostCommand"></property>
+                <property
+                  dataType="System.String"
+                  expressionType="Notify"
+                  name="ErrorPostCommand"></property>
+                <property
+                  dataType="System.String"
+                  name="UserComponentTypeName">KingswaySoft.IntegrationToolkit.ProductivityPack.AdoDotNetDestinationComponent</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DMS-DER01-TAKEOVER\DRA01_ABARATAMIENTO_TAKEOVER.Connections[ADO NET]"
+                  connectionManagerID="{70D002B2-2810-4A0C-AFC9-A0396787FD0D}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[VENGGCR26_NAPNNPR32.STGPolaris]"
+                  description="ADO.NET"
+                  name="ADO NET" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\DMS-DER01-TAKEOVER\DRA01_ABARATAMIENTO_TAKEOVER.Inputs[Primary Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Primary Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DMS-DER01-TAKEOVER\DRA01_ABARATAMIENTO_TAKEOVER.Inputs[Primary Input].Columns[CO_OPERACION_ACTIVA]"
+                      cachedDataType="wstr"
+                      cachedLength="15"
+                      cachedName="CO_OPERACION_ACTIVA"
+                      externalMetadataColumnId="Package\DMS-DER01-TAKEOVER\DRA01_ABARATAMIENTO_TAKEOVER.Inputs[Primary Input].ExternalColumns[coOperacionActiva]"
+                      lineageId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1.Outputs[Default Output].Columns[CO_OPERACION_ACTIVA]" />
+                    <inputColumn
+                      refId="Package\DMS-DER01-TAKEOVER\DRA01_ABARATAMIENTO_TAKEOVER.Inputs[Primary Input].Columns[FN.PROPERTY.DWCOMMITMENT]"
+                      cachedDataType="wstr"
+                      cachedLength="6"
+                      cachedName="FN.PROPERTY.DWCOMMITMENT"
+                      externalMetadataColumnId="Package\DMS-DER01-TAKEOVER\DRA01_ABARATAMIENTO_TAKEOVER.Inputs[Primary Input].ExternalColumns[DWCOMMITMENT.FN]"
+                      lineageId="Package\DMS-DER01-TAKEOVER\PDC_FN_PROPERTY.Outputs[Default Output].Columns[FN.PROPERTY.DWCOMMITMENT]" />
+                    <inputColumn
+                      refId="Package\DMS-DER01-TAKEOVER\DRA01_ABARATAMIENTO_TAKEOVER.Inputs[Primary Input].Columns[FN.PROPERTY.INTERESTFFC]"
+                      cachedDataType="wstr"
+                      cachedLength="21"
+                      cachedName="FN.PROPERTY.INTERESTFFC"
+                      externalMetadataColumnId="Package\DMS-DER01-TAKEOVER\DRA01_ABARATAMIENTO_TAKEOVER.Inputs[Primary Input].ExternalColumns[INTERESTFFC.FN]"
+                      lineageId="Package\DMS-DER01-TAKEOVER\PDC_FN_PROPERTY.Outputs[Default Output].Columns[FN.PROPERTY.INTERESTFFC]" />
+                    <inputColumn
+                      refId="Package\DMS-DER01-TAKEOVER\DRA01_ABARATAMIENTO_TAKEOVER.Inputs[Primary Input].Columns[FV.PROPERTY.INTERESTFFC]"
+                      cachedDataType="wstr"
+                      cachedLength="29"
+                      cachedName="FV.PROPERTY.INTERESTFFC"
+                      externalMetadataColumnId="Package\DMS-DER01-TAKEOVER\DRA01_ABARATAMIENTO_TAKEOVER.Inputs[Primary Input].ExternalColumns[INTERESTFFC.FV]"
+                      lineageId="Package\DMS-DER01-TAKEOVER\PDC_FV_PROPERTY.Outputs[Default Output].Columns[FV.PROPERTY.INTERESTFFC]" />
+                    <inputColumn
+                      refId="Package\DMS-DER01-TAKEOVER\DRA01_ABARATAMIENTO_TAKEOVER.Inputs[Primary Input].Columns[FV.PROPERTY.DWCOMMITMENT]"
+                      cachedDataType="numeric"
+                      cachedName="FV.PROPERTY.DWCOMMITMENT"
+                      cachedPrecision="38"
+                      externalMetadataColumnId="Package\DMS-DER01-TAKEOVER\DRA01_ABARATAMIENTO_TAKEOVER.Inputs[Primary Input].ExternalColumns[DWCOMMITMENT.FV]"
+                      lineageId="Package\DMS-DER01-TAKEOVER\PDC_FV_PROPERTY.Outputs[Default Output].Columns[FV.PROPERTY.DWCOMMITMENT]" />
+                    <inputColumn
+                      refId="Package\DMS-DER01-TAKEOVER\DRA01_ABARATAMIENTO_TAKEOVER.Inputs[Primary Input].Columns[FN.PROPERTY.INTERESTKWF]"
+                      cachedDataType="wstr"
+                      cachedLength="20"
+                      cachedName="FN.PROPERTY.INTERESTKWF"
+                      externalMetadataColumnId="Package\DMS-DER01-TAKEOVER\DRA01_ABARATAMIENTO_TAKEOVER.Inputs[Primary Input].ExternalColumns[INTERESTKWF.FN]"
+                      lineageId="Package\DMS-DER01-TAKEOVER\PDC_FN_PROPERTY.Outputs[Default Output].Columns[FN.PROPERTY.INTERESTKWF]" />
+                    <inputColumn
+                      refId="Package\DMS-DER01-TAKEOVER\DRA01_ABARATAMIENTO_TAKEOVER.Inputs[Primary Input].Columns[FV.PROPERTY.INTERESTKWF]"
+                      cachedDataType="nText"
+                      cachedName="FV.PROPERTY.INTERESTKWF"
+                      externalMetadataColumnId="Package\DMS-DER01-TAKEOVER\DRA01_ABARATAMIENTO_TAKEOVER.Inputs[Primary Input].ExternalColumns[INTERESTKWF.FV]"
+                      lineageId="Package\DMS-DER01-TAKEOVER\PDC_FV_PROPERTY.Outputs[Default Output].Columns[FV.PROPERTY.INTERESTKWF]" />
+                    <inputColumn
+                      refId="Package\DMS-DER01-TAKEOVER\DRA01_ABARATAMIENTO_TAKEOVER.Inputs[Primary Input].Columns[FN.PROPERTY.PRINCIPALINT]"
+                      cachedCodepage="1252"
+                      cachedDataType="text"
+                      cachedName="FN.PROPERTY.PRINCIPALINT"
+                      externalMetadataColumnId="Package\DMS-DER01-TAKEOVER\DRA01_ABARATAMIENTO_TAKEOVER.Inputs[Primary Input].ExternalColumns[PRINCIPALINT.FN]"
+                      lineageId="Package\DMS-DER01-TAKEOVER\PDC_FN_PROPERTY.Outputs[Default Output].Columns[FN.PROPERTY.PRINCIPALINT]" />
+                    <inputColumn
+                      refId="Package\DMS-DER01-TAKEOVER\DRA01_ABARATAMIENTO_TAKEOVER.Inputs[Primary Input].Columns[FV.PROPERTY.PRINCIPALINT]"
+                      cachedCodepage="1252"
+                      cachedDataType="text"
+                      cachedName="FV.PROPERTY.PRINCIPALINT"
+                      externalMetadataColumnId="Package\DMS-DER01-TAKEOVER\DRA01_ABARATAMIENTO_TAKEOVER.Inputs[Primary Input].ExternalColumns[PRINCIPALINT.FV]"
+                      lineageId="Package\DMS-DER01-TAKEOVER\PDC_FV_PROPERTY.Outputs[Default Output].Columns[FV.PROPERTY.PRINCIPALINT]" />
+                    <inputColumn
+                      refId="Package\DMS-DER01-TAKEOVER\DRA01_ABARATAMIENTO_TAKEOVER.Inputs[Primary Input].Columns[FN.PROPERTY.SCHEDULE]"
+                      cachedCodepage="1252"
+                      cachedDataType="text"
+                      cachedName="FN.PROPERTY.SCHEDULE"
+                      externalMetadataColumnId="Package\DMS-DER01-TAKEOVER\DRA01_ABARATAMIENTO_TAKEOVER.Inputs[Primary Input].ExternalColumns[SCHEDULE.FN]"
+                      lineageId="Package\DMS-DER01-TAKEOVER\PDC_FN_PROPERTY.Outputs[Default Output].Columns[FN.PROPERTY.SCHEDULE]" />
+                    <inputColumn
+                      refId="Package\DMS-DER01-TAKEOVER\DRA01_ABARATAMIENTO_TAKEOVER.Inputs[Primary Input].Columns[FV.PROPERTY.SCHEDULE]"
+                      cachedDataType="nText"
+                      cachedName="FV.PROPERTY.SCHEDULE"
+                      externalMetadataColumnId="Package\DMS-DER01-TAKEOVER\DRA01_ABARATAMIENTO_TAKEOVER.Inputs[Primary Input].ExternalColumns[SCHEDULE.FV]"
+                      lineageId="Package\DMS-DER01-TAKEOVER\PDC_FV_PROPERTY.Outputs[Default Output].Columns[FV.PROPERTY.SCHEDULE]" />
+                    <inputColumn
+                      refId="Package\DMS-DER01-TAKEOVER\DRA01_ABARATAMIENTO_TAKEOVER.Inputs[Primary Input].Columns[FN.PROPERTY.XINTFUND]"
+                      cachedCodepage="1252"
+                      cachedDataType="text"
+                      cachedName="FN.PROPERTY.XINTFUND"
+                      externalMetadataColumnId="Package\DMS-DER01-TAKEOVER\DRA01_ABARATAMIENTO_TAKEOVER.Inputs[Primary Input].ExternalColumns[XINTFUND.MARGIN.FN]"
+                      lineageId="Package\DMS-DER01-TAKEOVER\PDC_FN_PROPERTY.Outputs[Default Output].Columns[FN.PROPERTY.XINTFUND]" />
+                    <inputColumn
+                      refId="Package\DMS-DER01-TAKEOVER\DRA01_ABARATAMIENTO_TAKEOVER.Inputs[Primary Input].Columns[FV.PROPERTY.XINTFUND]"
+                      cachedCodepage="1252"
+                      cachedDataType="text"
+                      cachedName="FV.PROPERTY.XINTFUND"
+                      externalMetadataColumnId="Package\DMS-DER01-TAKEOVER\DRA01_ABARATAMIENTO_TAKEOVER.Inputs[Primary Input].ExternalColumns[XINTFUND.MARGIN.FV]"
+                      lineageId="Package\DMS-DER01-TAKEOVER\PDC_FV_PROPERTY.Outputs[Default Output].Columns[FV.PROPERTY.XINTFUND]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DMS-DER01-TAKEOVER\DRA01_ABARATAMIENTO_TAKEOVER.Inputs[Primary Input].ExternalColumns[coOperacionActiva]"
+                      dataType="wstr"
+                      length="15"
+                      name="coOperacionActiva">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          name="IsConditionalField">true</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="IsIdentityField"
+                          name="IsIdentityField">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          name="CanBeConditionalField">true</property>
+                        <property
+                          dataType="System.Null"
+                          name="Tags" />
+                        <property
+                          dataType="System.String"
+                          name="Lookup"></property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\DMS-DER01-TAKEOVER\DRA01_ABARATAMIENTO_TAKEOVER.Inputs[Primary Input].ExternalColumns[DWCOMMITMENT.FN]"
+                      dataType="wstr"
+                      length="4000"
+                      name="DWCOMMITMENT.FN">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          name="IsConditionalField">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="IsIdentityField"
+                          name="IsIdentityField">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          name="CanBeConditionalField">true</property>
+                        <property
+                          dataType="System.Null"
+                          name="Tags" />
+                        <property
+                          dataType="System.String"
+                          name="Lookup"></property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\DMS-DER01-TAKEOVER\DRA01_ABARATAMIENTO_TAKEOVER.Inputs[Primary Input].ExternalColumns[DWCOMMITMENT.FV]"
+                      dataType="wstr"
+                      length="4000"
+                      name="DWCOMMITMENT.FV">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          name="IsConditionalField">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="IsIdentityField"
+                          name="IsIdentityField">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          name="CanBeConditionalField">true</property>
+                        <property
+                          dataType="System.Null"
+                          name="Tags" />
+                        <property
+                          dataType="System.String"
+                          name="Lookup"></property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\DMS-DER01-TAKEOVER\DRA01_ABARATAMIENTO_TAKEOVER.Inputs[Primary Input].ExternalColumns[INTERESTFFC.FN]"
+                      dataType="wstr"
+                      length="4000"
+                      name="INTERESTFFC.FN">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          name="IsConditionalField">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="IsIdentityField"
+                          name="IsIdentityField">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          name="CanBeConditionalField">true</property>
+                        <property
+                          dataType="System.Null"
+                          name="Tags" />
+                        <property
+                          dataType="System.String"
+                          name="Lookup"></property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\DMS-DER01-TAKEOVER\DRA01_ABARATAMIENTO_TAKEOVER.Inputs[Primary Input].ExternalColumns[INTERESTFFC.FV]"
+                      dataType="wstr"
+                      length="4000"
+                      name="INTERESTFFC.FV">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          name="IsConditionalField">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="IsIdentityField"
+                          name="IsIdentityField">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          name="CanBeConditionalField">true</property>
+                        <property
+                          dataType="System.Null"
+                          name="Tags" />
+                        <property
+                          dataType="System.String"
+                          name="Lookup"></property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\DMS-DER01-TAKEOVER\DRA01_ABARATAMIENTO_TAKEOVER.Inputs[Primary Input].ExternalColumns[INTERESTKWF.FN]"
+                      dataType="wstr"
+                      length="4000"
+                      name="INTERESTKWF.FN">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          name="IsConditionalField">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="IsIdentityField"
+                          name="IsIdentityField">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          name="CanBeConditionalField">true</property>
+                        <property
+                          dataType="System.Null"
+                          name="Tags" />
+                        <property
+                          dataType="System.String"
+                          name="Lookup"></property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\DMS-DER01-TAKEOVER\DRA01_ABARATAMIENTO_TAKEOVER.Inputs[Primary Input].ExternalColumns[INTERESTKWF.FV]"
+                      dataType="wstr"
+                      length="4000"
+                      name="INTERESTKWF.FV">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          name="IsConditionalField">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="IsIdentityField"
+                          name="IsIdentityField">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          name="CanBeConditionalField">true</property>
+                        <property
+                          dataType="System.Null"
+                          name="Tags" />
+                        <property
+                          dataType="System.String"
+                          name="Lookup"></property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\DMS-DER01-TAKEOVER\DRA01_ABARATAMIENTO_TAKEOVER.Inputs[Primary Input].ExternalColumns[INTVENCIDOB.FN]"
+                      dataType="wstr"
+                      length="4000"
+                      name="INTVENCIDOB.FN">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          name="IsConditionalField">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="IsIdentityField"
+                          name="IsIdentityField">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          name="CanBeConditionalField">true</property>
+                        <property
+                          dataType="System.Null"
+                          name="Tags" />
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\DMS-DER01-TAKEOVER\DRA01_ABARATAMIENTO_TAKEOVER.Inputs[Primary Input].ExternalColumns[INTVENCIDOB.FV]"
+                      dataType="wstr"
+                      length="4000"
+                      name="INTVENCIDOB.FV">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          name="IsConditionalField">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="IsIdentityField"
+                          name="IsIdentityField">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          name="CanBeConditionalField">true</property>
+                        <property
+                          dataType="System.Null"
+                          name="Tags" />
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\DMS-DER01-TAKEOVER\DRA01_ABARATAMIENTO_TAKEOVER.Inputs[Primary Input].ExternalColumns[PENALINTB.FN]"
+                      dataType="wstr"
+                      length="4000"
+                      name="PENALINTB.FN">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          name="IsConditionalField">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="IsIdentityField"
+                          name="IsIdentityField">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          name="CanBeConditionalField">true</property>
+                        <property
+                          dataType="System.Null"
+                          name="Tags" />
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\DMS-DER01-TAKEOVER\DRA01_ABARATAMIENTO_TAKEOVER.Inputs[Primary Input].ExternalColumns[PENALINTB.FV]"
+                      dataType="wstr"
+                      length="4000"
+                      name="PENALINTB.FV">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          name="IsConditionalField">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="IsIdentityField"
+                          name="IsIdentityField">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          name="CanBeConditionalField">true</property>
+                        <property
+                          dataType="System.Null"
+                          name="Tags" />
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\DMS-DER01-TAKEOVER\DRA01_ABARATAMIENTO_TAKEOVER.Inputs[Primary Input].ExternalColumns[PRINCIPALINT.FN]"
+                      codePage="1252"
+                      dataType="text"
+                      name="PRINCIPALINT.FN">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          name="IsConditionalField">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="IsIdentityField"
+                          name="IsIdentityField">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          name="CanBeConditionalField">true</property>
+                        <property
+                          dataType="System.Null"
+                          name="Tags" />
+                        <property
+                          dataType="System.String"
+                          name="Lookup"></property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\DMS-DER01-TAKEOVER\DRA01_ABARATAMIENTO_TAKEOVER.Inputs[Primary Input].ExternalColumns[PRINCIPALINT.FV]"
+                      codePage="1252"
+                      dataType="text"
+                      name="PRINCIPALINT.FV">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          name="IsConditionalField">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="IsIdentityField"
+                          name="IsIdentityField">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          name="CanBeConditionalField">true</property>
+                        <property
+                          dataType="System.Null"
+                          name="Tags" />
+                        <property
+                          dataType="System.String"
+                          name="Lookup"></property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\DMS-DER01-TAKEOVER\DRA01_ABARATAMIENTO_TAKEOVER.Inputs[Primary Input].ExternalColumns[SCHEDULE.FN]"
+                      codePage="1252"
+                      dataType="text"
+                      name="SCHEDULE.FN">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          name="IsConditionalField">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="IsIdentityField"
+                          name="IsIdentityField">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          name="CanBeConditionalField">true</property>
+                        <property
+                          dataType="System.Null"
+                          name="Tags" />
+                        <property
+                          dataType="System.String"
+                          name="Lookup"></property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\DMS-DER01-TAKEOVER\DRA01_ABARATAMIENTO_TAKEOVER.Inputs[Primary Input].ExternalColumns[SCHEDULE.FV]"
+                      codePage="1252"
+                      dataType="text"
+                      name="SCHEDULE.FV">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          name="IsConditionalField">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="IsIdentityField"
+                          name="IsIdentityField">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          name="CanBeConditionalField">true</property>
+                        <property
+                          dataType="System.Null"
+                          name="Tags" />
+                        <property
+                          dataType="System.String"
+                          name="Lookup"></property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\DMS-DER01-TAKEOVER\DRA01_ABARATAMIENTO_TAKEOVER.Inputs[Primary Input].ExternalColumns[XINTFUND.MARGIN.FN]"
+                      codePage="1252"
+                      dataType="text"
+                      name="XINTFUND.MARGIN.FN">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          name="IsConditionalField">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="IsIdentityField"
+                          name="IsIdentityField">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          name="CanBeConditionalField">true</property>
+                        <property
+                          dataType="System.Null"
+                          name="Tags" />
+                        <property
+                          dataType="System.String"
+                          name="Lookup"></property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\DMS-DER01-TAKEOVER\DRA01_ABARATAMIENTO_TAKEOVER.Inputs[Primary Input].ExternalColumns[XINTFUND.MARGIN.FV]"
+                      codePage="1252"
+                      dataType="text"
+                      name="XINTFUND.MARGIN.FV">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          name="IsConditionalField">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="IsIdentityField"
+                          name="IsIdentityField">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          name="CanBeConditionalField">true</property>
+                        <property
+                          dataType="System.Null"
+                          name="Tags" />
+                        <property
+                          dataType="System.String"
+                          name="Lookup"></property>
+                      </properties>
+                    </externalMetadataColumn>
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DMS-DER01-TAKEOVER\DRA01_ABARATAMIENTO_TAKEOVER.Outputs[Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Error Output"
+                  synchronousInputId="Package\DMS-DER01-TAKEOVER\DRA01_ABARATAMIENTO_TAKEOVER.Inputs[Primary Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DMS-DER01-TAKEOVER\DRA01_ABARATAMIENTO_TAKEOVER.Outputs[Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DMS-DER01-TAKEOVER\DRA01_ABARATAMIENTO_TAKEOVER.Outputs[Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DMS-DER01-TAKEOVER\DRA01_ABARATAMIENTO_TAKEOVER.Outputs[Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DMS-DER01-TAKEOVER\DRA01_ABARATAMIENTO_TAKEOVER.Outputs[Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                    <outputColumn
+                      refId="Package\DMS-DER01-TAKEOVER\DRA01_ABARATAMIENTO_TAKEOVER.Outputs[Error Output].Columns[ErrorMessage]"
+                      dataType="wstr"
+                      length="2048"
+                      lineageId="Package\DMS-DER01-TAKEOVER\DRA01_ABARATAMIENTO_TAKEOVER.Outputs[Error Output].Columns[ErrorMessage]"
+                      name="ErrorMessage" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DMS-DER01-TAKEOVER\DRA01_ABARATAMIENTO_TAKEOVER.Outputs[Default Output]"
+                  exclusionGroup="1"
+                  name="Default Output"
+                  synchronousInputId="Package\DMS-DER01-TAKEOVER\DRA01_ABARATAMIENTO_TAKEOVER.Inputs[Primary Input]">
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
               refId="Package\DMS-DER01-TAKEOVER\PDC_001"
               componentClassID="Microsoft.ManagedComponentHost"
               contactInfo="KingswaySoft Inc.; http://www.kingswaysoft.com; support@kingswaysoft.com; Copyright (c) 2011-2025 KingswaySoft Inc."
@@ -336,12 +969,12 @@
                       cachedName="SCHEDULE.PAYMENT.TYPE"
                       lineageId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1.Outputs[Default Output].Columns[SCHEDULE.PAYMENT.TYPE]" />
                     <inputColumn
-                      refId="Package\DMS-DER01-TAKEOVER\PDC_001.Inputs[Primary Input].Columns[FV_PRINCIPALINT_RATE_TIER_TYPE]"
+                      refId="Package\DMS-DER01-TAKEOVER\PDC_001.Inputs[Primary Input].Columns[FV.PRINCIPALINT.RATE.TIER.TYPE]"
                       cachedCodepage="1252"
                       cachedDataType="str"
                       cachedLength="4"
-                      cachedName="FV_PRINCIPALINT_RATE_TIER_TYPE"
-                      lineageId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1.Outputs[Default Output].Columns[FV_PRINCIPALINT_RATE_TIER_TYPE]" />
+                      cachedName="FV.PRINCIPALINT.RATE.TIER.TYPE"
+                      lineageId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1.Outputs[Default Output].Columns[FV.PRINCIPALINT.RATE.TIER.TYPE]" />
                     <inputColumn
                       refId="Package\DMS-DER01-TAKEOVER\PDC_001.Inputs[Primary Input].Columns[FV.DWCOMMITMENT.AMOUNT]"
                       cachedDataType="numeric"
@@ -363,11 +996,11 @@
                       cachedName="INTERESTFFC_FIXED_RATE"
                       lineageId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1.Outputs[Default Output].Columns[INTERESTFFC_FIXED_RATE]" />
                     <inputColumn
-                      refId="Package\DMS-DER01-TAKEOVER\PDC_001.Inputs[Primary Input].Columns[PRINCIPALINTFFC.DAY.BASIS]"
+                      refId="Package\DMS-DER01-TAKEOVER\PDC_001.Inputs[Primary Input].Columns[INTERESRTFFC.DAY.BASIS]"
                       cachedDataType="wstr"
                       cachedLength="7"
-                      cachedName="PRINCIPALINTFFC.DAY.BASIS"
-                      lineageId="Package\DMS-DER01-TAKEOVER\PSL AccrBasis FFC.Outputs[Default Ouptut].Columns[PRINCIPALINTFFC.DAY.BASIS]" />
+                      cachedName="INTERESRTFFC.DAY.BASIS"
+                      lineageId="Package\DMS-DER01-TAKEOVER\PSL AccrBasis FFC.Outputs[Default Ouptut].Columns[INTERESRTFFC.DAY.BASIS]" />
                   </inputColumns>
                   <externalMetadataColumns />
                 </input>
@@ -454,13 +1087,13 @@
                       </properties>
                     </outputColumn>
                     <outputColumn
-                      refId="Package\DMS-DER01-TAKEOVER\PDC_001.Outputs[Default Output].Columns[FV.PRINCIPALTINT.L.PERIOD.INDEX]"
+                      refId="Package\DMS-DER01-TAKEOVER\PDC_001.Outputs[Default Output].Columns[FV.PRINCIPALINT.L.PERIOD.INDEX]"
                       dataType="wstr"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
                       length="32"
-                      lineageId="Package\DMS-DER01-TAKEOVER\PDC_001.Outputs[Default Output].Columns[FV.PRINCIPALTINT.L.PERIOD.INDEX]"
-                      name="FV.PRINCIPALTINT.L.PERIOD.INDEX"
+                      lineageId="Package\DMS-DER01-TAKEOVER\PDC_001.Outputs[Default Output].Columns[FV.PRINCIPALINT.L.PERIOD.INDEX]"
+                      name="FV.PRINCIPALINT.L.PERIOD.INDEX"
                       truncationRowDisposition="FailComponent">
                       <properties>
                         <property
@@ -475,12 +1108,12 @@
                       </properties>
                     </outputColumn>
                     <outputColumn
-                      refId="Package\DMS-DER01-TAKEOVER\PDC_001.Outputs[Default Output].Columns[FV.PRINCIPALTINT.L.MARGIN]"
+                      refId="Package\DMS-DER01-TAKEOVER\PDC_001.Outputs[Default Output].Columns[FV.PRINCIPALINT.L.MARGIN]"
                       dataType="numeric"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      lineageId="Package\DMS-DER01-TAKEOVER\PDC_001.Outputs[Default Output].Columns[FV.PRINCIPALTINT.L.MARGIN]"
-                      name="FV.PRINCIPALTINT.L.MARGIN"
+                      lineageId="Package\DMS-DER01-TAKEOVER\PDC_001.Outputs[Default Output].Columns[FV.PRINCIPALINT.L.MARGIN]"
+                      name="FV.PRINCIPALINT.L.MARGIN"
                       precision="9"
                       scale="4"
                       truncationRowDisposition="FailComponent">
@@ -557,11 +1190,11 @@
                           containsID="true"
                           dataType="System.String"
                           description="Derived Column Expression"
-                          name="Expression">ISNULL(#{Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1.Outputs[Default Output].Columns[FV_PRINCIPALINT_RATE_TIER_TYPE]}) || #{Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1.Outputs[Default Output].Columns[FV_PRINCIPALINT_RATE_TIER_TYPE]} == 0 ? "" : "RATE.TIER.TYPE"</property>
+                          name="Expression">ISNULL(#{Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1.Outputs[Default Output].Columns[FV.PRINCIPALINT.RATE.TIER.TYPE]}) || #{Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1.Outputs[Default Output].Columns[FV.PRINCIPALINT.RATE.TIER.TYPE]} == 0 ? "" : "RATE.TIER.TYPE"</property>
                         <property
                           dataType="System.String"
                           description="Derived Column Friendly Expression"
-                          name="FriendlyExpression">ISNULL([FV_PRINCIPALINT_RATE_TIER_TYPE]) || [FV_PRINCIPALINT_RATE_TIER_TYPE] == 0 ? "" : "RATE.TIER.TYPE"</property>
+                          name="FriendlyExpression">ISNULL([FV.PRINCIPALINT.RATE.TIER.TYPE]) || [FV.PRINCIPALINT.RATE.TIER.TYPE] == 0 ? "" : "RATE.TIER.TYPE"</property>
                       </properties>
                     </outputColumn>
                     <outputColumn
@@ -750,13 +1383,13 @@
                           containsID="true"
                           dataType="System.String"
                           description="Derived Column Expression"
-                          name="Expression">ISNULL(#{Package\DMS-DER01-TAKEOVER\PSL AccrBasis FFC.Outputs[Default Ouptut].Columns[PRINCIPALINTFFC.DAY.BASIS]}) || #{Package\DMS-DER01-TAKEOVER\PSL AccrBasis FFC.Outputs[Default Ouptut].Columns[PRINCIPALINTFFC.DAY.BASIS]} == "" ? "" : #{Package\DMS-DER01-TAKEOVER\PSL AccrBasis FFC.Outputs[Default Ouptut].Columns[PRINCIPALINTFFC.DAY.BASIS]}
+                          name="Expression">ISNULL(#{Package\DMS-DER01-TAKEOVER\PSL AccrBasis FFC.Outputs[Default Ouptut].Columns[INTERESRTFFC.DAY.BASIS]}) || #{Package\DMS-DER01-TAKEOVER\PSL AccrBasis FFC.Outputs[Default Ouptut].Columns[INTERESRTFFC.DAY.BASIS]} == "" ? "" : #{Package\DMS-DER01-TAKEOVER\PSL AccrBasis FFC.Outputs[Default Ouptut].Columns[INTERESRTFFC.DAY.BASIS]}
 
 </property>
                         <property
                           dataType="System.String"
                           description="Derived Column Friendly Expression"
-                          name="FriendlyExpression">ISNULL([PRINCIPALINTFFC.DAY.BASIS]) || [PRINCIPALINTFFC.DAY.BASIS] == "" ? "" : [PRINCIPALINTFFC.DAY.BASIS]
+                          name="FriendlyExpression">ISNULL([INTERESRTFFC.DAY.BASIS]) || [INTERESRTFFC.DAY.BASIS] == "" ? "" : [INTERESRTFFC.DAY.BASIS]
 
 </property>
                       </properties>
@@ -788,18 +1421,18 @@
                   name="Primary Input">
                   <inputColumns>
                     <inputColumn
-                      refId="Package\DMS-DER01-TAKEOVER\PDC_002.Inputs[Primary Input].Columns[FV.PRINCIPALTINT.L.PERIOD.INDEX]"
+                      refId="Package\DMS-DER01-TAKEOVER\PDC_002.Inputs[Primary Input].Columns[FV.PRINCIPALINT.L.PERIOD.INDEX]"
                       cachedDataType="wstr"
                       cachedLength="32"
-                      cachedName="FV.PRINCIPALTINT.L.PERIOD.INDEX"
-                      lineageId="Package\DMS-DER01-TAKEOVER\PDC_001.Outputs[Default Output].Columns[FV.PRINCIPALTINT.L.PERIOD.INDEX]" />
+                      cachedName="FV.PRINCIPALINT.L.PERIOD.INDEX"
+                      lineageId="Package\DMS-DER01-TAKEOVER\PDC_001.Outputs[Default Output].Columns[FV.PRINCIPALINT.L.PERIOD.INDEX]" />
                     <inputColumn
-                      refId="Package\DMS-DER01-TAKEOVER\PDC_002.Inputs[Primary Input].Columns[FV.PRINCIPALTINT.L.MARGIN]"
+                      refId="Package\DMS-DER01-TAKEOVER\PDC_002.Inputs[Primary Input].Columns[FV.PRINCIPALINT.L.MARGIN]"
                       cachedDataType="numeric"
-                      cachedName="FV.PRINCIPALTINT.L.MARGIN"
+                      cachedName="FV.PRINCIPALINT.L.MARGIN"
                       cachedPrecision="9"
                       cachedScale="4"
-                      lineageId="Package\DMS-DER01-TAKEOVER\PDC_001.Outputs[Default Output].Columns[FV.PRINCIPALTINT.L.MARGIN]" />
+                      lineageId="Package\DMS-DER01-TAKEOVER\PDC_001.Outputs[Default Output].Columns[FV.PRINCIPALINT.L.MARGIN]" />
                     <inputColumn
                       refId="Package\DMS-DER01-TAKEOVER\PDC_002.Inputs[Primary Input].Columns[FV.PRINCIPALINT.PERIODIC.INDEX]"
                       cachedDataType="wstr"
@@ -884,59 +1517,59 @@
                   synchronousInputId="Package\DMS-DER01-TAKEOVER\PDC_002.Inputs[Primary Input]">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\DMS-DER01-TAKEOVER\PDC_002.Outputs[Default Output].Columns[FNQ.PRINCIPALTINT.L.PERIOD.INDEX]"
+                      refId="Package\DMS-DER01-TAKEOVER\PDC_002.Outputs[Default Output].Columns[FNQ.PRINCIPALINT.L.PERIOD.INDEX]"
                       dataType="wstr"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
                       length="14"
-                      lineageId="Package\DMS-DER01-TAKEOVER\PDC_002.Outputs[Default Output].Columns[FNQ.PRINCIPALTINT.L.PERIOD.INDEX]"
-                      name="FNQ.PRINCIPALTINT.L.PERIOD.INDEX"
+                      lineageId="Package\DMS-DER01-TAKEOVER\PDC_002.Outputs[Default Output].Columns[FNQ.PRINCIPALINT.L.PERIOD.INDEX]"
+                      name="FNQ.PRINCIPALINT.L.PERIOD.INDEX"
                       truncationRowDisposition="FailComponent">
                       <properties>
                         <property
                           containsID="true"
                           dataType="System.String"
                           description="Derived Column Expression"
-                          name="Expression">ISNULL(#{Package\DMS-DER01-TAKEOVER\PDC_001.Outputs[Default Output].Columns[FV.PRINCIPALTINT.L.PERIOD.INDEX]}) ? "" : "L.PERIOD.INDEX"
+                          name="Expression">ISNULL(#{Package\DMS-DER01-TAKEOVER\PDC_001.Outputs[Default Output].Columns[FV.PRINCIPALINT.L.PERIOD.INDEX]}) ? "" : "L.PERIOD.INDEX"
 </property>
                         <property
                           dataType="System.String"
                           description="Derived Column Friendly Expression"
-                          name="FriendlyExpression">ISNULL([FV.PRINCIPALTINT.L.PERIOD.INDEX]) ? "" : "L.PERIOD.INDEX"
+                          name="FriendlyExpression">ISNULL([FV.PRINCIPALINT.L.PERIOD.INDEX]) ? "" : "L.PERIOD.INDEX"
 </property>
                       </properties>
                     </outputColumn>
                     <outputColumn
-                      refId="Package\DMS-DER01-TAKEOVER\PDC_002.Outputs[Default Output].Columns[FNQ.PRINCIPALTINT.L.MARGIN]"
+                      refId="Package\DMS-DER01-TAKEOVER\PDC_002.Outputs[Default Output].Columns[FNQ.PRINCIPALINT.L.MARGIN]"
                       dataType="wstr"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
                       length="8"
-                      lineageId="Package\DMS-DER01-TAKEOVER\PDC_002.Outputs[Default Output].Columns[FNQ.PRINCIPALTINT.L.MARGIN]"
-                      name="FNQ.PRINCIPALTINT.L.MARGIN"
+                      lineageId="Package\DMS-DER01-TAKEOVER\PDC_002.Outputs[Default Output].Columns[FNQ.PRINCIPALINT.L.MARGIN]"
+                      name="FNQ.PRINCIPALINT.L.MARGIN"
                       truncationRowDisposition="FailComponent">
                       <properties>
                         <property
                           containsID="true"
                           dataType="System.String"
                           description="Derived Column Expression"
-                          name="Expression">ISNULL(#{Package\DMS-DER01-TAKEOVER\PDC_001.Outputs[Default Output].Columns[FV.PRINCIPALTINT.L.MARGIN]}) ? "" : "L.MARGIN"
+                          name="Expression">ISNULL(#{Package\DMS-DER01-TAKEOVER\PDC_001.Outputs[Default Output].Columns[FV.PRINCIPALINT.L.MARGIN]}) ? "" : "L.MARGIN"
 </property>
                         <property
                           dataType="System.String"
                           description="Derived Column Friendly Expression"
-                          name="FriendlyExpression">ISNULL([FV.PRINCIPALTINT.L.MARGIN]) ? "" : "L.MARGIN"
+                          name="FriendlyExpression">ISNULL([FV.PRINCIPALINT.L.MARGIN]) ? "" : "L.MARGIN"
 </property>
                       </properties>
                     </outputColumn>
                     <outputColumn
-                      refId="Package\DMS-DER01-TAKEOVER\PDC_002.Outputs[Default Output].Columns[FNQ.PRINCIPALTINT.PERIOD.INDEX]"
+                      refId="Package\DMS-DER01-TAKEOVER\PDC_002.Outputs[Default Output].Columns[FNQ.PRINCIPALINT.PERIODIC.INDEX]"
                       dataType="wstr"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
                       length="12"
-                      lineageId="Package\DMS-DER01-TAKEOVER\PDC_002.Outputs[Default Output].Columns[FNQ.PRINCIPALTINT.PERIOD.INDEX]"
-                      name="FNQ.PRINCIPALTINT.PERIOD.INDEX"
+                      lineageId="Package\DMS-DER01-TAKEOVER\PDC_002.Outputs[Default Output].Columns[FNQ.PRINCIPALINT.PERIODIC.INDEX]"
+                      name="FNQ.PRINCIPALINT.PERIODIC.INDEX"
                       truncationRowDisposition="FailComponent">
                       <properties>
                         <property
@@ -997,13 +1630,13 @@
                       </properties>
                     </outputColumn>
                     <outputColumn
-                      refId="Package\DMS-DER01-TAKEOVER\PDC_002.Outputs[Default Output].Columns[FNQ.PRINCIPALTINT.DAY.BASIS]"
+                      refId="Package\DMS-DER01-TAKEOVER\PDC_002.Outputs[Default Output].Columns[FNQ.PRINCIPALINT.DAY.BASIS]"
                       dataType="wstr"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
                       length="9"
-                      lineageId="Package\DMS-DER01-TAKEOVER\PDC_002.Outputs[Default Output].Columns[FNQ.PRINCIPALTINT.DAY.BASIS]"
-                      name="FNQ.PRINCIPALTINT.DAY.BASIS"
+                      lineageId="Package\DMS-DER01-TAKEOVER\PDC_002.Outputs[Default Output].Columns[FNQ.PRINCIPALINT.DAY.BASIS]"
+                      name="FNQ.PRINCIPALINT.DAY.BASIS"
                       truncationRowDisposition="FailComponent">
                       <properties>
                         <property
@@ -1104,11 +1737,11 @@
               </outputs>
             </component>
             <component
-              refId="Package\DMS-DER01-TAKEOVER\PDC_003"
+              refId="Package\DMS-DER01-TAKEOVER\PDC_FN_PROPERTY"
               componentClassID="Microsoft.ManagedComponentHost"
               contactInfo="KingswaySoft Inc.; http://www.kingswaysoft.com; support@kingswaysoft.com; Copyright (c) 2011-2025 KingswaySoft Inc."
               description="Update column values using expressions"
-              name="PDC_003"
+              name="PDC_FN_PROPERTY"
               usesDispositions="true"
               version="2">
               <properties>
@@ -1118,48 +1751,748 @@
               </properties>
               <inputs>
                 <input
-                  refId="Package\DMS-DER01-TAKEOVER\PDC_003.Inputs[Primary Input]"
+                  refId="Package\DMS-DER01-TAKEOVER\PDC_FN_PROPERTY.Inputs[Primary Input]"
                   errorOrTruncationOperation="Insert"
                   errorRowDisposition="FailComponent"
                   hasSideEffects="true"
                   name="Primary Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DMS-DER01-TAKEOVER\PDC_FN_PROPERTY.Inputs[Primary Input].Columns[FNQ.DWCOMMITMENT.AMOUNT]"
+                      cachedDataType="wstr"
+                      cachedLength="6"
+                      cachedName="FNQ.DWCOMMITMENT.AMOUNT"
+                      lineageId="Package\DMS-DER01-TAKEOVER\PDC_001.Outputs[Default Output].Columns[FNQ.DWCOMMITMENT.AMOUNT]" />
+                    <inputColumn
+                      refId="Package\DMS-DER01-TAKEOVER\PDC_FN_PROPERTY.Inputs[Primary Input].Columns[FNQ.INTERESTFFC.DAY.BASIS]"
+                      cachedDataType="wstr"
+                      cachedLength="9"
+                      cachedName="FNQ.INTERESTFFC.DAY.BASIS"
+                      lineageId="Package\DMS-DER01-TAKEOVER\PDC_002.Outputs[Default Output].Columns[FNQ.INTERESTFFC.DAY.BASIS]" />
+                    <inputColumn
+                      refId="Package\DMS-DER01-TAKEOVER\PDC_FN_PROPERTY.Inputs[Primary Input].Columns[FNQ.INTERESTFFC.FIXED.RATE]"
+                      cachedDataType="wstr"
+                      cachedLength="10"
+                      cachedName="FNQ.INTERESTFFC.FIXED.RATE"
+                      lineageId="Package\DMS-DER01-TAKEOVER\PDC_001.Outputs[Default Output].Columns[FNQ.INTERESTFFC.FIXED.RATE]" />
+                    <inputColumn
+                      refId="Package\DMS-DER01-TAKEOVER\PDC_FN_PROPERTY.Inputs[Primary Input].Columns[FNQ.INTERESTKWF.DAY.BASIS]"
+                      cachedDataType="wstr"
+                      cachedLength="9"
+                      cachedName="FNQ.INTERESTKWF.DAY.BASIS"
+                      lineageId="Package\DMS-DER01-TAKEOVER\PDC_002.Outputs[Default Output].Columns[FNQ.INTERESTKWF.DAY.BASIS]" />
+                    <inputColumn
+                      refId="Package\DMS-DER01-TAKEOVER\PDC_FN_PROPERTY.Inputs[Primary Input].Columns[FNQ.INTERESTKFW.FIXED.RATE]"
+                      cachedDataType="wstr"
+                      cachedLength="9"
+                      cachedName="FNQ.INTERESTKFW.FIXED.RATE"
+                      lineageId="Package\DMS-DER01-TAKEOVER\PDC_002.Outputs[Default Output].Columns[FNQ.INTERESTKFW.FIXED.RATE]" />
+                    <inputColumn
+                      refId="Package\DMS-DER01-TAKEOVER\PDC_FN_PROPERTY.Inputs[Primary Input].Columns[FNQ.PRINCIPALINT.DAY.BASIS]"
+                      cachedDataType="wstr"
+                      cachedLength="9"
+                      cachedName="FNQ.PRINCIPALINT.DAY.BASIS"
+                      lineageId="Package\DMS-DER01-TAKEOVER\PDC_002.Outputs[Default Output].Columns[FNQ.PRINCIPALINT.DAY.BASIS]" />
+                    <inputColumn
+                      refId="Package\DMS-DER01-TAKEOVER\PDC_FN_PROPERTY.Inputs[Primary Input].Columns[FNQ.PRINCIPALINT.FIXED.RATE]"
+                      cachedCodepage="1252"
+                      cachedDataType="text"
+                      cachedName="FNQ.PRINCIPALINT.FIXED.RATE"
+                      lineageId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1.Outputs[Default Output].Columns[FNQ.PRINCIPALINT.FIXED.RATE]" />
+                    <inputColumn
+                      refId="Package\DMS-DER01-TAKEOVER\PDC_FN_PROPERTY.Inputs[Primary Input].Columns[FNQ.PRINCIPALINT.L.MARGIN]"
+                      cachedDataType="wstr"
+                      cachedLength="8"
+                      cachedName="FNQ.PRINCIPALINT.L.MARGIN"
+                      lineageId="Package\DMS-DER01-TAKEOVER\PDC_002.Outputs[Default Output].Columns[FNQ.PRINCIPALINT.L.MARGIN]" />
+                    <inputColumn
+                      refId="Package\DMS-DER01-TAKEOVER\PDC_FN_PROPERTY.Inputs[Primary Input].Columns[FNQ.PRINCIPALINT.L.PERIOD.INDEX]"
+                      cachedDataType="wstr"
+                      cachedLength="14"
+                      cachedName="FNQ.PRINCIPALINT.L.PERIOD.INDEX"
+                      lineageId="Package\DMS-DER01-TAKEOVER\PDC_002.Outputs[Default Output].Columns[FNQ.PRINCIPALINT.L.PERIOD.INDEX]" />
+                    <inputColumn
+                      refId="Package\DMS-DER01-TAKEOVER\PDC_FN_PROPERTY.Inputs[Primary Input].Columns[FNQ.PRINCIPALINT.MARGIN.OPER]"
+                      cachedCodepage="1252"
+                      cachedDataType="text"
+                      cachedName="FNQ.PRINCIPALINT.MARGIN.OPER"
+                      lineageId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1.Outputs[Default Output].Columns[FNQ.PRINCIPALINT.MARGIN.OPER]" />
+                    <inputColumn
+                      refId="Package\DMS-DER01-TAKEOVER\PDC_FN_PROPERTY.Inputs[Primary Input].Columns[FNQ.PRINCIPALINT.MARGIN.RATE]"
+                      cachedCodepage="1252"
+                      cachedDataType="text"
+                      cachedName="FNQ.PRINCIPALINT.MARGIN.RATE"
+                      lineageId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1.Outputs[Default Output].Columns[FNQ.PRINCIPALINT.MARGIN.RATE]" />
+                    <inputColumn
+                      refId="Package\DMS-DER01-TAKEOVER\PDC_FN_PROPERTY.Inputs[Primary Input].Columns[FNQ.PRINCIPALINT.MARGIN.TYPE]"
+                      cachedCodepage="1252"
+                      cachedDataType="text"
+                      cachedName="FNQ.PRINCIPALINT.MARGIN.TYPE"
+                      lineageId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1.Outputs[Default Output].Columns[FNQ.PRINCIPALINT.MARGIN.TYPE]" />
+                    <inputColumn
+                      refId="Package\DMS-DER01-TAKEOVER\PDC_FN_PROPERTY.Inputs[Primary Input].Columns[FNQ.PRINCIPALINT.PERIODIC.INDEX]"
+                      cachedDataType="wstr"
+                      cachedLength="12"
+                      cachedName="FNQ.PRINCIPALINT.PERIODIC.INDEX"
+                      lineageId="Package\DMS-DER01-TAKEOVER\PDC_002.Outputs[Default Output].Columns[FNQ.PRINCIPALINT.PERIODIC.INDEX]" />
+                    <inputColumn
+                      refId="Package\DMS-DER01-TAKEOVER\PDC_FN_PROPERTY.Inputs[Primary Input].Columns[FNQ.PRINCIPALINT.RATE.TIER.TYPE]"
+                      cachedDataType="wstr"
+                      cachedLength="14"
+                      cachedName="FNQ.PRINCIPALINT.RATE.TIER.TYPE"
+                      lineageId="Package\DMS-DER01-TAKEOVER\PDC_001.Outputs[Default Output].Columns[FNQ.PRINCIPALINT.RATE.TIER.TYPE]" />
+                    <inputColumn
+                      refId="Package\DMS-DER01-TAKEOVER\PDC_FN_PROPERTY.Inputs[Primary Input].Columns[FNQ.PRINCIPALINT.TIER.AMOUNT]"
+                      cachedCodepage="1252"
+                      cachedDataType="text"
+                      cachedName="FNQ.PRINCIPALINT.TIER.AMOUNT"
+                      lineageId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1.Outputs[Default Output].Columns[FNQ.PRINCIPALINT.TIER.AMOUNT]" />
+                    <inputColumn
+                      refId="Package\DMS-DER01-TAKEOVER\PDC_FN_PROPERTY.Inputs[Primary Input].Columns[FNQ.SCHEDULE.ACTUAL.AMT]"
+                      cachedCodepage="1252"
+                      cachedDataType="text"
+                      cachedName="FNQ.SCHEDULE.ACTUAL.AMT"
+                      lineageId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1.Outputs[Default Output].Columns[FNQ.SCHEDULE.ACTUAL.AMT]" />
+                    <inputColumn
+                      refId="Package\DMS-DER01-TAKEOVER\PDC_FN_PROPERTY.Inputs[Primary Input].Columns[FNQ.SCHEDULE.BILL.TYPE]"
+                      cachedCodepage="1252"
+                      cachedDataType="text"
+                      cachedName="FNQ.SCHEDULE.BILL.TYPE"
+                      lineageId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1.Outputs[Default Output].Columns[FNQ.SCHEDULE.BILL.TYPE]" />
+                    <inputColumn
+                      refId="Package\DMS-DER01-TAKEOVER\PDC_FN_PROPERTY.Inputs[Primary Input].Columns[FNQ.SCHEDULE.BILLS.COMBINED]"
+                      cachedDataType="wstr"
+                      cachedLength="14"
+                      cachedName="FNQ.SCHEDULE.BILLS.COMBINED"
+                      lineageId="Package\DMS-DER01-TAKEOVER\PDC_001.Outputs[Default Output].Columns[FNQ.SCHEDULE.BILLS.COMBINED]" />
+                    <inputColumn
+                      refId="Package\DMS-DER01-TAKEOVER\PDC_FN_PROPERTY.Inputs[Primary Input].Columns[FNQ.SCHEDULE.PAYMENT.METHOD]"
+                      cachedCodepage="1252"
+                      cachedDataType="text"
+                      cachedName="FNQ.SCHEDULE.PAYMENT.METHOD"
+                      lineageId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1.Outputs[Default Output].Columns[FNQ.SCHEDULE.PAYMENT.METHOD]" />
+                    <inputColumn
+                      refId="Package\DMS-DER01-TAKEOVER\PDC_FN_PROPERTY.Inputs[Primary Input].Columns[FNQ.SCHEDULE.PAYMENT.TYPE]"
+                      cachedCodepage="1252"
+                      cachedDataType="text"
+                      cachedName="FNQ.SCHEDULE.PAYMENT.TYPE"
+                      lineageId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1.Outputs[Default Output].Columns[FNQ.SCHEDULE.PAYMENT.TYPE]" />
+                    <inputColumn
+                      refId="Package\DMS-DER01-TAKEOVER\PDC_FN_PROPERTY.Inputs[Primary Input].Columns[FNQ.SCHEDULE.PROPERTY]"
+                      cachedCodepage="1252"
+                      cachedDataType="text"
+                      cachedName="FNQ.SCHEDULE.PROPERTY"
+                      lineageId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1.Outputs[Default Output].Columns[FNQ.SCHEDULE.PROPERTY]" />
+                    <inputColumn
+                      refId="Package\DMS-DER01-TAKEOVER\PDC_FN_PROPERTY.Inputs[Primary Input].Columns[FNQ.SCHEDULE.START.DATE]"
+                      cachedCodepage="1252"
+                      cachedDataType="text"
+                      cachedName="FNQ.SCHEDULE.START.DATE"
+                      lineageId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1.Outputs[Default Output].Columns[FNQ.SCHEDULE.START.DATE]" />
+                    <inputColumn
+                      refId="Package\DMS-DER01-TAKEOVER\PDC_FN_PROPERTY.Inputs[Primary Input].Columns[FNQ.XINTFUND.MARGIN.DATE.FROM]"
+                      cachedCodepage="1252"
+                      cachedDataType="text"
+                      cachedName="FNQ.XINTFUND.MARGIN.DATE.FROM"
+                      lineageId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1.Outputs[Default Output].Columns[FNQ.XINTFUND.MARGIN.DATE.FROM]" />
+                    <inputColumn
+                      refId="Package\DMS-DER01-TAKEOVER\PDC_FN_PROPERTY.Inputs[Primary Input].Columns[FNQ.XINTFUND.MARGIN.DATE.TO]"
+                      cachedCodepage="1252"
+                      cachedDataType="text"
+                      cachedName="FNQ.XINTFUND.MARGIN.DATE.TO"
+                      lineageId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1.Outputs[Default Output].Columns[FNQ.XINTFUND.MARGIN.DATE.TO]" />
+                    <inputColumn
+                      refId="Package\DMS-DER01-TAKEOVER\PDC_FN_PROPERTY.Inputs[Primary Input].Columns[FNQ.XINTFUND.MARGIN.DISB.AMOUNT]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="FNQ.XINTFUND.MARGIN.DISB.AMOUNT"
+                      lineageId="Package\DMS-DER01-TAKEOVER\PDC_001.Outputs[Default Output].Columns[FNQ.XINTFUND.MARGIN.DISB.AMOUNT]" />
+                    <inputColumn
+                      refId="Package\DMS-DER01-TAKEOVER\PDC_FN_PROPERTY.Inputs[Primary Input].Columns[FNQ.XINTFUND.MARGIN.INTFUND]"
+                      cachedCodepage="1252"
+                      cachedDataType="text"
+                      cachedName="FNQ.XINTFUND.MARGIN.INTFUND"
+                      lineageId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1.Outputs[Default Output].Columns[FNQ.XINTFUND.MARGIN.INTFUND]" />
+                    <inputColumn
+                      refId="Package\DMS-DER01-TAKEOVER\PDC_FN_PROPERTY.Inputs[Primary Input].Columns[FNQ.XINTFUND.MARGIN.MARGIN]"
+                      cachedCodepage="1252"
+                      cachedDataType="text"
+                      cachedName="FNQ.XINTFUND.MARGIN.MARGIN"
+                      lineageId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1.Outputs[Default Output].Columns[FNQ.XINTFUND.MARGIN.MARGIN]" />
+                    <inputColumn
+                      refId="Package\DMS-DER01-TAKEOVER\PDC_FN_PROPERTY.Inputs[Primary Input].Columns[FNQ.XINTFUND.MARGIN.SUBLIM.AMT]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="1"
+                      cachedName="FNQ.XINTFUND.MARGIN.SUBLIM.AMT"
+                      lineageId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1.Outputs[Default Output].Columns[FNQ.XINTFUND.MARGIN.SUBLIM.AMT]" />
+                    <inputColumn
+                      refId="Package\DMS-DER01-TAKEOVER\PDC_FN_PROPERTY.Inputs[Primary Input].Columns[FNQ.XINTFUND.MARGIN.TERM]"
+                      cachedDataType="wstr"
+                      cachedLength="2000"
+                      cachedName="FNQ.XINTFUND.MARGIN.TERM"
+                      lineageId="Package\DMS-DER01-TAKEOVER\PDC_002.Outputs[Default Output].Columns[FNQ.XINTFUND.MARGIN.TERM]" />
+                  </inputColumns>
                   <externalMetadataColumns />
                 </input>
               </inputs>
               <outputs>
                 <output
-                  refId="Package\DMS-DER01-TAKEOVER\PDC_003.Outputs[Error Output]"
+                  refId="Package\DMS-DER01-TAKEOVER\PDC_FN_PROPERTY.Outputs[Error Output]"
                   exclusionGroup="1"
                   isErrorOut="true"
                   name="Error Output"
-                  synchronousInputId="Package\DMS-DER01-TAKEOVER\PDC_003.Inputs[Primary Input]">
+                  synchronousInputId="Package\DMS-DER01-TAKEOVER\PDC_FN_PROPERTY.Inputs[Primary Input]">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\DMS-DER01-TAKEOVER\PDC_003.Outputs[Error Output].Columns[ErrorCode]"
+                      refId="Package\DMS-DER01-TAKEOVER\PDC_FN_PROPERTY.Outputs[Error Output].Columns[ErrorCode]"
                       dataType="i4"
-                      lineageId="Package\DMS-DER01-TAKEOVER\PDC_003.Outputs[Error Output].Columns[ErrorCode]"
+                      lineageId="Package\DMS-DER01-TAKEOVER\PDC_FN_PROPERTY.Outputs[Error Output].Columns[ErrorCode]"
                       name="ErrorCode"
                       specialFlags="1" />
                     <outputColumn
-                      refId="Package\DMS-DER01-TAKEOVER\PDC_003.Outputs[Error Output].Columns[ErrorColumn]"
+                      refId="Package\DMS-DER01-TAKEOVER\PDC_FN_PROPERTY.Outputs[Error Output].Columns[ErrorColumn]"
                       dataType="i4"
-                      lineageId="Package\DMS-DER01-TAKEOVER\PDC_003.Outputs[Error Output].Columns[ErrorColumn]"
+                      lineageId="Package\DMS-DER01-TAKEOVER\PDC_FN_PROPERTY.Outputs[Error Output].Columns[ErrorColumn]"
                       name="ErrorColumn"
                       specialFlags="2" />
                     <outputColumn
-                      refId="Package\DMS-DER01-TAKEOVER\PDC_003.Outputs[Error Output].Columns[ErrorMessage]"
+                      refId="Package\DMS-DER01-TAKEOVER\PDC_FN_PROPERTY.Outputs[Error Output].Columns[ErrorMessage]"
                       dataType="wstr"
                       length="2048"
-                      lineageId="Package\DMS-DER01-TAKEOVER\PDC_003.Outputs[Error Output].Columns[ErrorMessage]"
+                      lineageId="Package\DMS-DER01-TAKEOVER\PDC_FN_PROPERTY.Outputs[Error Output].Columns[ErrorMessage]"
                       name="ErrorMessage" />
                   </outputColumns>
                   <externalMetadataColumns />
                 </output>
                 <output
-                  refId="Package\DMS-DER01-TAKEOVER\PDC_003.Outputs[Default Output]"
+                  refId="Package\DMS-DER01-TAKEOVER\PDC_FN_PROPERTY.Outputs[Default Output]"
                   exclusionGroup="1"
                   name="Default Output"
-                  synchronousInputId="Package\DMS-DER01-TAKEOVER\PDC_003.Inputs[Primary Input]">
+                  synchronousInputId="Package\DMS-DER01-TAKEOVER\PDC_FN_PROPERTY.Inputs[Primary Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DMS-DER01-TAKEOVER\PDC_FN_PROPERTY.Outputs[Default Output].Columns[FN.PROPERTY.DWCOMMITMENT]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="6"
+                      lineageId="Package\DMS-DER01-TAKEOVER\PDC_FN_PROPERTY.Outputs[Default Output].Columns[FN.PROPERTY.DWCOMMITMENT]"
+                      name="FN.PROPERTY.DWCOMMITMENT"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">#{Package\DMS-DER01-TAKEOVER\PDC_001.Outputs[Default Output].Columns[FNQ.DWCOMMITMENT.AMOUNT]}</property>
+                        <property
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          name="FriendlyExpression">[FNQ.DWCOMMITMENT.AMOUNT]</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DMS-DER01-TAKEOVER\PDC_FN_PROPERTY.Outputs[Default Output].Columns[FN.PROPERTY.INTERESTFFC]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="21"
+                      lineageId="Package\DMS-DER01-TAKEOVER\PDC_FN_PROPERTY.Outputs[Default Output].Columns[FN.PROPERTY.INTERESTFFC]"
+                      name="FN.PROPERTY.INTERESTFFC"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">#{Package\DMS-DER01-TAKEOVER\PDC_002.Outputs[Default Output].Columns[FNQ.INTERESTFFC.DAY.BASIS]} + "!!" + #{Package\DMS-DER01-TAKEOVER\PDC_001.Outputs[Default Output].Columns[FNQ.INTERESTFFC.FIXED.RATE]}</property>
+                        <property
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          name="FriendlyExpression">[FNQ.INTERESTFFC.DAY.BASIS] + "!!" + [FNQ.INTERESTFFC.FIXED.RATE]</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DMS-DER01-TAKEOVER\PDC_FN_PROPERTY.Outputs[Default Output].Columns[FN.PROPERTY.INTERESTKWF]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="20"
+                      lineageId="Package\DMS-DER01-TAKEOVER\PDC_FN_PROPERTY.Outputs[Default Output].Columns[FN.PROPERTY.INTERESTKWF]"
+                      name="FN.PROPERTY.INTERESTKWF"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">#{Package\DMS-DER01-TAKEOVER\PDC_002.Outputs[Default Output].Columns[FNQ.INTERESTKWF.DAY.BASIS]} + "!!" + #{Package\DMS-DER01-TAKEOVER\PDC_002.Outputs[Default Output].Columns[FNQ.INTERESTKFW.FIXED.RATE]}</property>
+                        <property
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          name="FriendlyExpression">[FNQ.INTERESTKWF.DAY.BASIS] + "!!" + [FNQ.INTERESTKFW.FIXED.RATE]</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DMS-DER01-TAKEOVER\PDC_FN_PROPERTY.Outputs[Default Output].Columns[FN.PROPERTY.PRINCIPALINT]"
+                      codePage="1252"
+                      dataType="text"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\DMS-DER01-TAKEOVER\PDC_FN_PROPERTY.Outputs[Default Output].Columns[FN.PROPERTY.PRINCIPALINT]"
+                      name="FN.PROPERTY.PRINCIPALINT"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">#{Package\DMS-DER01-TAKEOVER\PDC_002.Outputs[Default Output].Columns[FNQ.PRINCIPALINT.DAY.BASIS]} + "!!" + #{Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1.Outputs[Default Output].Columns[FNQ.PRINCIPALINT.FIXED.RATE]} + "!!" + #{Package\DMS-DER01-TAKEOVER\PDC_002.Outputs[Default Output].Columns[FNQ.PRINCIPALINT.L.MARGIN]} + "!!" + #{Package\DMS-DER01-TAKEOVER\PDC_002.Outputs[Default Output].Columns[FNQ.PRINCIPALINT.L.PERIOD.INDEX]} + "!!" + 
+#{Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1.Outputs[Default Output].Columns[FNQ.PRINCIPALINT.MARGIN.OPER]} + "!!" + #{Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1.Outputs[Default Output].Columns[FNQ.PRINCIPALINT.MARGIN.RATE]} + "!!" + #{Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1.Outputs[Default Output].Columns[FNQ.PRINCIPALINT.MARGIN.TYPE]} + "!!" + #{Package\DMS-DER01-TAKEOVER\PDC_002.Outputs[Default Output].Columns[FNQ.PRINCIPALINT.PERIODIC.INDEX]} + "!!" + 
+#{Package\DMS-DER01-TAKEOVER\PDC_001.Outputs[Default Output].Columns[FNQ.PRINCIPALINT.RATE.TIER.TYPE]} + "!!" + #{Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1.Outputs[Default Output].Columns[FNQ.PRINCIPALINT.TIER.AMOUNT]}
+</property>
+                        <property
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          name="FriendlyExpression">[FNQ.PRINCIPALINT.DAY.BASIS] + "!!" + [FNQ.PRINCIPALINT.FIXED.RATE] + "!!" + [FNQ.PRINCIPALINT.L.MARGIN] + "!!" + [FNQ.PRINCIPALINT.L.PERIOD.INDEX] + "!!" + 
+[FNQ.PRINCIPALINT.MARGIN.OPER] + "!!" + [FNQ.PRINCIPALINT.MARGIN.RATE] + "!!" + [FNQ.PRINCIPALINT.MARGIN.TYPE] + "!!" + [FNQ.PRINCIPALINT.PERIODIC.INDEX] + "!!" + 
+[FNQ.PRINCIPALINT.RATE.TIER.TYPE] + "!!" + [FNQ.PRINCIPALINT.TIER.AMOUNT]
+</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DMS-DER01-TAKEOVER\PDC_FN_PROPERTY.Outputs[Default Output].Columns[FN.PROPERTY.SCHEDULE]"
+                      codePage="1252"
+                      dataType="text"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\DMS-DER01-TAKEOVER\PDC_FN_PROPERTY.Outputs[Default Output].Columns[FN.PROPERTY.SCHEDULE]"
+                      name="FN.PROPERTY.SCHEDULE"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">#{Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1.Outputs[Default Output].Columns[FNQ.SCHEDULE.ACTUAL.AMT]} + "!!" + #{Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1.Outputs[Default Output].Columns[FNQ.SCHEDULE.BILL.TYPE]} + "!!" + #{Package\DMS-DER01-TAKEOVER\PDC_001.Outputs[Default Output].Columns[FNQ.SCHEDULE.BILLS.COMBINED]} + "!!" + #{Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1.Outputs[Default Output].Columns[FNQ.SCHEDULE.PAYMENT.METHOD]} + "!!" + 
+#{Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1.Outputs[Default Output].Columns[FNQ.SCHEDULE.PAYMENT.TYPE]} + "!!" + #{Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1.Outputs[Default Output].Columns[FNQ.SCHEDULE.PROPERTY]} + "!!" + #{Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1.Outputs[Default Output].Columns[FNQ.SCHEDULE.START.DATE]}
+</property>
+                        <property
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          name="FriendlyExpression">[FNQ.SCHEDULE.ACTUAL.AMT] + "!!" + [FNQ.SCHEDULE.BILL.TYPE] + "!!" + [FNQ.SCHEDULE.BILLS.COMBINED] + "!!" + [FNQ.SCHEDULE.PAYMENT.METHOD] + "!!" + 
+[FNQ.SCHEDULE.PAYMENT.TYPE] + "!!" + [FNQ.SCHEDULE.PROPERTY] + "!!" + [FNQ.SCHEDULE.START.DATE]
+</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DMS-DER01-TAKEOVER\PDC_FN_PROPERTY.Outputs[Default Output].Columns[FN.PROPERTY.XINTFUND]"
+                      codePage="1252"
+                      dataType="text"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\DMS-DER01-TAKEOVER\PDC_FN_PROPERTY.Outputs[Default Output].Columns[FN.PROPERTY.XINTFUND]"
+                      name="FN.PROPERTY.XINTFUND"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">#{Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1.Outputs[Default Output].Columns[FNQ.XINTFUND.MARGIN.DATE.FROM]} + "!!" + #{Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1.Outputs[Default Output].Columns[FNQ.XINTFUND.MARGIN.DATE.TO]} + "!!" + #{Package\DMS-DER01-TAKEOVER\PDC_001.Outputs[Default Output].Columns[FNQ.XINTFUND.MARGIN.DISB.AMOUNT]} + "!!" + #{Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1.Outputs[Default Output].Columns[FNQ.XINTFUND.MARGIN.INTFUND]} + "!!" + 
+#{Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1.Outputs[Default Output].Columns[FNQ.XINTFUND.MARGIN.MARGIN]} + "!!" + #{Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1.Outputs[Default Output].Columns[FNQ.XINTFUND.MARGIN.SUBLIM.AMT]} + "!!" + #{Package\DMS-DER01-TAKEOVER\PDC_002.Outputs[Default Output].Columns[FNQ.XINTFUND.MARGIN.TERM]}
+</property>
+                        <property
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          name="FriendlyExpression">[FNQ.XINTFUND.MARGIN.DATE.FROM] + "!!" + [FNQ.XINTFUND.MARGIN.DATE.TO] + "!!" + [FNQ.XINTFUND.MARGIN.DISB.AMOUNT] + "!!" + [FNQ.XINTFUND.MARGIN.INTFUND] + "!!" + 
+[FNQ.XINTFUND.MARGIN.MARGIN] + "!!" + [FNQ.XINTFUND.MARGIN.SUBLIM.AMT] + "!!" + [FNQ.XINTFUND.MARGIN.TERM]
+</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DMS-DER01-TAKEOVER\PDC_FV_PROPERTY"
+              componentClassID="Microsoft.ManagedComponentHost"
+              contactInfo="KingswaySoft Inc.; http://www.kingswaysoft.com; support@kingswaysoft.com; Copyright (c) 2011-2025 KingswaySoft Inc."
+              description="Update column values using expressions"
+              name="PDC_FV_PROPERTY"
+              usesDispositions="true"
+              version="2">
+              <properties>
+                <property
+                  dataType="System.String"
+                  name="UserComponentTypeName">KingswaySoft.IntegrationToolkit.ProductivityPack.PremiumDerivedColumnComponent</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\DMS-DER01-TAKEOVER\PDC_FV_PROPERTY.Inputs[Primary Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Primary Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DMS-DER01-TAKEOVER\PDC_FV_PROPERTY.Inputs[Primary Input].Columns[FV.DWCOMMITMENT.AMOUNT]"
+                      cachedDataType="numeric"
+                      cachedName="FV.DWCOMMITMENT.AMOUNT"
+                      cachedPrecision="38"
+                      lineageId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1.Outputs[Default Output].Columns[FV.DWCOMMITMENT.AMOUNT]" />
+                    <inputColumn
+                      refId="Package\DMS-DER01-TAKEOVER\PDC_FV_PROPERTY.Inputs[Primary Input].Columns[FV.INTERESTFFC.DAY.BASIS]"
+                      cachedDataType="wstr"
+                      cachedLength="7"
+                      cachedName="FV.INTERESTFFC.DAY.BASIS"
+                      lineageId="Package\DMS-DER01-TAKEOVER\PDC_001.Outputs[Default Output].Columns[FV.INTERESTFFC.DAY.BASIS]" />
+                    <inputColumn
+                      refId="Package\DMS-DER01-TAKEOVER\PDC_FV_PROPERTY.Inputs[Primary Input].Columns[FV.INTERESTFFC_FIXED_RATE]"
+                      cachedDataType="wstr"
+                      cachedLength="20"
+                      cachedName="FV.INTERESTFFC_FIXED_RATE"
+                      lineageId="Package\DMS-DER01-TAKEOVER\PDC_001.Outputs[Default Output].Columns[FV.INTERESTFFC_FIXED_RATE]" />
+                    <inputColumn
+                      refId="Package\DMS-DER01-TAKEOVER\PDC_FV_PROPERTY.Inputs[Primary Input].Columns[FV.INTERESTKWF.DAY.BASIS]"
+                      cachedDataType="wstr"
+                      cachedLength="7"
+                      cachedName="FV.INTERESTKWF.DAY.BASIS"
+                      lineageId="Package\DMS-DER01-TAKEOVER\PDC_001.Outputs[Default Output].Columns[FV.INTERESTKWF.DAY.BASIS]" />
+                    <inputColumn
+                      refId="Package\DMS-DER01-TAKEOVER\PDC_FV_PROPERTY.Inputs[Primary Input].Columns[FV.INTERESTKFW.FIXED.RATE]"
+                      cachedDataType="numeric"
+                      cachedName="FV.INTERESTKFW.FIXED.RATE"
+                      cachedPrecision="38"
+                      cachedScale="4"
+                      lineageId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1.Outputs[Default Output].Columns[FV.INTERESTKFW.FIXED.RATE]" />
+                    <inputColumn
+                      refId="Package\DMS-DER01-TAKEOVER\PDC_FV_PROPERTY.Inputs[Primary Input].Columns[FV_PRINCIPALINT_FIXED_RATE]"
+                      cachedCodepage="1252"
+                      cachedDataType="text"
+                      cachedName="FV_PRINCIPALINT_FIXED_RATE"
+                      lineageId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1.Outputs[Default Output].Columns[FV_PRINCIPALINT_FIXED_RATE]" />
+                    <inputColumn
+                      refId="Package\DMS-DER01-TAKEOVER\PDC_FV_PROPERTY.Inputs[Primary Input].Columns[FV.PRINCIPALINT.L.MARGIN]"
+                      cachedDataType="numeric"
+                      cachedName="FV.PRINCIPALINT.L.MARGIN"
+                      cachedPrecision="9"
+                      cachedScale="4"
+                      lineageId="Package\DMS-DER01-TAKEOVER\PDC_001.Outputs[Default Output].Columns[FV.PRINCIPALINT.L.MARGIN]" />
+                    <inputColumn
+                      refId="Package\DMS-DER01-TAKEOVER\PDC_FV_PROPERTY.Inputs[Primary Input].Columns[FV.PRINCIPALINT.L.PERIOD.INDEX]"
+                      cachedDataType="wstr"
+                      cachedLength="32"
+                      cachedName="FV.PRINCIPALINT.L.PERIOD.INDEX"
+                      lineageId="Package\DMS-DER01-TAKEOVER\PDC_001.Outputs[Default Output].Columns[FV.PRINCIPALINT.L.PERIOD.INDEX]" />
+                    <inputColumn
+                      refId="Package\DMS-DER01-TAKEOVER\PDC_FV_PROPERTY.Inputs[Primary Input].Columns[PRINCIPALINT.MARGIN.OPER]"
+                      cachedCodepage="1252"
+                      cachedDataType="text"
+                      cachedName="PRINCIPALINT.MARGIN.OPER"
+                      lineageId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1.Outputs[Default Output].Columns[PRINCIPALINT.MARGIN.OPER]" />
+                    <inputColumn
+                      refId="Package\DMS-DER01-TAKEOVER\PDC_FV_PROPERTY.Inputs[Primary Input].Columns[FV.PRINCIPALINT.MARGIN.RATE]"
+                      cachedCodepage="1252"
+                      cachedDataType="text"
+                      cachedName="FV.PRINCIPALINT.MARGIN.RATE"
+                      lineageId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1.Outputs[Default Output].Columns[FV.PRINCIPALINT.MARGIN.RATE]" />
+                    <inputColumn
+                      refId="Package\DMS-DER01-TAKEOVER\PDC_FV_PROPERTY.Inputs[Primary Input].Columns[PRINCIPALINT.MARGIN.TYPE]"
+                      cachedCodepage="1252"
+                      cachedDataType="text"
+                      cachedName="PRINCIPALINT.MARGIN.TYPE"
+                      lineageId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1.Outputs[Default Output].Columns[PRINCIPALINT.MARGIN.TYPE]" />
+                    <inputColumn
+                      refId="Package\DMS-DER01-TAKEOVER\PDC_FV_PROPERTY.Inputs[Primary Input].Columns[FV.PRINCIPALINT.PERIODIC.INDEX]"
+                      cachedDataType="wstr"
+                      cachedLength="32"
+                      cachedName="FV.PRINCIPALINT.PERIODIC.INDEX"
+                      lineageId="Package\DMS-DER01-TAKEOVER\PDC_001.Outputs[Default Output].Columns[FV.PRINCIPALINT.PERIODIC.INDEX]" />
+                    <inputColumn
+                      refId="Package\DMS-DER01-TAKEOVER\PDC_FV_PROPERTY.Inputs[Primary Input].Columns[FV.PRINCIPALINT.RATE.TIER.TYPE]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="4"
+                      cachedName="FV.PRINCIPALINT.RATE.TIER.TYPE"
+                      lineageId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1.Outputs[Default Output].Columns[FV.PRINCIPALINT.RATE.TIER.TYPE]" />
+                    <inputColumn
+                      refId="Package\DMS-DER01-TAKEOVER\PDC_FV_PROPERTY.Inputs[Primary Input].Columns[PRINCIPALINT.TIER.AMOUNT]"
+                      cachedDataType="wstr"
+                      cachedLength="4000"
+                      cachedName="PRINCIPALINT.TIER.AMOUNT"
+                      lineageId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1.Outputs[Default Output].Columns[PRINCIPALINT.TIER.AMOUNT]" />
+                    <inputColumn
+                      refId="Package\DMS-DER01-TAKEOVER\PDC_FV_PROPERTY.Inputs[Primary Input].Columns[SCHEDULE.ACTUAL.AMT]"
+                      cachedDataType="wstr"
+                      cachedLength="4000"
+                      cachedName="SCHEDULE.ACTUAL.AMT"
+                      lineageId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1.Outputs[Default Output].Columns[SCHEDULE.ACTUAL.AMT]" />
+                    <inputColumn
+                      refId="Package\DMS-DER01-TAKEOVER\PDC_FV_PROPERTY.Inputs[Primary Input].Columns[SCHEDULE.BILL.TYPE]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="46"
+                      cachedName="SCHEDULE.BILL.TYPE"
+                      lineageId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1.Outputs[Default Output].Columns[SCHEDULE.BILL.TYPE]" />
+                    <inputColumn
+                      refId="Package\DMS-DER01-TAKEOVER\PDC_FV_PROPERTY.Inputs[Primary Input].Columns[FV.SCHEDULE.BILLS.COMBINED]"
+                      cachedDataType="wstr"
+                      cachedLength="2"
+                      cachedName="FV.SCHEDULE.BILLS.COMBINED"
+                      lineageId="Package\DMS-DER01-TAKEOVER\PDC_001.Outputs[Default Output].Columns[FV.SCHEDULE.BILLS.COMBINED]" />
+                    <inputColumn
+                      refId="Package\DMS-DER01-TAKEOVER\PDC_FV_PROPERTY.Inputs[Primary Input].Columns[FV.SCHEDULE.PAYMENT.METHOD]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="18"
+                      cachedName="FV.SCHEDULE.PAYMENT.METHOD"
+                      lineageId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1.Outputs[Default Output].Columns[FV.SCHEDULE.PAYMENT.METHOD]" />
+                    <inputColumn
+                      refId="Package\DMS-DER01-TAKEOVER\PDC_FV_PROPERTY.Inputs[Primary Input].Columns[SCHEDULE.PAYMENT.TYPE]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="59"
+                      cachedName="SCHEDULE.PAYMENT.TYPE"
+                      lineageId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1.Outputs[Default Output].Columns[SCHEDULE.PAYMENT.TYPE]" />
+                    <inputColumn
+                      refId="Package\DMS-DER01-TAKEOVER\PDC_FV_PROPERTY.Inputs[Primary Input].Columns[FV_SCHEDULE_PROPERTY]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="47"
+                      cachedName="FV_SCHEDULE_PROPERTY"
+                      lineageId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1.Outputs[Default Output].Columns[FV_SCHEDULE_PROPERTY]" />
+                    <inputColumn
+                      refId="Package\DMS-DER01-TAKEOVER\PDC_FV_PROPERTY.Inputs[Primary Input].Columns[SCHEDULE.START.DATE]"
+                      cachedDataType="wstr"
+                      cachedLength="4000"
+                      cachedName="SCHEDULE.START.DATE"
+                      lineageId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1.Outputs[Default Output].Columns[SCHEDULE.START.DATE]" />
+                    <inputColumn
+                      refId="Package\DMS-DER01-TAKEOVER\PDC_FV_PROPERTY.Inputs[Primary Input].Columns[XINTFUND.MARGIN.DATE.FROM]"
+                      cachedDataType="wstr"
+                      cachedLength="4000"
+                      cachedName="XINTFUND.MARGIN.DATE.FROM"
+                      lineageId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1.Outputs[Default Output].Columns[XINTFUND.MARGIN.DATE.FROM]" />
+                    <inputColumn
+                      refId="Package\DMS-DER01-TAKEOVER\PDC_FV_PROPERTY.Inputs[Primary Input].Columns[XINTFUND.MARGIN.DATE.TO]"
+                      cachedDataType="wstr"
+                      cachedLength="4000"
+                      cachedName="XINTFUND.MARGIN.DATE.TO"
+                      lineageId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1.Outputs[Default Output].Columns[XINTFUND.MARGIN.DATE.TO]" />
+                    <inputColumn
+                      refId="Package\DMS-DER01-TAKEOVER\PDC_FV_PROPERTY.Inputs[Primary Input].Columns[FV.XINTFUND.MARGIN.DISB.AMOUNT]"
+                      cachedDataType="wstr"
+                      cachedLength="2"
+                      cachedName="FV.XINTFUND.MARGIN.DISB.AMOUNT"
+                      lineageId="Package\DMS-DER01-TAKEOVER\PDC_001.Outputs[Default Output].Columns[FV.XINTFUND.MARGIN.DISB.AMOUNT]" />
+                    <inputColumn
+                      refId="Package\DMS-DER01-TAKEOVER\PDC_FV_PROPERTY.Inputs[Primary Input].Columns[XINTFUND.MARGIN.INTFUND]"
+                      cachedCodepage="1252"
+                      cachedDataType="text"
+                      cachedName="XINTFUND.MARGIN.INTFUND"
+                      lineageId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1.Outputs[Default Output].Columns[XINTFUND.MARGIN.INTFUND]" />
+                    <inputColumn
+                      refId="Package\DMS-DER01-TAKEOVER\PDC_FV_PROPERTY.Inputs[Primary Input].Columns[XINTFUND.MARGIN.MARGIN]"
+                      cachedCodepage="1252"
+                      cachedDataType="text"
+                      cachedName="XINTFUND.MARGIN.MARGIN"
+                      lineageId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1.Outputs[Default Output].Columns[XINTFUND.MARGIN.MARGIN]" />
+                    <inputColumn
+                      refId="Package\DMS-DER01-TAKEOVER\PDC_FV_PROPERTY.Inputs[Primary Input].Columns[XINTFUND.MARGIN.SUBLIM.AMT]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="1"
+                      cachedName="XINTFUND.MARGIN.SUBLIM.AMT"
+                      lineageId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1.Outputs[Default Output].Columns[XINTFUND.MARGIN.SUBLIM.AMT]" />
+                    <inputColumn
+                      refId="Package\DMS-DER01-TAKEOVER\PDC_FV_PROPERTY.Inputs[Primary Input].Columns[XINTFUND.MARGIN.TERM]"
+                      cachedCodepage="1252"
+                      cachedDataType="text"
+                      cachedName="XINTFUND.MARGIN.TERM"
+                      lineageId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1.Outputs[Default Output].Columns[XINTFUND.MARGIN.TERM]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DMS-DER01-TAKEOVER\PDC_FV_PROPERTY.Outputs[Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Error Output"
+                  synchronousInputId="Package\DMS-DER01-TAKEOVER\PDC_FV_PROPERTY.Inputs[Primary Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DMS-DER01-TAKEOVER\PDC_FV_PROPERTY.Outputs[Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DMS-DER01-TAKEOVER\PDC_FV_PROPERTY.Outputs[Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DMS-DER01-TAKEOVER\PDC_FV_PROPERTY.Outputs[Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DMS-DER01-TAKEOVER\PDC_FV_PROPERTY.Outputs[Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                    <outputColumn
+                      refId="Package\DMS-DER01-TAKEOVER\PDC_FV_PROPERTY.Outputs[Error Output].Columns[ErrorMessage]"
+                      dataType="wstr"
+                      length="2048"
+                      lineageId="Package\DMS-DER01-TAKEOVER\PDC_FV_PROPERTY.Outputs[Error Output].Columns[ErrorMessage]"
+                      name="ErrorMessage" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DMS-DER01-TAKEOVER\PDC_FV_PROPERTY.Outputs[Default Output]"
+                  exclusionGroup="1"
+                  name="Default Output"
+                  synchronousInputId="Package\DMS-DER01-TAKEOVER\PDC_FV_PROPERTY.Inputs[Primary Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DMS-DER01-TAKEOVER\PDC_FV_PROPERTY.Outputs[Default Output].Columns[FV.PROPERTY.DWCOMMITMENT]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\DMS-DER01-TAKEOVER\PDC_FV_PROPERTY.Outputs[Default Output].Columns[FV.PROPERTY.DWCOMMITMENT]"
+                      name="FV.PROPERTY.DWCOMMITMENT"
+                      precision="38"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">#{Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1.Outputs[Default Output].Columns[FV.DWCOMMITMENT.AMOUNT]}</property>
+                        <property
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          name="FriendlyExpression">[FV.DWCOMMITMENT.AMOUNT]</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DMS-DER01-TAKEOVER\PDC_FV_PROPERTY.Outputs[Default Output].Columns[FV.PROPERTY.INTERESTFFC]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="29"
+                      lineageId="Package\DMS-DER01-TAKEOVER\PDC_FV_PROPERTY.Outputs[Default Output].Columns[FV.PROPERTY.INTERESTFFC]"
+                      name="FV.PROPERTY.INTERESTFFC"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">#{Package\DMS-DER01-TAKEOVER\PDC_001.Outputs[Default Output].Columns[FV.INTERESTFFC.DAY.BASIS]} + "!!" + #{Package\DMS-DER01-TAKEOVER\PDC_001.Outputs[Default Output].Columns[FV.INTERESTFFC_FIXED_RATE]}</property>
+                        <property
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          name="FriendlyExpression">[FV.INTERESTFFC.DAY.BASIS] + "!!" + [FV.INTERESTFFC_FIXED_RATE]</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DMS-DER01-TAKEOVER\PDC_FV_PROPERTY.Outputs[Default Output].Columns[FV.PROPERTY.INTERESTKWF]"
+                      dataType="nText"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\DMS-DER01-TAKEOVER\PDC_FV_PROPERTY.Outputs[Default Output].Columns[FV.PROPERTY.INTERESTKWF]"
+                      name="FV.PROPERTY.INTERESTKWF"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">#{Package\DMS-DER01-TAKEOVER\PDC_001.Outputs[Default Output].Columns[FV.INTERESTKWF.DAY.BASIS]} + "!!" + #{Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1.Outputs[Default Output].Columns[FV.INTERESTKFW.FIXED.RATE]}</property>
+                        <property
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          name="FriendlyExpression">[PDC_001.FV.INTERESTKWF.DAY.BASIS] + "!!" + [FV.INTERESTKFW.FIXED.RATE]</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DMS-DER01-TAKEOVER\PDC_FV_PROPERTY.Outputs[Default Output].Columns[FV.PROPERTY.PRINCIPALINT]"
+                      codePage="1252"
+                      dataType="text"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\DMS-DER01-TAKEOVER\PDC_FV_PROPERTY.Outputs[Default Output].Columns[FV.PROPERTY.PRINCIPALINT]"
+                      name="FV.PROPERTY.PRINCIPALINT"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">#{Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1.Outputs[Default Output].Columns[FV_PRINCIPALINT_FIXED_RATE]} + "!!" + #{Package\DMS-DER01-TAKEOVER\PDC_001.Outputs[Default Output].Columns[FV.PRINCIPALINT.L.MARGIN]} + "!!" + #{Package\DMS-DER01-TAKEOVER\PDC_001.Outputs[Default Output].Columns[FV.PRINCIPALINT.L.PERIOD.INDEX]} + "!!" + #{Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1.Outputs[Default Output].Columns[PRINCIPALINT.MARGIN.OPER]} + "!!" +
+#{Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1.Outputs[Default Output].Columns[FV.PRINCIPALINT.MARGIN.RATE]} + "!!" + #{Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1.Outputs[Default Output].Columns[PRINCIPALINT.MARGIN.TYPE]} + "!!" + #{Package\DMS-DER01-TAKEOVER\PDC_001.Outputs[Default Output].Columns[FV.PRINCIPALINT.PERIODIC.INDEX]} + "!!" + #{Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1.Outputs[Default Output].Columns[FV.PRINCIPALINT.RATE.TIER.TYPE]} + "!!" + 
+#{Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1.Outputs[Default Output].Columns[PRINCIPALINT.TIER.AMOUNT]}
+
+</property>
+                        <property
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          name="FriendlyExpression">[FV_PRINCIPALINT_FIXED_RATE] + "!!" + [FV.PRINCIPALINT.L.MARGIN] + "!!" + [FV.PRINCIPALINT.L.PERIOD.INDEX] + "!!" + [PRINCIPALINT.MARGIN.OPER] + "!!" +
+[FV.PRINCIPALINT.MARGIN.RATE] + "!!" + [PRINCIPALINT.MARGIN.TYPE] + "!!" + [FV.PRINCIPALINT.PERIODIC.INDEX] + "!!" + [FV.PRINCIPALINT.RATE.TIER.TYPE] + "!!" + 
+[PRINCIPALINT.TIER.AMOUNT]
+
+</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DMS-DER01-TAKEOVER\PDC_FV_PROPERTY.Outputs[Default Output].Columns[FV.PROPERTY.SCHEDULE]"
+                      dataType="nText"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\DMS-DER01-TAKEOVER\PDC_FV_PROPERTY.Outputs[Default Output].Columns[FV.PROPERTY.SCHEDULE]"
+                      name="FV.PROPERTY.SCHEDULE"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">#{Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1.Outputs[Default Output].Columns[SCHEDULE.ACTUAL.AMT]} + "!!" + #{Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1.Outputs[Default Output].Columns[SCHEDULE.BILL.TYPE]} + "!!" + #{Package\DMS-DER01-TAKEOVER\PDC_001.Outputs[Default Output].Columns[FV.SCHEDULE.BILLS.COMBINED]} + "!!" + #{Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1.Outputs[Default Output].Columns[FV.SCHEDULE.PAYMENT.METHOD]} + "!!" + 
+#{Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1.Outputs[Default Output].Columns[SCHEDULE.PAYMENT.TYPE]} + "!!" + #{Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1.Outputs[Default Output].Columns[FV_SCHEDULE_PROPERTY]} + "!!" + #{Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1.Outputs[Default Output].Columns[SCHEDULE.START.DATE]}
+</property>
+                        <property
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          name="FriendlyExpression">[SCHEDULE.ACTUAL.AMT] + "!!" + [SCHEDULE.BILL.TYPE] + "!!" + [FV.SCHEDULE.BILLS.COMBINED] + "!!" + [FV.SCHEDULE.PAYMENT.METHOD] + "!!" + 
+[SCHEDULE.PAYMENT.TYPE] + "!!" + [FV_SCHEDULE_PROPERTY] + "!!" + [SCHEDULE.START.DATE]
+</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DMS-DER01-TAKEOVER\PDC_FV_PROPERTY.Outputs[Default Output].Columns[FV.PROPERTY.XINTFUND]"
+                      codePage="1252"
+                      dataType="text"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\DMS-DER01-TAKEOVER\PDC_FV_PROPERTY.Outputs[Default Output].Columns[FV.PROPERTY.XINTFUND]"
+                      name="FV.PROPERTY.XINTFUND"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">#{Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1.Outputs[Default Output].Columns[XINTFUND.MARGIN.DATE.FROM]} + "!!" + #{Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1.Outputs[Default Output].Columns[XINTFUND.MARGIN.DATE.TO]} + "!!" + #{Package\DMS-DER01-TAKEOVER\PDC_001.Outputs[Default Output].Columns[FV.XINTFUND.MARGIN.DISB.AMOUNT]} + "!!" + #{Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1.Outputs[Default Output].Columns[XINTFUND.MARGIN.INTFUND]} + "!!" + 
+#{Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1.Outputs[Default Output].Columns[XINTFUND.MARGIN.MARGIN]} + "!!" + #{Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1.Outputs[Default Output].Columns[XINTFUND.MARGIN.SUBLIM.AMT]} + "!!" + #{Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1.Outputs[Default Output].Columns[XINTFUND.MARGIN.TERM]}
+</property>
+                        <property
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          name="FriendlyExpression">[XINTFUND.MARGIN.DATE.FROM] + "!!" + [XINTFUND.MARGIN.DATE.TO] + "!!" + [FV.XINTFUND.MARGIN.DISB.AMOUNT] + "!!" + [XINTFUND.MARGIN.INTFUND] + "!!" + 
+[XINTFUND.MARGIN.MARGIN] + "!!" + [XINTFUND.MARGIN.SUBLIM.AMT] + "!!" + [XINTFUND.MARGIN.TERM]
+</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
                   <externalMetadataColumns />
                 </output>
               </outputs>
@@ -1476,20 +2809,20 @@
                       externalMetadataColumnId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Destination.Inputs[Primary Input].ExternalColumns[FN_XINTFUND_MARGIN_TERM]"
                       lineageId="Package\DMS-DER01-TAKEOVER\PDC_002.Outputs[Default Output].Columns[FNQ.XINTFUND.MARGIN.TERM]" />
                     <inputColumn
-                      refId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Destination.Inputs[Primary Input].Columns[FV.PRINCIPALTINT.L.MARGIN]"
+                      refId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Destination.Inputs[Primary Input].Columns[FV.PRINCIPALINT.L.MARGIN]"
                       cachedDataType="numeric"
-                      cachedName="FV.PRINCIPALTINT.L.MARGIN"
+                      cachedName="FV.PRINCIPALINT.L.MARGIN"
                       cachedPrecision="9"
                       cachedScale="4"
                       externalMetadataColumnId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Destination.Inputs[Primary Input].ExternalColumns[FV_PRINCIPALINT_L_MARGIN]"
-                      lineageId="Package\DMS-DER01-TAKEOVER\PDC_001.Outputs[Default Output].Columns[FV.PRINCIPALTINT.L.MARGIN]" />
+                      lineageId="Package\DMS-DER01-TAKEOVER\PDC_001.Outputs[Default Output].Columns[FV.PRINCIPALINT.L.MARGIN]" />
                     <inputColumn
-                      refId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Destination.Inputs[Primary Input].Columns[FV.PRINCIPALTINT.L.PERIOD.INDEX]"
+                      refId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Destination.Inputs[Primary Input].Columns[FV.PRINCIPALINT.L.PERIOD.INDEX]"
                       cachedDataType="wstr"
                       cachedLength="32"
-                      cachedName="FV.PRINCIPALTINT.L.PERIOD.INDEX"
+                      cachedName="FV.PRINCIPALINT.L.PERIOD.INDEX"
                       externalMetadataColumnId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Destination.Inputs[Primary Input].ExternalColumns[FV_PRINCIPALINT_L_PERIOD_INDEX]"
-                      lineageId="Package\DMS-DER01-TAKEOVER\PDC_001.Outputs[Default Output].Columns[FV.PRINCIPALTINT.L.PERIOD.INDEX]" />
+                      lineageId="Package\DMS-DER01-TAKEOVER\PDC_001.Outputs[Default Output].Columns[FV.PRINCIPALINT.L.PERIOD.INDEX]" />
                     <inputColumn
                       refId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Destination.Inputs[Primary Input].Columns[FV.SCHEDULE.PAYMENT.TYPE]"
                       cachedCodepage="1252"
@@ -1513,14 +2846,6 @@
                       externalMetadataColumnId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Destination.Inputs[Primary Input].ExternalColumns[FN_INTERESTKFW_FIXED_RATE]"
                       lineageId="Package\DMS-DER01-TAKEOVER\PDC_002.Outputs[Default Output].Columns[FNQ.INTERESTKFW.FIXED.RATE]" />
                     <inputColumn
-                      refId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Destination.Inputs[Primary Input].Columns[FV_PRINCIPALINT_RATE_TIER_TYPE]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="4"
-                      cachedName="FV_PRINCIPALINT_RATE_TIER_TYPE"
-                      externalMetadataColumnId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Destination.Inputs[Primary Input].ExternalColumns[FV_PRINCIPALINT_RATE_TIER_TYPE]"
-                      lineageId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1.Outputs[Default Output].Columns[FV_PRINCIPALINT_RATE_TIER_TYPE]" />
-                    <inputColumn
                       refId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Destination.Inputs[Primary Input].Columns[FNQ.PRINCIPALINT.RATE.TIER.TYPE]"
                       cachedDataType="wstr"
                       cachedLength="14"
@@ -1528,26 +2853,26 @@
                       externalMetadataColumnId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Destination.Inputs[Primary Input].ExternalColumns[FN_PRINCIPALINT_RATE_TIER_TYPE]"
                       lineageId="Package\DMS-DER01-TAKEOVER\PDC_001.Outputs[Default Output].Columns[FNQ.PRINCIPALINT.RATE.TIER.TYPE]" />
                     <inputColumn
-                      refId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Destination.Inputs[Primary Input].Columns[FNQ.PRINCIPALTINT.L.MARGIN]"
+                      refId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Destination.Inputs[Primary Input].Columns[FNQ.PRINCIPALINT.L.MARGIN]"
                       cachedDataType="wstr"
                       cachedLength="8"
-                      cachedName="FNQ.PRINCIPALTINT.L.MARGIN"
+                      cachedName="FNQ.PRINCIPALINT.L.MARGIN"
                       externalMetadataColumnId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Destination.Inputs[Primary Input].ExternalColumns[FN_PRINCIPALINT_L_MARGIN]"
-                      lineageId="Package\DMS-DER01-TAKEOVER\PDC_002.Outputs[Default Output].Columns[FNQ.PRINCIPALTINT.L.MARGIN]" />
+                      lineageId="Package\DMS-DER01-TAKEOVER\PDC_002.Outputs[Default Output].Columns[FNQ.PRINCIPALINT.L.MARGIN]" />
                     <inputColumn
-                      refId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Destination.Inputs[Primary Input].Columns[FNQ.PRINCIPALTINT.L.PERIOD.INDEX]"
+                      refId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Destination.Inputs[Primary Input].Columns[FNQ.PRINCIPALINT.L.PERIOD.INDEX]"
                       cachedDataType="wstr"
                       cachedLength="14"
-                      cachedName="FNQ.PRINCIPALTINT.L.PERIOD.INDEX"
+                      cachedName="FNQ.PRINCIPALINT.L.PERIOD.INDEX"
                       externalMetadataColumnId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Destination.Inputs[Primary Input].ExternalColumns[FN_PRINCIPALINT_L_PERIOD_INDEX]"
-                      lineageId="Package\DMS-DER01-TAKEOVER\PDC_002.Outputs[Default Output].Columns[FNQ.PRINCIPALTINT.L.PERIOD.INDEX]" />
+                      lineageId="Package\DMS-DER01-TAKEOVER\PDC_002.Outputs[Default Output].Columns[FNQ.PRINCIPALINT.L.PERIOD.INDEX]" />
                     <inputColumn
-                      refId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Destination.Inputs[Primary Input].Columns[FNQ.PRINCIPALTINT.PERIOD.INDEX]"
+                      refId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Destination.Inputs[Primary Input].Columns[FNQ.PRINCIPALINT.PERIODIC.INDEX]"
                       cachedDataType="wstr"
                       cachedLength="12"
-                      cachedName="FNQ.PRINCIPALTINT.PERIOD.INDEX"
+                      cachedName="FNQ.PRINCIPALINT.PERIODIC.INDEX"
                       externalMetadataColumnId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Destination.Inputs[Primary Input].ExternalColumns[FN_PRINCIPALINT_PERIODIC_INDEX]"
-                      lineageId="Package\DMS-DER01-TAKEOVER\PDC_002.Outputs[Default Output].Columns[FNQ.PRINCIPALTINT.PERIOD.INDEX]" />
+                      lineageId="Package\DMS-DER01-TAKEOVER\PDC_002.Outputs[Default Output].Columns[FNQ.PRINCIPALINT.PERIODIC.INDEX]" />
                     <inputColumn
                       refId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Destination.Inputs[Primary Input].Columns[FNQ.INTERESTKWF.DAY.BASIS]"
                       cachedDataType="wstr"
@@ -1591,13 +2916,6 @@
                       cachedName="FNQ.DWCOMMITMENT.AMOUNT"
                       externalMetadataColumnId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Destination.Inputs[Primary Input].ExternalColumns[FN_DWCOMMITMENT_AMOUNT]"
                       lineageId="Package\DMS-DER01-TAKEOVER\PDC_001.Outputs[Default Output].Columns[FNQ.DWCOMMITMENT.AMOUNT]" />
-                    <inputColumn
-                      refId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Destination.Inputs[Primary Input].Columns[FNQ.PRINCIPALTINT.DAY.BASIS]"
-                      cachedDataType="wstr"
-                      cachedLength="9"
-                      cachedName="FNQ.PRINCIPALTINT.DAY.BASIS"
-                      externalMetadataColumnId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Destination.Inputs[Primary Input].ExternalColumns[FN_PRINCIPALINT_DAY_BASIS]"
-                      lineageId="Package\DMS-DER01-TAKEOVER\PDC_002.Outputs[Default Output].Columns[FNQ.PRINCIPALTINT.DAY.BASIS]" />
                     <inputColumn
                       refId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Destination.Inputs[Primary Input].Columns[FV.PRINCIPALINT.PERIODIC.INDEX]"
                       cachedDataType="wstr"
@@ -1689,6 +3007,21 @@
                       cachedName="FV.INTERESTFFC.DAY.BASIS"
                       externalMetadataColumnId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Destination.Inputs[Primary Input].ExternalColumns[FV_INTERESTFFC_DAY_BASIS]"
                       lineageId="Package\DMS-DER01-TAKEOVER\PDC_001.Outputs[Default Output].Columns[FV.INTERESTFFC.DAY.BASIS]" />
+                    <inputColumn
+                      refId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Destination.Inputs[Primary Input].Columns[FNQ.PRINCIPALINT.DAY.BASIS]"
+                      cachedDataType="wstr"
+                      cachedLength="9"
+                      cachedName="FNQ.PRINCIPALINT.DAY.BASIS"
+                      externalMetadataColumnId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Destination.Inputs[Primary Input].ExternalColumns[FN_PRINCIPALINT_DAY_BASIS]"
+                      lineageId="Package\DMS-DER01-TAKEOVER\PDC_002.Outputs[Default Output].Columns[FNQ.PRINCIPALINT.DAY.BASIS]" />
+                    <inputColumn
+                      refId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Destination.Inputs[Primary Input].Columns[FV.PRINCIPALINT.RATE.TIER.TYPE]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="4"
+                      cachedName="FV.PRINCIPALINT.RATE.TIER.TYPE"
+                      externalMetadataColumnId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Destination.Inputs[Primary Input].ExternalColumns[FV_PRINCIPALINT_RATE_TIER_TYPE]"
+                      lineageId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1.Outputs[Default Output].Columns[FV.PRINCIPALINT.RATE.TIER.TYPE]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -4766,7 +6099,7 @@ SELECT
     
      RTRIM(LTRIM(A.DE_INDICE_TASA_BASE_INTERES)) AS FV_PRINCIPALINT_PERIODIC_INDEX,-- [PRINCIPALINT_PERIODIC_INDEX]
     
-    A.[PRINCIPALINT.RATE.TIER.TYPE_PHOENIX] AS FV_PRINCIPALINT_RATE_TIER_TYPE,-- [PRINCIPALINT.RATE.TIER.TYPE]
+    A.[PRINCIPALINT.RATE.TIER.TYPE_PHOENIX] AS [FV.PRINCIPALINT.RATE.TIER.TYPE],
     
     
     ------------------------------ [PRINCIPALINT.MARGIN.TYPE]
@@ -5205,118 +6538,6 @@ CFA012508*/</property>
                   name="Default Output">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1.Outputs[Default Output].Columns[PRINCIPALINT.MARGIN.TYPE]"
-                      codePage="1252"
-                      dataType="text"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1.Outputs[Default Output].ExternalColumns[PRINCIPALINT.MARGIN.TYPE]"
-                      lineageId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1.Outputs[Default Output].Columns[PRINCIPALINT.MARGIN.TYPE]"
-                      name="PRINCIPALINT.MARGIN.TYPE"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1.Outputs[Default Output].Columns[PRINCIPALINT.MARGIN.OPER]"
-                      codePage="1252"
-                      dataType="text"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1.Outputs[Default Output].ExternalColumns[PRINCIPALINT.MARGIN.OPER]"
-                      lineageId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1.Outputs[Default Output].Columns[PRINCIPALINT.MARGIN.OPER]"
-                      name="PRINCIPALINT.MARGIN.OPER"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1.Outputs[Default Output].Columns[PRINCIPALINT.TIER.AMOUNT]"
-                      dataType="wstr"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1.Outputs[Default Output].ExternalColumns[PRINCIPALINT.TIER.AMOUNT]"
-                      length="4000"
-                      lineageId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1.Outputs[Default Output].Columns[PRINCIPALINT.TIER.AMOUNT]"
-                      name="PRINCIPALINT.TIER.AMOUNT"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1.Outputs[Default Output].Columns[SCHEDULE.PAYMENT.TYPE]"
-                      codePage="1252"
-                      dataType="str"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1.Outputs[Default Output].ExternalColumns[SCHEDULE.PAYMENT.TYPE]"
-                      length="59"
-                      lineageId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1.Outputs[Default Output].Columns[SCHEDULE.PAYMENT.TYPE]"
-                      name="SCHEDULE.PAYMENT.TYPE"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1.Outputs[Default Output].Columns[SCHEDULE.START.DATE]"
-                      dataType="wstr"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1.Outputs[Default Output].ExternalColumns[SCHEDULE.START.DATE]"
-                      length="4000"
-                      lineageId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1.Outputs[Default Output].Columns[SCHEDULE.START.DATE]"
-                      name="SCHEDULE.START.DATE"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1.Outputs[Default Output].Columns[SCHEDULE.ACTUAL.AMT]"
-                      dataType="wstr"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1.Outputs[Default Output].ExternalColumns[SCHEDULE.ACTUAL.AMT]"
-                      length="4000"
-                      lineageId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1.Outputs[Default Output].Columns[SCHEDULE.ACTUAL.AMT]"
-                      name="SCHEDULE.ACTUAL.AMT"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1.Outputs[Default Output].Columns[SCHEDULE.BILL.TYPE]"
-                      codePage="1252"
-                      dataType="str"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1.Outputs[Default Output].ExternalColumns[SCHEDULE.BILL.TYPE]"
-                      length="46"
-                      lineageId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1.Outputs[Default Output].Columns[SCHEDULE.BILL.TYPE]"
-                      name="SCHEDULE.BILL.TYPE"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1.Outputs[Default Output].Columns[XINTFUND.MARGIN.INTFUND]"
-                      codePage="1252"
-                      dataType="text"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1.Outputs[Default Output].ExternalColumns[XINTFUND.MARGIN.INTFUND]"
-                      lineageId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1.Outputs[Default Output].Columns[XINTFUND.MARGIN.INTFUND]"
-                      name="XINTFUND.MARGIN.INTFUND"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1.Outputs[Default Output].Columns[XINTFUND.MARGIN.TERM]"
-                      codePage="1252"
-                      dataType="text"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1.Outputs[Default Output].ExternalColumns[XINTFUND.MARGIN.TERM]"
-                      lineageId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1.Outputs[Default Output].Columns[XINTFUND.MARGIN.TERM]"
-                      name="XINTFUND.MARGIN.TERM"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1.Outputs[Default Output].Columns[XINTFUND.MARGIN.DATE.FROM]"
-                      dataType="wstr"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1.Outputs[Default Output].ExternalColumns[XINTFUND.MARGIN.DATE.FROM]"
-                      length="4000"
-                      lineageId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1.Outputs[Default Output].Columns[XINTFUND.MARGIN.DATE.FROM]"
-                      name="XINTFUND.MARGIN.DATE.FROM"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1.Outputs[Default Output].Columns[XINTFUND.MARGIN.DATE.TO]"
-                      dataType="wstr"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1.Outputs[Default Output].ExternalColumns[XINTFUND.MARGIN.DATE.TO]"
-                      length="4000"
-                      lineageId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1.Outputs[Default Output].Columns[XINTFUND.MARGIN.DATE.TO]"
-                      name="XINTFUND.MARGIN.DATE.TO"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
                       refId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1.Outputs[Default Output].Columns[XINTFUND.MARGIN.SUBLIM.AMT]"
                       codePage="1252"
                       dataType="str"
@@ -5326,16 +6547,6 @@ CFA012508*/</property>
                       length="1"
                       lineageId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1.Outputs[Default Output].Columns[XINTFUND.MARGIN.SUBLIM.AMT]"
                       name="XINTFUND.MARGIN.SUBLIM.AMT"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1.Outputs[Default Output].Columns[XINTFUND.MARGIN.MARGIN]"
-                      codePage="1252"
-                      dataType="text"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1.Outputs[Default Output].ExternalColumns[XINTFUND.MARGIN.MARGIN]"
-                      lineageId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1.Outputs[Default Output].Columns[XINTFUND.MARGIN.MARGIN]"
-                      name="XINTFUND.MARGIN.MARGIN"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
                       refId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1.Outputs[Default Output].Columns[FNQ.PRINCIPALINT.FIXED.RATE]"
@@ -5654,17 +6865,6 @@ CFA012508*/</property>
                       scale="6"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1.Outputs[Default Output].Columns[FV_PRINCIPALINT_RATE_TIER_TYPE]"
-                      codePage="1252"
-                      dataType="str"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1.Outputs[Default Output].ExternalColumns[FV_PRINCIPALINT_RATE_TIER_TYPE]"
-                      length="4"
-                      lineageId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1.Outputs[Default Output].Columns[FV_PRINCIPALINT_RATE_TIER_TYPE]"
-                      name="FV_PRINCIPALINT_RATE_TIER_TYPE"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
                       refId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1.Outputs[Default Output].Columns[FNQ.SCHEDULE.PROPERTY]"
                       codePage="1252"
                       dataType="text"
@@ -5915,6 +7115,17 @@ CFA012508*/</property>
                       name="INTERESTFFC_FIXED_RATE"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
+                      refId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1.Outputs[Default Output].Columns[FV.PRINCIPALINT.RATE.TIER.TYPE]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1.Outputs[Default Output].ExternalColumns[FV.PRINCIPALINT.RATE.TIER.TYPE]"
+                      length="4"
+                      lineageId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1.Outputs[Default Output].Columns[FV.PRINCIPALINT.RATE.TIER.TYPE]"
+                      name="FV.PRINCIPALINT.RATE.TIER.TYPE"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
                       refId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1.Outputs[Default Output].Columns[INTERESTFFC.DAY.BASIS]"
                       codePage="1252"
                       dataType="str"
@@ -5925,77 +7136,137 @@ CFA012508*/</property>
                       lineageId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1.Outputs[Default Output].Columns[INTERESTFFC.DAY.BASIS]"
                       name="INTERESTFFC.DAY.BASIS"
                       truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1.Outputs[Default Output].Columns[PRINCIPALINT.MARGIN.OPER]"
+                      codePage="1252"
+                      dataType="text"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1.Outputs[Default Output].ExternalColumns[PRINCIPALINT.MARGIN.OPER]"
+                      lineageId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1.Outputs[Default Output].Columns[PRINCIPALINT.MARGIN.OPER]"
+                      name="PRINCIPALINT.MARGIN.OPER"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1.Outputs[Default Output].Columns[PRINCIPALINT.MARGIN.TYPE]"
+                      codePage="1252"
+                      dataType="text"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1.Outputs[Default Output].ExternalColumns[PRINCIPALINT.MARGIN.TYPE]"
+                      lineageId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1.Outputs[Default Output].Columns[PRINCIPALINT.MARGIN.TYPE]"
+                      name="PRINCIPALINT.MARGIN.TYPE"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1.Outputs[Default Output].Columns[PRINCIPALINT.TIER.AMOUNT]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1.Outputs[Default Output].ExternalColumns[PRINCIPALINT.TIER.AMOUNT]"
+                      length="4000"
+                      lineageId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1.Outputs[Default Output].Columns[PRINCIPALINT.TIER.AMOUNT]"
+                      name="PRINCIPALINT.TIER.AMOUNT"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1.Outputs[Default Output].Columns[SCHEDULE.ACTUAL.AMT]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1.Outputs[Default Output].ExternalColumns[SCHEDULE.ACTUAL.AMT]"
+                      length="4000"
+                      lineageId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1.Outputs[Default Output].Columns[SCHEDULE.ACTUAL.AMT]"
+                      name="SCHEDULE.ACTUAL.AMT"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1.Outputs[Default Output].Columns[SCHEDULE.BILL.TYPE]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1.Outputs[Default Output].ExternalColumns[SCHEDULE.BILL.TYPE]"
+                      length="46"
+                      lineageId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1.Outputs[Default Output].Columns[SCHEDULE.BILL.TYPE]"
+                      name="SCHEDULE.BILL.TYPE"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1.Outputs[Default Output].Columns[SCHEDULE.PAYMENT.TYPE]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1.Outputs[Default Output].ExternalColumns[SCHEDULE.PAYMENT.TYPE]"
+                      length="59"
+                      lineageId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1.Outputs[Default Output].Columns[SCHEDULE.PAYMENT.TYPE]"
+                      name="SCHEDULE.PAYMENT.TYPE"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1.Outputs[Default Output].Columns[SCHEDULE.START.DATE]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1.Outputs[Default Output].ExternalColumns[SCHEDULE.START.DATE]"
+                      length="4000"
+                      lineageId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1.Outputs[Default Output].Columns[SCHEDULE.START.DATE]"
+                      name="SCHEDULE.START.DATE"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1.Outputs[Default Output].Columns[XINTFUND.MARGIN.DATE.FROM]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1.Outputs[Default Output].ExternalColumns[XINTFUND.MARGIN.DATE.FROM]"
+                      length="4000"
+                      lineageId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1.Outputs[Default Output].Columns[XINTFUND.MARGIN.DATE.FROM]"
+                      name="XINTFUND.MARGIN.DATE.FROM"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1.Outputs[Default Output].Columns[XINTFUND.MARGIN.DATE.TO]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1.Outputs[Default Output].ExternalColumns[XINTFUND.MARGIN.DATE.TO]"
+                      length="4000"
+                      lineageId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1.Outputs[Default Output].Columns[XINTFUND.MARGIN.DATE.TO]"
+                      name="XINTFUND.MARGIN.DATE.TO"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1.Outputs[Default Output].Columns[XINTFUND.MARGIN.INTFUND]"
+                      codePage="1252"
+                      dataType="text"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1.Outputs[Default Output].ExternalColumns[XINTFUND.MARGIN.INTFUND]"
+                      lineageId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1.Outputs[Default Output].Columns[XINTFUND.MARGIN.INTFUND]"
+                      name="XINTFUND.MARGIN.INTFUND"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1.Outputs[Default Output].Columns[XINTFUND.MARGIN.MARGIN]"
+                      codePage="1252"
+                      dataType="text"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1.Outputs[Default Output].ExternalColumns[XINTFUND.MARGIN.MARGIN]"
+                      lineageId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1.Outputs[Default Output].Columns[XINTFUND.MARGIN.MARGIN]"
+                      name="XINTFUND.MARGIN.MARGIN"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1.Outputs[Default Output].Columns[XINTFUND.MARGIN.TERM]"
+                      codePage="1252"
+                      dataType="text"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1.Outputs[Default Output].ExternalColumns[XINTFUND.MARGIN.TERM]"
+                      lineageId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1.Outputs[Default Output].Columns[XINTFUND.MARGIN.TERM]"
+                      name="XINTFUND.MARGIN.TERM"
+                      truncationRowDisposition="FailComponent" />
                   </outputColumns>
                   <externalMetadataColumns
                     isUsed="True">
-                    <externalMetadataColumn
-                      refId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1.Outputs[Default Output].ExternalColumns[PRINCIPALINT.MARGIN.TYPE]"
-                      codePage="1252"
-                      dataType="text"
-                      name="PRINCIPALINT.MARGIN.TYPE" />
-                    <externalMetadataColumn
-                      refId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1.Outputs[Default Output].ExternalColumns[PRINCIPALINT.MARGIN.OPER]"
-                      codePage="1252"
-                      dataType="text"
-                      name="PRINCIPALINT.MARGIN.OPER" />
-                    <externalMetadataColumn
-                      refId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1.Outputs[Default Output].ExternalColumns[PRINCIPALINT.TIER.AMOUNT]"
-                      dataType="wstr"
-                      length="4000"
-                      name="PRINCIPALINT.TIER.AMOUNT" />
-                    <externalMetadataColumn
-                      refId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1.Outputs[Default Output].ExternalColumns[SCHEDULE.PAYMENT.TYPE]"
-                      codePage="1252"
-                      dataType="str"
-                      length="59"
-                      name="SCHEDULE.PAYMENT.TYPE" />
-                    <externalMetadataColumn
-                      refId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1.Outputs[Default Output].ExternalColumns[SCHEDULE.START.DATE]"
-                      dataType="wstr"
-                      length="4000"
-                      name="SCHEDULE.START.DATE" />
-                    <externalMetadataColumn
-                      refId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1.Outputs[Default Output].ExternalColumns[SCHEDULE.ACTUAL.AMT]"
-                      dataType="wstr"
-                      length="4000"
-                      name="SCHEDULE.ACTUAL.AMT" />
-                    <externalMetadataColumn
-                      refId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1.Outputs[Default Output].ExternalColumns[SCHEDULE.BILL.TYPE]"
-                      codePage="1252"
-                      dataType="str"
-                      length="46"
-                      name="SCHEDULE.BILL.TYPE" />
-                    <externalMetadataColumn
-                      refId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1.Outputs[Default Output].ExternalColumns[XINTFUND.MARGIN.INTFUND]"
-                      codePage="1252"
-                      dataType="text"
-                      name="XINTFUND.MARGIN.INTFUND" />
-                    <externalMetadataColumn
-                      refId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1.Outputs[Default Output].ExternalColumns[XINTFUND.MARGIN.TERM]"
-                      codePage="1252"
-                      dataType="text"
-                      name="XINTFUND.MARGIN.TERM" />
-                    <externalMetadataColumn
-                      refId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1.Outputs[Default Output].ExternalColumns[XINTFUND.MARGIN.DATE.FROM]"
-                      dataType="wstr"
-                      length="4000"
-                      name="XINTFUND.MARGIN.DATE.FROM" />
-                    <externalMetadataColumn
-                      refId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1.Outputs[Default Output].ExternalColumns[XINTFUND.MARGIN.DATE.TO]"
-                      dataType="wstr"
-                      length="4000"
-                      name="XINTFUND.MARGIN.DATE.TO" />
                     <externalMetadataColumn
                       refId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1.Outputs[Default Output].ExternalColumns[XINTFUND.MARGIN.SUBLIM.AMT]"
                       codePage="1252"
                       dataType="str"
                       length="1"
                       name="XINTFUND.MARGIN.SUBLIM.AMT" />
-                    <externalMetadataColumn
-                      refId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1.Outputs[Default Output].ExternalColumns[XINTFUND.MARGIN.MARGIN]"
-                      codePage="1252"
-                      dataType="text"
-                      name="XINTFUND.MARGIN.MARGIN" />
                     <externalMetadataColumn
                       refId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1.Outputs[Default Output].ExternalColumns[FNQ.PRINCIPALINT.FIXED.RATE]"
                       codePage="1252"
@@ -6158,12 +7429,6 @@ CFA012508*/</property>
                       precision="38"
                       scale="6" />
                     <externalMetadataColumn
-                      refId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1.Outputs[Default Output].ExternalColumns[FV_PRINCIPALINT_RATE_TIER_TYPE]"
-                      codePage="1252"
-                      dataType="str"
-                      length="4"
-                      name="FV_PRINCIPALINT_RATE_TIER_TYPE" />
-                    <externalMetadataColumn
                       refId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1.Outputs[Default Output].ExternalColumns[FNQ.SCHEDULE.PROPERTY]"
                       codePage="1252"
                       dataType="text"
@@ -6294,11 +7559,79 @@ CFA012508*/</property>
                       length="50"
                       name="INTERESTFFC_FIXED_RATE" />
                     <externalMetadataColumn
+                      refId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1.Outputs[Default Output].ExternalColumns[FV.PRINCIPALINT.RATE.TIER.TYPE]"
+                      codePage="1252"
+                      dataType="str"
+                      length="4"
+                      name="FV.PRINCIPALINT.RATE.TIER.TYPE" />
+                    <externalMetadataColumn
                       refId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1.Outputs[Default Output].ExternalColumns[INTERESTFFC.DAY.BASIS]"
                       codePage="1252"
                       dataType="str"
                       length="7"
                       name="INTERESTFFC.DAY.BASIS" />
+                    <externalMetadataColumn
+                      refId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1.Outputs[Default Output].ExternalColumns[PRINCIPALINT.MARGIN.OPER]"
+                      codePage="1252"
+                      dataType="text"
+                      name="PRINCIPALINT.MARGIN.OPER" />
+                    <externalMetadataColumn
+                      refId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1.Outputs[Default Output].ExternalColumns[PRINCIPALINT.MARGIN.TYPE]"
+                      codePage="1252"
+                      dataType="text"
+                      name="PRINCIPALINT.MARGIN.TYPE" />
+                    <externalMetadataColumn
+                      refId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1.Outputs[Default Output].ExternalColumns[PRINCIPALINT.TIER.AMOUNT]"
+                      dataType="wstr"
+                      length="4000"
+                      name="PRINCIPALINT.TIER.AMOUNT" />
+                    <externalMetadataColumn
+                      refId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1.Outputs[Default Output].ExternalColumns[SCHEDULE.ACTUAL.AMT]"
+                      dataType="wstr"
+                      length="4000"
+                      name="SCHEDULE.ACTUAL.AMT" />
+                    <externalMetadataColumn
+                      refId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1.Outputs[Default Output].ExternalColumns[SCHEDULE.BILL.TYPE]"
+                      codePage="1252"
+                      dataType="str"
+                      length="46"
+                      name="SCHEDULE.BILL.TYPE" />
+                    <externalMetadataColumn
+                      refId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1.Outputs[Default Output].ExternalColumns[SCHEDULE.PAYMENT.TYPE]"
+                      codePage="1252"
+                      dataType="str"
+                      length="59"
+                      name="SCHEDULE.PAYMENT.TYPE" />
+                    <externalMetadataColumn
+                      refId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1.Outputs[Default Output].ExternalColumns[SCHEDULE.START.DATE]"
+                      dataType="wstr"
+                      length="4000"
+                      name="SCHEDULE.START.DATE" />
+                    <externalMetadataColumn
+                      refId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1.Outputs[Default Output].ExternalColumns[XINTFUND.MARGIN.DATE.FROM]"
+                      dataType="wstr"
+                      length="4000"
+                      name="XINTFUND.MARGIN.DATE.FROM" />
+                    <externalMetadataColumn
+                      refId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1.Outputs[Default Output].ExternalColumns[XINTFUND.MARGIN.DATE.TO]"
+                      dataType="wstr"
+                      length="4000"
+                      name="XINTFUND.MARGIN.DATE.TO" />
+                    <externalMetadataColumn
+                      refId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1.Outputs[Default Output].ExternalColumns[XINTFUND.MARGIN.INTFUND]"
+                      codePage="1252"
+                      dataType="text"
+                      name="XINTFUND.MARGIN.INTFUND" />
+                    <externalMetadataColumn
+                      refId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1.Outputs[Default Output].ExternalColumns[XINTFUND.MARGIN.MARGIN]"
+                      codePage="1252"
+                      dataType="text"
+                      name="XINTFUND.MARGIN.MARGIN" />
+                    <externalMetadataColumn
+                      refId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1.Outputs[Default Output].ExternalColumns[XINTFUND.MARGIN.TERM]"
+                      codePage="1252"
+                      dataType="text"
+                      name="XINTFUND.MARGIN.TERM" />
                   </externalMetadataColumns>
                 </output>
               </outputs>
@@ -6405,12 +7738,12 @@ CFA012508*/</property>
                   synchronousInputId="Package\DMS-DER01-TAKEOVER\PSL AccrBasis FFC.Inputs[Primary Input]">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\DMS-DER01-TAKEOVER\PSL AccrBasis FFC.Outputs[Default Ouptut].Columns[PRINCIPALINTFFC.DAY.BASIS]"
+                      refId="Package\DMS-DER01-TAKEOVER\PSL AccrBasis FFC.Outputs[Default Ouptut].Columns[INTERESRTFFC.DAY.BASIS]"
                       dataType="wstr"
                       externalMetadataColumnId="Package\DMS-DER01-TAKEOVER\PSL AccrBasis FFC.Outputs[Default Ouptut].ExternalColumns[dayBasisTransact]"
                       length="7"
-                      lineageId="Package\DMS-DER01-TAKEOVER\PSL AccrBasis FFC.Outputs[Default Ouptut].Columns[PRINCIPALINTFFC.DAY.BASIS]"
-                      name="PRINCIPALINTFFC.DAY.BASIS" />
+                      lineageId="Package\DMS-DER01-TAKEOVER\PSL AccrBasis FFC.Outputs[Default Ouptut].Columns[INTERESRTFFC.DAY.BASIS]"
+                      name="INTERESRTFFC.DAY.BASIS" />
                   </outputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -6447,7 +7780,7 @@ CFA012508*/</property>
                         <property
                           containsID="true"
                           dataType="System.Int32"
-                          name="TargetColumnId">#{Package\DMS-DER01-TAKEOVER\PSL AccrBasis FFC.Outputs[Default Ouptut].Columns[PRINCIPALINTFFC.DAY.BASIS]}</property>
+                          name="TargetColumnId">#{Package\DMS-DER01-TAKEOVER\PSL AccrBasis FFC.Outputs[Default Ouptut].Columns[INTERESRTFFC.DAY.BASIS]}</property>
                       </properties>
                     </externalMetadataColumn>
                   </externalMetadataColumns>
@@ -6892,14 +8225,24 @@ CFA012508*/</property>
               startId="Package\DMS-DER01-TAKEOVER\PDC_001.Outputs[Default Output]" />
             <path
               refId="Package\DMS-DER01-TAKEOVER.Paths[Default Output2]"
-              endId="Package\DMS-DER01-TAKEOVER\PDC_003.Inputs[Primary Input]"
+              endId="Package\DMS-DER01-TAKEOVER\PDC_FN_PROPERTY.Inputs[Primary Input]"
               name="Default Output"
               startId="Package\DMS-DER01-TAKEOVER\PDC_002.Outputs[Default Output]" />
             <path
               refId="Package\DMS-DER01-TAKEOVER.Paths[Default Output3]"
+              endId="Package\DMS-DER01-TAKEOVER\PDC_FV_PROPERTY.Inputs[Primary Input]"
+              name="Default Output"
+              startId="Package\DMS-DER01-TAKEOVER\PDC_FN_PROPERTY.Outputs[Default Output]" />
+            <path
+              refId="Package\DMS-DER01-TAKEOVER.Paths[Default Output4]"
               endId="Package\DMS-DER01-TAKEOVER\División condicional.Inputs[Entrada de división condicional]"
               name="Default Output"
-              startId="Package\DMS-DER01-TAKEOVER\PDC_003.Outputs[Default Output]" />
+              startId="Package\DMS-DER01-TAKEOVER\PDC_FV_PROPERTY.Outputs[Default Output]" />
+            <path
+              refId="Package\DMS-DER01-TAKEOVER.Paths[Default Output5]"
+              endId="Package\DMS-DER01-TAKEOVER\DRA01_ABARATAMIENTO_TAKEOVER.Inputs[Primary Input]"
+              name="Default Output"
+              startId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Destination.Outputs[Default Output]" />
             <path
               refId="Package\DMS-DER01-TAKEOVER.Paths[ORIGINAL]"
               endId="Package\DMS-DER01-TAKEOVER\Premium ADO NET Destination.Inputs[Primary Input]"
@@ -9059,51 +10402,179 @@ WHERE SUBSTRING([STGPolaris].[dbo].[fn_udfTrim] (OPER.coOperacionActiva),1,3) IN
       <GraphLayout
         Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
+          Size="127,42"
+          Id="Package\DMS-DER01-TAKEOVER\PDC_002"
+          TopLeft="1193,28" />
+        <NodeLayout
+          Size="176,42"
+          Id="Package\DMS-DER01-TAKEOVER\PSL AccrBasis FFC"
+          TopLeft="489,24" />
+        <NodeLayout
+          Size="233,42"
+          Id="Package\DMS-DER01-TAKEOVER\Premium ADO NET Destination"
+          TopLeft="1116,246" />
+        <NodeLayout
+          Size="222,42"
+          Id="Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1"
+          TopLeft="16,26" />
+        <NodeLayout
+          Size="189,42"
+          Id="Package\DMS-DER01-TAKEOVER\PDC_FV_PROPERTY"
+          TopLeft="1344,126" />
+        <NodeLayout
           Size="179,42"
           Id="Package\DMS-DER01-TAKEOVER\PSL AccrBasis KWF"
           TopLeft="268,28" />
+        <NodeLayout
+          Size="281,42"
+          Id="Package\DMS-DER01-TAKEOVER\DRA01_ABARATAMIENTO_TAKEOVER"
+          TopLeft="791,246" />
         <NodeLayout
           Size="298,42"
           Id="Package\DMS-DER01-TAKEOVER\PSL FV_PRINCIPALINT_PERIODIC_INDEX"
           TopLeft="711,21" />
         <NodeLayout
           Size="127,42"
-          Id="Package\DMS-DER01-TAKEOVER\PDC_002"
-          TopLeft="1190,32" />
-        <NodeLayout
-          Size="222,42"
-          Id="Package\DMS-DER01-TAKEOVER\Premium ADO NET Source 1"
-          TopLeft="16,26" />
-        <NodeLayout
-          Size="233,42"
-          Id="Package\DMS-DER01-TAKEOVER\Premium ADO NET Destination 1"
-          TopLeft="779,300" />
-        <NodeLayout
-          Size="176,42"
-          Id="Package\DMS-DER01-TAKEOVER\División condicional"
-          TopLeft="1244,303" />
-        <NodeLayout
-          Size="127,42"
           Id="Package\DMS-DER01-TAKEOVER\PDC_001"
           TopLeft="1039,25" />
         <NodeLayout
+          Size="190,42"
+          Id="Package\DMS-DER01-TAKEOVER\PDC_FN_PROPERTY"
+          TopLeft="1347,35" />
+        <NodeLayout
+          Size="176,42"
+          Id="Package\DMS-DER01-TAKEOVER\División condicional"
+          TopLeft="1138,127" />
+        <NodeLayout
           Size="233,42"
-          Id="Package\DMS-DER01-TAKEOVER\Premium ADO NET Destination"
-          TopLeft="1209,394" />
+          Id="Package\DMS-DER01-TAKEOVER\Premium ADO NET Destination 1"
+          TopLeft="768,127" />
         <EdgeLayout
-          Id="Package\DMS-DER01-TAKEOVER.Paths[Default Output1]"
-          TopLeft="1166,49.5">
+          Id="Package\DMS-DER01-TAKEOVER.Paths[ORIGINAL]"
+          TopLeft="1229.25,169">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="24,0"
+              EndConnector="0,77"
               Start="0,0"
-              End="16.5,0">
+              End="0,69.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="16.5,0" />
+                    End="0,69.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-23.359453125,29.96337890625,46.71890625,9.5732421875"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DMS-DER01-TAKEOVER.Paths[Default Output5]"
+          TopLeft="1116,267">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-44,0"
+              Start="0,0"
+              End="-36.5,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="-36.5,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DMS-DER01-TAKEOVER.Paths[Default Output4]"
+          TopLeft="1344,147.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-30,0"
+              Start="0,0"
+              End="-22.5,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="-22.5,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DMS-DER01-TAKEOVER.Paths[Default Output3]"
+          TopLeft="1440.25,77">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,49"
+              Start="0,0"
+              End="0,41.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,41.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DMS-DER01-TAKEOVER.Paths[Default Output2]"
+          TopLeft="1320,52.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="27,0"
+              Start="0,0"
+              End="19.5,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="19.5,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DMS-DER01-TAKEOVER.Paths[Default Output1]"
+          TopLeft="1166,47.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="27,0"
+              Start="0,0"
+              End="19.5,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="19.5,0" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -9126,6 +10597,50 @@ WHERE SUBSTRING([STGPolaris].[dbo].[fn_udfTrim] (OPER.coOperacionActiva),1,3) IN
                   Capacity="5">
                   <mssgle:LineSegment
                     End="22.5,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DMS-DER01-TAKEOVER.Paths[Default Ouptut2]"
+          TopLeft="665,43.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="46,0"
+              Start="0,0"
+              End="38.5,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="38.5,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DMS-DER01-TAKEOVER.Paths[Default Ouptut1]"
+          TopLeft="447,47">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="42,0"
+              Start="0,0"
+              End="34.5,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="34.5,0" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -9158,158 +10673,26 @@ WHERE SUBSTRING([STGPolaris].[dbo].[fn_udfTrim] (OPER.coOperacionActiva),1,3) IN
         </EdgeLayout>
         <EdgeLayout
           Id="Package\DMS-DER01-TAKEOVER.Paths[Case 2]"
-          TopLeft="1244,322.5">
+          TopLeft="1138,148">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-232,0"
+              EndConnector="-137,0"
               Start="0,0"
-              End="-224.5,0">
+              End="-129.5,0">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="-224.5,0" />
+                    End="-129.5,0" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-127.6536328125,5,30.807265625,9.5732421875"
+              BoundingBox="-80.1536328125,5,30.807265625,9.5732421875"
               RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\DMS-DER01-TAKEOVER.Paths[ORIGINAL]"
-          TopLeft="1328.75,345">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,49"
-              Start="0,0"
-              End="0,41.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,41.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-23.359453125,15.96337890625,46.71890625,9.5732421875"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="127,42"
-          Id="Package\DMS-DER01-TAKEOVER\PDC_003"
-          TopLeft="1341,38" />
-        <EdgeLayout
-          Id="Package\DMS-DER01-TAKEOVER.Paths[Default Output2]"
-          TopLeft="1317,56">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="24,0"
-              Start="0,0"
-              End="16.5,0">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="16.5,0" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\DMS-DER01-TAKEOVER.Paths[Default Output3]"
-          TopLeft="1404.5,80">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-72.5,223"
-              Start="0,0"
-              End="-72.5,215.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,107.5" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,107.5"
-                    Point2="0,111.5"
-                    Point3="-4,111.5" />
-                  <mssgle:LineSegment
-                    End="-68.5,111.5" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-68.5,111.5"
-                    Point2="-72.5,111.5"
-                    Point3="-72.5,115.5" />
-                  <mssgle:LineSegment
-                    End="-72.5,215.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="176,42"
-          Id="Package\DMS-DER01-TAKEOVER\PSL AccrBasis FFC"
-          TopLeft="489,24" />
-        <EdgeLayout
-          Id="Package\DMS-DER01-TAKEOVER.Paths[Default Ouptut1]"
-          TopLeft="447,47">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="42,0"
-              Start="0,0"
-              End="34.5,0">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="34.5,0" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\DMS-DER01-TAKEOVER.Paths[Default Ouptut2]"
-          TopLeft="665,43.5">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="46,0"
-              Start="0,0"
-              End="38.5,0">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="38.5,0" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
