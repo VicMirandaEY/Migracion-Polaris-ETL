@@ -11,8 +11,8 @@
   DTS:LocaleID="3082"
   DTS:ObjectName="PqCrearDMS-Dea01Takeover"
   DTS:PackageType="5"
-  DTS:VersionBuild="369"
-  DTS:VersionGUID="{99A59275-BBC1-45C7-A3F6-EEF036ED0D92}">
+  DTS:VersionBuild="370"
+  DTS:VersionGUID="{C11C7889-F0EC-4B45-8CDF-8D5AD6930866}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -15438,6 +15438,9 @@ ORDER BY A.PADRE_SUPERIOR ASC, A.FACILITY ASC, A.HIJO_NUM ASC;
                             <property
                               dataType="System.Null"
                               name="Tags" />
+                            <property
+                              dataType="System.String"
+                              name="Lookup"></property>
                           </properties>
                         </externalMetadataColumn>
                         <externalMetadataColumn
